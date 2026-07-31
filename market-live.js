@@ -92,4 +92,22 @@ async function loadLiveMarketData() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", loadLiveMarketData);
+function loadOpportunitiesModule() {
+  if (!document.querySelector('link[href="opportunities.css"]')) {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'opportunities.css';
+    document.head.appendChild(css);
+  }
+  if (!document.querySelector('script[src="opportunities.js"]')) {
+    const script = document.createElement('script');
+    script.src = 'opportunities.js';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadLiveMarketData();
+  loadOpportunitiesModule();
+});
