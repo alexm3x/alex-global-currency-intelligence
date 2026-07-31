@@ -1,0 +1,12 @@
+{
+  "status": "registry-ready",
+  "last_reviewed": "2026-07-31",
+  "note": "La versión pública utiliza datos demostrativos. Este registro define las fuentes previstas para producción.",
+  "sources": [
+    {"category":"FX spot","provider":"ECB / bancos centrales / proveedor de mercado","frequency":"Diaria","status":"Pendiente de conexión"},
+    {"category":"Inflación y crecimiento","provider":"IMF, OECD, World Bank y oficinas estadísticas","frequency":"Mensual/Trimestral","status":"Pendiente de conexión"},
+    {"category":"Tasas y bancos centrales","provider":"Bancos centrales oficiales","frequency":"Por evento","status":"Pendiente de conexión"},
+    {"category":"REER y balanza externa","provider":"BIS, IMF","frequency":"Mensual/Trimestral","status":"Pendiente de conexión"},
+    {"category":"Riesgo y volatilidad","provider":"Series de mercado calculadas","frequency":"Diaria","status":"Pendiente de conexión"}
+  ]
+}
