@@ -20,27 +20,29 @@
   section.className = 'view';
   section.innerHTML = `
     <div class="page-head">
-      <p class="rubric">AGCI BUY OPPORTUNITIES</p>
-      <h2>Top 5 monedas frente al dólar</h2>
-      <p>Monedas de economías elegibles del universo Top 20, clasificadas por convicción AGCI, momentum y confirmación de mercado.</p>
+      <p class="rubric">AGCI VALUE OPPORTUNITIES</p>
+      <h2>Top 5 oportunidades de compra frente al dólar</h2>
+      <p>Monedas de economías Top 20 que combinan infravaloración, fundamentos, riesgo aceptable y un punto de entrada no sobreextendido.</p>
     </div>
     <div class="opportunity-disclaimer">
       <strong>Modelo de oportunidad, no recomendación personalizada.</strong>
-      Las cotizaciones conectadas se actualizan aproximadamente cada seis horas. Los componentes macroeconómicos del AGCI Score continúan en fase de integración.
+      Una moneda fuerte o con momentum elevado no se considera automáticamente una compra. El modelo exige margen de valoración y penaliza la sobreextensión.
     </div>
-    <div class="opportunity-meta" id="opportunityMeta">Cargando confirmación de mercado…</div>
+    <div class="opportunity-meta" id="opportunityMeta">Cargando datos de mercado…</div>
     <div class="opportunity-grid" id="opportunityGrid"></div>
     <article class="opportunity-method">
       <div>
-        <p class="rubric">SELECTION ENGINE</p>
+        <p class="rubric">REVISED SELECTION ENGINE</p>
         <h3>Cómo se seleccionan</h3>
       </div>
       <div class="opportunity-formula">
-        <span><b>70%</b> AGCI Score</span>
-        <span><b>20%</b> Momentum</span>
-        <span><b>10%</b> Movimiento frente a USD</span>
+        <span><b>45%</b> Infravaloración</span>
+        <span><b>20%</b> Fundamentos</span>
+        <span><b>15%</b> Riesgo</span>
+        <span><b>10%</b> Momentum sostenible</span>
+        <span><b>10%</b> Punto de entrada</span>
       </div>
-      <p>Se excluye el dólar, se elimina la duplicidad de monedas compartidas y se selecciona una sola representación por código monetario. Una señal positiva de mercado mejora la confirmación; una señal negativa la reduce, sin sustituir la valoración y los fundamentos.</p>
+      <p>Filtros previos: valoración mínima de 72, fundamentos mínimos de 55 y riesgo mínimo de 45. Se aplica una penalización adicional cuando el momentum supera 75 sin suficiente descuento de valoración. Una apreciación reciente fuerte frente al dólar reduce, en lugar de aumentar, la calidad del punto de entrada.</p>
     </article>`;
   document.querySelector('main').appendChild(section);
 
@@ -59,9 +61,32 @@
     return [...byCode.values()];
   }
 
-  function normalizedConfirmation(move) {
+  function entryScore(move) {
     if (move === null) return 50;
-    return Math.max(0, Math.min(100, 50 + move * 12.5));
+    if (move > 0) return Math.max(15, 50 - move * 18);
+    if (move >= -1.5) return Math.min(80, 60 + Math.abs(move) * 12);
+    return Math.max(20, 80 - (Math.abs(move) - 1.5) * 22);
+  }
+
+  function sustainableMomentum(momentum) {
+    if (momentum <= 65) return momentum;
+    if (momentum <= 75) return 75 - (momentum - 65) * 0.5;
+    return Math.max(35, 70 - (momentum - 75) * 2);
+  }
+
+  function overextensionPenalty(d, usdMove) {
+    let penalty = 0;
+    if (d.momentum > 75) penalty += (d.momentum - 75) * 0.9;
+    if (d.valuation < 80 && d.momentum > 75) penalty += (80 - d.valuation) * 0.55;
+    if (usdMove !== null && usdMove > 0.75) penalty += (usdMove - 0.75) * 8;
+    return penalty;
+  }
+
+  function eligibilityReason(d) {
+    if (d.valuation < 72) return 'Valoración insuficiente';
+    if (d.fundamentals < 55) return 'Fundamentos débiles';
+    if (d.risk < 45) return 'Riesgo excesivo';
+    return null;
   }
 
   function render(quotes = [], updatedAt = null, nextUpdateAt = null) {
@@ -72,50 +97,71 @@
       IDR:'USD/IDR', TRY:'USD/TRY', CHF:'USD/CHF', SAR:'USD/SAR', RUB:'USD/RUB'
     };
 
-    const ranked = uniqueEligibleCurrencies().map(d => {
+    const evaluated = uniqueEligibleCurrencies().map(d => {
       const quote = quoteMap.get(pairMap[d.code]);
       const usdMove = marketMoveVsUsd(quote);
-      const confirmation = normalizedConfirmation(usdMove);
-      const opportunityScore = d.score * 0.70 + d.momentum * 0.20 + confirmation * 0.10;
-      return {...d, quote, usdMove, confirmation, opportunityScore};
-    }).sort((a,b) => b.opportunityScore - a.opportunityScore).slice(0,5);
+      const entry = entryScore(usdMove);
+      const momentumQuality = sustainableMomentum(d.momentum);
+      const penalty = overextensionPenalty(d, usdMove);
+      const exclusion = eligibilityReason(d);
+      const opportunityScore =
+        d.valuation * 0.45 +
+        d.fundamentals * 0.20 +
+        d.risk * 0.15 +
+        momentumQuality * 0.10 +
+        entry * 0.10 - penalty;
+      return {...d, quote, usdMove, entry, momentumQuality, penalty, exclusion, opportunityScore};
+    });
 
-    document.getElementById('opportunityGrid').innerHTML = ranked.map((d,i) => {
-      const moveText = d.usdMove === null ? 'Sin cotización conectada' : `${d.usdMove >= 0 ? '+' : ''}${d.usdMove.toFixed(2)}% vs USD`;
-      const marketClass = d.usdMove === null ? 'neutral-market' : d.usdMove >= 0 ? 'positive' : 'negative';
-      const confidence = d.usdMove === null ? 'Parcial' : d.usdMove >= 0 ? 'Confirmada' : 'En observación';
-      return `
-        <article class="opportunity-card" data-currency="${d.country}">
-          <div class="opportunity-rank">0${i+1}</div>
-          <div class="opportunity-head">
-            <div><span class="currency-code">${d.code}</span><small>${d.country} · ${d.currency}</small></div>
-            <div class="opportunity-score"><span>Opportunity</span><strong>${d.opportunityScore.toFixed(1)}</strong></div>
-          </div>
-          <h3>${d.signal}</h3>
-          <p>${d.thesis || 'Oportunidad determinada por valoración, fundamentos, momentum y riesgo.'}</p>
-          <div class="opportunity-metrics">
-            <span><small>AGCI</small><b>${d.score}</b></span>
-            <span><small>Momentum</small><b>${d.momentum}</b></span>
-            <span><small>Riesgo</small><b>${d.risk}</b></span>
-          </div>
-          <div class="market-confirmation ${marketClass}"><span>${moveText}</span><b>${confidence}</b></div>
-          <button type="button">Abrir ficha →</button>
-        </article>`;
-    }).join('');
+    const ranked = evaluated
+      .filter(d => !d.exclusion && d.opportunityScore >= 60)
+      .sort((a,b) => b.opportunityScore - a.opportunityScore)
+      .slice(0,5);
+
+    const grid = document.getElementById('opportunityGrid');
+    if (!ranked.length) {
+      grid.innerHTML = '<article class="opportunity-card"><h3>Sin oportunidades calificadas</h3><p>Ninguna moneda supera actualmente los filtros mínimos de valoración, fundamentos y riesgo.</p></article>';
+    } else {
+      grid.innerHTML = ranked.map((d,i) => {
+        const moveText = d.usdMove === null ? 'Sin cotización conectada' : `${d.usdMove >= 0 ? '+' : ''}${d.usdMove.toFixed(2)}% vs USD`;
+        const marketClass = d.usdMove === null ? 'neutral-market' : d.usdMove > 0.75 ? 'negative' : 'positive';
+        const entryLabel = d.usdMove === null ? 'Datos parciales' : d.usdMove > 0.75 ? 'Entrada sobreextendida' : d.usdMove < -2 ? 'Caída excesiva' : 'Entrada aceptable';
+        return `
+          <article class="opportunity-card" data-currency="${d.country}">
+            <div class="opportunity-rank">0${i+1}</div>
+            <div class="opportunity-head">
+              <div><span class="currency-code">${d.code}</span><small>${d.country} · ${d.currency}</small></div>
+              <div class="opportunity-score"><span>Value opportunity</span><strong>${d.opportunityScore.toFixed(1)}</strong></div>
+            </div>
+            <h3>${d.signal}</h3>
+            <p>${d.thesis || 'Oportunidad basada en valoración, fundamentos, riesgo y calidad del punto de entrada.'}</p>
+            <div class="opportunity-metrics">
+              <span><small>Valoración</small><b>${d.valuation}</b></span>
+              <span><small>Fundamentos</small><b>${d.fundamentals}</b></span>
+              <span><small>Riesgo</small><b>${d.risk}</b></span>
+            </div>
+            <div class="market-confirmation ${marketClass}"><span>${moveText}</span><b>${entryLabel}</b></div>
+            <button type="button">Abrir ficha →</button>
+          </article>`;
+      }).join('');
+    }
+
+    const mxn = evaluated.find(d => d.code === 'MXN');
+    const mxnNote = mxn?.exclusion
+      ? `MXN excluido: ${mxn.exclusion}.`
+      : mxn && mxn.penalty > 0
+        ? `MXN penalizado por sobreextensión: ${mxn.penalty.toFixed(1)} puntos.`
+        : '';
 
     const meta = document.getElementById('opportunityMeta');
-    if (updatedAt) {
-      const updated = new Date(updatedAt).toLocaleString('es-MX', {dateStyle:'medium', timeStyle:'short'});
-      const next = nextUpdateAt ? new Date(nextUpdateAt).toLocaleString('es-MX', {dateStyle:'medium', timeStyle:'short'}) : 'aprox. 6 horas';
-      meta.innerHTML = `<span><b>Mercado actualizado:</b> ${updated}</span><span><b>Próxima actualización:</b> ${next}</span>`;
-    } else {
-      meta.textContent = 'Ranking calculado con AGCI Score; confirmación de mercado no disponible temporalmente.';
-    }
+    const updated = updatedAt ? new Date(updatedAt).toLocaleString('es-MX', {dateStyle:'medium', timeStyle:'short'}) : 'no disponible';
+    const next = nextUpdateAt ? new Date(nextUpdateAt).toLocaleString('es-MX', {dateStyle:'medium', timeStyle:'short'}) : 'aprox. 6 horas';
+    meta.innerHTML = `<span><b>Mercado actualizado:</b> ${updated}</span><span><b>Próxima actualización:</b> ${next}</span>${mxnNote ? `<span><b>Control conceptual:</b> ${mxnNote}</span>` : ''}`;
   }
 
   document.addEventListener('click', e => {
     const card = e.target.closest('.opportunity-card');
-    if (card && typeof openCurrency === 'function') openCurrency(card.dataset.currency);
+    if (card && card.dataset.currency && typeof openCurrency === 'function') openCurrency(card.dataset.currency);
   });
 
   fetch(WORKER_URL, {cache:'no-store'})
