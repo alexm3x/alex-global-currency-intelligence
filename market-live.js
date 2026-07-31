@@ -107,7 +107,17 @@ function loadOpportunitiesModule() {
   }
 }
 
+function loadNewsModule() {
+  if (!document.querySelector('script[src="news.js"]')) {
+    const script = document.createElement('script');
+    script.src = 'news.js';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadLiveMarketData();
   loadOpportunitiesModule();
+  loadNewsModule();
 });
