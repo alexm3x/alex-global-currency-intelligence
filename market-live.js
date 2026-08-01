@@ -1,6 +1,6 @@
 const AGCI_MARKET_API = "https://agci-market-data.proadmexico.workers.dev/";
 const MARKET_REFRESH_MS = 60 * 1000;
-const MARKET_STALE_AFTER_MS = 3 * 60 * 1000;
+const MARKET_STALE_AFTER_MS = 35 * 60 * 1000;
 let marketRefreshTimer = null;
 let lastMarketPayload = null;
 
@@ -36,7 +36,7 @@ function dataAgeMs(value) {
 
 function freshnessLabel(updatedAt) {
   const age = dataAgeMs(updatedAt);
-  if (age <= 90 * 1000) return { text: "EN VIVO", className: "live" };
+  if (age <= 17 * 60 * 1000) return { text: "INTRADÍA", className: "live" };
   if (age <= MARKET_STALE_AFTER_MS) return { text: "RECIENTE", className: "recent" };
   return { text: "DEMORADO", className: "stale" };
 }
@@ -46,7 +46,7 @@ function ensureLiveStatusStyles() {
   const style = document.createElement("style");
   style.id = "agci-live-status-styles";
   style.textContent = `
-    .market-live-status{display:flex;gap:12px;align-items:center;justify-content:center;padding:7px 14px;border-bottom:1px solid rgba(128,128,128,.3);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+    .market-live-status{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:7px 14px;border-bottom:1px solid rgba(128,128,128,.3);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
     .market-live-dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#999}
     .market-live-status.live .market-live-dot{background:#168447;box-shadow:0 0 0 4px rgba(22,132,71,.14)}
     .market-live-status.recent .market-live-dot{background:#c28a10}
@@ -66,13 +66,14 @@ function renderLiveStatus(payload, stateMessage = "") {
     tape?.insertAdjacentElement("afterend", bar);
   }
   if (!bar) return;
-  const freshness = freshnessLabel(payload?.updatedAt);
+
+  const freshness = freshnessLabel(payload?.oldestUpdatedAt || payload?.updatedAt);
   bar.className = `market-live-status ${freshness.className}`;
   bar.innerHTML = `
     <span class="market-live-dot" aria-hidden="true"></span>
     <strong>${freshness.text}</strong>
     <span>Último dato: ${formatDate(payload?.updatedAt)}</span>
-    <span>${stateMessage || "Actualización automática cada 60 segundos"}</span>
+    <span>${stateMessage || "Core 15 min · BRL/CNY 30 min · revisión visual cada minuto"}</span>
     <button type="button" id="marketRefreshNow">Actualizar ahora</button>`;
   document.getElementById("marketRefreshNow")?.addEventListener("click", () => loadLiveMarketData(true));
 }
@@ -121,18 +122,22 @@ async function loadLiveMarketData(force = false) {
     if (typeof renderPreview === "function") renderPreview();
     if (typeof renderTable === "function") renderTable();
 
-    const age = dataAgeMs(payload.updatedAt);
-    const mode = payload.mode === "near-real-time-rest" || age <= MARKET_STALE_AFTER_MS
-      ? "Datos casi en tiempo real"
-      : "El frontend consulta cada minuto, pero el Worker aún entrega una caché más larga";
-    renderLiveStatus(payload, mode);
+    const freshness = freshnessLabel(payload.oldestUpdatedAt || payload.updatedAt);
+    const degraded = Array.isArray(payload.groups) && payload.groups.some(group => group.source === "stale-cache");
+    renderLiveStatus(
+      payload,
+      degraded
+        ? "Proveedor limitado; se conserva el último dato válido"
+        : "Core 15 min · BRL/CNY 30 min · revisión visual cada minuto"
+    );
 
     const status = document.querySelector(".data-status");
     if (status) {
       status.innerHTML = `
-        <span><b>MARKET DATA</b> Twelve Data · consulta automática cada minuto</span>
-        <span>Última actualización del proveedor: ${formatDate(payload.updatedAt)}</span>
-        <span>Estado: ${freshnessLabel(payload.updatedAt).text}</span>
+        <span><b>MARKET DATA</b> Twelve Data · esquema optimizado para plan Basic</span>
+        <span>Core: 15 min · BRL/CNY: 30 min</span>
+        <span>Última actualización: ${formatDate(payload.updatedAt)}</span>
+        <span>Estado: ${freshness.text}</span>
         <button data-view="governance">Ver gobierno de datos</button>`;
       status.querySelector("button")?.addEventListener("click", () => {
         if (typeof setView === "function") setView("governance");
@@ -140,7 +145,7 @@ async function loadLiveMarketData(force = false) {
     }
 
     const edition = document.querySelector(".edition");
-    if (edition) edition.textContent = `Edición Global · Mercado ${freshnessLabel(payload.updatedAt).text.toLowerCase()}`;
+    if (edition) edition.textContent = `Edición Global · Mercado ${freshness.text.toLowerCase()}`;
 
     const byline = document.querySelector(".byline");
     if (byline) byline.textContent = `AGCI Research Desk · Mercado actualizado ${formatDate(payload.updatedAt)}`;
