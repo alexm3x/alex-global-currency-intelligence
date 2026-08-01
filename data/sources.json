@@ -1,9 +1,10 @@
 {
-  "status": "registry-ready",
-  "last_reviewed": "2026-07-31",
-  "note": "La versión pública utiliza datos demostrativos. Este registro define las fuentes previstas para producción.",
+  "status": "partially-connected",
+  "last_reviewed": "2026-08-01",
+  "note": "La plataforma ya utiliza cotizaciones FX conectadas mediante Twelve Data y noticias financieras mediante GDELT. Los componentes macroeconómicos estructurales del AGCI Score continúan pendientes de integración.",
   "sources": [
-    {"category":"FX spot","provider":"ECB / bancos centrales / proveedor de mercado","frequency":"Diaria","status":"Pendiente de conexión"},
+    {"category":"FX spot","provider":"Twelve Data vía Cloudflare Worker","frequency":"Cada 6 horas","status":"Conectado"},
+    {"category":"Noticias financieras","provider":"GDELT y fuentes oficiales enlazadas","frequency":"Periódica","status":"Conectado"},
     {"category":"Inflación y crecimiento","provider":"IMF, OECD, World Bank y oficinas estadísticas","frequency":"Mensual/Trimestral","status":"Pendiente de conexión"},
     {"category":"Tasas y bancos centrales","provider":"Bancos centrales oficiales","frequency":"Por evento","status":"Pendiente de conexión"},
     {"category":"REER y balanza externa","provider":"BIS, IMF","frequency":"Mensual/Trimestral","status":"Pendiente de conexión"},
