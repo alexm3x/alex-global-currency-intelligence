@@ -50,10 +50,6 @@
     section.querySelectorAll('[data-sector-tab]').forEach(button => button.addEventListener('click', () => {const sector = button.dataset.sectorTab;section.querySelectorAll('[data-sector-tab]').forEach(tab => tab.setAttribute('aria-selected', String(tab === button)));section.querySelectorAll('[data-sector-panel]').forEach(panel => panel.classList.toggle('active', panel.dataset.sectorPanel === sector));}));
   }
 
-  function loadAsset(tag, attrs){const el=document.createElement(tag);Object.entries(attrs).forEach(([k,v])=>el[k]=v);document.head.appendChild(el);}
-  function loadExtensions(){
-    ['etf-opportunities.css','barrons-comparison.css'].forEach(href=>{if(!document.querySelector(`link[href="${href}"]`))loadAsset('link',{rel:'stylesheet',href});});
-    ['barrons-comparison.js','etf-opportunities.js'].forEach(src=>{if(!document.querySelector(`script[src="${src}"]`)){const s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}});
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',()=>{buildDashboard();loadExtensions();}); else {buildDashboard();loadExtensions();}
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildDashboard);
+  else buildDashboard();
 })();
