@@ -19,14 +19,38 @@
 
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function rows(items){return items.map(x=>`<tr><td><strong>${esc(x.asset)}</strong></td><td>${esc(x.agci)}</td><td>${esc(x.barrons)}</td><td><span class="alignment-tag">${esc(x.alignment)}</span></td><td>${esc(x.date)}</td><td>${esc(x.note)}</td><td><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">Fuente ↗</a></td></tr>`).join('');}
+  function activateTab(button){
+    const key=button.dataset.compareTab;
+    document.querySelectorAll('[data-compare-tab]').forEach(tab=>{
+      const selected=tab===button;
+      tab.setAttribute('aria-selected',String(selected));
+      tab.tabIndex=selected?0:-1;
+    });
+    document.querySelectorAll('[data-compare-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.comparePanel===key));
+    document.getElementById(`comparison-panel-${key}`)?.focus({preventScroll:true});
+  }
   function build(){
     const nav=document.querySelector('.main-nav');
     const main=document.querySelector('main');
     if(!nav||!main||document.getElementById('comparison'))return;
     nav.insertAdjacentHTML('beforeend','<button data-view="comparison">AGCI vs Barron’s</button>');
-    main.insertAdjacentHTML('beforeend',`<section id="comparison" class="view comparison-view"><div class="page-head"><p class="rubric">EDITORIAL CROSS-CHECK</p><h2>AGCI vs Barron’s</h2><p>Comparativo de señales propias frente a cobertura y oportunidades publicadas por Barron’s.</p></div><div class="comparison-note"><strong>Criterio de lectura</strong><p>AGCI utiliza sus propios scores. Barron’s se presenta únicamente como referencia editorial externa basada en artículos públicos o accesibles mediante suscripción. Una mención no equivale necesariamente a una recomendación formal.</p></div><div class="comparison-tabs" role="tablist"><button aria-selected="true" data-compare-tab="currencies">Divisas</button><button aria-selected="false" data-compare-tab="equities">Acciones</button><button aria-selected="false" data-compare-tab="etfs">ETFs</button></div>${Object.entries(BARRONS_ITEMS).map(([key,items],i)=>`<div class="comparison-panel${i===0?' active':''}" data-compare-panel="${key}"><div class="comparison-table-wrap"><table><thead><tr><th>Activo</th><th>AGCI</th><th>Barron’s</th><th>Lectura</th><th>Fecha</th><th>Diagnóstico</th><th>Artículo</th></tr></thead><tbody>${rows(items)}</tbody></table></div></div>`).join('')}<p class="comparison-disclaimer">Barron’s y sus marcas pertenecen a sus respectivos propietarios. AGCI no está afiliada con Barron’s. Este módulo resume referencias editoriales y enlaza a la fuente original; no reproduce artículos ni contenido de pago.</p></section>`);
+    main.insertAdjacentHTML('beforeend',`<section id="comparison" class="view comparison-view"><div class="page-head"><p class="rubric">EDITORIAL CROSS-CHECK</p><h2>AGCI vs Barron’s</h2><p>Comparativo de señales propias frente a cobertura y oportunidades publicadas por Barron’s.</p></div><div class="comparison-note"><strong>Criterio de lectura</strong><p>AGCI utiliza sus propios scores. Barron’s se presenta únicamente como referencia editorial externa basada en artículos públicos o accesibles mediante suscripción. Una mención no equivale necesariamente a una recomendación formal.</p></div><div class="comparison-tabs" role="tablist" aria-label="Categorías del comparativo"><button id="comparison-tab-currencies" role="tab" aria-controls="comparison-panel-currencies" aria-selected="true" tabindex="0" data-compare-tab="currencies">Divisas</button><button id="comparison-tab-equities" role="tab" aria-controls="comparison-panel-equities" aria-selected="false" tabindex="-1" data-compare-tab="equities">Acciones</button><button id="comparison-tab-etfs" role="tab" aria-controls="comparison-panel-etfs" aria-selected="false" tabindex="-1" data-compare-tab="etfs">ETFs</button></div>${Object.entries(BARRONS_ITEMS).map(([key,items],i)=>`<div id="comparison-panel-${key}" role="tabpanel" aria-labelledby="comparison-tab-${key}" tabindex="-1" class="comparison-panel${i===0?' active':''}" data-compare-panel="${key}"><div class="comparison-table-wrap"><table><thead><tr><th>Activo</th><th>AGCI</th><th>Barron’s</th><th>Lectura</th><th>Fecha</th><th>Diagnóstico</th><th>Artículo</th></tr></thead><tbody>${rows(items)}</tbody></table></div></div>`).join('')}<p class="comparison-disclaimer">Barron’s y sus marcas pertenecen a sus respectivos propietarios. AGCI no está afiliada con Barron’s. Este módulo resume referencias editoriales y enlaza a la fuente original; no reproduce artículos ni contenido de pago.</p></section>`);
     document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>typeof setView==='function'&&setView(b.dataset.view)));
-    document.querySelectorAll('[data-compare-tab]').forEach(btn=>btn.addEventListener('click',()=>{const k=btn.dataset.compareTab;document.querySelectorAll('[data-compare-tab]').forEach(x=>x.setAttribute('aria-selected',String(x===btn)));document.querySelectorAll('[data-compare-panel]').forEach(x=>x.classList.toggle('active',x.dataset.comparePanel===k));}));
+    const tabs=[...document.querySelectorAll('[data-compare-tab]')];
+    tabs.forEach((button,index)=>{
+      button.addEventListener('click',()=>activateTab(button));
+      button.addEventListener('keydown',event=>{
+        if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+        event.preventDefault();
+        let next=index;
+        if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+        if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+        if(event.key==='Home')next=0;
+        if(event.key==='End')next=tabs.length-1;
+        tabs[next].focus();
+        activateTab(tabs[next]);
+      });
+    });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
 })();
