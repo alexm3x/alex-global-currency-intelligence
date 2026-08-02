@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101820">
   <meta name="description" content="Alex Global Currency Intelligence: benchmark editorial de divisas globales.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://alexm3x.github.io/alex-global-currency-intelligence/">
   <link rel="manifest" href="site.webmanifest">
   <title>AGCI | Global Currency Intelligence</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="daily-briefing-cover.css">
   <link rel="stylesheet" href="investment-opportunities.css">
+  <link rel="stylesheet" href="etf-opportunities.css">
+  <link rel="stylesheet" href="barrons-comparison.css">
 </head>
 <body>
   <header class="masthead">
@@ -27,7 +31,7 @@
       </div>
       <button class="subscribe-btn">CLIENT ACCESS</button>
     </div>
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Navegación principal">
       <button class="active" data-view="home">Overview</button>
       <button data-view="markets">Currency Rankings</button>
       <button data-view="research">Research</button>
@@ -80,9 +84,9 @@
     <section id="markets" class="view">
       <div class="page-head"><p class="rubric">GLOBAL MARKETS</p><h2>Currency Rankings</h2><p>Comparable scores across 21 economies, including Mexico.</p></div>
       <div class="market-toolbar">
-        <input id="searchInput" type="search" placeholder="Search country, currency or code">
-        <select id="signalFilter"><option value="">All signals</option><option>Compra fuerte</option><option>Compra</option><option>Neutral</option><option>Reducir</option><option>Evitar</option></select>
-        <select id="sortSelect"><option value="score-desc">Highest AGCI score</option><option value="score-asc">Lowest AGCI score</option><option value="change-desc">Largest market change</option></select>
+        <input id="searchInput" type="search" placeholder="Search country, currency or code" aria-label="Buscar país, moneda o código">
+        <select id="signalFilter" aria-label="Filtrar por señal"><option value="">All signals</option><option>Compra fuerte</option><option>Compra</option><option>Neutral</option><option>Reducir</option><option>Evitar</option></select>
+        <select id="sortSelect" aria-label="Ordenar ranking"><option value="score-desc">Highest AGCI score</option><option value="score-asc">Lowest AGCI score</option><option value="change-desc">Largest market change</option></select>
         <button id="exportBtn">Export CSV</button>
       </div>
       <div class="data-table-wrap"><table><thead><tr><th>Rank</th><th>Economy</th><th>Currency</th><th>AGCI</th><th>Valuation</th><th>Fundamentals</th><th>Momentum</th><th>Risk</th><th>Signal</th><th>Δ mercado</th></tr></thead><tbody id="rankingBody"></tbody></table></div>
@@ -119,10 +123,13 @@
 
   <footer><div class="footer-brand">AGCI</div><p>Alex Global Currency Intelligence</p><p class="disclaimer">Market quotes are supplied by Twelve Data and refreshed through Cloudflare approximately every six hours. Composite scores remain illustrative until all macroeconomic production sources are connected.</p></footer>
 
-  <dialog id="currencyDialog"><button id="dialogClose" class="dialog-close">×</button><div id="dialogContent"></div></dialog>
+  <dialog id="currencyDialog" aria-labelledby="dialogContent"><button id="dialogClose" class="dialog-close" aria-label="Cerrar análisis">×</button><div id="dialogContent"></div></dialog>
+  <noscript>Este sitio requiere JavaScript para mostrar cotizaciones, rankings y oportunidades.</noscript>
   <script src="app.js"></script>
   <script src="market-live.js"></script>
   <script src="daily-briefing-cover.js"></script>
   <script src="investment-opportunities.js"></script>
+  <script src="barrons-comparison.js"></script>
+  <script src="etf-opportunities.js"></script>
 </body>
 </html>
