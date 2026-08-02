@@ -22,31 +22,16 @@
   function topCurrencies() {
     if (!Array.isArray(window.DATA) && typeof DATA === 'undefined') return [];
     const source = typeof DATA !== 'undefined' ? DATA : window.DATA;
-    return [...source]
-      .filter(item => item && Number.isFinite(Number(item.score)) && !['Evitar','Reducir'].includes(item.signal))
-      .sort((a,b) => Number(b.score) - Number(a.score))
-      .slice(0,5);
+    return [...source].filter(item => item && Number.isFinite(Number(item.score)) && !['Evitar','Reducir'].includes(item.signal)).sort((a,b) => Number(b.score) - Number(a.score)).slice(0,5);
   }
 
   function renderFxCard(item, index) {
     const change = Number(item.change || 0);
-    return `<button class="opportunity-card fx-card" data-currency="${escapeHtml(item.country)}" aria-label="Abrir análisis de ${escapeHtml(item.code)}">
-      <span class="opportunity-rank">${String(index + 1).padStart(2,'0')}</span>
-      <span class="opportunity-code">${escapeHtml(item.code)}</span>
-      <strong>${escapeHtml(item.currency)}</strong>
-      <small>${escapeHtml(item.country)}</small>
-      <div class="opportunity-metrics"><span>AGCI <b>${escapeHtml(item.score)}</b></span><span class="${change >= 0 ? 'positive' : 'negative'}">Δ ${change > 0 ? '+' : ''}${change.toFixed(1)}</span></div>
-      <i>${escapeHtml(item.signal)}</i>
-    </button>`;
+    return `<button class="opportunity-card fx-card" data-currency="${escapeHtml(item.country)}" aria-label="Abrir análisis de ${escapeHtml(item.code)}"><span class="opportunity-rank">${String(index + 1).padStart(2,'0')}</span><span class="opportunity-code">${escapeHtml(item.code)}</span><strong>${escapeHtml(item.currency)}</strong><small>${escapeHtml(item.country)}</small><div class="opportunity-metrics"><span>AGCI <b>${escapeHtml(item.score)}</b></span><span class="${change >= 0 ? 'positive' : 'negative'}">Δ ${change > 0 ? '+' : ''}${change.toFixed(1)}</span></div><i>${escapeHtml(item.signal)}</i></button>`;
   }
 
   function renderEquityCard(item) {
-    return `<article class="equity-opportunity-card">
-      <div><span class="equity-ticker">${escapeHtml(item.ticker)}</span><span class="equity-score">${escapeHtml(item.score)}</span></div>
-      <h4>${escapeHtml(item.company)}</h4>
-      <p>${escapeHtml(item.thesis)}</p>
-      <footer><span>${escapeHtml(item.conviction)}</span><span>${escapeHtml(item.horizon)}</span></footer>
-    </article>`;
+    return `<article class="equity-opportunity-card"><div><span class="equity-ticker">${escapeHtml(item.ticker)}</span><span class="equity-score">${escapeHtml(item.score)}</span></div><h4>${escapeHtml(item.company)}</h4><p>${escapeHtml(item.thesis)}</p><footer><span>${escapeHtml(item.conviction)}</span><span>${escapeHtml(item.horizon)}</span></footer></article>`;
   }
 
   function buildDashboard() {
@@ -58,38 +43,17 @@
     section.id = 'investmentOpportunities';
     section.className = 'investment-opportunities';
     section.setAttribute('aria-labelledby','opportunitiesTitle');
-    section.innerHTML = `
-      <header class="opportunities-header">
-        <div><p class="rubric">PRIORIDAD DE INVERSIÓN</p><h2 id="opportunitiesTitle">Oportunidades de compra</h2><p>Radar ejecutivo: cinco divisas y quince acciones estadounidenses, organizadas por sector.</p></div>
-        <div class="opportunities-meta"><strong>20</strong><span>ideas monitoreadas</span><small>Corte editorial: 2 ago 2026</small></div>
-      </header>
-      <div class="opportunities-summary" aria-label="Resumen de oportunidades">
-        <div><span>Divisa líder</span><strong>${currencies[0] ? escapeHtml(currencies[0].code) : '—'}</strong></div>
-        <div><span>Acción líder</span><strong>MSFT</strong></div>
-        <div><span>Sector destacado</span><strong>Tecnología</strong></div>
-        <div><span>Horizonte</span><strong>12–24 meses</strong></div>
-      </div>
-      <section class="fx-opportunities" aria-labelledby="fxTitle">
-        <div class="opportunity-subhead"><div><span>01</span><h3 id="fxTitle">Top 5 divisas</h3></div><button type="button" data-jump="markets">Ver ranking completo →</button></div>
-        <div class="fx-opportunity-grid">${currencies.map(renderFxCard).join('')}</div>
-      </section>
-      <section class="equity-opportunities" aria-labelledby="equityTitle">
-        <div class="opportunity-subhead"><div><span>02</span><h3 id="equityTitle">15 acciones de Estados Unidos</h3></div><p>3 oportunidades por cada uno de los 5 sectores principales seleccionados.</p></div>
-        <div class="sector-tabs" role="tablist" aria-label="Sectores de acciones">${sectors.map((sector,index)=>`<button type="button" role="tab" aria-selected="${index===0}" data-sector-tab="${escapeHtml(sector)}">${escapeHtml(sector)}</button>`).join('')}</div>
-        <div class="sector-panels">${sectors.map((sector,index)=>`<section class="sector-panel${index===0?' active':''}" data-sector-panel="${escapeHtml(sector)}"><header><h3>${escapeHtml(sector)}</h3><span>3 oportunidades</span></header><div class="equity-card-grid">${EQUITY_OPPORTUNITIES.filter(item=>item.sector===sector).map(renderEquityCard).join('')}</div></section>`).join('')}</div>
-      </section>
-      <p class="opportunities-disclaimer">Las acciones constituyen una lista editorial de investigación y no cotizaciones ni recomendaciones personalizadas. Los scores de divisas conservan la metodología AGCI vigente; el screening accionario es provisional y deberá validarse con información financiera y precios actualizados antes de invertir.</p>`;
+    section.innerHTML = `<header class="opportunities-header"><div><p class="rubric">PRIORIDAD DE INVERSIÓN</p><h2 id="opportunitiesTitle">Oportunidades de compra</h2><p>Radar ejecutivo: cinco divisas, quince acciones estadounidenses y cinco ETFs.</p></div><div class="opportunities-meta"><strong>25</strong><span>ideas monitoreadas</span><small>Corte editorial: 2 ago 2026</small></div></header><div class="opportunities-summary" aria-label="Resumen de oportunidades"><div><span>Divisa líder</span><strong>${currencies[0] ? escapeHtml(currencies[0].code) : '—'}</strong></div><div><span>Acción líder</span><strong>MSFT</strong></div><div><span>Sector destacado</span><strong>Tecnología</strong></div><div><span>Horizonte</span><strong>12–24 meses</strong></div></div><section class="fx-opportunities" aria-labelledby="fxTitle"><div class="opportunity-subhead"><div><span>01</span><h3 id="fxTitle">Top 5 divisas</h3></div><button type="button" data-jump="markets">Ver ranking completo →</button></div><div class="fx-opportunity-grid">${currencies.map(renderFxCard).join('')}</div></section><section class="equity-opportunities" aria-labelledby="equityTitle"><div class="opportunity-subhead"><div><span>02</span><h3 id="equityTitle">15 acciones de Estados Unidos</h3></div><p>3 oportunidades por cada uno de los 5 sectores principales seleccionados.</p></div><div class="sector-tabs" role="tablist" aria-label="Sectores de acciones">${sectors.map((sector,index)=>`<button type="button" role="tab" aria-selected="${index===0}" data-sector-tab="${escapeHtml(sector)}">${escapeHtml(sector)}</button>`).join('')}</div><div class="sector-panels">${sectors.map((sector,index)=>`<section class="sector-panel${index===0?' active':''}" data-sector-panel="${escapeHtml(sector)}"><header><h3>${escapeHtml(sector)}</h3><span>3 oportunidades</span></header><div class="equity-card-grid">${EQUITY_OPPORTUNITIES.filter(item=>item.sector===sector).map(renderEquityCard).join('')}</div></section>`).join('')}</div></section><p class="opportunities-disclaimer">Las acciones y ETFs constituyen listas editoriales de investigación y no recomendaciones personalizadas. Los scores de divisas conservan la metodología AGCI vigente; los screenings accionario y de ETFs son provisionales y deberán validarse con información financiera y precios actualizados antes de invertir.</p>`;
     const label = home.querySelector('.section-label');
     if (label) label.insertAdjacentElement('afterend', section); else home.prepend(section);
-
     section.querySelectorAll('[data-jump]').forEach(button => button.addEventListener('click', () => typeof setView === 'function' && setView(button.dataset.jump)));
-    section.querySelectorAll('[data-sector-tab]').forEach(button => button.addEventListener('click', () => {
-      const sector = button.dataset.sectorTab;
-      section.querySelectorAll('[data-sector-tab]').forEach(tab => tab.setAttribute('aria-selected', String(tab === button)));
-      section.querySelectorAll('[data-sector-panel]').forEach(panel => panel.classList.toggle('active', panel.dataset.sectorPanel === sector));
-    }));
+    section.querySelectorAll('[data-sector-tab]').forEach(button => button.addEventListener('click', () => {const sector = button.dataset.sectorTab;section.querySelectorAll('[data-sector-tab]').forEach(tab => tab.setAttribute('aria-selected', String(tab === button)));section.querySelectorAll('[data-sector-panel]').forEach(panel => panel.classList.toggle('active', panel.dataset.sectorPanel === sector));}));
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildDashboard);
-  else buildDashboard();
+  function loadAsset(tag, attrs){const el=document.createElement(tag);Object.entries(attrs).forEach(([k,v])=>el[k]=v);document.head.appendChild(el);}
+  function loadExtensions(){
+    ['etf-opportunities.css','barrons-comparison.css'].forEach(href=>{if(!document.querySelector(`link[href="${href}"]`))loadAsset('link',{rel:'stylesheet',href});});
+    ['barrons-comparison.js','etf-opportunities.js'].forEach(src=>{if(!document.querySelector(`script[src="${src}"]`)){const s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',()=>{buildDashboard();loadExtensions();}); else {buildDashboard();loadExtensions();}
 })();
