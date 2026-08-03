@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "timezone": "America/Mexico_City",
+  "digestTimes": ["06:00", "12:00", "17:00"],
+  "quietHours": {"start": "22:00", "end": "07:00"},
+  "criticalBypassesQuietHours": true,
+  "maxSourceAgeMinutes": 180,
+  "watchlist": ["USD/MXN", "EUR/USD", "NVDA", "NFLX", "ORCL", "TSLA", "COWZ", "QQQ"],
+  "delivery": {
+    "testTemplate": {"name": "hello_world", "language": "en_US"},
+    "productionTemplate": {"name": "agci_market_alert", "language": "es_MX"}
+  },
+  "materiality": {
+    "minimumScore": 80,
+    "criticalScore": 90,
+    "scoreChange": 5,
+    "targetPriceChangePercent": 10,
+    "rankingEntryExit": true,
+    "dataAvailability": true,
+    "sourceFreshness": true
+  },
+  "topics": ["currencies", "equities", "etfs", "ratings", "barrons", "macro", "data-governance"],
+  "governance": {
+    "methodologyChangesRequireApproval": true,
+    "editorialChangesRequireApproval": true,
+    "legalChangesRequireApproval": true,
+    "secretsMustRemainServerSide": true
+  }
+}
