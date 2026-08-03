@@ -54,3 +54,19 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
 })();
+
+(() => {
+  const SHEET_ID='1gwEd_AEvK-KoioLsP6lrsvT1_XVGi7DRO-8hrth9I-U';
+  const GID='987654321';
+  const sheetUrl=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit#gid=${GID}`;
+  const embedUrl=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/htmlembed?gid=${GID}&range=A1:P40&widget=true&headers=false`;
+  function buildCIAR(){
+    const nav=document.querySelector('.main-nav');
+    const main=document.querySelector('main');
+    if(!nav||!main||document.getElementById('ciar'))return;
+    nav.insertAdjacentHTML('beforeend','<button data-view="ciar">CIAR</button>');
+    main.insertAdjacentHTML('beforeend',`<section id="ciar" class="view ciar-view"><div class="page-head"><p class="rubric">ANALYST CONSENSUS INTELLIGENCE</p><h2>CIAR — Consolidated Investment Analyst Ratings</h2><p>Consolidado de cambios en recomendaciones de analistas recibido mediante IBKR, con fuente Reuters y lectura más reciente por ticker.</p></div><div class="ciar-toolbar"><div><strong>Fuente vinculada</strong><span>Google Sheets · ventana móvil de 45 días</span></div><a href="${sheetUrl}" target="_blank" rel="noopener noreferrer">Abrir hoja completa ↗</a></div><div class="ciar-frame-wrap"><iframe src="${embedUrl}" title="Tabla CIAR de cambios en recomendaciones de analistas" loading="lazy" referrerpolicy="no-referrer" allowfullscreen></iframe></div><div class="comparison-note ciar-note"><strong>Interpretación</strong><p>La tabla presenta consenso y cambios de cobertura, no una recomendación de compra o venta. La disponibilidad del contenido embebido depende de los permisos del Google Sheet. El enlace superior permite abrir la fuente autenticada cuando sea necesario.</p></div></section>`);
+    document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>typeof setView==='function'&&setView(button.dataset.view)));
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',buildCIAR);else buildCIAR();
+})();
