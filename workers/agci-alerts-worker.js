@@ -24,9 +24,9 @@ function json(body, status = 200, origin = '*') {
 
 function validPayload(x) {
   const validSeverity = ['info','important','critical','digest'].includes(x?.severity || 'info');
-  return x && typeof x.title === 'string' && typeof x.message === 'string' &&
+  return Boolean(x && typeof x.title === 'string' && typeof x.message === 'string' &&
     x.title.trim().length > 0 && x.title.length <= 120 &&
-    x.message.trim().length > 0 && x.message.length <= 1200 && validSeverity;
+    x.message.trim().length > 0 && x.message.length <= 1200 && validSeverity);
 }
 
 function localTime(env, date = new Date()) {
@@ -178,12 +178,19 @@ function watchlist(env) {
   return (env.WATCHLIST || '').split(',').map(x=>x.trim()).filter(Boolean);
 }
 
+function extractCollections(data) {
+  return {
+    currencies:firstArray(data,['opportunities.currencies','currencies','fx','currencyOpportunities']),
+    equities:firstArray(data,['opportunities.equities','equities','stocks','stockOpportunities']),
+    etfs:firstArray(data,['opportunities.etfs','etfs','etfOpportunities']),
+    ratings:firstArray(data,['ciar','ratings','analystRatings','opportunities.ratings']),
+    macro:firstArray(data,['macro','events','macroEvents','news'])
+  };
+}
+
 function buildExecutiveDigest(data, env) {
-  const currencies = firstArray(data,['opportunities.currencies','currencies','fx','currencyOpportunities']);
-  const equities = firstArray(data,['opportunities.equities','equities','stocks','stockOpportunities']);
-  const etfs = firstArray(data,['opportunities.etfs','etfs','etfOpportunities']);
-  const ratings = firstArray(data,['ciar','ratings','analystRatings','opportunities.ratings']);
-  const macro = firstArray(data,['macro','events','macroEvents','news']);
+  const collections = extractCollections(data);
+  const {currencies,equities,etfs,ratings,macro} = collections;
   const lines = [];
   lines.push('DIVISAS'); lines.push(...(topLines(currencies,5).length?topLines(currencies,5):['Sin datos disponibles']));
   lines.push('\nACCIONES'); lines.push(...(topLines(equities,5).length?topLines(equities,5):['Sin datos disponibles']));
@@ -193,17 +200,31 @@ function buildExecutiveDigest(data, env) {
   const wl = watchlist(env);
   if (wl.length) lines.push(`\nWATCHLIST: ${wl.join(', ')}`);
   lines.push(`\nVer análisis: ${env.PORTAL_URL || 'https://alexm3x.github.io/alex-global-currency-intelligence/'}`);
+  const counts = Object.fromEntries(Object.entries(collections).map(([key,value])=>[key,value.length]));
+  const actionableCount = counts.currencies + counts.equities + counts.etfs + counts.ratings;
   return {
-    id:`digest-${localTime(env).date}-${localTime(env).time.replace(':','')}`,
-    severity:'digest', title:'AGCI Resumen Ejecutivo', message:lines.join('\n').slice(0,1200)
+    payload:{
+      id:`digest-${localTime(env).date}-${localTime(env).time.replace(':','')}`,
+      severity:'digest', title:'AGCI Resumen Ejecutivo', message:lines.join('\n').slice(0,1200)
+    },
+    counts,
+    actionableCount
   };
 }
 
-function sourceHealth(data, env) {
+function sourceHealth(data, env, now = Date.now()) {
   const timestamp = parseTimestamp(data);
   const maxAgeMinutes = Number(env.MAX_SOURCE_AGE_MINUTES || 180);
-  const ageMinutes = timestamp ? Math.floor((Date.now()-timestamp.getTime())/60000) : null;
-  return {timestamp:timestamp?.toISOString() || null, ageMinutes, maxAgeMinutes, stale:ageMinutes!==null && ageMinutes>maxAgeMinutes};
+  const allowUndated = env.ALLOW_UNDATED_SOURCE === 'true';
+  const ageMinutes = timestamp ? Math.max(0,Math.floor((now-timestamp.getTime())/60000)) : null;
+  const timestampMissing = !timestamp;
+  return {
+    timestamp:timestamp?.toISOString() || null,
+    timestampMissing,
+    ageMinutes,
+    maxAgeMinutes,
+    stale:timestampMissing ? !allowUndated : ageMinutes > maxAgeMinutes
+  };
 }
 
 async function loadMarketData(env) {
@@ -212,16 +233,41 @@ async function loadMarketData(env) {
   return {url,data,health:sourceHealth(data,env)};
 }
 
+function alignmentReport(data, env, health) {
+  const digest = buildExecutiveDigest(data,env);
+  const template = env.WHATSAPP_TEMPLATE_NAME || null;
+  const minItems = Number(env.MIN_DIGEST_ITEMS || 1);
+  const warnings = [];
+  if (health.timestampMissing) warnings.push('La fuente no reporta una fecha verificable.');
+  if (health.stale) warnings.push('La fuente no cumple la política de frescura.');
+  if (digest.actionableCount < minItems) warnings.push('No hay suficientes elementos accionables para enviar el digest.');
+  if (template === 'hello_world') warnings.push('La plantilla hello_world valida transporte, pero no muestra el contenido del digest.');
+  return {
+    aligned:!health.stale && digest.actionableCount >= minItems && template !== 'hello_world',
+    transportReady:Boolean(template),
+    contentVisible:template !== 'hello_world',
+    minItems,
+    warnings,
+    ...digest
+  };
+}
+
 async function runDigest(env, reason='manual') {
   const {data,health,url} = await loadMarketData(env);
+  const report = alignmentReport(data,env,health);
   if (health.stale) {
+    const detail = health.timestampMissing ? 'La fuente no reporta una fecha verificable.' : `La fuente tiene ${health.ageMinutes} minutos de antigüedad.`;
     return deliver(env, {
       id:`stale-${localTime(env).date}`,
       severity:'critical', title:'AGCI Data Governance',
-      message:`La fuente de mercado está desactualizada (${health.ageMinutes} minutos). No se emitió el digest. Fuente: ${url}`
+      message:`${detail} No se emitió el digest. Fuente: ${url}`
     }, `stale-${localTime(env).date}`);
   }
-  const payload = buildExecutiveDigest(data,env);
+  if (report.actionableCount < report.minItems) {
+    await recordHistory(env,{id:`empty-digest-${localTime(env).date}`,status:'suppressed-no-actionable-data',counts:report.counts});
+    return {status:422,body:{ok:false,error:'Digest suppressed: no actionable data',counts:report.counts}};
+  }
+  const payload = report.payload;
   payload.id = `${payload.id}-${reason}`;
   return deliver(env,payload,payload.id);
 }
@@ -233,12 +279,15 @@ function authorized(request, env) {
 function safeStatus(env) {
   const template = env.WHATSAPP_TEMPLATE_NAME || null;
   const configured = Boolean(env.WHATSAPP_ACCESS_TOKEN && env.WHATSAPP_PHONE_NUMBER_ID && env.WHATSAPP_TO && template);
+  const digestTimes = (env.DIGEST_TIMES || '06:00,12:00,17:00').split(',').map(x=>x.trim());
   return {
     ok:true, service:'agci-alerts', provider:'meta-whatsapp', configured,
     deliveryMode:template === 'hello_world' ? 'test' : (template ? 'production' : 'unconfigured'),
+    contentVisible:template !== 'hello_world',
     template, graphVersion:env.META_GRAPH_VERSION || 'v25.0',
     automationEnabled:env.AUTOMATION_ENABLED === 'true',
-    digestTimes:(env.DIGEST_TIMES || '06:00,12:00,17:00').split(',').map(x=>x.trim()),
+    digestTimes,
+    scheduleAligned:digestTimes.every(x=>/^\d{2}:00$/.test(x)),
     marketDataUrl:env.MARKET_DATA_URL || 'https://agci-market-data.proadmexico.workers.dev/',
     watchlistCount:watchlist(env).length,
     deduplication:Boolean(env.ALERT_DEDUP), history:Boolean(env.ALERT_HISTORY),
@@ -260,13 +309,22 @@ export default {
       try {
         const source = await loadMarketData(env);
         return json({ok:true,url:source.url,...source.health},200,origin);
-      } catch (error) {
+      } catch {
         return json({ok:false,error:'Market data unavailable'},503,origin);
       }
     }
     if (request.method !== 'POST') return json({ok:false,error:'Not found'},404,origin);
     if (!authorized(request,env)) return json({ok:false,error:'Unauthorized'},401,origin);
 
+    if (url.pathname === '/preview') {
+      try {
+        const source = await loadMarketData(env);
+        return json({ok:true,source:{url:source.url,...source.health},...alignmentReport(source.data,env,source.health)},200,origin);
+      } catch (error) {
+        console.error('AGCI preview failed',error);
+        return json({ok:false,error:'Preview failed'},502,origin);
+      }
+    }
     if (url.pathname === '/digest') {
       try {
         const result = await runDigest(env,'manual');
@@ -293,6 +351,8 @@ export default {
   }
 };
 
+export {validPayload, parseTimestamp, sourceHealth, extractCollections, buildExecutiveDigest, alignmentReport};
+
 /*
 Required encrypted Worker secrets:
 WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, WHATSAPP_TO, AGCI_ALERT_API_KEY
@@ -308,6 +368,8 @@ MARKET_DATA_URL=https://agci-market-data.proadmexico.workers.dev/
 PORTAL_URL=https://alexm3x.github.io/alex-global-currency-intelligence/
 WATCHLIST=USD/MXN,EUR/USD,NVDA,NFLX,ORCL,TSLA,COWZ,QQQ
 MAX_SOURCE_AGE_MINUTES=180
+MIN_DIGEST_ITEMS=1
+ALLOW_UNDATED_SOURCE=false
 ALERT_TIMEZONE=America/Mexico_City
 QUIET_START=22:00
 QUIET_END=07:00
