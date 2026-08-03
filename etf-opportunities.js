@@ -17,5 +17,13 @@
     const metaLabel=parent.querySelector('.opportunities-meta span');if(metaLabel)metaLabel.textContent='ideas monitoreadas';
     section.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>typeof setView==='function'&&setView(b.dataset.view)));
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+  function loadAlertCenter(){
+    if(!document.querySelector('link[data-agci-alerts]')){
+      const css=document.createElement('link');css.rel='stylesheet';css.href='alerts-center.css';css.dataset.agciAlerts='true';document.head.appendChild(css);
+    }
+    if(!document.querySelector('script[data-agci-alerts]')){
+      const script=document.createElement('script');script.src='alerts-center.js';script.defer=true;script.dataset.agciAlerts='true';document.body.appendChild(script);
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{build();loadAlertCenter()},{once:true});else{build();loadAlertCenter()}
 })();
