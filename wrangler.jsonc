@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "alex-global-currency-intelligence",
+  "main": "workers/agci-alerts-worker.js",
+  "compatibility_date": "2026-08-03",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  }
+}
