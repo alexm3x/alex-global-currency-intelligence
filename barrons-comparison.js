@@ -107,3 +107,9 @@
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',buildCIAR,{once:true});else buildCIAR();
 })();
+
+(() => {
+  if(document.querySelector('script[data-agci-alerts]'))return;
+  const css=document.createElement('link');css.rel='stylesheet';css.href='alerts-center.css';css.dataset.agciAlerts='true';document.head.appendChild(css);
+  const script=document.createElement('script');script.src='alerts-center.js';script.defer=true;script.dataset.agciAlerts='true';document.head.appendChild(script);
+})();
