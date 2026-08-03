@@ -106,12 +106,15 @@ export default {
         env.WHATSAPP_TO &&
         env.WHATSAPP_TEMPLATE_NAME
       );
+      const template = env.WHATSAPP_TEMPLATE_NAME || null;
       return json({
         ok:true,
         service:'agci-alerts',
         provider:'meta-whatsapp',
         configured,
-        template:env.WHATSAPP_TEMPLATE_NAME || null,
+        template,
+        deliveryMode:template === 'hello_world' ? 'test' : 'production',
+        graphVersion:env.META_GRAPH_VERSION || 'v25.0',
         time:new Date().toISOString()
       },200,origin);
     }
