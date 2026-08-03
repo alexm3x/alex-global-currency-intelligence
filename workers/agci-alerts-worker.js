@@ -50,32 +50,36 @@ async function isDuplicate(env, alertId) {
   return false;
 }
 
+function buildTemplate(templateName, language, payload) {
+  const template = {name:templateName, language:{code:language}};
+  if (templateName !== 'hello_world') {
+    template.components = [{
+      type:'body',
+      parameters:[
+        {type:'text', text:payload.title.trim()},
+        {type:'text', text:payload.message.trim()},
+        {type:'text', text:(payload.severity || 'info').toUpperCase()}
+      ]
+    }];
+  }
+  return template;
+}
+
 async function sendMetaWhatsApp(env, payload) {
   const required = ['WHATSAPP_ACCESS_TOKEN','WHATSAPP_PHONE_NUMBER_ID','WHATSAPP_TO'];
   const missing = required.filter(k => !env[k]);
   if (missing.length) throw new Error(`Missing Worker secrets: ${missing.join(', ')}`);
 
-  const graphVersion = env.META_GRAPH_VERSION || 'v23.0';
+  const graphVersion = env.META_GRAPH_VERSION || 'v25.0';
   const url = `https://graph.facebook.com/${graphVersion}/${env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
   const templateName = env.WHATSAPP_TEMPLATE_NAME || 'agci_market_alert';
-  const language = env.WHATSAPP_TEMPLATE_LANGUAGE || 'es_MX';
+  const language = env.WHATSAPP_TEMPLATE_LANGUAGE || (templateName === 'hello_world' ? 'en_US' : 'es_MX');
   const body = {
     messaging_product:'whatsapp',
     recipient_type:'individual',
     to:env.WHATSAPP_TO,
     type:'template',
-    template:{
-      name:templateName,
-      language:{code:language},
-      components:[{
-        type:'body',
-        parameters:[
-          {type:'text', text:payload.title.trim()},
-          {type:'text', text:payload.message.trim()},
-          {type:'text', text:(payload.severity || 'info').toUpperCase()}
-        ]
-      }]
-    }
+    template:buildTemplate(templateName, language, payload)
   };
 
   const r = await fetch(url, {
@@ -96,7 +100,20 @@ export default {
 
     const url = new URL(request.url);
     if (request.method === 'GET' && (url.pathname === '/' || url.pathname === '/health')) {
-      return json({ok:true,service:'agci-alerts',provider:'meta-whatsapp',configured:Boolean(env.WHATSAPP_PHONE_NUMBER_ID && env.WHATSAPP_TO && env.WHATSAPP_TEMPLATE_NAME),time:new Date().toISOString()},200,origin);
+      const configured = Boolean(
+        env.WHATSAPP_ACCESS_TOKEN &&
+        env.WHATSAPP_PHONE_NUMBER_ID &&
+        env.WHATSAPP_TO &&
+        env.WHATSAPP_TEMPLATE_NAME
+      );
+      return json({
+        ok:true,
+        service:'agci-alerts',
+        provider:'meta-whatsapp',
+        configured,
+        template:env.WHATSAPP_TEMPLATE_NAME || null,
+        time:new Date().toISOString()
+      },200,origin);
     }
     if (request.method !== 'POST' || !['/','/alert'].includes(url.pathname)) return json({ok:false,error:'Not found'},404,origin);
     if (!env.AGCI_ALERT_API_KEY || request.headers.get('x-agci-key') !== env.AGCI_ALERT_API_KEY) return json({ok:false,error:'Unauthorized'},401,origin);
@@ -126,9 +143,13 @@ WHATSAPP_PHONE_NUMBER_ID
 WHATSAPP_TO
 AGCI_ALERT_API_KEY
 
-Recommended variables:
+Recommended test variables:
+META_GRAPH_VERSION=v25.0
+WHATSAPP_TEMPLATE_NAME=hello_world
+WHATSAPP_TEMPLATE_LANGUAGE=en_US
+
+Recommended production variables:
 ALLOWED_ORIGINS=https://alexm3x.github.io,https://intelligence.alexmexico.com
-META_GRAPH_VERSION=v23.0
 WHATSAPP_TEMPLATE_NAME=agci_market_alert
 WHATSAPP_TEMPLATE_LANGUAGE=es_MX
 ALERT_TIMEZONE=America/Mexico_City
