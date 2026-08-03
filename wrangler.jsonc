@@ -6,5 +6,19 @@
   "workers_dev": true,
   "observability": {
     "enabled": true
+  },
+  "triggers": {
+    "crons": ["0 * * * *"]
+  },
+  "vars": {
+    "AUTOMATION_ENABLED": "false",
+    "DIGEST_TIMES": "06:00,12:00,17:00",
+    "MARKET_DATA_URL": "https://agci-market-data.proadmexico.workers.dev/",
+    "PORTAL_URL": "https://alexm3x.github.io/alex-global-currency-intelligence/",
+    "MAX_SOURCE_AGE_MINUTES": "180",
+    "ALERT_TIMEZONE": "America/Mexico_City",
+    "QUIET_START": "22:00",
+    "QUIET_END": "07:00",
+    "WATCHLIST": "USD/MXN,EUR/USD,NVDA,NFLX,ORCL,TSLA,COWZ,QQQ"
   }
 }
