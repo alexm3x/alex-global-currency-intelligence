@@ -72,5 +72,14 @@
     </article>`;
   }
 
-  document.addEventListener('DOMContentLoaded',()=>{injectStylesheet();buildFront();buildFullBriefing();});
+  function loadExecutiveCenter(){
+    if(!document.querySelector('link[href="executive-intelligence.css"]')){
+      const link=document.createElement('link');link.rel='stylesheet';link.href='executive-intelligence.css';document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[src="executive-intelligence.js"]')){
+      const script=document.createElement('script');script.src='executive-intelligence.js';script.defer=true;document.body.appendChild(script);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{injectStylesheet();buildFront();buildFullBriefing();loadExecutiveCenter();});
 })();
