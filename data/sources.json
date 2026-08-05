@@ -1,13 +1,59 @@
 {
-  "status": "partially-connected",
-  "last_reviewed": "2026-08-01",
-  "note": "La plataforma ya utiliza cotizaciones FX conectadas mediante Twelve Data y noticias financieras mediante GDELT. Los componentes macroeconómicos estructurales del AGCI Score continúan pendientes de integración.",
+  "status": "connected",
+  "generated_at": "2026-08-05T04:28:59.147Z",
+  "last_reviewed": "2026-08-05",
+  "note": "El registro se genera automáticamente a partir de pruebas reales de extracción. El estado no se define manualmente.",
+  "automation": {
+    "engine": "GitHub Actions",
+    "schedule": "Cada 6 horas (UTC)",
+    "workflow": ".github/workflows/update-structural-data.yml"
+  },
   "sources": [
-    {"category":"FX spot","provider":"Twelve Data vía Cloudflare Worker","frequency":"Cada 6 horas","status":"Conectado"},
-    {"category":"Noticias financieras","provider":"GDELT y fuentes oficiales enlazadas","frequency":"Periódica","status":"Conectado"},
-    {"category":"Inflación y crecimiento","provider":"IMF, OECD, World Bank y oficinas estadísticas","frequency":"Mensual/Trimestral","status":"Pendiente de conexión"},
-    {"category":"Tasas y bancos centrales","provider":"Bancos centrales oficiales","frequency":"Por evento","status":"Pendiente de conexión"},
-    {"category":"REER y balanza externa","provider":"BIS, IMF","frequency":"Mensual/Trimestral","status":"Pendiente de conexión"},
-    {"category":"Riesgo y volatilidad","provider":"Series de mercado calculadas","frequency":"Diaria","status":"Pendiente de conexión"}
+    {
+      "category": "FX spot",
+      "provider": "Twelve Data vía Cloudflare Worker",
+      "frequency": "15–30 minutos en origen",
+      "status": "Conectado",
+      "last_success": "2026-08-05T04:28:59.147Z"
+    },
+    {
+      "category": "Noticias financieras",
+      "provider": "GDELT y fuentes oficiales enlazadas",
+      "frequency": "Periódica",
+      "status": "Conectado",
+      "last_success": "2026-08-05T04:28:59.147Z"
+    },
+    {
+      "category": "Inflación y crecimiento",
+      "provider": "World Bank — WDI",
+      "frequency": "Según publicación oficial",
+      "status": "Conectado",
+      "last_success": "2026-08-05T04:28:59.147Z",
+      "error": null
+    },
+    {
+      "category": "Tasas y bancos centrales",
+      "provider": "BIS — datos reportados por bancos centrales",
+      "frequency": "Semanal/Mensual",
+      "status": "Conectado",
+      "last_success": "2026-08-05T04:28:59.147Z",
+      "error": null
+    },
+    {
+      "category": "REER y balanza externa",
+      "provider": "BIS (REER) + World Bank (cuenta corriente)",
+      "frequency": "Mensual/Anual",
+      "status": "Conectado",
+      "last_success": "2026-08-05T04:28:59.147Z",
+      "error": null
+    },
+    {
+      "category": "Riesgo y volatilidad",
+      "provider": "Cboe VIX — cálculo AGCI",
+      "frequency": "Diaria",
+      "status": "Conectado",
+      "last_success": "2026-08-05T04:28:59.147Z",
+      "error": null
+    }
   ]
 }
