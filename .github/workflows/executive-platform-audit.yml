@@ -40,5 +40,5 @@ jobs:
         run: |
           node -e "const fs=require('fs'); JSON.parse(fs.readFileSync('/tmp/market.json','utf8')); JSON.parse(fs.readFileSync('/tmp/alerts.json','utf8'));"
           grep -q "Global Currency Intelligence" /tmp/portal.html
-          curl --fail --silent --show-error --max-time 20 https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json > /tmp/macro.json
+          curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json > /tmp/macro.json
           node -e "const fs=require('fs'); const x=JSON.parse(fs.readFileSync('/tmp/macro.json')); if(!['connected','degraded'].includes(x.overallStatus)) process.exit(1);"
