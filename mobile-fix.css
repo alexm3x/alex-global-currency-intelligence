@@ -1,0 +1,63 @@
+/* AGCI mobile stability layer — 2026-08-05 */
+html,body{max-width:100%;overflow-x:hidden}
+.menu-btn{display:none}
+
+@media(max-width:700px){
+  body.mobile-menu-open{overflow:hidden}
+  .masthead{position:sticky;top:0;z-index:100}
+  .utility-bar{padding:6px 14px;min-height:30px}
+  .utility-bar>span:first-child{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:72vw}
+  .brand-row{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;padding:10px 12px;min-height:64px}
+  .menu-btn{display:flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--rule);border-radius:4px;font-size:0;position:relative;z-index:102}
+  .menu-btn::before,.menu-btn::after,.menu-btn span{content:"";position:absolute;width:19px;height:2px;background:var(--ink);transition:transform .2s ease,opacity .2s ease}
+  .menu-btn::before{transform:translateY(-6px)}
+  .menu-btn::after{transform:translateY(6px)}
+  .menu-btn span{transform:translateY(0)}
+  body.mobile-menu-open .menu-btn::before{transform:rotate(45deg)}
+  body.mobile-menu-open .menu-btn::after{transform:rotate(-45deg)}
+  body.mobile-menu-open .menu-btn span{opacity:0}
+  .brand-lockup{min-width:0;padding:0 6px}
+  .brand-lockup h1{font-size:21px;line-height:1.05;white-space:normal}
+  .brand-kicker{font-size:9px;letter-spacing:.28em}
+  .subscribe-btn{display:block;width:40px;height:40px;padding:0;border:0;font-size:0}
+  .subscribe-btn::after{content:"AGCI";font-size:9px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ink);padding:8px 4px;display:block}
+  .main-nav{position:fixed;inset:94px 0 auto 0;display:none;flex-direction:column;align-items:stretch;background:var(--paper);border-top:1px solid var(--ink);border-bottom:2px solid var(--ink);max-height:calc(100dvh - 94px);overflow-y:auto;box-shadow:0 12px 24px rgba(0,0,0,.18);z-index:101}
+  body.mobile-menu-open .main-nav{display:flex}
+  .main-nav button,.main-nav button:first-child{width:100%;min-height:48px;padding:13px 18px;border:0;border-bottom:1px solid var(--rule);text-align:left;font-size:12px}
+  .main-nav button.active{border-left:4px solid var(--blue)}
+  .market-tape{padding:8px 14px;gap:22px;scrollbar-width:none}
+  .market-tape::-webkit-scrollbar{display:none}
+  .data-status{font-size:9px!important;padding:7px 12px!important;gap:8px!important;overflow-x:auto}
+  main{width:100%;padding:18px 14px 42px}
+  .section-label{margin-bottom:16px}
+  .lead-story h2,.page-head h2,.briefing-main h2{font-size:34px;overflow-wrap:anywhere}
+  .lead-visual{padding:20px 16px;gap:22px}
+  .signal-bars div{grid-template-columns:82px minmax(70px,1fr) 28px;gap:8px}
+  .right-rail{display:block}
+  .rail-card{padding-top:6px}
+  .section-heading{align-items:flex-start;gap:12px}
+  .section-heading h2{font-size:30px}
+  .link-button{max-width:120px;text-align:right;font-size:11px}
+  .preview-row{grid-template-columns:30px minmax(0,1fr) 56px 64px;padding:13px 4px;gap:6px}
+  .preview-row span,.preview-row strong{overflow-wrap:anywhere}
+  .analysis-card{padding:22px 18px}
+  .market-toolbar input,.market-toolbar select,.market-toolbar button{width:100%;min-height:46px;font-size:16px}
+  .data-table-wrap{width:calc(100vw - 28px);overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{min-width:900px}
+  th,td{white-space:nowrap}
+  .research-grid .research-lead{grid-row:auto}
+  .research-grid .research-lead h3{font-size:32px}
+  .briefing-layout{gap:28px}
+  dialog{width:calc(100vw - 24px);max-height:88dvh;padding:22px 16px;overflow:auto}
+  .metric-grid{grid-template-columns:1fr 1fr}
+  footer{padding:34px 18px}
+  .footer-links{display:flex!important;flex-wrap:wrap;justify-content:center;gap:12px}
+  a,button,[role="button"]{touch-action:manipulation}
+}
+
+@media(max-width:380px){
+  .brand-lockup h1{font-size:18px}
+  .lead-story h2,.page-head h2,.briefing-main h2{font-size:30px}
+  .score-ring{width:170px}
+  .metric-grid{grid-template-columns:1fr}
+}
