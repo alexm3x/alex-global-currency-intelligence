@@ -47,5 +47,5 @@ jobs:
           git config user.name "agci-data-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/macro-latest.json data/sources.json
-          git commit -m "data: refresh structural indicators [skip ci]"
+          git commit -m "data: refresh structural indicators"
           git push
