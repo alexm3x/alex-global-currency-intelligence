@@ -14,6 +14,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: agci-structural-data
@@ -23,6 +25,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -49,3 +54,18 @@ jobs:
           git add data/macro-latest.json data/sources.json
           git commit -m "data: refresh structural indicators"
           git push
+      - name: Build clean Pages artifact
+        run: |
+          mkdir -p /tmp/agci-pages
+          git archive HEAD | tar -x -C /tmp/agci-pages
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: /tmp/agci-pages
+      - name: Deploy refreshed data to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Confirm published structural snapshot
+        run: |
+          curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json > /tmp/published-macro.json
+          node -e "const fs=require('fs'); const expected=JSON.parse(fs.readFileSync('data/macro-latest.json')); const published=JSON.parse(fs.readFileSync('/tmp/published-macro.json')); if(published.generatedAt!==expected.generatedAt||published.overallStatus!==expected.overallStatus) process.exit(1);"
