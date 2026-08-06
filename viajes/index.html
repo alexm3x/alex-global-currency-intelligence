@@ -23,6 +23,7 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="travel-opportunities.css">
   <style>
     html{scroll-behavior:smooth}body{background:#050b10}.terminal-grid{background-image:linear-gradient(rgba(103,232,249,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,.025) 1px,transparent 1px);background-size:30px 30px}.scrollbar::-webkit-scrollbar{height:8px;width:8px}.scrollbar::-webkit-scrollbar-thumb{background:#183240;border-radius:999px}.tab-active{background:#e8c66a!important;color:#071119!important;border-color:#e8c66a!important}.traffic-dot{box-shadow:0 0 16px currentColor}.metric-card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(#67e8f9,transparent)}.result-card{transition:transform .2s ease,border-color .2s ease}.result-card:hover{transform:translateY(-3px);border-color:#e8c66a}.chart-wrap{height:320px}.line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}@media(max-width:640px){.chart-wrap{height:260px}}
   </style>
@@ -111,11 +112,23 @@
           </div>
         </article>
 
-        <aside class="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-2">
-          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">USD/MXN</p><strong id="usdMxn" class="mt-2 block text-2xl text-white">—</strong><span class="text-xs text-slate-500">Referencia del pipeline</span></div>
-          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">Destinos</p><strong id="destinationCount" class="mt-2 block text-2xl text-white">—</strong><span class="text-xs text-slate-500">Incluye cruceros</span></div>
-          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">Semáforo verde</p><strong id="greenCount" class="mt-2 block text-2xl text-emeraldx">—</strong><span class="text-xs text-slate-500">USD con ventaja</span></div>
-          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">Frecuencia</p><strong class="mt-2 block text-2xl text-white">2×</strong><span class="text-xs text-slate-500">08:00 / 20:00 UTC</span></div>
+        <aside id="financialDecisionPanel" class="decision-panel rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal" aria-labelledby="financialDecisionTitle">
+          <div class="decision-panel__header">
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-[.18em] text-cyanx">Travel Financial Signals</p>
+              <h2 id="financialDecisionTitle" class="mt-1 text-base font-semibold text-white">Momento financiero del viaje</h2>
+            </div>
+            <span id="bookingSignalBadge" class="decision-badge decision-badge--watch">Calculando</span>
+          </div>
+          <div class="decision-metrics">
+            <div class="metric-card decision-metric"><p>USD/MXN</p><strong id="usdMxn">—</strong><span id="usdMxnContext">Tipo de cambio actual</span></div>
+            <div class="metric-card decision-metric"><p>Posición FX media</p><strong id="medianFxAdvantage">—</strong><span>Top 5 oportunidades</span></div>
+            <div class="metric-card decision-metric"><p>Ahorro cambiario</p><strong id="maxFxSavings">—</strong><span id="maxFxSavingsContext">Gasto local · mejor opción</span></div>
+            <div class="metric-card decision-metric"><p>Destinos en compra</p><strong id="greenCount">—</strong><span id="greenCountContext">De 20 destinos analizados</span></div>
+            <div class="metric-card decision-metric"><p>Volatilidad mediana</p><strong id="medianVolatility">—</strong><span>Riesgo anualizado FX</span></div>
+            <div class="metric-card decision-metric"><p>Mejor señal</p><strong id="bestOpportunity">—</strong><span id="bestOpportunityContext">Calculando oportunidad</span></div>
+          </div>
+          <div class="decision-panel__footer"><span id="destinationCount">— destinos</span><span>Actualización automática 2× al día</span></div>
         </aside>
       </section>
 
@@ -125,6 +138,27 @@
           <p id="resultSummary" class="font-mono text-[10px] text-slate-500">Esperando parámetros</p>
         </div>
         <div id="recommendations" class="grid gap-4 lg:grid-cols-3"></div>
+      </section>
+
+      <section id="dealDesk" class="deal-desk rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal" aria-labelledby="dealDeskTitle">
+        <div class="deal-desk__header">
+          <div>
+            <p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">ASC Opportunity Desk</p>
+            <h2 id="dealDeskTitle" class="mt-1 text-xl font-semibold text-white">Ofertas y oportunidades detectadas</h2>
+            <p class="mt-1 max-w-3xl text-xs leading-5 text-slate-500">Preselección financiera por costo relativo, ventaja cambiaria y riesgo. El precio final se confirma antes de comprar.</p>
+          </div>
+          <div id="dealFilters" class="deal-filters" aria-label="Filtrar oportunidades">
+            <button type="button" class="is-active" data-deal-filter="all">Todas</button>
+            <button type="button" data-deal-filter="savings">Mayor ahorro</button>
+            <button type="button" data-deal-filter="low-risk">Menor riesgo</button>
+          </div>
+        </div>
+        <div id="dealCards" class="deal-grid" aria-live="polite"></div>
+        <div class="deal-desk__footer">
+          <span><i class="deal-legend deal-legend--high"></i>Alta convicción</span>
+          <span><i class="deal-legend deal-legend--watch"></i>Verificar precio</span>
+          <span>Sin anuncios ni enlaces patrocinados</span>
+        </div>
       </section>
 
       <section class="grid gap-4 xl:grid-cols-2">
@@ -224,7 +258,7 @@
       if(state.fxChart)state.fxChart.destroy();state.fxChart=new Chart($('#fxChart'),{type:'line',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${number(c.raw,3)}`}}},scales:{x:{grid:{display:false},ticks:{maxTicksLimit:7}},y:{beginAtZero:false}}}});
     }
 
-    function renderHeader(data){$('#usdMxn').textContent=number(data.market_snapshot.usd_mxn,2);$('#destinationCount').textContent=data.meta.destination_count;$('#greenCount').textContent=data.market_snapshot.green_destinations;const generated=new Date(data.meta.generated_at);$('#updatedAt').textContent=`Actualizado ${generated.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`;$('#pipelineBadge').textContent=`Pipeline: ${data.source_status.current_fx==='live'?'LIVE':'FALLBACK'}`;$('#pipelineBadge').className=`hidden rounded border px-3 py-1.5 font-mono text-[10px] uppercase sm:inline-flex ${data.source_status.current_fx==='live'?'border-emerald-500/40 text-emeraldx':'border-amber-500/40 text-amber-400'}`;$('#sourceNote').textContent=`FX actual: ${data.source_status.current_fx}. Históricos: Frankfurter cuando existe cobertura. Costos: ${data.source_status.cost_model}.`}
+    function renderHeader(data){$('#usdMxn').textContent=number(data.market_snapshot.usd_mxn,2);$('#usdMxnContext').textContent=data.source_status.current_fx==='live'?'Mercado actualizado':'Dato de respaldo';$('#destinationCount').textContent=`${data.meta.destination_count} destinos`;$('#greenCount').textContent=data.market_snapshot.green_destinations;const generated=new Date(data.meta.generated_at);$('#updatedAt').textContent=`Actualizado ${generated.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`;$('#pipelineBadge').textContent=`Pipeline: ${data.source_status.current_fx==='live'?'LIVE':'FALLBACK'}`;$('#pipelineBadge').className=`hidden rounded border px-3 py-1.5 font-mono text-[10px] uppercase sm:inline-flex ${data.source_status.current_fx==='live'?'border-emerald-500/40 text-emeraldx':'border-amber-500/40 text-amber-400'}`;$('#sourceNote').textContent=`FX actual: ${data.source_status.current_fx}. Históricos: Frankfurter cuando existe cobertura. Costos: ${data.source_status.cost_model}.`}
 
     function restoreQuery(){try{const saved=JSON.parse(localStorage.getItem('viajesASCQuery')||'null');if(!saved)return;$('#budgetInput').value=saved.budget||'';$('#startDate').value=saved.start||$('#startDate').value;$('#endDate').value=saved.end||$('#endDate').value;$('#originInput').value=saved.origin||'MEX';$('#interestInput').value=saved.interests||'';$('#sortInput').value=saved.sort||'roi';state.cabin=saved.cabin||'tourist';state.type=saved.type||'all';syncTabs()}catch(e){console.warn('Preferences ignored',e)}}
     function syncTabs(){$$('#cabinTabs button').forEach(b=>b.classList.toggle('tab-active',b.dataset.cabin===state.cabin));$$('#typeTabs button').forEach(b=>b.classList.toggle('tab-active',b.dataset.type===state.type))}
@@ -236,5 +270,6 @@
   </script>
   <script src="enhancements.js"></script>
   <script src="booking-controls.js"></script>
+  <script src="travel-opportunities.js"></script>
 </body>
 </html>
