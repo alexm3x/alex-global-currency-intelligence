@@ -51,15 +51,16 @@ jobs:
           assert Path('viajes/index.html').read_text(encoding='utf-8').count('<canvas')==2
           print('Bootstrap validation passed')
           PY
-      - name: Commit production files and remove bootstrap
+      - name: Commit production dashboard
         if: steps.payload.outputs.count == '5'
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'viajes-asc-bootstrap'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add viajes/index.html viajes/scripts/update_intelligence.py viajes/data/destinations.json .github/workflows/update_data.yml
-          git rm viajes/bootstrap_payload.part* .github/workflows/bootstrap-viajes.yml
+          rm -f .github/workflows/update_data.yml
+          git add viajes/index.html viajes/scripts/update_intelligence.py viajes/data/destinations.json
+          git rm viajes/bootstrap_payload.part*
           git commit -m 'feat: rebuild Viajes ASC autonomous terminal'
           git pull --rebase origin main
           git push origin main
