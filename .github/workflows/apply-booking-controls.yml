@@ -1,0 +1,62 @@
+name: Apply booking controls
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'viajes/booking-controls.js'
+      - '.github/workflows/apply-booking-controls.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-booking-controls
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate JavaScript
+        run: node --check viajes/booking-controls.js
+
+      - name: Link controls to Viajes ASC
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('viajes/index.html')
+          text = path.read_text(encoding='utf-8')
+          tag = '  <script src="booking-controls.js"></script>\n'
+          if 'booking-controls.js' not in text:
+              text = text.replace('</body>', tag + '</body>')
+          path.write_text(text, encoding='utf-8')
+
+          assert '<script src="enhancements.js"></script>' in text
+          assert '<script src="booking-controls.js"></script>' in text
+          assert text.index('enhancements.js') < text.index('booking-controls.js')
+          print('Booking controls linked after visual enhancements')
+          PY
+
+      - name: Commit validated integration
+        run: |
+          set -euo pipefail
+          git config user.name 'viajes-asc-ui-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add viajes/index.html viajes/booking-controls.js
+          if git diff --cached --quiet; then
+            echo 'No integration changes detected.'
+            exit 0
+          fi
+          git commit -m 'feat: integrate assisted calendar and currency selector'
+          git pull --rebase origin main
+          git push origin main
