@@ -5,15 +5,19 @@ on:
     branches: [main]
     paths:
       - 'workers/**'
+      - 'cloudflare/**'
       - 'tests/**'
       - 'package.json'
       - 'wrangler.jsonc'
+      - 'wrangler.market-data.jsonc'
   pull_request:
     paths:
       - 'workers/**'
+      - 'cloudflare/**'
       - 'tests/**'
       - 'package.json'
       - 'wrangler.jsonc'
+      - 'wrangler.market-data.jsonc'
   workflow_dispatch:
 
 permissions:

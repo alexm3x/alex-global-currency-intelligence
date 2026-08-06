@@ -53,11 +53,19 @@ function dataAgeMs(value) {
   return Number.isFinite(timestamp) ? Date.now() - timestamp : Infinity;
 }
 
-function freshnessLabel(updatedAt) {
+function freshnessLabel(updatedAt, isStale = false) {
+  if (isStale) return { text: "EN CACHÉ", className: "cached" };
   const age = dataAgeMs(updatedAt);
   if (age <= MARKET_RECENT_AFTER_MS) return { text: "INTRADÍA", className: "live" };
   if (age <= MARKET_STALE_AFTER_MS) return { text: "RECIENTE", className: "recent" };
   return { text: "DEMORADO", className: "stale" };
+}
+
+function marketDisplayTimestamp(payload) {
+  if (!payload) return null;
+  return payload.isStale === true
+    ? payload.oldestUpdatedAt || payload.updatedAt
+    : payload.updatedAt;
 }
 
 function ensureLiveStatusStyles() {
@@ -70,7 +78,12 @@ function ensureLiveStatusStyles() {
     .market-live-status.live .market-live-dot{background:#168447;box-shadow:0 0 0 4px rgba(22,132,71,.14)}
     .market-live-status.recent .market-live-dot{background:#c28a10}
     .market-live-status.stale .market-live-dot{background:#a52a2a}
+    .market-live-status.cached{border-color:rgba(194,138,16,.45);background:rgba(194,138,16,.08)}
+    .market-live-status.cached .market-live-dot{background:#d49b20;box-shadow:0 0 0 4px rgba(212,155,32,.14)}
+    .market-cache-indicator{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid rgba(212,155,32,.65);border-radius:999px;background:rgba(212,155,32,.12);color:#8a5b00;font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:none}
+    body.dark .market-cache-indicator{color:#f0c66d;background:rgba(212,155,32,.14)}
     .market-live-status button{border:0;background:transparent;text-decoration:underline;cursor:pointer;font:inherit;color:inherit}
+    @media(max-width:700px){.market-cache-indicator{width:100%;margin-left:0;justify-content:center}}
   `;
   document.head.appendChild(style);
 }
@@ -85,14 +98,20 @@ function renderLiveStatus(payload, stateMessage = "") {
     tape?.insertAdjacentElement("afterend", bar);
   }
   if (!bar) return;
-  const freshness = freshnessLabel(payload?.updatedAt);
+  const isStale = payload?.isStale === true;
+  const displayTimestamp = marketDisplayTimestamp(payload);
+  const freshness = freshnessLabel(displayTimestamp, isStale);
+  const cacheIndicator = isStale
+    ? '<span class="market-cache-indicator" role="status">Datos en caché (Servidor origen no disponible)</span>'
+    : '';
   bar.className = `market-live-status ${freshness.className}`;
   bar.innerHTML = `
     <span class="market-live-dot" aria-hidden="true"></span>
     <strong>${freshness.text}</strong>
-    <span>Último dato: ${formatDate(payload?.updatedAt)}</span>
+    <span>Último dato: ${formatDate(displayTimestamp)}</span>
     <span>${stateMessage || "Proveedor: 15 min principales · 30 min BRL/CNY"}</span>
-    <button type="button" id="marketRefreshNow">Actualizar ahora</button>`;
+    <button type="button" id="marketRefreshNow">Actualizar ahora</button>
+    ${cacheIndicator}`;
   document.getElementById("marketRefreshNow")?.addEventListener("click", () => loadLiveMarketData(true));
 }
 
@@ -129,11 +148,12 @@ function renderPayload(payload, stateMessage = "") {
   renderLiveStatus(payload, stateMessage);
 
   const status = document.querySelector(".data-status");
+  const displayTimestamp = marketDisplayTimestamp(payload);
   if (status) {
     status.innerHTML = `
       <span><b>MARKET DATA</b> Twelve Data · actualización intradía</span>
-      <span>Última actualización del proveedor: ${formatDate(payload.updatedAt)}</span>
-      <span>Estado: ${freshnessLabel(payload.updatedAt).text}</span>
+      <span>Última actualización del proveedor: ${formatDate(displayTimestamp)}</span>
+      <span>Estado: ${freshnessLabel(displayTimestamp, payload.isStale === true).text}</span>
       <button data-view="governance">Ver gobierno de datos</button>`;
     status.querySelector("button")?.addEventListener("click", () => {
       if (typeof setView === "function") setView("governance");
@@ -141,19 +161,17 @@ function renderPayload(payload, stateMessage = "") {
   }
 
   const edition = document.querySelector(".edition");
-  if (edition) edition.textContent = `Edición Global · Mercado ${freshnessLabel(payload.updatedAt).text.toLowerCase()}`;
+  if (edition) edition.textContent = `Edición Global · Mercado ${freshnessLabel(displayTimestamp, payload.isStale === true).text.toLowerCase()}`;
 
   const byline = document.querySelector(".byline");
-  if (byline) byline.textContent = `AGCI Research Desk · Mercado actualizado ${formatDate(payload.updatedAt)}`;
+  if (byline) byline.textContent = `AGCI Research Desk · Mercado actualizado ${formatDate(displayTimestamp)}`;
   return true;
 }
 
 function renderMarketError(message) {
-  if (lastMarketPayload && renderPayload(lastMarketPayload, message)) return;
+  if (lastMarketPayload && renderPayload({ ...lastMarketPayload, isStale: true }, message)) return;
   const tape = document.getElementById("marketTape");
-  if (tape && !tape.querySelector(".ticker")) {
-    tape.innerHTML = `<span class="ticker"><b>DATOS DE MERCADO</b> ${message}</span>`;
-  }
+  if (tape) tape.innerHTML = `<span class="ticker"><b>DATOS DE MERCADO</b> ${message}</span>`;
   renderLiveStatus(null, message);
 }
 
@@ -172,7 +190,12 @@ async function loadLiveMarketData(force = false) {
 
     lastMarketPayload = payload;
     storePayload(payload);
-    renderPayload(payload, "Proveedor: 15 min principales · 30 min BRL/CNY");
+    renderPayload(
+      payload,
+      payload.isStale === true
+        ? "Revalidación automática en curso"
+        : "Proveedor: 15 min principales · 30 min BRL/CNY"
+    );
   } catch (error) {
     console.error("AGCI market data error:", error);
     renderMarketError("Endpoint temporalmente no disponible; se conserva el último dato válido.");

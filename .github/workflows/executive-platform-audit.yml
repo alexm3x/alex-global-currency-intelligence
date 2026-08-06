@@ -20,6 +20,8 @@ jobs:
           node --check daily-briefing-cover.js
           node --check executive-intelligence.js
           node --check workers/agci-alerts-worker.js
+          node --check cloudflare/agci-market-data-live.js
+          node --check cloudflare/tail-risk.js
           node --check scripts/update-structural-data.mjs
       - name: Validate critical assets
         run: |
@@ -29,6 +31,7 @@ jobs:
           test -s executive-intelligence.js
           grep -q "executive-intelligence.js" daily-briefing-cover.js
           grep -q "AGCI Resumen Ejecutivo" workers/agci-alerts-worker.js
+          grep -q "Anomalía detectada" cloudflare/tail-risk.js
           node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('data/macro-latest.json')); const s=JSON.parse(fs.readFileSync('data/sources.json')); if(!m.generatedAt||!s.generated_at) process.exit(1);"
       - name: Test market data endpoint
         run: curl --fail --silent --show-error --max-time 20 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
