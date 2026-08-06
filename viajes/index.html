@@ -234,5 +234,6 @@
     $('#queryForm').addEventListener('submit',event=>{event.preventDefault();applyQuery()});$('#refreshButton').addEventListener('click',load);$$('#cabinTabs button').forEach(button=>button.addEventListener('click',()=>{state.cabin=button.dataset.cabin;syncTabs();applyQuery()}));$$('#typeTabs button').forEach(button=>button.addEventListener('click',()=>{state.type=button.dataset.type;syncTabs();applyQuery()}));['sortInput','originInput'].forEach(id=>$(`#${id}`).addEventListener('change',applyQuery));
     setDefaultDates();load();setInterval(()=>document.visibilityState==='visible'&&load(),15*60*1000);window.addEventListener('online',load);
   </script>
+  <script src="enhancements.js"></script>
 </body>
 </html>
