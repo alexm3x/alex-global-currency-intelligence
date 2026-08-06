@@ -1,0 +1,60 @@
+name: Update Viajes ASC intelligence
+
+on:
+  schedule:
+    - cron: '0 8,20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viajes-asc-data-update
+  cancel-in-progress: false
+
+jobs:
+  update-destinations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build consolidated travel dataset
+        run: python viajes/scripts/update_intelligence.py
+
+      - name: Validate JSON contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('viajes/data/destinations.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          assert data['meta']['schema_version'] == '2.0.0'
+          assert len(data['destinations']) == 20
+          assert sum(item.get('kind') == 'cruise' for item in data['destinations']) >= 5
+          assert {d['traffic_light'] for d in data['destinations']} <= {'green','amber','red'}
+          assert all(d['google_travel']['google_flights_economy'].startswith('https://') for d in data['destinations'])
+          print('Dataset contract valid:', path)
+          PY
+
+      - name: Commit updated data when changed
+        run: |
+          if git diff --quiet -- viajes/data/destinations.json; then
+            echo 'No material data changes.'
+            exit 0
+          fi
+          git config user.name 'viajes-asc-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add viajes/data/destinations.json
+          git commit -m 'data: refresh Viajes ASC intelligence'
+          git pull --rebase origin main
+          git push origin main
