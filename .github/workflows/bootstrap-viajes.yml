@@ -44,9 +44,10 @@ jobs:
           import json
           from pathlib import Path
           data=json.loads(Path('viajes/data/destinations.json').read_text(encoding='utf-8'))
+          destinations=data['destinations']
           assert data['meta']['schema_version']=='2.0.0'
-          assert len(data['destinations'])==20
-          assert len(data.get('cruises', [])) >= 5
+          assert len(destinations)==20
+          assert sum(item.get('kind') == 'cruise' for item in destinations) >= 5
           assert Path('viajes/index.html').read_text(encoding='utf-8').count('<canvas')==2
           print('Bootstrap validation passed')
           PY
