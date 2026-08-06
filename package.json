@@ -8,8 +8,10 @@
     "update:data": "node scripts/update-structural-data.mjs",
     "deploy": "npm test && wrangler deploy",
     "deploy:market": "npm test && wrangler deploy --config wrangler.market-data.jsonc",
-    "check": "npm test && wrangler deploy --dry-run && wrangler deploy --dry-run --config wrangler.market-data.jsonc",
-    "check:market": "npm test && wrangler deploy --dry-run --config wrangler.market-data.jsonc"
+    "deploy:equities": "npm test && wrangler deploy --config wrangler.equity-fundamentals.jsonc",
+    "check": "npm test && wrangler deploy --dry-run && wrangler deploy --dry-run --config wrangler.market-data.jsonc && wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc",
+    "check:market": "npm test && wrangler deploy --dry-run --config wrangler.market-data.jsonc",
+    "check:equities": "npm test && wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
