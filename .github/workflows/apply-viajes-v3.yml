@@ -33,7 +33,9 @@ jobs:
           python-version: '3.12'
 
       - name: Apply frontend and pipeline upgrade
-        run: python viajes/scripts/apply_v3_upgrade.py
+        run: |
+          sed -i 's/parents\[2\]/parents[1]/' viajes/scripts/apply_v3_upgrade.py
+          python viajes/scripts/apply_v3_upgrade.py
 
       - name: Compile and regenerate intelligence
         run: |
