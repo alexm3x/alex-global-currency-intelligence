@@ -1,0 +1,49 @@
+.decision-panel{display:flex;min-width:0;flex-direction:column;overflow:hidden}
+.decision-panel__header,.deal-desk__header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;border-bottom:1px solid #1e293b;padding:1rem 1.1rem}
+.decision-badge{display:inline-flex;flex:none;align-items:center;border:1px solid;border-radius:999px;padding:.42rem .7rem;font:600 .58rem/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+.decision-badge--buy{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.1);color:#34d399}
+.decision-badge--watch{border-color:rgba(232,198,106,.42);background:rgba(232,198,106,.08);color:#e8c66a}
+.decision-badge--wait{border-color:rgba(251,113,133,.45);background:rgba(251,113,133,.08);color:#fb7185}
+.decision-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));flex:1}
+.decision-metric{position:relative;min-height:6.6rem;overflow:hidden;border-bottom:1px solid #1e293b;padding:1rem}
+.decision-metric:nth-child(odd){border-right:1px solid #1e293b}
+.decision-metric p{font:500 .61rem/1.2 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#64748b}
+.decision-metric strong{display:block;margin-top:.55rem;overflow:hidden;text-overflow:ellipsis;font-size:1.4rem;line-height:1.2;color:#f8fafc;white-space:nowrap}
+.decision-metric span{display:block;margin-top:.3rem;overflow:hidden;text-overflow:ellipsis;font-size:.68rem;line-height:1.35;color:#64748b;white-space:nowrap}
+.decision-metric:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(#67e8f9,transparent)}
+.decision-panel__footer,.deal-desk__footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.65rem;padding:.75rem 1.1rem;font:500 .58rem/1.4 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;color:#64748b}
+.deal-desk{overflow:hidden}
+.deal-desk__header{align-items:flex-end;padding:1.15rem 1.25rem}
+.deal-filters{display:flex;flex-wrap:wrap;gap:.45rem}
+.deal-filters button{border:1px solid #334155;border-radius:.4rem;padding:.5rem .7rem;background:#071119;color:#94a3b8;font-size:.68rem;font-weight:700;transition:border-color .18s,color .18s,background .18s}
+.deal-filters button:hover,.deal-filters button:focus-visible{border-color:#67e8f9;color:#67e8f9;outline:none}
+.deal-filters button.is-active{border-color:#e8c66a;background:#e8c66a;color:#071119}
+.deal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#1e293b}
+.deal-card{position:relative;display:flex;min-width:0;flex-direction:column;background:#071119;padding:1.15rem;transition:background .18s ease}
+.deal-card:hover{background:#0a1720}
+.deal-card__top{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+.deal-card__eyebrow{font:600 .58rem/1.2 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:#e8c66a}
+.deal-card h3{margin-top:.38rem;font-size:1.05rem;font-weight:650;line-height:1.25;color:#fff}
+.deal-card__country{margin-top:.2rem;font-size:.7rem;color:#64748b}
+.deal-score{display:grid;width:3.3rem;height:3.3rem;place-content:center;flex:none;border:1px solid #334155;border-radius:50%;background:#050b10;text-align:center}
+.deal-score strong{font-size:1rem;color:#fff}
+.deal-score span{display:block;font:500 .48rem/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#64748b}
+.deal-price{margin-top:1rem}
+.deal-price span{display:block;font:500 .55rem/1.2 "IBM Plex Mono",monospace;letter-spacing:.07em;text-transform:uppercase;color:#64748b}
+.deal-price strong{display:block;margin-top:.3rem;font-size:1.42rem;color:#fff}
+.deal-comparison{margin-top:.35rem;font-size:.7rem;color:#94a3b8}
+.deal-comparison b{color:#34d399}
+.deal-signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin-top:1rem}
+.deal-signal{border:1px solid #1e293b;border-radius:.4rem;background:#050b10;padding:.55rem}
+.deal-signal span{display:block;font-size:.57rem;text-transform:uppercase;color:#64748b}
+.deal-signal strong{display:block;margin-top:.18rem;font-size:.76rem;color:#e2e8f0}
+.deal-action{margin-top:auto;padding-top:1rem}
+.deal-action a{display:flex;align-items:center;justify-content:space-between;border:1px solid #334155;border-radius:.42rem;padding:.68rem .75rem;color:#67e8f9;font-size:.7rem;font-weight:750;text-decoration:none}
+.deal-action a:hover,.deal-action a:focus-visible{border-color:#67e8f9;background:rgba(103,232,249,.05);outline:none}
+.deal-status{position:absolute;inset:.7rem .7rem auto auto;width:.45rem;height:.45rem;border-radius:999px;box-shadow:0 0 12px currentColor}
+.deal-status--high{background:#34d399;color:#34d399}
+.deal-status--watch{background:#e8c66a;color:#e8c66a}
+.deal-legend{display:inline-block;width:.42rem;height:.42rem;margin-right:.35rem;border-radius:999px}
+.deal-legend--high{background:#34d399}.deal-legend--watch{background:#e8c66a}
+@media(max-width:1100px){.deal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.decision-panel__header,.deal-desk__header{align-items:flex-start;flex-direction:column}.decision-metrics{grid-template-columns:1fr}.decision-metric{min-height:5.8rem}.decision-metric:nth-child(odd){border-right:0}.deal-grid{grid-template-columns:1fr}.deal-filters{width:100%;overflow-x:auto;flex-wrap:nowrap}.deal-filters button{flex:none}.deal-desk__footer{align-items:flex-start;flex-direction:column}}
