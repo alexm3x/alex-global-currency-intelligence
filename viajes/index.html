@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1b24">
+  <meta name="description" content="Viajes ASC: inteligencia de viajes desde México, ranking global de destinos, divisas, vuelos, hoteles y presupuestos.">
+  <meta name="robots" content="index,follow">
+  <title>Viajes ASC | Inteligencia global desde México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="utility">
+      <span>Viajes ASC</span>
+      <span id="editionStatus">Cargando actualización…</span>
+      <button id="themeToggle" type="button">Modo oscuro</button>
+    </div>
+    <div class="brand-row">
+      <div>
+        <span class="eyebrow">ALEX TRAVEL INTELLIGENCE</span>
+        <h1>Viajes ASC</h1>
+        <p>Decisiones de viaje desde México con lógica financiera.</p>
+      </div>
+      <div class="header-actions">
+        <button id="refreshButton" class="ghost" type="button">Actualizar</button>
+        <button id="pdfButton" class="primary" type="button">Resumen ejecutivo PDF</button>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <button class="active" data-view="overview">Inicio</button>
+      <button data-view="ranking">Top 10</button>
+      <button data-view="weekly">Destino semanal</button>
+      <button data-view="budgets">Presupuestos</button>
+      <button data-view="methodology">Metodología</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="overview" class="view active">
+      <div id="hero"></div>
+      <section class="section-block">
+        <div class="section-heading">
+          <div><span class="eyebrow">LECTURA RÁPIDA</span><h2>Las mejores oportunidades de esta edición</h2></div>
+          <button class="text-link" data-jump="ranking">Ver ranking completo →</button>
+        </div>
+        <div id="topCards" class="top-cards"></div>
+      </section>
+      <section class="section-block split-feature">
+        <article id="weeklyPreview" class="feature-panel"></article>
+        <article class="feature-panel dark-panel">
+          <span class="eyebrow">MÉTODO ASC</span>
+          <h2>Calidad mundial primero. Precio después.</h2>
+          <p>La moneda débil no basta. Cada destino debe justificar conectividad, hotelería, relevancia turística y costo total desde México.</p>
+          <button class="light-button" data-jump="methodology">Ver metodología</button>
+        </article>
+      </section>
+    </section>
+
+    <section id="ranking" class="view">
+      <div class="page-head"><span class="eyebrow">ÍNDICE ASC</span><h2>Top 10 global de oportunidades</h2><p>Ranking diario por calidad, divisa, vuelos, hotel y conectividad desde México.</p></div>
+      <div id="rankingGrid" class="ranking-grid"></div>
+    </section>
+
+    <section id="weekly" class="view">
+      <div class="page-head"><span class="eyebrow">DESTINO SEMANAL</span><h2 id="weeklyTitle">Cargando…</h2><p id="weeklyDek"></p></div>
+      <div id="weeklyContent"></div>
+    </section>
+
+    <section id="budgets" class="view">
+      <div class="page-head"><span class="eyebrow">PLANEACIÓN FINANCIERA</span><h2>Presupuesto Turista y Business</h2><p>Una persona, siete noches, salida principal desde MEX.</p></div>
+      <div id="budgetContent"></div>
+    </section>
+
+    <section id="methodology" class="view">
+      <div class="page-head"><span class="eyebrow">TRANSPARENCIA</span><h2>Cómo funciona el Índice ASC</h2><p>Un marco para comparar destinos sin confundir barato con conveniente.</p></div>
+      <div id="methodContent"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">VIAJES ASC</div>
+    <p>Inteligencia de viajes desde México.</p>
+    <p class="footer-note">Las tarifas son referencias de planeación y no constituyen cotizaciones vinculantes. Verifique precio final, impuestos, equipaje, cambios, reembolsos y requisitos migratorios antes de comprar.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
