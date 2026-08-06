@@ -1,93 +1,238 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c1b24">
-  <meta name="description" content="Viajes ASC: inteligencia de viajes desde México, ranking global de destinos, divisas, vuelos, hoteles y presupuestos.">
-  <meta name="robots" content="index,follow">
-  <title>Viajes ASC | Inteligencia global desde México</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#071119">
+  <meta name="description" content="Viajes ASC: tablero autónomo de inteligencia de viajes, arbitraje cambiario y costos desde México.">
+  <title>Viajes ASC | Travel Intelligence Terminal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terminal: {950:'#050b10',900:'#071119',850:'#0a1720',800:'#10212c',700:'#183240'},
+            emeraldx:'#34d399', goldx:'#e8c66a', cyanx:'#67e8f9', dangerx:'#fb7185'
+          },
+          fontFamily: {sans:['Inter','ui-sans-serif','system-ui'], mono:['IBM Plex Mono','ui-monospace','monospace']},
+          boxShadow: {terminal:'0 24px 70px rgba(0,0,0,.34)'}
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    html{scroll-behavior:smooth}body{background:#050b10}.terminal-grid{background-image:linear-gradient(rgba(103,232,249,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,.025) 1px,transparent 1px);background-size:30px 30px}.scrollbar::-webkit-scrollbar{height:8px;width:8px}.scrollbar::-webkit-scrollbar-thumb{background:#183240;border-radius:999px}.tab-active{background:#e8c66a!important;color:#071119!important;border-color:#e8c66a!important}.traffic-dot{box-shadow:0 0 16px currentColor}.metric-card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(#67e8f9,transparent)}.result-card{transition:transform .2s ease,border-color .2s ease}.result-card:hover{transform:translateY(-3px);border-color:#e8c66a}.chart-wrap{height:320px}.line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}@media(max-width:640px){.chart-wrap{height:260px}}
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="utility">
-      <span>Viajes ASC</span>
-      <span id="editionStatus">Cargando actualización…</span>
-      <button id="themeToggle" type="button">Modo oscuro</button>
-    </div>
-    <div class="brand-row">
-      <div>
-        <span class="eyebrow">ALEX TRAVEL INTELLIGENCE</span>
-        <h1>Viajes ASC</h1>
-        <p>Decisiones de viaje desde México con lógica financiera.</p>
-      </div>
-      <div class="header-actions">
-        <button id="refreshButton" class="ghost" type="button">Actualizar</button>
-        <button id="pdfButton" class="primary" type="button">Resumen ejecutivo PDF</button>
-      </div>
-    </div>
-    <nav class="main-nav" aria-label="Navegación principal">
-      <button class="active" data-view="overview">Inicio</button>
-      <button data-view="ranking">Top 10</button>
-      <button data-view="weekly">Destino semanal</button>
-      <button data-view="budgets">Presupuestos</button>
-      <button data-view="methodology">Metodología</button>
-    </nav>
-  </header>
-
-  <main>
-    <section id="overview" class="view active">
-      <div id="hero"></div>
-      <section class="section-block">
-        <div class="section-heading">
-          <div><span class="eyebrow">LECTURA RÁPIDA</span><h2>Las mejores oportunidades de esta edición</h2></div>
-          <button class="text-link" data-jump="ranking">Ver ranking completo →</button>
+<body class="terminal-grid min-h-screen text-slate-100 font-sans antialiased">
+  <div id="app" class="min-h-screen">
+    <header class="sticky top-0 z-50 border-b border-slate-800 bg-terminal-950/95 backdrop-blur-xl">
+      <div class="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+        <div class="flex min-h-16 items-center justify-between gap-4">
+          <div class="flex min-w-0 items-center gap-3">
+            <div class="flex h-9 w-9 items-center justify-center rounded border border-goldx/50 bg-goldx/10 font-mono text-sm font-bold text-goldx">VA</div>
+            <div class="min-w-0">
+              <p class="truncate text-sm font-semibold tracking-[.18em] text-white">VIAJES ASC</p>
+              <p class="truncate font-mono text-[10px] uppercase tracking-[.12em] text-slate-500">Autonomous Travel Intelligence Terminal</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="pipelineBadge" class="hidden rounded border border-slate-700 px-3 py-1.5 font-mono text-[10px] uppercase text-slate-400 sm:inline-flex">Pipeline: conectando</span>
+            <button id="refreshButton" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-cyanx hover:text-cyanx">Actualizar</button>
+          </div>
         </div>
-        <div id="topCards" class="top-cards"></div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+      <section class="grid gap-4 xl:grid-cols-[1.5fr_.8fr]">
+        <article class="overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal">
+          <div class="border-b border-slate-800 bg-gradient-to-r from-terminal-850 to-terminal-900 px-5 py-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">Executive Command Console</p>
+                <h1 class="mt-1 text-2xl font-semibold text-white sm:text-3xl">Encuentra la mejor relación precio–calidad–divisa</h1>
+              </div>
+              <div id="updatedAt" class="rounded border border-slate-700 bg-terminal-950 px-3 py-2 font-mono text-[10px] text-slate-400">Sin datos</div>
+            </div>
+          </div>
+
+          <form id="queryForm" class="grid gap-4 p-5 lg:grid-cols-4">
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Presupuesto total MXN</span>
+              <input id="budgetInput" type="number" min="0" step="5000" placeholder="Ej. 120000" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Salida</span>
+              <input id="startDate" type="date" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Regreso</span>
+              <input id="endDate" type="date" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Origen</span>
+              <select id="originInput" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+                <option value="MEX">AICM · MEX</option>
+                <option value="NLU">AIFA · NLU</option>
+              </select>
+            </label>
+            <label class="space-y-2 lg:col-span-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Intereses</span>
+              <input id="interestInput" type="text" placeholder="gastronomía, historia, playa, bienestar, compras…" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Ordenar</span>
+              <select id="sortInput" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+                <option value="roi">Mayor ROI</option>
+                <option value="price">Menor costo total</option>
+                <option value="proximity">Mayor cercanía</option>
+                <option value="quality">Mayor calidad</option>
+              </select>
+            </label>
+            <button class="self-end rounded bg-goldx px-5 py-3 text-sm font-bold text-terminal-950 hover:bg-yellow-300" type="submit">Procesar consulta</button>
+          </form>
+
+          <div class="flex flex-wrap gap-2 border-t border-slate-800 px-5 py-4">
+            <div class="flex gap-2" id="cabinTabs">
+              <button type="button" data-cabin="tourist" class="tab-active rounded border border-slate-700 px-3 py-2 text-xs font-semibold">Turista</button>
+              <button type="button" data-cabin="business" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Business</button>
+            </div>
+            <div class="mx-1 hidden w-px bg-slate-800 sm:block"></div>
+            <div class="flex flex-wrap gap-2" id="typeTabs">
+              <button type="button" data-type="all" class="tab-active rounded border border-slate-700 px-3 py-2 text-xs font-semibold">Todos</button>
+              <button type="button" data-type="urban" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Urbano</button>
+              <button type="button" data-type="beach" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Playa / Naturaleza</button>
+              <button type="button" data-type="cruise" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Cruceros</button>
+            </div>
+          </div>
+        </article>
+
+        <aside class="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-2">
+          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">USD/MXN</p><strong id="usdMxn" class="mt-2 block text-2xl text-white">—</strong><span class="text-xs text-slate-500">Referencia del pipeline</span></div>
+          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">Destinos</p><strong id="destinationCount" class="mt-2 block text-2xl text-white">—</strong><span class="text-xs text-slate-500">Incluye cruceros</span></div>
+          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">Semáforo verde</p><strong id="greenCount" class="mt-2 block text-2xl text-emeraldx">—</strong><span class="text-xs text-slate-500">USD con ventaja</span></div>
+          <div class="metric-card relative overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 p-4"><p class="font-mono text-[10px] uppercase text-slate-500">Frecuencia</p><strong class="mt-2 block text-2xl text-white">2×</strong><span class="text-xs text-slate-500">08:00 / 20:00 UTC</span></div>
+        </aside>
       </section>
-      <section class="section-block split-feature">
-        <article id="weeklyPreview" class="feature-panel"></article>
-        <article class="feature-panel dark-panel">
-          <span class="eyebrow">MÉTODO ASC</span>
-          <h2>Calidad mundial primero. Precio después.</h2>
-          <p>La moneda débil no basta. Cada destino debe justificar conectividad, hotelería, relevancia turística y costo total desde México.</p>
-          <button class="light-button" data-jump="methodology">Ver metodología</button>
+
+      <section>
+        <div class="mb-3 flex flex-wrap items-end justify-between gap-3">
+          <div><p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">Personalized Output</p><h2 class="text-xl font-semibold text-white">Las 3 mejores opciones para tu consulta</h2></div>
+          <p id="resultSummary" class="font-mono text-[10px] text-slate-500">Esperando parámetros</p>
+        </div>
+        <div id="recommendations" class="grid gap-4 lg:grid-cols-3"></div>
+      </section>
+
+      <section class="grid gap-4 xl:grid-cols-2">
+        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal">
+          <div class="mb-4 flex items-center justify-between"><div><p class="font-mono text-[10px] uppercase text-cyanx">ASC Total Cost Index</p><h3 class="font-semibold text-white">Costo estimado de 7 noches</h3></div><span id="costModeLabel" class="rounded border border-slate-700 px-2 py-1 font-mono text-[10px] text-slate-400">TURISTA</span></div>
+          <div class="chart-wrap"><canvas id="costChart"></canvas></div>
+        </article>
+        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal">
+          <div class="mb-4"><p class="font-mono text-[10px] uppercase text-cyanx">FX Opportunity Monitor</p><h3 class="font-semibold text-white">Tendencia y posición cambiaria</h3></div>
+          <div class="chart-wrap"><canvas id="fxChart"></canvas></div>
         </article>
       </section>
-    </section>
 
-    <section id="ranking" class="view">
-      <div class="page-head"><span class="eyebrow">ÍNDICE ASC</span><h2>Top 10 global de oportunidades</h2><p>Ranking diario por calidad, divisa, vuelos, hotel y conectividad desde México.</p></div>
-      <div id="rankingGrid" class="ranking-grid"></div>
-    </section>
+      <section class="rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal">
+        <div class="flex flex-wrap items-end justify-between gap-3 border-b border-slate-800 px-5 py-4">
+          <div><p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">Global Opportunity Matrix</p><h2 class="text-xl font-semibold text-white">Top 20 destinos y rutas de valor</h2></div>
+          <div class="flex gap-3 font-mono text-[10px] uppercase text-slate-500"><span><i class="mr-1 inline-block h-2 w-2 rounded-full bg-emeraldx"></i>Arbitraje</span><span><i class="mr-1 inline-block h-2 w-2 rounded-full bg-amber-400"></i>Neutral</span><span><i class="mr-1 inline-block h-2 w-2 rounded-full bg-dangerx"></i>Fuerte</span></div>
+        </div>
+        <div class="scrollbar overflow-x-auto">
+          <table class="min-w-[1180px] w-full text-left text-xs">
+            <thead class="bg-terminal-950 font-mono uppercase tracking-wider text-slate-500"><tr><th class="px-4 py-3">#</th><th class="px-4 py-3">Destino</th><th class="px-4 py-3">Tipo</th><th class="px-4 py-3">Semáforo</th><th class="px-4 py-3">FX vs ref.</th><th class="px-4 py-3">ROI</th><th class="px-4 py-3">Value</th><th class="px-4 py-3">Diario moderado</th><th class="px-4 py-3">7 noches Turista</th><th class="px-4 py-3">7 noches Business</th><th class="px-4 py-3">Conectividad</th><th class="px-4 py-3">Acción</th></tr></thead>
+            <tbody id="matrixBody" class="divide-y divide-slate-800"></tbody>
+          </table>
+        </div>
+      </section>
 
-    <section id="weekly" class="view">
-      <div class="page-head"><span class="eyebrow">DESTINO SEMANAL</span><h2 id="weeklyTitle">Cargando…</h2><p id="weeklyDek"></p></div>
-      <div id="weeklyContent"></div>
-    </section>
+      <section class="grid gap-4 md:grid-cols-3">
+        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Data Governance</p><h3 class="mt-2 font-semibold text-white">Fuentes y límites</h3><p id="sourceNote" class="mt-2 text-sm leading-6 text-slate-400">Cargando metodología…</p></article>
+        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Scoring Model</p><h3 class="mt-2 font-semibold text-white">ROI compuesto</h3><p class="mt-2 text-sm leading-6 text-slate-400">30% calidad, 25% oportunidad FX, 20% precio total, 15% conectividad y 10% seguridad por volatilidad.</p></article>
+        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Execution Rule</p><h3 class="mt-2 font-semibold text-white">Verificar antes de comprar</h3><p class="mt-2 text-sm leading-6 text-slate-400">Los importes son estimaciones comparables. Google Travel y los operadores de crucero confirman inventario, impuestos, equipaje y flexibilidad.</p></article>
+      </section>
+    </main>
 
-    <section id="budgets" class="view">
-      <div class="page-head"><span class="eyebrow">PLANEACIÓN FINANCIERA</span><h2>Presupuesto Turista y Business</h2><p>Una persona, siete noches, salida principal desde MEX.</p></div>
-      <div id="budgetContent"></div>
-    </section>
+    <footer class="border-t border-slate-800 bg-terminal-950 px-4 py-8 text-center font-mono text-[10px] uppercase tracking-wider text-slate-600">Viajes ASC · Intelligence for decisions, not booking advice</footer>
+  </div>
 
-    <section id="methodology" class="view">
-      <div class="page-head"><span class="eyebrow">TRANSPARENCIA</span><h2>Cómo funciona el Índice ASC</h2><p>Un marco para comparar destinos sin confundir barato con conveniente.</p></div>
-      <div id="methodContent"></div>
-    </section>
-  </main>
+  <script>
+    const DATA_URL = './data/destinations.json';
+    const state = {data:null,cabin:'tourist',type:'all',filtered:[],costChart:null,fxChart:null};
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => [...document.querySelectorAll(selector)];
+    const money = value => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(Number(value)||0);
+    const number = (value,digits=1) => new Intl.NumberFormat('es-MX',{maximumFractionDigits:digits}).format(Number(value)||0);
+    const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const traffic = {green:{label:'Verde',class:'text-emeraldx',dot:'bg-emeraldx'},amber:{label:'Amarillo',class:'text-amber-400',dot:'bg-amber-400'},red:{label:'Rojo',class:'text-dangerx',dot:'bg-dangerx'}};
 
-  <footer>
-    <div class="footer-brand">VIAJES ASC</div>
-    <p>Inteligencia de viajes desde México.</p>
-    <p class="footer-note">Las tarifas son referencias de planeación y no constituyen cotizaciones vinculantes. Verifique precio final, impuestos, equipaje, cambios, reembolsos y requisitos migratorios antes de comprar.</p>
-  </footer>
+    function setDefaultDates(){
+      const start=new Date();start.setDate(start.getDate()+90);const end=new Date(start);end.setDate(end.getDate()+7);
+      $('#startDate').value=start.toISOString().slice(0,10);$('#endDate').value=end.toISOString().slice(0,10);
+    }
 
-  <script src="app.js"></script>
-  <script src="planner.js"></script>
+    function currentCost(d){return state.cabin==='business'?d.business_total_7n_mxn:d.moderate_total_7n_mxn}
+    function currentDaily(d){return state.cabin==='business'?d.luxury_daily_mxn:d.moderate_daily_mxn}
+
+    function buildLiveLinks(d){
+      const origin=$('#originInput').value||'MEX';const start=$('#startDate').value;const end=$('#endDate').value;
+      const cabin=state.cabin==='business'?'business class':'economy';
+      const flightQuery=encodeURIComponent(`Flights from ${origin} to ${d.airport} ${start} through ${end} ${cabin}`);
+      const hotelQuery=encodeURIComponent(`Hotels in ${d.city} ${start} through ${end}`);
+      const links={flights:`https://www.google.com/travel/flights?q=${flightQuery}`,hotels:`https://www.google.com/travel/search?q=${hotelQuery}`};
+      if(d.kind==='cruise')links.cruise=`https://www.google.com/search?q=${encodeURIComponent(`${d.cruise_provider} ${d.cruise_route} ${start} cruise`)}`;
+      return links;
+    }
+
+    function scoreQuery(d){
+      const budget=Number($('#budgetInput').value)||0;const cost=currentCost(d);const interests=$('#interestInput').value.toLowerCase().split(',').map(x=>x.trim()).filter(Boolean);
+      let score=d.roi_score;
+      if(budget){score+=cost<=budget?18:Math.max(-35,-((cost-budget)/budget)*45)}
+      if(interests.length){const haystack=[d.city,d.country,d.why_value,...d.tags].join(' ').toLowerCase();score+=interests.filter(x=>haystack.includes(x)).length*6}
+      if(state.type!=='all'&&d.kind===state.type)score+=12;
+      return score;
+    }
+
+    function applyQuery(){
+      if(!state.data)return;
+      const sort=$('#sortInput').value;let list=state.data.destinations.filter(d=>state.type==='all'||d.kind===state.type);
+      list=list.map(d=>({...d,query_score:scoreQuery(d)}));
+      list.sort((a,b)=>sort==='price'?currentCost(a)-currentCost(b):sort==='proximity'?b.proximity_score-a.proximity_score:sort==='quality'?b.quality_score-a.quality_score:b.query_score-a.query_score);
+      state.filtered=list;renderRecommendations(list.slice(0,3));renderMatrix(list);renderCharts(list.slice(0,10));
+      $('#resultSummary').textContent=`${list.length} opciones · ${state.cabin==='business'?'Business':'Turista'} · ${state.type==='all'?'Todos los tipos':state.type}`;
+      localStorage.setItem('viajesASCQuery',JSON.stringify({budget:$('#budgetInput').value,start:$('#startDate').value,end:$('#endDate').value,origin:$('#originInput').value,interests:$('#interestInput').value,sort,cabin:state.cabin,type:state.type}));
+    }
+
+    function renderRecommendations(list){
+      $('#recommendations').innerHTML=list.map((d,i)=>{const t=traffic[d.traffic_light];const links=buildLiveLinks(d);return `<article class="result-card rounded-xl border border-slate-800 bg-terminal-900 p-5 shadow-terminal"><div class="flex items-start justify-between"><div><p class="font-mono text-[10px] uppercase tracking-widest text-goldx">Recomendación 0${i+1}</p><h3 class="mt-1 text-xl font-semibold text-white">${esc(d.city)}</h3><p class="text-xs text-slate-500">${esc(d.country)} · ${esc(d.route_summary)}</p></div><div class="rounded border border-slate-700 bg-terminal-950 px-3 py-2 text-center"><span class="block font-mono text-[9px] uppercase text-slate-500">ROI</span><strong class="text-xl text-white">${number(d.roi_score)}</strong></div></div><div class="mt-4 flex items-center gap-2 ${t.class}"><i class="traffic-dot h-2.5 w-2.5 rounded-full ${t.dot}"></i><span class="font-mono text-[10px] uppercase">${esc(d.traffic_label)} · ${d.fx_advantage_pct>=0?'+':''}${number(d.fx_advantage_pct)}%</span></div><p class="mt-4 line-clamp-2 text-sm leading-6 text-slate-400">${esc(d.why_value)}</p><div class="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded border border-slate-800 bg-slate-800"><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Costo diario</span><strong class="mt-1 block text-sm text-white">${money(currentDaily(d))}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Total 7 noches</span><strong class="mt-1 block text-sm text-white">${money(currentCost(d))}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Value for money</span><strong class="mt-1 block text-sm text-white">${number(d.value_for_money)}/10</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Volatilidad</span><strong class="mt-1 block text-sm text-white">${number(d.volatility_annualized_pct)}%</strong></div></div><div class="mt-4 flex flex-wrap gap-2"><a class="rounded bg-goldx px-3 py-2 text-xs font-bold text-terminal-950" target="_blank" rel="noopener" href="${links.flights}">Google Flights</a><a class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-200" target="_blank" rel="noopener" href="${links.hotels}">Google Hotels</a>${links.cruise?`<a class="rounded border border-cyanx/50 px-3 py-2 text-xs font-semibold text-cyanx" target="_blank" rel="noopener" href="${links.cruise}">Buscar crucero</a>`:''}</div></article>`}).join('')||'<div class="rounded-xl border border-slate-800 bg-terminal-900 p-6 text-slate-400 lg:col-span-3">No hay opciones que coincidan con los filtros.</div>';
+    }
+
+    function renderMatrix(list){
+      $('#matrixBody').innerHTML=list.map(d=>{const t=traffic[d.traffic_light];const links=buildLiveLinks(d);return `<tr class="hover:bg-terminal-850/70"><td class="px-4 py-3 font-mono text-goldx">${String(d.rank).padStart(2,'0')}</td><td class="px-4 py-3"><strong class="block text-white">${esc(d.city)}</strong><span class="text-[10px] text-slate-500">${esc(d.country)}</span></td><td class="px-4 py-3 font-mono uppercase text-slate-400">${esc(d.kind)}</td><td class="px-4 py-3"><span class="inline-flex items-center gap-2 ${t.class}"><i class="h-2 w-2 rounded-full ${t.dot}"></i>${t.label}</span></td><td class="px-4 py-3 font-mono ${d.fx_advantage_pct>=0?'text-emeraldx':'text-dangerx'}">${d.fx_advantage_pct>=0?'+':''}${number(d.fx_advantage_pct)}%</td><td class="px-4 py-3 font-semibold text-white">${number(d.roi_score)}</td><td class="px-4 py-3">${number(d.value_for_money)}/10</td><td class="px-4 py-3">${money(d.moderate_daily_mxn)}</td><td class="px-4 py-3">${money(d.moderate_total_7n_mxn)}</td><td class="px-4 py-3">${money(d.business_total_7n_mxn)}</td><td class="px-4 py-3">${number(d.connectivity_score,0)}/100</td><td class="px-4 py-3"><a target="_blank" rel="noopener" href="${links.flights}" class="text-cyanx hover:text-white">Buscar →</a></td></tr>`}).join('');
+    }
+
+    function chartDefaults(){if(!window.Chart)return;Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='rgba(51,65,85,.55)';Chart.defaults.font.family='IBM Plex Mono, ui-monospace, monospace';}
+    function renderCharts(list){if(!window.Chart)return;chartDefaults();const top=list.slice(0,10);const costValues=top.map(currentCost);if(state.costChart)state.costChart.destroy();state.costChart=new Chart($('#costChart'),{type:'bar',data:{labels:top.map(d=>d.city),datasets:[{data:costValues,borderColor:'#e8c66a',backgroundColor:'rgba(232,198,106,.68)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.raw)}}},scales:{x:{grid:{display:false},ticks:{maxRotation:40,minRotation:20}},y:{ticks:{callback:v=>`${Math.round(v/1000)}k`}}}}});$('#costModeLabel').textContent=state.cabin==='business'?'BUSINESS':'TURISTA';
+      const fxList=top.filter(d=>d.fx_trend?.length>=2).slice(0,4);const fallback=fxList.length?fxList:top.slice(0,4);let labels=[];let datasets=[];
+      if(fxList.length){labels=fxList[0].fx_trend.map(p=>p.date);datasets=fxList.map((d,i)=>({label:d.city,data:d.fx_trend.map(p=>p.local_per_usd),borderColor:['#67e8f9','#34d399','#e8c66a','#fb7185'][i],backgroundColor:'transparent',tension:.25,pointRadius:0,borderWidth:2}));}
+      else{labels=['Referencia','Actual'];datasets=fallback.map((d,i)=>({label:d.city,data:[d.historical_average_local_per_usd,d.current_local_per_usd],borderColor:['#67e8f9','#34d399','#e8c66a','#fb7185'][i],backgroundColor:'transparent',tension:0,pointRadius:3,borderWidth:2}));}
+      if(state.fxChart)state.fxChart.destroy();state.fxChart=new Chart($('#fxChart'),{type:'line',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${number(c.raw,3)}`}}},scales:{x:{grid:{display:false},ticks:{maxTicksLimit:7}},y:{beginAtZero:false}}}});
+    }
+
+    function renderHeader(data){$('#usdMxn').textContent=number(data.market_snapshot.usd_mxn,2);$('#destinationCount').textContent=data.meta.destination_count;$('#greenCount').textContent=data.market_snapshot.green_destinations;const generated=new Date(data.meta.generated_at);$('#updatedAt').textContent=`Actualizado ${generated.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`;$('#pipelineBadge').textContent=`Pipeline: ${data.source_status.current_fx==='live'?'LIVE':'FALLBACK'}`;$('#pipelineBadge').className=`hidden rounded border px-3 py-1.5 font-mono text-[10px] uppercase sm:inline-flex ${data.source_status.current_fx==='live'?'border-emerald-500/40 text-emeraldx':'border-amber-500/40 text-amber-400'}`;$('#sourceNote').textContent=`FX actual: ${data.source_status.current_fx}. Históricos: Frankfurter cuando existe cobertura. Costos: ${data.source_status.cost_model}.`}
+
+    function restoreQuery(){try{const saved=JSON.parse(localStorage.getItem('viajesASCQuery')||'null');if(!saved)return;$('#budgetInput').value=saved.budget||'';$('#startDate').value=saved.start||$('#startDate').value;$('#endDate').value=saved.end||$('#endDate').value;$('#originInput').value=saved.origin||'MEX';$('#interestInput').value=saved.interests||'';$('#sortInput').value=saved.sort||'roi';state.cabin=saved.cabin||'tourist';state.type=saved.type||'all';syncTabs()}catch(e){console.warn('Preferences ignored',e)}}
+    function syncTabs(){$$('#cabinTabs button').forEach(b=>b.classList.toggle('tab-active',b.dataset.cabin===state.cabin));$$('#typeTabs button').forEach(b=>b.classList.toggle('tab-active',b.dataset.type===state.type))}
+
+    async function load(){try{$('#pipelineBadge').textContent='Pipeline: cargando';const response=await fetch(`${DATA_URL}?t=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();if(data.meta?.schema_version!=='2.0.0'||data.destinations?.length!==20)throw new Error('Contrato de datos inválido');state.data=data;renderHeader(data);restoreQuery();applyQuery()}catch(error){console.error(error);$('#recommendations').innerHTML=`<div class="rounded-xl border border-dangerx/40 bg-dangerx/10 p-6 text-dangerx lg:col-span-3">No fue posible cargar el tablero: ${esc(error.message)}</div>`;$('#pipelineBadge').textContent='Pipeline: error'}}
+
+    $('#queryForm').addEventListener('submit',event=>{event.preventDefault();applyQuery()});$('#refreshButton').addEventListener('click',load);$$('#cabinTabs button').forEach(button=>button.addEventListener('click',()=>{state.cabin=button.dataset.cabin;syncTabs();applyQuery()}));$$('#typeTabs button').forEach(button=>button.addEventListener('click',()=>{state.type=button.dataset.type;syncTabs();applyQuery()}));['sortInput','originInput'].forEach(id=>$(`#${id}`).addEventListener('change',applyQuery));
+    setDefaultDates();load();setInterval(()=>document.visibilityState==='visible'&&load(),15*60*1000);window.addEventListener('online',load);
+  </script>
 </body>
 </html>
