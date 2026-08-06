@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
+body { background: #050b10; max-width: 100%; overflow-x: hidden; }
+.terminal-grid {
+  background-image:
+    linear-gradient(rgba(103,232,249,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103,232,249,.025) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.scrollbar::-webkit-scrollbar { height: 8px; width: 8px; }
+.scrollbar::-webkit-scrollbar-thumb { background: #183240; border-radius: 999px; }
+.tab-active { background: #e8c66a !important; color: #071119 !important; border-color: #e8c66a !important; }
+.traffic-dot { box-shadow: 0 0 16px currentColor; }
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(#67e8f9, transparent);
+}
+.result-card { transition: transform .2s ease, border-color .2s ease; }
+.result-card:hover { transform: translateY(-3px); border-color: #e8c66a; }
+.chart-wrap { height: 320px; }
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#budgetInput { width: 100%; min-width: 140px; }
+.budget-status--within { color: #34d399; border-color: rgba(52,211,153,.4); background: rgba(52,211,153,.08); }
+.budget-status--adjusted { color: #e8c66a; border-color: rgba(232,198,106,.4); background: rgba(232,198,106,.08); }
+.budget-status--outside { color: #fb7185; border-color: rgba(251,113,133,.4); background: rgba(251,113,133,.08); }
+@media (max-width: 640px) { .chart-wrap { height: 260px; } }

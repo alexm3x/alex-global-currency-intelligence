@@ -247,7 +247,6 @@
 
   function enhance(items) {
     const top = items.slice(0, 3);
-    drawCostChart(items);
     bindRecommendationSelection(items);
     renderNews(top);
   }

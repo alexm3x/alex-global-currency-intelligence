@@ -33,6 +33,7 @@
   };
 
   const tripCost = destination => {
+    if (typeof tripEstimate === 'function') return tripEstimate(destination).total;
     const stay = state.cabin === 'business' ? destination.luxury_daily_mxn : destination.moderate_daily_mxn;
     const flight = state.cabin === 'business' ? destination.business_flight_mxn : destination.economy_flight_mxn;
     return flight + stay * nights();
@@ -57,10 +58,11 @@
         + Math.max(0, Number(destination.fx_advantage_pct)) * 1.1
         + Number(destination.value_for_money) * 2.4
         + Math.max(0, 12 - Number(destination.volatility_annualized_pct)) * .28;
-      const signal = relativeDiscount >= 15 && destination.fx_advantage_pct >= 5
-        ? 'Reservar'
+      const verified = destination.sourceType === 'live' && Number.isFinite(destination.benchmarkPrice);
+      const signal = verified && relativeDiscount >= 15 && destination.fx_advantage_pct >= 5
+        ? 'Comprar ahora'
         : relativeDiscount >= 8 || destination.fx_advantage_pct >= 5
-          ? 'Verificar hoy'
+          ? 'Verificar ahora'
           : 'Vigilar';
       return { destination, benchmark, price, relativeDiscount, saving, conviction, signal };
     });
@@ -71,7 +73,16 @@
   }
 
   function renderDecisionSignals(items) {
-    if (!items.length) return;
+    if (!items.length) {
+      const badge = document.getElementById('bookingSignalBadge');
+      badge.textContent = 'Sin opción elegible';
+      badge.className = 'decision-badge decision-badge--wait';
+      for (const id of ['medianFxAdvantage', 'maxFxSavings', 'medianVolatility', 'bestOpportunity']) {
+        document.getElementById(id).textContent = '—';
+      }
+      document.getElementById('bestOpportunityContext').textContent = 'Ajuste presupuesto o parámetros';
+      return;
+    }
     const topFive = [...items].sort((a, b) => b.roi_score - a.roi_score).slice(0, 5);
     const medianFx = median(topFive.map(item => item.fx_advantage_pct));
     const medianVol = median(topFive.map(item => item.volatility_annualized_pct));
@@ -116,15 +127,20 @@
 
   function refreshOpportunityDesk() {
     if (!state?.data) return;
-    const items = state.filtered?.length ? [...state.filtered] : [...state.data.destinations];
+    const items = Array.isArray(state.filtered) ? [...state.filtered] : [...state.data.destinations];
     renderDecisionSignals([...items]);
     renderDeals([...items]);
   }
 
   dealFilters.querySelectorAll('[data-deal-filter]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.classList.contains('is-active')));
     button.addEventListener('click', () => {
       dealFilter = button.dataset.dealFilter;
-      dealFilters.querySelectorAll('button').forEach(item => item.classList.toggle('is-active', item === button));
+      dealFilters.querySelectorAll('button').forEach(item => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
       refreshOpportunityDesk();
     });
   });

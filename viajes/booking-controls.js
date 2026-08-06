@@ -188,6 +188,10 @@
     convertRenderedMoney(document.getElementById('recommendations'));
     convertRenderedMoney(document.getElementById('matrixBody'));
     updateCurrencyLabels();
+    const preview = document.getElementById('budgetFormatted');
+    if (preview) preview.textContent = Number(budgetInput.value) > 0
+      ? new Intl.NumberFormat('es-MX', { style: 'currency', currency: selectedCurrency, maximumFractionDigits: 0 }).format(Number(budgetInput.value))
+      : 'Sin presupuesto definido';
     window.setTimeout(updateCostChartCurrency, 40);
   }
 
@@ -257,8 +261,15 @@
     const helper = document.createElement('div');
     helper.id = 'budgetHelper';
     helper.className = 'mt-2 flex flex-wrap items-center justify-between gap-2 text-[10px] leading-4 text-slate-500';
-    helper.innerHTML = '<span>Los resultados se convertirán automáticamente.</span><span id="currencyRateNote" class="font-mono"></span>';
+    helper.innerHTML = '<span>Los resultados se convierten automáticamente.</span><strong id="budgetFormatted" class="font-mono text-slate-300">Sin presupuesto definido</strong>';
     wrapper.insertAdjacentElement('afterend', helper);
+
+    budgetInput.addEventListener('input', () => {
+      const preview = document.getElementById('budgetFormatted');
+      if (preview) preview.textContent = Number(budgetInput.value) > 0
+        ? new Intl.NumberFormat('es-MX', { style: 'currency', currency: selectedCurrency, maximumFractionDigits: 0 }).format(Number(budgetInput.value))
+        : 'Sin presupuesto definido';
+    });
 
     currencySelect.addEventListener('change', () => {
       const previousCurrency = selectedCurrency;
@@ -350,16 +361,11 @@
   buildCalendarControls();
   populateCurrencySelector();
 
-  const originalScoreQuery = scoreQuery;
-  scoreQuery = function currencyAwareScore(destination) {
-    const originalValue = budgetInput.value;
-    const budgetMXN = toMXN(originalValue);
-    budgetInput.value = budgetMXN ? String(Math.round(budgetMXN)) : '';
-    try {
-      return originalScoreQuery(destination);
-    } finally {
-      budgetInput.value = originalValue;
-    }
+  window.ViajesCurrency = {
+    formatMXN: formatSelectedCurrency,
+    toMXN,
+    fromMXN,
+    get selectedCurrency() { return selectedCurrency; }
   };
 
   const originalApplyQuery = applyQuery;

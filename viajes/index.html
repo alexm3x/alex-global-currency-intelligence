@@ -6,27 +6,9 @@
   <meta name="theme-color" content="#071119">
   <meta name="description" content="Viajes ASC: tablero autónomo de inteligencia de viajes, arbitraje cambiario y costos desde México.">
   <title>Viajes ASC | Travel Intelligence Terminal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            terminal: {950:'#050b10',900:'#071119',850:'#0a1720',800:'#10212c',700:'#183240'},
-            emeraldx:'#34d399', goldx:'#e8c66a', cyanx:'#67e8f9', dangerx:'#fb7185'
-          },
-          fontFamily: {sans:['Inter','ui-sans-serif','system-ui'], mono:['IBM Plex Mono','ui-monospace','monospace']},
-          boxShadow: {terminal:'0 24px 70px rgba(0,0,0,.34)'}
-        }
-      }
-    };
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="travel-opportunities.css">
-  <style>
-    html{scroll-behavior:smooth}body{background:#050b10}.terminal-grid{background-image:linear-gradient(rgba(103,232,249,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,.025) 1px,transparent 1px);background-size:30px 30px}.scrollbar::-webkit-scrollbar{height:8px;width:8px}.scrollbar::-webkit-scrollbar-thumb{background:#183240;border-radius:999px}.tab-active{background:#e8c66a!important;color:#071119!important;border-color:#e8c66a!important}.traffic-dot{box-shadow:0 0 16px currentColor}.metric-card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(#67e8f9,transparent)}.result-card{transition:transform .2s ease,border-color .2s ease}.result-card:hover{transform:translateY(-3px);border-color:#e8c66a}.chart-wrap{height:320px}.line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}@media(max-width:640px){.chart-wrap{height:260px}}
-  </style>
 </head>
 <body class="terminal-grid min-h-screen text-slate-100 font-sans antialiased">
   <div id="app" class="min-h-screen">
@@ -61,7 +43,7 @@
             </div>
           </div>
 
-          <form id="queryForm" class="grid gap-4 p-5 lg:grid-cols-4">
+          <form id="queryForm" class="grid gap-4 p-5 sm:grid-cols-2 lg:grid-cols-4">
             <label class="space-y-2">
               <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Presupuesto total MXN</span>
               <input id="budgetInput" type="number" inputmode="decimal" enterkeyhint="done" autocomplete="off" min="0" step="5000" placeholder="Ej. 120000" aria-label="Importe total del presupuesto" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
@@ -79,7 +61,27 @@
               <select id="originInput" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
                 <option value="MEX">AICM · MEX</option>
                 <option value="NLU">AIFA · NLU</option>
+                <option value="GDL">Guadalajara · GDL</option>
+                <option value="MTY">Monterrey · MTY</option>
+                <option value="CUN">Cancún · CUN</option>
+                <option value="TIJ">Tijuana · TIJ</option>
               </select>
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Adultos</span>
+              <input id="adultsInput" type="number" inputmode="numeric" min="1" max="12" step="1" value="1" aria-label="Número de adultos" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Menores</span>
+              <input id="minorsInput" type="number" inputmode="numeric" min="0" max="8" step="1" value="0" aria-label="Número de menores" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Viajeros</span>
+              <input id="travelersInput" type="number" value="1" readonly aria-label="Número total de viajeros" class="w-full rounded border border-slate-800 bg-terminal-850 px-3 py-3 text-sm text-slate-300 outline-none">
+            </label>
+            <label class="space-y-2">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Habitaciones</span>
+              <input id="roomsInput" type="number" inputmode="numeric" min="1" max="8" step="1" value="1" aria-label="Número de habitaciones" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
             </label>
             <label class="space-y-2 lg:col-span-2">
               <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Intereses</span>
@@ -88,7 +90,7 @@
             <label class="space-y-2">
               <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Ordenar</span>
               <select id="sortInput" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
-                <option value="roi">Mayor ROI</option>
+                <option value="score">Mayor ASC Smart Travel Score</option>
                 <option value="price">Menor costo total</option>
                 <option value="proximity">Mayor cercanía</option>
                 <option value="quality">Mayor calidad</option>
@@ -99,15 +101,15 @@
 
           <div class="flex flex-wrap gap-2 border-t border-slate-800 px-5 py-4">
             <div class="flex gap-2" id="cabinTabs">
-              <button type="button" data-cabin="tourist" class="tab-active rounded border border-slate-700 px-3 py-2 text-xs font-semibold">Turista</button>
-              <button type="button" data-cabin="business" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Business</button>
+              <button type="button" data-cabin="tourist" aria-pressed="true" class="tab-active rounded border border-slate-700 px-3 py-2 text-xs font-semibold">Turista</button>
+              <button type="button" data-cabin="business" aria-pressed="false" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Business</button>
             </div>
             <div class="mx-1 hidden w-px bg-slate-800 sm:block"></div>
             <div class="flex flex-wrap gap-2" id="typeTabs">
-              <button type="button" data-type="all" class="tab-active rounded border border-slate-700 px-3 py-2 text-xs font-semibold">Todos</button>
-              <button type="button" data-type="urban" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Urbano</button>
-              <button type="button" data-type="beach" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Playa / Naturaleza</button>
-              <button type="button" data-type="cruise" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Cruceros</button>
+              <button type="button" data-type="all" aria-pressed="true" class="tab-active rounded border border-slate-700 px-3 py-2 text-xs font-semibold">Todos</button>
+              <button type="button" data-type="urban" aria-pressed="false" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Urbano</button>
+              <button type="button" data-type="beach" aria-pressed="false" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Playa / Naturaleza</button>
+              <button type="button" data-type="cruise" aria-pressed="false" class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300">Cruceros</button>
             </div>
           </div>
         </article>
@@ -144,8 +146,8 @@
         <div class="deal-desk__header">
           <div>
             <p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">ASC Opportunity Desk</p>
-            <h2 id="dealDeskTitle" class="mt-1 text-xl font-semibold text-white">Ofertas y oportunidades detectadas</h2>
-            <p class="mt-1 max-w-3xl text-xs leading-5 text-slate-500">Preselección financiera por costo relativo, ventaja cambiaria y riesgo. El precio final se confirma antes de comprar.</p>
+            <h2 id="dealDeskTitle" class="mt-1 text-xl font-semibold text-white">Oportunidades por verificar</h2>
+            <p class="mt-1 max-w-3xl text-xs leading-5 text-slate-500">Preselección financiera basada en estimaciones comparables, ventaja cambiaria y riesgo. No son ofertas confirmadas; el precio final se verifica antes de comprar.</p>
           </div>
           <div id="dealFilters" class="deal-filters" aria-label="Filtrar oportunidades">
             <button type="button" class="is-active" data-deal-filter="all">Todas</button>
@@ -179,7 +181,7 @@
         </div>
         <div class="scrollbar overflow-x-auto">
           <table class="min-w-[1180px] w-full text-left text-xs">
-            <thead class="bg-terminal-950 font-mono uppercase tracking-wider text-slate-500"><tr><th class="px-4 py-3">#</th><th class="px-4 py-3">Destino</th><th class="px-4 py-3">Tipo</th><th class="px-4 py-3">Semáforo</th><th class="px-4 py-3">FX vs ref.</th><th class="px-4 py-3">ROI</th><th class="px-4 py-3">Value</th><th class="px-4 py-3">Diario moderado</th><th class="px-4 py-3">7 noches Turista</th><th class="px-4 py-3">7 noches Business</th><th class="px-4 py-3">Conectividad</th><th class="px-4 py-3">Acción</th></tr></thead>
+            <thead class="bg-terminal-950 font-mono uppercase tracking-wider text-slate-500"><tr><th class="px-4 py-3">#</th><th class="px-4 py-3">Destino</th><th class="px-4 py-3">Tipo</th><th class="px-4 py-3">Semáforo</th><th class="px-4 py-3">FX vs ref.</th><th class="px-4 py-3">ASC Score</th><th class="px-4 py-3">Value</th><th class="px-4 py-3">Estancia diaria</th><th class="px-4 py-3">Total estimado</th><th class="px-4 py-3">Total + contingencia</th><th class="px-4 py-3">Conectividad</th><th class="px-4 py-3">Presupuesto / acción</th></tr></thead>
             <tbody id="matrixBody" class="divide-y divide-slate-800"></tbody>
           </table>
         </div>
@@ -187,7 +189,7 @@
 
       <section class="grid gap-4 md:grid-cols-3">
         <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Data Governance</p><h3 class="mt-2 font-semibold text-white">Fuentes y límites</h3><p id="sourceNote" class="mt-2 text-sm leading-6 text-slate-400">Cargando metodología…</p></article>
-        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Scoring Model</p><h3 class="mt-2 font-semibold text-white">ROI compuesto</h3><p class="mt-2 text-sm leading-6 text-slate-400">30% calidad, 25% oportunidad FX, 20% precio total, 15% conectividad y 10% seguridad por volatilidad.</p></article>
+        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Scoring Model</p><h3 class="mt-2 font-semibold text-white">ASC Smart Travel Score</h3><p class="mt-2 text-sm leading-6 text-slate-400">El presupuesto se aplica primero como restricción. Después se ponderan calidad, precio, FX, conectividad y riesgo; la confianza del dato se muestra por separado.</p></article>
         <article class="rounded-xl border border-slate-800 bg-terminal-900 p-5"><p class="font-mono text-[10px] uppercase text-goldx">Execution Rule</p><h3 class="mt-2 font-semibold text-white">Verificar antes de comprar</h3><p class="mt-2 text-sm leading-6 text-slate-400">Los importes son estimaciones comparables. Google Travel y los operadores de crucero confirman inventario, impuestos, equipaje y flexibilidad.</p></article>
       </section>
     </main>
@@ -195,23 +197,50 @@
     <footer class="border-t border-slate-800 bg-terminal-950 px-4 py-8 text-center font-mono text-[10px] uppercase tracking-wider text-slate-600">Viajes ASC · Intelligence for decisions, not booking advice</footer>
   </div>
 
+  <script src="travel-data-v4.js"></script>
+  <script src="travel-decision-core.js"></script>
   <script>
     const DATA_URL = './data/destinations.json';
-    const state = {data:null,cabin:'tourist',type:'all',filtered:[],costChart:null,fxChart:null};
+    const DATA_CACHE_KEY = 'viajesASCTravelDataV4';
+    const state = {data:null,cabin:'tourist',type:'all',filtered:[],matrix:[],costChart:null};
     const $ = selector => document.querySelector(selector);
     const $$ = selector => [...document.querySelectorAll(selector)];
-    const money = value => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(Number(value)||0);
+    const money = value => window.ViajesCurrency?.formatMXN
+      ? window.ViajesCurrency.formatMXN(value)
+      : new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(Number(value)||0);
     const number = (value,digits=1) => new Intl.NumberFormat('es-MX',{maximumFractionDigits:digits}).format(Number(value)||0);
     const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const traffic = {green:{label:'Verde',class:'text-emeraldx',dot:'bg-emeraldx'},amber:{label:'Amarillo',class:'text-amber-400',dot:'bg-amber-400'},red:{label:'Rojo',class:'text-dangerx',dot:'bg-dangerx'}};
+    const budgetLabels = {within:'Dentro del presupuesto',adjusted:'Presupuesto ajustado',outside:'Fuera del presupuesto',open:'Sin límite definido'};
 
     function setDefaultDates(){
       const start=new Date();start.setDate(start.getDate()+90);const end=new Date(start);end.setDate(end.getDate()+7);
       $('#startDate').value=start.toISOString().slice(0,10);$('#endDate').value=end.toISOString().slice(0,10);
     }
 
-    function currentCost(d){return state.cabin==='business'?d.business_total_7n_mxn:d.moderate_total_7n_mxn}
-    function currentDaily(d){return state.cabin==='business'?d.luxury_daily_mxn:d.moderate_daily_mxn}
+    function tripNights(){
+      const start=new Date(`${$('#startDate').value}T12:00:00`);const end=new Date(`${$('#endDate').value}T12:00:00`);
+      const days=Math.round((end-start)/86400000);return Number.isFinite(days)&&days>0?days:7;
+    }
+    function party(){
+      const adults=Math.max(1,Math.min(12,Math.round(Number($('#adultsInput').value)||1)));
+      const minors=Math.max(0,Math.min(8,Math.round(Number($('#minorsInput').value)||0)));
+      const travelers=adults+minors;const rooms=Math.max(1,Math.min(8,Math.round(Number($('#roomsInput').value)||1)));
+      $('#travelersInput').value=travelers;return {adults,minors,travelers,rooms};
+    }
+    function currentDaily(d){return state.cabin==='business'?Number(d.luxury_daily_mxn)||0:Number(d.moderate_daily_mxn)||0}
+    function currentFlight(d){return state.cabin==='business'?Number(d.business_flight_mxn)||0:Number(d.economy_flight_mxn)||0}
+    function tripEstimate(d){
+      const group=party();return window.TravelDecisionCore.estimateTrip(d,{cabin:state.cabin,nights:tripNights(),adults:group.adults,minors:group.minors,rooms:group.rooms});
+    }
+    function currentCost(d){return tripEstimate(d).total}
+    function budgetInMXN(){
+      const entered=Number($('#budgetInput').value)||0;
+      return window.ViajesCurrency?.toMXN?window.ViajesCurrency.toMXN(entered):entered;
+    }
+    function budgetAssessment(d){
+      const group=party();return window.TravelDecisionCore.assessBudget(d,{cabin:state.cabin,nights:tripNights(),adults:group.adults,minors:group.minors,rooms:group.rooms,budget:budgetInMXN()});
+    }
 
     function buildLiveLinks(d){
       const origin=$('#originInput').value||'MEX';const start=$('#startDate').value;const end=$('#endDate').value;
@@ -224,48 +253,53 @@
     }
 
     function scoreQuery(d){
-      const budget=Number($('#budgetInput').value)||0;const cost=currentCost(d);const interests=$('#interestInput').value.toLowerCase().split(',').map(x=>x.trim()).filter(Boolean);
-      let score=d.roi_score;
-      if(budget){score+=cost<=budget?18:Math.max(-35,-((cost-budget)/budget)*45)}
+      const assessment=budgetAssessment(d);const interests=$('#interestInput').value.toLowerCase().split(',').map(x=>x.trim()).filter(Boolean);
+      let score=Number(d.roi_score)||0;
+      if(assessment.budget&&assessment.status==='within')score+=8;
+      if(assessment.budget&&assessment.status==='adjusted')score+=3;
       if(interests.length){const haystack=[d.city,d.country,d.why_value,...d.tags].join(' ').toLowerCase();score+=interests.filter(x=>haystack.includes(x)).length*6}
       if(state.type!=='all'&&d.kind===state.type)score+=12;
       return score;
     }
 
+    function sortRows(list,sort){
+      return list.sort((a,b)=>sort==='price'?currentCost(a)-currentCost(b):sort==='proximity'?b.proximity_score-a.proximity_score:sort==='quality'?b.quality_score-a.quality_score:b.query_score-a.query_score);
+    }
+
     function applyQuery(){
       if(!state.data)return;
       const sort=$('#sortInput').value;let list=state.data.destinations.filter(d=>state.type==='all'||d.kind===state.type);
-      list=list.map(d=>({...d,query_score:scoreQuery(d)}));
-      list.sort((a,b)=>sort==='price'?currentCost(a)-currentCost(b):sort==='proximity'?b.proximity_score-a.proximity_score:sort==='quality'?b.quality_score-a.quality_score:b.query_score-a.query_score);
-      state.filtered=list;renderRecommendations(list.slice(0,3));renderMatrix(list);renderCharts(list.slice(0,10));
-      $('#resultSummary').textContent=`${list.length} opciones · ${state.cabin==='business'?'Business':'Turista'} · ${state.type==='all'?'Todos los tipos':state.type}`;
-      localStorage.setItem('viajesASCQuery',JSON.stringify({budget:$('#budgetInput').value,start:$('#startDate').value,end:$('#endDate').value,origin:$('#originInput').value,interests:$('#interestInput').value,sort,cabin:state.cabin,type:state.type}));
+      list=list.map(d=>({...d,query_score:scoreQuery(d),budgetAssessment:budgetAssessment(d)}));
+      const eligible=sortRows(list.filter(d=>!d.budgetAssessment.budget||d.budgetAssessment.status!=='outside'),sort);
+      state.filtered=eligible;state.matrix=sortRows([...list],sort);
+      renderRecommendations(eligible.slice(0,3));renderMatrix(state.matrix);renderCharts(eligible.slice(0,10));
+      const excluded=list.length-eligible.length;
+      $('#resultSummary').textContent=`${eligible.length} dentro o ajustadas · ${excluded} fuera · ${state.cabin==='business'?'Business':'Turista'} · ${party().travelers} viajero(s)`;
+      localStorage.setItem('viajesASCQuery',JSON.stringify({budget:$('#budgetInput').value,start:$('#startDate').value,end:$('#endDate').value,origin:$('#originInput').value,interests:$('#interestInput').value,sort,cabin:state.cabin,type:state.type,adults:$('#adultsInput').value,minors:$('#minorsInput').value,rooms:$('#roomsInput').value}));
     }
 
     function renderRecommendations(list){
-      $('#recommendations').innerHTML=list.map((d,i)=>{const t=traffic[d.traffic_light];const links=buildLiveLinks(d);return `<article class="result-card rounded-xl border border-slate-800 bg-terminal-900 p-5 shadow-terminal"><div class="flex items-start justify-between"><div><p class="font-mono text-[10px] uppercase tracking-widest text-goldx">Recomendación 0${i+1}</p><h3 class="mt-1 text-xl font-semibold text-white">${esc(d.city)}</h3><p class="text-xs text-slate-500">${esc(d.country)} · ${esc(d.route_summary)}</p></div><div class="rounded border border-slate-700 bg-terminal-950 px-3 py-2 text-center"><span class="block font-mono text-[9px] uppercase text-slate-500">ROI</span><strong class="text-xl text-white">${number(d.roi_score)}</strong></div></div><div class="mt-4 flex items-center gap-2 ${t.class}"><i class="traffic-dot h-2.5 w-2.5 rounded-full ${t.dot}"></i><span class="font-mono text-[10px] uppercase">${esc(d.traffic_label)} · ${d.fx_advantage_pct>=0?'+':''}${number(d.fx_advantage_pct)}%</span></div><p class="mt-4 line-clamp-2 text-sm leading-6 text-slate-400">${esc(d.why_value)}</p><div class="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded border border-slate-800 bg-slate-800"><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Costo diario</span><strong class="mt-1 block text-sm text-white">${money(currentDaily(d))}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Total 7 noches</span><strong class="mt-1 block text-sm text-white">${money(currentCost(d))}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Value for money</span><strong class="mt-1 block text-sm text-white">${number(d.value_for_money)}/10</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Volatilidad</span><strong class="mt-1 block text-sm text-white">${number(d.volatility_annualized_pct)}%</strong></div></div><div class="mt-4 flex flex-wrap gap-2"><a class="rounded bg-goldx px-3 py-2 text-xs font-bold text-terminal-950" target="_blank" rel="noopener" href="${links.flights}">Google Flights</a><a class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-200" target="_blank" rel="noopener" href="${links.hotels}">Google Hotels</a>${links.cruise?`<a class="rounded border border-cyanx/50 px-3 py-2 text-xs font-semibold text-cyanx" target="_blank" rel="noopener" href="${links.cruise}">Buscar crucero</a>`:''}</div></article>`}).join('')||'<div class="rounded-xl border border-slate-800 bg-terminal-900 p-6 text-slate-400 lg:col-span-3">No hay opciones que coincidan con los filtros.</div>';
+      const category=['Mejor decisión integral','Mejor lujo por el dinero','Mejor oportunidad financiera'];
+      $('#recommendations').innerHTML=list.map((d,i)=>{const t=traffic[d.traffic_light];const links=buildLiveLinks(d);const a=d.budgetAssessment||budgetAssessment(d);const deltaCopy=a.delta>=0?`${money(a.delta)} disponibles`:`${money(Math.abs(a.delta))} por encima`;const source={live:'Cotización real',cached:'Dato en caché',estimated:'Estimación',baseline:'Baseline ajustado'}[d.sourceType]||'Estimación';return `<article class="result-card rounded-xl border border-slate-800 bg-terminal-900 p-5 shadow-terminal"><div class="flex items-start justify-between gap-3"><div><p class="font-mono text-[10px] uppercase tracking-widest text-goldx">${category[i]}</p><h3 class="mt-1 text-xl font-semibold text-white">${esc(d.city)}</h3><p class="text-xs text-slate-500">${esc(d.country)} · ${esc(d.route_summary)}</p></div><div class="rounded border border-slate-700 bg-terminal-950 px-3 py-2 text-center"><span class="block font-mono text-[9px] uppercase text-slate-500">ASC Score</span><strong class="text-xl text-white">${number(d.query_score)}</strong></div></div><div class="mt-4 flex flex-wrap items-center gap-2"><span class="rounded border px-2 py-1 font-mono text-[9px] uppercase budget-status--${a.status}">${budgetLabels[a.status]}</span><span class="rounded border border-slate-700 px-2 py-1 font-mono text-[9px] uppercase text-slate-400">${source}</span></div><div class="mt-3 flex items-center gap-2 ${t.class}"><i class="traffic-dot h-2.5 w-2.5 rounded-full ${t.dot}"></i><span class="font-mono text-[10px] uppercase">${esc(d.traffic_label)} · ${d.fx_advantage_pct>=0?'+':''}${number(d.fx_advantage_pct)}%</span></div><p class="mt-4 line-clamp-2 text-sm leading-6 text-slate-400">${esc(d.why_value)}</p><div class="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded border border-slate-800 bg-slate-800"><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Costo total estimado</span><strong class="mt-1 block text-sm text-white">${money(a.total)}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Presupuesto disponible</span><strong class="mt-1 block text-sm text-white">${a.budget?money(a.budget):'Sin límite'}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Diferencia</span><strong class="mt-1 block text-sm ${a.delta>=0?'text-emeraldx':'text-dangerx'}">${deltaCopy} · ${a.budget?number(a.deltaPct):'0'}%</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Contingencia ${number(a.contingencyPct*100,0)}%</span><strong class="mt-1 block text-sm text-white">${money(a.contingency)}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Viajeros / habitaciones</span><strong class="mt-1 block text-sm text-white">${a.travelers} / ${a.rooms}</strong></div><div class="bg-terminal-950 p-3"><span class="font-mono text-[9px] uppercase text-slate-500">Confianza del dato</span><strong class="mt-1 block text-sm text-white">${number((d.confidence||0)*100,0)}%</strong></div></div><p class="mt-3 text-[11px] leading-5 text-slate-500">Estimación para ${a.nights} noches. Vuelo ${money(a.flight)} + estancia ${money(a.lodging)}. Verifique impuestos, equipaje y disponibilidad.</p><div class="mt-4 flex flex-wrap gap-2"><a class="rounded bg-goldx px-3 py-2 text-xs font-bold text-terminal-950" target="_blank" rel="noopener" href="${links.flights}">Verificar vuelo</a><a class="rounded border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-200" target="_blank" rel="noopener" href="${links.hotels}">Verificar hotel</a>${links.cruise?`<a class="rounded border border-cyanx/50 px-3 py-2 text-xs font-semibold text-cyanx" target="_blank" rel="noopener" href="${links.cruise}">Verificar crucero</a>`:''}</div></article>`}).join('')||`<div class="rounded-xl border border-amber-500/40 bg-amber-500/10 p-6 text-amber-200 lg:col-span-3"><strong class="block text-white">No hay opciones recomendables dentro del presupuesto.</strong><span class="mt-2 block text-sm">Aumente el presupuesto, cambie a Turista, reduzca viajeros o habitaciones. Las alternativas fuera del límite permanecen identificadas en la matriz, pero no se recomiendan silenciosamente.</span></div>`;
     }
 
     function renderMatrix(list){
-      $('#matrixBody').innerHTML=list.map(d=>{const t=traffic[d.traffic_light];const links=buildLiveLinks(d);return `<tr class="hover:bg-terminal-850/70"><td class="px-4 py-3 font-mono text-goldx">${String(d.rank).padStart(2,'0')}</td><td class="px-4 py-3"><strong class="block text-white">${esc(d.city)}</strong><span class="text-[10px] text-slate-500">${esc(d.country)}</span></td><td class="px-4 py-3 font-mono uppercase text-slate-400">${esc(d.kind)}</td><td class="px-4 py-3"><span class="inline-flex items-center gap-2 ${t.class}"><i class="h-2 w-2 rounded-full ${t.dot}"></i>${t.label}</span></td><td class="px-4 py-3 font-mono ${d.fx_advantage_pct>=0?'text-emeraldx':'text-dangerx'}">${d.fx_advantage_pct>=0?'+':''}${number(d.fx_advantage_pct)}%</td><td class="px-4 py-3 font-semibold text-white">${number(d.roi_score)}</td><td class="px-4 py-3">${number(d.value_for_money)}/10</td><td class="px-4 py-3">${money(d.moderate_daily_mxn)}</td><td class="px-4 py-3">${money(d.moderate_total_7n_mxn)}</td><td class="px-4 py-3">${money(d.business_total_7n_mxn)}</td><td class="px-4 py-3">${number(d.connectivity_score,0)}/100</td><td class="px-4 py-3"><a target="_blank" rel="noopener" href="${links.flights}" class="text-cyanx hover:text-white">Buscar →</a></td></tr>`}).join('');
+      $('#matrixBody').innerHTML=list.map(d=>{const t=traffic[d.traffic_light];const links=buildLiveLinks(d);const a=d.budgetAssessment||budgetAssessment(d);return `<tr class="hover:bg-terminal-850/70"><td class="px-4 py-3 font-mono text-goldx">${String(d.rank).padStart(2,'0')}</td><td class="px-4 py-3"><strong class="block text-white">${esc(d.city)}</strong><span class="text-[10px] text-slate-500">${esc(d.country)}</span></td><td class="px-4 py-3 font-mono uppercase text-slate-400">${esc(d.kind)}</td><td class="px-4 py-3"><span class="inline-flex items-center gap-2 ${t.class}"><i class="h-2 w-2 rounded-full ${t.dot}"></i>${t.label}</span></td><td class="px-4 py-3 font-mono ${d.fx_advantage_pct>=0?'text-emeraldx':'text-dangerx'}">${d.fx_advantage_pct>=0?'+':''}${number(d.fx_advantage_pct)}%</td><td class="px-4 py-3 font-semibold text-white">${number(d.query_score)}</td><td class="px-4 py-3">${number(d.value_for_money)}/10</td><td class="px-4 py-3">${money(currentDaily(d))}</td><td class="px-4 py-3">${money(a.total)}</td><td class="px-4 py-3">${money(a.conservative)}</td><td class="px-4 py-3">${number(d.connectivity_score,0)}/100</td><td class="px-4 py-3"><span class="mb-1 block text-[9px] uppercase ${a.status==='outside'?'text-dangerx':a.status==='adjusted'?'text-goldx':'text-emeraldx'}">${budgetLabels[a.status]}</span><a target="_blank" rel="noopener" href="${links.flights}" class="text-cyanx hover:text-white">Verificar →</a></td></tr>`}).join('');
     }
 
     function chartDefaults(){if(!window.Chart)return;Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='rgba(51,65,85,.55)';Chart.defaults.font.family='IBM Plex Mono, ui-monospace, monospace';}
-    function renderCharts(list){if(!window.Chart)return;chartDefaults();const top=list.slice(0,10);const costValues=top.map(currentCost);if(state.costChart)state.costChart.destroy();state.costChart=new Chart($('#costChart'),{type:'bar',data:{labels:top.map(d=>d.city),datasets:[{data:costValues,borderColor:'#e8c66a',backgroundColor:'rgba(232,198,106,.68)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.raw)}}},scales:{x:{grid:{display:false},ticks:{maxRotation:40,minRotation:20}},y:{ticks:{callback:v=>`${Math.round(v/1000)}k`}}}}});$('#costModeLabel').textContent=state.cabin==='business'?'BUSINESS':'TURISTA';
-      const fxList=top.filter(d=>d.fx_trend?.length>=2).slice(0,4);const fallback=fxList.length?fxList:top.slice(0,4);let labels=[];let datasets=[];
-      if(fxList.length){labels=fxList[0].fx_trend.map(p=>p.date);datasets=fxList.map((d,i)=>({label:d.city,data:d.fx_trend.map(p=>p.local_per_usd),borderColor:['#67e8f9','#34d399','#e8c66a','#fb7185'][i],backgroundColor:'transparent',tension:.25,pointRadius:0,borderWidth:2}));}
-      else{labels=['Referencia','Actual'];datasets=fallback.map((d,i)=>({label:d.city,data:[d.historical_average_local_per_usd,d.current_local_per_usd],borderColor:['#67e8f9','#34d399','#e8c66a','#fb7185'][i],backgroundColor:'transparent',tension:0,pointRadius:3,borderWidth:2}));}
-      if(state.fxChart)state.fxChart.destroy();state.fxChart=new Chart($('#fxChart'),{type:'line',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${number(c.raw,3)}`}}},scales:{x:{grid:{display:false},ticks:{maxTicksLimit:7}},y:{beginAtZero:false}}}});
+    function renderCharts(list){if(!window.Chart)return;chartDefaults();const top=list.slice(0,10);const canvas=$('#costChart');if(!canvas)return;if(state.costChart){state.costChart.destroy();state.costChart=null}const existing=Chart.getChart(canvas);if(existing)existing.destroy();if(!top.length)return;state.costChart=new Chart(canvas,{type:'bar',data:{labels:top.map(d=>d.city),datasets:[{label:'Costo total estimado',data:top.map(currentCost),borderColor:'#e8c66a',backgroundColor:'rgba(232,198,106,.68)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.raw)}}},scales:{x:{grid:{display:false},ticks:{maxRotation:40,minRotation:20}},y:{ticks:{callback:v=>`${Math.round(v/1000)}k`}}}}});$('#costModeLabel').textContent=`${state.cabin==='business'?'BUSINESS':'TURISTA'} · ${tripNights()} NOCHES`;
     }
 
-    function renderHeader(data){$('#usdMxn').textContent=number(data.market_snapshot.usd_mxn,2);$('#usdMxnContext').textContent=data.source_status.current_fx==='live'?'Mercado actualizado':'Dato de respaldo';$('#destinationCount').textContent=`${data.meta.destination_count} destinos`;$('#greenCount').textContent=data.market_snapshot.green_destinations;const generated=new Date(data.meta.generated_at);$('#updatedAt').textContent=`Actualizado ${generated.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`;$('#pipelineBadge').textContent=`Pipeline: ${data.source_status.current_fx==='live'?'LIVE':'FALLBACK'}`;$('#pipelineBadge').className=`hidden rounded border px-3 py-1.5 font-mono text-[10px] uppercase sm:inline-flex ${data.source_status.current_fx==='live'?'border-emerald-500/40 text-emeraldx':'border-amber-500/40 text-amber-400'}`;$('#sourceNote').textContent=`FX actual: ${data.source_status.current_fx}. Históricos: Frankfurter cuando existe cobertura. Costos: ${data.source_status.cost_model}.`}
+    function renderHeader(data){const stale=Boolean(data.isStale||data.destinations.some(d=>d.isStale));const live=data.source_status.current_fx==='live'&&!stale;$('#usdMxn').textContent=number(data.market_snapshot.usd_mxn,2);$('#usdMxnContext').textContent=live?'Mercado actualizado':'Dato de respaldo';$('#destinationCount').textContent=`${data.meta.destination_count} destinos`;$('#greenCount').textContent=data.market_snapshot.green_destinations;const generated=new Date(data.meta.generated_at);$('#updatedAt').textContent=`${stale?'Datos en caché · ':'Actualizado '}${generated.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`;$('#pipelineBadge').textContent=stale?'DATOS EN CACHÉ':`Pipeline: ${live?'LIVE':'FALLBACK'}`;$('#pipelineBadge').className=`hidden rounded border px-3 py-1.5 font-mono text-[10px] uppercase sm:inline-flex ${live?'border-emerald-500/40 text-emeraldx':'border-amber-500/40 text-amber-400'}`;$('#sourceNote').textContent=`FX actual: ${data.source_status.current_fx}. Históricos: Frankfurter cuando existe cobertura. Costos: ${data.source_status.cost_model}. Contrato: ${data.meta.schema_version}.`}
 
-    function restoreQuery(){try{const saved=JSON.parse(localStorage.getItem('viajesASCQuery')||'null');if(!saved)return;$('#budgetInput').value=saved.budget||'';$('#startDate').value=saved.start||$('#startDate').value;$('#endDate').value=saved.end||$('#endDate').value;$('#originInput').value=saved.origin||'MEX';$('#interestInput').value=saved.interests||'';$('#sortInput').value=saved.sort||'roi';state.cabin=saved.cabin||'tourist';state.type=saved.type||'all';syncTabs()}catch(e){console.warn('Preferences ignored',e)}}
-    function syncTabs(){$$('#cabinTabs button').forEach(b=>b.classList.toggle('tab-active',b.dataset.cabin===state.cabin));$$('#typeTabs button').forEach(b=>b.classList.toggle('tab-active',b.dataset.type===state.type))}
+    function restoreQuery(){try{const saved=JSON.parse(localStorage.getItem('viajesASCQuery')||'null');if(!saved)return;$('#budgetInput').value=saved.budget||'';$('#startDate').value=saved.start||$('#startDate').value;$('#endDate').value=saved.end||$('#endDate').value;$('#originInput').value=saved.origin||'MEX';$('#interestInput').value=saved.interests||'';$('#sortInput').value=saved.sort||'score';$('#adultsInput').value=saved.adults||'1';$('#minorsInput').value=saved.minors||'0';$('#roomsInput').value=saved.rooms||'1';state.cabin=saved.cabin||'tourist';state.type=saved.type||'all';party();syncTabs()}catch(e){console.warn('Preferences ignored',e)}}
+    function syncTabs(){$$('#cabinTabs button').forEach(b=>{const active=b.dataset.cabin===state.cabin;b.classList.toggle('tab-active',active);b.setAttribute('aria-pressed',String(active))});$$('#typeTabs button').forEach(b=>{const active=b.dataset.type===state.type;b.classList.toggle('tab-active',active);b.setAttribute('aria-pressed',String(active))})}
 
-    async function load(){try{$('#pipelineBadge').textContent='Pipeline: cargando';const response=await fetch(`${DATA_URL}?t=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();if(data.meta?.schema_version!=='2.0.0'||data.destinations?.length!==20)throw new Error('Contrato de datos inválido');state.data=data;renderHeader(data);restoreQuery();applyQuery()}catch(error){console.error(error);$('#recommendations').innerHTML=`<div class="rounded-xl border border-dangerx/40 bg-dangerx/10 p-6 text-dangerx lg:col-span-3">No fue posible cargar el tablero: ${esc(error.message)}</div>`;$('#pipelineBadge').textContent='Pipeline: error'}}
+    function acceptData(data,restore=true){const validation=window.TravelDataV4.validate(data);if(!validation.valid)throw new Error(`Contrato de datos inválido: ${validation.errors.join(', ')}`);state.data=data;renderHeader(data);if(restore)restoreQuery();applyQuery()}
+    async function load(){try{$('#pipelineBadge').textContent='Pipeline: cargando';const response=await fetch(`${DATA_URL}?t=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=window.TravelDataV4.normalize(await response.json());localStorage.setItem(DATA_CACHE_KEY,JSON.stringify(data));acceptData(data)}catch(error){console.error('Travel data refresh failed:',error);try{const cached=JSON.parse(localStorage.getItem(DATA_CACHE_KEY)||'null');if(!cached?.destinations?.length)throw error;cached.isStale=true;cached.destinations=cached.destinations.map(destination=>({...destination,isStale:true,sourceType:destination.sourceType==='live'?'cached':destination.sourceType}));cached.source_status={...(cached.source_status||{}),current_fx:'cached'};acceptData(cached);$('#pipelineBadge').textContent='DATOS EN CACHÉ'}catch(cacheError){console.error(cacheError);$('#recommendations').innerHTML=`<div class="rounded-xl border border-dangerx/40 bg-dangerx/10 p-6 text-dangerx lg:col-span-3">No fue posible cargar el tablero: ${esc(cacheError.message)}</div>`;$('#pipelineBadge').textContent='Pipeline: error'}}}
 
-    $('#queryForm').addEventListener('submit',event=>{event.preventDefault();applyQuery()});$('#refreshButton').addEventListener('click',load);$$('#cabinTabs button').forEach(button=>button.addEventListener('click',()=>{state.cabin=button.dataset.cabin;syncTabs();applyQuery()}));$$('#typeTabs button').forEach(button=>button.addEventListener('click',()=>{state.type=button.dataset.type;syncTabs();applyQuery()}));['sortInput','originInput'].forEach(id=>$(`#${id}`).addEventListener('change',applyQuery));
+    $('#queryForm').addEventListener('submit',event=>{event.preventDefault();applyQuery()});$('#refreshButton').addEventListener('click',load);$$('#cabinTabs button').forEach(button=>button.addEventListener('click',()=>{state.cabin=button.dataset.cabin;syncTabs();applyQuery()}));$$('#typeTabs button').forEach(button=>button.addEventListener('click',()=>{state.type=button.dataset.type;syncTabs();applyQuery()}));['sortInput','originInput','adultsInput','minorsInput','roomsInput'].forEach(id=>$(`#${id}`).addEventListener('change',applyQuery));let queryTimer;$('#budgetInput').addEventListener('input',()=>{clearTimeout(queryTimer);queryTimer=setTimeout(applyQuery,180)});
     setDefaultDates();load();setInterval(()=>document.visibilityState==='visible'&&load(),15*60*1000);window.addEventListener('online',load);
   </script>
   <script src="enhancements.js"></script>
