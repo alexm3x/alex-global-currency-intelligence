@@ -24,29 +24,37 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Stop until all payload parts are present
+      - name: Check payload completeness
+        id: payload
+        shell: bash
         run: |
           count=$(find viajes -maxdepth 1 -name 'bootstrap_payload.part*' | wc -l)
-          if [ "$count" -lt 5 ]; then
-            echo "Waiting for five payload parts; found $count."
-            exit 0
-          fi
-      - name: Install validated travel dashboard
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Payload parts found: $count"
+      - name: Install and refresh travel dashboard
+        if: steps.payload.outputs.count == '5'
+        shell: bash
         run: |
+          set -euo pipefail
           cat viajes/bootstrap_payload.part* | base64 --decode > /tmp/viajes_payload.tgz
           tar -xzf /tmp/viajes_payload.tgz
           python -m py_compile viajes/scripts/update_intelligence.py
+          python viajes/scripts/update_intelligence.py
           python - <<'PY'
           import json
           from pathlib import Path
           data=json.loads(Path('viajes/data/destinations.json').read_text(encoding='utf-8'))
           assert data['meta']['schema_version']=='2.0.0'
           assert len(data['destinations'])==20
+          assert len(data.get('cruises', [])) >= 5
           assert Path('viajes/index.html').read_text(encoding='utf-8').count('<canvas')==2
           print('Bootstrap validation passed')
           PY
       - name: Commit production files and remove bootstrap
+        if: steps.payload.outputs.count == '5'
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name 'viajes-asc-bootstrap'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add viajes/index.html viajes/scripts/update_intelligence.py viajes/data/destinations.json .github/workflows/update_data.yml
