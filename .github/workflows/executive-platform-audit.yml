@@ -21,6 +21,8 @@ jobs:
           node --check executive-intelligence.js
           node --check workers/agci-alerts-worker.js
           node --check cloudflare/agci-market-data-live.js
+          node --check cloudflare/agci-equity-fundamentals.js
+          node --check equity-comparator.js
           node --check cloudflare/tail-risk.js
           node --check scripts/update-structural-data.mjs
       - name: Validate critical assets
@@ -29,6 +31,8 @@ jobs:
           test -s styles.css
           test -s executive-intelligence.css
           test -s executive-intelligence.js
+          test -s equity-comparator.js
+          test -s equity-comparator.css
           grep -q "executive-intelligence.js" daily-briefing-cover.js
           grep -q "AGCI Resumen Ejecutivo" workers/agci-alerts-worker.js
           grep -q "Anomalía detectada" cloudflare/tail-risk.js

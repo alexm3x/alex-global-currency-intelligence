@@ -12,6 +12,10 @@ El estado “Conectado” se genera únicamente cuando la extracción y el contr
 
 Sitio editorial público de inteligencia cambiaria global.
 
+## Comparador fundamental de acciones
+
+La Fase 1 incorpora una lista manual de hasta diez acciones estadounidenses, fundamentales anuales de SEC EDGAR, comparables por industria, puntuación explicable y caché Stale-While-Revalidate. Consulte `docs/EQUITY_COMPARATOR_PHASE1.md` para el contrato, la metodología, las limitaciones y el despliegue del Worker independiente.
+
 ## Estado
 - Frontend editorial publicado en la rama `main`.
 - Workflow de GitHub Pages incluido en `.github/workflows/pages.yml`.

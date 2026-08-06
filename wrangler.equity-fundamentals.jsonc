@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agci-equity-fundamentals",
+  "main": "cloudflare/agci-equity-fundamentals.js",
+  "compatibility_date": "2026-08-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "keep_vars": true,
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "head_sampling_rate": 1 },
+    "traces": { "enabled": true, "head_sampling_rate": 0.05 }
+  },
+  "kv_namespaces": [
+    {
+      // Last-known-good SEC facts and price snapshots for SWR delivery.
+      "binding": "EQUITY_CACHE"
+    }
+  ],
+  "vars": {
+    "SEC_USER_AGENT": "AGCI/1.0 (+https://alexsaldana.com/)"
+  },
+  "env": {
+    "staging": {
+      "name": "agci-equity-fundamentals-staging",
+      "kv_namespaces": [{ "binding": "EQUITY_CACHE" }],
+      "vars": { "SEC_USER_AGENT": "AGCI/1.0-staging (+https://alexsaldana.com/)" }
+    }
+  }
+}
