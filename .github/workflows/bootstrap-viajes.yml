@@ -1,0 +1,55 @@
+name: Bootstrap Viajes ASC rewrite
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'viajes/bootstrap_payload.b64'
+      - '.github/workflows/bootstrap-viajes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bootstrap-viajes-asc
+  cancel-in-progress: false
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Stop when payload is absent
+        run: |
+          if [ ! -f viajes/bootstrap_payload.b64 ]; then
+            echo 'Payload not uploaded yet.'
+            exit 0
+          fi
+      - name: Install validated travel dashboard
+        run: |
+          base64 --decode viajes/bootstrap_payload.b64 > /tmp/viajes_payload.tgz
+          tar -xzf /tmp/viajes_payload.tgz
+          python -m py_compile viajes/scripts/update_intelligence.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('viajes/data/destinations.json').read_text(encoding='utf-8'))
+          assert data['meta']['schema_version']=='2.0.0'
+          assert len(data['destinations'])==20
+          assert Path('viajes/index.html').read_text(encoding='utf-8').count('<canvas')==2
+          print('Bootstrap validation passed')
+          PY
+      - name: Commit production files and remove bootstrap
+        run: |
+          git config user.name 'viajes-asc-bootstrap'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add viajes/index.html viajes/scripts/update_intelligence.py viajes/data/destinations.json .github/workflows/update_data.yml
+          git rm viajes/bootstrap_payload.b64 .github/workflows/bootstrap-viajes.yml
+          git commit -m 'feat: rebuild Viajes ASC autonomous terminal'
+          git pull --rebase origin main
+          git push origin main
