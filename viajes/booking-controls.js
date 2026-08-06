@@ -237,20 +237,26 @@
     const label = budgetInput.closest('label');
     budgetLabel = label?.querySelector('span');
     if (!label || !budgetLabel) return;
+
+    // Keep amount and currency on separate, full-width rows. The previous
+    // side-by-side layout allowed the long currency name to consume almost
+    // the complete grid column, leaving only a few pixels for the amount.
     const wrapper = document.createElement('div');
-    wrapper.className = 'grid grid-cols-[1fr_auto] overflow-hidden rounded border border-slate-700 bg-terminal-950 focus-within:border-cyanx';
+    wrapper.className = 'grid min-w-0 grid-cols-1 overflow-hidden rounded border border-slate-700 bg-terminal-950 transition-colors focus-within:border-cyanx';
     budgetInput.parentNode.insertBefore(wrapper, budgetInput);
     wrapper.appendChild(budgetInput);
-    budgetInput.className = 'min-w-0 border-0 bg-transparent px-3 py-3 text-sm outline-none';
+    budgetInput.className = 'block h-14 w-full min-w-0 border-0 bg-transparent px-4 text-lg font-semibold text-white caret-cyanx outline-none placeholder:text-slate-600';
+    budgetInput.setAttribute('aria-describedby', 'budgetHelper');
 
     currencySelect = document.createElement('select');
     currencySelect.id = 'currencyInput';
     currencySelect.setAttribute('aria-label', 'Moneda del presupuesto y resultados');
-    currencySelect.className = 'max-w-[160px] border-0 border-l border-slate-700 bg-terminal-850 px-3 text-xs font-semibold text-goldx outline-none';
+    currencySelect.className = 'block h-12 w-full min-w-0 border-0 border-t border-slate-700 bg-terminal-850 px-4 text-sm font-semibold text-goldx outline-none focus:bg-terminal-800';
     wrapper.appendChild(currencySelect);
 
     const helper = document.createElement('div');
-    helper.className = 'mt-2 flex items-center justify-between gap-2 text-[10px] text-slate-500';
+    helper.id = 'budgetHelper';
+    helper.className = 'mt-2 flex flex-wrap items-center justify-between gap-2 text-[10px] leading-4 text-slate-500';
     helper.innerHTML = '<span>Los resultados se convertirán automáticamente.</span><span id="currencyRateNote" class="font-mono"></span>';
     wrapper.insertAdjacentElement('afterend', helper);
 
