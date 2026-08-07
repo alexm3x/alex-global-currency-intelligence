@@ -18,6 +18,23 @@
     }
   }
 
+  function loadMultiAssetAssets() {
+    if (!document.querySelector('link[data-aml-style]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'multi-asset-lists.css?v=20260807-lists1';
+      link.dataset.amlStyle = 'true';
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('script[data-aml-script]')) {
+      const script = document.createElement('script');
+      script.src = 'multi-asset-lists.js?v=20260807-lists1';
+      script.defer = true;
+      script.dataset.amlScript = 'true';
+      document.head.appendChild(script);
+    }
+  }
+
   function normalizeNavigation() {
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
@@ -57,6 +74,7 @@
   function init() {
     normalizeNavigation();
     loadPerformanceAssets();
+    loadMultiAssetAssets();
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
     const observer = new MutationObserver(normalizeNavigation);
