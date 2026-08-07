@@ -1,6 +1,23 @@
 (() => {
   const VIEW_ID = 'equityIntelligence';
 
+  function loadPerformanceAssets() {
+    if (!document.querySelector('link[data-eqp-style]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'equity-performance-panel.css?v=20260807-performance1';
+      link.dataset.eqpStyle = 'true';
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('script[data-eqp-script]')) {
+      const script = document.createElement('script');
+      script.src = 'equity-performance-panel.js?v=20260807-performance1';
+      script.defer = true;
+      script.dataset.eqpScript = 'true';
+      document.head.appendChild(script);
+    }
+  }
+
   function normalizeNavigation() {
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
@@ -39,6 +56,7 @@
 
   function init() {
     normalizeNavigation();
+    loadPerformanceAssets();
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
     const observer = new MutationObserver(normalizeNavigation);
