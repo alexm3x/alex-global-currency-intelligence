@@ -18,14 +18,25 @@ jobs:
           node --check app.js
           node --check market-live.js
           node --check daily-briefing-cover.js
+          node --check investment-opportunities.js
+          node --check etf-opportunities.js
+          node --check barrons-comparison.js
+          node --check news.js
+          node --check opportunities.js
+          node --check travel-report.js
+          node --check equity-comparator.js
+          node --check equity-comparator-nav-fix.js
+          node --check equity-intelligence-dashboard.js
+          node --check equity-performance-panel.js
+          node --check multi-asset-lists.js
+          node --check nav-dedupe.js
           node --check executive-intelligence.js
           node --check workers/agci-alerts-worker.js
           node --check cloudflare/agci-market-data-live.js
           node --check cloudflare/agci-equity-fundamentals.js
-          node --check equity-comparator.js
           node --check cloudflare/tail-risk.js
           node --check scripts/update-structural-data.mjs
-      - name: Validate critical assets
+      - name: Validate critical assets and integrations
         run: |
           test -s index.html
           test -s styles.css
@@ -33,10 +44,29 @@ jobs:
           test -s executive-intelligence.js
           test -s equity-comparator.js
           test -s equity-comparator.css
+          test -s equity-intelligence-dashboard.js
+          test -s equity-intelligence-dashboard.css
+          test -s equity-performance-panel.js
+          test -s equity-performance-panel.css
+          test -s multi-asset-lists.js
+          test -s multi-asset-lists.css
+          test -s mobile-nav-polish.css
+          grep -q "equityIntelligence" index.html
+          grep -q "nav-dedupe.js" index.html
+          grep -q "equity-performance-panel.js" nav-dedupe.js
+          grep -q "multi-asset-lists.js" nav-dedupe.js
           grep -q "executive-intelligence.js" daily-briefing-cover.js
           grep -q "AGCI Resumen Ejecutivo" workers/agci-alerts-worker.js
           grep -q "Anomalía detectada" cloudflare/tail-risk.js
           node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('data/macro-latest.json')); const s=JSON.parse(fs.readFileSync('data/sources.json')); if(!m.generatedAt||!s.generated_at) process.exit(1);"
+      - name: Validate basic SEO and accessibility hooks
+        run: |
+          grep -q '<meta name="viewport"' index.html
+          grep -q '<meta name="description"' index.html
+          grep -q '<link rel="canonical"' index.html
+          grep -q 'aria-label="Navegación principal"' index.html
+          grep -q 'aria-labelledby="dialogContent"' index.html
+          grep -q '<noscript>' index.html
       - name: Test market data endpoint
         run: curl --fail --silent --show-error --max-time 20 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
       - name: Test alerts health endpoint
