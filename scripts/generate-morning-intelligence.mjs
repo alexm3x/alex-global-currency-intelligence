@@ -42,6 +42,9 @@ const audioDuration = Number(process.env.AUDIO_DURATION_SECONDS || 0);
 const durationSeconds = audioDuration > 0 ? Math.round(audioDuration) : estimatedDuration;
 const audioUrl = process.env.AUDIO_URL || null;
 const episodeNumber = Number(source.episodeNumber || 0) || Math.max(1, Math.floor((new Date(`${source.date}T00:00:00Z`) - new Date('2026-08-08T00:00:00Z')) / 86400000));
+const yyyy = source.date.slice(0,4), mm = source.date.slice(5,7);
+const rootEpisodeBase = `podcast/episodes/${yyyy}/${mm}/${source.date}`;
+const archiveEpisodeBase = `episodes/${yyyy}/${mm}/${source.date}`;
 
 const episode = {
   schemaVersion: 2,
@@ -66,7 +69,8 @@ const episode = {
   sources: source.sources || [],
   audioUrl,
   pdfUrl: source.pdfUrl || null,
-  transcriptUrl: `podcast/episodes/${source.date.slice(0,4)}/${source.date.slice(5,7)}/${source.date}.txt`,
+  transcriptUrl: `${rootEpisodeBase}.txt`,
+  dataUrl: `${rootEpisodeBase}.json`,
   archiveUrl: 'podcast/',
   sourceUrl: 'data/daily-briefing-latest.json',
   isStale: false,
@@ -79,7 +83,6 @@ fs.writeFileSync(path.join(generatedDir,'script.txt'), plainScript + '\n');
 fs.writeFileSync(path.join(generatedDir,'transcript.md'), `# ${source.audio.title || 'AGCI Morning Intelligence'}\n\n**${displayDate(source.date)} · Ciudad de México**\n\n${chapters.map(c=>`## ${c.title}\n\n${c.text}`).join('\n\n')}\n`);
 
 writeJson(latestPath, episode);
-const yyyy = source.date.slice(0,4), mm = source.date.slice(5,7);
 const episodeDir = path.join(PODCAST,'episodes',yyyy,mm);
 fs.mkdirSync(episodeDir,{recursive:true});
 writeJson(path.join(episodeDir,`${source.date}.json`), episode);
@@ -96,8 +99,9 @@ archive.episodes.unshift({
   date:source.date,
   title:source.title,
   durationSeconds,
-  audioUrl,
-  transcriptUrl:episode.transcriptUrl,
+  dataUrl:`${archiveEpisodeBase}.json`,
+  audioUrl:audioUrl ? `${archiveEpisodeBase}.mp3` : null,
+  transcriptUrl:`${archiveEpisodeBase}.txt`,
   pdfUrl:episode.pdfUrl,
   status:episode.status
 });
@@ -105,10 +109,11 @@ archive.episodes = archive.episodes.slice(0,366);
 writeJson(archivePath, archive);
 
 const site='https://alexm3x.github.io/alex-global-currency-intelligence/';
+const podcastBase=`${site}podcast/`;
 const rssItems = archive.episodes.slice(0,50).map(e => {
-  const audio = e.audioUrl ? `<enclosure url="${escapeXml(new URL(e.audioUrl,site).href)}" type="audio/mpeg"/>` : '';
-  return `<item><title>${escapeXml(e.title)}</title><guid>${escapeXml(e.date)}</guid><pubDate>${new Date(`${e.date}T14:00:00Z`).toUTCString()}</pubDate><link>${site}podcast/</link><description>${escapeXml('AGCI Morning Intelligence — inteligencia ejecutiva diaria en español.')}</description>${audio}</item>`;
+  const audio = e.audioUrl ? `<enclosure url="${escapeXml(new URL(e.audioUrl,podcastBase).href)}" type="audio/mpeg"/>` : '';
+  return `<item><title>${escapeXml(e.title)}</title><guid>${escapeXml(e.date)}</guid><pubDate>${new Date(`${e.date}T14:00:00Z`).toUTCString()}</pubDate><link>${podcastBase}</link><description>${escapeXml('AGCI Morning Intelligence — inteligencia ejecutiva diaria en español.')}</description>${audio}</item>`;
 }).join('');
-const rss = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>AGCI Morning Intelligence</title><link>${site}podcast/</link><description>Mercados, inversión y oportunidades estratégicas en español.</description><language>es-MX</language>${rssItems}</channel></rss>`;
+const rss = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>AGCI Morning Intelligence</title><link>${podcastBase}</link><description>Mercados, inversión y oportunidades estratégicas en español.</description><language>es-MX</language>${rssItems}</channel></rss>`;
 fs.writeFileSync(path.join(PODCAST,'feed.xml'),rss+'\n');
-console.log(JSON.stringify({date:source.date, chapters:chapters.length, durationSeconds, audioUrl, episodePath:`podcast/episodes/${yyyy}/${mm}/${source.date}.json`},null,2));
+console.log(JSON.stringify({date:source.date, chapters:chapters.length, durationSeconds, audioUrl, episodePath:`${rootEpisodeBase}.json`},null,2));
