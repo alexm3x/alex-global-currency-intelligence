@@ -1,0 +1,98 @@
+name: AGCI Morning Intelligence Daily
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 14 * * *"
+  push:
+    branches: ["main"]
+    paths:
+      - "data/daily-briefing-latest.json"
+      - "scripts/generate-morning-intelligence.mjs"
+      - ".github/workflows/morning-intelligence.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "data/daily-briefing-latest.json"
+      - "scripts/generate-morning-intelligence.mjs"
+      - ".github/workflows/morning-intelligence.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: morning-intelligence-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate canonical briefing and generate script
+        run: |
+          node --check scripts/generate-morning-intelligence.mjs
+          node scripts/generate-morning-intelligence.mjs
+          test -s podcast/generated/script.txt
+          test -s podcast/latest.json
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(x.schemaVersion!==2||x.language!=='es-MX'||!x.audio?.chapters?.length)process.exit(1)"
+
+      - name: Install open-source TTS and audio tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak-ng ffmpeg
+          espeak-ng --version
+          ffmpeg -version | head -n 1
+
+      - name: Render and normalize Spanish MP3
+        run: |
+          DATE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).date")
+          YEAR=${DATE:0:4}
+          MONTH=${DATE:5:2}
+          OUT_DIR="podcast/episodes/$YEAR/$MONTH"
+          mkdir -p "$OUT_DIR"
+          espeak-ng -v es -s 148 -p 43 -a 160 -f podcast/generated/script.txt -w /tmp/agci.wav
+          ffmpeg -y -hide_banner -loglevel error -i /tmp/agci.wav -af "highpass=f=70,lowpass=f=9000,loudnorm=I=-16:TP=-1.5:LRA=8" -ar 44100 -ac 1 -codec:a libmp3lame -b:a 80k "$OUT_DIR/$DATE.mp3"
+          test -s "$OUT_DIR/$DATE.mp3"
+          DURATION=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$OUT_DIR/$DATE.mp3")
+          AUDIO_URL="podcast/episodes/$YEAR/$MONTH/$DATE.mp3"
+          AUDIO_DURATION_SECONDS="$DURATION" AUDIO_URL="$AUDIO_URL" node scripts/generate-morning-intelligence.mjs
+          echo "DATE=$DATE" >> "$GITHUB_ENV"
+          echo "AUDIO_URL=$AUDIO_URL" >> "$GITHUB_ENV"
+          echo "DURATION=$DURATION" >> "$GITHUB_ENV"
+
+      - name: Validate generated episode package
+        run: |
+          test -s "$AUDIO_URL"
+          test -s podcast/feed.xml
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.status!=='published'||!p.audioUrl||p.durationSeconds<60||p.chapters.length<5)process.exit(1)"
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(a.schemaVersion!==2||!a.episodes.some(x=>x.date===process.env.DATE&&x.audioUrl))process.exit(1)"
+
+      - name: Commit generated audio and metadata
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "agci-morning-intelligence-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add podcast/latest.json podcast/archive.json podcast/feed.xml podcast/generated podcast/episodes
+          if git diff --cached --quiet; then
+            echo "No hay cambios de episodio que publicar."
+          else
+            git commit -m "podcast: publish Morning Intelligence $DATE"
+            git push origin HEAD:main
+          fi
+
+      - name: Build summary
+        run: |
+          echo "### AGCI Morning Intelligence" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Fecha: $DATE" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Audio: $AUDIO_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Duración: $DURATION segundos" >> "$GITHUB_STEP_SUMMARY"
+          echo "- TTS: eSpeak NG en español, sin costo recurrente" >> "$GITHUB_STEP_SUMMARY"
