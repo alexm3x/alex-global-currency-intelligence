@@ -16,6 +16,12 @@ function words(text=''){ return String(text).trim().split(/\s+/).filter(Boolean)
 function escapeXml(v=''){ return String(v).replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c])); }
 function clean(v=''){ return String(v||'').replace(/\s+/g,' ').trim(); }
 function displayDate(iso){ const [y,m,d]=iso.split('-').map(Number); return new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d))); }
+function normalizeSentence(v=''){ return clean(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%]+/g,' ').trim(); }
+function dedupeSentences(text=''){
+  const pieces=clean(text).split(/(?<=[.!?])\s+/).filter(Boolean);
+  const seen=new Set();
+  return pieces.filter(sentence=>{const key=normalizeSentence(sentence);if(key.length<18)return true;if(seen.has(key))return false;seen.add(key);return true;}).join(' ');
+}
 
 if(!fs.existsSync(SOURCE)) fail('falta data/daily-briefing-latest.json');
 const source=readJson(SOURCE);
@@ -25,60 +31,68 @@ if(!Array.isArray(source.audio.chapters)||source.audio.chapters.length<7) fail('
 if(!Array.isArray(source.sources)||source.sources.length<1) fail('debe existir trazabilidad de fuentes');
 
 const sections=Array.isArray(source.sections)?source.sections:[];
+const briefs=Array.isArray(source.briefs)?source.briefs:[];
+const decisions=Array.isArray(source.decisions)?source.decisions:[];
 const marketLines=(source.markets||[]).slice(0,12).map(x=>`${clean(x.asset)}: ${clean(x.value)}. ${clean(x.interpretation)}`).join(' ');
-const equityLines=(source.equities||[]).slice(0,5).map(x=>`${clean(x.ticker)} se clasifica como ${clean(x.classification)}${x.thesis?`, por ${clean(x.thesis)}`:''}${x.confidence?`. Confianza ${clean(x.confidence)}`:''}.`).join(' ');
+const equityLines=(source.equities||[]).slice(0,5).map(x=>`${clean(x.ticker)} se clasifica como ${clean(x.classification)}${x.thesis?`, por ${clean(x.thesis).replace(/[.]+$/,'')}`:''}${x.confidence?`. Confianza ${clean(x.confidence)}`:''}.`).join(' ');
 const travelLines=(source.travel||[]).slice(0,3).map(x=>`${clean(x.destination)}, desde ${clean(x.airport)}, ${clean(x.fare)}${x.dates?`, fechas ${clean(x.dates)}`:''}${x.classification?`. ${clean(x.classification)}`:''}.`).join(' ');
 const signalLines=(source.threeSignals||[]).slice(0,3).map(x=>`${clean(x.label)}: ${clean(x.summary)}`).join(' ');
-const actionLines=(source.actions||[]).slice(0,6).map((x,i)=>`${i+1}. ${clean(x)}`).join(' ');
 
-function sectionText(regex){
-  const s=sections.find(x=>regex.test(clean(x.title)));
-  if(!s) return '';
-  return [s.body&&clean(s.body),s.why&&`Por qué importa: ${clean(s.why)}`,s.implication&&`Implicación: ${clean(s.implication)}`,s.opportunity&&`Oportunidad: ${clean(s.opportunity)}`,s.risk&&`Riesgo: ${clean(s.risk)}`,s.signal&&`Próxima señal: ${clean(s.signal)}`].filter(Boolean).join(' ');
+function findSection(number, fallbackRegex){
+  return sections.find(s=>new RegExp(`^${number}\\.`).test(clean(s.title))) || sections.find(s=>fallbackRegex.test(clean(s.title))) || null;
 }
-const mexicoDetail=sectionText(/México|Mexico/i);
-const realEstateDetail=sectionText(/bienes raíces|real estate|negocios/i)||mexicoDetail;
-const aiDetail=sectionText(/Inteligencia artificial|tecnolog|\bIA\b/i);
-const marketsDetail=sectionText(/mercados|inversion/i);
+function sectionText(section, fields=['body','why','implication','opportunity','risk','signal']){
+  if(!section) return '';
+  const labels={body:'',why:'Por qué importa: ',implication:'Implicación: ',opportunity:'Oportunidad: ',risk:'Riesgo: ',signal:'Próxima señal: '};
+  return fields.map(f=>section[f]?`${labels[f]}${clean(section[f])}`:'').filter(Boolean).join(' ');
+}
+function briefText(regex){const b=briefs.find(x=>regex.test(`${clean(x.kicker)} ${clean(x.title)}`));return b?`${clean(b.title)}. ${clean(b.text)}`:'';}
+function decisionText(regex){return decisions.filter(x=>regex.test(`${clean(x.label)} ${clean(x.title)}`)).map(x=>`${clean(x.title)}. ${clean(x.text)}`).join(' ');}
+
+const marketsSection=findSection(1,/mercados|inversion/i);
+const mexicoSection=findSection(2,/México|Mexico|bienes raíces|negocios/i);
+const aiSection=findSection(3,/Inteligencia artificial|tecnolog/i);
+const travelSection=findSection(4,/viajes|oportunidades/i);
+
+const marketsDetail=sectionText(marketsSection);
+const mexicoDetail=[briefText(/MÉXICO|Mexico/i),sectionText(mexicoSection,['body','why','signal'])].filter(Boolean).join(' ');
+const capitalDetail=[decisionText(/BIENES RAÍCES|INMOBILIARIO|NEGOCIO/i),sectionText(mexicoSection,['implication','opportunity','risk','signal'])].filter(Boolean).join(' ');
+const aiDetail=[briefText(/IA Y TECNOLOGÍA|INTELIGENCIA ARTIFICIAL/i),sectionText(aiSection)].filter(Boolean).join(' ');
+const travelDetail=[briefText(/VIAJES|TRAVEL/i),sectionText(travelSection)].filter(Boolean).join(' ');
+const investmentContext=marketsSection?[`La oportunidad descrita por el briefing se concentra en ${clean(marketsSection.opportunity||'activos con calidad verificable')}.`,`El riesgo de implementación es ${clean(marketsSection.risk||'pagar demasiado por crecimiento')}.`].join(' '):'';
 
 function category(c){const k=`${c.id||''} ${c.title||''}`.toLowerCase();if(/apertura/.test(k))return'apertura';if(/señal|senal/.test(k))return'senales';if(/mercado/.test(k))return'mercados';if(/inversi|radar/.test(k))return'inversion';if(/méxico|mexico/.test(k))return'mexico';if(/capital|negocio|bienes/.test(k))return'capital';if(/\bia\b|inteligencia artificial|ai capital/.test(k))return'ia';if(/viaje|travel/.test(k))return'viajes';if(/qué haría|que haria|acciones/.test(k))return'acciones';return'general';}
 function speakerFor(c){if(c.speaker)return clean(c.speaker).toUpperCase();const cat=category(c);return['mercados','inversion','capital','ia','viajes'].includes(cat)?'ANALISTA':'CIO';}
-function addUnique(base,extra){extra=clean(extra);if(!extra)return base;const probe=extra.slice(0,70).toLowerCase();if(clean(base).toLowerCase().includes(probe))return base;return`${clean(base)} ${extra}`.trim();}
+function addUnique(base,extra){extra=clean(extra);if(!extra)return base;const probe=normalizeSentence(extra).slice(0,80);if(probe&&normalizeSentence(base).includes(probe))return base;return`${clean(base)} ${extra}`.trim();}
 
 let chapterDrafts=source.audio.chapters.map(c=>{
   let text=clean(c.text);const cat=category(c);
-  if(cat==='apertura')text=addUnique(text,`La lectura ejecutiva del día es la siguiente: ${clean(source.executiveSummary)} La postura es ${clean(source.stance||'selectiva')}; el riesgo se clasifica como ${clean(source.risk||'elevado')} y el horizonte principal es ${clean(source.horizon||'de corto a mediano plazo')}.`);
-  if(cat==='senales')text=addUnique(text,signalLines);
-  if(cat==='mercados'){text=addUnique(text,marketLines);text=addUnique(text,marketsDetail);}
-  if(cat==='inversion')text=addUnique(text,equityLines);
-  if(cat==='mexico')text=addUnique(text,mexicoDetail);
-  if(cat==='capital')text=addUnique(text,realEstateDetail);
-  if(cat==='ia')text=addUnique(text,aiDetail);
-  if(cat==='viajes')text=addUnique(text,travelLines);
-  if(cat==='acciones')text=addUnique(text,actionLines);
+  if(cat==='apertura') text=addUnique(text,`La lectura ejecutiva del día es la siguiente: ${clean(source.executiveSummary)} La postura es ${clean(source.stance||'selectiva')}; el riesgo se clasifica como ${clean(source.risk||'elevado')} y el horizonte principal es ${clean(source.horizon||'de corto a mediano plazo')}.`);
+  if(cat==='senales') text=addUnique(text,signalLines);
+  if(cat==='mercados'){ text=addUnique(text,marketLines); text=addUnique(text,marketsDetail); }
+  if(cat==='inversion'){ text=addUnique(text,equityLines); text=addUnique(text,investmentContext); }
+  if(cat==='mexico') text=addUnique(text,mexicoDetail);
+  if(cat==='capital') text=addUnique(text,capitalDetail);
+  if(cat==='ia') text=addUnique(text,aiDetail);
+  if(cat==='viajes'){ text=addUnique(text,travelLines); text=addUnique(text,travelDetail); }
+  // El cierre ya viene editorializado en el JSON canónico. No se vuelve a enumerar source.actions.
+  text=dedupeSentences(text);
   return{id:c.id,title:clean(c.title),text,speaker:speakerFor(c)};
 });
 
-const minimumWords=1150;
-const supplementPool=sections.flatMap(s=>[
-  clean(s.body),
-  s.why&&`Por qué importa: ${clean(s.why)}`,
-  s.implication&&`Implicación de inversión o negocio: ${clean(s.implication)}`,
-  s.opportunity&&`Oportunidad identificada: ${clean(s.opportunity)}`,
-  s.risk&&`Riesgo principal: ${clean(s.risk)}`,
-  s.signal&&`Señal a vigilar: ${clean(s.signal)}`
-]).filter(Boolean);
-let totalWords=chapterDrafts.reduce((n,c)=>n+words(`${c.title} ${c.text}`),0),poolIndex=0,chapterIndex=2;
-while(totalWords<minimumWords&&supplementPool.length&&poolIndex<supplementPool.length*3){
-  const extra=supplementPool[poolIndex%supplementPool.length];
-  const target=chapterIndex%Math.max(1,chapterDrafts.length-1);
-  const before=words(chapterDrafts[target].text);
-  chapterDrafts[target].text=addUnique(chapterDrafts[target].text,extra);
-  totalWords+=Math.max(0,words(chapterDrafts[target].text)-before);
-  poolIndex++;chapterIndex++;
-}
-if(totalWords<1000)fail(`guion demasiado corto: ${totalWords} palabras; requiere mayor profundidad editorial en el JSON maestro`);
-if(totalWords>1900)fail(`guion demasiado largo: ${totalWords} palabras; objetivo 8–12 minutos`);
+const totalWords=chapterDrafts.reduce((n,c)=>n+words(`${c.title} ${c.text}`),0);
+if(totalWords<950) fail(`guion demasiado corto: ${totalWords} palabras; amplía el JSON maestro con contenido editorial específico, no con relleno cruzado`);
+if(totalWords>1650) fail(`guion demasiado largo: ${totalWords} palabras; objetivo 8–12 minutos`);
+
+function chapterByCategory(cat){return chapterDrafts.find(c=>category(c)===cat);}
+const semanticChecks=[
+  ['mercados',/Treasury|S&P|Nasdaq|mercado/i,/Oaxaca|Guatemala|Madrid/i],
+  ['mexico',/Banxico|México/i,/hyperscaler|Oaxaca/i],
+  ['capital',/refinanc|deuda|capital/i,/Oaxaca|Madrid/i],
+  ['ia',/capex|flujo de caja|inteligencia artificial|hyperscaler/i,/Banxico mantiene|Oaxaca|Guatemala/i],
+  ['viajes',/Oaxaca|Guatemala|Madrid|viaje/i,/Banxico mantiene|Treasury a diez años/i]
+];
+for(const [cat,required,forbidden] of semanticChecks){const c=chapterByCategory(cat);if(!c)fail(`falta capítulo ${cat}`);if(!required.test(c.text))fail(`capítulo ${cat} perdió su señal temática`);if(forbidden.test(c.text))fail(`capítulo ${cat} contiene contenido de otro dominio`);}
 
 let actualDurations=null;
 if(process.env.CHAPTER_DURATIONS_JSON){try{actualDurations=JSON.parse(process.env.CHAPTER_DURATIONS_JSON);}catch{fail('CHAPTER_DURATIONS_JSON inválido');}if(!Array.isArray(actualDurations)||actualDurations.length!==chapterDrafts.length||actualDurations.some(x=>!(Number(x)>0)))fail('duraciones de capítulos incompletas');}
@@ -92,10 +106,10 @@ const audioUrl=process.env.AUDIO_URL||null;
 const episodeNumber=Number(source.episodeNumber||0)||Math.max(1,Math.floor((new Date(`${source.date}T00:00:00Z`)-new Date('2026-08-08T00:00:00Z'))/86400000));
 
 fs.rmSync(segmentsDir,{recursive:true,force:true});fs.mkdirSync(segmentsDir,{recursive:true});
-const renderPlan={schemaVersion:1,date:source.date,totalWords,voiceMode:'dual',segments:chapterDrafts.map((c,index)=>{const file=`podcast/generated/segments/${String(index).padStart(2,'0')}.txt`;fs.writeFileSync(path.join(ROOT,file),`${c.title}. ${c.text}\n`);return{index,speaker:c.speaker,voice:c.speaker==='ANALISTA'?'es+f3':'es+m3',file,title:c.title,words:words(`${c.title} ${c.text}`)};})};
+const renderPlan={schemaVersion:2,date:source.date,totalWords,voiceMode:'dual',editorialGuard:'domain-specific',segments:chapterDrafts.map((c,index)=>{const file=`podcast/generated/segments/${String(index).padStart(2,'0')}.txt`;fs.writeFileSync(path.join(ROOT,file),`${c.title}. ${c.text}\n`);return{index,speaker:c.speaker,voice:c.speaker==='ANALISTA'?'es+f3':'es+m3',file,title:c.title,category:category(c),words:words(`${c.title} ${c.text}`)};})};
 writeJson(path.join(generatedDir,'render-plan.json'),renderPlan);
 
-const episode={schemaVersion:2,status:audioUrl?'published':'generated',date:source.date,timestamp:source.timestamp,timezone:source.timezone||'America/Mexico_City',episodeNumber,title:source.title,subtitle:source.audio.subtitle||'Mercados, inversión y oportunidades estratégicas en menos de 12 minutos.',durationSeconds,executiveSummary:source.executiveSummary,threeSignals:source.threeSignals||[],chapters,markets:source.markets||[],equities:source.equities||[],mexico:sections.find(x=>/México/i.test(x.title))||null,realEstate:sections.find(x=>/bienes raíces/i.test(x.title))||null,ai:sections.find(x=>/Inteligencia artificial/i.test(x.title))||null,travel:source.travel||[],actions:source.actions||[],sources:source.sources||[],voiceMode:'dual',voices:[{role:'CIO',engine:'eSpeak NG',variant:'es+m3'},{role:'ANALISTA',engine:'eSpeak NG',variant:'es+f3'}],audioUrl,pdfUrl:source.pdfUrl||null,transcriptUrl:`podcast/episodes/${source.date.slice(0,4)}/${source.date.slice(5,7)}/${source.date}.txt`,archiveUrl:'podcast/',sourceUrl:'data/daily-briefing-latest.json',isStale:false,fallbackMode:audioUrl?'audio':'speechSynthesis'};
+const episode={schemaVersion:2,status:audioUrl?'published':'generated',date:source.date,timestamp:source.timestamp,timezone:source.timezone||'America/Mexico_City',episodeNumber,title:source.title,subtitle:source.audio.subtitle||'Mercados, inversión y oportunidades estratégicas en menos de 12 minutos.',durationSeconds,executiveSummary:source.executiveSummary,threeSignals:source.threeSignals||[],chapters,markets:source.markets||[],equities:source.equities||[],mexico:mexicoSection,realEstate:mexicoSection,ai:aiSection,travel:source.travel||[],actions:source.actions||[],sources:source.sources||[],voiceMode:'dual',voices:[{role:'CIO',engine:'eSpeak NG',variant:'es+m3'},{role:'ANALISTA',engine:'eSpeak NG',variant:'es+f3'}],audioUrl,pdfUrl:source.pdfUrl||null,transcriptUrl:`podcast/episodes/${source.date.slice(0,4)}/${source.date.slice(5,7)}/${source.date}.txt`,archiveUrl:'podcast/',sourceUrl:'data/daily-briefing-latest.json',isStale:false,fallbackMode:audioUrl?'audio':'speechSynthesis'};
 
 fs.mkdirSync(generatedDir,{recursive:true});
 const plainScript=chapters.map(c=>`[${c.speaker}] ${c.title}.\n${c.text}`).join('\n\n');
@@ -109,4 +123,4 @@ let archive={schemaVersion:2,updatedAt:source.timestamp,episodes:[]};if(fs.exist
 const site='https://alexm3x.github.io/alex-global-currency-intelligence/';
 const rssItems=archive.episodes.slice(0,50).map(e=>{const audio=e.audioUrl?`<enclosure url="${escapeXml(new URL(e.audioUrl,site).href)}" type="audio/mpeg"/>`:'';return`<item><title>${escapeXml(e.title)}</title><guid>${escapeXml(e.date)}</guid><pubDate>${new Date(`${e.date}T14:00:00Z`).toUTCString()}</pubDate><link>${site}podcast/</link><description>${escapeXml('AGCI Morning Intelligence — inteligencia ejecutiva diaria en español.')}</description>${audio}</item>`;}).join('');
 const rss=`<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>AGCI Morning Intelligence</title><link>${site}podcast/</link><description>Mercados, inversión y oportunidades estratégicas en español.</description><language>es-MX</language>${rssItems}</channel></rss>`;fs.writeFileSync(path.join(PODCAST,'feed.xml'),rss+'\n');
-console.log(JSON.stringify({date:source.date,chapters:chapters.length,totalWords,durationSeconds,audioUrl,voiceMode:'dual',episodePath:`podcast/episodes/${yyyy}/${mm}/${source.date}.json`},null,2));
+console.log(JSON.stringify({date:source.date,chapters:chapters.length,totalWords,durationSeconds,audioUrl,voiceMode:'dual',editorialGuard:'domain-specific',episodePath:`podcast/episodes/${yyyy}/${mm}/${source.date}.json`},null,2));
