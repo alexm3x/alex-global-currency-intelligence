@@ -13,7 +13,7 @@ function fail(message){ console.error(`AGCI Morning Intelligence: ${message}`); 
 function readJson(file){ return JSON.parse(fs.readFileSync(file,'utf8')); }
 function writeJson(file,value){ fs.mkdirSync(path.dirname(file),{recursive:true}); fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n'); }
 function words(text=''){ return String(text).trim().split(/\s+/).filter(Boolean).length; }
-function escapeXml(v=''){ return String(v).replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot',"'":'&apos;'}[c])); }
+function escapeXml(v=''){ return String(v).replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c])); }
 function clean(v=''){ return String(v||'').replace(/\s+/g,' ').trim(); }
 function displayDate(iso){ const [y,m,d]=iso.split('-').map(Number); return new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d))); }
 function normalizeSentence(v=''){ return clean(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%]+/g,' ').trim(); }
