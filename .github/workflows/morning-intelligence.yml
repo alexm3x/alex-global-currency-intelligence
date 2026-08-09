@@ -8,14 +8,16 @@ on:
     branches: ["main"]
     paths:
       - "data/daily-briefing-latest.json"
-      - "scripts/generate-morning-intelligence.mjs"
+      - "scripts/generate-morning-intelligence-4min.mjs"
       - ".github/workflows/morning-intelligence.yml"
+      - "voice-studio.js"
   pull_request:
     branches: ["main"]
     paths:
       - "data/daily-briefing-latest.json"
-      - "scripts/generate-morning-intelligence.mjs"
+      - "scripts/generate-morning-intelligence-4min.mjs"
       - ".github/workflows/morning-intelligence.yml"
+      - "voice-studio.js"
 
 permissions:
   contents: write
@@ -38,28 +40,24 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Validar briefing canónico y plan editorial
+      - name: Validar briefing canónico y guion ejecutivo
         run: |
-          node --check scripts/generate-morning-intelligence.mjs
-          node scripts/generate-morning-intelligence.mjs
+          node --check scripts/generate-morning-intelligence-4min.mjs
+          node scripts/generate-morning-intelligence-4min.mjs
           test -s podcast/generated/script.txt
           test -s podcast/generated/render-plan.json
           test -s podcast/latest.json
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(x.schemaVersion!==2||x.language!=='es-MX'||!x.audio?.chapters?.length||x.audio.chapters.length<7)process.exit(1)"
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.voiceMode!=='dual'||p.totalWords<1000||p.segments.length<7||!p.segments.some(x=>x.speaker==='CIO')||!p.segments.some(x=>x.speaker==='ANALISTA'))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==3||p.primaryPlayback!=='deviceSpeech'||p.totalWords<330||p.totalWords>520||p.segments.length<7)process.exit(1)"
 
-      - name: Instalar TTS y herramientas de audio open-source
+      - name: Instalar audio fallback open-source
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends espeak-ng ffmpeg
           espeak-ng --version
           ffmpeg -version | head -n 1
-          espeak-ng -v es+m3 "AGCI" -w /tmp/voice-cio.wav
-          espeak-ng -v es+f3 "AGCI" -w /tmp/voice-analyst.wav
-          test -s /tmp/voice-cio.wav
-          test -s /tmp/voice-analyst.wav
 
-      - name: Renderizar episodio CIO + Analista y normalizar MP3
+      - name: Renderizar MP3 fallback y normalizar
         shell: bash
         run: |
           set -euo pipefail
@@ -77,29 +75,29 @@ jobs:
           NODE
           while IFS=$'\t' read -r INDEX SPEAKER VOICE FILE; do
             WAV="/tmp/agci-segment-${INDEX}.wav"
-            if [ "$SPEAKER" = "CIO" ]; then SPEED=143; PITCH=41; else SPEED=147; PITCH=47; fi
-            espeak-ng -v "$VOICE" -s "$SPEED" -p "$PITCH" -a 165 -f "$FILE" -w "$WAV"
+            if [ "$SPEAKER" = "CIO" ]; then SPEED=165; PITCH=42; else SPEED=170; PITCH=48; fi
+            espeak-ng -v "$VOICE" -s "$SPEED" -p "$PITCH" -a 155 -f "$FILE" -w "$WAV"
             test -s "$WAV"
             printf "file '%s'\n" "$WAV" >> /tmp/concat.txt
             ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$WAV" >> /tmp/durations.txt
           done < /tmp/render-plan.tsv
-          ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/concat.txt -c:a pcm_s16le /tmp/agci-dual.wav
-          ffmpeg -y -hide_banner -loglevel error -i /tmp/agci-dual.wav -af "highpass=f=70,lowpass=f=9000,loudnorm=I=-16:TP=-1.5:LRA=8" -ar 44100 -ac 1 -codec:a libmp3lame -b:a 96k "$OUT_DIR/$DATE.mp3"
+          ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/concat.txt -c:a pcm_s16le /tmp/agci-fallback.wav
+          ffmpeg -y -hide_banner -loglevel error -i /tmp/agci-fallback.wav -af "highpass=f=70,lowpass=f=9000,loudnorm=I=-16:TP=-1.5:LRA=8" -ar 44100 -ac 1 -codec:a libmp3lame -b:a 96k "$OUT_DIR/$DATE.mp3"
           test -s "$OUT_DIR/$DATE.mp3"
           DURATION=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$OUT_DIR/$DATE.mp3")
           DURATIONS_JSON=$(node -e "const fs=require('fs');const a=fs.readFileSync('/tmp/durations.txt','utf8').trim().split(/\n+/).filter(Boolean).map(Number);process.stdout.write(JSON.stringify(a))")
           AUDIO_URL="podcast/episodes/$YEAR/$MONTH/$DATE.mp3"
-          AUDIO_DURATION_SECONDS="$DURATION" AUDIO_URL="$AUDIO_URL" CHAPTER_DURATIONS_JSON="$DURATIONS_JSON" node scripts/generate-morning-intelligence.mjs
+          AUDIO_DURATION_SECONDS="$DURATION" AUDIO_URL="$AUDIO_URL" CHAPTER_DURATIONS_JSON="$DURATIONS_JSON" node scripts/generate-morning-intelligence-4min.mjs
           echo "DATE=$DATE" >> "$GITHUB_ENV"
           echo "AUDIO_URL=$AUDIO_URL" >> "$GITHUB_ENV"
           echo "DURATION=$DURATION" >> "$GITHUB_ENV"
 
-      - name: Validar paquete de episodio premium
+      - name: Validar paquete de episodio <=4 minutos
         run: |
           test -s "$AUDIO_URL"
           test -s podcast/feed.xml
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.status!=='published'||!p.audioUrl||p.voiceMode!=='dual'||p.durationSeconds<480||p.durationSeconds>720||p.chapters.length<7)process.exit(1);if(p.chapters.some((c,i,a)=>!c.speaker||i>0&&Number(c.start)<=Number(a[i-1].start)))process.exit(1)"
-          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(a.schemaVersion!==2||!a.episodes.some(x=>x.date===process.env.DATE&&x.audioUrl&&x.voiceMode==='dual'))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==3||p.status!=='published'||p.primaryPlayback!=='deviceSpeech'||p.durationSeconds>240||p.durationSeconds<120||p.chapters.length<7)process.exit(1);if(p.chapters.some((c,i,a)=>!c.speaker||i>0&&Number(c.start)<=Number(a[i-1].start)))process.exit(1)"
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(!a.episodes.some(x=>x.date===process.env.DATE&&x.primaryPlayback==='deviceSpeech'))process.exit(1)"
 
       - name: Publicar audio y metadatos generados
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -111,7 +109,7 @@ jobs:
             echo "No hay cambios de episodio que publicar."
             echo "PUBLISHED=0" >> "$GITHUB_ENV"
           else
-            git commit -m "podcast: publish dual-voice Morning Intelligence $DATE"
+            git commit -m "podcast: publish natural-first Morning Intelligence $DATE"
             git push origin HEAD:main
             echo "PUBLISHED=1" >> "$GITHUB_ENV"
           fi
@@ -122,15 +120,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh workflow run pages.yml --ref main
-          echo "Pages dispatch solicitado para el commit de audio publicado."
 
       - name: Resumen de producción
         run: |
-          echo "### AGCI Morning Intelligence — Fase 3" >> "$GITHUB_STEP_SUMMARY"
+          echo "### AGCI Morning Intelligence — Natural First" >> "$GITHUB_STEP_SUMMARY"
           echo "- Fecha: $DATE" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Audio: $AUDIO_URL" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Duración: $DURATION segundos" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Formato: CIO + Analista" >> "$GITHUB_STEP_SUMMARY"
-          echo "- TTS: eSpeak NG dual voice, sin costo recurrente" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Normalización: -16 LUFS" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Publicación nueva: ${PUBLISHED:-0}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Duración fallback: $DURATION segundos" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Experiencia principal: voz natural del dispositivo" >> "$GITHUB_STEP_SUMMARY"
+          echo "- MP3 eSpeak: sólo fallback temporal" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Límite editorial: 4:00" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Normalización fallback: -16 LUFS" >> "$GITHUB_STEP_SUMMARY"
