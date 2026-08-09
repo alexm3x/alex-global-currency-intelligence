@@ -13,7 +13,7 @@ function fail(message){ console.error(`AGCI Morning Intelligence: ${message}`); 
 function readJson(file){ return JSON.parse(fs.readFileSync(file,'utf8')); }
 function writeJson(file,value){ fs.mkdirSync(path.dirname(file),{recursive:true}); fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n'); }
 function words(text=''){ return String(text).trim().split(/\s+/).filter(Boolean).length; }
-function escapeXml(v=''){ return String(v).replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c])); }
+function escapeXml(v=''){ return String(v).replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot',"'":'&apos;'}[c])); }
 function clean(v=''){ return String(v||'').replace(/\s+/g,' ').trim(); }
 function displayDate(iso){ const [y,m,d]=iso.split('-').map(Number); return new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d))); }
 function normalizeSentence(v=''){ return clean(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%]+/g,' ').trim(); }
@@ -61,7 +61,20 @@ const aiDetail=[briefText(/IA Y TECNOLOGÍA|INTELIGENCIA ARTIFICIAL/i),sectionTe
 const travelDetail=[briefText(/VIAJES|TRAVEL/i),sectionText(travelSection)].filter(Boolean).join(' ');
 const investmentContext=marketsSection?[`La oportunidad descrita por el briefing se concentra en ${clean(marketsSection.opportunity||'activos con calidad verificable')}.`,`El riesgo de implementación es ${clean(marketsSection.risk||'pagar demasiado por crecimiento')}.`].join(' '):'';
 
-function category(c){const k=`${c.id||''} ${c.title||''}`.toLowerCase();if(/apertura/.test(k))return'apertura';if(/señal|senal/.test(k))return'senales';if(/mercado/.test(k))return'mercados';if(/inversi|radar/.test(k))return'inversion';if(/méxico|mexico/.test(k))return'mexico';if(/capital|negocio|bienes/.test(k))return'capital';if(/\bia\b|inteligencia artificial|ai capital/.test(k))return'ia';if(/viaje|travel/.test(k))return'viajes';if(/qué haría|que haria|acciones/.test(k))return'acciones';return'general';}
+function category(c){
+  const k=`${c.id||''} ${c.title||''}`.toLowerCase();
+  if(/apertura/.test(k))return'apertura';
+  if(/señal|senal/.test(k))return'senales';
+  if(/mercado/.test(k))return'mercados';
+  if(/inversi|radar/.test(k))return'inversion';
+  if(/méxico|mexico/.test(k))return'mexico';
+  // AI Capital Monitor contiene la palabra “capital”; IA debe clasificarse antes que el bloque genérico de capital/negocios.
+  if(/(^|\s)ia(\s|$)|inteligencia artificial|ai capital/.test(k))return'ia';
+  if(/capital|negocio|bienes/.test(k))return'capital';
+  if(/viaje|travel/.test(k))return'viajes';
+  if(/qué haría|que haria|acciones/.test(k))return'acciones';
+  return'general';
+}
 function speakerFor(c){if(c.speaker)return clean(c.speaker).toUpperCase();const cat=category(c);return['mercados','inversion','capital','ia','viajes'].includes(cat)?'ANALISTA':'CIO';}
 function addUnique(base,extra){extra=clean(extra);if(!extra)return base;const probe=normalizeSentence(extra).slice(0,80);if(probe&&normalizeSentence(base).includes(probe))return base;return`${clean(base)} ${extra}`.trim();}
 
