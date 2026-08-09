@@ -2,6 +2,8 @@ name: AGCI Executive Platform Audit
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
@@ -18,6 +20,7 @@ jobs:
           node --check app.js
           node --check market-live.js
           node --check daily-briefing-cover.js
+          node --check morning-intelligence.js
           node --check investment-opportunities.js
           node --check etf-opportunities.js
           node --check barrons-comparison.js
@@ -42,6 +45,12 @@ jobs:
           test -s styles.css
           test -s executive-intelligence.css
           test -s executive-intelligence.js
+          test -s morning-intelligence.js
+          test -s morning-intelligence.css
+          test -s podcast/latest.json
+          test -s podcast/archive.json
+          test -s podcast/index.html
+          test -s site.webmanifest
           test -s equity-comparator.js
           test -s equity-comparator.css
           test -s equity-intelligence-dashboard.js
@@ -52,6 +61,8 @@ jobs:
           test -s multi-asset-lists.css
           test -s mobile-nav-polish.css
           grep -q "equityIntelligence" index.html
+          grep -q "morning-intelligence.css" index.html
+          grep -q "morning-intelligence.js" index.html
           grep -q "nav-dedupe.js" index.html
           grep -q "equity-performance-panel.js" nav-dedupe.js
           grep -q "multi-asset-lists.js" nav-dedupe.js
@@ -59,6 +70,19 @@ jobs:
           grep -q "AGCI Resumen Ejecutivo" workers/agci-alerts-worker.js
           grep -q "Anomalía detectada" cloudflare/tail-risk.js
           node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('data/macro-latest.json')); const s=JSON.parse(fs.readFileSync('data/sources.json')); if(!m.generatedAt||!s.generated_at) process.exit(1);"
+          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('podcast/latest.json')); if(p.schemaVersion!==1||!p.date||!p.title||!Array.isArray(p.chapters)||p.chapters.length<5||!p.durationSeconds) process.exit(1); if(p.chapters.some((c,i,a)=>!c.title||!c.text||i>0&&Number(c.start)<Number(a[i-1].start))) process.exit(1);"
+          node -e "const fs=require('fs'); const a=JSON.parse(fs.readFileSync('podcast/archive.json')); if(!Array.isArray(a.episodes)||!a.episodes.length) process.exit(1);"
+          node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('site.webmanifest')); if(m.lang!=='es-MX'||m.start_url!=='./') process.exit(1);"
+      - name: Validate Morning Intelligence local serving
+        run: |
+          python3 -m http.server 8765 >/tmp/agci-local.log 2>&1 &
+          sleep 2
+          curl --fail --silent --show-error http://127.0.0.1:8765/ > /tmp/local-index.html
+          curl --fail --silent --show-error http://127.0.0.1:8765/podcast/latest.json > /tmp/local-podcast.json
+          curl --fail --silent --show-error http://127.0.0.1:8765/podcast/ > /tmp/local-archive.html
+          grep -q "morning-intelligence.js" /tmp/local-index.html
+          grep -q "AGCI Morning Intelligence" /tmp/local-archive.html
+          node -e "const fs=require('fs'); JSON.parse(fs.readFileSync('/tmp/local-podcast.json'));"
       - name: Validate basic SEO and accessibility hooks
         run: |
           grep -q '<meta name="viewport"' index.html
@@ -67,6 +91,7 @@ jobs:
           grep -q 'aria-label="Navegación principal"' index.html
           grep -q 'aria-labelledby="dialogContent"' index.html
           grep -q '<noscript>' index.html
+          grep -q "aria-labelledby','morningTitle" morning-intelligence.js
       - name: Test market data endpoint
         run: curl --fail --silent --show-error --max-time 20 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
       - name: Test alerts health endpoint
