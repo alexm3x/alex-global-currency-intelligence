@@ -1,11 +1,42 @@
 {
+  "id": "./",
   "name": "AGCI — Global Currency Intelligence",
   "short_name": "AGCI",
   "lang": "es-MX",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#f4f2ef",
-  "theme_color": "#101820",
-  "description": "Inteligencia ejecutiva de mercados, inversión y oportunidades estratégicas."
+  "theme_color": "#17191c",
+  "description": "Inteligencia ejecutiva de mercados, inversión y oportunidades estratégicas.",
+  "categories": ["finance", "business", "news"],
+  "icons": [
+    {
+      "src": "icons/agci-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Morning Intelligence",
+      "short_name": "Audio diario",
+      "description": "Abrir el briefing ejecutivo en audio.",
+      "url": "./#morningIntelligence"
+    },
+    {
+      "name": "Daily Strategic Briefing",
+      "short_name": "Briefing",
+      "description": "Abrir el informe estratégico diario.",
+      "url": "./#briefing"
+    },
+    {
+      "name": "Archivo de episodios",
+      "short_name": "Archivo",
+      "description": "Consultar episodios anteriores.",
+      "url": "./podcast/"
+    }
+  ]
 }

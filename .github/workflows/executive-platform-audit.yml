@@ -12,7 +12,7 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - name: Validate JavaScript syntax
@@ -21,6 +21,7 @@ jobs:
           node --check market-live.js
           node --check daily-briefing-cover.js
           node --check morning-intelligence.js
+          node --check sw.js
           node --check investment-opportunities.js
           node --check etf-opportunities.js
           node --check barrons-comparison.js
@@ -48,6 +49,8 @@ jobs:
           test -s executive-intelligence.js
           test -s morning-intelligence.js
           test -s morning-intelligence.css
+          test -s sw.js
+          test -s icons/agci-icon.svg
           test -s data/daily-briefing-latest.json
           test -s podcast/latest.json
           test -s podcast/archive.json
@@ -66,35 +69,45 @@ jobs:
           grep -q "morning-intelligence.css" index.html
           grep -q "morning-intelligence.js" index.html
           grep -q "data/daily-briefing-latest.json" daily-briefing-cover.js
+          grep -q "navigator.serviceWorker.register" morning-intelligence.js
+          grep -q "navigator.mediaSession.setActionHandler" morning-intelligence.js
+          grep -q "AGCIListeningMetrics" morning-intelligence.js
+          grep -q "CACHE_EPISODE" sw.js
+          grep -q "notificationclick" sw.js
           grep -q "nav-dedupe.js" index.html
           grep -q "equity-performance-panel.js" nav-dedupe.js
           grep -q "multi-asset-lists.js" nav-dedupe.js
           grep -q "executive-intelligence.js" daily-briefing-cover.js
           grep -q "AGCI Resumen Ejecutivo" workers/agci-alerts-worker.js
           grep -q "Anomalía detectada" cloudflare/tail-risk.js
-          node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('data/macro-latest.json')); const s=JSON.parse(fs.readFileSync('data/sources.json')); if(!m.generatedAt||!s.generated_at) process.exit(1);"
-          node -e "const fs=require('fs'); const b=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json')); if(b.schemaVersion!==2||b.language!=='es-MX'||!b.date||!b.title||!Array.isArray(b.sections)||b.sections.length<4||!Array.isArray(b.audio?.chapters)||b.audio.chapters.length<5) process.exit(1);"
-          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('podcast/latest.json')); if(![1,2].includes(p.schemaVersion)||!p.date||!p.title||!Array.isArray(p.chapters)||p.chapters.length<5||!p.durationSeconds) process.exit(1); if(p.chapters.some((c,i,a)=>!c.title||!c.text||i>0&&Number(c.start)<Number(a[i-1].start))) process.exit(1);"
-          node -e "const fs=require('fs'); const a=JSON.parse(fs.readFileSync('podcast/archive.json')); if(!Array.isArray(a.episodes)||!a.episodes.length) process.exit(1);"
-          node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('site.webmanifest')); if(m.lang!=='es-MX'||m.start_url!=='./') process.exit(1);"
+          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('data/macro-latest.json'));const s=JSON.parse(fs.readFileSync('data/sources.json'));if(!m.generatedAt||!s.generated_at)process.exit(1)"
+          node -e "const fs=require('fs');const b=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(b.schemaVersion!==2||b.language!=='es-MX'||!b.date||!b.title||!Array.isArray(b.sections)||b.sections.length<4||!Array.isArray(b.audio?.chapters)||b.audio.chapters.length<7)process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(![1,2].includes(p.schemaVersion)||!p.date||!p.title||!Array.isArray(p.chapters)||p.chapters.length<5||!p.durationSeconds)process.exit(1);if(p.chapters.some((c,i,a)=>!c.title||!c.text||i>0&&Number(c.start)<Number(a[i-1].start)))process.exit(1)"
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(!Array.isArray(a.episodes)||!a.episodes.length)process.exit(1)"
+          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('site.webmanifest'));if(m.lang!=='es-MX'||m.start_url!=='./'||m.display!=='standalone'||!Array.isArray(m.icons)||!m.icons.length||!Array.isArray(m.shortcuts)||m.shortcuts.length<2)process.exit(1)"
       - name: Dry-run Morning Intelligence generator
         run: |
           node scripts/generate-morning-intelligence.mjs > /tmp/morning-generator.json
           test -s podcast/generated/script.txt
           test -s podcast/generated/transcript.md
+          test -s podcast/generated/render-plan.json
           test -s podcast/feed.xml
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.sourceUrl!=='data/daily-briefing-latest.json'||p.chapters.length<5)process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));const r=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==2||p.sourceUrl!=='data/daily-briefing-latest.json'||p.chapters.length<7||p.voiceMode!=='dual'||r.voiceMode!=='dual'||r.totalWords<1000||!r.segments.some(x=>x.speaker==='CIO')||!r.segments.some(x=>x.speaker==='ANALISTA'))process.exit(1)"
       - name: Validate Morning Intelligence local serving
         run: |
           python3 -m http.server 8765 >/tmp/agci-local.log 2>&1 &
           sleep 2
           curl --fail --silent --show-error http://127.0.0.1:8765/ > /tmp/local-index.html
+          curl --fail --silent --show-error http://127.0.0.1:8765/sw.js > /tmp/local-sw.js
+          curl --fail --silent --show-error http://127.0.0.1:8765/icons/agci-icon.svg > /tmp/local-icon.svg
           curl --fail --silent --show-error http://127.0.0.1:8765/data/daily-briefing-latest.json > /tmp/local-briefing.json
           curl --fail --silent --show-error http://127.0.0.1:8765/podcast/latest.json > /tmp/local-podcast.json
           curl --fail --silent --show-error http://127.0.0.1:8765/podcast/ > /tmp/local-archive.html
           grep -q "morning-intelligence.js" /tmp/local-index.html
           grep -q "AGCI Morning Intelligence" /tmp/local-archive.html
-          node -e "const fs=require('fs'); const b=JSON.parse(fs.readFileSync('/tmp/local-briefing.json')); const p=JSON.parse(fs.readFileSync('/tmp/local-podcast.json')); if(b.date!==p.date) process.exit(1);"
+          grep -q "CACHE_EPISODE" /tmp/local-sw.js
+          grep -q "AGCI" /tmp/local-icon.svg
+          node -e "const fs=require('fs');const b=JSON.parse(fs.readFileSync('/tmp/local-briefing.json'));const p=JSON.parse(fs.readFileSync('/tmp/local-podcast.json'));if(b.date!==p.date)process.exit(1)"
       - name: Validate basic SEO and accessibility hooks
         run: |
           grep -q '<meta name="viewport"' index.html
@@ -104,6 +117,8 @@ jobs:
           grep -q 'aria-labelledby="dialogContent"' index.html
           grep -q '<noscript>' index.html
           grep -q "aria-labelledby','morningTitle" morning-intelligence.js
+          grep -q 'aria-label="Progreso"' morning-intelligence.js
+          grep -q 'aria-label="Retroceder 15 segundos"' morning-intelligence.js
       - name: Test market data endpoint
         run: curl --fail --silent --show-error --max-time 20 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
       - name: Test alerts health endpoint
@@ -112,7 +127,7 @@ jobs:
         run: curl --fail --silent --show-error --max-time 20 https://alexm3x.github.io/alex-global-currency-intelligence/ > /tmp/portal.html
       - name: Validate endpoint responses
         run: |
-          node -e "const fs=require('fs'); JSON.parse(fs.readFileSync('/tmp/market.json','utf8')); JSON.parse(fs.readFileSync('/tmp/alerts.json','utf8'));"
+          node -e "const fs=require('fs');JSON.parse(fs.readFileSync('/tmp/market.json','utf8'));JSON.parse(fs.readFileSync('/tmp/alerts.json','utf8'))"
           grep -q "Global Currency Intelligence" /tmp/portal.html
           curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json > /tmp/macro.json
-          node -e "const fs=require('fs'); const x=JSON.parse(fs.readFileSync('/tmp/macro.json')); if(!['connected','degraded'].includes(x.overallStatus)) process.exit(1);"
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/macro.json'));if(!['connected','degraded'].includes(x.overallStatus))process.exit(1)"
