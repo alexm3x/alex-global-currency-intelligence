@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'agci-v3b-20260809';
+const CACHE_VERSION = 'agci-v4-natural-20260809';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const DATA_CACHE = `${CACHE_VERSION}-data`;
 const AUDIO_CACHE = `${CACHE_VERSION}-audio`;
