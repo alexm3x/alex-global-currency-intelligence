@@ -76,7 +76,7 @@ jobs:
           NODE
           while IFS=$'\t' read -r INDEX SPEAKER VOICE FILE; do
             WAV="/tmp/agci-segment-${INDEX}.wav"
-            if [ "$SPEAKER" = "CIO" ]; then SPEED=136; PITCH=41; else SPEED=140; PITCH=47; fi
+            if [ "$SPEAKER" = "CIO" ]; then SPEED=143; PITCH=41; else SPEED=147; PITCH=47; fi
             espeak-ng -v "$VOICE" -s "$SPEED" -p "$PITCH" -a 165 -f "$FILE" -w "$WAV"
             test -s "$WAV"
             printf "file '%s'\n" "$WAV" >> /tmp/concat.txt
@@ -97,7 +97,7 @@ jobs:
         run: |
           test -s "$AUDIO_URL"
           test -s podcast/feed.xml
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.status!=='published'||!p.audioUrl||p.voiceMode!=='dual'||p.durationSeconds<470||p.durationSeconds>780||p.chapters.length<7)process.exit(1);if(p.chapters.some((c,i,a)=>!c.speaker||i>0&&Number(c.start)<=Number(a[i-1].start)))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.status!=='published'||!p.audioUrl||p.voiceMode!=='dual'||p.durationSeconds<480||p.durationSeconds>720||p.chapters.length<7)process.exit(1);if(p.chapters.some((c,i,a)=>!c.speaker||i>0&&Number(c.start)<=Number(a[i-1].start)))process.exit(1)"
           node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(a.schemaVersion!==2||!a.episodes.some(x=>x.date===process.env.DATE&&x.audioUrl&&x.voiceMode==='dual'))process.exit(1)"
 
       - name: Publicar audio y metadatos generados
