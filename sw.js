@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'agci-v3-20260809';
+const CACHE_VERSION = 'agci-v3b-20260809';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const DATA_CACHE = `${CACHE_VERSION}-data`;
 const AUDIO_CACHE = `${CACHE_VERSION}-audio`;
@@ -8,6 +8,9 @@ const CORE = [
   './styles.css',
   './morning-intelligence.css',
   './morning-intelligence.js',
+  './voice-router.js',
+  './voice-studio.js',
+  './pronunciation-dictionary.json',
   './daily-briefing-cover.js',
   './site.webmanifest',
   './podcast/',
