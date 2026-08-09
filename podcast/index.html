@@ -1,2 +1,48 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101820"><title>AGCI Morning Intelligence | Archivo</title><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="../morning-intelligence.css"><style>body{background:#f4f2ef;color:#17191c}.podcast-archive{max-width:980px;margin:auto;padding:28px 18px 60px}.podcast-archive header{border-top:4px solid #8f1d24;padding-top:18px}.podcast-archive h1{font-family:Georgia,serif;font-size:40px;margin:8px 0}.episode-card{background:#fff;border:1px solid #d8d3cd;padding:18px;margin:16px 0}.episode-card__meta{font-size:11px;color:#777;text-transform:uppercase}.episode-card a,.episode-card button{display:inline-block;margin:8px 7px 0 0;padding:8px 10px;border:1px solid #222;background:#222;color:#fff;text-decoration:none;cursor:pointer}.transcript{margin-top:18px;border-top:1px solid #ddd;padding-top:18px}.transcript article{margin:18px 0}.transcript time{color:#8f1d24;font-weight:700}@media(max-width:600px){.podcast-archive h1{font-size:31px}}</style></head><body><main class="podcast-archive"><header><p class="rubric">AGCI MORNING INTELLIGENCE</p><h1>Archivo de episodios</h1><p>Audio ejecutivo, transcripciones y vínculo con el Daily Strategic Briefing.</p><a href="../">← Volver a AGCI</a></header><section id="episodes"><p>Cargando archivo…</p></section><section id="transcript" class="transcript"></section></main><script>const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));const fmt=s=>`${Math.floor(s/60)}:${String(Math.round(s)%60).padStart(2,'0')}`;async function load(){const a=await fetch('archive.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});document.querySelector('#episodes').innerHTML=a.episodes.map(e=>`<article class="episode-card"><div class="episode-card__meta">${esc(e.date)} · ${fmt(e.durationSeconds)} · ${esc(e.status)}</div><h2>${esc(e.title)}</h2><button data-data="${esc(e.dataUrl)}">Ver transcripción</button>${e.audioUrl?`<a href="${esc(e.audioUrl)}">Escuchar audio</a>`:''}${e.pdfUrl?`<a href="${esc(e.pdfUrl)}">PDF</a>`:''}</article>`).join('');document.querySelectorAll('[data-data]').forEach(b=>b.onclick=()=>show(b.dataset.data));if(new URLSearchParams(location.search).get('transcript'))show('latest.json')}async function show(url){const d=await fetch(url,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});document.querySelector('#transcript').innerHTML=`<h2>Transcripción — ${esc(d.date)}</h2><h3>${esc(d.title)}</h3>`+d.chapters.map(c=>`<article><time>${fmt(c.start)}</time><h3>${esc(c.title)}</h3><p>${esc(c.text)}</p></article>`).join('');location.hash='transcript'}load().catch(()=>document.querySelector('#episodes').innerHTML='<p>No fue posible cargar el archivo.</p>');</script></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17191c">
+  <meta name="description" content="Archivo de AGCI Morning Intelligence: audio ejecutivo, transcripciones y Daily Strategic Briefing.">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AGCI Morning Intelligence RSS" href="feed.xml">
+  <title>AGCI Morning Intelligence | Archivo</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../morning-intelligence.css">
+  <style>
+    body{background:#f4f2ef;color:#17191c}.podcast-archive{max-width:980px;margin:auto;padding:28px 18px 60px}.podcast-archive header{border-top:4px solid #8f1d24;padding-top:18px}.podcast-archive h1{font-family:Georgia,serif;font-size:40px;margin:8px 0}.archive-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.archive-actions a,.episode-card a,.episode-card button{display:inline-block;padding:8px 10px;border:1px solid #222;background:#222;color:#fff;text-decoration:none;cursor:pointer;font:inherit;font-size:12px;font-weight:700}.archive-actions a.secondary,.episode-card a.secondary,.episode-card button.secondary{background:transparent;color:#222}.episode-card{background:#fff;border:1px solid #d8d3cd;padding:18px;margin:16px 0}.episode-card__meta{font-size:11px;color:#777;text-transform:uppercase}.episode-card audio{display:block;width:100%;margin:14px 0}.transcript{margin-top:18px;border-top:1px solid #ddd;padding-top:18px}.transcript article{margin:18px 0;padding-bottom:14px;border-bottom:1px solid #ddd}.transcript time{color:#8f1d24;font-weight:700}.speaker{display:inline-block;margin-left:8px;font-size:10px;font-weight:800;color:#666;text-transform:uppercase}@media(max-width:600px){.podcast-archive h1{font-size:31px}.archive-actions{display:grid}.archive-actions a{text-align:center}}
+  </style>
+</head>
+<body>
+<main class="podcast-archive">
+  <header>
+    <p class="rubric">AGCI MORNING INTELLIGENCE</p>
+    <h1>Archivo de episodios</h1>
+    <p>Audio ejecutivo, transcripciones y vínculo con el Daily Strategic Briefing.</p>
+    <div class="archive-actions"><a href="../">← Volver a AGCI</a><a class="secondary" href="feed.xml">RSS del podcast</a></div>
+  </header>
+  <section id="episodes"><p>Cargando archivo…</p></section>
+  <section id="transcript" class="transcript"></section>
+</main>
+<script>
+const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const fmt=s=>{s=Math.max(0,Math.round(Number(s)||0));return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`};
+const root=p=>{if(!p)return'';if(/^https?:/i.test(p))return p;return new URL(`../${String(p).replace(/^\.\//,'')}`,location.href).href};
+const dataUrl=e=>e.dataUrl||`podcast/episodes/${e.date.slice(0,4)}/${e.date.slice(5,7)}/${e.date}.json`;
+async function load(){
+  const a=await fetch('archive.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+  document.querySelector('#episodes').innerHTML=(a.episodes||[]).map(e=>`<article class="episode-card"><div class="episode-card__meta">${esc(e.date)} · ${fmt(e.durationSeconds)} · ${esc(e.voiceMode==='dual'?'CIO + ANALISTA':e.status)}</div><h2>${esc(e.title)}</h2>${e.audioUrl?`<audio controls preload="none" src="${esc(root(e.audioUrl))}">Tu navegador no puede reproducir este audio.</audio>`:''}<button class="secondary" data-data="${esc(dataUrl(e))}">Ver transcripción</button>${e.audioUrl?`<a href="${esc(root(e.audioUrl))}" download>Audio MP3</a>`:''}${e.pdfUrl?`<a href="${esc(root(e.pdfUrl))}">PDF</a>`:''}</article>`).join('')||'<p>No hay episodios archivados.</p>';
+  document.querySelectorAll('[data-data]').forEach(b=>b.onclick=()=>show(b.dataset.data));
+  if(new URLSearchParams(location.search).get('transcript'))show('podcast/latest.json');
+}
+async function show(url){
+  const d=await fetch(root(url),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+  document.querySelector('#transcript').innerHTML=`<h2>Transcripción — ${esc(d.date)}</h2><h3>${esc(d.title)}</h3>`+(d.chapters||[]).map(c=>`<article><time>${fmt(c.start)}</time>${c.speaker?`<span class="speaker">${esc(c.speaker)}</span>`:''}<h3>${esc(c.title)}</h3><p>${esc(c.text)}</p></article>`).join('');
+  location.hash='transcript';
+}
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js',{scope:'../'}).catch(()=>{}));
+load().catch(()=>document.querySelector('#episodes').innerHTML='<p>No fue posible cargar el archivo.</p>');
+</script>
+</body>
+</html>
