@@ -91,7 +91,7 @@ jobs:
           grep -q 'aria-label="Navegación principal"' index.html
           grep -q 'aria-labelledby="dialogContent"' index.html
           grep -q '<noscript>' index.html
-          grep -q 'aria-labelledby="morningTitle"' morning-intelligence.js
+          grep -q "aria-labelledby','morningTitle" morning-intelligence.js
       - name: Test market data endpoint
         run: curl --fail --silent --show-error --max-time 20 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
       - name: Test alerts health endpoint
