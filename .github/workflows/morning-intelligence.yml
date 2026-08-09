@@ -9,12 +9,14 @@ on:
     paths:
       - "data/daily-briefing-latest.json"
       - "scripts/generate-morning-intelligence.mjs"
+      - "podcast/index.html"
       - ".github/workflows/morning-intelligence.yml"
   pull_request:
     branches: ["main"]
     paths:
       - "data/daily-briefing-latest.json"
       - "scripts/generate-morning-intelligence.mjs"
+      - "podcast/index.html"
       - ".github/workflows/morning-intelligence.yml"
 
 permissions:
@@ -43,7 +45,7 @@ jobs:
           node scripts/generate-morning-intelligence.mjs
           test -s podcast/generated/script.txt
           test -s podcast/latest.json
-          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(x.schemaVersion!==2||x.language!=='es-MX'||!x.audio?.chapters?.length)process.exit(1)"
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(x.schemaVersion!==2||x.language!=='es-MX'||!x.audio?.chapters?.length)process.exit(1);const words=x.audio.chapters.map(c=>c.text).join(' ').trim().split(/\s+/).length;if(words<1050||words>1900){console.error('Guion fuera del rango editorial:',words,'palabras');process.exit(1)}"
 
       - name: Install open-source TTS and audio tools
         run: |
@@ -69,12 +71,13 @@ jobs:
           echo "AUDIO_URL=$AUDIO_URL" >> "$GITHUB_ENV"
           echo "DURATION=$DURATION" >> "$GITHUB_ENV"
 
-      - name: Validate generated episode package
+      - name: Validate 8-12 minute episode package
         run: |
           test -s "$AUDIO_URL"
           test -s podcast/feed.xml
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.status!=='published'||!p.audioUrl||p.durationSeconds<60||p.chapters.length<5)process.exit(1)"
-          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(a.schemaVersion!==2||!a.episodes.some(x=>x.date===process.env.DATE&&x.audioUrl))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==2||p.status!=='published'||!p.audioUrl||p.durationSeconds<480||p.durationSeconds>720||p.chapters.length<7){console.error('Paquete inválido o duración fuera de 8–12 min:',p.durationSeconds);process.exit(1)}"
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));const e=a.episodes.find(x=>x.date===process.env.DATE);if(a.schemaVersion!==2||!e||!e.audioUrl||!e.dataUrl||!e.transcriptUrl||e.audioUrl.startsWith('podcast/')){console.error('Archivo histórico inválido');process.exit(1)}"
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));const e=a.episodes.find(x=>x.date===process.env.DATE);for(const u of [e.audioUrl,e.dataUrl,e.transcriptUrl]){if(!fs.existsSync('podcast/'+u)){console.error('Ruta de archivo inexistente:',u);process.exit(1)}}"
 
       - name: Commit generated audio and metadata
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -95,4 +98,5 @@ jobs:
           echo "- Fecha: $DATE" >> "$GITHUB_STEP_SUMMARY"
           echo "- Audio: $AUDIO_URL" >> "$GITHUB_STEP_SUMMARY"
           echo "- Duración: $DURATION segundos" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Objetivo editorial: 8–12 minutos" >> "$GITHUB_STEP_SUMMARY"
           echo "- TTS: eSpeak NG en español, sin costo recurrente" >> "$GITHUB_STEP_SUMMARY"
