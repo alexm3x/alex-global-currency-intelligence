@@ -1,0 +1,78 @@
+name: Deploy AGCI Equity Fundamentals
+on:
+  push:
+    branches:
+      - main
+      - feat/agci-decision-engine-20260810
+    paths:
+      - 'decision-engine-core.js'
+      - 'tests/decision-engine.test.mjs'
+      - 'cloudflare/agci-equity-fundamentals.js'
+      - 'cloudflare/agci-equity-decision-worker.js'
+      - 'wrangler.equity-fundamentals.jsonc'
+      - '.github/workflows/deploy-equity-fundamentals.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 466b5e1f242272e2f95046caa4347b7d
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Validate deployment credential
+        run: test -n "$CLOUDFLARE_API_TOKEN" || (echo 'CLOUDFLARE_API_TOKEN is not configured' && exit 1)
+      - name: Install, test and dry-run
+        run: |
+          npm ci
+          npm test
+          node --check cloudflare/agci-equity-decision-worker.js
+          npx wrangler deploy --dry-run --env="" --config wrangler.equity-fundamentals.jsonc
+      - name: Confirm existing AGCI market service remains untouched
+        run: |
+          status=$(curl --silent --show-error --max-time 20 -o /tmp/market-root.txt -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/' || true)
+          test "$status" != "000" || (echo 'AGCI Market Data is unreachable before equity deployment' && exit 1)
+          echo "AGCI Market Data reachable with HTTP $status; this workflow does not deploy or alter it."
+      - name: Deploy Equity Fundamentals service
+        run: npx wrangler deploy --env="" --config wrangler.equity-fundamentals.jsonc
+      - name: Wait for public Worker activation and validate health
+        run: |
+          rm -f /tmp/equity-health.json
+          code=000
+          for attempt in $(seq 1 15); do
+            code=$(curl --silent --show-error --max-time 20 -o /tmp/equity-health.json -w '%{http_code}' https://agci-equity-fundamentals.proadmexico.workers.dev/health || true)
+            echo "Health attempt $attempt: HTTP $code"
+            if [ "$code" = "200" ]; then break; fi
+            sleep 5
+          done
+          test "$code" = "200" || (echo "Equity Worker did not become publicly available; last HTTP=$code" && cat /tmp/equity-health.json && exit 1)
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-health.json'));if(x.status!=='ok'||x.service!=='agci-equity-fundamentals'||x.contractVersion!=='1.0.0'||x.fallbackProvider!=='Yahoo Finance chart')process.exit(1)"
+      - name: Validate production comparison contract and price provenance
+        run: |
+          curl --fail --silent --show-error --retry 3 --retry-delay 3 --retry-all-errors --max-time 90 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT' > /tmp/equity-compare.json
+          node <<'NODE'
+          const fs = require('fs');
+          const x = JSON.parse(fs.readFileSync('/tmp/equity-compare.json'));
+          const a = x.analyses?.[0];
+          if (x.contractVersion !== '1.0.0' || !a?.company || !Number.isFinite(Number(a.company.price))) process.exit(1);
+          if (!['Yahoo Finance', 'Twelve Data via AGCI Market Data'].includes(a.company.priceProvider)) process.exit(1);
+          if (!Array.isArray(x.quoteProvidersUsed) || !x.quoteProvidersUsed.length) process.exit(1);
+          console.log(`Validated ${a.ticker} price via ${a.company.priceProvider}; dataQuality=${x.dataQuality}.`);
+          NODE
+      - name: Validate ten-name Decision Engine watchlist contract
+        run: |
+          curl --fail --silent --show-error --retry 2 --retry-delay 3 --retry-all-errors --max-time 120 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT,GOOGL,AMZN,JPM,V,LLY,ISRG,GE,COST,XOM' > /tmp/equity-watchlist.json
+          node <<'NODE'
+          const fs = require('fs');
+          const x = JSON.parse(fs.readFileSync('/tmp/equity-watchlist.json'));
+          const valid = (x.analyses || []).filter(a => a.company && Number.isFinite(Number(a.company.price)));
+          if (x.contractVersion !== '1.0.0' || x.requestedSymbols?.length !== 10 || valid.length < 8) process.exit(1);
+          console.log(`Validated ${valid.length}/10 watchlist prices; unresolved=${(x.staleSymbols || []).length}.`);
+          NODE
