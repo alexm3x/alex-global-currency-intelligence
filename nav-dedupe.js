@@ -44,6 +44,15 @@
     document.head.appendChild(script);
   }
 
+  function loadDecisionEvolutionAssets() {
+    if (document.querySelector('script[data-de-evolution-script]')) return;
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'decision-evolution.js?v=20260810-phase5';
+    script.dataset.deEvolutionScript = 'true';
+    document.head.appendChild(script);
+  }
+
   function ensurePodcastAccess(nav) {
     let podcast = nav.querySelector('[data-podcast-access]');
     if (!podcast) {
@@ -102,6 +111,7 @@
     loadPerformanceAssets();
     loadMultiAssetAssets();
     loadDecisionEvidenceAssets();
+    loadDecisionEvolutionAssets();
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
     const observer = new MutationObserver(normalizeNavigation);
