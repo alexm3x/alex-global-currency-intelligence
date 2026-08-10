@@ -259,3 +259,36 @@ body { background: #050b10; max-width: 100%; overflow-x: hidden; }
   .command-console #updatedAt { background-color: rgba(5,11,16,.70) !important; }
 }
 /* /VIAJES ASC DYNAMIC TRAVEL BACKDROP */
+
+/* Opportunity import workspace */
+.workspace-tabs { display: inline-flex; gap: 5px; padding: 5px; border: 1px solid rgba(51,65,85,.9); border-radius: 10px; background: rgba(5,11,16,.58); backdrop-filter: blur(12px); }
+.workspace-tabs button { padding: 10px 16px; border-radius: 6px; color: #94a3b8; font-size: 12px; font-weight: 750; transition: .2s ease; }
+.workspace-tabs button:hover { color: #67e8f9; }
+.workspace-tabs button.is-active { background: #e8c66a; color: #071119; box-shadow: 0 8px 28px rgba(232,198,106,.15); }
+.opportunity-import-panel { overflow: hidden; border: 1px solid rgba(51,65,85,.88); border-radius: 14px; background: linear-gradient(145deg,rgba(7,17,25,.58),rgba(9,16,36,.46)); box-shadow: 0 26px 80px rgba(0,0,0,.36); backdrop-filter: blur(14px); }
+.opportunity-import-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding: 24px; border-bottom: 1px solid #1e293b; }
+.opportunity-import-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.opportunity-import-actions a, .opportunity-file-button { display: inline-flex; align-items: center; min-height: 40px; padding: 9px 12px; border: 1px solid #334155; border-radius: 6px; color: #cbd5e1; font-size: 11px; font-weight: 750; cursor: pointer; }
+.opportunity-file-button { border-color: rgba(232,198,106,.55); color: #e8c66a; }
+.opportunity-import-actions a:hover, .opportunity-file-button:hover { border-color: #67e8f9; color: #67e8f9; }
+.opportunity-import-status { display: flex; justify-content: space-between; gap: 16px; padding: 12px 24px; border-bottom: 1px solid #1e293b; color: #64748b; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.opportunity-import-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; padding: 24px; }
+.opportunity-import-card { position: relative; min-height: 240px; padding: 18px; border: 1px solid #26384a; border-radius: 10px; background: rgba(5,11,16,.64); transition: .2s ease; }
+.opportunity-import-card:hover { transform: translateY(-2px); border-color: rgba(232,198,106,.55); }
+.opportunity-import-card__top { display: flex; justify-content: space-between; gap: 10px; color: #64748b; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 8px; letter-spacing: .08em; }
+.opportunity-import-card__top b { color: #67e8f9; font-weight: 500; }
+.opportunity-import-card h2 { margin-top: 18px; color: #f8fafc; font-size: 18px; font-weight: 700; }
+.opportunity-import-price { display: block; margin-top: 18px; color: #e8c66a; font-size: 24px; }
+.opportunity-import-card p { margin-top: 6px; color: #94a3b8; font-size: 12px; }
+.opportunity-import-card > a { position: absolute; right: 18px; bottom: 18px; left: 18px; display: flex; justify-content: space-between; padding: 10px 12px; border-radius: 6px; background: #e8c66a; color: #071119; font-size: 11px; font-weight: 800; }
+.opportunity-import-card > a[aria-disabled="true"] { pointer-events: none; opacity: .4; }
+.opportunity-import-empty { grid-column: 1/-1; display: grid; place-items: center; min-height: 260px; padding: 32px; border: 1px dashed #334155; border-radius: 10px; color: #64748b; text-align: center; }
+.opportunity-import-empty strong { color: #f8fafc; font-size: 18px; }
+.opportunity-import-empty span { max-width: 500px; font-size: 13px; }
+.opportunity-import-guide { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; border-top: 1px solid #1e293b; background: #1e293b; }
+.opportunity-import-guide div { padding: 18px 20px; background: rgba(5,11,16,.72); }
+.opportunity-import-guide strong { display: block; color: #f8fafc; font-size: 12px; }
+.opportunity-import-guide span { display: block; margin-top: 7px; color: #64748b; font-size: 11px; line-height: 1.65; }
+.opportunity-import-guide code { color: #67e8f9; }
+@media (max-width: 900px) { .opportunity-import-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .opportunity-import-guide { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .workspace-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .workspace-tabs button { padding: 10px 7px; } .opportunity-import-header { flex-direction: column; padding: 18px; } .opportunity-import-actions { justify-content: flex-start; } .opportunity-import-status { align-items: flex-start; flex-direction: column; padding: 12px 18px; } .opportunity-import-grid { grid-template-columns: 1fr; padding: 18px; } }

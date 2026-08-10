@@ -44,6 +44,37 @@
     </header>
 
     <main class="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+      <nav class="workspace-tabs" aria-label="Secciones de Viajes ASC">
+        <button type="button" class="is-active" data-workspace-tab="intelligence" aria-selected="true">Inteligencia de viaje</button>
+        <button type="button" data-workspace-tab="imports" aria-selected="false">Oportunidades importadas</button>
+      </nav>
+
+      <section id="opportunityImportPanel" class="opportunity-import-panel hidden" aria-labelledby="opportunityImportTitle">
+        <div class="opportunity-import-header">
+          <div>
+            <p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">ASC Opportunity Import</p>
+            <h1 id="opportunityImportTitle" class="mt-1 text-2xl font-semibold text-white">Estancias y vuelos seleccionados</h1>
+            <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-400">Consolida oportunidades verificables procesadas desde un HTML autorizado. Los precios se normalizan para comparación; disponibilidad, impuestos y condiciones deben confirmarse en el enlace original.</p>
+          </div>
+          <div class="opportunity-import-actions">
+            <label class="opportunity-file-button" for="opportunityHtmlInput">Importar HTML local</label>
+            <input id="opportunityHtmlInput" type="file" accept=".html,.htm,text/html" hidden>
+            <a id="opportunityCsvDownload" href="data/data_dashboard.csv" download>Descargar CSV</a>
+            <a id="opportunityJsonDownload" href="data/data_dashboard.json" download>Descargar JSON</a>
+          </div>
+        </div>
+        <div class="opportunity-import-status">
+          <span id="opportunityImportStatus">Cargando oportunidades…</span>
+          <span id="opportunityUpdatedAt">Sin actualización</span>
+        </div>
+        <div class="opportunity-import-grid" id="opportunityImportGrid" aria-live="polite"></div>
+        <div class="opportunity-import-guide">
+          <div><strong>HTML recomendado</strong><span>Cada oferta debe usar <code>data-opportunity</code>, con <code>data-name</code>, <code>data-price</code>, <code>data-rating</code> y un enlace.</span></div>
+          <div><strong>Fuentes protegidas</strong><span>Para Airbnb o Google Flights, cargue HTML guardado manualmente o use una API autorizada. El sistema no evade bloqueos ni inicia sesión.</span></div>
+          <div><strong>Actualización</strong><span>El proceso diario genera <code>data_dashboard.csv</code> y <code>data_dashboard.json</code>; esta pestaña lee la última versión publicada.</span></div>
+        </div>
+      </section>
+
       <section class="grid gap-4 xl:grid-cols-[1.5fr_.8fr]">
         <article class="travel-glass command-console overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal">
           <div class="border-b border-slate-800 bg-gradient-to-r from-terminal-850 to-terminal-900 px-5 py-4">
@@ -349,5 +380,6 @@
   <script src="booking-controls.js"></script>
   <script src="multi-destination.js"></script>
   <script src="travel-opportunities.js"></script>
+  <script src="opportunity-imports.js"></script>
 </body>
 </html>

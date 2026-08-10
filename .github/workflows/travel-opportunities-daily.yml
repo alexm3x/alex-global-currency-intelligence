@@ -1,0 +1,39 @@
+name: Viajes ASC opportunity import
+
+on:
+  schedule:
+    - cron: "15 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viajes-opportunity-import
+  cancel-in-progress: false
+
+jobs:
+  import-opportunities:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-opportunities.txt
+      - name: Procesar HTML autorizado
+        env:
+          OPPORTUNITIES_SOURCE: ${{ vars.OPPORTUNITIES_SOURCE }}
+        run: python viajes/scripts/scrape_opportunities.py --source "${OPPORTUNITIES_SOURCE:-viajes/oportunidades.html}"
+      - name: Publicar datos si cambiaron
+        run: |
+          if git diff --quiet -- viajes/data/data_dashboard.csv viajes/data/data_dashboard.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add viajes/data/data_dashboard.csv viajes/data/data_dashboard.json
+          git commit -m "data: refresh travel opportunities"
+          git push
