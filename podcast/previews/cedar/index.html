@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AGCI · Cedar Voice Preview</title>
+  <style>
+    :root{color-scheme:light dark;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    body{margin:0;background:#f4f2ee;color:#171717}.wrap{max-width:760px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d7d3cc;padding:28px;box-shadow:0 12px 35px rgba(0,0,0,.05)}
+    .eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8f1d24;font-weight:800}.title{font-family:Georgia,serif;font-size:34px;line-height:1.08;margin:10px 0 8px}.sub{color:#666;line-height:1.55;margin-bottom:22px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.pill{border:1px solid #ddd;padding:6px 9px;font-size:11px;background:#fafafa}.status{padding:14px 0;color:#666;font-size:13px}.disclosure{font-size:11px;color:#777;border-top:1px solid #eee;margin-top:22px;padding-top:14px}.back{display:inline-block;margin-top:18px;color:#8f1d24;text-decoration:none;font-weight:700}audio{width:100%;min-height:54px}
+    @media(max-width:600px){.wrap{padding:18px 12px 40px}.card{padding:20px}.title{font-size:28px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="eyebrow">AGCI Voice Lab · Preview</div>
+      <h1 class="title">Cedar · CIO Institucional</h1>
+      <p class="sub">Misma inteligencia editorial de Morning Intelligence, con una prueba de voz neural Cedar y duración máxima de cuatro minutos.</p>
+      <div class="meta"><span class="pill">OpenAI</span><span class="pill">Cedar</span><span class="pill">es-MX</span><span class="pill">≤ 4 min</span></div>
+      <div id="status" class="status">Buscando la última muestra publicada…</div>
+      <audio id="player" controls preload="metadata" hidden></audio>
+      <p id="episodeTitle" class="sub"></p>
+      <p class="disclosure">La voz de esta demostración es generada por inteligencia artificial. El contenido proviene del Daily Briefing canónico de AGCI.</p>
+      <a class="back" href="../../../">← Volver a AGCI</a>
+    </section>
+  </main>
+  <script>
+    (async()=>{
+      const status=document.getElementById('status');
+      const player=document.getElementById('player');
+      const title=document.getElementById('episodeTitle');
+      try{
+        const r=await fetch(`latest.json?v=${Date.now()}`,{cache:'no-store'});
+        if(!r.ok) throw new Error('sin preview');
+        const x=await r.json();
+        if(!x.audioUrl) throw new Error('sin audio');
+        const src=x.audioUrl.split('/').pop();
+        player.src=src;
+        player.hidden=false;
+        title.textContent=`${x.date} · ${x.title}`;
+        status.textContent=`Duración ${Math.floor(x.durationSeconds/60)}:${String(x.durationSeconds%60).padStart(2,'0')} · Cedar · ${x.style}`;
+      }catch{
+        status.textContent='La integración Cedar está lista, pero todavía no hay una muestra publicada. Se requiere OPENAI_API_KEY en GitHub Secrets para generar el audio.';
+      }
+    })();
+  </script>
+</body>
+</html>
