@@ -9,6 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="travel-opportunities.css">
+  <link rel="stylesheet" href="stays-intelligence.css">
 </head>
 <body class="terminal-grid min-h-screen text-slate-100 font-sans antialiased">
   <div id="app" class="min-h-screen">
@@ -46,10 +47,109 @@
     <main class="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
       <nav class="workspace-tabs" aria-label="Secciones de Viajes ASC">
         <button type="button" class="is-active" data-workspace-tab="intelligence" aria-selected="true">Inteligencia de viaje</button>
+        <button type="button" data-workspace-tab="stays" aria-selected="false">Estancias inteligentes</button>
         <button type="button" data-workspace-tab="imports" aria-selected="false">Oportunidades importadas</button>
       </nav>
 
-      <section id="opportunityImportPanel" class="opportunity-import-panel hidden" aria-labelledby="opportunityImportTitle">
+      <section id="smartStaysPanel" class="smart-stays hidden" data-workspace-panel="stays" aria-labelledby="smartStaysTitle">
+        <header class="stays-hero">
+          <div>
+            <div class="stays-kicker"><span>ASC Stay Intelligence</span><b>Entorno demostrativo</b></div>
+            <h1 id="smartStaysTitle">Estancias Inteligentes</h1>
+            <p>Compara el costo total real, la calidad, la ubicación y la flexibilidad antes de reservar. Los resultados iniciales son escenarios de prueba y nunca se presentan como disponibilidad o precios en vivo.</p>
+          </div>
+          <div class="stays-hero-status">
+            <span><i></i> Motor operativo</span>
+            <strong id="staysUpdatedAt">Cargando contrato…</strong>
+            <button id="staysRefreshButton" type="button">Actualizar análisis</button>
+          </div>
+        </header>
+
+        <div class="stays-disclosure" role="status">
+          <strong>Modo demostración:</strong> precios, disponibilidad, reseñas y tipos de cambio son datos sintéticos para validar el producto. Confirme todo en la plataforma original antes de pagar.
+        </div>
+
+        <form id="staysSearchForm" class="stays-search">
+          <div class="stays-search__primary">
+            <label><span>Destino o zona</span><input id="stayDestination" type="search" value="Sunny Isles" placeholder="Ciudad, playa o vecindario" autocomplete="off"></label>
+            <label><span>Entrada</span><input id="stayCheckIn" type="date"></label>
+            <label><span>Salida</span><input id="stayCheckOut" type="date"></label>
+            <label><span>Huéspedes</span><input id="stayGuests" type="number" inputmode="numeric" min="1" max="16" value="2"></label>
+            <label><span>Habitaciones</span><input id="stayBedrooms" type="number" inputmode="numeric" min="0" max="10" value="1"></label>
+            <label><span>Presupuesto máximo</span><input id="stayBudget" type="number" inputmode="decimal" min="0" step="100" placeholder="Sin límite"></label>
+            <label><span>Moneda</span><select id="stayCurrency"><option>MXN</option><option>USD</option><option>EUR</option><option>JPY</option></select></label>
+            <button class="stays-search__submit" type="submit">Revisar oportunidades</button>
+          </div>
+          <div class="stays-search__secondary">
+            <label><span>Flexibilidad</span><select id="stayFlex"><option value="0">Fechas exactas</option><option value="1">±1 día</option><option value="3" selected>±3 días</option><option value="7">±7 días</option></select></label>
+            <label><span>Modo</span><select id="stayMode"><option value="value">Máxima calidad/precio</option><option value="tourism">Turismo</option><option value="business">Negocios</option><option value="long">Larga estancia</option></select></label>
+            <label><span>Calidad mínima</span><select id="stayQuality"><option value="0">Cualquiera</option><option value="4">4.0+</option><option value="4.5" selected>4.5+</option><option value="4.8">4.8+</option></select></label>
+            <label><span>Cancelación</span><select id="stayCancellation"><option value="any">Cualquiera</option><option value="flexible">Flexible</option></select></label>
+            <label class="stays-check"><input id="stayKitchen" type="checkbox" checked><span>Cocina</span></label>
+            <label class="stays-check"><input id="stayLaundry" type="checkbox"><span>Lavadora</span></label>
+            <label class="stays-check"><input id="stayParking" type="checkbox"><span>Estacionamiento</span></label>
+            <label class="stays-check"><input id="stayBeach" type="checkbox"><span>Playa / vista</span></label>
+            <label class="stays-check"><input id="stayBonvoy" type="checkbox"><span>Uso Bonvoy</span></label>
+          </div>
+        </form>
+
+        <section class="stays-executive" aria-labelledby="staysRecommendationTitle">
+          <div class="stays-executive__copy">
+            <p>Recomendación ASC</p>
+            <h2 id="staysRecommendationTitle">Esperando parámetros</h2>
+            <div id="staysRecommendationText">El motor explicará qué reservar, el ahorro potencial, las condiciones críticas y el nivel de confianza.</div>
+          </div>
+          <div class="stays-executive__metrics">
+            <div><span>Mejor ahorro</span><strong id="stayBestSaving">—</strong></div>
+            <div><span>Confianza</span><strong id="stayConfidence">—</strong></div>
+            <div><span>Mercado</span><strong id="stayMarketCoverage">—</strong></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="staysTopTitle">
+          <div class="stays-section-heading">
+            <div><p>Executive shortlist</p><h2 id="staysTopTitle">Las cinco decisiones de estancia</h2></div>
+            <span id="staysResultSummary">Preparando escenarios</span>
+          </div>
+          <div id="staysTopCards" class="stays-top-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="stays-market" aria-labelledby="staysMarketTitle">
+          <div class="stays-market__header">
+            <div><p>Opportunity matrix</p><h2 id="staysMarketTitle">Todas las alternativas comparables</h2></div>
+            <div class="stays-market__actions">
+              <select id="staysSort" aria-label="Ordenar estancias"><option value="score">Mayor ASC Score</option><option value="total">Menor costo total</option><option value="night">Menor costo por noche</option><option value="rating">Mejor calificación</option></select>
+              <button id="staysToggleTable" type="button" aria-expanded="true">Ocultar tabla</button>
+            </div>
+          </div>
+          <div id="staysTableWrap" class="stays-table-wrap scrollbar">
+            <table><thead><tr><th>Estancia</th><th>Fuente</th><th>Total real</th><th>Por noche</th><th>Vs. mercado</th><th>Calidad</th><th>ASC Score</th><th>Decisión</th></tr></thead><tbody id="staysTableBody"></tbody></table>
+          </div>
+        </section>
+
+        <section class="stays-tools">
+          <details>
+            <summary>Agregar una oferta manual para comparar</summary>
+            <form id="manualStayForm" class="manual-stay-form">
+              <label><span>Nombre</span><input name="propertyName" required placeholder="Nombre de la propiedad"></label>
+              <label><span>Plataforma</span><input name="source" required placeholder="Airbnb, Houfy, directo…"></label>
+              <label><span>Precio base</span><input name="basePrice" type="number" min="0" required></label>
+              <label><span>Limpieza</span><input name="cleaningFee" type="number" min="0" value="0"></label>
+              <label><span>Servicio</span><input name="serviceFee" type="number" min="0" value="0"></label>
+              <label><span>Impuestos</span><input name="taxes" type="number" min="0" value="0"></label>
+              <label><span>Calificación</span><input name="rating" type="number" min="0" max="5" step="0.1" value="4.5"></label>
+              <label><span>Enlace</span><input name="sourceUrl" type="url" placeholder="https://"></label>
+              <button type="submit">Agregar al comparador</button>
+            </form>
+          </details>
+          <div class="stays-source-status">
+            <strong>Estado de fuentes</strong>
+            <span>HomeToGo · enlace de verificación</span><span>Furnished Finder · enlace de verificación</span><span>Houfy · enlace de verificación</span><span>Airbnb · enlace de verificación</span><span>Homes & Villas · enlace de verificación</span><span>Booking / VRBO · no conectadas</span>
+          </div>
+        </section>
+      </section>
+
+      <section id="opportunityImportPanel" class="opportunity-import-panel hidden" data-workspace-panel="imports" aria-labelledby="opportunityImportTitle">
         <div class="opportunity-import-header">
           <div>
             <p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">ASC Opportunity Import</p>
@@ -381,5 +481,6 @@
   <script src="multi-destination.js"></script>
   <script src="travel-opportunities.js"></script>
   <script src="opportunity-imports.js"></script>
+  <script src="stays-intelligence.js"></script>
 </body>
 </html>

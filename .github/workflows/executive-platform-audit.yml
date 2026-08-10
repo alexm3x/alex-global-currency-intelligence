@@ -39,6 +39,7 @@ jobs:
           node --check cloudflare/agci-market-data-live.js
           node --check cloudflare/agci-equity-fundamentals.js
           node --check cloudflare/tail-risk.js
+          node --check viajes/stays-intelligence.js
           node --check scripts/update-structural-data.mjs
           node --check scripts/generate-morning-intelligence.mjs
           node --check scripts/generate-morning-intelligence-4min.mjs
@@ -58,6 +59,9 @@ jobs:
           test -s podcast/archive.json
           test -s podcast/index.html
           test -s site.webmanifest
+          test -s viajes/data/stays-demo.json
+          grep -q 'data-workspace-tab="stays"' viajes/index.html
+          grep -q 'synthetic-demo' viajes/data/stays-demo.json
           test -s equity-comparator.js
           test -s equity-comparator.css
           test -s equity-intelligence-dashboard.js

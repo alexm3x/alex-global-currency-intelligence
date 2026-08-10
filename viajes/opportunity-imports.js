@@ -9,7 +9,10 @@
   const fileInput = document.getElementById('opportunityHtmlInput');
   if (!buttons.length || !panel || !grid) return;
 
-  const dashboardSections = [...document.querySelectorAll('main > section')].filter(section => section !== panel);
+  const workspacePanels = new Map(
+    [...document.querySelectorAll('[data-workspace-panel]')].map(section => [section.dataset.workspacePanel, section])
+  );
+  const dashboardSections = [...document.querySelectorAll('main > section')].filter(section => !section.dataset.workspacePanel);
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[character]);
@@ -29,15 +32,16 @@
   }).format(value);
 
   function switchTab(name) {
-    const imports = name === 'imports';
+    const selected = name === 'intelligence' || workspacePanels.has(name) ? name : 'intelligence';
     buttons.forEach(button => {
-      const active = button.dataset.workspaceTab === name;
+      const active = button.dataset.workspaceTab === selected;
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-selected', String(active));
     });
-    dashboardSections.forEach(section => section.classList.toggle('hidden', imports));
-    panel.classList.toggle('hidden', !imports);
-    localStorage.setItem('viajesASCWorkspaceTab', name);
+    dashboardSections.forEach(section => section.classList.toggle('hidden', selected !== 'intelligence'));
+    workspacePanels.forEach((section, key) => section.classList.toggle('hidden', key !== selected));
+    localStorage.setItem('viajesASCWorkspaceTab', selected);
+    window.dispatchEvent(new CustomEvent('viajes:workspace', { detail: { name: selected } }));
   }
 
   function normalizeRows(payload) {
@@ -113,6 +117,6 @@
     }
   });
 
-  switchTab(localStorage.getItem('viajesASCWorkspaceTab') === 'imports' ? 'imports' : 'intelligence');
+  switchTab(localStorage.getItem('viajesASCWorkspaceTab') || 'intelligence');
   loadPublished();
 })();
