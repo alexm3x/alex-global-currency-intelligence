@@ -7,7 +7,13 @@ on:
   push:
     branches: ["main"]
     paths:
+      # Fuente canónica y cualquier variante editorial del briefing.
+      # Los archivos generados bajo podcast/ NO están incluidos para evitar bucles.
       - "data/daily-briefing-latest.json"
+      - "data/daily-briefing*.json"
+      - "daily-briefing-cover.js"
+      - "daily-briefing*.md"
+      - "briefing/**"
       - "scripts/generate-morning-intelligence-4min.mjs"
       - "scripts/render-google-chirp.mjs"
       - "scripts/apply-chirp-metadata.mjs"
@@ -17,6 +23,10 @@ on:
     branches: ["main"]
     paths:
       - "data/daily-briefing-latest.json"
+      - "data/daily-briefing*.json"
+      - "daily-briefing-cover.js"
+      - "daily-briefing*.md"
+      - "briefing/**"
       - "scripts/generate-morning-intelligence-4min.mjs"
       - "scripts/render-google-chirp.mjs"
       - "scripts/apply-chirp-metadata.mjs"
@@ -28,9 +38,11 @@ permissions:
   actions: write
   id-token: write
 
+# Si el texto cambia de nuevo mientras se sintetiza un episodio, se cancela la
+# versión anterior para que el MP3 publicado corresponda siempre al último texto.
 concurrency:
   group: morning-intelligence-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build-audio:
@@ -62,7 +74,9 @@ jobs:
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(x.schemaVersion!==2||x.language!=='es-MX'||!x.audio?.chapters?.length||x.audio.chapters.length<7)process.exit(1)"
           node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==3||p.totalWords<330||p.totalWords>520||p.segments.length<7)process.exit(1)"
           DATE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).date")
+          SOURCE_SHA=$(sha256sum data/daily-briefing-latest.json | cut -d' ' -f1)
           echo "DATE=$DATE" >> "$GITHUB_ENV"
+          echo "SOURCE_SHA=$SOURCE_SHA" >> "$GITHUB_ENV"
 
       - name: Instalar herramientas de audio
         run: |
@@ -156,7 +170,7 @@ jobs:
             echo "No hay cambios de episodio que publicar."
             echo "PUBLISHED=0" >> "$GITHUB_ENV"
           else
-            git commit -m "podcast: publish Morning Intelligence $DATE via $AUDIO_ENGINE"
+            git commit -m "podcast: sync audio with briefing $DATE via $AUDIO_ENGINE"
             git push origin HEAD:main
             echo "PUBLISHED=1" >> "$GITHUB_ENV"
           fi
@@ -173,6 +187,8 @@ jobs:
           echo "- Fecha: $DATE" >> "$GITHUB_STEP_SUMMARY"
           echo "- Motor: ${AUDIO_ENGINE:-Fallback eSpeak}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Duración: ${DURATION:-N/A} segundos" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Hash del texto fuente: $SOURCE_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Sincronización: audio regenerado desde el briefing vigente" >> "$GITHUB_STEP_SUMMARY"
           echo "- Voz CIO objetivo: $CHIRP_CIO_VOICE" >> "$GITHUB_STEP_SUMMARY"
           echo "- Voz Analista objetivo: $CHIRP_ANALYST_VOICE" >> "$GITHUB_STEP_SUMMARY"
           echo "- Google configurado: ${{ env.GCP_CREDENTIALS != '' }}" >> "$GITHUB_STEP_SUMMARY"
