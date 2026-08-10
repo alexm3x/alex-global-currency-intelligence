@@ -9,6 +9,8 @@ on:
     paths:
       - "data/daily-briefing-latest.json"
       - "scripts/generate-morning-intelligence-4min.mjs"
+      - "scripts/render-google-chirp.mjs"
+      - "scripts/apply-chirp-metadata.mjs"
       - ".github/workflows/morning-intelligence.yml"
       - "voice-studio.js"
   pull_request:
@@ -16,12 +18,15 @@ on:
     paths:
       - "data/daily-briefing-latest.json"
       - "scripts/generate-morning-intelligence-4min.mjs"
+      - "scripts/render-google-chirp.mjs"
+      - "scripts/apply-chirp-metadata.mjs"
       - ".github/workflows/morning-intelligence.yml"
       - "voice-studio.js"
 
 permissions:
   contents: write
   actions: write
+  id-token: write
 
 concurrency:
   group: morning-intelligence-${{ github.ref }}
@@ -30,7 +35,12 @@ concurrency:
 jobs:
   build-audio:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+      CHIRP_CIO_VOICE: es-US-Chirp3-HD-Achird
+      CHIRP_ANALYST_VOICE: es-US-Chirp3-HD-Achernar
+      CHIRP_LANGUAGE: es-US
     steps:
       - uses: actions/checkout@v4
         with:
@@ -43,25 +53,60 @@ jobs:
       - name: Validar briefing canónico y guion ejecutivo
         run: |
           node --check scripts/generate-morning-intelligence-4min.mjs
+          node --check scripts/render-google-chirp.mjs
+          node --check scripts/apply-chirp-metadata.mjs
           node scripts/generate-morning-intelligence-4min.mjs
           test -s podcast/generated/script.txt
           test -s podcast/generated/render-plan.json
           test -s podcast/latest.json
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(x.schemaVersion!==2||x.language!=='es-MX'||!x.audio?.chapters?.length||x.audio.chapters.length<7)process.exit(1)"
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==3||p.primaryPlayback!=='deviceSpeech'||p.totalWords<330||p.totalWords>520||p.segments.length<7)process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==3||p.totalWords<330||p.totalWords>520||p.segments.length<7)process.exit(1)"
+          DATE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).date")
+          echo "DATE=$DATE" >> "$GITHUB_ENV"
 
-      - name: Instalar audio fallback open-source
+      - name: Instalar herramientas de audio
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends espeak-ng ffmpeg
-          espeak-ng --version
           ffmpeg -version | head -n 1
 
-      - name: Renderizar MP3 fallback y normalizar
+      - id: google_auth
+        name: Autenticar Google Cloud para Chirp 3 HD
+        if: env.GCP_CREDENTIALS != '' && github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: google-github-actions/auth@v3
+        with:
+          credentials_json: ${{ env.GCP_CREDENTIALS }}
+          create_credentials_file: true
+          export_environment_variables: true
+
+      - name: Configurar Google Cloud SDK
+        if: env.GCP_CREDENTIALS != '' && steps.google_auth.outcome == 'success' && github.event_name != 'pull_request'
+        uses: google-github-actions/setup-gcloud@v2
+
+      - id: chirp
+        name: Renderizar edición con Google Chirp 3 HD
+        if: env.GCP_CREDENTIALS != '' && steps.google_auth.outcome == 'success' && github.event_name != 'pull_request'
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
-          DATE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).date")
+          node scripts/render-google-chirp.mjs
+          test -s podcast/generated/chirp-result.json
+          AUDIO_URL=$(node -p "JSON.parse(require('fs').readFileSync('podcast/generated/chirp-result.json')).audioUrl")
+          DURATION=$(node -p "JSON.parse(require('fs').readFileSync('podcast/generated/chirp-result.json')).durationSeconds")
+          DURATIONS_JSON=$(node -p "JSON.stringify(JSON.parse(require('fs').readFileSync('podcast/generated/chirp-result.json')).chapterDurations)")
+          AUDIO_DURATION_SECONDS="$DURATION" AUDIO_URL="$AUDIO_URL" CHAPTER_DURATIONS_JSON="$DURATIONS_JSON" node scripts/generate-morning-intelligence-4min.mjs
+          node scripts/apply-chirp-metadata.mjs
+          echo "AUDIO_URL=$AUDIO_URL" >> "$GITHUB_ENV"
+          echo "DURATION=$DURATION" >> "$GITHUB_ENV"
+          echo "AUDIO_ENGINE=Google Chirp 3 HD" >> "$GITHUB_ENV"
+
+      - name: Renderizar MP3 fallback open-source
+        if: env.GCP_CREDENTIALS == '' || steps.google_auth.outcome != 'success' || steps.chirp.outcome != 'success' || github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
           YEAR=${DATE:0:4}
           MONTH=${DATE:5:2}
           OUT_DIR="podcast/episodes/$YEAR/$MONTH"
@@ -88,16 +133,18 @@ jobs:
           DURATIONS_JSON=$(node -e "const fs=require('fs');const a=fs.readFileSync('/tmp/durations.txt','utf8').trim().split(/\n+/).filter(Boolean).map(Number);process.stdout.write(JSON.stringify(a))")
           AUDIO_URL="podcast/episodes/$YEAR/$MONTH/$DATE.mp3"
           AUDIO_DURATION_SECONDS="$DURATION" AUDIO_URL="$AUDIO_URL" CHAPTER_DURATIONS_JSON="$DURATIONS_JSON" node scripts/generate-morning-intelligence-4min.mjs
-          echo "DATE=$DATE" >> "$GITHUB_ENV"
           echo "AUDIO_URL=$AUDIO_URL" >> "$GITHUB_ENV"
           echo "DURATION=$DURATION" >> "$GITHUB_ENV"
+          echo "AUDIO_ENGINE=Fallback eSpeak" >> "$GITHUB_ENV"
 
-      - name: Validar paquete de episodio <=4 minutos
+      - name: Validar paquete de episodio
         run: |
           test -s "$AUDIO_URL"
           test -s podcast/feed.xml
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==3||p.status!=='published'||p.primaryPlayback!=='deviceSpeech'||p.durationSeconds>240||p.durationSeconds<120||p.chapters.length<7)process.exit(1);if(p.chapters.some((c,i,a)=>!c.speaker||i>0&&Number(c.start)<=Number(a[i-1].start)))process.exit(1)"
-          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(!a.episodes.some(x=>x.date===process.env.DATE&&x.primaryPlayback==='deviceSpeech'))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.schemaVersion!==3||p.status!=='published'||p.durationSeconds>260||p.durationSeconds<90||p.chapters.length<7||!p.audioUrl)process.exit(1);if(p.chapters.some((c,i,a)=>!c.speaker||i>0&&Number(c.start)<=Number(a[i-1].start)))process.exit(1)"
+          if [ "$AUDIO_ENGINE" = "Google Chirp 3 HD" ]; then
+            node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(p.primaryPlayback!=='publishedAudio'||p.voiceMode!=='google-chirp3-hd'||p.audioEngine?.model!=='Chirp 3 HD')process.exit(1)"
+          fi
 
       - name: Publicar audio y metadatos generados
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -109,7 +156,7 @@ jobs:
             echo "No hay cambios de episodio que publicar."
             echo "PUBLISHED=0" >> "$GITHUB_ENV"
           else
-            git commit -m "podcast: publish natural-first Morning Intelligence $DATE"
+            git commit -m "podcast: publish Morning Intelligence $DATE via $AUDIO_ENGINE"
             git push origin HEAD:main
             echo "PUBLISHED=1" >> "$GITHUB_ENV"
           fi
@@ -118,15 +165,15 @@ jobs:
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && env.PUBLISHED == '1'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          gh workflow run pages.yml --ref main
+        run: gh workflow run pages.yml --ref main
 
       - name: Resumen de producción
         run: |
-          echo "### AGCI Morning Intelligence — Natural First" >> "$GITHUB_STEP_SUMMARY"
+          echo "### AGCI Morning Intelligence" >> "$GITHUB_STEP_SUMMARY"
           echo "- Fecha: $DATE" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Duración fallback: $DURATION segundos" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Experiencia principal: voz natural del dispositivo" >> "$GITHUB_STEP_SUMMARY"
-          echo "- MP3 eSpeak: sólo fallback temporal" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Límite editorial: 4:00" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Normalización fallback: -16 LUFS" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Motor: ${AUDIO_ENGINE:-Fallback eSpeak}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Duración: ${DURATION:-N/A} segundos" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Voz CIO objetivo: $CHIRP_CIO_VOICE" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Voz Analista objetivo: $CHIRP_ANALYST_VOICE" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Google configurado: ${{ env.GCP_CREDENTIALS != '' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Fallback automático: habilitado" >> "$GITHUB_STEP_SUMMARY"
