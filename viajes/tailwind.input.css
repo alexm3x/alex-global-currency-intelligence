@@ -31,10 +31,68 @@ body { background: #050b10; max-width: 100%; overflow-x: hidden; }
   overflow: hidden;
 }
 #budgetInput { width: 100%; min-width: 140px; }
+.trip-mode-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid rgba(51,65,85,.85);
+  border-radius: 10px;
+  background: rgba(5,11,16,.42);
+}
+.trip-mode-tabs { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid #334155; border-radius: 8px; background: rgba(5,11,16,.72); }
+.trip-mode-tabs button { min-width: 112px; padding: 8px 12px; border-radius: 5px; color: #94a3b8; font-size: 11px; font-weight: 700; transition: .2s ease; }
+.trip-mode-tabs button:hover { color: #67e8f9; }
+.trip-mode-tabs button.is-active { background: #e8c66a; color: #071119; box-shadow: 0 8px 24px rgba(232,198,106,.16); }
+.multi-destination-planner { padding: 16px; border: 1px solid rgba(103,232,249,.2); border-radius: 12px; background: linear-gradient(145deg, rgba(5,11,16,.62), rgba(8,20,31,.46)); }
+.multi-destination-header, .multi-destination-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.multi-return-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid #334155; border-radius: 7px; color: #cbd5e1; font-size: 11px; font-weight: 700; }
+.multi-return-toggle input { accent-color: #e8c66a; }
+.multi-destination-rows { display: grid; gap: 10px; margin-top: 16px; }
+.multi-route-row { display: grid; grid-template-columns: 46px minmax(105px,.8fr) 32px minmax(180px,1.4fr) minmax(140px,.85fr) auto; align-items: end; gap: 10px; padding: 12px; border: 1px solid rgba(51,65,85,.8); border-radius: 9px; background: rgba(5,11,16,.5); }
+.multi-route-index { align-self: center; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(232,198,106,.45); border-radius: 50%; color: #e8c66a; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+.multi-route-field span { display: block; margin-bottom: 7px; color: #64748b; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.multi-route-field select, .multi-route-field input { width: 100%; min-height: 42px; border: 1px solid #334155; border-radius: 6px; background: rgba(5,11,16,.76); padding: 9px 10px; color: #e2e8f0; font-size: 12px; outline: none; }
+.multi-route-field select:focus, .multi-route-field input:focus { border-color: #67e8f9; }
+.multi-route-origin { align-self: center; min-width: 0; color: #cbd5e1; font-size: 12px; font-weight: 700; }
+.multi-route-origin small { display: block; margin-bottom: 4px; color: #64748b; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 8px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.multi-route-arrow { align-self: center; color: #67e8f9; text-align: center; }
+.multi-route-controls { display: flex; gap: 5px; align-self: center; }
+.multi-route-controls button { width: 32px; height: 32px; border: 1px solid #334155; border-radius: 5px; color: #94a3b8; font-size: 12px; }
+.multi-route-controls button:hover { border-color: #67e8f9; color: #67e8f9; }
+.multi-route-controls button[data-remove-route]:hover { border-color: #fb7185; color: #fb7185; }
+.multi-destination-actions { margin-top: 12px; }
+.multi-add-button { padding: 9px 12px; border: 1px solid rgba(103,232,249,.38); border-radius: 6px; color: #67e8f9; font-size: 11px; font-weight: 700; }
+.multi-add-button:hover { background: rgba(103,232,249,.08); }
+.multi-add-button:disabled { cursor: not-allowed; opacity: .35; }
+.multi-destination-summary { margin-top: 14px; }
+.multi-summary-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1px; overflow: hidden; border: 1px solid #1e293b; border-radius: 8px; background: #1e293b; }
+.multi-summary-metric { background: rgba(5,11,16,.78); padding: 11px; }
+.multi-summary-metric span { display: block; color: #64748b; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
+.multi-summary-metric strong { display: block; margin-top: 5px; color: #f8fafc; font-size: 12px; }
+.multi-route-verify { display: inline-flex; margin-top: 10px; padding: 9px 12px; border-radius: 6px; background: #e8c66a; color: #071119; font-size: 11px; font-weight: 800; }
+.multi-route-warning { margin-top: 9px; color: #94a3b8; font-size: 10px; line-height: 1.55; }
 .budget-status--within { color: #34d399; border-color: rgba(52,211,153,.4); background: rgba(52,211,153,.08); }
 .budget-status--adjusted { color: #e8c66a; border-color: rgba(232,198,106,.4); background: rgba(232,198,106,.08); }
 .budget-status--outside { color: #fb7185; border-color: rgba(251,113,133,.4); background: rgba(251,113,133,.08); }
 @media (max-width: 640px) { .chart-wrap { height: 260px; } }
+@media (max-width: 900px) {
+  .multi-route-row { grid-template-columns: 38px 1fr 24px 1.5fr; }
+  .multi-route-field--date { grid-column: 2 / 5; }
+  .multi-route-controls { grid-column: 2 / 5; justify-content: flex-end; }
+  .multi-summary-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .trip-mode-selector, .multi-destination-header { align-items: stretch; flex-direction: column; }
+  .trip-mode-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .trip-mode-tabs button { min-width: 0; }
+  .multi-route-row { grid-template-columns: 34px 1fr; }
+  .multi-route-origin, .multi-route-arrow, .multi-route-field, .multi-route-field--date, .multi-route-controls { grid-column: 2; }
+  .multi-route-arrow { display: none; }
+  .multi-route-controls { justify-content: flex-start; }
+  .multi-destination-actions { align-items: flex-start; flex-direction: column; }
+}
 
 /* VIAJES ASC DYNAMIC TRAVEL BACKDROP */
 #app { position: relative; isolation: isolate; }
@@ -163,5 +221,41 @@ body { background: #050b10; max-width: 100%; overflow-x: hidden; }
   .travel-motion *, .travel-motion::before, .travel-motion::after { animation: none !important; }
   .travel-motion__plane { left: 54vw; }
   .travel-motion__codes { transform: translateX(12vw); }
+}
+
+/* Transparent executive console: expose the animated backdrop without losing form contrast. */
+.travel-glass.command-console,
+.travel-glass#financialDecisionPanel {
+  background: linear-gradient(145deg, rgba(7,17,25,.30), rgba(9,16,36,.20)) !important;
+  backdrop-filter: blur(9px) saturate(1.08);
+  box-shadow: 0 24px 72px rgba(0,0,0,.30), inset 0 1px rgba(255,255,255,.055) !important;
+}
+.command-console > :first-child {
+  background: linear-gradient(90deg, rgba(10,23,32,.30), rgba(7,17,25,.14)) !important;
+}
+.command-console input,
+.command-console select,
+.command-console #updatedAt {
+  background-color: rgba(5,11,16,.64) !important;
+  backdrop-filter: blur(8px);
+}
+.command-console input[readonly] { background-color: rgba(10,23,32,.58) !important; }
+.command-console form,
+.command-console > :last-child,
+#financialDecisionPanel .decision-panel__header,
+#financialDecisionPanel .decision-metric,
+#financialDecisionPanel .decision-panel__footer {
+  background-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .travel-glass.command-console,
+  .travel-glass#financialDecisionPanel {
+    background: linear-gradient(145deg, rgba(7,17,25,.42), rgba(9,16,36,.32)) !important;
+    backdrop-filter: blur(8px) saturate(1.06);
+  }
+  .command-console input,
+  .command-console select,
+  .command-console #updatedAt { background-color: rgba(5,11,16,.70) !important; }
 }
 /* /VIAJES ASC DYNAMIC TRAVEL BACKDROP */
