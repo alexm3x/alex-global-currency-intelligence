@@ -37,6 +37,20 @@ test('budget is a hard eligibility constraint before ranking', async () => {
   assert.equal(decision.eligibleByBudget(expensive, { budget: 25000 }), false);
 });
 
+test('the recommendation panel keeps three fixed options when budget leaves only one eligible', async () => {
+  const decision = await browserModule('../viajes/travel-decision-core.js', 'TravelDecisionCore');
+  const eligible = [{ id: 'istanbul', city: 'Estambul' }];
+  const ranked = [
+    eligible[0],
+    { id: 'lisbon', city: 'Lisboa' },
+    { id: 'madrid', city: 'Madrid' },
+    { id: 'paris', city: 'París' }
+  ];
+  const recommendations = decision.fixedRecommendations(eligible, ranked, 3);
+  assert.equal(recommendations.length, 3);
+  assert.equal(recommendations.map(item => item.id).join(','), 'istanbul,lisbon,madrid');
+});
+
 test('party size, rooms and duration scale the complete estimate', async () => {
   const decision = await browserModule('../viajes/travel-decision-core.js', 'TravelDecisionCore');
   const destination = { sourceType: 'baseline', economy_flight_mxn: 10000, moderate_daily_mxn: 2000 };
@@ -59,5 +73,19 @@ test('production page uses compiled CSS and exposes provenance plus budget state
   assert.match(page, /Baseline ajustado/);
   assert.match(page, /DATOS EN CACHÉ/);
   assert.match(page, /DATA_CACHE_KEY/);
+  assert.match(page, /fixedRecommendations\(eligible,state\.matrix,3\)/);
+  assert.match(page, /aria-label="Tres recomendaciones fijas"/);
+  assert.match(page, /data-trip-mode="multi"/);
+  assert.match(page, /id="multiDestinationPlanner"/);
+  assert.match(page, /multi-destination\.js/);
   assert.match(cssInput, /#budgetInput\s*\{[^}]*min-width:\s*140px/);
+});
+
+test('multidestination planner supports chained routes, ordering and a live verification link', async () => {
+  const planner = await readFile(new URL('../viajes/multi-destination.js', import.meta.url), 'utf8');
+  assert.match(planner, /MAX_DESTINATIONS = 6/);
+  assert.match(planner, /routeOrigin\(index\)/);
+  assert.match(planner, /data-move-route/);
+  assert.match(planner, /Multi-city flights/);
+  assert.match(planner, /no se suman precios no verificados/);
 });
