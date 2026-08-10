@@ -45,7 +45,7 @@
 
     <main class="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
       <section class="grid gap-4 xl:grid-cols-[1.5fr_.8fr]">
-        <article class="travel-glass overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal">
+        <article class="travel-glass command-console overflow-hidden rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal">
           <div class="border-b border-slate-800 bg-gradient-to-r from-terminal-850 to-terminal-900 px-5 py-4">
             <div class="flex flex-wrap items-center justify-between gap-3">
               <div>
@@ -57,6 +57,16 @@
           </div>
 
           <form id="queryForm" class="grid gap-4 p-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div id="tripModeSelector" class="trip-mode-selector lg:col-span-4" aria-label="Tipo de itinerario">
+              <div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Tipo de itinerario</span>
+                <p class="mt-1 text-xs text-slate-500">Planea un destino o encadena varias ciudades en el mismo viaje.</p>
+              </div>
+              <div class="trip-mode-tabs" role="group" aria-label="Seleccionar tipo de itinerario">
+                <button type="button" data-trip-mode="single" aria-pressed="true" class="is-active">Un destino</button>
+                <button type="button" data-trip-mode="multi" aria-pressed="false">Multidestino</button>
+              </div>
+            </div>
             <label class="space-y-2">
               <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Presupuesto total MXN</span>
               <input id="budgetInput" type="number" inputmode="decimal" enterkeyhint="done" autocomplete="off" min="0" step="5000" placeholder="Ej. 120000" aria-label="Importe total del presupuesto" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
@@ -80,6 +90,25 @@
                 <option value="TIJ">Tijuana · TIJ</option>
               </select>
             </label>
+            <section id="multiDestinationPlanner" class="multi-destination-planner hidden lg:col-span-4" aria-labelledby="multiDestinationTitle">
+              <div class="multi-destination-header">
+                <div>
+                  <p class="font-mono text-[9px] uppercase tracking-[.16em] text-goldx">Constructor de ruta</p>
+                  <h2 id="multiDestinationTitle" class="mt-1 text-base font-semibold text-white">Itinerario multidestino</h2>
+                  <p class="mt-1 text-xs leading-5 text-slate-500">Agrega hasta seis destinos. Cada tramo parte automáticamente de la ciudad anterior.</p>
+                </div>
+                <label class="multi-return-toggle">
+                  <input id="returnToOriginInput" type="checkbox" checked>
+                  <span>Regresar al origen</span>
+                </label>
+              </div>
+              <div id="multiDestinationRows" class="multi-destination-rows" aria-live="polite"></div>
+              <div class="multi-destination-actions">
+                <button id="addDestinationButton" type="button" class="multi-add-button">＋ Agregar destino</button>
+                <span id="multiDestinationLimit" class="font-mono text-[9px] uppercase tracking-wider text-slate-600">2 de 6 destinos</span>
+              </div>
+              <div id="multiDestinationSummary" class="multi-destination-summary" aria-live="polite"></div>
+            </section>
             <label class="space-y-2">
               <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Adultos</span>
               <input id="adultsInput" type="number" inputmode="numeric" min="1" max="12" step="1" value="1" aria-label="Número de adultos" class="w-full rounded border border-slate-700 bg-terminal-950 px-3 py-3 text-sm outline-none focus:border-cyanx">
@@ -152,7 +181,7 @@
           <div><p class="font-mono text-[10px] uppercase tracking-[.18em] text-goldx">Personalized Output</p><h2 class="text-xl font-semibold text-white">Las 3 mejores opciones para tu consulta</h2></div>
           <p id="resultSummary" class="font-mono text-[10px] text-slate-500">Esperando parámetros</p>
         </div>
-        <div id="recommendations" class="grid gap-4 lg:grid-cols-3"></div>
+        <div id="recommendations" class="grid gap-4 lg:grid-cols-3" aria-live="polite" aria-label="Tres recomendaciones fijas"></div>
       </section>
 
       <section id="dealDesk" class="deal-desk rounded-xl border border-slate-800 bg-terminal-900 shadow-terminal" aria-labelledby="dealDeskTitle">
@@ -285,7 +314,8 @@
       list=list.map(d=>({...d,query_score:scoreQuery(d),budgetAssessment:budgetAssessment(d)}));
       const eligible=sortRows(list.filter(d=>!d.budgetAssessment.budget||d.budgetAssessment.status!=='outside'),sort);
       state.filtered=eligible;state.matrix=sortRows([...list],sort);
-      renderRecommendations(eligible.slice(0,3));renderMatrix(state.matrix);renderCharts(eligible.slice(0,10));
+      const recommendations=window.TravelDecisionCore.fixedRecommendations(eligible,state.matrix,3);
+      renderRecommendations(recommendations);renderMatrix(state.matrix);renderCharts(eligible.slice(0,10));
       const excluded=list.length-eligible.length;
       $('#resultSummary').textContent=`${eligible.length} dentro o ajustadas · ${excluded} fuera · ${state.cabin==='business'?'Business':'Turista'} · ${party().travelers} viajero(s)`;
       localStorage.setItem('viajesASCQuery',JSON.stringify({budget:$('#budgetInput').value,start:$('#startDate').value,end:$('#endDate').value,origin:$('#originInput').value,interests:$('#interestInput').value,sort,cabin:state.cabin,type:state.type,adults:$('#adultsInput').value,minors:$('#minorsInput').value,rooms:$('#roomsInput').value}));
@@ -317,6 +347,7 @@
   </script>
   <script src="enhancements.js"></script>
   <script src="booking-controls.js"></script>
+  <script src="multi-destination.js"></script>
   <script src="travel-opportunities.js"></script>
 </body>
 </html>
