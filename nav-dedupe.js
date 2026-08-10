@@ -48,7 +48,7 @@
     if (document.querySelector('script[data-de-evolution-script]')) return;
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = 'decision-evolution.js?v=20260810-phase5';
+    script.src = 'decision-evolution.js?v=20260810-phase5a';
     script.dataset.deEvolutionScript = 'true';
     document.head.appendChild(script);
   }
