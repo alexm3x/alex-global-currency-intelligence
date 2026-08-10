@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-10T11:39:00-06:00",
+  "latestSourceDate": "2026-08-07",
+  "windowDays": 45,
+  "source": "IBKR FYI / Reuters",
+  "sourceTitle": "Changes_in_Analyst_Ratings_ASC_Latest",
+  "sourceMode": "connected-private-snapshot",
+  "governance": "Aggregate analyst evidence only. No account identifiers, email addresses, positions, balances or private portfolio data are published.",
+  "records": [
+    {"rank":1,"ticker":"GOOG","exchange":"NASDAQ","asOf":"2026-07-24","buy":8,"outperform":9,"hold":1,"underperform":0,"sell":0,"totalAnalysts":18,"bullishPct":94.4,"consensusScore":4.39,"netChange":2,"signal":"Strong Positive","proxyFor":["GOOGL"]},
+    {"rank":2,"ticker":"NVDA","exchange":"NASDAQ","asOf":"2026-07-28","buy":21,"outperform":38,"hold":2,"underperform":1,"sell":0,"totalAnalysts":62,"bullishPct":95.2,"consensusScore":4.27,"netChange":2,"signal":"Strong Positive"},
+    {"rank":3,"ticker":"MSFT","exchange":"NASDAQ","asOf":"2026-07-22","buy":21,"outperform":38,"hold":4,"underperform":0,"sell":0,"totalAnalysts":63,"bullishPct":93.7,"consensusScore":4.27,"netChange":1,"signal":"Strong Positive"},
+    {"rank":4,"ticker":"AMZN","exchange":"NASDAQ","asOf":"2026-08-05","buy":18,"outperform":46,"hold":4,"underperform":0,"sell":0,"totalAnalysts":68,"bullishPct":94.1,"consensusScore":4.21,"netChange":-2,"signal":"Positive"},
+    {"rank":5,"ticker":"ORCL","exchange":"NYSE","asOf":"2026-07-28","buy":13,"outperform":22,"hold":8,"underperform":1,"sell":0,"totalAnalysts":44,"bullishPct":79.5,"consensusScore":4.07,"netChange":1,"signal":"Positive"},
+    {"rank":6,"ticker":"NFLX","exchange":"NASDAQ","asOf":"2026-07-28","buy":12,"outperform":27,"hold":13,"underperform":0,"sell":0,"totalAnalysts":52,"bullishPct":75.0,"consensusScore":3.98,"netChange":1,"signal":"Neutral Positive"},
+    {"rank":7,"ticker":"STZ","exchange":"NYSE","asOf":"2026-07-28","buy":2,"outperform":13,"hold":8,"underperform":2,"sell":0,"totalAnalysts":25,"bullishPct":60.0,"consensusScore":3.60,"netChange":2,"signal":"Neutral Positive"},
+    {"rank":8,"ticker":"TSLA","exchange":"NASDAQ","asOf":"2026-08-07","buy":8,"outperform":17,"hold":24,"underperform":5,"sell":1,"totalAnalysts":55,"bullishPct":45.5,"consensusScore":3.47,"netChange":1,"signal":"Mixed"}
+  ]
+}
