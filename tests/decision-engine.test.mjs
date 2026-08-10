@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { fairValueEstimate, preparationScore, requiredMarginOfSafety, buildDecision, rankRadar } from '../decision-engine-core.js';
+import { fairValueEstimate, intrinsicFcfAnchor, preparationScore, requiredMarginOfSafety, buildDecision, rankRadar } from '../decision-engine-core.js';
 
 function analysis(overrides = {}) {
   const base = {
@@ -41,16 +41,35 @@ function analysis(overrides = {}) {
   };
 }
 
-test('fair value uses median of available comparable anchors', () => {
+test('fair value blends comparable anchors with a conservative intrinsic FCF anchor', () => {
   const result = fairValueEstimate(analysis());
-  assert.equal(result.anchors.length, 4);
+  assert.equal(result.anchors.length, 5);
+  assert.ok(result.anchors.some(anchor => anchor.id === 'dcf-fcf'));
   assert.ok(result.fairValue > 80);
   assert.ok(result.fairValue < 140);
-  assert.equal(result.method, 'median-comparable-anchors');
+  assert.equal(result.method, 'median-mixed-anchors');
+});
+
+test('intrinsic FCF anchor remains available when peer valuation medians are missing', () => {
+  const result = fairValueEstimate(analysis({ medians: {
+    'ratios.peTTM': null,
+    'ratios.priceToSales': null,
+    'ratios.evEbitda': null,
+    'ratios.fcfYield': null
+  } }));
+  assert.equal(result.anchors.length, 1);
+  assert.equal(result.anchors[0].id, 'dcf-fcf');
+  assert.equal(result.method, 'single-intrinsic-anchor');
+  assert.ok(Number.isFinite(result.fairValue));
+});
+
+test('intrinsic FCF model refuses to manufacture an anchor without enough growth evidence', () => {
+  const anchor = intrinsicFcfAnchor(analysis({ company: { growth: { revenueYoY: null, fcfYoY: null } } }));
+  assert.equal(anchor, null);
 });
 
 test('preparation score falls when data is stale and anchors are insufficient', () => {
-  const fresh = preparationScore(analysis(), 4);
+  const fresh = preparationScore(analysis(), 5);
   const stale = preparationScore(analysis({ isStale: true, confidence: 55, company: { dataCoverage: 50, isStale: true } }), 1);
   assert.ok(fresh >= 80);
   assert.ok(stale < 55);
