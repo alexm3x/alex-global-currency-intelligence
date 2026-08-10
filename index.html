@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="currency-history.css?v=20260805-premium1">
   <link rel="stylesheet" href="equity-comparator.css?v=20260805-phase1">
   <link rel="stylesheet" href="equity-intelligence-dashboard.css?v=20260806-visible2">
+  <link rel="stylesheet" href="decision-engine.css?v=20260810-phase2">
   <link rel="stylesheet" href="mobile-nav-polish.css?v=20260807-mobile1">
   <link rel="stylesheet" href="desktop-nav-fix.css?v=20260809-navfix1">
 </head>
@@ -41,6 +42,7 @@
     <nav class="main-nav" aria-label="Navegación principal">
       <button class="active" data-view="home">Overview</button>
       <button data-view="equityIntelligence">Equity Intelligence</button>
+      <button data-view="decisionEngine">Motor de Decisión</button>
       <button data-view="markets">Currency Rankings</button>
       <button data-view="research">Research</button>
       <button data-view="methodology">Methodology</button>
@@ -87,6 +89,10 @@
         <article class="analysis-card dark-card"><p class="rubric">DAILY INTELLIGENCE</p><h2>What changed</h2><p>Market movements are now read from the AGCI Cloudflare data service every six hours.</p><button data-jump="briefing">Read the briefing</button></article>
         <article class="analysis-card"><p class="rubric">MODEL TRANSPARENCY</p><h2>Every score should be explainable</h2><p>Inspect valuation, fundamentals, momentum, risk and confidence.</p><button data-jump="methodology">Explore methodology</button></article>
       </section>
+    </section>
+
+    <section id="decisionEngine" class="view">
+      <div id="decisionEngineRoot"></div>
     </section>
 
     <section id="markets" class="view">
@@ -146,6 +152,7 @@
   <script src="equity-comparator.js?v=20260805-phase1"></script>
   <script src="equity-comparator-nav-fix.js?v=20260806-visible1"></script>
   <script src="equity-intelligence-dashboard.js?v=20260806-visible2"></script>
+  <script type="module" src="decision-engine.js?v=20260810-phase2"></script>
   <script src="nav-dedupe.js?v=20260807-mobile1"></script>
   <script defer src="currency-history-core.js?v=20260805-premium1"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
