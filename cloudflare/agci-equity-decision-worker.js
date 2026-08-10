@@ -9,6 +9,7 @@ const CONTRACT_VERSION = '1.0.0';
 const SEC_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
 const SEC_FACTS_BASE = 'https://data.sec.gov/api/xbrl/companyfacts';
 const MARKET_DATA_URL = 'https://agci-market-data.proadmexico.workers.dev';
+const YAHOO_CHART_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart';
 const SEC_CACHE_MS = 6 * 60 * 60 * 1000;
 const TICKER_CACHE_MS = 24 * 60 * 60 * 1000;
 const MAX_SELECTED = 10;
@@ -30,8 +31,9 @@ export default {
           status: 'ok',
           contractVersion: CONTRACT_VERSION,
           coverage: 'US SEC filers',
-          priceProvider: 'Twelve Data via AGCI Market Data',
+          priceProvider: 'AGCI Market Data with Yahoo Finance fallback',
           marketGatewayReady: Boolean(marketHealth.ready),
+          fallbackProvider: 'Yahoo Finance chart',
           cache: Boolean(env.EQUITY_CACHE),
           timestamp: new Date().toISOString()
         });
@@ -93,7 +95,8 @@ async function buildComparison(selected, env, ctx) {
     quotes: {},
     isStale: true,
     unresolvedSymbols: quoteSymbols,
-    error: error instanceof Error ? error.message : 'Market gateway error'
+    providers: [],
+    error: error instanceof Error ? error.message : 'Quote provider error'
   }));
 
   const companies = {};
@@ -103,10 +106,11 @@ async function buildComparison(selected, env, ctx) {
       errors.push({ ticker: item.symbol, error: item.error || 'Información no disponible' });
       continue;
     }
-    companies[item.symbol] = finalizeCompany(item.value, quoteResult.quotes[item.symbol] || null, {
-      isStale: item.isStale || Boolean(quoteResult.quotes[item.symbol]?.isStale),
+    const quote = quoteResult.quotes[item.symbol] || null;
+    companies[item.symbol] = finalizeCompany(item.value, quote, {
+      isStale: item.isStale || Boolean(quote?.isStale),
       updatedAt: item.updatedAt,
-      priceUpdatedAt: quoteResult.quotes[item.symbol]?.updatedAt || null
+      priceUpdatedAt: quote?.updatedAt || null
     });
   }
 
@@ -140,12 +144,14 @@ async function buildComparison(selected, env, ctx) {
       statementPeriod: 'Latest available annual 10-K; no forward estimates',
       scoreWeights: { valuation: 30, growth: 20, quality: 20, financialStrength: 20, momentum: 10 },
       peerUniverse: 'Curated US industry groups; editable and non-exhaustive',
-      priceCapacity: 'AGCI Market Data gateway; up to 8 uncached Twelve Data equity credits per refresh'
+      priceCapacity: 'Up to 10 selected/peer quotes per comparison cycle; AGCI Market Data preferred, Yahoo Finance fallback'
     },
     sources: [
       { provider: 'SEC EDGAR', dataset: 'Company Facts API', url: 'https://data.sec.gov/api/xbrl/companyfacts/', frequency: 'filing-driven' },
-      { provider: 'AGCI Market Data', upstream: 'Twelve Data', dataset: 'Equity Quote Gateway', url: `${marketBase(env)}/equity-quotes`, frequency: '15-minute cache' }
+      { provider: 'AGCI Market Data', upstream: 'Twelve Data when compatible route is available', dataset: 'Equity Quote Gateway', url: `${marketBase(env)}/equity-quotes`, role: 'preferred' },
+      { provider: 'Yahoo Finance', dataset: 'Chart API regular market price', url: YAHOO_CHART_BASE, role: 'fallback' }
     ],
+    quoteProvidersUsed: quoteResult.providers || [],
     analyses,
     errors
   };
@@ -181,26 +187,94 @@ async function loadCompanySnapshot(symbol, identity, env, ctx) {
 }
 
 async function loadMarketQuotes(symbols, env) {
-  if (!symbols.length) return { quotes: {}, isStale: false, unresolvedSymbols: [] };
+  if (!symbols.length) return { quotes: {}, isStale: false, unresolvedSymbols: [], providers: [] };
+
+  const quotes = {};
+  const providers = [];
+  let preferredError = null;
+  try {
+    const preferred = await loadAgciQuotes(symbols, env);
+    Object.assign(quotes, preferred.quotes);
+    if (Object.keys(preferred.quotes).length) providers.push('Twelve Data via AGCI Market Data');
+  } catch (error) {
+    preferredError = error instanceof Error ? error.message : 'AGCI Market Data no disponible';
+  }
+
+  const missing = symbols.filter(symbol => !quotes[symbol]);
+  if (missing.length) {
+    const fallback = await loadYahooQuotes(missing);
+    Object.assign(quotes, fallback.quotes);
+    if (Object.keys(fallback.quotes).length) providers.push('Yahoo Finance');
+  }
+
+  const unresolvedSymbols = symbols.filter(symbol => !quotes[symbol]);
+  const isStale = Object.values(quotes).some(quote => quote.isStale) || unresolvedSymbols.length > 0;
+  const error = unresolvedSymbols.length
+    ? [preferredError, `${unresolvedSymbols.length} cotización(es) sin resolver`].filter(Boolean).join(' · ')
+    : null;
+
+  return { quotes, isStale, unresolvedSymbols, providers, error };
+}
+
+async function loadAgciQuotes(symbols, env) {
   const url = new URL(`${marketBase(env)}/equity-quotes`);
   url.searchParams.set('symbols', symbols.join(','));
   const response = await fetchWithTimeout(url.toString(), { headers: { Accept: 'application/json' } });
   if (!response.ok) throw new Error(`AGCI Market Data HTTP ${response.status}`);
   const payload = await response.json();
-  const quotes = Object.fromEntries((payload.quotes || []).map(item => [item.ticker, item]));
+  const quotes = Object.fromEntries((payload.quotes || []).filter(item => finite(item?.price)).map(item => [item.ticker, { ...item, provider: 'Twelve Data via AGCI Market Data' }]));
+  return { quotes };
+}
+
+async function loadYahooQuotes(symbols) {
+  const loaded = await mapLimit(symbols, 4, async symbol => {
+    try {
+      const url = `${YAHOO_CHART_BASE}/${encodeURIComponent(symbol)}?interval=1d&range=5d&includePrePost=false&events=div%2Csplits`;
+      const response = await fetchWithTimeout(url, {
+        headers: {
+          Accept: 'application/json',
+          'User-Agent': 'Mozilla/5.0 AGCI/1.0'
+        }
+      });
+      if (!response.ok) return { symbol, quote: null };
+      const payload = await response.json();
+      const result = payload?.chart?.result?.[0];
+      const meta = result?.meta || {};
+      const closes = result?.indicators?.quote?.[0]?.close || [];
+      const price = finite(meta.regularMarketPrice) ? Number(meta.regularMarketPrice) : [...closes].reverse().find(finite);
+      if (!finite(price) || Number(price) <= 0) return { symbol, quote: null };
+      const previousClose = finite(meta.chartPreviousClose) ? Number(meta.chartPreviousClose) : finite(meta.previousClose) ? Number(meta.previousClose) : null;
+      const percentChange = finite(previousClose) && Number(previousClose) > 0 ? (Number(price) / Number(previousClose) - 1) * 100 : null;
+      const marketTime = finite(meta.regularMarketTime) ? new Date(Number(meta.regularMarketTime) * 1000).toISOString() : new Date().toISOString();
+      return {
+        symbol,
+        quote: {
+          ticker: symbol,
+          price: Number(price),
+          previousClose,
+          percentChange,
+          datetime: marketTime,
+          updatedAt: marketTime,
+          isStale: false,
+          provider: 'Yahoo Finance'
+        }
+      };
+    } catch {
+      return { symbol, quote: null };
+    }
+  });
   return {
-    quotes,
-    isStale: Boolean(payload.isStale),
-    unresolvedSymbols: payload.unresolvedSymbols || [],
-    rejectedSymbols: payload.rejectedSymbols || []
+    quotes: Object.fromEntries(loaded.filter(item => item.quote).map(item => [item.symbol, item.quote]))
   };
 }
 
 async function marketGatewayHealth(env) {
-  const response = await fetchWithTimeout(marketBase(env), { headers: { Accept: 'application/json' } });
+  const url = new URL(`${marketBase(env)}/equity-quotes`);
+  url.searchParams.set('symbols', 'MSFT');
+  const response = await fetchWithTimeout(url.toString(), { headers: { Accept: 'application/json' } });
   if (!response.ok) return { ready: false };
   const payload = await response.json();
-  return { ready: payload?.provider === 'Twelve Data' || Array.isArray(payload?.quotes) };
+  return { ready: Array.isArray(payload?.quotes) && payload.quotes.some(item => finite(item?.price)) };
 }
 
 function marketBase(env) {
@@ -295,7 +369,8 @@ function finalizeCompany(snapshot, quote, freshness) {
     isStale: Boolean(freshness.isStale),
     lastSuccessfulUpdate: freshness.updatedAt,
     priceUpdatedAt: freshness.priceUpdatedAt,
-    sources: ['SEC EDGAR Company Facts', ...(quote ? ['Twelve Data via AGCI Market Data'] : [])]
+    priceProvider: quote?.provider || null,
+    sources: ['SEC EDGAR Company Facts', ...(quote?.provider ? [quote.provider] : [])]
   };
 }
 
