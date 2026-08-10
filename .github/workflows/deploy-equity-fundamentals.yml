@@ -39,9 +39,11 @@ jobs:
           node --check cloudflare/agci-equity-decision-worker.js
           node --check scripts/extract-cloudflare-worker-content.mjs
           npx wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc
-      - name: Check whether equity quote route is already active
+      - name: Probe production before deployment
         id: probe
         run: |
+          root_status=$(curl --silent --show-error --max-time 20 -o /tmp/market-root-before.txt -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/' || true)
+          echo "root_status_before=$root_status" >> "$GITHUB_OUTPUT"
           status=$(curl --silent --show-error --max-time 20 -o /tmp/current-equity-quotes.json -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT' || true)
           if [ "$status" = "200" ] && node -e "const fs=require('fs');const q=JSON.parse(fs.readFileSync('/tmp/current-equity-quotes.json'));if(q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"; then
             echo 'route_ready=true' >> "$GITHUB_OUTPUT"
@@ -72,7 +74,8 @@ jobs:
             compatibility_flags: ['nodejs_compat'],
             workers_dev: true,
             keep_vars: true,
-            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } }
+            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
+            triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] }
           };
           const equityConfig = {
             name: 'agci-equity-fundamentals',
@@ -97,22 +100,23 @@ jobs:
       - name: Deploy additive AGCI Market Data extension
         if: steps.probe.outputs.route_ready != 'true'
         run: npx wrangler deploy --config wrangler.market-data.deploy.generated.json
-      - name: Validate existing market contract and equity route
+      - name: Validate preserved market behavior and new equity route
         run: |
           sleep 3
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT,ORCL' > /tmp/equity-quotes.json
-          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('/tmp/market.json'));const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(!m||q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"
+          root_status_after=$(curl --silent --show-error --max-time 25 -o /tmp/market-root-after.txt -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/' || true)
+          test "$root_status_after" = "${{ steps.probe.outputs.root_status_before }}" || (echo "Existing root behavior changed: before=${{ steps.probe.outputs.root_status_before }} after=$root_status_after" && exit 1)
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 30 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT,ORCL' > /tmp/equity-quotes.json
+          node -e "const fs=require('fs');const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length||!Number.isFinite(Number(q.quotes[0].price)))process.exit(1)"
       - name: Deploy Equity Fundamentals service
         run: npx wrangler deploy --config wrangler.equity.deploy.generated.json
       - name: Validate production health
         run: |
           sleep 3
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 https://agci-equity-fundamentals.proadmexico.workers.dev/health > /tmp/equity-health.json
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 30 https://agci-equity-fundamentals.proadmexico.workers.dev/health > /tmp/equity-health.json
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-health.json'));if(x.status!=='ok'||x.service!=='agci-equity-fundamentals'||x.priceProvider!=='Twelve Data via AGCI Market Data'||!x.marketGatewayReady)process.exit(1)"
       - name: Validate production comparison contract
         run: |
-          curl --fail --silent --show-error --retry 3 --retry-delay 2 --max-time 60 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT' > /tmp/equity-compare.json
+          curl --fail --silent --show-error --retry 3 --retry-delay 2 --max-time 75 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT' > /tmp/equity-compare.json
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-compare.json'));const a=x.analyses?.[0];if(x.contractVersion!=='1.0.0'||!a?.company||!Number.isFinite(Number(a.company.price)))process.exit(1)"
       - name: Roll back market worker if the additive deployment fails validation
         if: failure() && steps.probe.outputs.route_ready != 'true'
@@ -129,7 +133,8 @@ jobs:
             compatibility_date: '2026-08-05',
             compatibility_flags: ['nodejs_compat'],
             workers_dev: true,
-            keep_vars: true
+            keep_vars: true,
+            triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] }
           }));
           NODE
           npx wrangler deploy --config wrangler.market-data.rollback.generated.json || true
