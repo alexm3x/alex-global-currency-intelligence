@@ -58,6 +58,58 @@ export function riskSafetyScore(analysis = {}) {
   return Math.round(clamp(score, 0, 100));
 }
 
+export function intrinsicFcfAnchor(analysis = {}) {
+  const c = analysis.company || {};
+  const f = c.fundamentals || {};
+  const g = c.growth || {};
+  const s = analysis.score || {};
+  const fcf = Number(f.freeCashFlow);
+  const shares = Number(f.shares);
+  const price = Number(c.price);
+  if (!finite(fcf) || fcf <= 0 || !finite(shares) || shares <= 0 || !finite(price) || price <= 0) return null;
+
+  const growthInputs = [g.revenueYoY, g.revenueCagr3Y, g.epsYoY, g.epsCagr3Y, g.fcfYoY]
+    .filter(finite)
+    .map(Number);
+  if (growthInputs.length < 2) return null;
+
+  const growthRate = clamp(median(growthInputs), -0.02, 0.10);
+  let discountRate = 0.105;
+  if (Number(s.quality ?? 50) < 50) discountRate += 0.015;
+  if (Number(s.financialStrength ?? 50) < 50) discountRate += 0.015;
+  if (Number(analysis.confidence ?? 0) < 70) discountRate += 0.01;
+  if (Number(s.quality ?? 0) >= 80 && Number(s.financialStrength ?? 0) >= 75 && Number(analysis.confidence ?? 0) >= 80) discountRate -= 0.005;
+  discountRate = clamp(discountRate, 0.095, 0.14);
+  const terminalGrowth = 0.025;
+  if (discountRate <= terminalGrowth + 0.02) return null;
+
+  let projectedFcf = fcf;
+  let presentValue = 0;
+  for (let year = 1; year <= 5; year += 1) {
+    projectedFcf *= 1 + growthRate;
+    presentValue += projectedFcf / Math.pow(1 + discountRate, year);
+  }
+  const terminalValue = projectedFcf * (1 + terminalGrowth) / (discountRate - terminalGrowth);
+  presentValue += terminalValue / Math.pow(1 + discountRate, 5);
+
+  const equityValue = presentValue + Number(f.cash || 0) - Number(f.debt || 0);
+  const perShare = equityValue / shares;
+  if (!finite(perShare) || perShare <= 0 || perShare >= price * 6) return null;
+
+  return {
+    id: 'dcf-fcf',
+    label: 'DCF FCF conservador',
+    value: Number(perShare),
+    assumptions: {
+      years: 5,
+      growthRate,
+      discountRate,
+      terminalGrowth,
+      basis: 'FCF histórico reportado; crecimiento limitado a -2%/+10%'
+    }
+  };
+}
+
 export function valuationAnchors(analysis = {}) {
   const c = analysis.company || {};
   const m = analysis.medians || {};
@@ -91,6 +143,9 @@ export function valuationAnchors(analysis = {}) {
     anchors.push({ id: 'fcf', label: 'FCF Yield comparable', value: (Number(f.freeCashFlow) / shares) / medianFcfYield });
   }
 
+  const intrinsic = intrinsicFcfAnchor(analysis);
+  if (intrinsic) anchors.push(intrinsic);
+
   return anchors
     .filter(item => finite(item.value) && item.value > 0 && item.value < price * 6)
     .map(item => ({ ...item, value: Number(item.value) }));
@@ -100,11 +155,14 @@ export function fairValueEstimate(analysis = {}) {
   const anchors = valuationAnchors(analysis);
   if (!anchors.length) return { fairValue: null, anchors, method: 'insufficient' };
   const values = anchors.map(item => item.value);
-  return {
-    fairValue: median(values),
-    anchors,
-    method: anchors.length >= 2 ? 'median-comparable-anchors' : 'single-comparable-anchor'
-  };
+  const comparableCount = anchors.filter(item => item.id !== 'dcf-fcf').length;
+  const hasIntrinsic = anchors.some(item => item.id === 'dcf-fcf');
+  let method = 'single-anchor';
+  if (hasIntrinsic && comparableCount) method = 'median-mixed-anchors';
+  else if (hasIntrinsic) method = 'single-intrinsic-anchor';
+  else if (anchors.length >= 2) method = 'median-comparable-anchors';
+  else method = 'single-comparable-anchor';
+  return { fairValue: median(values), anchors, method };
 }
 
 export function requiredMarginOfSafety(analysis = {}, preparationScore = null) {
