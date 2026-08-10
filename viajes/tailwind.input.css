@@ -35,3 +35,133 @@ body { background: #050b10; max-width: 100%; overflow-x: hidden; }
 .budget-status--adjusted { color: #e8c66a; border-color: rgba(232,198,106,.4); background: rgba(232,198,106,.08); }
 .budget-status--outside { color: #fb7185; border-color: rgba(251,113,133,.4); background: rgba(251,113,133,.08); }
 @media (max-width: 640px) { .chart-wrap { height: 260px; } }
+
+/* VIAJES ASC DYNAMIC TRAVEL BACKDROP */
+#app { position: relative; isolation: isolate; }
+#app > header { position: sticky; z-index: 50; background: rgba(5,11,16,.76) !important; backdrop-filter: blur(22px) saturate(1.15); }
+#app > main, #app > footer { position: relative; z-index: 2; }
+
+.travel-motion {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 70% 12%, rgba(83,68,196,.34), transparent 30%),
+    radial-gradient(circle at 24% 40%, rgba(28,172,204,.24), transparent 28%),
+    radial-gradient(circle at 18% 72%, rgba(232,198,106,.12), transparent 24%),
+    linear-gradient(145deg, #02070b 0%, #07131c 38%, #091026 70%, #02070b 100%);
+}
+.travel-motion::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  opacity: .34;
+  background-image:
+    linear-gradient(rgba(103,232,249,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103,232,249,.045) 1px, transparent 1px);
+  background-size: 62px 62px;
+  transform: perspective(560px) rotateX(64deg) translateY(20%);
+  transform-origin: center;
+  animation: travel-grid-drift 34s linear infinite;
+}
+.travel-motion::after {
+  content: "";
+  position: absolute;
+  inset: -12% -18%;
+  opacity: .78;
+  filter: blur(32px);
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse at 15% 62%, rgba(69,214,239,.28) 0 8%, transparent 31%),
+    radial-gradient(ellipse at 50% 42%, rgba(98,76,220,.34) 0 10%, transparent 34%),
+    radial-gradient(ellipse at 83% 30%, rgba(232,198,106,.16) 0 8%, transparent 28%);
+  animation: travel-aurora-drift 16s ease-in-out infinite alternate;
+}
+.travel-motion__glow {
+  position: absolute;
+  width: 94vw;
+  height: 42vw;
+  left: -22vw;
+  top: -13vw;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(103,232,249,.26), rgba(76,73,214,.13) 43%, transparent 72%);
+  filter: blur(22px);
+  animation: travel-glow-drift-visible 13s ease-in-out infinite alternate;
+}
+.travel-motion__glow::before, .travel-motion__glow::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: -18%;
+  height: 32%;
+  border-radius: 50%;
+  border-top: clamp(18px, 4vw, 64px) solid rgba(112,91,235,.26);
+  filter: blur(12px);
+  transform: rotate(10deg);
+}
+.travel-motion__glow::before { top: 40%; box-shadow: 0 -18px 62px rgba(103,232,249,.22), 0 30px 76px rgba(93,64,201,.24); }
+.travel-motion__glow::after { top: 66%; left: 20%; border-color: rgba(103,232,249,.18); transform: rotate(-7deg); box-shadow: 0 -12px 54px rgba(232,198,106,.12); }
+
+.travel-motion__globe {
+  position: absolute;
+  right: -8vw;
+  top: 8vh;
+  z-index: 2;
+  width: min(59vw, 920px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(103,232,249,.25);
+  border-radius: 50%;
+  opacity: .66;
+  box-shadow: inset 34px -24px 90px rgba(1,7,12,.78), 0 0 110px rgba(34,211,238,.08);
+  background:
+    linear-gradient(90deg, transparent 49.6%, rgba(103,232,249,.14) 50%, transparent 50.4%),
+    linear-gradient(transparent 49.6%, rgba(103,232,249,.12) 50%, transparent 50.4%),
+    repeating-radial-gradient(ellipse at center, transparent 0 10.5%, rgba(103,232,249,.07) 10.7% 11%, transparent 11.2% 21%);
+  animation: travel-globe-breathe 16s ease-in-out infinite;
+}
+.travel-motion__globe::before, .travel-motion__globe::after { content: ""; position: absolute; inset: 9% 35%; border: 1px solid rgba(103,232,249,.11); border-radius: 50%; }
+.travel-motion__globe::after { inset: 35% 9%; }
+
+.travel-motion__route { position: absolute; left: -8vw; z-index: 3; width: 116vw; border-top: 1px dashed rgba(232,198,106,.48); border-radius: 50%; filter: drop-shadow(0 0 8px rgba(232,198,106,.18)); }
+.travel-motion__route--one { top: 27vh; height: 26vh; transform: rotate(-5deg); }
+.travel-motion__route--two { top: 56vh; height: 18vh; transform: rotate(7deg); opacity: .68; }
+.travel-motion__plane { position: absolute; top: -17px; left: 0; color: #f4d982; font-size: 23px; line-height: 1; text-shadow: 0 0 22px rgba(232,198,106,.95); will-change: transform; animation: travel-plane-one 19s linear infinite; }
+.travel-motion__route--two .travel-motion__plane { color: #67e8f9; text-shadow: 0 0 18px rgba(103,232,249,.7); animation: travel-plane-two 27s linear infinite 5s; }
+.travel-motion__codes { position: absolute; top: 17vh; left: 0; z-index: 3; display: flex; align-items: center; gap: 22px; width: max-content; color: rgba(226,232,240,.48); font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 11px; letter-spacing: .34em; will-change: transform; animation: travel-code-drift 36s linear infinite; }
+.travel-motion__codes i { color: rgba(232,198,106,.55); font-style: normal; }
+
+.travel-motion__horizon { position: absolute; left: -8%; bottom: 0; width: 116%; background: linear-gradient(180deg, rgba(18,50,67,.22), rgba(2,8,13,.93)); transform-origin: bottom; will-change: transform; }
+.travel-motion__horizon--far { height: 31vh; opacity: .42; clip-path: polygon(0 100%,0 75%,9% 72%,9% 45%,15% 70%,23% 43%,30% 73%,38% 30%,46% 70%,55% 39%,65% 73%,75% 35%,84% 72%,92% 44%,100% 70%,100% 100%); animation: travel-horizon-far 28s ease-in-out infinite alternate; }
+.travel-motion__horizon--near { height: 20vh; opacity: .56; clip-path: polygon(0 100%,0 75%,8% 75%,8% 52%,19% 73%,19% 42%,30% 70%,35% 58%,45% 72%,45% 31%,58% 72%,58% 48%,70% 70%,70% 36%,83% 70%,83% 53%,96% 73%,96% 44%,100% 44%,100% 100%); animation: travel-horizon-near 22s ease-in-out infinite alternate; }
+
+.travel-glass { background: linear-gradient(145deg, rgba(7,17,25,.68), rgba(9,16,36,.58)) !important; backdrop-filter: blur(17px) saturate(1.12); box-shadow: 0 26px 80px rgba(0,0,0,.42), inset 0 1px rgba(255,255,255,.045) !important; }
+#app > main > section.bg-terminal-900, #app > main > section > article.bg-terminal-900, #app > main > section > aside.bg-terminal-900 { background: linear-gradient(145deg, rgba(7,17,25,.78), rgba(8,15,31,.68)) !important; backdrop-filter: blur(14px); }
+
+@keyframes travel-grid-drift { to { transform: perspective(560px) rotateX(64deg) translate3d(62px, calc(20% + 62px), 0); } }
+@keyframes travel-glow-drift-visible { from { transform: translate3d(-3vw,-2vh,0) rotate(-18deg) scale(1); } to { transform: translate3d(15vw,10vh,0) rotate(-8deg) scale(1.18); } }
+@keyframes travel-aurora-drift { 0% { transform: translate3d(-4vw,-2vh,0) rotate(-8deg) scale(1.08); } 50% { transform: translate3d(6vw,5vh,0) rotate(-2deg) scale(1.16); } 100% { transform: translate3d(-1vw,9vh,0) rotate(4deg) scale(1.1); } }
+@keyframes travel-globe-breathe { 0%,100% { transform: translate3d(0,0,0) rotate(-5deg); } 50% { transform: translate3d(-2vw,1.5vh,0) rotate(2deg); } }
+@keyframes travel-plane-one { 0% { transform: translate3d(-8vw,5vh,0) rotate(10deg); } 25% { transform: translate3d(28vw,-4vh,0) rotate(2deg); } 52% { transform: translate3d(62vw,-8vh,0) rotate(-2deg); } 78% { transform: translate3d(94vw,-4vh,0) rotate(3deg); } 100% { transform: translate3d(124vw,4vh,0) rotate(9deg); } }
+@keyframes travel-plane-two { 0% { transform: translate3d(124vw,1vh,0) rotate(187deg); } 30% { transform: translate3d(88vw,-5vh,0) rotate(181deg); } 65% { transform: translate3d(42vw,-7vh,0) rotate(178deg); } 100% { transform: translate3d(-10vw,2vh,0) rotate(187deg); } }
+@keyframes travel-code-drift { to { transform: translate3d(calc(100vw - 30%),0,0); } }
+@keyframes travel-horizon-far { to { transform: translate3d(-2.5vw,0,0) scale(1.02); } }
+@keyframes travel-horizon-near { to { transform: translate3d(2.5vw,0,0) scale(1.035); } }
+
+@media (max-width: 640px) {
+  .travel-motion::after { opacity: .64; filter: blur(24px); }
+  .travel-motion__glow { width: 135vw; height: 82vw; left: -58vw; top: -8vw; }
+  .travel-motion__globe { width: 105vw; right: -47vw; top: 16vh; opacity: .52; }
+  .travel-motion__route--two, .travel-motion__codes, .travel-motion__horizon--far { display: none; }
+  .travel-motion__route--one { top: 25vh; }
+  .travel-motion__horizon--near { height: 15vh; opacity: .42; }
+  .travel-glass { background: linear-gradient(145deg, rgba(7,17,25,.83), rgba(9,16,36,.76)) !important; backdrop-filter: blur(11px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .travel-motion *, .travel-motion::before, .travel-motion::after { animation: none !important; }
+  .travel-motion__plane { left: 54vw; }
+  .travel-motion__codes { transform: translateX(12vw); }
+}
+/* /VIAJES ASC DYNAMIC TRAVEL BACKDROP */
