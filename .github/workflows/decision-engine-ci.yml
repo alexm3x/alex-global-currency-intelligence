@@ -23,6 +23,8 @@ jobs:
         run: |
           node --check decision-engine-core.js
           node --check decision-engine.js
+          node --check decision-evidence-core.js
+          node --check decision-evidence.js
       - name: Run repository test suite
         run: npm test
       - name: Validate production integration
@@ -30,6 +32,10 @@ jobs:
           test -s decision-engine-core.js
           test -s decision-engine.js
           test -s decision-engine.css
+          test -s decision-evidence-core.js
+          test -s decision-evidence.js
+          test -s decision-evidence.css
+          test -s data/ciar-latest.json
           grep -q 'data-view="decisionEngine"' index.html
           grep -q 'id="decisionEngine"' index.html
           grep -q 'decision-engine.css' index.html
@@ -37,6 +43,11 @@ jobs:
           grep -q 'Preparation Score' decision-engine.js
           grep -q 'Terreno de Compra AGCI' decision-engine.js
           grep -q 'rankRadar' decision-engine-core.js
+          grep -q 'decision-evidence.js' nav-dedupe.js
+          grep -q 'data/ciar-latest.json' decision-evidence.js
+          grep -q 'data/daily-briefing-latest.json' decision-evidence.js
+          grep -q 'data/macro-latest.json' decision-evidence.js
+          grep -q 'changesFairValue: false' decision-evidence-core.js
       - name: Validate local static serving
         run: |
           python3 -m http.server 8766 >/tmp/agci-decision-engine.log 2>&1 &
@@ -45,10 +56,18 @@ jobs:
           curl --fail --silent --show-error http://127.0.0.1:8766/decision-engine.js > /tmp/decision-engine.js
           curl --fail --silent --show-error http://127.0.0.1:8766/decision-engine-core.js > /tmp/decision-engine-core.js
           curl --fail --silent --show-error http://127.0.0.1:8766/decision-engine.css > /tmp/decision-engine.css
+          curl --fail --silent --show-error http://127.0.0.1:8766/decision-evidence.js > /tmp/decision-evidence.js
+          curl --fail --silent --show-error http://127.0.0.1:8766/decision-evidence-core.js > /tmp/decision-evidence-core.js
+          curl --fail --silent --show-error http://127.0.0.1:8766/decision-evidence.css > /tmp/decision-evidence.css
+          curl --fail --silent --show-error http://127.0.0.1:8766/data/ciar-latest.json > /tmp/ciar.json
           grep -q 'Motor de Decisión' /tmp/index.html
           grep -q 'Preparar decisión' /tmp/decision-engine.js
           grep -q 'fairValueEstimate' /tmp/decision-engine-core.js
           grep -q '@media(max-width:430px)' /tmp/decision-engine.css
+          grep -q 'FASE 3' /tmp/decision-evidence.js
+          grep -q 'buildContextOverlay' /tmp/decision-evidence-core.js
+          grep -q '@media(max-width:430px)' /tmp/decision-evidence.css
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/ciar.json'));if(x.schemaVersion!==1||!Array.isArray(x.records)||x.records.length<8)process.exit(1)"
       - name: Validate live fundamentals service
         run: |
           curl --fail --silent --show-error --max-time 20 https://agci-equity-fundamentals.proadmexico.workers.dev/health > /tmp/equity-health.json
