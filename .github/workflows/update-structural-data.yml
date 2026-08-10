@@ -147,12 +147,16 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
       - name: Confirm published structural snapshot
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           node -e "const x=require('./data/macro-latest.json'); console.log('Expected published snapshot:', x.generatedAt, x.overallStatus)"
+          base="${PAGE_URL%/}/data/macro-latest.json"
+          echo "Verifying canonical Pages endpoint: ${base}"
 
           for attempt in $(seq 1 18); do
-            url="https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json?run=${GITHUB_RUN_ID}&attempt=${attempt}"
-            if curl --fail --silent --show-error --max-time 15 \
+            url="${base}?run=${GITHUB_RUN_ID}&attempt=${attempt}"
+            if curl --location --fail --silent --show-error --max-time 15 \
               -H 'Cache-Control: no-cache' \
               "$url" > /tmp/published-macro.json; then
               if node <<'NODE'
