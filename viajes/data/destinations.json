@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "2.0.0",
-    "generated_at": "2026-08-10T11:31:54.160956+00:00",
+    "generated_at": "2026-08-10T22:08:45.448400+00:00",
     "timezone": "UTC",
     "origin_airports": [
       "MEX",
@@ -23,9 +23,9 @@
     "historical_fx_source": "https://api.frankfurter.dev/v1",
     "history_by_currency": {
       "ARS": "unavailable",
-      "CZK": "unavailable",
+      "CZK": "live_frankfurter",
       "EGP": "unavailable",
-      "EUR": "unavailable",
+      "EUR": "live_frankfurter",
       "HUF": "live_frankfurter",
       "IDR": "live_frankfurter",
       "JPY": "live_frankfurter",
@@ -60,8 +60,8 @@
   "market_snapshot": {
     "usd_mxn": 17.140913,
     "green_destinations": 3,
-    "amber_destinations": 8,
-    "red_destinations": 9
+    "amber_destinations": 13,
+    "red_destinations": 4
   },
   "destinations": [
     {
@@ -90,9 +90,9 @@
       "cruise_route": null,
       "current_local_per_usd": 47.70582,
       "current_local_per_mxn": 2.783155,
-      "historical_average_local_per_usd": 43.762709,
-      "fx_advantage_pct": 9.01,
-      "fx_score": 86.0,
+      "historical_average_local_per_usd": 43.777892,
+      "fx_advantage_pct": 8.97,
+      "fx_score": 85.9,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
       "volatility_annualized_pct": 1.55,
@@ -239,18 +239,18 @@
           "local_per_usd": 47.525
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 47.706
+          "date": "2026-08-10",
+          "local_per_usd": 47.695
         }
       ],
       "moderate_daily_mxn": 1384,
-      "luxury_daily_mxn": 4481,
+      "luxury_daily_mxn": 4483,
       "economy_flight_mxn": 16284,
       "business_flight_mxn": 61707,
       "moderate_total_7n_mxn": 25972,
-      "business_total_7n_mxn": 93074,
+      "business_total_7n_mxn": 93088,
       "price_score": 98.9,
-      "roi_score": 92.1,
+      "roi_score": 92.0,
       "value_for_money": 9.2,
       "google_travel": {
         "default_start": "2026-11-08",
@@ -267,7 +267,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.104449+00:00",
+          "published_at": "2026-08-10T22:08:54.126404+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 1.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -403,7 +403,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "high",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.104550+00:00",
+          "published_at": "2026-08-10T22:08:54.126595+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 35.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -540,7 +540,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "high",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.108529+00:00",
+          "published_at": "2026-08-10T22:08:54.132151+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 35.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -583,12 +583,12 @@
       "cruise_route": null,
       "current_local_per_usd": 157.880961,
       "current_local_per_mxn": 9.210767,
-      "historical_average_local_per_usd": 155.852171,
-      "fx_advantage_pct": 1.3,
+      "historical_average_local_per_usd": 155.862934,
+      "fx_advantage_pct": 1.29,
       "fx_score": 55.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 7.85,
+      "volatility_annualized_pct": 7.84,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -732,8 +732,8 @@
           "local_per_usd": 160.24
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 158.34
+          "date": "2026-08-10",
+          "local_per_usd": 158.64
         }
       ],
       "moderate_daily_mxn": 2284,
@@ -760,7 +760,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.104020+00:00",
+          "published_at": "2026-08-10T22:08:54.125979+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.8%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -803,12 +803,12 @@
       "cruise_route": null,
       "current_local_per_usd": 33.024294,
       "current_local_per_mxn": 1.926636,
-      "historical_average_local_per_usd": 32.28476,
-      "fx_advantage_pct": 2.29,
-      "fx_score": 59.2,
+      "historical_average_local_per_usd": 32.287571,
+      "fx_advantage_pct": 2.28,
+      "fx_score": 59.1,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 7.72,
+      "volatility_annualized_pct": 7.7,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -952,8 +952,8 @@
           "local_per_usd": 33.465
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 33.055
+          "date": "2026-08-10",
+          "local_per_usd": 33.013
         }
       ],
       "moderate_daily_mxn": 1207,
@@ -980,7 +980,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.105084+00:00",
+          "published_at": "2026-08-10T22:08:54.127112+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.7%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1023,12 +1023,12 @@
       "cruise_route": null,
       "current_local_per_usd": 17862.192486,
       "current_local_per_mxn": 1042.079409,
-      "historical_average_local_per_usd": 17033.926357,
-      "fx_advantage_pct": 4.86,
+      "historical_average_local_per_usd": 17036.72973,
+      "fx_advantage_pct": 4.85,
       "fx_score": 69.4,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.21,
+      "volatility_annualized_pct": 5.23,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -1172,16 +1172,16 @@
           "local_per_usd": 18052.0
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 17846.0
+          "date": "2026-08-10",
+          "local_per_usd": 17760.0
         }
       ],
       "moderate_daily_mxn": 1504,
-      "luxury_daily_mxn": 5312,
+      "luxury_daily_mxn": 5313,
       "economy_flight_mxn": 22283,
       "business_flight_mxn": 82276,
       "moderate_total_7n_mxn": 32811,
-      "business_total_7n_mxn": 119460,
+      "business_total_7n_mxn": 119467,
       "price_score": 91.3,
       "roi_score": 81.7,
       "value_for_money": 8.2,
@@ -1196,11 +1196,11 @@
       "news": [
         {
           "id": "bali-indonesia-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+4.9%)",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+4.8%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.107301+00:00",
+          "published_at": "2026-08-10T22:08:54.129675+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.2%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1336,7 +1336,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.104663+00:00",
+          "published_at": "2026-08-10T22:08:54.126734+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 2.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1352,6 +1352,666 @@
         }
       ],
       "rank": 7
+    },
+    {
+      "id": "lisbon-portugal",
+      "city": "Lisboa",
+      "country": "Portugal",
+      "currency": "EUR",
+      "airport": "LIS",
+      "kind": "urban",
+      "tags": [
+        "historia",
+        "gastronomía",
+        "costa"
+      ],
+      "quality_score": 91,
+      "connectivity_score": 84,
+      "proximity_score": 68,
+      "moderate_daily_usd": 132,
+      "luxury_daily_usd": 395,
+      "economy_flight_usd": 950,
+      "business_flight_usd": 3600,
+      "route_summary": "MEX–LIS con 1 escala",
+      "why_value": "Calidad europea y conectividad razonable, aunque hotelería elevada.",
+      "seasonality": "Marzo–mayo y octubre–noviembre.",
+      "cruise_provider": null,
+      "cruise_route": null,
+      "current_local_per_usd": 0.865507,
+      "current_local_per_mxn": 0.050494,
+      "historical_average_local_per_usd": 0.859403,
+      "fx_advantage_pct": 0.71,
+      "fx_score": 52.8,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 5.63,
+      "history_status": "live_frankfurter",
+      "fx_trend": [
+        {
+          "date": "2025-08-25",
+          "local_per_usd": 0.85492
+        },
+        {
+          "date": "2025-09-03",
+          "local_per_usd": 0.85815
+        },
+        {
+          "date": "2025-09-12",
+          "local_per_usd": 0.85339
+        },
+        {
+          "date": "2025-09-23",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2025-10-02",
+          "local_per_usd": 0.85077
+        },
+        {
+          "date": "2025-10-13",
+          "local_per_usd": 0.86438
+        },
+        {
+          "date": "2025-10-22",
+          "local_per_usd": 0.86304
+        },
+        {
+          "date": "2025-10-31",
+          "local_per_usd": 0.8655
+        },
+        {
+          "date": "2025-11-11",
+          "local_per_usd": 0.86393
+        },
+        {
+          "date": "2025-11-20",
+          "local_per_usd": 0.86851
+        },
+        {
+          "date": "2025-12-01",
+          "local_per_usd": 0.85866
+        },
+        {
+          "date": "2025-12-10",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2025-12-19",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-01-02",
+          "local_per_usd": 0.85317
+        },
+        {
+          "date": "2026-01-13",
+          "local_per_usd": 0.85807
+        },
+        {
+          "date": "2026-01-22",
+          "local_per_usd": 0.85426
+        },
+        {
+          "date": "2026-02-02",
+          "local_per_usd": 0.84459
+        },
+        {
+          "date": "2026-02-11",
+          "local_per_usd": 0.84034
+        },
+        {
+          "date": "2026-02-20",
+          "local_per_usd": 0.84983
+        },
+        {
+          "date": "2026-03-03",
+          "local_per_usd": 0.86162
+        },
+        {
+          "date": "2026-03-12",
+          "local_per_usd": 0.86603
+        },
+        {
+          "date": "2026-03-23",
+          "local_per_usd": 0.86237
+        },
+        {
+          "date": "2026-04-01",
+          "local_per_usd": 0.8617
+        },
+        {
+          "date": "2026-04-14",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2026-04-23",
+          "local_per_usd": 0.85514
+        },
+        {
+          "date": "2026-05-05",
+          "local_per_usd": 0.85572
+        },
+        {
+          "date": "2026-05-14",
+          "local_per_usd": 0.85455
+        },
+        {
+          "date": "2026-05-25",
+          "local_per_usd": 0.85889
+        },
+        {
+          "date": "2026-06-03",
+          "local_per_usd": 0.86103
+        },
+        {
+          "date": "2026-06-12",
+          "local_per_usd": 0.86453
+        },
+        {
+          "date": "2026-06-23",
+          "local_per_usd": 0.87781
+        },
+        {
+          "date": "2026-07-02",
+          "local_per_usd": 0.87727
+        },
+        {
+          "date": "2026-07-13",
+          "local_per_usd": 0.87535
+        },
+        {
+          "date": "2026-07-22",
+          "local_per_usd": 0.87658
+        },
+        {
+          "date": "2026-07-31",
+          "local_per_usd": 0.8707
+        },
+        {
+          "date": "2026-08-10",
+          "local_per_usd": 0.86543
+        }
+      ],
+      "moderate_daily_mxn": 2247,
+      "luxury_daily_mxn": 6723,
+      "economy_flight_mxn": 16284,
+      "business_flight_mxn": 61707,
+      "moderate_total_7n_mxn": 32013,
+      "business_total_7n_mxn": 108768,
+      "price_score": 92.2,
+      "roi_score": 80.3,
+      "value_for_money": 8.0,
+      "google_travel": {
+        "default_start": "2026-11-08",
+        "default_end": "2026-11-15",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-08+through+2026-11-15+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-08+through+2026-11-15+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Lisboa+2026-11-08+through+2026-11-15"
+      },
+      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
+      "news": [
+        {
+          "id": "lisbon-portugal-fx-2026-08-10",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "source": "Viajes ASC FX Monitor",
+          "impact": "low",
+          "category": "Mercado cambiario",
+          "published_at": "2026-08-10T22:08:54.130055+00:00",
+          "url": "https://open.er-api.com/v6/latest/USD",
+          "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
+        },
+        {
+          "id": "lisbon-portugal-context-1",
+          "headline": "Inflación de servicios mantiene presión sobre hoteles urbanos",
+          "source": "ECB / Eurostat",
+          "impact": "medium",
+          "category": "Inflación / Hoteles",
+          "published_at": "2026-08-01T10:00:00Z",
+          "url": "https://www.ecb.europa.eu/stats/macroeconomic_and_sectoral/hicp/html/index.en.html",
+          "summary": "El euro y la demanda turística limitan la oportunidad cambiaria; reservar con anticipación gana importancia."
+        }
+      ],
+      "rank": 8
+    },
+    {
+      "id": "athens-greece",
+      "city": "Atenas",
+      "country": "Grecia",
+      "currency": "EUR",
+      "airport": "ATH",
+      "kind": "urban",
+      "tags": [
+        "historia",
+        "islas",
+        "crucero"
+      ],
+      "quality_score": 92,
+      "connectivity_score": 81,
+      "proximity_score": 59,
+      "moderate_daily_usd": 126,
+      "luxury_daily_usd": 385,
+      "economy_flight_usd": 1000,
+      "business_flight_usd": 3700,
+      "route_summary": "MEX–ATH con 1 escala",
+      "why_value": "Puerta eficiente al Mediterráneo oriental y a itinerarios de crucero.",
+      "seasonality": "Abril–junio y septiembre–octubre.",
+      "cruise_provider": null,
+      "cruise_route": null,
+      "current_local_per_usd": 0.865507,
+      "current_local_per_mxn": 0.050494,
+      "historical_average_local_per_usd": 0.859403,
+      "fx_advantage_pct": 0.71,
+      "fx_score": 52.8,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 5.63,
+      "history_status": "live_frankfurter",
+      "fx_trend": [
+        {
+          "date": "2025-08-25",
+          "local_per_usd": 0.85492
+        },
+        {
+          "date": "2025-09-03",
+          "local_per_usd": 0.85815
+        },
+        {
+          "date": "2025-09-12",
+          "local_per_usd": 0.85339
+        },
+        {
+          "date": "2025-09-23",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2025-10-02",
+          "local_per_usd": 0.85077
+        },
+        {
+          "date": "2025-10-13",
+          "local_per_usd": 0.86438
+        },
+        {
+          "date": "2025-10-22",
+          "local_per_usd": 0.86304
+        },
+        {
+          "date": "2025-10-31",
+          "local_per_usd": 0.8655
+        },
+        {
+          "date": "2025-11-11",
+          "local_per_usd": 0.86393
+        },
+        {
+          "date": "2025-11-20",
+          "local_per_usd": 0.86851
+        },
+        {
+          "date": "2025-12-01",
+          "local_per_usd": 0.85866
+        },
+        {
+          "date": "2025-12-10",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2025-12-19",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-01-02",
+          "local_per_usd": 0.85317
+        },
+        {
+          "date": "2026-01-13",
+          "local_per_usd": 0.85807
+        },
+        {
+          "date": "2026-01-22",
+          "local_per_usd": 0.85426
+        },
+        {
+          "date": "2026-02-02",
+          "local_per_usd": 0.84459
+        },
+        {
+          "date": "2026-02-11",
+          "local_per_usd": 0.84034
+        },
+        {
+          "date": "2026-02-20",
+          "local_per_usd": 0.84983
+        },
+        {
+          "date": "2026-03-03",
+          "local_per_usd": 0.86162
+        },
+        {
+          "date": "2026-03-12",
+          "local_per_usd": 0.86603
+        },
+        {
+          "date": "2026-03-23",
+          "local_per_usd": 0.86237
+        },
+        {
+          "date": "2026-04-01",
+          "local_per_usd": 0.8617
+        },
+        {
+          "date": "2026-04-14",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2026-04-23",
+          "local_per_usd": 0.85514
+        },
+        {
+          "date": "2026-05-05",
+          "local_per_usd": 0.85572
+        },
+        {
+          "date": "2026-05-14",
+          "local_per_usd": 0.85455
+        },
+        {
+          "date": "2026-05-25",
+          "local_per_usd": 0.85889
+        },
+        {
+          "date": "2026-06-03",
+          "local_per_usd": 0.86103
+        },
+        {
+          "date": "2026-06-12",
+          "local_per_usd": 0.86453
+        },
+        {
+          "date": "2026-06-23",
+          "local_per_usd": 0.87781
+        },
+        {
+          "date": "2026-07-02",
+          "local_per_usd": 0.87727
+        },
+        {
+          "date": "2026-07-13",
+          "local_per_usd": 0.87535
+        },
+        {
+          "date": "2026-07-22",
+          "local_per_usd": 0.87658
+        },
+        {
+          "date": "2026-07-31",
+          "local_per_usd": 0.8707
+        },
+        {
+          "date": "2026-08-10",
+          "local_per_usd": 0.86543
+        }
+      ],
+      "moderate_daily_mxn": 2145,
+      "luxury_daily_mxn": 6553,
+      "economy_flight_mxn": 17141,
+      "business_flight_mxn": 63421,
+      "moderate_total_7n_mxn": 32156,
+      "business_total_7n_mxn": 109292,
+      "price_score": 92.0,
+      "roi_score": 80.1,
+      "value_for_money": 8.0,
+      "google_travel": {
+        "default_start": "2026-11-08",
+        "default_end": "2026-11-15",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Atenas+2026-11-08+through+2026-11-15"
+      },
+      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
+      "news": [
+        {
+          "id": "athens-greece-fx-2026-08-10",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "source": "Viajes ASC FX Monitor",
+          "impact": "low",
+          "category": "Mercado cambiario",
+          "published_at": "2026-08-10T22:08:54.130431+00:00",
+          "url": "https://open.er-api.com/v6/latest/USD",
+          "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
+        },
+        {
+          "id": "athens-greece-context-1",
+          "headline": "Demanda de islas y puertos mantiene altas tarifas mediterráneas",
+          "source": "Banco de Grecia / ECB",
+          "impact": "medium",
+          "category": "Turismo / Inflación",
+          "published_at": "2026-08-01T10:00:00Z",
+          "url": "https://www.bankofgreece.gr/en/main-tasks/monetary-policy",
+          "summary": "Cabinas y hoteles de embarque pueden subir en ventanas de alta ocupación."
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "id": "prague-czechia",
+      "city": "Praga",
+      "country": "Chequia",
+      "currency": "CZK",
+      "airport": "PRG",
+      "kind": "urban",
+      "tags": [
+        "historia",
+        "arquitectura",
+        "gastronomía"
+      ],
+      "quality_score": 92,
+      "connectivity_score": 78,
+      "proximity_score": 54,
+      "moderate_daily_usd": 115,
+      "luxury_daily_usd": 345,
+      "economy_flight_usd": 1000,
+      "business_flight_usd": 3900,
+      "route_summary": "MEX–PRG con 1 escala",
+      "why_value": "Alta calidad histórica con costos aún inferiores a Europa occidental.",
+      "seasonality": "Abril–mayo y septiembre–octubre.",
+      "cruise_provider": null,
+      "cruise_route": null,
+      "current_local_per_usd": 20.995446,
+      "current_local_per_mxn": 1.224873,
+      "historical_average_local_per_usd": 20.890691,
+      "fx_advantage_pct": 0.5,
+      "fx_score": 52.0,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 6.75,
+      "history_status": "live_frankfurter",
+      "fx_trend": [
+        {
+          "date": "2025-08-25",
+          "local_per_usd": 20.983
+        },
+        {
+          "date": "2025-09-03",
+          "local_per_usd": 20.978
+        },
+        {
+          "date": "2025-09-12",
+          "local_per_usd": 20.753
+        },
+        {
+          "date": "2025-09-23",
+          "local_per_usd": 20.556
+        },
+        {
+          "date": "2025-10-02",
+          "local_per_usd": 20.63
+        },
+        {
+          "date": "2025-10-13",
+          "local_per_usd": 21.055
+        },
+        {
+          "date": "2025-10-22",
+          "local_per_usd": 20.979
+        },
+        {
+          "date": "2025-10-31",
+          "local_per_usd": 21.055
+        },
+        {
+          "date": "2025-11-11",
+          "local_per_usd": 20.983
+        },
+        {
+          "date": "2025-11-20",
+          "local_per_usd": 21.0
+        },
+        {
+          "date": "2025-12-01",
+          "local_per_usd": 20.763
+        },
+        {
+          "date": "2025-12-10",
+          "local_per_usd": 20.84
+        },
+        {
+          "date": "2025-12-19",
+          "local_per_usd": 20.768
+        },
+        {
+          "date": "2026-01-02",
+          "local_per_usd": 20.627
+        },
+        {
+          "date": "2026-01-13",
+          "local_per_usd": 20.811
+        },
+        {
+          "date": "2026-01-22",
+          "local_per_usd": 20.767
+        },
+        {
+          "date": "2026-02-02",
+          "local_per_usd": 20.528
+        },
+        {
+          "date": "2026-02-11",
+          "local_per_usd": 20.374
+        },
+        {
+          "date": "2026-02-20",
+          "local_per_usd": 20.601
+        },
+        {
+          "date": "2026-03-03",
+          "local_per_usd": 21.005
+        },
+        {
+          "date": "2026-03-12",
+          "local_per_usd": 21.136
+        },
+        {
+          "date": "2026-03-23",
+          "local_per_usd": 21.075
+        },
+        {
+          "date": "2026-04-01",
+          "local_per_usd": 21.125
+        },
+        {
+          "date": "2026-04-14",
+          "local_per_usd": 20.647
+        },
+        {
+          "date": "2026-04-23",
+          "local_per_usd": 20.825
+        },
+        {
+          "date": "2026-05-05",
+          "local_per_usd": 20.863
+        },
+        {
+          "date": "2026-05-14",
+          "local_per_usd": 20.767
+        },
+        {
+          "date": "2026-05-25",
+          "local_per_usd": 20.836
+        },
+        {
+          "date": "2026-06-03",
+          "local_per_usd": 20.827
+        },
+        {
+          "date": "2026-06-12",
+          "local_per_usd": 20.897
+        },
+        {
+          "date": "2026-06-23",
+          "local_per_usd": 21.248
+        },
+        {
+          "date": "2026-07-02",
+          "local_per_usd": 21.244
+        },
+        {
+          "date": "2026-07-13",
+          "local_per_usd": 21.238
+        },
+        {
+          "date": "2026-07-22",
+          "local_per_usd": 21.183
+        },
+        {
+          "date": "2026-07-31",
+          "local_per_usd": 21.081
+        },
+        {
+          "date": "2026-08-10",
+          "local_per_usd": 20.988
+        }
+      ],
+      "moderate_daily_mxn": 1961,
+      "luxury_daily_mxn": 5884,
+      "economy_flight_mxn": 17141,
+      "business_flight_mxn": 66850,
+      "moderate_total_7n_mxn": 30868,
+      "business_total_7n_mxn": 108038,
+      "price_score": 93.5,
+      "roi_score": 79.5,
+      "value_for_money": 8.0,
+      "google_travel": {
+        "default_start": "2026-11-08",
+        "default_end": "2026-11-15",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-08+through+2026-11-15+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-08+through+2026-11-15+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Praga+2026-11-08+through+2026-11-15"
+      },
+      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
+      "news": [
+        {
+          "id": "prague-czechia-fx-2026-08-10",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.5%)",
+          "source": "Viajes ASC FX Monitor",
+          "impact": "low",
+          "category": "Mercado cambiario",
+          "published_at": "2026-08-10T22:08:54.128862+00:00",
+          "url": "https://open.er-api.com/v6/latest/USD",
+          "summary": "Semáforo amber; volatilidad anualizada estimada 6.8%. La señal no confirma una tarifa aérea u hotelera."
+        },
+        {
+          "id": "prague-czechia-context-1",
+          "headline": "La corona checa responde a señales de inflación y tasas",
+          "source": "Czech National Bank",
+          "impact": "medium",
+          "category": "Tasas / FX",
+          "published_at": "2026-07-30T10:00:00Z",
+          "url": "https://www.cnb.cz/en/monetary-policy/",
+          "summary": "Una corona fuerte puede elevar el costo diario aun cuando vuelos y hoteles sigan competitivos."
+        }
+      ],
+      "rank": 10
     },
     {
       "id": "cruise-japan-korea",
@@ -1379,12 +2039,12 @@
       "cruise_route": "Yokohama–Busan–Nagasaki",
       "current_local_per_usd": 157.880961,
       "current_local_per_mxn": 9.210767,
-      "historical_average_local_per_usd": 155.852171,
-      "fx_advantage_pct": 1.3,
+      "historical_average_local_per_usd": 155.862934,
+      "fx_advantage_pct": 1.29,
       "fx_score": 55.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 7.85,
+      "volatility_annualized_pct": 7.84,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -1528,8 +2188,8 @@
           "local_per_usd": 160.24
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 158.34
+          "date": "2026-08-10",
+          "local_per_usd": 158.64
         }
       ],
       "moderate_daily_mxn": 3723,
@@ -1557,7 +2217,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.108355+00:00",
+          "published_at": "2026-08-10T22:08:54.131671+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.8%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1572,7 +2232,7 @@
           "summary": "Japón conserva ventaja, mientras Corea puede encarecerse si el won continúa apreciándose."
         }
       ],
-      "rank": 8
+      "rank": 11
     },
     {
       "id": "seoul-korea",
@@ -1600,12 +2260,12 @@
       "cruise_route": null,
       "current_local_per_usd": 1409.640365,
       "current_local_per_mxn": 82.238348,
-      "historical_average_local_per_usd": 1460.022442,
-      "fx_advantage_pct": -3.45,
+      "historical_average_local_per_usd": 1459.854865,
+      "fx_advantage_pct": -3.44,
       "fx_score": 36.2,
       "traffic_light": "red",
       "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 8.95,
+      "volatility_annualized_pct": 8.93,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -1749,16 +2409,16 @@
           "local_per_usd": 1443.61
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 1415.95
+          "date": "2026-08-10",
+          "local_per_usd": 1416.62
         }
       ],
       "moderate_daily_mxn": 1811,
-      "luxury_daily_mxn": 5770,
+      "luxury_daily_mxn": 5769,
       "economy_flight_mxn": 18855,
       "business_flight_mxn": 73706,
       "moderate_total_7n_mxn": 31532,
-      "business_total_7n_mxn": 114096,
+      "business_total_7n_mxn": 114089,
       "price_score": 92.7,
       "roi_score": 78.8,
       "value_for_money": 7.9,
@@ -1773,11 +2433,11 @@
       "news": [
         {
           "id": "seoul-korea-fx-2026-08-10",
-          "headline": "La moneda local cotiza 3.5% más fuerte que la referencia",
+          "headline": "La moneda local cotiza 3.4% más fuerte que la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.105468+00:00",
+          "published_at": "2026-08-10T22:08:54.127499+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 8.9%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1792,7 +2452,228 @@
           "summary": "Un sesgo monetario más restrictivo puede fortalecer el won y reducir parte de la ventaja para viajeros en USD."
         }
       ],
-      "rank": 9
+      "rank": 12
+    },
+    {
+      "id": "cruise-eastern-med",
+      "city": "Crucero Mediterráneo Oriental",
+      "country": "Grecia–Turquía",
+      "currency": "EUR",
+      "airport": "ATH",
+      "kind": "cruise",
+      "tags": [
+        "crucero",
+        "historia",
+        "islas"
+      ],
+      "quality_score": 94,
+      "connectivity_score": 82,
+      "proximity_score": 58,
+      "moderate_daily_usd": 210,
+      "luxury_daily_usd": 540,
+      "economy_flight_usd": 1000,
+      "business_flight_usd": 3900,
+      "route_summary": "MEX–ATH o MEX–IST",
+      "why_value": "Gran densidad histórica y acceso a puertos con monedas o costos favorables.",
+      "seasonality": "Abril–junio y septiembre–octubre.",
+      "cruise_provider": "Royal Caribbean / Celebrity",
+      "cruise_route": "Atenas–Santorini–Mykonos–Estambul",
+      "current_local_per_usd": 0.865507,
+      "current_local_per_mxn": 0.050494,
+      "historical_average_local_per_usd": 0.859403,
+      "fx_advantage_pct": 0.71,
+      "fx_score": 52.8,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 5.63,
+      "history_status": "live_frankfurter",
+      "fx_trend": [
+        {
+          "date": "2025-08-25",
+          "local_per_usd": 0.85492
+        },
+        {
+          "date": "2025-09-03",
+          "local_per_usd": 0.85815
+        },
+        {
+          "date": "2025-09-12",
+          "local_per_usd": 0.85339
+        },
+        {
+          "date": "2025-09-23",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2025-10-02",
+          "local_per_usd": 0.85077
+        },
+        {
+          "date": "2025-10-13",
+          "local_per_usd": 0.86438
+        },
+        {
+          "date": "2025-10-22",
+          "local_per_usd": 0.86304
+        },
+        {
+          "date": "2025-10-31",
+          "local_per_usd": 0.8655
+        },
+        {
+          "date": "2025-11-11",
+          "local_per_usd": 0.86393
+        },
+        {
+          "date": "2025-11-20",
+          "local_per_usd": 0.86851
+        },
+        {
+          "date": "2025-12-01",
+          "local_per_usd": 0.85866
+        },
+        {
+          "date": "2025-12-10",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2025-12-19",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-01-02",
+          "local_per_usd": 0.85317
+        },
+        {
+          "date": "2026-01-13",
+          "local_per_usd": 0.85807
+        },
+        {
+          "date": "2026-01-22",
+          "local_per_usd": 0.85426
+        },
+        {
+          "date": "2026-02-02",
+          "local_per_usd": 0.84459
+        },
+        {
+          "date": "2026-02-11",
+          "local_per_usd": 0.84034
+        },
+        {
+          "date": "2026-02-20",
+          "local_per_usd": 0.84983
+        },
+        {
+          "date": "2026-03-03",
+          "local_per_usd": 0.86162
+        },
+        {
+          "date": "2026-03-12",
+          "local_per_usd": 0.86603
+        },
+        {
+          "date": "2026-03-23",
+          "local_per_usd": 0.86237
+        },
+        {
+          "date": "2026-04-01",
+          "local_per_usd": 0.8617
+        },
+        {
+          "date": "2026-04-14",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2026-04-23",
+          "local_per_usd": 0.85514
+        },
+        {
+          "date": "2026-05-05",
+          "local_per_usd": 0.85572
+        },
+        {
+          "date": "2026-05-14",
+          "local_per_usd": 0.85455
+        },
+        {
+          "date": "2026-05-25",
+          "local_per_usd": 0.85889
+        },
+        {
+          "date": "2026-06-03",
+          "local_per_usd": 0.86103
+        },
+        {
+          "date": "2026-06-12",
+          "local_per_usd": 0.86453
+        },
+        {
+          "date": "2026-06-23",
+          "local_per_usd": 0.87781
+        },
+        {
+          "date": "2026-07-02",
+          "local_per_usd": 0.87727
+        },
+        {
+          "date": "2026-07-13",
+          "local_per_usd": 0.87535
+        },
+        {
+          "date": "2026-07-22",
+          "local_per_usd": 0.87658
+        },
+        {
+          "date": "2026-07-31",
+          "local_per_usd": 0.8707
+        },
+        {
+          "date": "2026-08-10",
+          "local_per_usd": 0.86543
+        }
+      ],
+      "moderate_daily_mxn": 3574,
+      "luxury_daily_mxn": 9191,
+      "economy_flight_mxn": 17141,
+      "business_flight_mxn": 66850,
+      "moderate_total_7n_mxn": 42159,
+      "business_total_7n_mxn": 131187,
+      "price_score": 80.9,
+      "roi_score": 78.7,
+      "value_for_money": 7.9,
+      "google_travel": {
+        "default_start": "2026-11-08",
+        "default_end": "2026-11-15",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Mediterr%C3%A1neo+Oriental+2026-11-08+through+2026-11-15",
+        "cruise_search": "https://www.google.com/search?q=Royal+Caribbean+%2F+Celebrity+Crucero+Mediterr%C3%A1neo+Oriental+2026+cruise"
+      },
+      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
+      "news": [
+        {
+          "id": "cruise-eastern-med-fx-2026-08-10",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "source": "Viajes ASC FX Monitor",
+          "impact": "low",
+          "category": "Mercado cambiario",
+          "published_at": "2026-08-10T22:08:54.131252+00:00",
+          "url": "https://open.er-api.com/v6/latest/USD",
+          "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
+        },
+        {
+          "id": "cruise-eastern-med-context-1",
+          "headline": "Tensión energética regional eleva combustible y seguros marítimos",
+          "source": "Reuters",
+          "impact": "high",
+          "category": "Cruceros / Geopolítica",
+          "published_at": "2026-08-06T06:00:00Z",
+          "url": "https://www.reuters.com/world/asia-pacific/yen-dollar-drift-iran-deal-concerns-payroll-jitters-2026-08-06/",
+          "summary": "Los itinerarios pueden sufrir cambios de puerto, recargos o ajustes de horario."
+        }
+      ],
+      "rank": 13
     },
     {
       "id": "kuala-lumpur-malaysia",
@@ -1820,12 +2701,12 @@
       "cruise_route": null,
       "current_local_per_usd": 4.09106,
       "current_local_per_mxn": 0.238672,
-      "historical_average_local_per_usd": 4.073675,
+      "historical_average_local_per_usd": 4.07374,
       "fx_advantage_pct": 0.43,
       "fx_score": 51.7,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.11,
+      "volatility_annualized_pct": 5.1,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -1969,8 +2850,8 @@
           "local_per_usd": 4.0865
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 4.091
+          "date": "2026-08-10",
+          "local_per_usd": 4.0905
         }
       ],
       "moderate_daily_mxn": 1297,
@@ -1997,7 +2878,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.106890+00:00",
+          "published_at": "2026-08-10T22:08:54.129259+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.1%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2012,7 +2893,7 @@
           "summary": "La hotelería conserva valor, pero una moneda más firme eleva el gasto local en USD."
         }
       ],
-      "rank": 10
+      "rank": 14
     },
     {
       "id": "cairo-egypt",
@@ -2133,7 +3014,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.105556+00:00",
+          "published_at": "2026-08-10T22:08:54.127621+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 18.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2148,7 +3029,7 @@
           "summary": "Combustible, escalas y seguros pueden encarecer itinerarios hacia Egipto aunque la libra local siga ofreciendo valor."
         }
       ],
-      "rank": 11
+      "rank": 15
     },
     {
       "id": "cruise-southeast-asia",
@@ -2176,12 +3057,12 @@
       "cruise_route": "Singapur–Penang–Phuket–Vietnam",
       "current_local_per_usd": 1.279137,
       "current_local_per_mxn": 0.074625,
-      "historical_average_local_per_usd": 1.28491,
+      "historical_average_local_per_usd": 1.28489,
       "fx_advantage_pct": -0.45,
       "fx_score": 48.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 3.63,
+      "volatility_annualized_pct": 3.62,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -2325,8 +3206,8 @@
           "local_per_usd": 1.2849
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 1.2809
+          "date": "2026-08-10",
+          "local_per_usd": 1.2795
         }
       ],
       "moderate_daily_mxn": 3358,
@@ -2354,7 +3235,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.107853+00:00",
+          "published_at": "2026-08-10T22:08:54.130856+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 3.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2369,7 +3250,7 @@
           "summary": "Las reglas pueden variar por puerto, nacionalidad y modalidad de entrada."
         }
       ],
-      "rank": 12
+      "rank": 16
     },
     {
       "id": "budapest-hungary",
@@ -2397,12 +3278,12 @@
       "cruise_route": null,
       "current_local_per_usd": 314.849876,
       "current_local_per_mxn": 18.368326,
-      "historical_average_local_per_usd": 324.710039,
-      "fx_advantage_pct": -3.04,
+      "historical_average_local_per_usd": 324.671429,
+      "fx_advantage_pct": -3.03,
       "fx_score": 37.3,
       "traffic_light": "red",
       "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 11.59,
+      "volatility_annualized_pct": 11.58,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -2546,16 +3427,16 @@
           "local_per_usd": 317.15
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 315.99
+          "date": "2026-08-10",
+          "local_per_usd": 314.71
         }
       ],
       "moderate_daily_mxn": 1697,
-      "luxury_daily_mxn": 5392,
+      "luxury_daily_mxn": 5391,
       "economy_flight_mxn": 17141,
       "business_flight_mxn": 66850,
       "moderate_total_7n_mxn": 29020,
-      "business_total_7n_mxn": 104594,
+      "business_total_7n_mxn": 104587,
       "price_score": 95.5,
       "roi_score": 74.6,
       "value_for_money": 7.5,
@@ -2574,7 +3455,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.106430+00:00",
+          "published_at": "2026-08-10T22:08:54.128453+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 11.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2589,279 +3470,228 @@
           "summary": "Cambios de tasas o energía pueden alterar rápidamente la ventaja relativa frente al euro."
         }
       ],
-      "rank": 13
+      "rank": 17
     },
     {
-      "id": "lisbon-portugal",
-      "city": "Lisboa",
-      "country": "Portugal",
+      "id": "cruise-explora-east-med",
+      "city": "Explora I Mediterráneo Oriental",
+      "country": "Turquía–Grecia–Adriático",
       "currency": "EUR",
-      "airport": "LIS",
-      "kind": "urban",
+      "airport": "IST",
+      "kind": "cruise",
       "tags": [
-        "historia",
-        "gastronomía",
-        "costa"
+        "crucero",
+        "ultralujo",
+        "historia"
       ],
-      "quality_score": 91,
-      "connectivity_score": 84,
-      "proximity_score": 68,
-      "moderate_daily_usd": 132,
-      "luxury_daily_usd": 395,
-      "economy_flight_usd": 950,
-      "business_flight_usd": 3600,
-      "route_summary": "MEX–LIS con 1 escala",
-      "why_value": "Calidad europea y conectividad razonable, aunque hotelería elevada.",
-      "seasonality": "Marzo–mayo y octubre–noviembre.",
-      "cruise_provider": null,
-      "cruise_route": null,
+      "quality_score": 96,
+      "connectivity_score": 79,
+      "proximity_score": 56,
+      "moderate_daily_usd": 390,
+      "luxury_daily_usd": 920,
+      "economy_flight_usd": 1050,
+      "business_flight_usd": 3900,
+      "route_summary": "MEX–IST o MEX–ATH",
+      "why_value": "Ultralujo con itinerarios de alto valor cultural y menor fricción logística.",
+      "seasonality": "Mayo–octubre.",
+      "cruise_provider": "Explora Journeys",
+      "cruise_route": "Estambul–Atenas–Dubrovnik",
       "current_local_per_usd": 0.865507,
       "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.92,
-      "fx_advantage_pct": -5.92,
-      "fx_score": 26.3,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 7.0,
-      "history_status": "unavailable",
+      "historical_average_local_per_usd": 0.859403,
+      "fx_advantage_pct": 0.71,
+      "fx_score": 52.8,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 5.63,
+      "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-09-01",
-          "local_per_usd": 0.921567,
-          "modeled": true
+          "date": "2025-08-25",
+          "local_per_usd": 0.85492
         },
         {
-          "date": "2025-10-01",
-          "local_per_usd": 0.91645,
-          "modeled": true
+          "date": "2025-09-03",
+          "local_per_usd": 0.85815
         },
         {
-          "date": "2025-11-01",
-          "local_per_usd": 0.90914,
-          "modeled": true
+          "date": "2025-09-12",
+          "local_per_usd": 0.85339
+        },
+        {
+          "date": "2025-09-23",
+          "local_per_usd": 0.84796
+        },
+        {
+          "date": "2025-10-02",
+          "local_per_usd": 0.85077
+        },
+        {
+          "date": "2025-10-13",
+          "local_per_usd": 0.86438
+        },
+        {
+          "date": "2025-10-22",
+          "local_per_usd": 0.86304
+        },
+        {
+          "date": "2025-10-31",
+          "local_per_usd": 0.8655
+        },
+        {
+          "date": "2025-11-11",
+          "local_per_usd": 0.86393
+        },
+        {
+          "date": "2025-11-20",
+          "local_per_usd": 0.86851
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 0.903317,
-          "modeled": true
+          "local_per_usd": 0.85866
         },
         {
-          "date": "2026-01-01",
-          "local_per_usd": 0.900339,
-          "modeled": true
+          "date": "2025-12-10",
+          "local_per_usd": 0.85955
         },
         {
-          "date": "2026-02-01",
-          "local_per_usd": 0.897119,
-          "modeled": true
+          "date": "2025-12-19",
+          "local_per_usd": 0.85383
         },
         {
-          "date": "2026-03-01",
-          "local_per_usd": 0.890949,
-          "modeled": true
+          "date": "2026-01-02",
+          "local_per_usd": 0.85317
+        },
+        {
+          "date": "2026-01-13",
+          "local_per_usd": 0.85807
+        },
+        {
+          "date": "2026-01-22",
+          "local_per_usd": 0.85426
+        },
+        {
+          "date": "2026-02-02",
+          "local_per_usd": 0.84459
+        },
+        {
+          "date": "2026-02-11",
+          "local_per_usd": 0.84034
+        },
+        {
+          "date": "2026-02-20",
+          "local_per_usd": 0.84983
+        },
+        {
+          "date": "2026-03-03",
+          "local_per_usd": 0.86162
+        },
+        {
+          "date": "2026-03-12",
+          "local_per_usd": 0.86603
+        },
+        {
+          "date": "2026-03-23",
+          "local_per_usd": 0.86237
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 0.883729,
-          "modeled": true
+          "local_per_usd": 0.8617
         },
         {
-          "date": "2026-05-01",
-          "local_per_usd": 0.878998,
-          "modeled": true
+          "date": "2026-04-14",
+          "local_per_usd": 0.84796
         },
         {
-          "date": "2026-06-01",
-          "local_per_usd": 0.876408,
-          "modeled": true
+          "date": "2026-04-23",
+          "local_per_usd": 0.85514
         },
         {
-          "date": "2026-07-01",
-          "local_per_usd": 0.872267,
-          "modeled": true
+          "date": "2026-05-05",
+          "local_per_usd": 0.85572
         },
         {
-          "date": "2026-08-01",
-          "local_per_usd": 0.865507,
-          "modeled": true
+          "date": "2026-05-14",
+          "local_per_usd": 0.85455
+        },
+        {
+          "date": "2026-05-25",
+          "local_per_usd": 0.85889
+        },
+        {
+          "date": "2026-06-03",
+          "local_per_usd": 0.86103
+        },
+        {
+          "date": "2026-06-12",
+          "local_per_usd": 0.86453
+        },
+        {
+          "date": "2026-06-23",
+          "local_per_usd": 0.87781
+        },
+        {
+          "date": "2026-07-02",
+          "local_per_usd": 0.87727
+        },
+        {
+          "date": "2026-07-13",
+          "local_per_usd": 0.87535
+        },
+        {
+          "date": "2026-07-22",
+          "local_per_usd": 0.87658
+        },
+        {
+          "date": "2026-07-31",
+          "local_per_usd": 0.8707
+        },
+        {
+          "date": "2026-08-10",
+          "local_per_usd": 0.86543
         }
       ],
-      "moderate_daily_mxn": 2405,
-      "luxury_daily_mxn": 7197,
-      "economy_flight_mxn": 16284,
-      "business_flight_mxn": 61707,
-      "moderate_total_7n_mxn": 33119,
-      "business_total_7n_mxn": 112086,
-      "price_score": 91.0,
-      "roi_score": 73.1,
-      "value_for_money": 7.3,
+      "moderate_daily_mxn": 6638,
+      "luxury_daily_mxn": 15658,
+      "economy_flight_mxn": 17998,
+      "business_flight_mxn": 66850,
+      "moderate_total_7n_mxn": 64464,
+      "business_total_7n_mxn": 176456,
+      "price_score": 56.2,
+      "roi_score": 73.9,
+      "value_for_money": 7.4,
       "google_travel": {
         "default_start": "2026-11-08",
         "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Lisboa+2026-11-08+through+2026-11-15"
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Explora+I+Mediterr%C3%A1neo+Oriental+2026-11-08+through+2026-11-15",
+        "cruise_search": "https://www.google.com/search?q=Explora+Journeys+Explora+I+Mediterr%C3%A1neo+Oriental+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "lisbon-portugal-fx-2026-08-10",
-          "headline": "La moneda local cotiza 5.9% más fuerte que la referencia",
+          "id": "cruise-explora-east-med-fx-2026-08-10",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
           "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
+          "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.107380+00:00",
+          "published_at": "2026-08-10T22:08:54.132061+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 7.0%. La señal no confirma una tarifa aérea u hotelera."
+          "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
         },
         {
-          "id": "lisbon-portugal-context-1",
-          "headline": "Inflación de servicios mantiene presión sobre hoteles urbanos",
-          "source": "ECB / Eurostat",
-          "impact": "medium",
-          "category": "Inflación / Hoteles",
-          "published_at": "2026-08-01T10:00:00Z",
-          "url": "https://www.ecb.europa.eu/stats/macroeconomic_and_sectoral/hicp/html/index.en.html",
-          "summary": "El euro y la demanda turística limitan la oportunidad cambiaria; reservar con anticipación gana importancia."
+          "id": "cruise-explora-east-med-context-1",
+          "headline": "Ultralujo mediterráneo enfrenta presión de combustible y demanda premium",
+          "source": "Explora Journeys / Viajes ASC",
+          "impact": "high",
+          "category": "Cruceros / Costos",
+          "published_at": "2026-08-05T12:00:00Z",
+          "url": "https://www.explorajourneys.com/",
+          "summary": "Vuelos, hoteles previos y cambios de itinerario son los principales riesgos adicionales."
         }
       ],
-      "rank": 14
-    },
-    {
-      "id": "athens-greece",
-      "city": "Atenas",
-      "country": "Grecia",
-      "currency": "EUR",
-      "airport": "ATH",
-      "kind": "urban",
-      "tags": [
-        "historia",
-        "islas",
-        "crucero"
-      ],
-      "quality_score": 92,
-      "connectivity_score": 81,
-      "proximity_score": 59,
-      "moderate_daily_usd": 126,
-      "luxury_daily_usd": 385,
-      "economy_flight_usd": 1000,
-      "business_flight_usd": 3700,
-      "route_summary": "MEX–ATH con 1 escala",
-      "why_value": "Puerta eficiente al Mediterráneo oriental y a itinerarios de crucero.",
-      "seasonality": "Abril–junio y septiembre–octubre.",
-      "cruise_provider": null,
-      "cruise_route": null,
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.92,
-      "fx_advantage_pct": -5.92,
-      "fx_score": 26.3,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 7.0,
-      "history_status": "unavailable",
-      "fx_trend": [
-        {
-          "date": "2025-09-01",
-          "local_per_usd": 0.921567,
-          "modeled": true
-        },
-        {
-          "date": "2025-10-01",
-          "local_per_usd": 0.91645,
-          "modeled": true
-        },
-        {
-          "date": "2025-11-01",
-          "local_per_usd": 0.90914,
-          "modeled": true
-        },
-        {
-          "date": "2025-12-01",
-          "local_per_usd": 0.903317,
-          "modeled": true
-        },
-        {
-          "date": "2026-01-01",
-          "local_per_usd": 0.900339,
-          "modeled": true
-        },
-        {
-          "date": "2026-02-01",
-          "local_per_usd": 0.897119,
-          "modeled": true
-        },
-        {
-          "date": "2026-03-01",
-          "local_per_usd": 0.890949,
-          "modeled": true
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.883729,
-          "modeled": true
-        },
-        {
-          "date": "2026-05-01",
-          "local_per_usd": 0.878998,
-          "modeled": true
-        },
-        {
-          "date": "2026-06-01",
-          "local_per_usd": 0.876408,
-          "modeled": true
-        },
-        {
-          "date": "2026-07-01",
-          "local_per_usd": 0.872267,
-          "modeled": true
-        },
-        {
-          "date": "2026-08-01",
-          "local_per_usd": 0.865507,
-          "modeled": true
-        }
-      ],
-      "moderate_daily_mxn": 2296,
-      "luxury_daily_mxn": 7015,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 63421,
-      "moderate_total_7n_mxn": 33213,
-      "business_total_7n_mxn": 112526,
-      "price_score": 90.9,
-      "roi_score": 73.0,
-      "value_for_money": 7.3,
-      "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Atenas+2026-11-08+through+2026-11-15"
-      },
-      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
-      "news": [
-        {
-          "id": "athens-greece-fx-2026-08-10",
-          "headline": "La moneda local cotiza 5.9% más fuerte que la referencia",
-          "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
-          "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.107459+00:00",
-          "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 7.0%. La señal no confirma una tarifa aérea u hotelera."
-        },
-        {
-          "id": "athens-greece-context-1",
-          "headline": "Demanda de islas y puertos mantiene altas tarifas mediterráneas",
-          "source": "Banco de Grecia / ECB",
-          "impact": "medium",
-          "category": "Turismo / Inflación",
-          "published_at": "2026-08-01T10:00:00Z",
-          "url": "https://www.bankofgreece.gr/en/main-tasks/monetary-policy",
-          "summary": "Cabinas y hoteles de embarque pueden subir en ventanas de alta ocupación."
-        }
-      ],
-      "rank": 15
+      "rank": 18
     },
     {
       "id": "cape-town-south-africa",
@@ -2889,12 +3719,12 @@
       "cruise_route": null,
       "current_local_per_usd": 16.164503,
       "current_local_per_mxn": 0.943036,
-      "historical_average_local_per_usd": 16.772345,
-      "fx_advantage_pct": -3.62,
+      "historical_average_local_per_usd": 16.770047,
+      "fx_advantage_pct": -3.61,
       "fx_score": 35.1,
       "traffic_light": "red",
       "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 11.21,
+      "volatility_annualized_pct": 11.19,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
@@ -3038,16 +3868,16 @@
           "local_per_usd": 16.575
         },
         {
-          "date": "2026-08-07",
-          "local_per_usd": 16.2233
+          "date": "2026-08-10",
+          "local_per_usd": 16.1772
         }
       ],
       "moderate_daily_mxn": 1992,
-      "luxury_daily_mxn": 6492,
+      "luxury_daily_mxn": 6491,
       "economy_flight_mxn": 22283,
       "business_flight_mxn": 82276,
       "moderate_total_7n_mxn": 36227,
-      "business_total_7n_mxn": 127720,
+      "business_total_7n_mxn": 127713,
       "price_score": 87.5,
       "roi_score": 72.2,
       "value_for_money": 7.2,
@@ -3066,7 +3896,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.105944+00:00",
+          "published_at": "2026-08-10T22:08:54.127987+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 11.2%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3081,144 +3911,7 @@
           "summary": "Reservar gastos terrestres en ventanas favorables reduce la volatilidad del presupuesto."
         }
       ],
-      "rank": 16
-    },
-    {
-      "id": "cruise-eastern-med",
-      "city": "Crucero Mediterráneo Oriental",
-      "country": "Grecia–Turquía",
-      "currency": "EUR",
-      "airport": "ATH",
-      "kind": "cruise",
-      "tags": [
-        "crucero",
-        "historia",
-        "islas"
-      ],
-      "quality_score": 94,
-      "connectivity_score": 82,
-      "proximity_score": 58,
-      "moderate_daily_usd": 210,
-      "luxury_daily_usd": 540,
-      "economy_flight_usd": 1000,
-      "business_flight_usd": 3900,
-      "route_summary": "MEX–ATH o MEX–IST",
-      "why_value": "Gran densidad histórica y acceso a puertos con monedas o costos favorables.",
-      "seasonality": "Abril–junio y septiembre–octubre.",
-      "cruise_provider": "Royal Caribbean / Celebrity",
-      "cruise_route": "Atenas–Santorini–Mykonos–Estambul",
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.92,
-      "fx_advantage_pct": -5.92,
-      "fx_score": 26.3,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 7.0,
-      "history_status": "unavailable",
-      "fx_trend": [
-        {
-          "date": "2025-09-01",
-          "local_per_usd": 0.921567,
-          "modeled": true
-        },
-        {
-          "date": "2025-10-01",
-          "local_per_usd": 0.91645,
-          "modeled": true
-        },
-        {
-          "date": "2025-11-01",
-          "local_per_usd": 0.90914,
-          "modeled": true
-        },
-        {
-          "date": "2025-12-01",
-          "local_per_usd": 0.903317,
-          "modeled": true
-        },
-        {
-          "date": "2026-01-01",
-          "local_per_usd": 0.900339,
-          "modeled": true
-        },
-        {
-          "date": "2026-02-01",
-          "local_per_usd": 0.897119,
-          "modeled": true
-        },
-        {
-          "date": "2026-03-01",
-          "local_per_usd": 0.890949,
-          "modeled": true
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.883729,
-          "modeled": true
-        },
-        {
-          "date": "2026-05-01",
-          "local_per_usd": 0.878998,
-          "modeled": true
-        },
-        {
-          "date": "2026-06-01",
-          "local_per_usd": 0.876408,
-          "modeled": true
-        },
-        {
-          "date": "2026-07-01",
-          "local_per_usd": 0.872267,
-          "modeled": true
-        },
-        {
-          "date": "2026-08-01",
-          "local_per_usd": 0.865507,
-          "modeled": true
-        }
-      ],
-      "moderate_daily_mxn": 3826,
-      "luxury_daily_mxn": 9839,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 43923,
-      "business_total_7n_mxn": 135723,
-      "price_score": 79.0,
-      "roi_score": 71.3,
-      "value_for_money": 7.1,
-      "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Mediterr%C3%A1neo+Oriental+2026-11-08+through+2026-11-15",
-        "cruise_search": "https://www.google.com/search?q=Royal+Caribbean+%2F+Celebrity+Crucero+Mediterr%C3%A1neo+Oriental+2026+cruise"
-      },
-      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
-      "news": [
-        {
-          "id": "cruise-eastern-med-fx-2026-08-10",
-          "headline": "La moneda local cotiza 5.9% más fuerte que la referencia",
-          "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
-          "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.107969+00:00",
-          "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 7.0%. La señal no confirma una tarifa aérea u hotelera."
-        },
-        {
-          "id": "cruise-eastern-med-context-1",
-          "headline": "Tensión energética regional eleva combustible y seguros marítimos",
-          "source": "Reuters",
-          "impact": "high",
-          "category": "Cruceros / Geopolítica",
-          "published_at": "2026-08-06T06:00:00Z",
-          "url": "https://www.reuters.com/world/asia-pacific/yen-dollar-drift-iran-deal-concerns-payroll-jitters-2026-08-06/",
-          "summary": "Los itinerarios pueden sufrir cambios de puerto, recargos o ajustes de horario."
-        }
-      ],
-      "rank": 17
+      "rank": 19
     },
     {
       "id": "marrakech-morocco",
@@ -3339,7 +4032,7 @@
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.106031+00:00",
+          "published_at": "2026-08-10T22:08:54.128069+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 4.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3352,279 +4045,6 @@
           "published_at": "2026-07-30T10:00:00Z",
           "url": "https://www.bkam.ma/en/Monetary-policy",
           "summary": "El riesgo cambiario es menor, pero los hoteles premium mantienen precios internacionales."
-        }
-      ],
-      "rank": 18
-    },
-    {
-      "id": "prague-czechia",
-      "city": "Praga",
-      "country": "Chequia",
-      "currency": "CZK",
-      "airport": "PRG",
-      "kind": "urban",
-      "tags": [
-        "historia",
-        "arquitectura",
-        "gastronomía"
-      ],
-      "quality_score": 92,
-      "connectivity_score": 78,
-      "proximity_score": 54,
-      "moderate_daily_usd": 115,
-      "luxury_daily_usd": 345,
-      "economy_flight_usd": 1000,
-      "business_flight_usd": 3900,
-      "route_summary": "MEX–PRG con 1 escala",
-      "why_value": "Alta calidad histórica con costos aún inferiores a Europa occidental.",
-      "seasonality": "Abril–mayo y septiembre–octubre.",
-      "cruise_provider": null,
-      "cruise_route": null,
-      "current_local_per_usd": 20.995446,
-      "current_local_per_mxn": 1.224873,
-      "historical_average_local_per_usd": 23.0,
-      "fx_advantage_pct": -8.72,
-      "fx_score": 15.1,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 8.0,
-      "history_status": "unavailable",
-      "fx_trend": [
-        {
-          "date": "2025-09-01",
-          "local_per_usd": 23.013447,
-          "modeled": true
-        },
-        {
-          "date": "2025-10-01",
-          "local_per_usd": 22.8879,
-          "modeled": true
-        },
-        {
-          "date": "2025-11-01",
-          "local_per_usd": 22.652807,
-          "modeled": true
-        },
-        {
-          "date": "2025-12-01",
-          "local_per_usd": 22.390737,
-          "modeled": true
-        },
-        {
-          "date": "2026-01-01",
-          "local_per_usd": 22.226394,
-          "modeled": true
-        },
-        {
-          "date": "2026-02-01",
-          "local_per_usd": 22.131837,
-          "modeled": true
-        },
-        {
-          "date": "2026-03-01",
-          "local_per_usd": 21.970117,
-          "modeled": true
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 21.709195,
-          "modeled": true
-        },
-        {
-          "date": "2026-05-01",
-          "local_per_usd": 21.471983,
-          "modeled": true
-        },
-        {
-          "date": "2026-06-01",
-          "local_per_usd": 21.344359,
-          "modeled": true
-        },
-        {
-          "date": "2026-07-01",
-          "local_per_usd": 21.241026,
-          "modeled": true
-        },
-        {
-          "date": "2026-08-01",
-          "local_per_usd": 20.995446,
-          "modeled": true
-        }
-      ],
-      "moderate_daily_mxn": 2159,
-      "luxury_daily_mxn": 6478,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 32254,
-      "business_total_7n_mxn": 112196,
-      "price_score": 91.9,
-      "roi_score": 69.7,
-      "value_for_money": 7.0,
-      "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Praga+2026-11-08+through+2026-11-15"
-      },
-      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
-      "news": [
-        {
-          "id": "prague-czechia-fx-2026-08-10",
-          "headline": "La moneda local cotiza 8.7% más fuerte que la referencia",
-          "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
-          "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.106507+00:00",
-          "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 8.0%. La señal no confirma una tarifa aérea u hotelera."
-        },
-        {
-          "id": "prague-czechia-context-1",
-          "headline": "La corona checa responde a señales de inflación y tasas",
-          "source": "Czech National Bank",
-          "impact": "medium",
-          "category": "Tasas / FX",
-          "published_at": "2026-07-30T10:00:00Z",
-          "url": "https://www.cnb.cz/en/monetary-policy/",
-          "summary": "Una corona fuerte puede elevar el costo diario aun cuando vuelos y hoteles sigan competitivos."
-        }
-      ],
-      "rank": 19
-    },
-    {
-      "id": "cruise-explora-east-med",
-      "city": "Explora I Mediterráneo Oriental",
-      "country": "Turquía–Grecia–Adriático",
-      "currency": "EUR",
-      "airport": "IST",
-      "kind": "cruise",
-      "tags": [
-        "crucero",
-        "ultralujo",
-        "historia"
-      ],
-      "quality_score": 96,
-      "connectivity_score": 79,
-      "proximity_score": 56,
-      "moderate_daily_usd": 390,
-      "luxury_daily_usd": 920,
-      "economy_flight_usd": 1050,
-      "business_flight_usd": 3900,
-      "route_summary": "MEX–IST o MEX–ATH",
-      "why_value": "Ultralujo con itinerarios de alto valor cultural y menor fricción logística.",
-      "seasonality": "Mayo–octubre.",
-      "cruise_provider": "Explora Journeys",
-      "cruise_route": "Estambul–Atenas–Dubrovnik",
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.92,
-      "fx_advantage_pct": -5.92,
-      "fx_score": 26.3,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 7.0,
-      "history_status": "unavailable",
-      "fx_trend": [
-        {
-          "date": "2025-09-01",
-          "local_per_usd": 0.921567,
-          "modeled": true
-        },
-        {
-          "date": "2025-10-01",
-          "local_per_usd": 0.91645,
-          "modeled": true
-        },
-        {
-          "date": "2025-11-01",
-          "local_per_usd": 0.90914,
-          "modeled": true
-        },
-        {
-          "date": "2025-12-01",
-          "local_per_usd": 0.903317,
-          "modeled": true
-        },
-        {
-          "date": "2026-01-01",
-          "local_per_usd": 0.900339,
-          "modeled": true
-        },
-        {
-          "date": "2026-02-01",
-          "local_per_usd": 0.897119,
-          "modeled": true
-        },
-        {
-          "date": "2026-03-01",
-          "local_per_usd": 0.890949,
-          "modeled": true
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.883729,
-          "modeled": true
-        },
-        {
-          "date": "2026-05-01",
-          "local_per_usd": 0.878998,
-          "modeled": true
-        },
-        {
-          "date": "2026-06-01",
-          "local_per_usd": 0.876408,
-          "modeled": true
-        },
-        {
-          "date": "2026-07-01",
-          "local_per_usd": 0.872267,
-          "modeled": true
-        },
-        {
-          "date": "2026-08-01",
-          "local_per_usd": 0.865507,
-          "modeled": true
-        }
-      ],
-      "moderate_daily_mxn": 7106,
-      "luxury_daily_mxn": 16763,
-      "economy_flight_mxn": 17998,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 67740,
-      "business_total_7n_mxn": 184191,
-      "price_score": 52.5,
-      "roi_score": 66.2,
-      "value_for_money": 6.6,
-      "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Explora+I+Mediterr%C3%A1neo+Oriental+2026-11-08+through+2026-11-15",
-        "cruise_search": "https://www.google.com/search?q=Explora+Journeys+Explora+I+Mediterr%C3%A1neo+Oriental+2026+cruise"
-      },
-      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
-      "news": [
-        {
-          "id": "cruise-explora-east-med-fx-2026-08-10",
-          "headline": "La moneda local cotiza 5.9% más fuerte que la referencia",
-          "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
-          "category": "Mercado cambiario",
-          "published_at": "2026-08-10T11:35:18.108449+00:00",
-          "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 7.0%. La señal no confirma una tarifa aérea u hotelera."
-        },
-        {
-          "id": "cruise-explora-east-med-context-1",
-          "headline": "Ultralujo mediterráneo enfrenta presión de combustible y demanda premium",
-          "source": "Explora Journeys / Viajes ASC",
-          "impact": "high",
-          "category": "Cruceros / Costos",
-          "published_at": "2026-08-05T12:00:00Z",
-          "url": "https://www.explorajourneys.com/",
-          "summary": "Vuelos, hoteles previos y cambios de itinerario son los principales riesgos adicionales."
         }
       ],
       "rank": 20
