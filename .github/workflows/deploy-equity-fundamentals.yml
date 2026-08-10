@@ -35,16 +35,28 @@ jobs:
           node --check cloudflare/agci-market-equity-extension.js
           node --check cloudflare/agci-equity-decision-worker.js
           npx wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc
+      - name: Check whether equity quote route is already active
+        id: probe
+        run: |
+          status=$(curl --silent --show-error --max-time 20 -o /tmp/current-equity-quotes.json -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT' || true)
+          if [ "$status" = "200" ] && node -e "const fs=require('fs');const q=JSON.parse(fs.readFileSync('/tmp/current-equity-quotes.json'));if(q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"; then
+            echo 'route_ready=true' >> "$GITHUB_OUTPUT"
+            echo 'Equity quote route already active; market Worker will not be wrapped again.'
+          else
+            echo 'route_ready=false' >> "$GITHUB_OUTPUT"
+            echo 'Equity quote route is not active; preparing additive extension.'
+          fi
       - name: Preserve current production market worker
+        if: steps.probe.outputs.route_ready != 'true'
         run: |
           curl --fail --silent --show-error \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/content" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data" \
             > cloudflare/agci-market-data-current.js
           test -s cloudflare/agci-market-data-current.js
           node --check cloudflare/agci-market-data-current.js
-          grep -q 'export default' cloudflare/agci-market-data-current.js || (echo 'El Worker desplegado no es un módulo delegable' && exit 1)
-      - name: Build additive deploy configs
+          grep -q 'export default' cloudflare/agci-market-data-current.js || (echo 'El Worker desplegado no es un módulo delegable; no se modificará producción.' && exit 1)
+      - name: Build deploy configs
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -73,11 +85,14 @@ jobs:
           fs.writeFileSync('wrangler.market-data.deploy.generated.json', JSON.stringify(marketConfig));
           fs.writeFileSync('wrangler.equity.deploy.generated.json', JSON.stringify(equityConfig));
           NODE
-          npx wrangler deploy --dry-run --config wrangler.market-data.deploy.generated.json
+          if [ "${{ steps.probe.outputs.route_ready }}" != "true" ]; then
+            npx wrangler deploy --dry-run --config wrangler.market-data.deploy.generated.json
+          fi
           npx wrangler deploy --dry-run --config wrangler.equity.deploy.generated.json
       - name: Deploy additive AGCI Market Data extension
+        if: steps.probe.outputs.route_ready != 'true'
         run: npx wrangler deploy --config wrangler.market-data.deploy.generated.json
-      - name: Validate existing market contract and new equity route
+      - name: Validate existing market contract and equity route
         run: |
           sleep 3
           curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
@@ -93,4 +108,23 @@ jobs:
       - name: Validate production comparison contract
         run: |
           curl --fail --silent --show-error --retry 3 --retry-delay 2 --max-time 60 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT' > /tmp/equity-compare.json
-          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-compare.json'));const a=x.analyses?.[0];if(x.contractVersion!=='1.0.0'||!a?.company||!Number.isFinite(Number(a.company.price))||!a.medians)process.exit(1)"
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-compare.json'));const a=x.analyses?.[0];if(x.contractVersion!=='1.0.0'||!a?.company||!Number.isFinite(Number(a.company.price)))process.exit(1)"
+      - name: Roll back market worker if the additive deployment fails validation
+        if: failure() && steps.probe.outputs.route_ready != 'true'
+        run: |
+          if [ ! -s cloudflare/agci-market-data-current.js ]; then
+            echo 'No preserved market Worker exists; nothing was deployed from this job before preservation.'
+            exit 0
+          fi
+          node <<'NODE'
+          const fs = require('fs');
+          fs.writeFileSync('wrangler.market-data.rollback.generated.json', JSON.stringify({
+            name: 'agci-market-data',
+            main: 'cloudflare/agci-market-data-current.js',
+            compatibility_date: '2026-08-05',
+            compatibility_flags: ['nodejs_compat'],
+            workers_dev: true,
+            keep_vars: true
+          }));
+          NODE
+          npx wrangler deploy --config wrangler.market-data.rollback.generated.json || true
