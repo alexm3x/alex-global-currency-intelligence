@@ -1,0 +1,125 @@
+name: AGCI Cedar Voice Preview
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "scripts/render-openai-cedar-preview.mjs"
+      - ".github/workflows/cedar-preview.yml"
+      - "podcast/previews/cedar/index.html"
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/render-openai-cedar-preview.mjs"
+      - ".github/workflows/cedar-preview.yml"
+      - "podcast/previews/cedar/index.html"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: cedar-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cedar-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validar integración Cedar
+        run: |
+          node --check scripts/render-openai-cedar-preview.mjs
+          node --check scripts/generate-morning-intelligence-4min.mjs
+          node scripts/generate-morning-intelligence-4min.mjs
+          test -s podcast/generated/render-plan.json
+          test -s podcast/previews/cedar/index.html
+          node -e "const p=JSON.parse(require('fs').readFileSync('podcast/generated/render-plan.json'));if(p.totalWords<330||p.totalWords>520||p.segments.length<7)process.exit(1)"
+
+      - name: Detectar disponibilidad de OpenAI TTS
+        if: github.event_name != 'pull_request'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        shell: bash
+        run: |
+          if [ -n "${OPENAI_API_KEY:-}" ]; then
+            echo "CEDAR_ENABLED=1" >> "$GITHUB_ENV"
+            echo "OPENAI_API_KEY está configurada; se generará la muestra Cedar." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "CEDAR_ENABLED=0" >> "$GITHUB_ENV"
+            echo "OPENAI_API_KEY no está configurada; la integración está lista pero no se generará audio." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Instalar FFmpeg
+        if: github.event_name != 'pull_request' && env.CEDAR_ENABLED == '1'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          ffmpeg -version | head -n 1
+
+      - name: Generar segmentos Cedar con OpenAI
+        if: github.event_name != 'pull_request' && env.CEDAR_ENABLED == '1'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TTS_MODEL: gpt-4o-mini-tts
+          OPENAI_TTS_VOICE: cedar
+          CEDAR_WAV_DIR: /tmp/agci-cedar-preview
+        run: node scripts/render-openai-cedar-preview.mjs
+
+      - name: Normalizar y empaquetar preview Cedar
+        if: github.event_name != 'pull_request' && env.CEDAR_ENABLED == '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          DATE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).date")
+          OUT_DIR="podcast/previews/cedar"
+          mkdir -p "$OUT_DIR"
+          : > /tmp/cedar-concat.txt
+          for WAV in /tmp/agci-cedar-preview/*.wav; do
+            printf "file '%s'\n" "$WAV" >> /tmp/cedar-concat.txt
+          done
+          ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/cedar-concat.txt -c:a pcm_s16le /tmp/agci-cedar-combined.wav
+          ffmpeg -y -hide_banner -loglevel error -i /tmp/agci-cedar-combined.wav -af "highpass=f=60,lowpass=f=12000,loudnorm=I=-16:TP=-1.5:LRA=7" -ar 44100 -ac 1 -codec:a libmp3lame -b:a 128k "$OUT_DIR/$DATE.mp3"
+          DURATION=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$OUT_DIR/$DATE.mp3")
+          DURATION="$DURATION" node -e "const fs=require('fs');const s=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));const d=Math.round(Number(process.env.DURATION));if(d>240||d<90)process.exit(1);const x={schemaVersion:1,status:'published',date:s.date,title:s.title,durationSeconds:d,provider:'OpenAI',model:'gpt-4o-mini-tts',voice:'cedar',style:'AGCI CIO Institucional',language:'es-MX',audioUrl:'podcast/previews/cedar/'+s.date+'.mp3',sourceUrl:'data/daily-briefing-latest.json',generatedAt:new Date().toISOString(),disclosure:'Voz generada por IA con OpenAI.'};fs.writeFileSync('podcast/previews/cedar/latest.json',JSON.stringify(x,null,2)+'\n')"
+          echo "CEDAR_DATE=$DATE" >> "$GITHUB_ENV"
+          echo "CEDAR_DURATION=$DURATION" >> "$GITHUB_ENV"
+
+      - name: Publicar preview Cedar
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && env.CEDAR_ENABLED == '1'
+        run: |
+          git config user.name "agci-morning-intelligence-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add podcast/previews/cedar
+          if git diff --cached --quiet; then
+            echo "No hay cambios Cedar para publicar."
+            echo "CEDAR_PUBLISHED=0" >> "$GITHUB_ENV"
+          else
+            git commit -m "podcast: publish Cedar voice preview $CEDAR_DATE"
+            git push origin HEAD:main
+            echo "CEDAR_PUBLISHED=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Desplegar preview en GitHub Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && env.CEDAR_PUBLISHED == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
+
+      - name: Resumen
+        run: |
+          echo "### AGCI Cedar Voice Preview" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Modelo: gpt-4o-mini-tts" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Voz: cedar" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Estilo: CIO Institucional" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Límite: 4:00" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producción Morning Intelligence no se reemplaza en esta prueba." >> "$GITHUB_STEP_SUMMARY"
