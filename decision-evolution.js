@@ -1,7 +1,7 @@
 import { learningForTicker } from './decision-learning-core.js';
 import { summarizeVariableRegistry } from './decision-variable-core.js';
 
-const VERSION = '20260810-phase5';
+const VERSION = '20260810-phase5a';
 const URLS = Object.freeze({
   learning: `data/decision-learning-latest.json?v=${VERSION}`,
   registry: `data/decision-variable-registry.json?v=${VERSION}`
@@ -15,6 +15,7 @@ let timer = null;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const finite = value => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
 const pct = value => finite(value) ? `${Number(value).toFixed(1)}%` : 'N/D';
+const points = value => finite(value) ? `${Number(value).toFixed(1)} pts` : 'N/D';
 
 function ensureStyle() {
   if (document.querySelector('link[data-de-evolution-style]')) return;
@@ -99,19 +100,26 @@ function evidenceLiftPanel(learning) {
     return `<div class="dev-lift collecting"><strong>Valor incremental del contexto</strong><span>Aún no medible</span><p>AGCI necesita al menos 5 observaciones de compra con soporte contextual y 5 de comparación antes de afirmar que CIAR/briefing/macro mejoran la ejecución.</p></div>`;
   }
   const value = lift.averageReturnLiftPctPoints;
-  return `<div class="dev-lift ${Number(value) >= 0 ? 'positive' : 'negative'}"><strong>Valor incremental del contexto · 20d</strong><span>${Number(value) > 0 ? '+' : ''}${pct(value)} pts</span><p>Diferencia media observada entre entradas en terreno de compra con soporte contextual y el grupo de comparación.</p></div>`;
+  return `<div class="dev-lift ${Number(value) >= 0 ? 'positive' : 'negative'}"><strong>Valor incremental del contexto · 20d</strong><span>${Number(value) > 0 ? '+' : ''}${points(value)}</span><p>Diferencia media observada entre entradas en terreno de compra con soporte contextual y el grupo de comparación.</p></div>`;
+}
+
+function renderSignature(ticker, data) {
+  return [ticker, data.learning?.generatedAt || 'learning:N/D', data.registry?.updatedAt || 'registry:N/D', (data.errors || []).join('|')].join('::');
 }
 
 function render(ticker, data) {
   const detail = document.getElementById('deDecisionDetail');
   if (!detail || !ticker) return;
+  const signature = renderSignature(ticker, data);
   let section = document.getElementById('deEvolutionLayer');
+  if (section?.dataset.signature === signature && section.isConnected) return;
   if (!section) {
     section = document.createElement('section');
     section.id = 'deEvolutionLayer';
     section.className = 'dev-layer';
   }
   section.dataset.ticker = ticker;
+  section.dataset.signature = signature;
   section.innerHTML = `
     <div class="dev-head"><div><span class="dev-number">07–08</span><div><p class="rubric">FASES 4–5 · DECISION EVOLUTION</p><h3>Aprender antes de agregar complejidad</h3><p>Primero medimos decisiones pasadas; después permitimos que nuevas variables compitan por un lugar en el modelo.</p></div></div></div>
     <div class="dev-grid">${learningPanel(data.learning, ticker)}${registryPanel(data.registry)}</div>
@@ -141,7 +149,10 @@ function observe() {
   const root = document.getElementById('decisionEngineRoot');
   if (!root) return false;
   observer?.disconnect();
-  observer = new MutationObserver(() => schedule());
+  observer = new MutationObserver(mutations => {
+    const externalChange = mutations.some(mutation => mutation.target?.id !== 'deEvolutionLayer' && !mutation.target?.closest?.('#deEvolutionLayer'));
+    if (externalChange) schedule();
+  });
   observer.observe(root, { childList: true, subtree: true });
   root.addEventListener('click', event => {
     const target = event.target.closest('[data-de-select]');
