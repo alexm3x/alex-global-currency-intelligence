@@ -11,23 +11,8 @@
     "logs": { "enabled": true, "head_sampling_rate": 1 },
     "traces": { "enabled": true, "head_sampling_rate": 0.05 }
   },
-  "kv_namespaces": [
-    {
-      "binding": "EQUITY_CACHE"
-    }
-  ],
   "vars": {
     "SEC_USER_AGENT": "AGCI/1.0 (+https://alexsaldana.com/)",
     "MARKET_DATA_URL": "https://agci-market-data.proadmexico.workers.dev"
-  },
-  "env": {
-    "staging": {
-      "name": "agci-equity-fundamentals-staging",
-      "kv_namespaces": [{ "binding": "EQUITY_CACHE" }],
-      "vars": {
-        "SEC_USER_AGENT": "AGCI/1.0-staging (+https://alexsaldana.com/)",
-        "MARKET_DATA_URL": "https://agci-market-data.proadmexico.workers.dev"
-      }
-    }
   }
 }
