@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "agci-equity-fundamentals",
-  "main": "cloudflare/agci-equity-fundamentals.js",
+  "main": "cloudflare/agci-equity-decision-worker.js",
   "compatibility_date": "2026-08-05",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
@@ -13,18 +13,21 @@
   },
   "kv_namespaces": [
     {
-      // Last-known-good SEC facts and price snapshots for SWR delivery.
       "binding": "EQUITY_CACHE"
     }
   ],
   "vars": {
-    "SEC_USER_AGENT": "AGCI/1.0 (+https://alexsaldana.com/)"
+    "SEC_USER_AGENT": "AGCI/1.0 (+https://alexsaldana.com/)",
+    "MARKET_DATA_URL": "https://agci-market-data.proadmexico.workers.dev"
   },
   "env": {
     "staging": {
       "name": "agci-equity-fundamentals-staging",
       "kv_namespaces": [{ "binding": "EQUITY_CACHE" }],
-      "vars": { "SEC_USER_AGENT": "AGCI/1.0-staging (+https://alexsaldana.com/)" }
+      "vars": {
+        "SEC_USER_AGENT": "AGCI/1.0-staging (+https://alexsaldana.com/)",
+        "MARKET_DATA_URL": "https://agci-market-data.proadmexico.workers.dev"
+      }
     }
   }
 }
