@@ -15,15 +15,22 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
+# Share the same deployment lock as pages.yml. This prevents two workflows
+# from creating overlapping GitHub Pages deployments.
 concurrency:
-  group: agci-structural-data
+  group: pages
   cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -125,3 +132,45 @@ jobs:
           }
           console.log(`Structural snapshot confirmed on main: ${remote.generatedAt} (${remote.overallStatus})`);
           NODE
+      - name: Build clean Pages artifact
+        run: |
+          rm -rf /tmp/agci-pages
+          mkdir -p /tmp/agci-pages
+          git archive HEAD | tar -x -C /tmp/agci-pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: /tmp/agci-pages
+      - name: Deploy refreshed data to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Confirm published structural snapshot
+        run: |
+          node -e "const x=require('./data/macro-latest.json'); console.log('Expected published snapshot:', x.generatedAt, x.overallStatus)"
+
+          for attempt in $(seq 1 18); do
+            url="https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json?run=${GITHUB_RUN_ID}&attempt=${attempt}"
+            if curl --fail --silent --show-error --max-time 15 \
+              -H 'Cache-Control: no-cache' \
+              "$url" > /tmp/published-macro.json; then
+              if node <<'NODE'
+          const fs = require('fs');
+          const expected = JSON.parse(fs.readFileSync('data/macro-latest.json', 'utf8'));
+          const published = JSON.parse(fs.readFileSync('/tmp/published-macro.json', 'utf8'));
+          const okStatus = ['connected', 'degraded'].includes(published.overallStatus);
+          const newEnough = Date.parse(published.generatedAt) >= Date.parse(expected.generatedAt);
+          if (!okStatus || !newEnough) process.exit(1);
+          console.log(`Published structural snapshot confirmed: ${published.generatedAt} (${published.overallStatus})`);
+          NODE
+              then
+                exit 0
+              fi
+            fi
+            echo "Pages has not propagated the new structural snapshot yet (${attempt}/18)."
+            sleep 5
+          done
+
+          echo "GitHub Pages did not expose the refreshed structural snapshot within 90 seconds."
+          exit 1
