@@ -9,8 +9,6 @@ on:
       - 'tests/decision-engine.test.mjs'
       - 'cloudflare/agci-equity-fundamentals.js'
       - 'cloudflare/agci-equity-decision-worker.js'
-      - 'cloudflare/agci-market-equity-extension.js'
-      - 'scripts/extract-cloudflare-worker-content.mjs'
       - 'wrangler.equity-fundamentals.jsonc'
       - '.github/workflows/deploy-equity-fundamentals.yml'
   workflow_dispatch:
@@ -31,110 +29,43 @@ jobs:
           cache: npm
       - name: Validate deployment credential
         run: test -n "$CLOUDFLARE_API_TOKEN" || (echo 'CLOUDFLARE_API_TOKEN is not configured' && exit 1)
-      - name: Install and test
+      - name: Install, test and dry-run
         run: |
           npm ci
           npm test
-          node --check cloudflare/agci-market-equity-extension.js
           node --check cloudflare/agci-equity-decision-worker.js
-          node --check scripts/extract-cloudflare-worker-content.mjs
-          npx wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc
-      - name: Probe production before deployment
-        id: probe
+          npx wrangler deploy --dry-run --env="" --config wrangler.equity-fundamentals.jsonc
+      - name: Confirm existing AGCI market service remains untouched
         run: |
-          root_status=$(curl --silent --show-error --max-time 20 -o /tmp/market-root-before.txt -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/' || true)
-          echo "root_status_before=$root_status" >> "$GITHUB_OUTPUT"
-          status=$(curl --silent --show-error --max-time 20 -o /tmp/current-equity-quotes.json -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT' || true)
-          if [ "$status" = "200" ] && node -e "const fs=require('fs');const q=JSON.parse(fs.readFileSync('/tmp/current-equity-quotes.json'));if(q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"; then
-            echo 'route_ready=true' >> "$GITHUB_OUTPUT"
-            echo 'Equity quote route already active; market Worker will not be wrapped again.'
-          else
-            echo 'route_ready=false' >> "$GITHUB_OUTPUT"
-            echo 'Equity quote route is not active; preparing additive extension.'
-          fi
-      - name: Preserve current production market worker
-        if: steps.probe.outputs.route_ready != 'true'
-        run: |
-          curl --fail --silent --show-error \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/content/v2" \
-            > /tmp/agci-market-data-current.multipart
-          node scripts/extract-cloudflare-worker-content.mjs /tmp/agci-market-data-current.multipart cloudflare/agci-market-data-current.js
-          test -s cloudflare/agci-market-data-current.js
-          node --check cloudflare/agci-market-data-current.js
-          grep -q 'export default' cloudflare/agci-market-data-current.js || (echo 'El Worker desplegado no es un módulo delegable; no se modificará producción.' && exit 1)
-      - name: Build deploy configs
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const marketConfig = {
-            name: 'agci-market-data',
-            main: 'cloudflare/agci-market-equity-extension.js',
-            compatibility_date: '2026-08-05',
-            compatibility_flags: ['nodejs_compat'],
-            workers_dev: true,
-            keep_vars: true,
-            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
-            triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] }
-          };
-          const equityConfig = {
-            name: 'agci-equity-fundamentals',
-            main: 'cloudflare/agci-equity-decision-worker.js',
-            compatibility_date: '2026-08-05',
-            compatibility_flags: ['nodejs_compat'],
-            workers_dev: true,
-            keep_vars: true,
-            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
-            vars: {
-              SEC_USER_AGENT: 'AGCI/1.0 (+https://alexsaldana.com/)',
-              MARKET_DATA_URL: 'https://agci-market-data.proadmexico.workers.dev'
-            }
-          };
-          fs.writeFileSync('wrangler.market-data.deploy.generated.json', JSON.stringify(marketConfig));
-          fs.writeFileSync('wrangler.equity.deploy.generated.json', JSON.stringify(equityConfig));
-          NODE
-          if [ "${{ steps.probe.outputs.route_ready }}" != "true" ]; then
-            npx wrangler deploy --dry-run --config wrangler.market-data.deploy.generated.json
-          fi
-          npx wrangler deploy --dry-run --config wrangler.equity.deploy.generated.json
-      - name: Deploy additive AGCI Market Data extension
-        if: steps.probe.outputs.route_ready != 'true'
-        run: npx wrangler deploy --config wrangler.market-data.deploy.generated.json
-      - name: Validate preserved market behavior and new equity route
-        run: |
-          sleep 3
-          root_status_after=$(curl --silent --show-error --max-time 25 -o /tmp/market-root-after.txt -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/' || true)
-          test "$root_status_after" = "${{ steps.probe.outputs.root_status_before }}" || (echo "Existing root behavior changed: before=${{ steps.probe.outputs.root_status_before }} after=$root_status_after" && exit 1)
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 30 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT,ORCL' > /tmp/equity-quotes.json
-          node -e "const fs=require('fs');const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length||!Number.isFinite(Number(q.quotes[0].price)))process.exit(1)"
+          status=$(curl --silent --show-error --max-time 20 -o /tmp/market-root.txt -w '%{http_code}' 'https://agci-market-data.proadmexico.workers.dev/' || true)
+          test "$status" != "000" || (echo 'AGCI Market Data is unreachable before equity deployment' && exit 1)
+          echo "AGCI Market Data reachable with HTTP $status; this workflow does not deploy or alter it."
       - name: Deploy Equity Fundamentals service
-        run: npx wrangler deploy --config wrangler.equity.deploy.generated.json
+        run: npx wrangler deploy --env="" --config wrangler.equity-fundamentals.jsonc
       - name: Validate production health
         run: |
           sleep 3
           curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 30 https://agci-equity-fundamentals.proadmexico.workers.dev/health > /tmp/equity-health.json
-          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-health.json'));if(x.status!=='ok'||x.service!=='agci-equity-fundamentals'||x.priceProvider!=='Twelve Data via AGCI Market Data'||!x.marketGatewayReady)process.exit(1)"
-      - name: Validate production comparison contract
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-health.json'));if(x.status!=='ok'||x.service!=='agci-equity-fundamentals'||x.contractVersion!=='1.0.0'||x.fallbackProvider!=='Yahoo Finance chart')process.exit(1)"
+      - name: Validate production comparison contract and price provenance
         run: |
-          curl --fail --silent --show-error --retry 3 --retry-delay 2 --max-time 75 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT' > /tmp/equity-compare.json
-          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-compare.json'));const a=x.analyses?.[0];if(x.contractVersion!=='1.0.0'||!a?.company||!Number.isFinite(Number(a.company.price)))process.exit(1)"
-      - name: Roll back market worker if the additive deployment fails validation
-        if: failure() && steps.probe.outputs.route_ready != 'true'
-        run: |
-          if [ ! -s cloudflare/agci-market-data-current.js ]; then
-            echo 'No preserved market Worker exists; nothing was deployed from this job before preservation.'
-            exit 0
-          fi
+          curl --fail --silent --show-error --retry 3 --retry-delay 3 --max-time 90 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT' > /tmp/equity-compare.json
           node <<'NODE'
           const fs = require('fs');
-          fs.writeFileSync('wrangler.market-data.rollback.generated.json', JSON.stringify({
-            name: 'agci-market-data',
-            main: 'cloudflare/agci-market-data-current.js',
-            compatibility_date: '2026-08-05',
-            compatibility_flags: ['nodejs_compat'],
-            workers_dev: true,
-            keep_vars: true,
-            triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] }
-          }));
+          const x = JSON.parse(fs.readFileSync('/tmp/equity-compare.json'));
+          const a = x.analyses?.[0];
+          if (x.contractVersion !== '1.0.0' || !a?.company || !Number.isFinite(Number(a.company.price))) process.exit(1);
+          if (!['Yahoo Finance', 'Twelve Data via AGCI Market Data'].includes(a.company.priceProvider)) process.exit(1);
+          if (!Array.isArray(x.quoteProvidersUsed) || !x.quoteProvidersUsed.length) process.exit(1);
+          console.log(`Validated ${a.ticker} price via ${a.company.priceProvider}; dataQuality=${x.dataQuality}.`);
           NODE
-          npx wrangler deploy --config wrangler.market-data.rollback.generated.json || true
+      - name: Validate ten-name Decision Engine watchlist contract
+        run: |
+          curl --fail --silent --show-error --retry 2 --retry-delay 3 --max-time 120 'https://agci-equity-fundamentals.proadmexico.workers.dev/compare?symbols=MSFT,GOOGL,AMZN,JPM,V,LLY,ISRG,GE,COST,XOM' > /tmp/equity-watchlist.json
+          node <<'NODE'
+          const fs = require('fs');
+          const x = JSON.parse(fs.readFileSync('/tmp/equity-watchlist.json'));
+          const valid = (x.analyses || []).filter(a => a.company && Number.isFinite(Number(a.company.price)));
+          if (x.contractVersion !== '1.0.0' || x.requestedSymbols?.length !== 10 || valid.length < 8) process.exit(1);
+          console.log(`Validated ${valid.length}/10 watchlist prices; unresolved=${(x.staleSymbols || []).length}.`);
+          NODE
