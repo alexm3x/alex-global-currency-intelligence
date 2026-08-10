@@ -21,16 +21,17 @@ Implementado:
 
 ### Fase 2 — Valoración y terreno
 Implementado con datos disponibles:
-- Fair Value AGCI por mediana de anclas comparables verificables;
+- Fair Value AGCI mediante mediana robusta de anclas válidas;
 - P/E comparable;
 - P/S comparable;
 - EV/EBITDA comparable;
 - FCF Yield comparable;
+- DCF de FCF conservador como ancla intrínseca adicional cuando existe evidencia suficiente;
 - margen de seguridad adaptativo;
 - zonas de Alta convicción, Compra atractiva, Compra, Observación, Espera y Sobrevaloración;
 - position sizing indicativo condicionado por preparación y riesgo.
 
-No se genera un precio objetivo cuando faltan precio, acciones en circulación o anclas suficientes.
+No se genera un precio objetivo cuando faltan precio, acciones en circulación, FCF o evidencia suficiente para construir al menos una ancla válida.
 
 ### Fase 3 — Evidencia externa correlacionada
 Preparada para integrar, sin mezclar metodologías automáticamente:
@@ -88,15 +89,32 @@ El Preparation Score es independiente y nunca debe sumarse como si fuera una se�
 
 ## Fair Value AGCI v1
 
-La implementación actual usa anclas relativas al grupo comparable disponible. La estimación central es la mediana de las anclas válidas para reducir sensibilidad a un múltiplo extremo.
+La estimación central usa la **mediana de las anclas válidas disponibles**, de forma que un múltiplo o una metodología extrema no domine por sí sola el resultado.
 
-Esto es una **estimación relativa**, no un DCF intrínseco completo. Una fase posterior puede añadir DCF, reverse DCF y escenarios Bull/Base/Bear como metodologías separadas, conservando cada salida y sus supuestos sin promediarlas ciegamente.
+Anclas relativas cuando existe cobertura comparable:
+- P/E;
+- P/S;
+- EV/EBITDA;
+- FCF Yield.
+
+Ancla intrínseca adicional:
+- DCF basado exclusivamente en FCF histórico reportado;
+- horizonte explícito de 5 años;
+- crecimiento inferido de métricas históricas disponibles, limitado entre -2% y +10%;
+- tasa de descuento adaptada a calidad, fortaleza financiera y confianza, limitada entre 9.5% y 14%;
+- crecimiento terminal de 2.5%;
+- ajuste final por caja y deuda;
+- rechazo automático de valores inválidos o extremos.
+
+El DCF no incorpora consensos, guidance ni forecasts inventados. Si no hay al menos dos evidencias históricas de crecimiento, FCF positivo, precio y acciones en circulación válidos, esa ancla se excluye.
+
+Por tanto, Fair Value AGCI v1 es una **estimación disciplinada de rango**, no una certeza de valor intrínseco. Las versiones futuras pueden añadir reverse DCF y escenarios Bull/Base/Bear como salidas separadas, conservando sus supuestos y sin promediarlas ciegamente.
 
 ## Gobernanza
 
 Fuentes actuales:
 - SEC EDGAR Company Facts para fundamentales;
-- Twelve Data a través del Worker AGCI para cotización;
+- Twelve Data a través de la capa AGCI Market Data para cotización;
 - comparables sectoriales curados en el Worker AGCI.
 
 Principios:
