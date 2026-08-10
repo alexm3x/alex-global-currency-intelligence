@@ -35,6 +35,15 @@
     }
   }
 
+  function loadDecisionEvidenceAssets() {
+    if (document.querySelector('script[data-de-evidence-script]')) return;
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'decision-evidence.js?v=20260810-phase3';
+    script.dataset.deEvidenceScript = 'true';
+    document.head.appendChild(script);
+  }
+
   function ensurePodcastAccess(nav) {
     let podcast = nav.querySelector('[data-podcast-access]');
     if (!podcast) {
@@ -92,6 +101,7 @@
     normalizeNavigation();
     loadPerformanceAssets();
     loadMultiAssetAssets();
+    loadDecisionEvidenceAssets();
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
     const observer = new MutationObserver(normalizeNavigation);
