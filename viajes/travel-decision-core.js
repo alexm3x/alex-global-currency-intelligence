@@ -48,5 +48,27 @@
     return !assessment.budget || assessment.status !== 'outside';
   }
 
-  window.TravelDecisionCore = { normalizeQuery, estimateTrip, assessBudget, eligibleByBudget };
+  function fixedRecommendations(eligible = [], ranked = [], limit = 3) {
+    const recommendations = [];
+    const seen = new Set();
+    const target = integer(limit, 3, 1, 10);
+
+    for (const destination of [...eligible, ...ranked]) {
+      const key = destination?.id || `${destination?.city || ''}|${destination?.country || ''}`;
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      recommendations.push(destination);
+      if (recommendations.length === target) break;
+    }
+
+    return recommendations;
+  }
+
+  window.TravelDecisionCore = {
+    normalizeQuery,
+    estimateTrip,
+    assessBudget,
+    eligibleByBudget,
+    fixedRecommendations
+  };
 })();
