@@ -7,9 +7,8 @@ on:
     paths:
       - 'cloudflare/agci-equity-fundamentals.js'
       - 'cloudflare/agci-equity-decision-worker.js'
-      - 'cloudflare/agci-market-data-gateway.js'
+      - 'cloudflare/agci-market-equity-extension.js'
       - 'wrangler.equity-fundamentals.jsonc'
-      - 'wrangler.market-data.jsonc'
       - '.github/workflows/deploy-equity-fundamentals.yml'
   workflow_dispatch:
 permissions:
@@ -33,52 +32,30 @@ jobs:
         run: |
           npm ci
           npm test
-          node --check cloudflare/agci-market-data-gateway.js
+          node --check cloudflare/agci-market-equity-extension.js
           node --check cloudflare/agci-equity-decision-worker.js
-          npx wrangler deploy --dry-run --config wrangler.market-data.jsonc
           npx wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc
-      - name: Resolve deployed KV bindings
+      - name: Preserve current production market worker
         run: |
           curl --fail --silent --show-error \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/settings" \
-            > /tmp/market-settings.json
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/content" \
+            > cloudflare/agci-market-data-current.js
+          test -s cloudflare/agci-market-data-current.js
+          node --check cloudflare/agci-market-data-current.js
+          grep -q 'export default' cloudflare/agci-market-data-current.js || (echo 'El Worker desplegado no es un módulo delegable' && exit 1)
+      - name: Build additive deploy configs
+        run: |
           node <<'NODE'
           const fs = require('fs');
-          const response = JSON.parse(fs.readFileSync('/tmp/market-settings.json', 'utf8'));
-          if (!response.success || !response.result) throw new Error('No fue posible leer settings del Worker actual');
-          const rawBindings = response.result.bindings || [];
-          const bindings = Array.isArray(rawBindings) ? rawBindings : Object.values(rawBindings);
-          const safe = bindings.map(item => ({ name: item?.name || null, type: item?.type || null, fields: Object.keys(item || {}).filter(key => !['text','value'].includes(key)) }));
-          console.log('Bindings desplegados (estructura sin valores sensibles):', JSON.stringify(safe));
-          const market = bindings.find(item => item?.name === 'MARKET_DATA_CACHE' && String(item?.type || '').includes('kv'));
-          const tail = bindings.find(item => item?.name === 'TAIL_RISK_STATE' && String(item?.type || '').includes('kv'));
-          const marketId = market?.namespace_id || market?.id || market?.namespaceId || null;
-          const tailId = tail?.namespace_id || tail?.id || tail?.namespaceId || null;
-          if (!marketId || !tailId) throw new Error('El Worker desplegado no expone IDs de KV reutilizables con los permisos actuales');
           const marketConfig = {
             name: 'agci-market-data',
-            main: 'cloudflare/agci-market-data-gateway.js',
+            main: 'cloudflare/agci-market-equity-extension.js',
             compatibility_date: '2026-08-05',
             compatibility_flags: ['nodejs_compat'],
             workers_dev: true,
             keep_vars: true,
-            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
-            triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] },
-            kv_namespaces: [
-              { binding: 'MARKET_DATA_CACHE', id: marketId },
-              { binding: 'TAIL_RISK_STATE', id: tailId }
-            ],
-            vars: {
-              TAIL_RISK_ENABLED: 'true',
-              TAIL_RISK_CHANNELS: 'telegram,discord,slack',
-              TAIL_RISK_HISTORY_LIMIT: '64',
-              TAIL_RISK_MIN_SAMPLES: '6',
-              TAIL_RISK_THRESHOLD_PERCENT: '15',
-              TAIL_RISK_MIN_SCORE_POINTS: '5',
-              TAIL_RISK_PRICE_WEIGHT: '0.65',
-              TAIL_RISK_MOMENTUM_WEIGHT: '0.35'
-            }
+            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } }
           };
           const equityConfig = {
             name: 'agci-equity-fundamentals',
@@ -88,7 +65,6 @@ jobs:
             workers_dev: true,
             keep_vars: true,
             observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
-            kv_namespaces: [{ binding: 'EQUITY_CACHE', id: marketId }],
             vars: {
               SEC_USER_AGENT: 'AGCI/1.0 (+https://alexsaldana.com/)',
               MARKET_DATA_URL: 'https://agci-market-data.proadmexico.workers.dev'
@@ -96,16 +72,17 @@ jobs:
           };
           fs.writeFileSync('wrangler.market-data.deploy.generated.json', JSON.stringify(marketConfig));
           fs.writeFileSync('wrangler.equity.deploy.generated.json', JSON.stringify(equityConfig));
-          console.log('Existing KV bindings resolved without creating new namespaces.');
           NODE
-      - name: Deploy AGCI Market Data gateway
+          npx wrangler deploy --dry-run --config wrangler.market-data.deploy.generated.json
+          npx wrangler deploy --dry-run --config wrangler.equity.deploy.generated.json
+      - name: Deploy additive AGCI Market Data extension
         run: npx wrangler deploy --config wrangler.market-data.deploy.generated.json
-      - name: Validate market gateway
+      - name: Validate existing market contract and new equity route
         run: |
           sleep 3
           curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 https://agci-market-data.proadmexico.workers.dev/ > /tmp/market.json
           curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT,ORCL' > /tmp/equity-quotes.json
-          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('/tmp/market.json'));const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(m.provider!=='Twelve Data'||q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"
+          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('/tmp/market.json'));const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(!m||q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"
       - name: Deploy Equity Fundamentals service
         run: npx wrangler deploy --config wrangler.equity.deploy.generated.json
       - name: Validate production health
