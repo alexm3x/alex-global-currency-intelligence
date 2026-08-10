@@ -1,0 +1,55 @@
+name: AGCI Decision Engine CI
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  decision-engine-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate Decision Engine syntax
+        run: |
+          node --check decision-engine-core.js
+          node --check decision-engine.js
+      - name: Run repository test suite
+        run: npm test
+      - name: Validate production integration
+        run: |
+          test -s decision-engine-core.js
+          test -s decision-engine.js
+          test -s decision-engine.css
+          grep -q 'data-view="decisionEngine"' index.html
+          grep -q 'id="decisionEngine"' index.html
+          grep -q 'decision-engine.css' index.html
+          grep -q 'decision-engine.js' index.html
+          grep -q 'Preparation Score' decision-engine.js
+          grep -q 'Terreno de Compra AGCI' decision-engine.js
+          grep -q 'rankRadar' decision-engine-core.js
+      - name: Validate local static serving
+        run: |
+          python3 -m http.server 8766 >/tmp/agci-decision-engine.log 2>&1 &
+          sleep 2
+          curl --fail --silent --show-error http://127.0.0.1:8766/ > /tmp/index.html
+          curl --fail --silent --show-error http://127.0.0.1:8766/decision-engine.js > /tmp/decision-engine.js
+          curl --fail --silent --show-error http://127.0.0.1:8766/decision-engine-core.js > /tmp/decision-engine-core.js
+          curl --fail --silent --show-error http://127.0.0.1:8766/decision-engine.css > /tmp/decision-engine.css
+          grep -q 'Motor de Decisión' /tmp/index.html
+          grep -q 'Preparar decisión' /tmp/decision-engine.js
+          grep -q 'fairValueEstimate' /tmp/decision-engine-core.js
+          grep -q '@media(max-width:430px)' /tmp/decision-engine.css
+      - name: Validate live fundamentals service
+        run: |
+          curl --fail --silent --show-error --max-time 20 https://agci-equity-fundamentals.proadmexico.workers.dev/health > /tmp/equity-health.json
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-health.json'));if(x.status!=='ok'||x.service!=='agci-equity-fundamentals')process.exit(1)"
