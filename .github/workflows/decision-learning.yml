@@ -1,0 +1,59 @@
+name: AGCI Decision Learning
+
+on:
+  schedule:
+    - cron: '45 20 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agci-decision-learning
+  cancel-in-progress: false
+
+jobs:
+  capture-and-learn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate decision engine before capture
+        run: |
+          node --check decision-engine-core.js
+          node --check decision-evidence-core.js
+          node --check decision-learning-core.js
+          node --check scripts/capture-decision-snapshot.mjs
+          npm test
+      - name: Capture post-market decision snapshot
+        run: node scripts/capture-decision-snapshot.mjs
+      - name: Validate generated learning contract
+        run: |
+          test -s data/decision-learning-latest.json
+          test -d data/decision-history
+          node - <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('data/decision-learning-latest.json', 'utf8'));
+          if (report.schemaVersion !== 1) process.exit(1);
+          if (!['collecting-history','learning-active'].includes(report.status)) process.exit(1);
+          if (!report.methodology || report.methodology.minimumObservationsForMeasurement !== 5) process.exit(1);
+          NODE
+      - name: Commit generated history only when changed
+        run: |
+          if git diff --quiet -- data/decision-history data/decision-learning-latest.json; then
+            echo 'No learning data changes.'
+            exit 0
+          fi
+          git config user.name 'agci-learning-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/decision-history data/decision-learning-latest.json
+          git commit -m "data: capture AGCI decision learning snapshot"
+          git push
