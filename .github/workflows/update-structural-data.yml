@@ -15,8 +15,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: agci-structural-data
@@ -26,9 +24,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 12
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -108,18 +103,25 @@ jobs:
 
           echo "Unable to publish structural observations after 5 retries."
           exit 1
-      - name: Build clean Pages artifact
+      - name: Confirm structural snapshot on main
         run: |
-          mkdir -p /tmp/agci-pages
-          git archive HEAD | tar -x -C /tmp/agci-pages
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: /tmp/agci-pages
-      - name: Deploy refreshed data to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-      - name: Confirm published structural snapshot
-        run: |
-          curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json > /tmp/published-macro.json
-          node -e "const fs=require('fs'); const expected=JSON.parse(fs.readFileSync('data/macro-latest.json')); const published=JSON.parse(fs.readFileSync('/tmp/published-macro.json')); if(published.generatedAt!==expected.generatedAt||published.overallStatus!==expected.overallStatus) process.exit(1);"
+          git fetch origin main
+          git show origin/main:data/macro-latest.json > /tmp/remote-macro.json
+          git show origin/main:data/sources.json > /tmp/remote-sources.json
+          node <<'NODE'
+          const fs = require('fs');
+          const local = JSON.parse(fs.readFileSync('data/macro-latest.json', 'utf8'));
+          const remote = JSON.parse(fs.readFileSync('/tmp/remote-macro.json', 'utf8'));
+          const sources = JSON.parse(fs.readFileSync('/tmp/remote-sources.json', 'utf8'));
+
+          if (!['connected', 'degraded'].includes(remote.overallStatus)) {
+            throw new Error(`Remote structural status is ${remote.overallStatus}`);
+          }
+          if (Date.parse(remote.generatedAt) < Date.parse(local.generatedAt)) {
+            throw new Error(`Remote snapshot is older than this run: ${remote.generatedAt} < ${local.generatedAt}`);
+          }
+          if (!['connected', 'degraded'].includes(sources.status)) {
+            throw new Error(`Remote sources registry status is ${sources.status}`);
+          }
+          console.log(`Structural snapshot confirmed on main: ${remote.generatedAt} (${remote.overallStatus})`);
+          NODE
