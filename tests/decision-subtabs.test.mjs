@@ -7,11 +7,12 @@ const css = fs.readFileSync(new URL('../decision-discoverability.css', import.me
 const nav = fs.readFileSync(new URL('../nav-dedupe.js', import.meta.url), 'utf8');
 
 test('Decision Engine exposes permanent summary and phase 3-5 tabs', () => {
+  assert.ok(js.includes('data-ded-tab="${tab}"'));
   for (const marker of [
-    "data-ded-tab=\"summary\"",
-    "data-ded-tab=\"phase3\"",
-    "data-ded-tab=\"phase4\"",
-    "data-ded-tab=\"phase5\"",
+    "phaseButton('summary'",
+    "phaseButton('phase3'",
+    "phaseButton('phase4'",
+    "phaseButton('phase5'",
     'role="tablist"',
     'aria-selected'
   ]) assert.ok(js.includes(marker), `missing ${marker}`);
@@ -25,8 +26,8 @@ test('advanced phases support direct hashes and preserve explicit routing', () =
 });
 
 test('phase switching requests real analysis rather than fabricating placeholder data', () => {
-  assert.ok(js.includes("analyze.click()"));
-  assert.ok(js.includes("waitForTarget(id)"));
+  assert.ok(js.includes('analyze.click()'));
+  assert.ok(js.includes('waitForTarget(id)'));
   assert.ok(!js.includes('mockData'));
   assert.ok(!js.includes('sampleResult'));
 });
