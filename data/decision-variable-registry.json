@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-10T18:00:00Z",
+  "governance": {
+    "states": ["disabled", "experimental", "validated", "promoted"],
+    "rule": "Only promoted variables may carry non-zero decision weight. Experimental and validated variables remain evidence-only until a documented promotion decision.",
+    "promotionRequirements": [
+      "traceable source and timestamp",
+      "defined missing-data behavior",
+      "minimum historical sample",
+      "measurable incremental value",
+      "no double counting with existing pillars",
+      "documented rollback path"
+    ]
+  },
+  "variables": [
+    {
+      "id": "ciar_consensus",
+      "name": "CIAR analyst consensus",
+      "category": "analyst_revision",
+      "state": "validated",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "IBKR FYI / Reuters",
+      "confidencePolicy": "sample-size and freshness aware",
+      "missingBehavior": "N/D",
+      "description": "Aggregated analyst distribution, consensus score, bullish share and net rating change."
+    },
+    {
+      "id": "briefing_tactical_view",
+      "name": "Daily Strategic Briefing tactical view",
+      "category": "house_view",
+      "state": "validated",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "AGCI Daily Strategic Briefing",
+      "confidencePolicy": "explicit editorial confidence",
+      "missingBehavior": "N/D",
+      "description": "Ticker-specific AGCI classification, thesis, confidence and catalysts when published."
+    },
+    {
+      "id": "macro_risk_regime",
+      "name": "AGCI macro risk regime",
+      "category": "macro",
+      "state": "validated",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "AGCI macro layer / Cboe / BIS / World Bank",
+      "confidencePolicy": "source completeness and freshness",
+      "missingBehavior": "N/D",
+      "description": "VIX regime, policy-rate context and briefing-level macro risk used for execution discipline."
+    },
+    {
+      "id": "insider_activity",
+      "name": "Insider buying / selling",
+      "category": "ownership",
+      "state": "disabled",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "future SEC Form 4 pipeline",
+      "confidencePolicy": "not active",
+      "missingBehavior": "N/D",
+      "description": "Future variable for material insider transactions after issuer-role normalization."
+    },
+    {
+      "id": "options_flow",
+      "name": "Options flow / skew",
+      "category": "derivatives",
+      "state": "disabled",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "future authorized market-data source",
+      "confidencePolicy": "not active",
+      "missingBehavior": "N/D",
+      "description": "Future derivative positioning signal; never inferred from unverified social data."
+    },
+    {
+      "id": "credit_spreads",
+      "name": "Issuer credit spreads",
+      "category": "credit",
+      "state": "disabled",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "future authorized fixed-income source",
+      "confidencePolicy": "not active",
+      "missingBehavior": "N/D",
+      "description": "Future credit-risk confirmation for levered issuers and cyclical names."
+    },
+    {
+      "id": "earnings_transcript_change",
+      "name": "Earnings transcript change detection",
+      "category": "language",
+      "state": "experimental",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "future SEC / issuer transcript ingestion",
+      "confidencePolicy": "requires cited text and change baseline",
+      "missingBehavior": "N/D",
+      "description": "Experimental detection of material changes in guidance, demand, margin and risk language."
+    },
+    {
+      "id": "institutional_flows",
+      "name": "Institutional ownership / flow change",
+      "category": "ownership",
+      "state": "disabled",
+      "mode": "evidence",
+      "weight": 0,
+      "source": "future 13F / authorized flow source",
+      "confidencePolicy": "not active",
+      "missingBehavior": "N/D",
+      "description": "Future slow-moving institutional ownership context; not treated as a timing signal."
+    }
+  ]
+}
