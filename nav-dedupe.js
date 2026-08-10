@@ -53,6 +53,15 @@
     document.head.appendChild(script);
   }
 
+  function loadDecisionDiscoverabilityAssets() {
+    if (document.querySelector('script[data-de-discoverability-script]')) return;
+    const script = document.createElement('script');
+    script.src = 'decision-discoverability.js?v=20260810-visible1';
+    script.defer = true;
+    script.dataset.deDiscoverabilityScript = 'true';
+    document.head.appendChild(script);
+  }
+
   function ensurePodcastAccess(nav) {
     let podcast = nav.querySelector('[data-podcast-access]');
     if (!podcast) {
@@ -87,7 +96,13 @@
     equity.setAttribute('aria-label', 'Abrir Equity Intelligence');
 
     const home = nav.querySelector('[data-view="home"]');
-    if (home && home.nextElementSibling !== equity) {
+    const motor = nav.querySelector('[data-view="decisionEngine"]');
+    if (home && motor && home.nextElementSibling !== motor) {
+      home.insertAdjacentElement('afterend', motor);
+    }
+    if (motor && motor.nextElementSibling !== equity) {
+      motor.insertAdjacentElement('afterend', equity);
+    } else if (!motor && home && home.nextElementSibling !== equity) {
       home.insertAdjacentElement('afterend', equity);
     }
 
@@ -112,6 +127,7 @@
     loadMultiAssetAssets();
     loadDecisionEvidenceAssets();
     loadDecisionEvolutionAssets();
+    loadDecisionDiscoverabilityAssets();
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
     const observer = new MutationObserver(normalizeNavigation);
