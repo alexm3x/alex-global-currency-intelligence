@@ -41,6 +41,8 @@ jobs:
           node --check cloudflare/tail-risk.js
           node --check scripts/update-structural-data.mjs
           node --check scripts/generate-morning-intelligence.mjs
+          node --check scripts/generate-morning-intelligence-4min.mjs
+          if [ -f scripts/render-openai-cedar-preview.mjs ]; then node --check scripts/render-openai-cedar-preview.mjs; fi
       - name: Validate critical assets and integrations
         run: |
           test -s index.html
@@ -82,17 +84,17 @@ jobs:
           grep -q "Anomalía detectada" cloudflare/tail-risk.js
           node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('data/macro-latest.json'));const s=JSON.parse(fs.readFileSync('data/sources.json'));if(!m.generatedAt||!s.generated_at)process.exit(1)"
           node -e "const fs=require('fs');const b=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));if(b.schemaVersion!==2||b.language!=='es-MX'||!b.date||!b.title||!Array.isArray(b.sections)||b.sections.length<4||!Array.isArray(b.audio?.chapters)||b.audio.chapters.length<7)process.exit(1)"
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(![1,2].includes(p.schemaVersion)||!p.date||!p.title||!Array.isArray(p.chapters)||p.chapters.length<5||!p.durationSeconds)process.exit(1);if(p.chapters.some((c,i,a)=>!c.title||!c.text||i>0&&Number(c.start)<Number(a[i-1].start)))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));if(![1,2,3].includes(p.schemaVersion)||!p.date||!p.title||!Array.isArray(p.chapters)||p.chapters.length<5||!p.durationSeconds)process.exit(1);if(p.chapters.some((c,i,a)=>!c.title||!c.text||i>0&&Number(c.start)<Number(a[i-1].start)))process.exit(1)"
           node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('podcast/archive.json'));if(!Array.isArray(a.episodes)||!a.episodes.length)process.exit(1)"
           node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('site.webmanifest'));if(m.lang!=='es-MX'||m.start_url!=='./'||m.display!=='standalone'||!Array.isArray(m.icons)||!m.icons.length||!Array.isArray(m.shortcuts)||m.shortcuts.length<2)process.exit(1)"
       - name: Dry-run Morning Intelligence generator
         run: |
-          node scripts/generate-morning-intelligence.mjs > /tmp/morning-generator.json
+          node scripts/generate-morning-intelligence-4min.mjs > /tmp/morning-generator.json
           test -s podcast/generated/script.txt
           test -s podcast/generated/transcript.md
           test -s podcast/generated/render-plan.json
           test -s podcast/feed.xml
-          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));const r=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==2||p.sourceUrl!=='data/daily-briefing-latest.json'||p.chapters.length<7||p.voiceMode!=='dual'||r.voiceMode!=='dual'||r.totalWords<1000||!r.segments.some(x=>x.speaker==='CIO')||!r.segments.some(x=>x.speaker==='ANALISTA'))process.exit(1)"
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('podcast/latest.json'));const r=JSON.parse(fs.readFileSync('podcast/generated/render-plan.json'));if(p.schemaVersion!==3||p.sourceUrl!=='data/daily-briefing-latest.json'||p.chapters.length<7||p.durationSeconds>240||r.schemaVersion!==3||r.totalWords<330||r.totalWords>520||r.segments.length<7)process.exit(1)"
       - name: Validate Morning Intelligence local serving
         run: |
           python3 -m http.server 8765 >/tmp/agci-local.log 2>&1 &
