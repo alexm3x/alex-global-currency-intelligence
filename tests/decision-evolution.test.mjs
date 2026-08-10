@@ -9,6 +9,7 @@ const read = file => fs.readFileSync(new URL(`../${file}`, import.meta.url), 'ut
 
 const amznBody = `Symbol Buy Outperform Hold Underperform Sell Account(s)\n\nAMZN@NASDAQ 18(-1) 46(0) 4(0) 0(0) 0(0) U****000`;
 const tslaBody = `Symbol Buy Outperform Hold Underperform Sell Account(s)\n\nTSLA@NASDAQ 8(0) 17(0) 24(+1) 5(-1) 1(0) U****000`;
+const googBody = `Symbol Buy Outperform Hold Underperform Sell Account(s)\n\nGOOG@NASDAQ 9(+1) 9(0) 1(0) 0(0) 0(0) U****000`;
 
 test('IBKR parser converts analyst categories into deterministic public metrics', () => {
   const [amzn] = parseIbkrRatingsBody(amznBody, '2026-08-05');
@@ -35,6 +36,18 @@ test('CIAR build keeps latest ticker reading and strips private Gmail/account me
   const text = JSON.stringify(snapshot);
   assert.doesNotMatch(text, /private-gmail-id/);
   assert.doesNotMatch(text, /U\*{2,}/);
+});
+
+test('new GOOG readings preserve the explicit same-issuer GOOGL proxy', () => {
+  const previous = {
+    records: [{ ticker: 'GOOG', asOf: '2026-07-24', proxyFor: ['GOOGL'], buy: 8, outperform: 9, hold: 1, underperform: 0, sell: 0, totalAnalysts: 18, bullishPct: 94.4, consensusScore: 4.39, netChange: 2, signal: 'Strong Positive' }]
+  };
+  const snapshot = buildCiarSnapshot([
+    { subject: 'FYI: Changes in Analyst Ratings', email_ts: '2026-08-08T12:00:00Z', body: googBody }
+  ], previous, new Date('2026-08-10T18:00:00Z'));
+  const goog = snapshot.records.find(item => item.ticker === 'GOOG');
+  assert.deepEqual(goog.proxyFor, ['GOOGL']);
+  assert.equal(goog.asOf, '2026-08-08');
 });
 
 function snap(date, prices, contextLabel = 'Soporte') {
@@ -93,6 +106,9 @@ test('production loader exposes learning and governance assets with mobile suppo
   assert.match(ui, /data\/decision-variable-registry\.json/);
   assert.match(ui, /FASE 4 · LEARNING LOOP/);
   assert.match(ui, /FASE 5 · VARIABLE GOVERNANCE/);
+  assert.match(ui, /dataset\.signature/);
+  assert.match(ui, /closest\?\.\('#deEvolutionLayer'\)/);
+  assert.doesNotMatch(ui, /\$\{pct\(value\)\} pts/);
   assert.match(css, /@media\(max-width:430px\)/);
 });
 
