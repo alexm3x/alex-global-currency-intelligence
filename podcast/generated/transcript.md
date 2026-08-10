@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-09 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-10 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. Este es AGCI Morning Intelligence, edición del domingo 9 de agosto de 2026 desde Ciudad de México. Las tres variables que pueden modificar decisiones hoy son el debilitamiento del empleo en Estados Unidos, la prueba de inflación de esta semana y el riesgo energético alrededor del Estrecho de Hormuz.
+**CIO:** Buenos días. AGCI abre el lunes 10 de agosto con una combinación exigente: máximos bursátiles, empleo estadounidense más débil, petróleo todavía condicionado por Hormuz y una prueba de inflación decisiva esta semana. Barron’s coincide en que el CPI será el examen central para el rally de inteligencia artificial.
 
 ## Las tres señales del día
 
-**CIO:** Primera señal: el mercado laboral estadounidense perdió impulso. Segunda: CPI y PPI vuelven a ser el árbitro entre alivio monetario y riesgo de estanflación ligera. Tercera: Hormuz sigue condicionado y mantiene una prima en petróleo, transporte y expectativas de inflación. La combinación favorece duración sólo mientras inflación continúe moderándose.
+**CIO:** Primera señal: la inflación de julio en Estados Unidos se publica el miércoles y el consenso de Reuters apunta a 3.4% anual. Una lectura benigna respaldaría duración y crecimiento; una sorpresa al alza, junto con empleo débil, elevaría el riesgo de estanflación ligera. Segunda: Brent ronda 85 dólares mientras el Estrecho de Hormuz sigue operando con restricciones.
 
 ## Mercados globales
 
-**ANALISTA:** El cierre del viernes fue fuerte. Más importante que los niveles es la interpretación: las acciones celebraron una caída de rendimientos y una menor presión de endurecimiento monetario. El Treasury a diez años se moderó hacia cuatro punto sesenta y cuatro por ciento, mientras Brent conserva prima geopolítica. AGCI no interpreta esto como señal para comprar indiscriminadamente; exige desinflación y utilidades resistentes.
+**ANALISTA:** Wall Street abrió prácticamente sin cambios: S&P 500 cerca de 7,752 y Nasdaq alrededor de 26,680. Europa avanzó modestamente y Japón subió con fuerza. El soporte fundamental proviene de resultados corporativos: con gran parte del S&P 500 reportado, las sorpresas positivas continúan muy por encima de la media histórica. JPMorgan elevó su objetivo de cierre de 2026 para el S&P 500 a 8,000, pero mantiene
 
 ## Radar de Inversión AGCI
 
-**ANALISTA:** Alphabet y JPMorgan continúan como prioridades para compras en tramos. Visa mantiene calidad excepcional, pero preferimos acumular sin perseguir precio. Microsoft y Amazon quedan para correcciones. NVIDIA se mantiene en vigilancia antes de resultados del veintiséis de agosto. La regla es combinar calidad, valuación, catalizador y tamaño de posición.
+**ANALISTA:** La prioridad sigue siendo calidad con precio de entrada. Alphabet y JPMorgan permanecen como candidatos para compras escalonadas; Microsoft y Amazon se prefieren en correcciones. NVIDIA continúa en vigilancia antes de resultados del 26 de agosto. El snapshot de Barron’s añade Berkshire Hathaway: recompras elevadas y gran liquidez sugieren disciplina de asignación de capital, aunque la entrada debe depender de valuación. Coca-Cola mantiene atributos defensivos
 
 ## México en 60 segundos
 
-**CIO:** Banxico mantiene seis punto cincuenta por ciento y la inflación general se modera. Esto ayuda, pero no justifica asumir una secuencia rápida de recortes. En negocios, T-MEC, logística, energía y costo de capital continúan siendo variables centrales. En el peso, AGCI evita confundir fortaleza reciente con oportunidad automática de compra.
+**CIO:** Banxico mantuvo la tasa en 6.50% y retrasó la convergencia de inflación al objetivo de 3% hasta el cuarto trimestre de 2027. Al mismo tiempo, la inflación anual de julio cayó a su menor nivel en más de seis años.
 
 ## Capital y Negocios
 
-**ANALISTA:** En bienes raíces, la oportunidad más interesante es encontrar activos operativamente sanos cuyos propietarios enfrenten presión de refinanciamiento. Toda deuda 2026 a 2028 debe probarse a tasa de mercado, más cincuenta y más cien puntos base.
+**ANALISTA:** Barron’s destaca que la dispersión de tasas hipotecarias puede mejorar el poder de negociación de compradores bien capitalizados. AGCI lo traduce en una estrategia selectiva: buscar activos operativamente sanos con vendedores presionados por financiamiento, no comprar deterioro operativo sólo porque el precio cayó.
 
 ## AI Capital Monitor
 
-**ANALISTA:** La narrativa de inteligencia artificial está migrando hacia flujo de caja libre después de capex. Los grandes hyperscalers elevan inversión, energía y compromisos de infraestructura.
+**ANALISTA:** La tesis de inteligencia artificial sigue migrando desde capex hacia retorno sobre capital. JPMorgan señala que el crecimiento de cloud, backlogs y visibilidad de flujo de caja en Alphabet, Amazon y Microsoft está reduciendo parte de la preocupación sobre retorno de la inversión.
 
 ## AGCI Travel Opportunity
 
-**ANALISTA:** Oaxaca aparece como oportunidad doméstica; Ciudad de Guatemala como oportunidad regional; Madrid como opción de larga distancia.
+**ANALISTA:** El radar vigente conserva Oaxaca, Ciudad de Guatemala y Madrid como oportunidades relativas desde Ciudad de México, sujeto a reconfirmación de tarifa total. No se considera oportunidad una tarifa base aislada. La decisión debe incorporar equipaje, hotel, tiempo, seguridad, estacionalidad y ventaja cambiaria.
 
 ## Qué haría hoy
 
-**CIO:** Uno: mantener diez a quince por ciento de liquidez desplegable. Dos: priorizar Alphabet y JPMorgan en compras escalonadas. Tres: revisar vencimientos inmobiliarios con un escenario de cien puntos base adicionales. Cuatro: controlar exposición operativa a combustible, logística, T-MEC y compromisos de inteligencia artificial. Cinco: vigilar CPI, PPI, Hormuz y NVIDIA.
+**CIO:** Uno: mantener entre diez y quince por ciento de liquidez desplegable. Dos: no perseguir el rally antes del CPI; ejecutar compras de calidad por tramos. Tres: mantener Alphabet y JPMorgan como prioridades y Microsoft y Amazon para correcciones. Cuatro: vigilar Berkshire como señal de asignación de capital y Micron por competencia china.
