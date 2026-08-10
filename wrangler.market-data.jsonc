@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "agci-market-data",
-  "main": "cloudflare/agci-market-data-live.js",
+  "main": "cloudflare/agci-market-data-gateway.js",
   "compatibility_date": "2026-08-05",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
@@ -18,16 +18,13 @@
     }
   },
   "triggers": {
-    // Six credits or fewer per minute; Twelve Data Basic permits eight.
     "crons": ["0 */6 * * *", "2 */6 * * *", "4 */6 * * *"]
   },
   "kv_namespaces": [
     {
-      // Durable last-known-good market snapshots for SWR fallback.
       "binding": "MARKET_DATA_CACHE"
     },
     {
-      // Wrangler 4.119+ provisions this namespace automatically on first deploy.
       "binding": "TAIL_RISK_STATE"
     }
   ],
