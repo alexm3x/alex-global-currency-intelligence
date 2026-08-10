@@ -1,7 +1,7 @@
 const ROW_RE = /^([A-Z0-9.-]+)@([A-Z]+)\s+(\d+)\(([+-]?\d+)\)\s+(\d+)\(([+-]?\d+)\)\s+(\d+)\(([+-]?\d+)\)\s+(\d+)\(([+-]?\d+)\)\s+(\d+)\(([+-]?\d+)\)(?:\s+.*)?$/gm;
 
 const round = (value, digits = 1) => Number(Number(value).toFixed(digits));
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+const SAME_ISSUER_PROXIES = Object.freeze({ GOOG: ['GOOGL'] });
 
 export function parseIbkrRatingsBody(body = '', sourceDate = null) {
   const rows = [];
@@ -69,6 +69,11 @@ function isoDate(value) {
   return Number.isNaN(date.getTime()) ? String(value).slice(0, 10) : date.toISOString().slice(0, 10);
 }
 
+function withIssuerProxy(row, previousRow = null) {
+  const proxyFor = previousRow?.proxyFor || SAME_ISSUER_PROXIES[row.ticker] || null;
+  return proxyFor?.length ? { ...row, proxyFor: [...proxyFor] } : row;
+}
+
 export function buildCiarSnapshot(messages = [], previous = null, now = new Date()) {
   const latestByTicker = new Map();
   for (const record of previous?.records || []) latestByTicker.set(record.ticker, { ...record });
@@ -82,7 +87,9 @@ export function buildCiarSnapshot(messages = [], previous = null, now = new Date
   for (const message of normalizedMessages) {
     for (const row of parseIbkrRatingsBody(message.body, message.sourceDate)) {
       const previousRow = latestByTicker.get(row.ticker);
-      if (!previousRow || String(row.asOf) >= String(previousRow.asOf || '')) latestByTicker.set(row.ticker, row);
+      if (!previousRow || String(row.asOf) >= String(previousRow.asOf || '')) {
+        latestByTicker.set(row.ticker, withIssuerProxy(row, previousRow));
+      }
     }
   }
 
@@ -126,3 +133,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (!publicSnapshotIsSanitized(snapshot)) throw new Error('Refusing to emit a CIAR snapshot containing private identifiers.');
   process.stdout.write(`${JSON.stringify(snapshot, null, 2)}\n`);
 }
+
+export { SAME_ISSUER_PROXIES };
