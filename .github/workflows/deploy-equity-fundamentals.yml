@@ -20,6 +20,7 @@ jobs:
     timeout-minutes: 15
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 466b5e1f242272e2f95046caa4347b7d
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,8 +37,64 @@ jobs:
           node --check cloudflare/agci-equity-decision-worker.js
           npx wrangler deploy --dry-run --config wrangler.market-data.jsonc
           npx wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc
+      - name: Resolve deployed KV bindings
+        run: |
+          curl --fail --silent --show-error \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/settings" \
+            > /tmp/market-settings.json
+          node <<'NODE'
+          const fs = require('fs');
+          const response = JSON.parse(fs.readFileSync('/tmp/market-settings.json', 'utf8'));
+          if (!response.success || !response.result) throw new Error('No fue posible leer settings del Worker actual');
+          const bindings = response.result.bindings || [];
+          const market = bindings.find(item => item.name === 'MARKET_DATA_CACHE' && item.type === 'kv_namespace');
+          const tail = bindings.find(item => item.name === 'TAIL_RISK_STATE' && item.type === 'kv_namespace');
+          if (!market?.namespace_id || !tail?.namespace_id) throw new Error('No se localizaron los KV existentes');
+          const marketConfig = {
+            name: 'agci-market-data',
+            main: 'cloudflare/agci-market-data-gateway.js',
+            compatibility_date: '2026-08-05',
+            compatibility_flags: ['nodejs_compat'],
+            workers_dev: true,
+            keep_vars: true,
+            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
+            triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] },
+            kv_namespaces: [
+              { binding: 'MARKET_DATA_CACHE', id: market.namespace_id },
+              { binding: 'TAIL_RISK_STATE', id: tail.namespace_id }
+            ],
+            vars: {
+              TAIL_RISK_ENABLED: 'true',
+              TAIL_RISK_CHANNELS: 'telegram,discord,slack',
+              TAIL_RISK_HISTORY_LIMIT: '64',
+              TAIL_RISK_MIN_SAMPLES: '6',
+              TAIL_RISK_THRESHOLD_PERCENT: '15',
+              TAIL_RISK_MIN_SCORE_POINTS: '5',
+              TAIL_RISK_PRICE_WEIGHT: '0.65',
+              TAIL_RISK_MOMENTUM_WEIGHT: '0.35'
+            }
+          };
+          const equityConfig = {
+            name: 'agci-equity-fundamentals',
+            main: 'cloudflare/agci-equity-decision-worker.js',
+            compatibility_date: '2026-08-05',
+            compatibility_flags: ['nodejs_compat'],
+            workers_dev: true,
+            keep_vars: true,
+            observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
+            kv_namespaces: [{ binding: 'EQUITY_CACHE', id: market.namespace_id }],
+            vars: {
+              SEC_USER_AGENT: 'AGCI/1.0 (+https://alexsaldana.com/)',
+              MARKET_DATA_URL: 'https://agci-market-data.proadmexico.workers.dev'
+            }
+          };
+          fs.writeFileSync('/tmp/wrangler.market-data.deploy.json', JSON.stringify(marketConfig));
+          fs.writeFileSync('/tmp/wrangler.equity.deploy.json', JSON.stringify(equityConfig));
+          console.log('Existing KV bindings resolved without creating new namespaces.');
+          NODE
       - name: Deploy AGCI Market Data gateway
-        run: npx wrangler deploy --config wrangler.market-data.jsonc
+        run: npx wrangler deploy --config /tmp/wrangler.market-data.deploy.json
       - name: Validate market gateway
         run: |
           sleep 3
@@ -45,7 +102,7 @@ jobs:
           curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT,ORCL' > /tmp/equity-quotes.json
           node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('/tmp/market.json'));const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(m.provider!=='Twelve Data'||q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"
       - name: Deploy Equity Fundamentals service
-        run: npx wrangler deploy --config wrangler.equity-fundamentals.jsonc
+        run: npx wrangler deploy --config /tmp/wrangler.equity.deploy.json
       - name: Validate production health
         run: |
           sleep 3
