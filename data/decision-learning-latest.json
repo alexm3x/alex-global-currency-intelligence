@@ -1,26 +1,215 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T18:00:00Z",
+  "generatedAt": "2026-08-10T22:22:11.419Z",
   "status": "collecting-history",
   "methodology": {
-    "horizonsDays": [1, 5, 20],
+    "horizonsDays": [
+      1,
+      5,
+      20
+    ],
     "minimumObservationsForMeasurement": 5,
-    "principle": "A decision is evaluated only after subsequent observed prices exist. No backfilled or synthetic outcomes are created."
+    "principle": "A decision is evaluated only after subsequent observed prices exist. No backfilled or synthetic outcomes are created.",
+    "directionalRule": "Buy-zone observations are directional hits when forward return is positive; wait/overvaluation observations are hits when forward return is non-positive. Observe-zone decisions are not scored as binary hits."
   },
   "history": {
-    "snapshots": 0,
-    "firstDate": null,
-    "lastDate": null,
+    "snapshots": 1,
+    "firstDate": "2026-08-10",
+    "lastDate": "2026-08-10",
     "calendarSpanDays": 0,
     "forwardObservations": 0,
     "measurableHorizons": []
   },
   "byHorizon": {
-    "1d": {"all":{"observations":0,"status":"insufficient-history"}},
-    "5d": {"all":{"observations":0,"status":"insufficient-history"}},
-    "20d": {"all":{"observations":0,"status":"insufficient-history"}}
+    "1d": {
+      "all": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "buyTerrain": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "cautionTerrain": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "contextualSupport": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "contextualCaution": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      }
+    },
+    "5d": {
+      "all": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "buyTerrain": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "cautionTerrain": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "contextualSupport": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "contextualCaution": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      }
+    },
+    "20d": {
+      "all": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "buyTerrain": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "cautionTerrain": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "contextualSupport": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "contextualCaution": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      }
+    }
   },
   "byTicker": {},
-  "evidenceLift": {},
+  "evidenceLift": {
+    "1d": {
+      "support": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "comparison": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "averageReturnLiftPctPoints": null,
+      "status": "insufficient-history"
+    },
+    "5d": {
+      "support": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "comparison": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "averageReturnLiftPctPoints": null,
+      "status": "insufficient-history"
+    },
+    "20d": {
+      "support": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "comparison": {
+        "observations": 0,
+        "averageForwardReturnPct": null,
+        "medianForwardReturnPct": null,
+        "directionalObservations": 0,
+        "directionalHitRatePct": null,
+        "status": "insufficient-history"
+      },
+      "averageReturnLiftPctPoints": null,
+      "status": "insufficient-history"
+    }
+  },
   "recentObservations": []
 }
