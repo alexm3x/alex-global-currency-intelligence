@@ -2,6 +2,10 @@ name: Deploy AGCI to GitHub Pages
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - '.github/workflows/update-structural-data.yml'
+      - 'scripts/update-structural-data.mjs'
+      - 'tests/structural-data.test.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -17,8 +21,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout latest main
         uses: actions/checkout@v7
+        with:
+          ref: main
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
