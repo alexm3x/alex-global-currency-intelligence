@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-10",
+  "timestamp": "2026-08-10T07:07:00-06:00",
+  "timezone": "America/Mexico_City",
+  "status": "reviewed",
+  "source": "Barron's subscriber newsletters received in authorized Gmail",
+  "copyrightPolicy": "AGCI stores original summaries and metadata only; no full-text republication.",
+  "items": [
+    {
+      "rank": 1,
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily",
+      "headline": "Inflation Data Will Be the Real Test for This AI Stock Rally",
+      "category": "Macro / Equities / AI",
+      "relevance": 98,
+      "summary": "Barron's frames this week's CPI as the key test for an equity market already absorbing weaker employment. A benign inflation print would support duration and technology; hotter inflation combined with softer labor data would raise stagflation risk and complicate Fed expectations.",
+      "whyItMatters": "Directly affects the valuation regime for growth equities, Treasury yields and the near-term durability of the AI-led rally.",
+      "assets": ["SPY", "QQQ", "NVDA", "MSFT", "AMZN", "US10Y"],
+      "agciSignal": "HIGH PRIORITY WATCH",
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 2,
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily",
+      "headline": "Berkshire's Stock Buybacks Among Highest in a Decade",
+      "category": "Equities / Capital Allocation",
+      "relevance": 88,
+      "summary": "Berkshire accelerated repurchases and was a net buyer of equities while retaining an unusually large cash balance. The combination suggests greater willingness to deploy capital under Greg Abel while preserving substantial optionality.",
+      "whyItMatters": "Useful read-through for capital-allocation discipline, market valuation and Berkshire's confidence in its own shares and selected equities.",
+      "assets": ["BRK.B"],
+      "agciSignal": "POSITIVE / MONITOR VALUATION",
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 3,
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily",
+      "headline": "Apple May Turn to China to Solve the Memory Crunch",
+      "category": "Technology / Semiconductors / China",
+      "relevance": 86,
+      "summary": "Apple is evaluating Chinese DRAM supply for devices sold in China as memory pricing tightens. The strategic issue is less near-term Apple supply than the potential emergence of a stronger Chinese memory competitor and its longer-term implications for Micron and HBM economics.",
+      "whyItMatters": "Connects supply-chain resilience, U.S.-China policy and semiconductor pricing; potentially material for memory margins and competitive intensity.",
+      "assets": ["AAPL", "MU", "SMH"],
+      "agciSignal": "MIXED / COMPETITIVE RISK",
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 4,
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily",
+      "headline": "Why Coca-Cola Is Clobbering PepsiCo",
+      "category": "Consumer / Quality Equities",
+      "relevance": 77,
+      "summary": "Barron's highlights Coca-Cola's asset-light model, stronger category share and Zero-sugar momentum versus PepsiCo's more vertically integrated food-and-beverage structure. The valuation premium reflects higher perceived quality and capital efficiency.",
+      "whyItMatters": "Provides a useful quality-versus-valuation comparison for defensive equity allocation.",
+      "assets": ["KO", "PEP"],
+      "agciSignal": "QUALITY PREMIUM / VALUATION DISCIPLINE",
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 5,
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily",
+      "headline": "Mortgage Rates Are All Over the Place. That Could Benefit Buyers.",
+      "category": "Real Estate / Rates",
+      "relevance": 82,
+      "summary": "High and volatile mortgage rates continue to suppress transaction volumes, but weaker demand may improve negotiating power for well-capitalized buyers. The opportunity is selective rather than cyclical: affordability remains constrained and financing discipline is essential.",
+      "whyItMatters": "Relevant to AGCI's real-estate framework because financing stress can create acquisition opportunities without implying a broad housing recovery.",
+      "assets": ["Z", "RKT", "US10Y"],
+      "agciSignal": "SELECTIVE OPPORTUNITY",
+      "sourceUrl": "https://www.barrons.com/"
+    }
+  ],
+  "excluded": [
+    {
+      "headline": "Hollywood Will Notch a $4 Billion Summer",
+      "reason": "Lower direct relevance to current AGCI portfolio, macro and capital-allocation decisions."
+    }
+  ]
+}
