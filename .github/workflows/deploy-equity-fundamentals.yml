@@ -47,10 +47,15 @@ jobs:
           const fs = require('fs');
           const response = JSON.parse(fs.readFileSync('/tmp/market-settings.json', 'utf8'));
           if (!response.success || !response.result) throw new Error('No fue posible leer settings del Worker actual');
-          const bindings = response.result.bindings || [];
-          const market = bindings.find(item => item.name === 'MARKET_DATA_CACHE' && item.type === 'kv_namespace');
-          const tail = bindings.find(item => item.name === 'TAIL_RISK_STATE' && item.type === 'kv_namespace');
-          if (!market?.namespace_id || !tail?.namespace_id) throw new Error('No se localizaron los KV existentes');
+          const rawBindings = response.result.bindings || [];
+          const bindings = Array.isArray(rawBindings) ? rawBindings : Object.values(rawBindings);
+          const safe = bindings.map(item => ({ name: item?.name || null, type: item?.type || null, fields: Object.keys(item || {}).filter(key => !['text','value'].includes(key)) }));
+          console.log('Bindings desplegados (estructura sin valores sensibles):', JSON.stringify(safe));
+          const market = bindings.find(item => item?.name === 'MARKET_DATA_CACHE' && String(item?.type || '').includes('kv'));
+          const tail = bindings.find(item => item?.name === 'TAIL_RISK_STATE' && String(item?.type || '').includes('kv'));
+          const marketId = market?.namespace_id || market?.id || market?.namespaceId || null;
+          const tailId = tail?.namespace_id || tail?.id || tail?.namespaceId || null;
+          if (!marketId || !tailId) throw new Error('El Worker desplegado no expone IDs de KV reutilizables con los permisos actuales');
           const marketConfig = {
             name: 'agci-market-data',
             main: 'cloudflare/agci-market-data-gateway.js',
@@ -61,8 +66,8 @@ jobs:
             observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
             triggers: { crons: ['0 */6 * * *', '2 */6 * * *', '4 */6 * * *'] },
             kv_namespaces: [
-              { binding: 'MARKET_DATA_CACHE', id: market.namespace_id },
-              { binding: 'TAIL_RISK_STATE', id: tail.namespace_id }
+              { binding: 'MARKET_DATA_CACHE', id: marketId },
+              { binding: 'TAIL_RISK_STATE', id: tailId }
             ],
             vars: {
               TAIL_RISK_ENABLED: 'true',
@@ -83,18 +88,18 @@ jobs:
             workers_dev: true,
             keep_vars: true,
             observability: { enabled: true, logs: { enabled: true, head_sampling_rate: 1 }, traces: { enabled: true, head_sampling_rate: 0.05 } },
-            kv_namespaces: [{ binding: 'EQUITY_CACHE', id: market.namespace_id }],
+            kv_namespaces: [{ binding: 'EQUITY_CACHE', id: marketId }],
             vars: {
               SEC_USER_AGENT: 'AGCI/1.0 (+https://alexsaldana.com/)',
               MARKET_DATA_URL: 'https://agci-market-data.proadmexico.workers.dev'
             }
           };
-          fs.writeFileSync('/tmp/wrangler.market-data.deploy.json', JSON.stringify(marketConfig));
-          fs.writeFileSync('/tmp/wrangler.equity.deploy.json', JSON.stringify(equityConfig));
+          fs.writeFileSync('wrangler.market-data.deploy.generated.json', JSON.stringify(marketConfig));
+          fs.writeFileSync('wrangler.equity.deploy.generated.json', JSON.stringify(equityConfig));
           console.log('Existing KV bindings resolved without creating new namespaces.');
           NODE
       - name: Deploy AGCI Market Data gateway
-        run: npx wrangler deploy --config /tmp/wrangler.market-data.deploy.json
+        run: npx wrangler deploy --config wrangler.market-data.deploy.generated.json
       - name: Validate market gateway
         run: |
           sleep 3
@@ -102,7 +107,7 @@ jobs:
           curl --fail --silent --show-error --retry 4 --retry-delay 2 --max-time 25 'https://agci-market-data.proadmexico.workers.dev/equity-quotes?symbols=MSFT,ORCL' > /tmp/equity-quotes.json
           node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('/tmp/market.json'));const q=JSON.parse(fs.readFileSync('/tmp/equity-quotes.json'));if(m.provider!=='Twelve Data'||q.provider!=='Twelve Data via AGCI Market Data'||!Array.isArray(q.quotes)||!q.quotes.length)process.exit(1)"
       - name: Deploy Equity Fundamentals service
-        run: npx wrangler deploy --config /tmp/wrangler.equity.deploy.json
+        run: npx wrangler deploy --config wrangler.equity.deploy.generated.json
       - name: Validate production health
         run: |
           sleep 3
