@@ -5,6 +5,8 @@ on:
       - main
       - feat/agci-decision-engine-20260810
     paths:
+      - 'decision-engine-core.js'
+      - 'tests/decision-engine.test.mjs'
       - 'cloudflare/agci-equity-fundamentals.js'
       - 'cloudflare/agci-equity-decision-worker.js'
       - 'cloudflare/agci-market-equity-extension.js'
