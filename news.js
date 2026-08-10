@@ -80,17 +80,27 @@
     return {...article, currency, category, impact, relevance, official: officialDomains.test(article.domain || '')};
   }
 
+  function escapeHtml(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+
+  function safeExternalUrl(value) {
+    try {
+      const url = new URL(String(value || ''));
+      return ['http:', 'https:'].includes(url.protocol) ? url.href : '#';
+    } catch {
+      return '#';
+    }
+  }
+
   function render() {
     const c = currencySelect.value, cat = categorySelect.value;
     const filtered = articles.filter(a => (!c || a.currency === c) && (!cat || a.category === cat)).slice(0, 18);
     section.querySelector('#newsGrid').innerHTML = filtered.length ? filtered.map(a => {
       const cls = a.impact === 'Positivo' ? 'impact-positive' : a.impact === 'Negativo' ? 'impact-negative' : 'impact-neutral';
       const date = a.seendate ? new Date(a.seendate.replace(' ', 'T')).toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'}) : 'Fecha no disponible';
-      return `<article class="news-card ${a.official ? 'official' : ''}"><div class="news-meta"><span>${a.domain || 'Fuente'}</span><span>${date}</span></div><h3>${escapeHtml(a.title || 'Sin título')}</h3><div class="news-tags"><span class="news-tag">${a.currency}</span><span class="news-tag">${a.category}</span><span class="news-tag">Relevancia ${a.relevance}</span><span class="news-tag ${cls}">Impacto ${a.impact}</span>${a.official ? '<span class="news-tag">Fuente oficial</span>' : ''}</div><a href="${a.url}" target="_blank" rel="noopener noreferrer">Leer fuente original →</a></article>`;
+      const articleUrl = safeExternalUrl(a.url);
+      return `<article class="news-card ${a.official ? 'official' : ''}"><div class="news-meta"><span>${a.domain || 'Fuente'}</span><span>${date}</span></div><h3>${escapeHtml(a.title || 'Sin título')}</h3><div class="news-tags"><span class="news-tag">${a.currency}</span><span class="news-tag">${a.category}</span><span class="news-tag">Relevancia ${a.relevance}</span><span class="news-tag ${cls}">Impacto ${a.impact}</span>${a.official ? '<span class="news-tag">Fuente oficial</span>' : ''}</div><a href="${escapeHtml(articleUrl)}" target="_blank" rel="noopener noreferrer">Leer fuente original →</a></article>`;
     }).join('') : '<p>No hay noticias que coincidan con los filtros.</p>';
   }
-
-  function escapeHtml(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
 
   async function fetchQuery(query) {
     const u = new URL(GDELT); u.searchParams.set('query', query); u.searchParams.set('mode','artlist'); u.searchParams.set('format','json'); u.searchParams.set('maxrecords','30'); u.searchParams.set('timespan','48h'); u.searchParams.set('sort','datedesc');
