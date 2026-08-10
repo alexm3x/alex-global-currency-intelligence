@@ -10,6 +10,7 @@ on:
       - 'cloudflare/agci-equity-fundamentals.js'
       - 'cloudflare/agci-equity-decision-worker.js'
       - 'cloudflare/agci-market-equity-extension.js'
+      - 'scripts/extract-cloudflare-worker-content.mjs'
       - 'wrangler.equity-fundamentals.jsonc'
       - '.github/workflows/deploy-equity-fundamentals.yml'
   workflow_dispatch:
@@ -36,6 +37,7 @@ jobs:
           npm test
           node --check cloudflare/agci-market-equity-extension.js
           node --check cloudflare/agci-equity-decision-worker.js
+          node --check scripts/extract-cloudflare-worker-content.mjs
           npx wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc
       - name: Check whether equity quote route is already active
         id: probe
@@ -54,7 +56,8 @@ jobs:
           curl --fail --silent --show-error \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/content/v2" \
-            > cloudflare/agci-market-data-current.js
+            > /tmp/agci-market-data-current.multipart
+          node scripts/extract-cloudflare-worker-content.mjs /tmp/agci-market-data-current.multipart cloudflare/agci-market-data-current.js
           test -s cloudflare/agci-market-data-current.js
           node --check cloudflare/agci-market-data-current.js
           grep -q 'export default' cloudflare/agci-market-data-current.js || (echo 'El Worker desplegado no es un módulo delegable; no se modificará producción.' && exit 1)
