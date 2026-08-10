@@ -56,7 +56,7 @@
   function loadDecisionDiscoverabilityAssets() {
     if (document.querySelector('script[data-de-discoverability-script]')) return;
     const script = document.createElement('script');
-    script.src = 'decision-discoverability.js?v=20260810-visible1';
+    script.src = 'decision-discoverability.js?v=20260810-subtabs1';
     script.defer = true;
     script.dataset.deDiscoverabilityScript = 'true';
     document.head.appendChild(script);
