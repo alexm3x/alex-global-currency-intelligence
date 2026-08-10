@@ -53,7 +53,7 @@ jobs:
         run: |
           curl --fail --silent --show-error \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/agci-market-data/content/v2" \
             > cloudflare/agci-market-data-current.js
           test -s cloudflare/agci-market-data-current.js
           node --check cloudflare/agci-market-data-current.js
