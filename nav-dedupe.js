@@ -35,6 +35,21 @@
     }
   }
 
+  function ensurePodcastAccess(nav) {
+    let podcast = nav.querySelector('[data-podcast-access]');
+    if (!podcast) {
+      podcast = document.createElement('button');
+      podcast.type = 'button';
+      podcast.dataset.podcastAccess = 'true';
+      podcast.textContent = 'Morning Audio';
+      podcast.setAttribute('aria-label', 'Escuchar AGCI Morning Intelligence');
+    }
+    podcast.onclick = () => { window.location.href = 'podcast/'; };
+    const briefing = nav.querySelector('[data-view="briefing"]');
+    if (briefing && briefing.nextElementSibling !== podcast) briefing.insertAdjacentElement('afterend', podcast);
+    else if (!briefing && !podcast.isConnected) nav.appendChild(podcast);
+  }
+
   function normalizeNavigation() {
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
@@ -69,6 +84,8 @@
       if (seen.has(key)) item.remove();
       else seen.add(key);
     });
+
+    ensurePodcastAccess(nav);
   }
 
   function init() {
