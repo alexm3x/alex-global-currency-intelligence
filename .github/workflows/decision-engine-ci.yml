@@ -104,3 +104,14 @@ jobs:
         run: |
           curl --fail --silent --show-error --max-time 20 https://agci-equity-fundamentals.proadmexico.workers.dev/health > /tmp/equity-health.json
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/equity-health.json'));if(x.status!=='ok'||x.service!=='agci-equity-fundamentals')process.exit(1)"
+      - name: Validate live decision snapshot pipeline without publishing
+        run: |
+          node scripts/capture-decision-snapshot.mjs > /tmp/decision-learning-capture.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const result=JSON.parse(fs.readFileSync('/tmp/decision-learning-capture.json','utf8'));
+          if(result.decisions<1)process.exit(1);
+          if(!['collecting-history','learning-active'].includes(result.status))process.exit(1);
+          const files=fs.readdirSync('data/decision-history').filter(x=>x.endsWith('.json'));
+          if(!files.length)process.exit(1);
+          NODE
