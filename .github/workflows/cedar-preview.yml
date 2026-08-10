@@ -42,6 +42,7 @@ jobs:
           node --check scripts/generate-morning-intelligence-4min.mjs
           node scripts/generate-morning-intelligence-4min.mjs
           test -s podcast/generated/render-plan.json
+          test -s podcast/previews/cedar/index.html
           node -e "const p=JSON.parse(require('fs').readFileSync('podcast/generated/render-plan.json'));if(p.totalWords<330||p.totalWords>520||p.segments.length<7)process.exit(1)"
 
       - name: Detectar disponibilidad de OpenAI TTS
@@ -80,20 +81,16 @@ jobs:
         run: |
           set -euo pipefail
           DATE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).date")
-          TITLE=$(node -p "JSON.parse(require('fs').readFileSync('data/daily-briefing-latest.json')).title")
           OUT_DIR="podcast/previews/cedar"
           mkdir -p "$OUT_DIR"
           : > /tmp/cedar-concat.txt
-          : > /tmp/cedar-durations.txt
           for WAV in /tmp/agci-cedar-preview/*.wav; do
             printf "file '%s'\n" "$WAV" >> /tmp/cedar-concat.txt
-            ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$WAV" >> /tmp/cedar-durations.txt
           done
           ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/cedar-concat.txt -c:a pcm_s16le /tmp/agci-cedar-combined.wav
           ffmpeg -y -hide_banner -loglevel error -i /tmp/agci-cedar-combined.wav -af "highpass=f=60,lowpass=f=12000,loudnorm=I=-16:TP=-1.5:LRA=7" -ar 44100 -ac 1 -codec:a libmp3lame -b:a 128k "$OUT_DIR/$DATE.mp3"
           DURATION=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$OUT_DIR/$DATE.mp3")
-          node -e "const fs=require('fs');const s=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));const d=Math.round(Number(process.env.DURATION));if(d>240||d<90)process.exit(1);const x={schemaVersion:1,status:'published',date:s.date,title:s.title,durationSeconds:d,provider:'OpenAI',model:'gpt-4o-mini-tts',voice:'cedar',style:'AGCI CIO Institucional',language:'es-MX',audioUrl:'podcast/previews/cedar/'+s.date+'.mp3',sourceUrl:'data/daily-briefing-latest.json',generatedAt:new Date().toISOString(),disclosure:'Voz generada por IA con OpenAI.'};fs.writeFileSync('podcast/previews/cedar/latest.json',JSON.stringify(x,null,2)+'\n')" \
-            DURATION="$DURATION"
+          DURATION="$DURATION" node -e "const fs=require('fs');const s=JSON.parse(fs.readFileSync('data/daily-briefing-latest.json'));const d=Math.round(Number(process.env.DURATION));if(d>240||d<90)process.exit(1);const x={schemaVersion:1,status:'published',date:s.date,title:s.title,durationSeconds:d,provider:'OpenAI',model:'gpt-4o-mini-tts',voice:'cedar',style:'AGCI CIO Institucional',language:'es-MX',audioUrl:'podcast/previews/cedar/'+s.date+'.mp3',sourceUrl:'data/daily-briefing-latest.json',generatedAt:new Date().toISOString(),disclosure:'Voz generada por IA con OpenAI.'};fs.writeFileSync('podcast/previews/cedar/latest.json',JSON.stringify(x,null,2)+'\n')"
           echo "CEDAR_DATE=$DATE" >> "$GITHUB_ENV"
           echo "CEDAR_DURATION=$DURATION" >> "$GITHUB_ENV"
 
