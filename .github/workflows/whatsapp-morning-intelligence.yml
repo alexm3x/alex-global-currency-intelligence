@@ -1,0 +1,82 @@
+name: AGCI Morning Intelligence WhatsApp
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["AGCI Morning Intelligence Daily"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agci-morning-whatsapp
+  cancel-in-progress: false
+
+jobs:
+  deliver:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      WHATSAPP_TOKEN: ${{ secrets.WHATSAPP_TOKEN }}
+      WHATSAPP_PHONE_NUMBER_ID: ${{ secrets.WHATSAPP_PHONE_NUMBER_ID }}
+      WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+      WHATSAPP_TEMPLATE_NAME: ${{ secrets.WHATSAPP_TEMPLATE_NAME }}
+      WHATSAPP_TEMPLATE_LANG: ${{ vars.WHATSAPP_TEMPLATE_LANG || 'es_MX' }}
+      WHATSAPP_GRAPH_VERSION: ${{ vars.WHATSAPP_GRAPH_VERSION || 'v23.0' }}
+      AGCI_PUBLIC_BASE: https://alexm3x.github.io/alex-global-currency-intelligence/
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validar episodio y detectar duplicado
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s podcast/latest.json
+          node --check scripts/send-whatsapp-morning-intelligence.mjs
+          CURRENT_SHA=$(sha256sum podcast/latest.json | cut -d' ' -f1)
+          LAST_SHA=""
+          if [ -f .agci/whatsapp-last-sent.sha ]; then LAST_SHA=$(cat .agci/whatsapp-last-sent.sha); fi
+          echo "CURRENT_SHA=$CURRENT_SHA" >> "$GITHUB_ENV"
+          if [ "$CURRENT_SHA" = "$LAST_SHA" ]; then
+            echo "SEND_WHATSAPP=0" >> "$GITHUB_ENV"
+            echo "Episodio ya enviado; se omite duplicado."
+          else
+            echo "SEND_WHATSAPP=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Enviar Morning Intelligence por WhatsApp
+        if: env.SEND_WHATSAPP == '1'
+        run: node scripts/send-whatsapp-morning-intelligence.mjs
+
+      - name: Registrar episodio enviado
+        if: env.SEND_WHATSAPP == '1' && env.WHATSAPP_TOKEN != '' && env.WHATSAPP_PHONE_NUMBER_ID != '' && env.WHATSAPP_TO != '' && env.WHATSAPP_TEMPLATE_NAME != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .agci
+          printf '%s\n' "$CURRENT_SHA" > .agci/whatsapp-last-sent.sha
+          git config user.name "agci-whatsapp-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .agci/whatsapp-last-sent.sha
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: record Morning Intelligence WhatsApp delivery"
+            git push origin HEAD:main
+          fi
+
+      - name: Resumen
+        run: |
+          echo "### AGCI Morning Intelligence — WhatsApp" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Episodio SHA: $CURRENT_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Envío requerido: ${SEND_WHATSAPP:-0}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Token configurado: ${{ env.WHATSAPP_TOKEN != '' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Phone Number ID configurado: ${{ env.WHATSAPP_PHONE_NUMBER_ID != '' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Destinatario configurado: ${{ env.WHATSAPP_TO != '' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Plantilla configurada: ${{ env.WHATSAPP_TEMPLATE_NAME != '' }}" >> "$GITHUB_STEP_SUMMARY"
