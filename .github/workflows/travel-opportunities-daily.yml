@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
@@ -37,4 +37,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add viajes/data/data_dashboard.csv viajes/data/data_dashboard.json
           git commit -m "data: refresh travel opportunities"
-          git push
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              echo "Rebase conflict while publishing travel opportunities."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Concurrent update detected; retrying publish (${attempt}/5)..."
+            sleep $((attempt * 3))
+          done
+          echo "Unable to publish travel opportunities after 5 retries."
+          exit 1

@@ -142,10 +142,13 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: /tmp/agci-pages
       - name: Deploy refreshed data to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Confirm published structural snapshot
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
@@ -154,7 +157,7 @@ jobs:
           base="${PAGE_URL%/}/data/macro-latest.json"
           echo "Verifying canonical Pages endpoint: ${base}"
 
-          for attempt in $(seq 1 18); do
+          for attempt in $(seq 1 30); do
             url="${base}?run=${GITHUB_RUN_ID}&attempt=${attempt}"
             if curl --location --fail --silent --show-error --max-time 15 \
               -H 'Cache-Control: no-cache' \
@@ -172,9 +175,9 @@ jobs:
                 exit 0
               fi
             fi
-            echo "Pages has not propagated the new structural snapshot yet (${attempt}/18)."
-            sleep 5
+            echo "Pages has not propagated the new structural snapshot yet (${attempt}/30)."
+            sleep 10
           done
 
-          echo "GitHub Pages did not expose the refreshed structural snapshot within 90 seconds."
+          echo "GitHub Pages did not expose the refreshed structural snapshot within 5 minutes."
           exit 1

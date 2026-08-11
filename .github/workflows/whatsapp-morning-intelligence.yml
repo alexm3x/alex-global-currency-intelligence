@@ -27,11 +27,11 @@ jobs:
       WHATSAPP_GRAPH_VERSION: ${{ vars.WHATSAPP_GRAPH_VERSION || 'v23.0' }}
       AGCI_PUBLIC_BASE: https://alexm3x.github.io/alex-global-currency-intelligence/
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
 
