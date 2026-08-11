@@ -14,7 +14,9 @@
     "deploy:equities": "npm test && wrangler deploy --config wrangler.equity-fundamentals.jsonc",
     "check": "npm test && wrangler deploy --dry-run && wrangler deploy --dry-run --config wrangler.market-data.jsonc && wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc",
     "check:market": "npm test && wrangler deploy --dry-run --config wrangler.market-data.jsonc",
-    "check:equities": "npm test && wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc"
+    "check:equities": "npm test && wrangler deploy --dry-run --config wrangler.equity-fundamentals.jsonc",
+    "check:viajes-assistant": "npm test && wrangler deploy --dry-run --config wrangler.viajes-assistant.jsonc",
+    "deploy:viajes-assistant": "npm test && wrangler deploy --config wrangler.viajes-assistant.jsonc"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

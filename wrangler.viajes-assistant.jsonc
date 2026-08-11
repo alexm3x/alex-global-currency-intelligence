@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "viajes-asc-assistant",
+  "main": "cloudflare/viajes-assistant-worker.js",
+  "compatibility_date": "2026-08-11",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "ALLOWED_ORIGIN": "https://alexm3x.github.io",
+    "OPENAI_MODEL": "gpt-5.6"
+  },
+  "ratelimits": [
+    {
+      "name": "ASSISTANT_RATE_LIMITER",
+      "namespace_id": "64211",
+      "simple": { "limit": 20, "period": 60 }
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
