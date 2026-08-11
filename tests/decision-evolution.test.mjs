@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { parseIbkrRatingsBody, buildCiarSnapshot, publicSnapshotIsSanitized } from '../scripts/parse-ibkr-ratings.mjs';
 import { buildLearningReport } from '../decision-learning-core.js';
 import { validateVariableRegistry, summarizeVariableRegistry, promoteVariable } from '../decision-variable-core.js';
+import { fetchFundamentals } from '../scripts/capture-decision-snapshot.mjs';
 
 const read = file => fs.readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
 
@@ -95,6 +96,44 @@ test('variable registry forbids weight before promotion and requires evidence fo
   assert.equal(item.state, 'promoted');
   assert.equal(item.mode, 'score');
   assert.equal(item.weight, 3);
+});
+
+test('decision snapshot retries transient fundamentals failures with bounded backoff', async () => {
+  let calls = 0;
+  const waits = [];
+  const payload = await fetchFundamentals(['MSFT'], {
+    attempts: 3,
+    baseDelayMs: 10,
+    sleep: async ms => waits.push(ms),
+    fetchImpl: async () => {
+      calls += 1;
+      if (calls < 3) return new Response('', { status: 502 });
+      return new Response(JSON.stringify({ analyses: [{ ticker: 'MSFT' }] }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' }
+      });
+    }
+  });
+
+  assert.equal(calls, 3);
+  assert.deepEqual(waits, [10, 20]);
+  assert.equal(payload.analyses[0].ticker, 'MSFT');
+});
+
+test('decision snapshot does not retry a non-transient fundamentals contract error', async () => {
+  let calls = 0;
+  await assert.rejects(
+    fetchFundamentals(['MSFT'], {
+      attempts: 5,
+      sleep: async () => assert.fail('404 must not enter retry backoff'),
+      fetchImpl: async () => {
+        calls += 1;
+        return new Response('', { status: 404 });
+      }
+    }),
+    /HTTP 404/
+  );
+  assert.equal(calls, 1);
 });
 
 test('production loader exposes learning and governance assets with mobile support', () => {

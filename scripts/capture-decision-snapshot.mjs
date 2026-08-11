@@ -9,6 +9,11 @@ const SYMBOLS = String(process.env.AGCI_DECISION_SYMBOLS || 'MSFT,GOOGL,AMZN,JPM
   .split(',').map(value => value.trim().toUpperCase()).filter(Boolean).slice(0, 10);
 const HISTORY_DIR = path.resolve('data/decision-history');
 const LEARNING_FILE = path.resolve('data/decision-learning-latest.json');
+const RETRYABLE_HTTP_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 async function readJson(file, fallback = null) {
   try { return JSON.parse(await fs.readFile(file, 'utf8')); } catch { return fallback; }
@@ -22,13 +27,42 @@ function mexicoDate(now = new Date()) {
   return `${value.year}-${value.month}-${value.day}`;
 }
 
-async function fetchFundamentals(symbols) {
+export async function fetchFundamentals(symbols, options = {}) {
+  const fetchImpl = options.fetchImpl || fetch;
+  const sleep = options.sleep || delay;
+  const attempts = Math.max(1, Number(options.attempts) || 5);
+  const baseDelayMs = Math.max(0, Number(options.baseDelayMs) || 1000);
   const url = `${ENDPOINT}/compare?symbols=${encodeURIComponent(symbols.join(','))}`;
-  const response = await fetch(url, { headers: { accept: 'application/json' } });
-  if (!response.ok) throw new Error(`Fundamentals endpoint HTTP ${response.status}`);
-  const payload = await response.json();
-  if (!Array.isArray(payload.analyses) || !payload.analyses.length) throw new Error('No analyses returned by fundamentals endpoint.');
-  return payload;
+  let lastError;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetchImpl(url, {
+        headers: { accept: 'application/json' },
+        signal: AbortSignal.timeout(30000)
+      });
+      if (!response.ok) {
+        const error = new Error(`Fundamentals endpoint HTTP ${response.status}`);
+        error.retryable = RETRYABLE_HTTP_STATUS.has(response.status);
+        throw error;
+      }
+      const payload = await response.json();
+      if (!Array.isArray(payload.analyses) || !payload.analyses.length) {
+        throw new Error('No analyses returned by fundamentals endpoint.');
+      }
+      return payload;
+    } catch (error) {
+      lastError = error;
+      const transportFailure = ['AbortError', 'TimeoutError', 'TypeError'].includes(error?.name);
+      const retryable = error?.retryable === true || transportFailure;
+      if (!retryable || attempt === attempts) throw error;
+      const waitMs = Math.min(baseDelayMs * (2 ** (attempt - 1)), 10000);
+      console.warn(`Fundamentals request failed (${error.message}); retrying ${attempt + 1}/${attempts} in ${waitMs}ms.`);
+      await sleep(waitMs);
+    }
+  }
+
+  throw lastError;
 }
 
 function compactContext(overlay = {}) {
