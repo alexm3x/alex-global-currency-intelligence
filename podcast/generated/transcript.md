@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-10 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-11 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI abre el lunes 10 de agosto con una combinación exigente: máximos bursátiles, empleo estadounidense más débil, petróleo todavía condicionado por Hormuz y una prueba de inflación decisiva esta semana. Barron’s coincide en que el CPI será el examen central para el rally de inteligencia artificial.
+**CIO:** Buenos días. AGCI abre el martes 11 de agosto con un cambio importante en la tesis de inteligencia artificial: el cuello de botella ya no es sólo capacidad de cómputo, sino financiación. Nvidia trabaja con grandes firmas de Wall Street para movilizar capital hacia infraestructura AI.
 
 ## Las tres señales del día
 
-**CIO:** Primera señal: la inflación de julio en Estados Unidos se publica el miércoles y el consenso de Reuters apunta a 3.4% anual. Una lectura benigna respaldaría duración y crecimiento; una sorpresa al alza, junto con empleo débil, elevaría el riesgo de estanflación ligera. Segunda: Brent ronda 85 dólares mientras el Estrecho de Hormuz sigue operando con restricciones.
+**CIO:** Primera señal: Nvidia busca convertir infraestructura AI en una clase de activo financiable a gran escala. Segunda: Brent se acercó a noventa dólares y el Treasury a treinta años rondó cinco punto veintiocho por ciento antes de cierta mejora por Hormuz. Tercera: el S&P 500 retrocedió poco, pero la amplitud fue débil. Los índices resisten mejor que el mercado interno.
 
 ## Mercados globales
 
-**ANALISTA:** Wall Street abrió prácticamente sin cambios: S&P 500 cerca de 7,752 y Nasdaq alrededor de 26,680. Europa avanzó modestamente y Japón subió con fuerza. El soporte fundamental proviene de resultados corporativos: con gran parte del S&P 500 reportado, las sorpresas positivas continúan muy por encima de la media histórica. JPMorgan elevó su objetivo de cierre de 2026 para el S&P 500 a 8,000, pero mantiene
+**ANALISTA:** El lunes, el Dow cerró cerca de cincuenta y tres mil novecientos setenta y seis puntos, el S&P 500 en siete mil setecientos cincuenta y tres y el Nasdaq en veintiséis mil seiscientos cinco. Energía lideró mientras real estate quedó rezagado.
 
 ## Radar de Inversión AGCI
 
-**ANALISTA:** La prioridad sigue siendo calidad con precio de entrada. Alphabet y JPMorgan permanecen como candidatos para compras escalonadas; Microsoft y Amazon se prefieren en correcciones. NVIDIA continúa en vigilancia antes de resultados del 26 de agosto. El snapshot de Barron’s añade Berkshire Hathaway: recompras elevadas y gran liquidez sugieren disciplina de asignación de capital, aunque la entrada debe depender de valuación. Coca-Cola mantiene atributos defensivos
-
-## México en 60 segundos
-
-**CIO:** Banxico mantuvo la tasa en 6.50% y retrasó la convergencia de inflación al objetivo de 3% hasta el cuarto trimestre de 2027. Al mismo tiempo, la inflación anual de julio cayó a su menor nivel en más de seis años.
+**ANALISTA:** Alphabet y JPMorgan continúan como compras escalonadas por calidad de balance y flujo. Nvidia permanece en vigilancia positiva: la financiación de clientes amplía demanda potencial, pero también el riesgo de circularidad. Meta sigue en vigilancia por capex, permisos y energía. Intel pasa a evitar al precio actual después de una gran emisión de capital; primero debe demostrar retorno sobre los fondos captados.
 
 ## Capital y Negocios
 
-**ANALISTA:** Barron’s destaca que la dispersión de tasas hipotecarias puede mejorar el poder de negociación de compradores bien capitalizados. AGCI lo traduce en una estrategia selectiva: buscar activos operativamente sanos con vendedores presionados por financiamiento, no comprar deterioro operativo sólo porque el precio cayó.
+**ANALISTA:** La enseñanza central es que disponibilidad de capital no significa capital barato. Centros de datos compiten por deuda, private equity, energía, agua, suelo y permisos. Todo proyecto debe medirse por utilización y retorno después del costo financiero.
 
 ## AI Capital Monitor
 
-**ANALISTA:** La tesis de inteligencia artificial sigue migrando desde capex hacia retorno sobre capital. JPMorgan señala que el crecimiento de cloud, backlogs y visibilidad de flujo de caja en Alphabet, Amazon y Microsoft está reduciendo parte de la preocupación sobre retorno de la inversión.
+**ANALISTA:** Barron’s y Reuters confirman que Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs y KKR participan en plataformas vinculadas a Nvidia que buscan más de quinientos mil millones de dólares. Es potencialmente alcista para infraestructura, pero obliga a vigilar leverage, garantías, utilización y concentración.
+
+## Macro y México
+
+**CIO:** El CPI de julio en Estados Unidos se publica mañana a las ocho treinta de Nueva York y el PPI el jueves. La Reserva Federal mantiene tres punto cincuenta a tres punto setenta y cinco por ciento, con tres disidentes que preferían subir en julio.
 
 ## AGCI Travel Opportunity
 
-**ANALISTA:** El radar vigente conserva Oaxaca, Ciudad de Guatemala y Madrid como oportunidades relativas desde Ciudad de México, sujeto a reconfirmación de tarifa total. No se considera oportunidad una tarifa base aislada. La decisión debe incorporar equipaje, hotel, tiempo, seguridad, estacionalidad y ventaja cambiaria.
+**ANALISTA:** No hay una nueva señal suficientemente fuerte para alterar hoy el radar de viajes. Oaxaca, Ciudad de Guatemala y Madrid continúan únicamente como referencias que deben reconfirmarse. La regla sigue intacta: precio total con equipaje, hotel, tiempo, seguridad y ventaja cambiaria.
 
 ## Qué haría hoy
 
-**CIO:** Uno: mantener entre diez y quince por ciento de liquidez desplegable. Dos: no perseguir el rally antes del CPI; ejecutar compras de calidad por tramos. Tres: mantener Alphabet y JPMorgan como prioridades y Microsoft y Amazon para correcciones. Cuatro: vigilar Berkshire como señal de asignación de capital y Micron por competencia china.
+**CIO:** Uno: mantener diez a quince por ciento de liquidez hasta conocer CPI. Dos: no perseguir máximos con amplitud débil. Tres: exigir retorno sobre capital y crédito sano en AI. Cuatro: mantener Alphabet y JPMorgan como prioridades; Nvidia y Meta en vigilancia; Intel fuera hasta aclarar dilución y retorno. Cinco: monitorear Hormuz, Brent y Treasury treinta años.
