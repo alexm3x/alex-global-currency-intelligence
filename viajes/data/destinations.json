@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "2.0.0",
-    "generated_at": "2026-08-10T22:08:45.448400+00:00",
+    "generated_at": "2026-08-11T10:38:19.700338+00:00",
     "timezone": "UTC",
     "origin_airports": [
       "MEX",
@@ -19,7 +19,7 @@
     "current_fx": "live",
     "current_fx_source": "https://open.er-api.com/v6/latest/USD",
     "fallback_currencies": [],
-    "provider_updated_utc": "Mon, 10 Aug 2026 00:02:31 +0000",
+    "provider_updated_utc": "Tue, 11 Aug 2026 00:02:31 +0000",
     "historical_fx_source": "https://api.frankfurter.dev/v1",
     "history_by_currency": {
       "ARS": "unavailable",
@@ -58,10 +58,10 @@
     "budget_horizon": "One traveler, round trip from Mexico, seven nights"
   },
   "market_snapshot": {
-    "usd_mxn": 17.140913,
+    "usd_mxn": 17.140339,
     "green_destinations": 3,
-    "amber_destinations": 13,
-    "red_destinations": 4
+    "amber_destinations": 15,
+    "red_destinations": 2
   },
   "destinations": [
     {
@@ -88,9 +88,9 @@
       "seasonality": "Abril–mayo y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 47.70582,
-      "current_local_per_mxn": 2.783155,
-      "historical_average_local_per_usd": 43.777892,
+      "current_local_per_usd": 47.71927,
+      "current_local_per_mxn": 2.784033,
+      "historical_average_local_per_usd": 43.789961,
       "fx_advantage_pct": 8.97,
       "fx_score": 85.9,
       "traffic_light": "green",
@@ -99,144 +99,144 @@
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 40.992
+          "date": "2025-08-26",
+          "local_per_usd": 41.026
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 41.167
+          "date": "2025-09-04",
+          "local_per_usd": 41.175
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 41.371
+          "date": "2025-09-15",
+          "local_per_usd": 41.27
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 41.412
+          "date": "2025-09-24",
+          "local_per_usd": 41.45
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 41.61
+          "date": "2025-10-03",
+          "local_per_usd": 41.685
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 41.806
+          "date": "2025-10-14",
+          "local_per_usd": 41.828
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 42.008
+          "date": "2025-10-23",
+          "local_per_usd": 42.084
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 42.049
+          "date": "2025-11-03",
+          "local_per_usd": 42.048
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 42.235
+          "date": "2025-11-12",
+          "local_per_usd": 42.244
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 42.37
+          "date": "2025-11-21",
+          "local_per_usd": 42.444
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 42.457
+          "date": "2025-12-02",
+          "local_per_usd": 42.414
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 42.601
+          "date": "2025-12-11",
+          "local_per_usd": 42.617
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 42.809
+          "date": "2025-12-22",
+          "local_per_usd": 42.81
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 43.028
+          "date": "2026-01-05",
+          "local_per_usd": 43.042
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 43.156
+          "date": "2026-01-14",
+          "local_per_usd": 43.18
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 43.284
+          "date": "2026-01-23",
+          "local_per_usd": 43.355
         },
         {
-          "date": "2026-02-02",
+          "date": "2026-02-03",
           "local_per_usd": 43.492
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 43.643
+          "date": "2026-02-12",
+          "local_per_usd": 43.649
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 43.846
+          "date": "2026-02-23",
+          "local_per_usd": 43.839
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 43.978
+          "date": "2026-03-04",
+          "local_per_usd": 43.974
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 44.109
+          "date": "2026-03-13",
+          "local_per_usd": 44.19
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 44.321
+          "date": "2026-03-24",
+          "local_per_usd": 44.348
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 44.467
+          "date": "2026-04-02",
+          "local_per_usd": 44.495
         },
         {
-          "date": "2026-04-14",
-          "local_per_usd": 44.725
+          "date": "2026-04-15",
+          "local_per_usd": 44.711
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 44.925
+          "date": "2026-04-24",
+          "local_per_usd": 45.023
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 45.22
+          "date": "2026-05-06",
+          "local_per_usd": 45.224
         },
         {
-          "date": "2026-05-14",
-          "local_per_usd": 45.435
+          "date": "2026-05-15",
+          "local_per_usd": 45.545
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 45.714
+          "date": "2026-05-26",
+          "local_per_usd": 45.906
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 45.957
+          "date": "2026-06-04",
+          "local_per_usd": 45.974
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 46.264
+          "date": "2026-06-15",
+          "local_per_usd": 46.279
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 46.48
+          "date": "2026-06-24",
+          "local_per_usd": 46.489
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 46.694
+          "date": "2026-07-03",
+          "local_per_usd": 46.805
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 46.993
+          "date": "2026-07-14",
+          "local_per_usd": 47.037
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 47.218
+          "date": "2026-07-23",
+          "local_per_usd": 47.235
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 47.525
+          "date": "2026-08-03",
+          "local_per_usd": 47.536
         },
         {
           "date": "2026-08-10",
@@ -245,29 +245,29 @@
       ],
       "moderate_daily_mxn": 1384,
       "luxury_daily_mxn": 4483,
-      "economy_flight_mxn": 16284,
-      "business_flight_mxn": 61707,
-      "moderate_total_7n_mxn": 25972,
-      "business_total_7n_mxn": 93088,
+      "economy_flight_mxn": 16283,
+      "business_flight_mxn": 61705,
+      "moderate_total_7n_mxn": 25971,
+      "business_total_7n_mxn": 93086,
       "price_score": 98.9,
       "roi_score": 92.0,
       "value_for_money": 9.2,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Estambul+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Estambul+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "istanbul-turkey-fx-2026-08-10",
+          "id": "istanbul-turkey-fx-2026-08-11",
           "headline": "USD conserva una ventaja estimada de 9.0% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.126404+00:00",
+          "published_at": "2026-08-11T10:38:29.987117+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 1.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -308,10 +308,10 @@
       "seasonality": "Marzo–mayo y agosto–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 1498.4355,
-      "current_local_per_mxn": 87.418652,
+      "current_local_per_usd": 1498.0939,
+      "current_local_per_mxn": 87.401649,
       "historical_average_local_per_usd": 1150.0,
-      "fx_advantage_pct": 30.3,
+      "fx_advantage_pct": 30.27,
       "fx_score": 100.0,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
@@ -320,90 +320,90 @@
       "fx_trend": [
         {
           "date": "2025-09-01",
-          "local_per_usd": 1161.166676,
+          "local_per_usd": 1161.155729,
           "modeled": true
         },
         {
           "date": "2025-10-01",
-          "local_per_usd": 1188.904495,
+          "local_per_usd": 1188.866354,
           "modeled": true
         },
         {
           "date": "2025-11-01",
-          "local_per_usd": 1205.35143,
+          "local_per_usd": 1205.297165,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 1234.295006,
+          "local_per_usd": 1234.212365,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 1280.003162,
+          "local_per_usd": 1279.875709,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 1320.557787,
+          "local_per_usd": 1320.390575,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 1342.090517,
+          "local_per_usd": 1341.902194,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 1360.444933,
+          "local_per_usd": 1360.238616,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 1396.4291,
+          "local_per_usd": 1396.187505,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 1443.313648,
+          "local_per_usd": 1443.026088,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 1477.342957,
+          "local_per_usd": 1477.022035,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 1498.4355,
+          "local_per_usd": 1498.0939,
           "modeled": true
         }
       ],
       "moderate_daily_mxn": 1000,
-      "luxury_daily_mxn": 3486,
-      "economy_flight_mxn": 14570,
-      "business_flight_mxn": 54851,
-      "moderate_total_7n_mxn": 21570,
-      "business_total_7n_mxn": 79253,
+      "luxury_daily_mxn": 3487,
+      "economy_flight_mxn": 14569,
+      "business_flight_mxn": 54849,
+      "moderate_total_7n_mxn": 21569,
+      "business_total_7n_mxn": 79258,
       "price_score": 100.0,
       "roi_score": 88.2,
       "value_for_money": 8.8,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Buenos+Aires+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Buenos+Aires+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "buenos-aires-argentina-fx-2026-08-10",
+          "id": "buenos-aires-argentina-fx-2026-08-11",
           "headline": "USD conserva una ventaja estimada de 30.3% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "high",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.126595+00:00",
+          "published_at": "2026-08-11T10:38:29.987218+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 35.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -444,10 +444,10 @@
       "seasonality": "Noviembre–marzo.",
       "cruise_provider": "Celebrity / regional premium",
       "cruise_route": "Buenos Aires–Montevideo–Patagonia",
-      "current_local_per_usd": 1498.4355,
-      "current_local_per_mxn": 87.418652,
+      "current_local_per_usd": 1498.0939,
+      "current_local_per_mxn": 87.401649,
       "historical_average_local_per_usd": 1150.0,
-      "fx_advantage_pct": 30.3,
+      "fx_advantage_pct": 30.27,
       "fx_score": 100.0,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
@@ -456,91 +456,91 @@
       "fx_trend": [
         {
           "date": "2025-09-01",
-          "local_per_usd": 1161.166676,
+          "local_per_usd": 1161.155729,
           "modeled": true
         },
         {
           "date": "2025-10-01",
-          "local_per_usd": 1188.904495,
+          "local_per_usd": 1188.866354,
           "modeled": true
         },
         {
           "date": "2025-11-01",
-          "local_per_usd": 1205.35143,
+          "local_per_usd": 1205.297165,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 1234.295006,
+          "local_per_usd": 1234.212365,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 1280.003162,
+          "local_per_usd": 1279.875709,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 1320.557787,
+          "local_per_usd": 1320.390575,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 1342.090517,
+          "local_per_usd": 1341.902194,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 1360.444933,
+          "local_per_usd": 1360.238616,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 1396.4291,
+          "local_per_usd": 1396.187505,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 1443.313648,
+          "local_per_usd": 1443.026088,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 1477.342957,
+          "local_per_usd": 1477.022035,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 1498.4355,
+          "local_per_usd": 1498.0939,
           "modeled": true
         }
       ],
       "moderate_daily_mxn": 2960,
-      "luxury_daily_mxn": 7367,
-      "economy_flight_mxn": 14570,
-      "business_flight_mxn": 56565,
-      "moderate_total_7n_mxn": 35290,
-      "business_total_7n_mxn": 108134,
+      "luxury_daily_mxn": 7368,
+      "economy_flight_mxn": 14569,
+      "business_flight_mxn": 56563,
+      "moderate_total_7n_mxn": 35289,
+      "business_total_7n_mxn": 108139,
       "price_score": 88.6,
       "roi_score": 85.8,
       "value_for_money": 8.6,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Cono+Sur+y+Patagonia+2026-11-08+through+2026-11-15",
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Cono+Sur+y+Patagonia+2026-11-09+through+2026-11-16",
         "cruise_search": "https://www.google.com/search?q=Celebrity+%2F+regional+premium+Crucero+Cono+Sur+y+Patagonia+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-south-america-fx-2026-08-10",
+          "id": "cruise-south-america-fx-2026-08-11",
           "headline": "USD conserva una ventaja estimada de 30.3% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "high",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.132151+00:00",
+          "published_at": "2026-08-11T10:38:29.992709+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 35.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -581,186 +581,186 @@
       "seasonality": "Primavera y otoño ofrecen la mejor combinación de clima y experiencia.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 157.880961,
-      "current_local_per_mxn": 9.210767,
-      "historical_average_local_per_usd": 155.862934,
-      "fx_advantage_pct": 1.29,
-      "fx_score": 55.2,
+      "current_local_per_usd": 158.95122,
+      "current_local_per_mxn": 9.273517,
+      "historical_average_local_per_usd": 155.894961,
+      "fx_advantage_pct": 1.96,
+      "fx_score": 57.8,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 7.84,
+      "volatility_annualized_pct": 7.85,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
+          "date": "2025-08-26",
+          "local_per_usd": 147.37
+        },
+        {
+          "date": "2025-09-04",
+          "local_per_usd": 148.33
+        },
+        {
+          "date": "2025-09-15",
+          "local_per_usd": 147.36
+        },
+        {
+          "date": "2025-09-24",
+          "local_per_usd": 148.44
+        },
+        {
+          "date": "2025-10-03",
           "local_per_usd": 147.35
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 148.61
+          "date": "2025-10-14",
+          "local_per_usd": 152.1
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 147.92
+          "date": "2025-10-23",
+          "local_per_usd": 152.63
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 147.8
+          "date": "2025-11-03",
+          "local_per_usd": 154.22
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 146.78
+          "date": "2025-11-12",
+          "local_per_usd": 154.79
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 152.11
+          "date": "2025-11-21",
+          "local_per_usd": 156.74
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 151.83
+          "date": "2025-12-02",
+          "local_per_usd": 156.07
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 154.18
+          "date": "2025-12-11",
+          "local_per_usd": 155.58
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 154.18
+          "date": "2025-12-22",
+          "local_per_usd": 157.32
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 157.61
+          "date": "2026-01-05",
+          "local_per_usd": 156.83
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 154.8
+          "date": "2026-01-14",
+          "local_per_usd": 158.63
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 156.71
+          "date": "2026-01-23",
+          "local_per_usd": 158.16
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 157.23
+          "date": "2026-02-03",
+          "local_per_usd": 155.85
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 156.93
+          "date": "2026-02-12",
+          "local_per_usd": 153.71
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 158.85
+          "date": "2026-02-23",
+          "local_per_usd": 154.82
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 158.79
+          "date": "2026-03-04",
+          "local_per_usd": 157.11
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 155.06
+          "date": "2026-03-13",
+          "local_per_usd": 159.33
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 153.61
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 155.21
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 157.66
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 158.86
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 158.55
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 158.32
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 158.85
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 159.48
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 157.81
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 157.95
-        },
-        {
-          "date": "2026-05-25",
+          "date": "2026-03-24",
           "local_per_usd": 158.93
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 159.86
+          "date": "2026-04-02",
+          "local_per_usd": 159.6
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 160.2
+          "date": "2026-04-15",
+          "local_per_usd": 159.09
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 161.53
+          "date": "2026-04-24",
+          "local_per_usd": 159.42
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 161.58
+          "date": "2026-05-06",
+          "local_per_usd": 156.21
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 162.14
+          "date": "2026-05-15",
+          "local_per_usd": 158.55
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 163.07
+          "date": "2026-05-26",
+          "local_per_usd": 159.21
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 160.24
+          "date": "2026-06-04",
+          "local_per_usd": 159.8
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 160.19
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 161.68
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 161.15
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 162.22
+        },
+        {
+          "date": "2026-07-23",
+          "local_per_usd": 163.47
+        },
+        {
+          "date": "2026-08-03",
+          "local_per_usd": 156.68
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 158.64
         }
       ],
-      "moderate_daily_mxn": 2284,
-      "luxury_daily_mxn": 7276,
-      "economy_flight_mxn": 18855,
-      "business_flight_mxn": 71992,
-      "moderate_total_7n_mxn": 34843,
-      "business_total_7n_mxn": 122924,
-      "price_score": 89.1,
-      "roi_score": 83.7,
+      "moderate_daily_mxn": 2269,
+      "luxury_daily_mxn": 7229,
+      "economy_flight_mxn": 18854,
+      "business_flight_mxn": 71989,
+      "moderate_total_7n_mxn": 34737,
+      "business_total_7n_mxn": 122592,
+      "price_score": 89.2,
+      "roi_score": 84.4,
       "value_for_money": 8.4,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Tokio+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Tokio+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "tokyo-japan-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+1.3%)",
+          "id": "tokyo-japan-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+2.0%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.125979+00:00",
+          "published_at": "2026-08-11T10:38:29.986697+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.8%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -801,155 +801,155 @@
       "seasonality": "Noviembre–febrero; septiembre es más barato pero lluvioso.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 33.024294,
-      "current_local_per_mxn": 1.926636,
-      "historical_average_local_per_usd": 32.287571,
-      "fx_advantage_pct": 2.28,
-      "fx_score": 59.1,
+      "current_local_per_usd": 33.002169,
+      "current_local_per_mxn": 1.925409,
+      "historical_average_local_per_usd": 32.287,
+      "fx_advantage_pct": 2.22,
+      "fx_score": 58.9,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 7.7,
+      "volatility_annualized_pct": 7.72,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 32.435
+          "date": "2025-08-26",
+          "local_per_usd": 32.45
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 32.325
+          "date": "2025-09-04",
+          "local_per_usd": 32.305
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 31.745
-        },
-        {
-          "date": "2025-09-23",
+          "date": "2025-09-15",
           "local_per_usd": 31.86
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 32.31
+          "date": "2025-09-24",
+          "local_per_usd": 32.025
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 32.545
+          "date": "2025-10-03",
+          "local_per_usd": 32.395
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 32.888
+          "date": "2025-10-14",
+          "local_per_usd": 32.81
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 32.325
+          "date": "2025-10-23",
+          "local_per_usd": 32.803
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 32.43
+          "date": "2025-11-03",
+          "local_per_usd": 32.475
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 32.425
+          "date": "2025-11-12",
+          "local_per_usd": 32.455
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 31.93
+          "date": "2025-11-21",
+          "local_per_usd": 32.45
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 31.845
+          "date": "2025-12-02",
+          "local_per_usd": 32.015
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 31.46
+          "date": "2025-12-11",
+          "local_per_usd": 31.745
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 31.39
+          "date": "2025-12-22",
+          "local_per_usd": 31.15
         },
         {
-          "date": "2026-01-13",
+          "date": "2026-01-05",
+          "local_per_usd": 31.375
+        },
+        {
+          "date": "2026-01-14",
           "local_per_usd": 31.475
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 31.33
+          "date": "2026-01-23",
+          "local_per_usd": 31.165
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 31.615
+          "date": "2026-02-03",
+          "local_per_usd": 31.565
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 31.085
+          "date": "2026-02-12",
+          "local_per_usd": 31.0
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 31.205
+          "date": "2026-02-23",
+          "local_per_usd": 31.025
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 31.76
+          "date": "2026-03-04",
+          "local_per_usd": 31.48
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 31.935
+          "date": "2026-03-13",
+          "local_per_usd": 32.2
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 32.255
+          "date": "2026-03-24",
+          "local_per_usd": 32.66
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 32.51
+          "date": "2026-04-02",
+          "local_per_usd": 32.765
         },
         {
-          "date": "2026-04-14",
-          "local_per_usd": 32.045
+          "date": "2026-04-15",
+          "local_per_usd": 32.095
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 32.355
+          "date": "2026-04-24",
+          "local_per_usd": 32.375
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 32.64
+          "date": "2026-05-06",
+          "local_per_usd": 32.185
         },
         {
-          "date": "2026-05-14",
-          "local_per_usd": 32.315
+          "date": "2026-05-15",
+          "local_per_usd": 32.67
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 32.48
+          "date": "2026-05-26",
+          "local_per_usd": 32.66
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 32.725
+          "date": "2026-06-04",
+          "local_per_usd": 32.602
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 32.745
+          "date": "2026-06-15",
+          "local_per_usd": 32.55
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 33.2
+          "date": "2026-06-24",
+          "local_per_usd": 33.43
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 33.315
+          "date": "2026-07-03",
+          "local_per_usd": 33.135
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 33.385
+          "date": "2026-07-14",
+          "local_per_usd": 33.525
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 33.81
+          "date": "2026-07-23",
+          "local_per_usd": 33.825
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 33.465
+          "date": "2026-08-03",
+          "local_per_usd": 33.335
         },
         {
           "date": "2026-08-10",
@@ -957,30 +957,30 @@
         }
       ],
       "moderate_daily_mxn": 1207,
-      "luxury_daily_mxn": 4273,
-      "economy_flight_mxn": 20569,
-      "business_flight_mxn": 77134,
-      "moderate_total_7n_mxn": 29018,
-      "business_total_7n_mxn": 107045,
+      "luxury_daily_mxn": 4276,
+      "economy_flight_mxn": 20568,
+      "business_flight_mxn": 77132,
+      "moderate_total_7n_mxn": 29017,
+      "business_total_7n_mxn": 107064,
       "price_score": 95.5,
       "roi_score": 81.9,
       "value_for_money": 8.2,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bangkok+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bangkok+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "bangkok-thailand-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+2.3%)",
+          "id": "bangkok-thailand-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+2.2%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.127112+00:00",
+          "published_at": "2026-08-11T10:38:29.987726+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.7%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1021,186 +1021,186 @@
       "seasonality": "Mayo–septiembre; hombros de temporada para mejor precio.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 17862.192486,
-      "current_local_per_mxn": 1042.079409,
-      "historical_average_local_per_usd": 17036.72973,
-      "fx_advantage_pct": 4.85,
-      "fx_score": 69.4,
+      "current_local_per_usd": 17756.977757,
+      "current_local_per_mxn": 1035.975879,
+      "historical_average_local_per_usd": 17039.275194,
+      "fx_advantage_pct": 4.21,
+      "fx_score": 66.8,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.23,
+      "volatility_annualized_pct": 5.24,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 16245.0
+          "date": "2025-08-26",
+          "local_per_usd": 16313.0
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 16452.0
+          "date": "2025-09-04",
+          "local_per_usd": 16445.0
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 16439.0
+          "date": "2025-09-15",
+          "local_per_usd": 16418.0
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 16654.0
+          "date": "2025-09-24",
+          "local_per_usd": 16699.0
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 16616.0
+          "date": "2025-10-03",
+          "local_per_usd": 16565.0
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 16582.0
+          "date": "2025-10-14",
+          "local_per_usd": 16629.0
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 16619.0
+          "date": "2025-10-23",
+          "local_per_usd": 16625.0
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 16662.0
+          "date": "2025-11-03",
+          "local_per_usd": 16710.0
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 16727.0
+          "date": "2025-11-12",
+          "local_per_usd": 16761.0
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 16749.0
+          "date": "2025-11-21",
+          "local_per_usd": 16718.0
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 16590.0
+          "date": "2025-12-02",
+          "local_per_usd": 16625.0
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 16683.0
+          "date": "2025-12-11",
+          "local_per_usd": 16676.0
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 16736.0
+          "date": "2025-12-22",
+          "local_per_usd": 16776.0
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 16716.0
+          "date": "2026-01-05",
+          "local_per_usd": 16740.0
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 16864.0
+          "date": "2026-01-14",
+          "local_per_usd": 16872.0
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 16875.0
+          "date": "2026-01-23",
+          "local_per_usd": 16823.0
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 16799.0
+          "date": "2026-02-03",
+          "local_per_usd": 16770.0
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 16800.0
+          "date": "2026-02-12",
+          "local_per_usd": 16830.0
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 16889.0
+          "date": "2026-02-23",
+          "local_per_usd": 16822.0
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 16895.0
+          "date": "2026-03-04",
+          "local_per_usd": 16855.0
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 16886.0
+          "date": "2026-03-13",
+          "local_per_usd": 16900.0
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 16896.0
+          "date": "2026-03-24",
+          "local_per_usd": 16891.0
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 16914.0
+          "date": "2026-04-02",
+          "local_per_usd": 17011.0
         },
         {
-          "date": "2026-04-14",
-          "local_per_usd": 17131.0
+          "date": "2026-04-15",
+          "local_per_usd": 17154.0
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 17276.0
+          "date": "2026-04-24",
+          "local_per_usd": 17244.0
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 17453.0
+          "date": "2026-05-06",
+          "local_per_usd": 17328.0
         },
         {
-          "date": "2026-05-14",
-          "local_per_usd": 17465.0
+          "date": "2026-05-15",
+          "local_per_usd": 17589.0
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 17734.0
+          "date": "2026-05-26",
+          "local_per_usd": 17835.0
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 17962.0
+          "date": "2026-06-04",
+          "local_per_usd": 18026.0
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 17788.0
+          "date": "2026-06-15",
+          "local_per_usd": 17719.0
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 17921.0
+          "date": "2026-06-24",
+          "local_per_usd": 17977.0
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 18021.0
+          "date": "2026-07-03",
+          "local_per_usd": 17964.0
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 18048.0
+          "date": "2026-07-14",
+          "local_per_usd": 18060.0
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 17919.0
+          "date": "2026-07-23",
+          "local_per_usd": 17964.0
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 18052.0
+          "date": "2026-08-03",
+          "local_per_usd": 17977.0
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 17760.0
         }
       ],
-      "moderate_daily_mxn": 1504,
-      "luxury_daily_mxn": 5313,
-      "economy_flight_mxn": 22283,
-      "business_flight_mxn": 82276,
-      "moderate_total_7n_mxn": 32811,
-      "business_total_7n_mxn": 119467,
+      "moderate_daily_mxn": 1513,
+      "luxury_daily_mxn": 5345,
+      "economy_flight_mxn": 22282,
+      "business_flight_mxn": 82274,
+      "moderate_total_7n_mxn": 32873,
+      "business_total_7n_mxn": 119689,
       "price_score": 91.3,
-      "roi_score": 81.7,
-      "value_for_money": 8.2,
+      "roi_score": 81.0,
+      "value_for_money": 8.1,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bali+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bali+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "bali-indonesia-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+4.8%)",
+          "id": "bali-indonesia-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+4.2%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.129675+00:00",
+          "published_at": "2026-08-11T10:38:29.990206+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.2%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1241,11 +1241,11 @@
       "seasonality": "Octubre–abril; evitar picos de lluvia regional.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 26127.558406,
-      "current_local_per_mxn": 1524.28044,
+      "current_local_per_usd": 26071.564219,
+      "current_local_per_mxn": 1521.064678,
       "historical_average_local_per_usd": 25500.0,
-      "fx_advantage_pct": 2.46,
-      "fx_score": 59.8,
+      "fx_advantage_pct": 2.24,
+      "fx_score": 59.0,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 2.5,
@@ -1258,85 +1258,85 @@
         },
         {
           "date": "2025-10-01",
-          "local_per_usd": 25608.03086,
+          "local_per_usd": 25602.94048,
           "modeled": true
         },
         {
           "date": "2025-11-01",
-          "local_per_usd": 25626.656636,
+          "local_per_usd": 25616.475875,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 25625.671502,
+          "local_per_usd": 25610.40036,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 25695.726754,
+          "local_per_usd": 25675.365232,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 25816.509557,
+          "local_per_usd": 25791.057654,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 25888.471318,
+          "local_per_usd": 25857.929034,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 25888.32126,
+          "local_per_usd": 25852.688595,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 25905.406302,
+          "local_per_usd": 25864.683257,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 26002.152368,
+          "local_per_usd": 25956.338942,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 26116.555927,
+          "local_per_usd": 26065.652121,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 26127.558406,
+          "local_per_usd": 26071.564219,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 1104,
-      "luxury_daily_mxn": 3764,
-      "economy_flight_mxn": 21426,
-      "business_flight_mxn": 78848,
-      "moderate_total_7n_mxn": 29154,
-      "business_total_7n_mxn": 105196,
+      "moderate_daily_mxn": 1106,
+      "luxury_daily_mxn": 3772,
+      "economy_flight_mxn": 21425,
+      "business_flight_mxn": 78846,
+      "moderate_total_7n_mxn": 29167,
+      "business_total_7n_mxn": 105250,
       "price_score": 95.4,
-      "roi_score": 81.0,
+      "roi_score": 80.8,
       "value_for_money": 8.1,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Han%C3%B3i+y+Vietnam+Central+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Han%C3%B3i+y+Vietnam+Central+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "hanoi-vietnam-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+2.5%)",
+          "id": "hanoi-vietnam-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+2.2%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.126734+00:00",
+          "published_at": "2026-08-11T10:38:29.987331+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 2.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1377,186 +1377,186 @@
       "seasonality": "Marzo–mayo y octubre–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.859403,
-      "fx_advantage_pct": 0.71,
-      "fx_score": 52.8,
+      "current_local_per_usd": 0.865948,
+      "current_local_per_mxn": 0.050521,
+      "historical_average_local_per_usd": 0.859377,
+      "fx_advantage_pct": 0.76,
+      "fx_score": 53.1,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.63,
+      "volatility_annualized_pct": 5.62,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 0.85492
+          "date": "2025-08-26",
+          "local_per_usd": 0.85793
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 0.85815
+          "date": "2025-09-04",
+          "local_per_usd": 0.85859
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 0.85339
+          "date": "2025-09-15",
+          "local_per_usd": 0.84991
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 0.84796
+          "date": "2025-09-24",
+          "local_per_usd": 0.85063
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 0.85077
+          "date": "2025-10-03",
+          "local_per_usd": 0.85222
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 0.86438
+          "date": "2025-10-14",
+          "local_per_usd": 0.86558
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 0.86304
+          "date": "2025-10-23",
+          "local_per_usd": 0.86259
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 0.8655
-        },
-        {
-          "date": "2025-11-11",
-          "local_per_usd": 0.86393
-        },
-        {
-          "date": "2025-11-20",
+          "date": "2025-11-03",
           "local_per_usd": 0.86851
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 0.85866
+          "date": "2025-11-12",
+          "local_per_usd": 0.86386
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 0.85955
+          "date": "2025-11-21",
+          "local_per_usd": 0.86806
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 0.85383
-        },
-        {
-          "date": "2026-01-02",
-          "local_per_usd": 0.85317
-        },
-        {
-          "date": "2026-01-13",
-          "local_per_usd": 0.85807
-        },
-        {
-          "date": "2026-01-22",
-          "local_per_usd": 0.85426
-        },
-        {
-          "date": "2026-02-02",
-          "local_per_usd": 0.84459
-        },
-        {
-          "date": "2026-02-11",
-          "local_per_usd": 0.84034
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 0.84983
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 0.86162
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 0.86603
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 0.86237
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.8617
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 0.84796
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 0.85514
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 0.85572
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 0.85455
-        },
-        {
-          "date": "2026-05-25",
-          "local_per_usd": 0.85889
-        },
-        {
-          "date": "2026-06-03",
+          "date": "2025-12-02",
           "local_per_usd": 0.86103
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 0.86453
+          "date": "2025-12-11",
+          "local_per_usd": 0.85368
         },
         {
-          "date": "2026-06-23",
+          "date": "2025-12-22",
+          "local_per_usd": 0.85143
+        },
+        {
+          "date": "2026-01-05",
+          "local_per_usd": 0.85734
+        },
+        {
+          "date": "2026-01-14",
+          "local_per_usd": 0.8583
+        },
+        {
+          "date": "2026-01-23",
+          "local_per_usd": 0.85164
+        },
+        {
+          "date": "2026-02-03",
+          "local_per_usd": 0.84739
+        },
+        {
+          "date": "2026-02-12",
+          "local_per_usd": 0.84218
+        },
+        {
+          "date": "2026-02-23",
+          "local_per_usd": 0.84861
+        },
+        {
+          "date": "2026-03-04",
+          "local_per_usd": 0.85844
+        },
+        {
+          "date": "2026-03-13",
+          "local_per_usd": 0.87138
+        },
+        {
+          "date": "2026-03-24",
+          "local_per_usd": 0.86415
+        },
+        {
+          "date": "2026-04-02",
+          "local_per_usd": 0.86768
+        },
+        {
+          "date": "2026-04-15",
+          "local_per_usd": 0.8489
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 0.8502
+        },
+        {
+          "date": "2026-05-15",
+          "local_per_usd": 0.85999
+        },
+        {
+          "date": "2026-05-26",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2026-06-04",
+          "local_per_usd": 0.85911
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 0.86155
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 0.88183
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 0.87352
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 0.87681
+        },
+        {
+          "date": "2026-07-23",
           "local_per_usd": 0.87781
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 0.87727
-        },
-        {
-          "date": "2026-07-13",
-          "local_per_usd": 0.87535
-        },
-        {
-          "date": "2026-07-22",
-          "local_per_usd": 0.87658
-        },
-        {
-          "date": "2026-07-31",
-          "local_per_usd": 0.8707
+          "date": "2026-08-03",
+          "local_per_usd": 0.86693
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 0.86543
         }
       ],
-      "moderate_daily_mxn": 2247,
-      "luxury_daily_mxn": 6723,
-      "economy_flight_mxn": 16284,
-      "business_flight_mxn": 61707,
-      "moderate_total_7n_mxn": 32013,
-      "business_total_7n_mxn": 108768,
+      "moderate_daily_mxn": 2245,
+      "luxury_daily_mxn": 6719,
+      "economy_flight_mxn": 16283,
+      "business_flight_mxn": 61705,
+      "moderate_total_7n_mxn": 31998,
+      "business_total_7n_mxn": 108738,
       "price_score": 92.2,
-      "roi_score": 80.3,
+      "roi_score": 80.4,
       "value_for_money": 8.0,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Lisboa+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Lisboa+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "lisbon-portugal-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "id": "lisbon-portugal-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.8%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.130055+00:00",
+          "published_at": "2026-08-11T10:38:29.990639+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1597,186 +1597,186 @@
       "seasonality": "Abril–junio y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.859403,
-      "fx_advantage_pct": 0.71,
-      "fx_score": 52.8,
+      "current_local_per_usd": 0.865948,
+      "current_local_per_mxn": 0.050521,
+      "historical_average_local_per_usd": 0.859377,
+      "fx_advantage_pct": 0.76,
+      "fx_score": 53.1,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.63,
+      "volatility_annualized_pct": 5.62,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 0.85492
+          "date": "2025-08-26",
+          "local_per_usd": 0.85793
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 0.85815
+          "date": "2025-09-04",
+          "local_per_usd": 0.85859
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 0.85339
+          "date": "2025-09-15",
+          "local_per_usd": 0.84991
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 0.84796
+          "date": "2025-09-24",
+          "local_per_usd": 0.85063
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 0.85077
+          "date": "2025-10-03",
+          "local_per_usd": 0.85222
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 0.86438
+          "date": "2025-10-14",
+          "local_per_usd": 0.86558
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 0.86304
+          "date": "2025-10-23",
+          "local_per_usd": 0.86259
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 0.8655
-        },
-        {
-          "date": "2025-11-11",
-          "local_per_usd": 0.86393
-        },
-        {
-          "date": "2025-11-20",
+          "date": "2025-11-03",
           "local_per_usd": 0.86851
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 0.85866
+          "date": "2025-11-12",
+          "local_per_usd": 0.86386
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 0.85955
+          "date": "2025-11-21",
+          "local_per_usd": 0.86806
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 0.85383
-        },
-        {
-          "date": "2026-01-02",
-          "local_per_usd": 0.85317
-        },
-        {
-          "date": "2026-01-13",
-          "local_per_usd": 0.85807
-        },
-        {
-          "date": "2026-01-22",
-          "local_per_usd": 0.85426
-        },
-        {
-          "date": "2026-02-02",
-          "local_per_usd": 0.84459
-        },
-        {
-          "date": "2026-02-11",
-          "local_per_usd": 0.84034
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 0.84983
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 0.86162
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 0.86603
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 0.86237
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.8617
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 0.84796
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 0.85514
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 0.85572
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 0.85455
-        },
-        {
-          "date": "2026-05-25",
-          "local_per_usd": 0.85889
-        },
-        {
-          "date": "2026-06-03",
+          "date": "2025-12-02",
           "local_per_usd": 0.86103
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 0.86453
+          "date": "2025-12-11",
+          "local_per_usd": 0.85368
         },
         {
-          "date": "2026-06-23",
+          "date": "2025-12-22",
+          "local_per_usd": 0.85143
+        },
+        {
+          "date": "2026-01-05",
+          "local_per_usd": 0.85734
+        },
+        {
+          "date": "2026-01-14",
+          "local_per_usd": 0.8583
+        },
+        {
+          "date": "2026-01-23",
+          "local_per_usd": 0.85164
+        },
+        {
+          "date": "2026-02-03",
+          "local_per_usd": 0.84739
+        },
+        {
+          "date": "2026-02-12",
+          "local_per_usd": 0.84218
+        },
+        {
+          "date": "2026-02-23",
+          "local_per_usd": 0.84861
+        },
+        {
+          "date": "2026-03-04",
+          "local_per_usd": 0.85844
+        },
+        {
+          "date": "2026-03-13",
+          "local_per_usd": 0.87138
+        },
+        {
+          "date": "2026-03-24",
+          "local_per_usd": 0.86415
+        },
+        {
+          "date": "2026-04-02",
+          "local_per_usd": 0.86768
+        },
+        {
+          "date": "2026-04-15",
+          "local_per_usd": 0.8489
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 0.8502
+        },
+        {
+          "date": "2026-05-15",
+          "local_per_usd": 0.85999
+        },
+        {
+          "date": "2026-05-26",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2026-06-04",
+          "local_per_usd": 0.85911
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 0.86155
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 0.88183
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 0.87352
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 0.87681
+        },
+        {
+          "date": "2026-07-23",
           "local_per_usd": 0.87781
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 0.87727
-        },
-        {
-          "date": "2026-07-13",
-          "local_per_usd": 0.87535
-        },
-        {
-          "date": "2026-07-22",
-          "local_per_usd": 0.87658
-        },
-        {
-          "date": "2026-07-31",
-          "local_per_usd": 0.8707
+          "date": "2026-08-03",
+          "local_per_usd": 0.86693
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 0.86543
         }
       ],
-      "moderate_daily_mxn": 2145,
-      "luxury_daily_mxn": 6553,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 63421,
-      "moderate_total_7n_mxn": 32156,
-      "business_total_7n_mxn": 109292,
-      "price_score": 92.0,
-      "roi_score": 80.1,
+      "moderate_daily_mxn": 2143,
+      "luxury_daily_mxn": 6549,
+      "economy_flight_mxn": 17140,
+      "business_flight_mxn": 63419,
+      "moderate_total_7n_mxn": 32141,
+      "business_total_7n_mxn": 109262,
+      "price_score": 92.1,
+      "roi_score": 80.2,
       "value_for_money": 8.0,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Atenas+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Atenas+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "athens-greece-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "id": "athens-greece-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.8%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.130431+00:00",
+          "published_at": "2026-08-11T10:38:29.991022+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1792,226 +1792,6 @@
         }
       ],
       "rank": 9
-    },
-    {
-      "id": "prague-czechia",
-      "city": "Praga",
-      "country": "Chequia",
-      "currency": "CZK",
-      "airport": "PRG",
-      "kind": "urban",
-      "tags": [
-        "historia",
-        "arquitectura",
-        "gastronomía"
-      ],
-      "quality_score": 92,
-      "connectivity_score": 78,
-      "proximity_score": 54,
-      "moderate_daily_usd": 115,
-      "luxury_daily_usd": 345,
-      "economy_flight_usd": 1000,
-      "business_flight_usd": 3900,
-      "route_summary": "MEX–PRG con 1 escala",
-      "why_value": "Alta calidad histórica con costos aún inferiores a Europa occidental.",
-      "seasonality": "Abril–mayo y septiembre–octubre.",
-      "cruise_provider": null,
-      "cruise_route": null,
-      "current_local_per_usd": 20.995446,
-      "current_local_per_mxn": 1.224873,
-      "historical_average_local_per_usd": 20.890691,
-      "fx_advantage_pct": 0.5,
-      "fx_score": 52.0,
-      "traffic_light": "amber",
-      "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 6.75,
-      "history_status": "live_frankfurter",
-      "fx_trend": [
-        {
-          "date": "2025-08-25",
-          "local_per_usd": 20.983
-        },
-        {
-          "date": "2025-09-03",
-          "local_per_usd": 20.978
-        },
-        {
-          "date": "2025-09-12",
-          "local_per_usd": 20.753
-        },
-        {
-          "date": "2025-09-23",
-          "local_per_usd": 20.556
-        },
-        {
-          "date": "2025-10-02",
-          "local_per_usd": 20.63
-        },
-        {
-          "date": "2025-10-13",
-          "local_per_usd": 21.055
-        },
-        {
-          "date": "2025-10-22",
-          "local_per_usd": 20.979
-        },
-        {
-          "date": "2025-10-31",
-          "local_per_usd": 21.055
-        },
-        {
-          "date": "2025-11-11",
-          "local_per_usd": 20.983
-        },
-        {
-          "date": "2025-11-20",
-          "local_per_usd": 21.0
-        },
-        {
-          "date": "2025-12-01",
-          "local_per_usd": 20.763
-        },
-        {
-          "date": "2025-12-10",
-          "local_per_usd": 20.84
-        },
-        {
-          "date": "2025-12-19",
-          "local_per_usd": 20.768
-        },
-        {
-          "date": "2026-01-02",
-          "local_per_usd": 20.627
-        },
-        {
-          "date": "2026-01-13",
-          "local_per_usd": 20.811
-        },
-        {
-          "date": "2026-01-22",
-          "local_per_usd": 20.767
-        },
-        {
-          "date": "2026-02-02",
-          "local_per_usd": 20.528
-        },
-        {
-          "date": "2026-02-11",
-          "local_per_usd": 20.374
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 20.601
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 21.005
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 21.136
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 21.075
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 21.125
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 20.647
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 20.825
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 20.863
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 20.767
-        },
-        {
-          "date": "2026-05-25",
-          "local_per_usd": 20.836
-        },
-        {
-          "date": "2026-06-03",
-          "local_per_usd": 20.827
-        },
-        {
-          "date": "2026-06-12",
-          "local_per_usd": 20.897
-        },
-        {
-          "date": "2026-06-23",
-          "local_per_usd": 21.248
-        },
-        {
-          "date": "2026-07-02",
-          "local_per_usd": 21.244
-        },
-        {
-          "date": "2026-07-13",
-          "local_per_usd": 21.238
-        },
-        {
-          "date": "2026-07-22",
-          "local_per_usd": 21.183
-        },
-        {
-          "date": "2026-07-31",
-          "local_per_usd": 21.081
-        },
-        {
-          "date": "2026-08-10",
-          "local_per_usd": 20.988
-        }
-      ],
-      "moderate_daily_mxn": 1961,
-      "luxury_daily_mxn": 5884,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 30868,
-      "business_total_7n_mxn": 108038,
-      "price_score": 93.5,
-      "roi_score": 79.5,
-      "value_for_money": 8.0,
-      "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Praga+2026-11-08+through+2026-11-15"
-      },
-      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
-      "news": [
-        {
-          "id": "prague-czechia-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.5%)",
-          "source": "Viajes ASC FX Monitor",
-          "impact": "low",
-          "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.128862+00:00",
-          "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo amber; volatilidad anualizada estimada 6.8%. La señal no confirma una tarifa aérea u hotelera."
-        },
-        {
-          "id": "prague-czechia-context-1",
-          "headline": "La corona checa responde a señales de inflación y tasas",
-          "source": "Czech National Bank",
-          "impact": "medium",
-          "category": "Tasas / FX",
-          "published_at": "2026-07-30T10:00:00Z",
-          "url": "https://www.cnb.cz/en/monetary-policy/",
-          "summary": "Una corona fuerte puede elevar el costo diario aun cuando vuelos y hoteles sigan competitivos."
-        }
-      ],
-      "rank": 10
     },
     {
       "id": "cruise-japan-korea",
@@ -2037,187 +1817,187 @@
       "seasonality": "Abril–mayo y septiembre–noviembre.",
       "cruise_provider": "Celebrity / Royal Caribbean",
       "cruise_route": "Yokohama–Busan–Nagasaki",
-      "current_local_per_usd": 157.880961,
-      "current_local_per_mxn": 9.210767,
-      "historical_average_local_per_usd": 155.862934,
-      "fx_advantage_pct": 1.29,
-      "fx_score": 55.2,
+      "current_local_per_usd": 158.95122,
+      "current_local_per_mxn": 9.273517,
+      "historical_average_local_per_usd": 155.894961,
+      "fx_advantage_pct": 1.96,
+      "fx_score": 57.8,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 7.84,
+      "volatility_annualized_pct": 7.85,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
+          "date": "2025-08-26",
+          "local_per_usd": 147.37
+        },
+        {
+          "date": "2025-09-04",
+          "local_per_usd": 148.33
+        },
+        {
+          "date": "2025-09-15",
+          "local_per_usd": 147.36
+        },
+        {
+          "date": "2025-09-24",
+          "local_per_usd": 148.44
+        },
+        {
+          "date": "2025-10-03",
           "local_per_usd": 147.35
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 148.61
+          "date": "2025-10-14",
+          "local_per_usd": 152.1
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 147.92
+          "date": "2025-10-23",
+          "local_per_usd": 152.63
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 147.8
+          "date": "2025-11-03",
+          "local_per_usd": 154.22
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 146.78
+          "date": "2025-11-12",
+          "local_per_usd": 154.79
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 152.11
+          "date": "2025-11-21",
+          "local_per_usd": 156.74
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 151.83
+          "date": "2025-12-02",
+          "local_per_usd": 156.07
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 154.18
+          "date": "2025-12-11",
+          "local_per_usd": 155.58
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 154.18
+          "date": "2025-12-22",
+          "local_per_usd": 157.32
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 157.61
+          "date": "2026-01-05",
+          "local_per_usd": 156.83
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 154.8
+          "date": "2026-01-14",
+          "local_per_usd": 158.63
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 156.71
+          "date": "2026-01-23",
+          "local_per_usd": 158.16
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 157.23
+          "date": "2026-02-03",
+          "local_per_usd": 155.85
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 156.93
+          "date": "2026-02-12",
+          "local_per_usd": 153.71
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 158.85
+          "date": "2026-02-23",
+          "local_per_usd": 154.82
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 158.79
+          "date": "2026-03-04",
+          "local_per_usd": 157.11
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 155.06
+          "date": "2026-03-13",
+          "local_per_usd": 159.33
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 153.61
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 155.21
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 157.66
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 158.86
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 158.55
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 158.32
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 158.85
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 159.48
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 157.81
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 157.95
-        },
-        {
-          "date": "2026-05-25",
+          "date": "2026-03-24",
           "local_per_usd": 158.93
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 159.86
+          "date": "2026-04-02",
+          "local_per_usd": 159.6
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 160.2
+          "date": "2026-04-15",
+          "local_per_usd": 159.09
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 161.53
+          "date": "2026-04-24",
+          "local_per_usd": 159.42
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 161.58
+          "date": "2026-05-06",
+          "local_per_usd": 156.21
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 162.14
+          "date": "2026-05-15",
+          "local_per_usd": 158.55
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 163.07
+          "date": "2026-05-26",
+          "local_per_usd": 159.21
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 160.24
+          "date": "2026-06-04",
+          "local_per_usd": 159.8
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 160.19
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 161.68
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 161.15
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 162.22
+        },
+        {
+          "date": "2026-07-23",
+          "local_per_usd": 163.47
+        },
+        {
+          "date": "2026-08-03",
+          "local_per_usd": 156.68
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 158.64
         }
       ],
-      "moderate_daily_mxn": 3723,
-      "luxury_daily_mxn": 9645,
-      "economy_flight_mxn": 18855,
-      "business_flight_mxn": 73706,
-      "moderate_total_7n_mxn": 44916,
-      "business_total_7n_mxn": 141221,
-      "price_score": 77.9,
-      "roi_score": 79.3,
-      "value_for_money": 7.9,
+      "moderate_daily_mxn": 3698,
+      "luxury_daily_mxn": 9582,
+      "economy_flight_mxn": 18854,
+      "business_flight_mxn": 73703,
+      "moderate_total_7n_mxn": 44740,
+      "business_total_7n_mxn": 140777,
+      "price_score": 78.1,
+      "roi_score": 80.0,
+      "value_for_money": 8.0,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Jap%C3%B3n+y+Corea+2026-11-08+through+2026-11-15",
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Jap%C3%B3n+y+Corea+2026-11-09+through+2026-11-16",
         "cruise_search": "https://www.google.com/search?q=Celebrity+%2F+Royal+Caribbean+Crucero+Jap%C3%B3n+y+Corea+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-japan-korea-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+1.3%)",
+          "id": "cruise-japan-korea-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+2.0%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.131671+00:00",
+          "published_at": "2026-08-11T10:38:29.992203+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.8%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2230,6 +2010,226 @@
           "published_at": "2026-08-05T12:00:00Z",
           "url": "https://www.reuters.com/world/asia-pacific/us-dollar-retain-strength-yen-intervention-no-game-changer-2026-08-05/",
           "summary": "Japón conserva ventaja, mientras Corea puede encarecerse si el won continúa apreciándose."
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "id": "prague-czechia",
+      "city": "Praga",
+      "country": "Chequia",
+      "currency": "CZK",
+      "airport": "PRG",
+      "kind": "urban",
+      "tags": [
+        "historia",
+        "arquitectura",
+        "gastronomía"
+      ],
+      "quality_score": 92,
+      "connectivity_score": 78,
+      "proximity_score": 54,
+      "moderate_daily_usd": 115,
+      "luxury_daily_usd": 345,
+      "economy_flight_usd": 1000,
+      "business_flight_usd": 3900,
+      "route_summary": "MEX–PRG con 1 escala",
+      "why_value": "Alta calidad histórica con costos aún inferiores a Europa occidental.",
+      "seasonality": "Abril–mayo y septiembre–octubre.",
+      "cruise_provider": null,
+      "cruise_route": null,
+      "current_local_per_usd": 20.99829,
+      "current_local_per_mxn": 1.22508,
+      "historical_average_local_per_usd": 20.889047,
+      "fx_advantage_pct": 0.52,
+      "fx_score": 52.1,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 6.73,
+      "history_status": "live_frankfurter",
+      "fx_trend": [
+        {
+          "date": "2025-08-26",
+          "local_per_usd": 21.057
+        },
+        {
+          "date": "2025-09-04",
+          "local_per_usd": 20.994
+        },
+        {
+          "date": "2025-09-15",
+          "local_per_usd": 20.676
+        },
+        {
+          "date": "2025-09-24",
+          "local_per_usd": 20.662
+        },
+        {
+          "date": "2025-10-03",
+          "local_per_usd": 20.689
+        },
+        {
+          "date": "2025-10-14",
+          "local_per_usd": 21.054
+        },
+        {
+          "date": "2025-10-23",
+          "local_per_usd": 20.968
+        },
+        {
+          "date": "2025-11-03",
+          "local_per_usd": 21.139
+        },
+        {
+          "date": "2025-11-12",
+          "local_per_usd": 20.93
+        },
+        {
+          "date": "2025-11-21",
+          "local_per_usd": 21.037
+        },
+        {
+          "date": "2025-12-02",
+          "local_per_usd": 20.803
+        },
+        {
+          "date": "2025-12-11",
+          "local_per_usd": 20.676
+        },
+        {
+          "date": "2025-12-22",
+          "local_per_usd": 20.707
+        },
+        {
+          "date": "2026-01-05",
+          "local_per_usd": 20.743
+        },
+        {
+          "date": "2026-01-14",
+          "local_per_usd": 20.824
+        },
+        {
+          "date": "2026-01-23",
+          "local_per_usd": 20.658
+        },
+        {
+          "date": "2026-02-03",
+          "local_per_usd": 20.602
+        },
+        {
+          "date": "2026-02-12",
+          "local_per_usd": 20.419
+        },
+        {
+          "date": "2026-02-23",
+          "local_per_usd": 20.556
+        },
+        {
+          "date": "2026-03-04",
+          "local_per_usd": 20.912
+        },
+        {
+          "date": "2026-03-13",
+          "local_per_usd": 21.294
+        },
+        {
+          "date": "2026-03-24",
+          "local_per_usd": 21.152
+        },
+        {
+          "date": "2026-04-02",
+          "local_per_usd": 21.293
+        },
+        {
+          "date": "2026-04-15",
+          "local_per_usd": 20.679
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 20.81
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 20.694
+        },
+        {
+          "date": "2026-05-15",
+          "local_per_usd": 20.926
+        },
+        {
+          "date": "2026-05-26",
+          "local_per_usd": 20.85
+        },
+        {
+          "date": "2026-06-04",
+          "local_per_usd": 20.806
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 20.803
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 21.377
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 21.134
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 21.292
+        },
+        {
+          "date": "2026-07-23",
+          "local_per_usd": 21.232
+        },
+        {
+          "date": "2026-08-03",
+          "local_per_usd": 20.985
+        },
+        {
+          "date": "2026-08-10",
+          "local_per_usd": 20.988
+        }
+      ],
+      "moderate_daily_mxn": 1961,
+      "luxury_daily_mxn": 5883,
+      "economy_flight_mxn": 17140,
+      "business_flight_mxn": 66847,
+      "moderate_total_7n_mxn": 30867,
+      "business_total_7n_mxn": 108028,
+      "price_score": 93.5,
+      "roi_score": 79.5,
+      "value_for_money": 8.0,
+      "google_travel": {
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Praga+2026-11-09+through+2026-11-16"
+      },
+      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
+      "news": [
+        {
+          "id": "prague-czechia-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.5%)",
+          "source": "Viajes ASC FX Monitor",
+          "impact": "low",
+          "category": "Mercado cambiario",
+          "published_at": "2026-08-11T10:38:29.989420+00:00",
+          "url": "https://open.er-api.com/v6/latest/USD",
+          "summary": "Semáforo amber; volatilidad anualizada estimada 6.7%. La señal no confirma una tarifa aérea u hotelera."
+        },
+        {
+          "id": "prague-czechia-context-1",
+          "headline": "La corona checa responde a señales de inflación y tasas",
+          "source": "Czech National Bank",
+          "impact": "medium",
+          "category": "Tasas / FX",
+          "published_at": "2026-07-30T10:00:00Z",
+          "url": "https://www.cnb.cz/en/monetary-policy/",
+          "summary": "Una corona fuerte puede elevar el costo diario aun cuando vuelos y hoteles sigan competitivos."
         }
       ],
       "rank": 11
@@ -2258,188 +2258,188 @@
       "seasonality": "Abril–mayo y septiembre–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 1409.640365,
-      "current_local_per_mxn": 82.238348,
-      "historical_average_local_per_usd": 1459.854865,
-      "fx_advantage_pct": -3.44,
-      "fx_score": 36.2,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 8.93,
+      "current_local_per_usd": 1417.000347,
+      "current_local_per_mxn": 82.670497,
+      "historical_average_local_per_usd": 1460.121279,
+      "fx_advantage_pct": -2.95,
+      "fx_score": 38.2,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 8.95,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 1387.28
+          "date": "2025-08-26",
+          "local_per_usd": 1394.36
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 1389.43
+          "date": "2025-09-04",
+          "local_per_usd": 1393.31
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 1391.86
+          "date": "2025-09-15",
+          "local_per_usd": 1387.98
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 1394.55
+          "date": "2025-09-24",
+          "local_per_usd": 1399.28
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 1401.4
+          "date": "2025-10-03",
+          "local_per_usd": 1405.57
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 1427.6
+          "date": "2025-10-14",
+          "local_per_usd": 1434.71
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 1432.66
+          "date": "2025-10-23",
+          "local_per_usd": 1440.43
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 1428.14
+          "date": "2025-11-03",
+          "local_per_usd": 1430.02
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 1465.1
+          "date": "2025-11-12",
+          "local_per_usd": 1465.88
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 1469.35
+          "date": "2025-11-21",
+          "local_per_usd": 1474.29
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 1465.15
+          "date": "2025-12-02",
+          "local_per_usd": 1467.9
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 1469.97
+          "date": "2025-12-11",
+          "local_per_usd": 1471.14
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 1478.72
+          "date": "2025-12-22",
+          "local_per_usd": 1480.39
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 1444.87
+          "date": "2026-01-05",
+          "local_per_usd": 1449.28
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 1474.08
+          "date": "2026-01-14",
+          "local_per_usd": 1475.41
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 1467.72
+          "date": "2026-01-23",
+          "local_per_usd": 1467.55
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 1452.48
+          "date": "2026-02-03",
+          "local_per_usd": 1448.56
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 1451.97
+          "date": "2026-02-12",
+          "local_per_usd": 1438.29
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 1449.66
+          "date": "2026-02-23",
+          "local_per_usd": 1443.55
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 1478.5
+          "date": "2026-03-04",
+          "local_per_usd": 1464.8
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 1480.84
+          "date": "2026-03-13",
+          "local_per_usd": 1491.7
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 1487.52
+          "date": "2026-03-24",
+          "local_per_usd": 1498.86
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 1504.81
+          "date": "2026-04-02",
+          "local_per_usd": 1516.65
         },
         {
-          "date": "2026-04-14",
-          "local_per_usd": 1470.52
+          "date": "2026-04-15",
+          "local_per_usd": 1477.1
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 1479.36
+          "date": "2026-04-24",
+          "local_per_usd": 1477.04
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 1472.95
+          "date": "2026-05-06",
+          "local_per_usd": 1448.1
         },
         {
-          "date": "2026-05-14",
-          "local_per_usd": 1491.73
+          "date": "2026-05-15",
+          "local_per_usd": 1499.62
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 1513.75
+          "date": "2026-05-26",
+          "local_per_usd": 1505.3
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 1530.99
+          "date": "2026-06-04",
+          "local_per_usd": 1532.52
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 1520.21
+          "date": "2026-06-15",
+          "local_per_usd": 1514.3
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 1536.15
+          "date": "2026-06-24",
+          "local_per_usd": 1546.43
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 1548.85
+          "date": "2026-07-03",
+          "local_per_usd": 1531.23
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 1494.09
+          "date": "2026-07-14",
+          "local_per_usd": 1495.49
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 1480.35
+          "date": "2026-07-23",
+          "local_per_usd": 1472.72
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 1443.61
+          "date": "2026-08-03",
+          "local_per_usd": 1427.05
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 1416.62
         }
       ],
-      "moderate_daily_mxn": 1811,
-      "luxury_daily_mxn": 5769,
-      "economy_flight_mxn": 18855,
-      "business_flight_mxn": 73706,
-      "moderate_total_7n_mxn": 31532,
-      "business_total_7n_mxn": 114089,
-      "price_score": 92.7,
-      "roi_score": 78.8,
+      "moderate_daily_mxn": 1802,
+      "luxury_daily_mxn": 5740,
+      "economy_flight_mxn": 18854,
+      "business_flight_mxn": 73703,
+      "moderate_total_7n_mxn": 31468,
+      "business_total_7n_mxn": 113883,
+      "price_score": 92.8,
+      "roi_score": 79.3,
       "value_for_money": 7.9,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Se%C3%BAl+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Se%C3%BAl+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "seoul-korea-fx-2026-08-10",
-          "headline": "La moneda local cotiza 3.4% más fuerte que la referencia",
+          "id": "seoul-korea-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (-3.0%)",
           "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
+          "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.127499+00:00",
+          "published_at": "2026-08-11T10:38:29.988102+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 8.9%. La señal no confirma una tarifa aérea u hotelera."
+          "summary": "Semáforo amber; volatilidad anualizada estimada 8.9%. La señal no confirma una tarifa aérea u hotelera."
         },
         {
           "id": "seoul-korea-context-1",
@@ -2478,187 +2478,187 @@
       "seasonality": "Abril–junio y septiembre–octubre.",
       "cruise_provider": "Royal Caribbean / Celebrity",
       "cruise_route": "Atenas–Santorini–Mykonos–Estambul",
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.859403,
-      "fx_advantage_pct": 0.71,
-      "fx_score": 52.8,
+      "current_local_per_usd": 0.865948,
+      "current_local_per_mxn": 0.050521,
+      "historical_average_local_per_usd": 0.859377,
+      "fx_advantage_pct": 0.76,
+      "fx_score": 53.1,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.63,
+      "volatility_annualized_pct": 5.62,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 0.85492
+          "date": "2025-08-26",
+          "local_per_usd": 0.85793
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 0.85815
+          "date": "2025-09-04",
+          "local_per_usd": 0.85859
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 0.85339
+          "date": "2025-09-15",
+          "local_per_usd": 0.84991
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 0.84796
+          "date": "2025-09-24",
+          "local_per_usd": 0.85063
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 0.85077
+          "date": "2025-10-03",
+          "local_per_usd": 0.85222
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 0.86438
+          "date": "2025-10-14",
+          "local_per_usd": 0.86558
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 0.86304
+          "date": "2025-10-23",
+          "local_per_usd": 0.86259
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 0.8655
-        },
-        {
-          "date": "2025-11-11",
-          "local_per_usd": 0.86393
-        },
-        {
-          "date": "2025-11-20",
+          "date": "2025-11-03",
           "local_per_usd": 0.86851
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 0.85866
+          "date": "2025-11-12",
+          "local_per_usd": 0.86386
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 0.85955
+          "date": "2025-11-21",
+          "local_per_usd": 0.86806
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 0.85383
-        },
-        {
-          "date": "2026-01-02",
-          "local_per_usd": 0.85317
-        },
-        {
-          "date": "2026-01-13",
-          "local_per_usd": 0.85807
-        },
-        {
-          "date": "2026-01-22",
-          "local_per_usd": 0.85426
-        },
-        {
-          "date": "2026-02-02",
-          "local_per_usd": 0.84459
-        },
-        {
-          "date": "2026-02-11",
-          "local_per_usd": 0.84034
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 0.84983
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 0.86162
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 0.86603
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 0.86237
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.8617
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 0.84796
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 0.85514
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 0.85572
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 0.85455
-        },
-        {
-          "date": "2026-05-25",
-          "local_per_usd": 0.85889
-        },
-        {
-          "date": "2026-06-03",
+          "date": "2025-12-02",
           "local_per_usd": 0.86103
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 0.86453
+          "date": "2025-12-11",
+          "local_per_usd": 0.85368
         },
         {
-          "date": "2026-06-23",
+          "date": "2025-12-22",
+          "local_per_usd": 0.85143
+        },
+        {
+          "date": "2026-01-05",
+          "local_per_usd": 0.85734
+        },
+        {
+          "date": "2026-01-14",
+          "local_per_usd": 0.8583
+        },
+        {
+          "date": "2026-01-23",
+          "local_per_usd": 0.85164
+        },
+        {
+          "date": "2026-02-03",
+          "local_per_usd": 0.84739
+        },
+        {
+          "date": "2026-02-12",
+          "local_per_usd": 0.84218
+        },
+        {
+          "date": "2026-02-23",
+          "local_per_usd": 0.84861
+        },
+        {
+          "date": "2026-03-04",
+          "local_per_usd": 0.85844
+        },
+        {
+          "date": "2026-03-13",
+          "local_per_usd": 0.87138
+        },
+        {
+          "date": "2026-03-24",
+          "local_per_usd": 0.86415
+        },
+        {
+          "date": "2026-04-02",
+          "local_per_usd": 0.86768
+        },
+        {
+          "date": "2026-04-15",
+          "local_per_usd": 0.8489
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 0.8502
+        },
+        {
+          "date": "2026-05-15",
+          "local_per_usd": 0.85999
+        },
+        {
+          "date": "2026-05-26",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2026-06-04",
+          "local_per_usd": 0.85911
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 0.86155
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 0.88183
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 0.87352
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 0.87681
+        },
+        {
+          "date": "2026-07-23",
           "local_per_usd": 0.87781
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 0.87727
-        },
-        {
-          "date": "2026-07-13",
-          "local_per_usd": 0.87535
-        },
-        {
-          "date": "2026-07-22",
-          "local_per_usd": 0.87658
-        },
-        {
-          "date": "2026-07-31",
-          "local_per_usd": 0.8707
+          "date": "2026-08-03",
+          "local_per_usd": 0.86693
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 0.86543
         }
       ],
-      "moderate_daily_mxn": 3574,
-      "luxury_daily_mxn": 9191,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 42159,
-      "business_total_7n_mxn": 131187,
-      "price_score": 80.9,
+      "moderate_daily_mxn": 3572,
+      "luxury_daily_mxn": 9186,
+      "economy_flight_mxn": 17140,
+      "business_flight_mxn": 66847,
+      "moderate_total_7n_mxn": 42144,
+      "business_total_7n_mxn": 131149,
+      "price_score": 81.0,
       "roi_score": 78.7,
       "value_for_money": 7.9,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Mediterr%C3%A1neo+Oriental+2026-11-08+through+2026-11-15",
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Mediterr%C3%A1neo+Oriental+2026-11-09+through+2026-11-16",
         "cruise_search": "https://www.google.com/search?q=Royal+Caribbean+%2F+Celebrity+Crucero+Mediterr%C3%A1neo+Oriental+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-eastern-med-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "id": "cruise-eastern-med-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.8%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.131252+00:00",
+          "published_at": "2026-08-11T10:38:29.991824+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2699,155 +2699,155 @@
       "seasonality": "Febrero–agosto, según patrón de lluvias.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 4.09106,
-      "current_local_per_mxn": 0.238672,
-      "historical_average_local_per_usd": 4.07374,
-      "fx_advantage_pct": 0.43,
-      "fx_score": 51.7,
+      "current_local_per_usd": 4.09113,
+      "current_local_per_mxn": 0.238684,
+      "historical_average_local_per_usd": 4.073144,
+      "fx_advantage_pct": 0.44,
+      "fx_score": 51.8,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.1,
+      "volatility_annualized_pct": 5.11,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 4.2075
+          "date": "2025-08-26",
+          "local_per_usd": 4.2155
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 4.2275
+          "date": "2025-09-04",
+          "local_per_usd": 4.225
         },
         {
-          "date": "2025-09-12",
+          "date": "2025-09-15",
           "local_per_usd": 4.205
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 4.1985
+          "date": "2025-09-24",
+          "local_per_usd": 4.21
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 4.2055
+          "date": "2025-10-03",
+          "local_per_usd": 4.208
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 4.2277
+          "date": "2025-10-14",
+          "local_per_usd": 4.23
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 4.2127
+          "date": "2025-10-23",
+          "local_per_usd": 4.229
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 4.188
+          "date": "2025-11-03",
+          "local_per_usd": 4.1995
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 4.139
+          "date": "2025-11-12",
+          "local_per_usd": 4.1365
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 4.1565
+          "date": "2025-11-21",
+          "local_per_usd": 4.149
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 4.131
+          "date": "2025-12-02",
+          "local_per_usd": 4.1325
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 4.118
+          "date": "2025-12-11",
+          "local_per_usd": 4.11
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 4.077
+          "date": "2025-12-22",
+          "local_per_usd": 4.078
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 4.054
+          "date": "2026-01-05",
+          "local_per_usd": 4.0725
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 4.0575
+          "date": "2026-01-14",
+          "local_per_usd": 4.048
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 4.04
+          "date": "2026-01-23",
+          "local_per_usd": 4.0055
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 3.942
+          "date": "2026-02-03",
+          "local_per_usd": 3.9325
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 3.915
+          "date": "2026-02-12",
+          "local_per_usd": 3.9025
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 3.903
+          "date": "2026-02-23",
+          "local_per_usd": 3.891
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 3.946
+          "date": "2026-03-04",
+          "local_per_usd": 3.9415
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 3.927
+          "date": "2026-03-13",
+          "local_per_usd": 3.9385
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 3.9395
+          "date": "2026-03-24",
+          "local_per_usd": 3.9565
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 4.027
+          "date": "2026-04-02",
+          "local_per_usd": 4.039
         },
         {
-          "date": "2026-04-14",
+          "date": "2026-04-15",
+          "local_per_usd": 3.955
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 3.965
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 3.925
+        },
+        {
+          "date": "2026-05-15",
           "local_per_usd": 3.951
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 3.9635
+          "date": "2026-05-26",
+          "local_per_usd": 3.965
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 3.9625
+          "date": "2026-06-04",
+          "local_per_usd": 4.013
         },
         {
-          "date": "2026-05-14",
-          "local_per_usd": 3.9315
+          "date": "2026-06-15",
+          "local_per_usd": 4.0505
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 3.9525
+          "date": "2026-06-24",
+          "local_per_usd": 4.138
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 3.9945
-        },
-        {
-          "date": "2026-06-12",
-          "local_per_usd": 4.0575
-        },
-        {
-          "date": "2026-06-23",
-          "local_per_usd": 4.1405
-        },
-        {
-          "date": "2026-07-02",
-          "local_per_usd": 4.08
-        },
-        {
-          "date": "2026-07-13",
+          "date": "2026-07-03",
           "local_per_usd": 4.071
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 4.087
+          "date": "2026-07-14",
+          "local_per_usd": 4.078
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 4.0865
+          "date": "2026-07-23",
+          "local_per_usd": 4.089
+        },
+        {
+          "date": "2026-08-03",
+          "local_per_usd": 4.0955
         },
         {
           "date": "2026-08-10",
@@ -2855,30 +2855,30 @@
         }
       ],
       "moderate_daily_mxn": 1297,
-      "luxury_daily_mxn": 4182,
-      "economy_flight_mxn": 21426,
-      "business_flight_mxn": 77134,
-      "moderate_total_7n_mxn": 30505,
-      "business_total_7n_mxn": 106408,
+      "luxury_daily_mxn": 4181,
+      "economy_flight_mxn": 21425,
+      "business_flight_mxn": 77132,
+      "moderate_total_7n_mxn": 30504,
+      "business_total_7n_mxn": 106399,
       "price_score": 93.9,
       "roi_score": 77.2,
       "value_for_money": 7.7,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Kuala+Lumpur+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Kuala+Lumpur+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "kuala-lumpur-malaysia-fx-2026-08-10",
+          "id": "kuala-lumpur-malaysia-fx-2026-08-11",
           "headline": "El tipo de cambio se mantiene en zona neutral (+0.4%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.129259+00:00",
+          "published_at": "2026-08-11T10:38:29.989830+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.1%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2919,11 +2919,11 @@
       "seasonality": "Octubre–abril; septiembre puede ofrecer valor adicional.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 49.817643,
-      "current_local_per_mxn": 2.906359,
+      "current_local_per_usd": 49.942126,
+      "current_local_per_mxn": 2.913719,
       "historical_average_local_per_usd": 49.0,
-      "fx_advantage_pct": 1.67,
-      "fx_score": 53.9,
+      "fx_advantage_pct": 1.92,
+      "fx_score": 54.9,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 18.0,
@@ -2936,85 +2936,85 @@
         },
         {
           "date": "2025-10-01",
-          "local_per_usd": 49.166126,
+          "local_per_usd": 49.177442,
           "modeled": true
         },
         {
           "date": "2025-11-01",
-          "local_per_usd": 49.13528,
+          "local_per_usd": 49.157914,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 49.125338,
+          "local_per_usd": 49.159287,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 49.267932,
+          "local_per_usd": 49.313199,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 49.456437,
+          "local_per_usd": 49.513021,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 49.512515,
+          "local_per_usd": 49.580415,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 49.464677,
+          "local_per_usd": 49.543893,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 49.50375,
+          "local_per_usd": 49.594283,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 49.684807,
+          "local_per_usd": 49.786656,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 49.841144,
+          "local_per_usd": 49.95431,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 49.817643,
+          "local_per_usd": 49.942126,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 1180,
-      "luxury_daily_mxn": 3962,
-      "economy_flight_mxn": 17998,
-      "business_flight_mxn": 68564,
-      "moderate_total_7n_mxn": 26258,
-      "business_total_7n_mxn": 96298,
+      "moderate_daily_mxn": 1177,
+      "luxury_daily_mxn": 3952,
+      "economy_flight_mxn": 17997,
+      "business_flight_mxn": 68561,
+      "moderate_total_7n_mxn": 26236,
+      "business_total_7n_mxn": 96225,
       "price_score": 98.6,
-      "roi_score": 76.9,
+      "roi_score": 77.1,
       "value_for_money": 7.7,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+El+Cairo+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+El+Cairo+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cairo-egypt-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+1.7%)",
+          "id": "cairo-egypt-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+1.9%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.127621+00:00",
+          "published_at": "2026-08-11T10:38:29.988191+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 18.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3055,187 +3055,187 @@
       "seasonality": "Noviembre–marzo.",
       "cruise_provider": "Royal Caribbean / Celebrity",
       "cruise_route": "Singapur–Penang–Phuket–Vietnam",
-      "current_local_per_usd": 1.279137,
-      "current_local_per_mxn": 0.074625,
-      "historical_average_local_per_usd": 1.28489,
-      "fx_advantage_pct": -0.45,
-      "fx_score": 48.2,
+      "current_local_per_usd": 1.280115,
+      "current_local_per_mxn": 0.074684,
+      "historical_average_local_per_usd": 1.284876,
+      "fx_advantage_pct": -0.37,
+      "fx_score": 48.5,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 3.62,
+      "volatility_annualized_pct": 3.63,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 1.2831
+          "date": "2025-08-26",
+          "local_per_usd": 1.2849
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 1.2885
+          "date": "2025-09-04",
+          "local_per_usd": 1.289
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 1.2837
+          "date": "2025-09-15",
+          "local_per_usd": 1.2807
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 1.2836
+          "date": "2025-09-24",
+          "local_per_usd": 1.2868
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 1.287
+          "date": "2025-10-03",
+          "local_per_usd": 1.2893
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 1.2987
-        },
-        {
-          "date": "2025-10-22",
-          "local_per_usd": 1.299
-        },
-        {
-          "date": "2025-10-31",
+          "date": "2025-10-14",
           "local_per_usd": 1.3016
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 1.3017
+          "date": "2025-10-23",
+          "local_per_usd": 1.2996
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 1.3075
+          "date": "2025-11-03",
+          "local_per_usd": 1.3039
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 1.2936
+          "date": "2025-11-12",
+          "local_per_usd": 1.3028
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 1.2961
+          "date": "2025-11-21",
+          "local_per_usd": 1.3077
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 1.2929
+          "date": "2025-12-02",
+          "local_per_usd": 1.2977
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 1.2863
+          "date": "2025-12-11",
+          "local_per_usd": 1.2931
         },
         {
-          "date": "2026-01-13",
+          "date": "2025-12-22",
+          "local_per_usd": 1.2899
+        },
+        {
+          "date": "2026-01-05",
           "local_per_usd": 1.2876
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 1.2836
+          "date": "2026-01-14",
+          "local_per_usd": 1.288
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 1.2715
+          "date": "2026-01-23",
+          "local_per_usd": 1.2788
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 1.2628
+          "date": "2026-02-03",
+          "local_per_usd": 1.2706
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 1.2689
+          "date": "2026-02-12",
+          "local_per_usd": 1.2619
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 1.278
+          "date": "2026-02-23",
+          "local_per_usd": 1.2664
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 1.2753
+          "date": "2026-03-04",
+          "local_per_usd": 1.2743
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 1.2755
+          "date": "2026-03-13",
+          "local_per_usd": 1.2796
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 1.2818
+          "date": "2026-03-24",
+          "local_per_usd": 1.2806
         },
         {
-          "date": "2026-04-14",
-          "local_per_usd": 1.2713
+          "date": "2026-04-02",
+          "local_per_usd": 1.2871
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 1.2758
+          "date": "2026-04-15",
+          "local_per_usd": 1.2726
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 1.2772
+          "date": "2026-04-24",
+          "local_per_usd": 1.2764
         },
         {
-          "date": "2026-05-14",
-          "local_per_usd": 1.2734
+          "date": "2026-05-06",
+          "local_per_usd": 1.2682
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 1.2774
+          "date": "2026-05-15",
+          "local_per_usd": 1.28
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 1.2821
+          "date": "2026-05-26",
+          "local_per_usd": 1.2778
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 1.2842
+          "date": "2026-06-04",
+          "local_per_usd": 1.2826
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 1.2959
+          "date": "2026-06-15",
+          "local_per_usd": 1.2822
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 1.2945
+          "date": "2026-06-24",
+          "local_per_usd": 1.2982
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 1.2925
+          "date": "2026-07-03",
+          "local_per_usd": 1.2905
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 1.2912
+          "date": "2026-07-14",
+          "local_per_usd": 1.2927
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 1.2849
+          "date": "2026-07-23",
+          "local_per_usd": 1.2913
+        },
+        {
+          "date": "2026-08-03",
+          "local_per_usd": 1.2816
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 1.2795
         }
       ],
-      "moderate_daily_mxn": 3358,
-      "luxury_daily_mxn": 8265,
-      "economy_flight_mxn": 21426,
-      "business_flight_mxn": 78848,
-      "moderate_total_7n_mxn": 44932,
-      "business_total_7n_mxn": 136703,
+      "moderate_daily_mxn": 3355,
+      "luxury_daily_mxn": 8258,
+      "economy_flight_mxn": 21425,
+      "business_flight_mxn": 78846,
+      "moderate_total_7n_mxn": 44910,
+      "business_total_7n_mxn": 136652,
       "price_score": 77.9,
-      "roi_score": 74.9,
+      "roi_score": 75.0,
       "value_for_money": 7.5,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Sudeste+Asi%C3%A1tico+2026-11-08+through+2026-11-15",
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Sudeste+Asi%C3%A1tico+2026-11-09+through+2026-11-16",
         "cruise_search": "https://www.google.com/search?q=Royal+Caribbean+%2F+Celebrity+Crucero+Sudeste+Asi%C3%A1tico+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-southeast-asia-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (-0.5%)",
+          "id": "cruise-southeast-asia-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (-0.4%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.130856+00:00",
+          "published_at": "2026-08-11T10:38:29.991412+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 3.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3276,188 +3276,188 @@
       "seasonality": "Abril–junio y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 314.849876,
-      "current_local_per_mxn": 18.368326,
-      "historical_average_local_per_usd": 324.671429,
-      "fx_advantage_pct": -3.03,
-      "fx_score": 37.3,
-      "traffic_light": "red",
-      "traffic_label": "Moneda local fuerte",
+      "current_local_per_usd": 315.194628,
+      "current_local_per_mxn": 18.389054,
+      "historical_average_local_per_usd": 324.59031,
+      "fx_advantage_pct": -2.89,
+      "fx_score": 37.9,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 11.58,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 339.75
+          "date": "2025-08-26",
+          "local_per_usd": 340.49
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 337.51
+          "date": "2025-09-04",
+          "local_per_usd": 337.55
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 333.79
+          "date": "2025-09-15",
+          "local_per_usd": 331.4
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 330.07
+          "date": "2025-09-24",
+          "local_per_usd": 332.66
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 330.74
+          "date": "2025-10-03",
+          "local_per_usd": 331.41
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 339.42
+          "date": "2025-10-14",
+          "local_per_usd": 340.17
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 336.06
+          "date": "2025-10-23",
+          "local_per_usd": 336.4
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 335.9
+          "date": "2025-11-03",
+          "local_per_usd": 336.42
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 333.18
+          "date": "2025-11-12",
+          "local_per_usd": 332.63
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 332.2
+          "date": "2025-11-21",
+          "local_per_usd": 332.84
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 326.84
+          "date": "2025-12-02",
+          "local_per_usd": 327.91
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 329.9
+          "date": "2025-12-11",
+          "local_per_usd": 328.23
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 330.26
+          "date": "2025-12-22",
+          "local_per_usd": 330.25
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 327.26
+          "date": "2026-01-05",
+          "local_per_usd": 329.69
         },
         {
-          "date": "2026-01-13",
-          "local_per_usd": 331.86
+          "date": "2026-01-14",
+          "local_per_usd": 332.12
         },
         {
-          "date": "2026-01-22",
-          "local_per_usd": 326.93
+          "date": "2026-01-23",
+          "local_per_usd": 325.46
         },
         {
-          "date": "2026-02-02",
-          "local_per_usd": 321.96
+          "date": "2026-02-03",
+          "local_per_usd": 322.35
         },
         {
-          "date": "2026-02-11",
-          "local_per_usd": 318.51
+          "date": "2026-02-12",
+          "local_per_usd": 319.93
         },
         {
-          "date": "2026-02-20",
-          "local_per_usd": 322.64
+          "date": "2026-02-23",
+          "local_per_usd": 322.17
         },
         {
-          "date": "2026-03-03",
-          "local_per_usd": 334.22
+          "date": "2026-03-04",
+          "local_per_usd": 329.93
         },
         {
-          "date": "2026-03-12",
-          "local_per_usd": 335.62
+          "date": "2026-03-13",
+          "local_per_usd": 341.13
         },
         {
-          "date": "2026-03-23",
-          "local_per_usd": 334.99
+          "date": "2026-03-24",
+          "local_per_usd": 336.92
         },
         {
-          "date": "2026-04-01",
-          "local_per_usd": 329.08
+          "date": "2026-04-02",
+          "local_per_usd": 333.13
         },
         {
-          "date": "2026-04-14",
-          "local_per_usd": 308.53
+          "date": "2026-04-15",
+          "local_per_usd": 309.75
         },
         {
-          "date": "2026-04-23",
-          "local_per_usd": 312.03
+          "date": "2026-04-24",
+          "local_per_usd": 312.07
         },
         {
-          "date": "2026-05-05",
-          "local_per_usd": 310.48
+          "date": "2026-05-06",
+          "local_per_usd": 305.35
         },
         {
-          "date": "2026-05-14",
+          "date": "2026-05-15",
+          "local_per_usd": 309.41
+        },
+        {
+          "date": "2026-05-26",
           "local_per_usd": 305.44
         },
         {
-          "date": "2026-05-25",
-          "local_per_usd": 306.06
+          "date": "2026-06-04",
+          "local_per_usd": 304.41
         },
         {
-          "date": "2026-06-03",
-          "local_per_usd": 305.54
+          "date": "2026-06-15",
+          "local_per_usd": 301.96
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 305.07
+          "date": "2026-06-24",
+          "local_per_usd": 314.09
         },
         {
-          "date": "2026-06-23",
-          "local_per_usd": 311.25
+          "date": "2026-07-03",
+          "local_per_usd": 308.44
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 312.29
+          "date": "2026-07-14",
+          "local_per_usd": 316.82
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 312.31
+          "date": "2026-07-23",
+          "local_per_usd": 319.92
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 318.99
-        },
-        {
-          "date": "2026-07-31",
-          "local_per_usd": 317.15
+          "date": "2026-08-03",
+          "local_per_usd": 315.54
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 314.71
         }
       ],
-      "moderate_daily_mxn": 1697,
-      "luxury_daily_mxn": 5391,
-      "economy_flight_mxn": 17141,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 29020,
-      "business_total_7n_mxn": 104587,
+      "moderate_daily_mxn": 1695,
+      "luxury_daily_mxn": 5384,
+      "economy_flight_mxn": 17140,
+      "business_flight_mxn": 66847,
+      "moderate_total_7n_mxn": 29005,
+      "business_total_7n_mxn": 104535,
       "price_score": 95.5,
-      "roi_score": 74.6,
+      "roi_score": 74.7,
       "value_for_money": 7.5,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Budapest+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Budapest+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "budapest-hungary-fx-2026-08-10",
-          "headline": "La moneda local cotiza 3.0% más fuerte que la referencia",
+          "id": "budapest-hungary-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (-2.9%)",
           "source": "Viajes ASC FX Monitor",
-          "impact": "medium",
+          "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.128453+00:00",
+          "published_at": "2026-08-11T10:38:29.989050+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo red; volatilidad anualizada estimada 11.6%. La señal no confirma una tarifa aérea u hotelera."
+          "summary": "Semáforo amber; volatilidad anualizada estimada 11.6%. La señal no confirma una tarifa aérea u hotelera."
         },
         {
           "id": "budapest-hungary-context-1",
@@ -3496,187 +3496,187 @@
       "seasonality": "Mayo–octubre.",
       "cruise_provider": "Explora Journeys",
       "cruise_route": "Estambul–Atenas–Dubrovnik",
-      "current_local_per_usd": 0.865507,
-      "current_local_per_mxn": 0.050494,
-      "historical_average_local_per_usd": 0.859403,
-      "fx_advantage_pct": 0.71,
-      "fx_score": 52.8,
+      "current_local_per_usd": 0.865948,
+      "current_local_per_mxn": 0.050521,
+      "historical_average_local_per_usd": 0.859377,
+      "fx_advantage_pct": 0.76,
+      "fx_score": 53.1,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 5.63,
+      "volatility_annualized_pct": 5.62,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 0.85492
+          "date": "2025-08-26",
+          "local_per_usd": 0.85793
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 0.85815
+          "date": "2025-09-04",
+          "local_per_usd": 0.85859
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 0.85339
+          "date": "2025-09-15",
+          "local_per_usd": 0.84991
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 0.84796
+          "date": "2025-09-24",
+          "local_per_usd": 0.85063
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 0.85077
+          "date": "2025-10-03",
+          "local_per_usd": 0.85222
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 0.86438
+          "date": "2025-10-14",
+          "local_per_usd": 0.86558
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 0.86304
+          "date": "2025-10-23",
+          "local_per_usd": 0.86259
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 0.8655
-        },
-        {
-          "date": "2025-11-11",
-          "local_per_usd": 0.86393
-        },
-        {
-          "date": "2025-11-20",
+          "date": "2025-11-03",
           "local_per_usd": 0.86851
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 0.85866
+          "date": "2025-11-12",
+          "local_per_usd": 0.86386
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 0.85955
+          "date": "2025-11-21",
+          "local_per_usd": 0.86806
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 0.85383
-        },
-        {
-          "date": "2026-01-02",
-          "local_per_usd": 0.85317
-        },
-        {
-          "date": "2026-01-13",
-          "local_per_usd": 0.85807
-        },
-        {
-          "date": "2026-01-22",
-          "local_per_usd": 0.85426
-        },
-        {
-          "date": "2026-02-02",
-          "local_per_usd": 0.84459
-        },
-        {
-          "date": "2026-02-11",
-          "local_per_usd": 0.84034
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 0.84983
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 0.86162
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 0.86603
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 0.86237
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 0.8617
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 0.84796
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 0.85514
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 0.85572
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 0.85455
-        },
-        {
-          "date": "2026-05-25",
-          "local_per_usd": 0.85889
-        },
-        {
-          "date": "2026-06-03",
+          "date": "2025-12-02",
           "local_per_usd": 0.86103
         },
         {
-          "date": "2026-06-12",
-          "local_per_usd": 0.86453
+          "date": "2025-12-11",
+          "local_per_usd": 0.85368
         },
         {
-          "date": "2026-06-23",
+          "date": "2025-12-22",
+          "local_per_usd": 0.85143
+        },
+        {
+          "date": "2026-01-05",
+          "local_per_usd": 0.85734
+        },
+        {
+          "date": "2026-01-14",
+          "local_per_usd": 0.8583
+        },
+        {
+          "date": "2026-01-23",
+          "local_per_usd": 0.85164
+        },
+        {
+          "date": "2026-02-03",
+          "local_per_usd": 0.84739
+        },
+        {
+          "date": "2026-02-12",
+          "local_per_usd": 0.84218
+        },
+        {
+          "date": "2026-02-23",
+          "local_per_usd": 0.84861
+        },
+        {
+          "date": "2026-03-04",
+          "local_per_usd": 0.85844
+        },
+        {
+          "date": "2026-03-13",
+          "local_per_usd": 0.87138
+        },
+        {
+          "date": "2026-03-24",
+          "local_per_usd": 0.86415
+        },
+        {
+          "date": "2026-04-02",
+          "local_per_usd": 0.86768
+        },
+        {
+          "date": "2026-04-15",
+          "local_per_usd": 0.8489
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 0.85383
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 0.8502
+        },
+        {
+          "date": "2026-05-15",
+          "local_per_usd": 0.85999
+        },
+        {
+          "date": "2026-05-26",
+          "local_per_usd": 0.85955
+        },
+        {
+          "date": "2026-06-04",
+          "local_per_usd": 0.85911
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 0.86155
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 0.88183
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 0.87352
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 0.87681
+        },
+        {
+          "date": "2026-07-23",
           "local_per_usd": 0.87781
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 0.87727
-        },
-        {
-          "date": "2026-07-13",
-          "local_per_usd": 0.87535
-        },
-        {
-          "date": "2026-07-22",
-          "local_per_usd": 0.87658
-        },
-        {
-          "date": "2026-07-31",
-          "local_per_usd": 0.8707
+          "date": "2026-08-03",
+          "local_per_usd": 0.86693
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 0.86543
         }
       ],
-      "moderate_daily_mxn": 6638,
-      "luxury_daily_mxn": 15658,
-      "economy_flight_mxn": 17998,
-      "business_flight_mxn": 66850,
-      "moderate_total_7n_mxn": 64464,
-      "business_total_7n_mxn": 176456,
+      "moderate_daily_mxn": 6634,
+      "luxury_daily_mxn": 15649,
+      "economy_flight_mxn": 17997,
+      "business_flight_mxn": 66847,
+      "moderate_total_7n_mxn": 64435,
+      "business_total_7n_mxn": 176390,
       "price_score": 56.2,
       "roi_score": 73.9,
       "value_for_money": 7.4,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Explora+I+Mediterr%C3%A1neo+Oriental+2026-11-08+through+2026-11-15",
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Explora+I+Mediterr%C3%A1neo+Oriental+2026-11-09+through+2026-11-16",
         "cruise_search": "https://www.google.com/search?q=Explora+Journeys+Explora+I+Mediterr%C3%A1neo+Oriental+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-explora-east-med-fx-2026-08-10",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.7%)",
+          "id": "cruise-explora-east-med-fx-2026-08-11",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.8%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.132061+00:00",
+          "published_at": "2026-08-11T10:38:29.992612+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.6%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3717,186 +3717,186 @@
       "seasonality": "Septiembre–abril.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 16.164503,
-      "current_local_per_mxn": 0.943036,
-      "historical_average_local_per_usd": 16.770047,
-      "fx_advantage_pct": -3.61,
-      "fx_score": 35.1,
+      "current_local_per_usd": 16.182867,
+      "current_local_per_mxn": 0.944139,
+      "historical_average_local_per_usd": 16.765188,
+      "fx_advantage_pct": -3.47,
+      "fx_score": 35.7,
       "traffic_light": "red",
       "traffic_label": "Moneda local fuerte",
-      "volatility_annualized_pct": 11.19,
+      "volatility_annualized_pct": 11.16,
       "history_status": "live_frankfurter",
       "fx_trend": [
         {
-          "date": "2025-08-25",
-          "local_per_usd": 17.5549
+          "date": "2025-08-26",
+          "local_per_usd": 17.6398
         },
         {
-          "date": "2025-09-03",
-          "local_per_usd": 17.6298
+          "date": "2025-09-04",
+          "local_per_usd": 17.7917
         },
         {
-          "date": "2025-09-12",
-          "local_per_usd": 17.3861
+          "date": "2025-09-15",
+          "local_per_usd": 17.3219
         },
         {
-          "date": "2025-09-23",
-          "local_per_usd": 17.3187
+          "date": "2025-09-24",
+          "local_per_usd": 17.2967
         },
         {
-          "date": "2025-10-02",
-          "local_per_usd": 17.1856
+          "date": "2025-10-03",
+          "local_per_usd": 17.2567
         },
         {
-          "date": "2025-10-13",
-          "local_per_usd": 17.3636
+          "date": "2025-10-14",
+          "local_per_usd": 17.463
         },
         {
-          "date": "2025-10-22",
-          "local_per_usd": 17.4601
+          "date": "2025-10-23",
+          "local_per_usd": 17.3484
         },
         {
-          "date": "2025-10-31",
-          "local_per_usd": 17.349
+          "date": "2025-11-03",
+          "local_per_usd": 17.3088
         },
         {
-          "date": "2025-11-11",
-          "local_per_usd": 17.1662
+          "date": "2025-11-12",
+          "local_per_usd": 17.0462
         },
         {
-          "date": "2025-11-20",
-          "local_per_usd": 17.2388
+          "date": "2025-11-21",
+          "local_per_usd": 17.3585
         },
         {
-          "date": "2025-12-01",
-          "local_per_usd": 17.0756
+          "date": "2025-12-02",
+          "local_per_usd": 17.1037
         },
         {
-          "date": "2025-12-10",
-          "local_per_usd": 17.0274
+          "date": "2025-12-11",
+          "local_per_usd": 16.9409
         },
         {
-          "date": "2025-12-19",
-          "local_per_usd": 16.7764
+          "date": "2025-12-22",
+          "local_per_usd": 16.6993
         },
         {
-          "date": "2026-01-02",
-          "local_per_usd": 16.514
-        },
-        {
-          "date": "2026-01-13",
-          "local_per_usd": 16.454
-        },
-        {
-          "date": "2026-01-22",
-          "local_per_usd": 16.2186
-        },
-        {
-          "date": "2026-02-02",
-          "local_per_usd": 16.0282
-        },
-        {
-          "date": "2026-02-11",
-          "local_per_usd": 15.8814
-        },
-        {
-          "date": "2026-02-20",
-          "local_per_usd": 16.0973
-        },
-        {
-          "date": "2026-03-03",
-          "local_per_usd": 16.3934
-        },
-        {
-          "date": "2026-03-12",
-          "local_per_usd": 16.5417
-        },
-        {
-          "date": "2026-03-23",
-          "local_per_usd": 16.8109
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 16.7811
-        },
-        {
-          "date": "2026-04-14",
-          "local_per_usd": 16.3525
-        },
-        {
-          "date": "2026-04-23",
-          "local_per_usd": 16.4679
-        },
-        {
-          "date": "2026-05-05",
-          "local_per_usd": 16.6904
-        },
-        {
-          "date": "2026-05-14",
-          "local_per_usd": 16.4069
-        },
-        {
-          "date": "2026-05-25",
-          "local_per_usd": 16.3292
-        },
-        {
-          "date": "2026-06-03",
-          "local_per_usd": 16.2703
-        },
-        {
-          "date": "2026-06-12",
-          "local_per_usd": 16.3025
-        },
-        {
-          "date": "2026-06-23",
+          "date": "2026-01-05",
           "local_per_usd": 16.4839
         },
         {
-          "date": "2026-07-02",
-          "local_per_usd": 16.3775
+          "date": "2026-01-14",
+          "local_per_usd": 16.3952
         },
         {
-          "date": "2026-07-13",
-          "local_per_usd": 16.3636
+          "date": "2026-01-23",
+          "local_per_usd": 16.1456
         },
         {
-          "date": "2026-07-22",
-          "local_per_usd": 16.4755
+          "date": "2026-02-03",
+          "local_per_usd": 15.9493
         },
         {
-          "date": "2026-07-31",
-          "local_per_usd": 16.575
+          "date": "2026-02-12",
+          "local_per_usd": 15.8952
+        },
+        {
+          "date": "2026-02-23",
+          "local_per_usd": 16.0115
+        },
+        {
+          "date": "2026-03-04",
+          "local_per_usd": 16.3188
+        },
+        {
+          "date": "2026-03-13",
+          "local_per_usd": 16.7963
+        },
+        {
+          "date": "2026-03-24",
+          "local_per_usd": 17.1019
+        },
+        {
+          "date": "2026-04-02",
+          "local_per_usd": 17.0118
+        },
+        {
+          "date": "2026-04-15",
+          "local_per_usd": 16.4149
+        },
+        {
+          "date": "2026-04-24",
+          "local_per_usd": 16.562
+        },
+        {
+          "date": "2026-05-06",
+          "local_per_usd": 16.4053
+        },
+        {
+          "date": "2026-05-15",
+          "local_per_usd": 16.6614
+        },
+        {
+          "date": "2026-05-26",
+          "local_per_usd": 16.3572
+        },
+        {
+          "date": "2026-06-04",
+          "local_per_usd": 16.2394
+        },
+        {
+          "date": "2026-06-15",
+          "local_per_usd": 16.2138
+        },
+        {
+          "date": "2026-06-24",
+          "local_per_usd": 16.6136
+        },
+        {
+          "date": "2026-07-03",
+          "local_per_usd": 16.213
+        },
+        {
+          "date": "2026-07-14",
+          "local_per_usd": 16.4619
+        },
+        {
+          "date": "2026-07-23",
+          "local_per_usd": 16.4398
+        },
+        {
+          "date": "2026-08-03",
+          "local_per_usd": 16.4698
         },
         {
           "date": "2026-08-10",
           "local_per_usd": 16.1772
         }
       ],
-      "moderate_daily_mxn": 1992,
-      "luxury_daily_mxn": 6491,
-      "economy_flight_mxn": 22283,
-      "business_flight_mxn": 82276,
-      "moderate_total_7n_mxn": 36227,
-      "business_total_7n_mxn": 127713,
+      "moderate_daily_mxn": 1989,
+      "luxury_daily_mxn": 6481,
+      "economy_flight_mxn": 22282,
+      "business_flight_mxn": 82274,
+      "moderate_total_7n_mxn": 36205,
+      "business_total_7n_mxn": 127641,
       "price_score": 87.5,
-      "roi_score": 72.2,
+      "roi_score": 72.4,
       "value_for_money": 7.2,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Ciudad+del+Cabo+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Ciudad+del+Cabo+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cape-town-south-africa-fx-2026-08-10",
-          "headline": "La moneda local cotiza 3.6% más fuerte que la referencia",
+          "id": "cape-town-south-africa-fx-2026-08-11",
+          "headline": "La moneda local cotiza 3.5% más fuerte que la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.127987+00:00",
+          "published_at": "2026-08-11T10:38:29.988578+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 11.2%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3937,11 +3937,11 @@
       "seasonality": "Marzo–mayo y septiembre–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 9.305289,
-      "current_local_per_mxn": 0.54287,
+      "current_local_per_usd": 9.310714,
+      "current_local_per_mxn": 0.543205,
       "historical_average_local_per_usd": 10.0,
-      "fx_advantage_pct": -6.95,
-      "fx_score": 22.2,
+      "fx_advantage_pct": -6.89,
+      "fx_score": 22.4,
       "traffic_light": "red",
       "traffic_label": "Moneda local fuerte",
       "volatility_annualized_pct": 4.0,
@@ -3954,85 +3954,85 @@
         },
         {
           "date": "2025-10-01",
-          "local_per_usd": 9.960569,
+          "local_per_usd": 9.960877,
           "modeled": true
         },
         {
           "date": "2025-11-01",
-          "local_per_usd": 9.884081,
+          "local_per_usd": 9.884986,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 9.79136,
+          "local_per_usd": 9.79299,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 9.728588,
+          "local_per_usd": 9.730708,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 9.695165,
+          "local_per_usd": 9.697545,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 9.644649,
+          "local_per_usd": 9.647424,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 9.557298,
+          "local_per_usd": 9.560755,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 9.470904,
+          "local_per_usd": 9.475036,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 9.421766,
+          "local_per_usd": 9.426282,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 9.387988,
+          "local_per_usd": 9.392768,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 9.305289,
+          "local_per_usd": 9.310714,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 1768,
-      "luxury_daily_mxn": 6171,
-      "economy_flight_mxn": 19712,
-      "business_flight_mxn": 71992,
-      "moderate_total_7n_mxn": 32088,
-      "business_total_7n_mxn": 115189,
+      "moderate_daily_mxn": 1767,
+      "luxury_daily_mxn": 6167,
+      "economy_flight_mxn": 19711,
+      "business_flight_mxn": 71989,
+      "moderate_total_7n_mxn": 32080,
+      "business_total_7n_mxn": 115158,
       "price_score": 92.1,
-      "roi_score": 70.9,
+      "roi_score": 71.0,
       "value_for_money": 7.1,
       "google_travel": {
-        "default_start": "2026-11-08",
-        "default_end": "2026-11-15",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2026-11-08+through+2026-11-15+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2026-11-08+through+2026-11-15+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Marrakech+2026-11-08+through+2026-11-15"
+        "default_start": "2026-11-09",
+        "default_end": "2026-11-16",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2026-11-09+through+2026-11-16+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2026-11-09+through+2026-11-16+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Marrakech+2026-11-09+through+2026-11-16"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "marrakech-morocco-fx-2026-08-10",
-          "headline": "La moneda local cotiza 7.0% más fuerte que la referencia",
+          "id": "marrakech-morocco-fx-2026-08-11",
+          "headline": "La moneda local cotiza 6.9% más fuerte que la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-08-10T22:08:54.128069+00:00",
+          "published_at": "2026-08-11T10:38:29.988664+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 4.0%. La señal no confirma una tarifa aérea u hotelera."
         },
