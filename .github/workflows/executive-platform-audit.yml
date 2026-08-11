@@ -137,3 +137,8 @@ jobs:
           grep -q "Global Currency Intelligence" /tmp/portal.html
           curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/data/macro-latest.json > /tmp/macro.json
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('/tmp/macro.json'));if(!['connected','degraded'].includes(x.overallStatus))process.exit(1)"
+      - name: Validate public briefing and audio synchronization
+        run: |
+          curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/data/daily-briefing-latest.json > /tmp/public-briefing.json
+          curl --fail --silent --show-error --max-time 20 --retry 12 --retry-delay 5 --retry-max-time 90 --retry-all-errors https://alexm3x.github.io/alex-global-currency-intelligence/podcast/latest.json > /tmp/public-podcast.json
+          node -e "const fs=require('fs');const b=JSON.parse(fs.readFileSync('/tmp/public-briefing.json'));const p=JSON.parse(fs.readFileSync('/tmp/public-podcast.json'));if(!b.date||b.date!==p.date||p.status!=='published'||!p.audioUrl||p.sourceUrl!=='data/daily-briefing-latest.json')process.exit(1)"
