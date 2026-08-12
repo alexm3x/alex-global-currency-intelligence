@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T23:12:53.320Z",
+  "generatedAt": "2026-08-12T23:08:53.298Z",
   "status": "learning-active",
   "methodology": {
     "horizonsDays": [
@@ -13,11 +13,11 @@
     "directionalRule": "Buy-zone observations are directional hits when forward return is positive; wait/overvaluation observations are hits when forward return is non-positive. Observe-zone decisions are not scored as binary hits."
   },
   "history": {
-    "snapshots": 2,
+    "snapshots": 3,
     "firstDate": "2026-08-10",
-    "lastDate": "2026-08-11",
-    "calendarSpanDays": 1,
-    "forwardObservations": 10,
+    "lastDate": "2026-08-12",
+    "calendarSpanDays": 2,
+    "forwardObservations": 20,
     "measurableHorizons": [
       "1d"
     ]
@@ -25,10 +25,10 @@
   "byHorizon": {
     "1d": {
       "all": {
-        "observations": 10,
-        "averageForwardReturnPct": -0.52,
-        "medianForwardReturnPct": -0.21,
-        "directionalObservations": 5,
+        "observations": 20,
+        "averageForwardReturnPct": -0.46,
+        "medianForwardReturnPct": -0.06,
+        "directionalObservations": 10,
         "directionalHitRatePct": 80,
         "status": "measurable"
       },
@@ -41,28 +41,28 @@
         "status": "insufficient-history"
       },
       "cautionTerrain": {
-        "observations": 5,
-        "averageForwardReturnPct": -1.38,
-        "medianForwardReturnPct": -0.88,
-        "directionalObservations": 5,
+        "observations": 10,
+        "averageForwardReturnPct": -1.12,
+        "medianForwardReturnPct": -0.81,
+        "directionalObservations": 10,
         "directionalHitRatePct": 80,
         "status": "measurable"
       },
       "contextualSupport": {
-        "observations": 4,
-        "averageForwardReturnPct": -1.43,
-        "medianForwardReturnPct": -1.26,
-        "directionalObservations": 3,
+        "observations": 7,
+        "averageForwardReturnPct": -1.03,
+        "medianForwardReturnPct": -0.44,
+        "directionalObservations": 5,
         "directionalHitRatePct": 100,
-        "status": "insufficient-history"
+        "status": "measurable"
       },
       "contextualCaution": {
-        "observations": 1,
-        "averageForwardReturnPct": 0.42,
-        "medianForwardReturnPct": 0.42,
-        "directionalObservations": 0,
-        "directionalHitRatePct": null,
-        "status": "insufficient-history"
+        "observations": 7,
+        "averageForwardReturnPct": -0.04,
+        "medianForwardReturnPct": 0.01,
+        "directionalObservations": 2,
+        "directionalHitRatePct": 50,
+        "status": "measurable"
       }
     },
     "5d": {
@@ -153,59 +153,59 @@
   "byTicker": {
     "AMZN": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": -2.09,
-        "medianForwardReturnPct": -2.09,
-        "directionalObservations": 1,
+        "observations": 2,
+        "averageForwardReturnPct": -1.96,
+        "medianForwardReturnPct": -1.96,
+        "directionalObservations": 2,
         "directionalHitRatePct": 100,
         "status": "insufficient-history"
       }
     },
     "GE": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": 0.37,
-        "medianForwardReturnPct": 0.37,
-        "directionalObservations": 1,
-        "directionalHitRatePct": 0,
+        "observations": 2,
+        "averageForwardReturnPct": -0.18,
+        "medianForwardReturnPct": -0.18,
+        "directionalObservations": 2,
+        "directionalHitRatePct": 50,
         "status": "insufficient-history"
       }
     },
     "COST": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": -0.88,
-        "medianForwardReturnPct": -0.88,
-        "directionalObservations": 1,
-        "directionalHitRatePct": 100,
+        "observations": 2,
+        "averageForwardReturnPct": -0.16,
+        "medianForwardReturnPct": -0.16,
+        "directionalObservations": 2,
+        "directionalHitRatePct": 50,
         "status": "insufficient-history"
       }
     },
     "MSFT": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": -0.44,
-        "medianForwardReturnPct": -0.44,
-        "directionalObservations": 1,
+        "observations": 2,
+        "averageForwardReturnPct": -1.35,
+        "medianForwardReturnPct": -1.35,
+        "directionalObservations": 2,
         "directionalHitRatePct": 100,
         "status": "insufficient-history"
       }
     },
     "GOOGL": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": -3.84,
-        "medianForwardReturnPct": -3.84,
-        "directionalObservations": 1,
+        "observations": 2,
+        "averageForwardReturnPct": -1.96,
+        "medianForwardReturnPct": -1.96,
+        "directionalObservations": 2,
         "directionalHitRatePct": 100,
         "status": "insufficient-history"
       }
     },
     "JPM": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": 0.63,
-        "medianForwardReturnPct": 0.63,
+        "observations": 2,
+        "averageForwardReturnPct": 0.75,
+        "medianForwardReturnPct": 0.75,
         "directionalObservations": 0,
         "directionalHitRatePct": null,
         "status": "insufficient-history"
@@ -213,9 +213,9 @@
     },
     "V": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": 0.42,
-        "medianForwardReturnPct": 0.42,
+        "observations": 2,
+        "averageForwardReturnPct": -0.26,
+        "medianForwardReturnPct": -0.26,
         "directionalObservations": 0,
         "directionalHitRatePct": null,
         "status": "insufficient-history"
@@ -223,9 +223,9 @@
     },
     "ISRG": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": 2,
-        "medianForwardReturnPct": 2,
+        "observations": 2,
+        "averageForwardReturnPct": 1,
+        "medianForwardReturnPct": 1,
         "directionalObservations": 0,
         "directionalHitRatePct": null,
         "status": "insufficient-history"
@@ -233,9 +233,9 @@
     },
     "LLY": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": -1.37,
-        "medianForwardReturnPct": -1.37,
+        "observations": 2,
+        "averageForwardReturnPct": -0.47,
+        "medianForwardReturnPct": -0.47,
         "directionalObservations": 0,
         "directionalHitRatePct": null,
         "status": "insufficient-history"
@@ -243,9 +243,9 @@
     },
     "XOM": {
       "1d": {
-        "observations": 1,
-        "averageForwardReturnPct": 0.01,
-        "medianForwardReturnPct": 0.01,
+        "observations": 2,
+        "averageForwardReturnPct": -0.01,
+        "medianForwardReturnPct": -0.01,
         "directionalObservations": 0,
         "directionalHitRatePct": null,
         "status": "insufficient-history"
@@ -473,6 +473,166 @@
       "preparationScore": 0,
       "contextLabel": "Mixto",
       "contextPoints": -0.5,
+      "directionalHit": null
+    },
+    {
+      "ticker": "AMZN",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 272.27,
+      "outcomePrice": 267.28,
+      "forwardReturnPct": -1.83,
+      "zone": "SOBREVALORACIÓN",
+      "decisionScore": 67,
+      "preparationScore": 90,
+      "contextLabel": "Mixto",
+      "contextPoints": 0,
+      "directionalHit": true
+    },
+    {
+      "ticker": "GE",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 368.06,
+      "outcomePrice": 365.33,
+      "forwardReturnPct": -0.74,
+      "zone": "SOBREVALORACIÓN",
+      "decisionScore": 58,
+      "preparationScore": 73,
+      "contextLabel": "Cautela",
+      "contextPoints": -1,
+      "directionalHit": true
+    },
+    {
+      "ticker": "COST",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 944.32,
+      "outcomePrice": 949.575,
+      "forwardReturnPct": 0.56,
+      "zone": "SOBREVALORACIÓN",
+      "decisionScore": 60,
+      "preparationScore": 73,
+      "contextLabel": "Cautela",
+      "contextPoints": -1,
+      "directionalHit": false
+    },
+    {
+      "ticker": "MSFT",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 503.81,
+      "outcomePrice": 492.43,
+      "forwardReturnPct": -2.26,
+      "zone": "SOBREVALORACIÓN",
+      "decisionScore": 62,
+      "preparationScore": 90,
+      "contextLabel": "Soporte",
+      "contextPoints": 1,
+      "directionalHit": true
+    },
+    {
+      "ticker": "GOOGL",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 343.8,
+      "outcomePrice": 343.54,
+      "forwardReturnPct": -0.08,
+      "zone": "SOBREVALORACIÓN",
+      "decisionScore": 62,
+      "preparationScore": 90,
+      "contextLabel": "Soporte fuerte",
+      "contextPoints": 3,
+      "directionalHit": true
+    },
+    {
+      "ticker": "JPM",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 362.04,
+      "outcomePrice": 365.18,
+      "forwardReturnPct": 0.87,
+      "zone": "INFORMACIÓN INSUFICIENTE",
+      "decisionScore": 73,
+      "preparationScore": 49,
+      "contextLabel": "Soporte",
+      "contextPoints": 1,
+      "directionalHit": null
+    },
+    {
+      "ticker": "V",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 362.82,
+      "outcomePrice": 359.42,
+      "forwardReturnPct": -0.94,
+      "zone": "INFORMACIÓN INSUFICIENTE",
+      "decisionScore": 64,
+      "preparationScore": 65,
+      "contextLabel": "Cautela",
+      "contextPoints": -1.5,
+      "directionalHit": null
+    },
+    {
+      "ticker": "ISRG",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 401.23,
+      "outcomePrice": 401.27,
+      "forwardReturnPct": 0.01,
+      "zone": "INFORMACIÓN INSUFICIENTE",
+      "decisionScore": 62,
+      "preparationScore": 48,
+      "contextLabel": "Cautela",
+      "contextPoints": -1,
+      "directionalHit": null
+    },
+    {
+      "ticker": "LLY",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 1215.02,
+      "outcomePrice": 1220.28,
+      "forwardReturnPct": 0.43,
+      "zone": "INFORMACIÓN INSUFICIENTE",
+      "decisionScore": 57,
+      "preparationScore": 48,
+      "contextLabel": "Cautela",
+      "contextPoints": -1,
+      "directionalHit": null
+    },
+    {
+      "ticker": "XOM",
+      "originDate": "2026-08-11",
+      "outcomeDate": "2026-08-12",
+      "elapsedDays": 1,
+      "horizonDays": 1,
+      "originPrice": 159.8,
+      "outcomePrice": 159.75,
+      "forwardReturnPct": -0.03,
+      "zone": "INFORMACIÓN INSUFICIENTE",
+      "decisionScore": 54,
+      "preparationScore": 0,
+      "contextLabel": "Cautela",
+      "contextPoints": -1,
       "directionalHit": null
     }
   ]
