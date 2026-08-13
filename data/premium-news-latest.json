@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-12",
-  "timestamp": "2026-08-12T07:20:00-06:00",
+  "date": "2026-08-13",
+  "timestamp": "2026-08-13T07:22:00-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Barron's subscriber newsletters in authorized Gmail plus validated public primary/reputable sources",
@@ -9,91 +9,78 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "Reuters / Barron's",
-      "newsletter": "The Barron's Daily / public validation",
-      "headline": "July CPI cools modestly, but oil keeps the inflation risk alive",
+      "publisher": "Reuters / U.S. Bureau of Labor Statistics",
+      "newsletter": "Public validation",
+      "headline": "July PPI is flat, easing the immediate wholesale-inflation shock",
       "category": "Macro / Inflation / Rates",
       "relevance": 100,
-      "summary": "U.S. CPI rose 0.1% in July and 3.4% year over year, easing from 3.5% in June and broadly matching expectations. Markets treated the report as sufficiently benign to support equities, but the inflation picture remains vulnerable because Brent is still near USD 89 and Middle East supply disruption is not resolved.",
-      "whyItMatters": "The immediate tail risk of a hot CPI surprise declined, but the policy problem did not disappear. The Fed can remain patient while energy, PPI and core PCE determine whether disinflation is durable or temporary.",
+      "summary": "U.S. producer prices were unchanged in July after a revised June decline. Final-demand goods prices fell while services rose modestly; the year-over-year rate slowed from June. The result was softer than consensus and reduces the immediate inflation surprise risk, although late-July oil spikes are not fully captured.",
+      "whyItMatters": "CPI and PPI now both argue against a fresh near-term inflation acceleration, but core PCE, energy and long-duration yields still matter for the September Fed decision and equity multiples.",
       "assets": ["SPY", "QQQ", "TLT", "US10Y", "US30Y", "DXY", "GLD"],
-      "agciSignal": "RELIEF, NOT ALL-CLEAR — KEEP LIQUIDITY",
+      "agciSignal": "MACRO RELIEF / DURATION STILL SENSITIVE",
       "sourceUrl": "https://www.reuters.com/"
     },
     {
       "rank": 2,
-      "publisher": "Barron's / Reuters",
+      "publisher": "Barron's",
       "newsletter": "The Barron's Daily",
-      "headline": "Hormuz disruption and ship attacks keep crude near the inflation danger zone",
-      "category": "Energy / Geopolitics / Inflation",
+      "headline": "AI financing is becoming a credit-market risk, not only an equity-capex story",
+      "category": "AI / Credit / Capital Allocation",
       "relevance": 99,
-      "summary": "Brent traded near USD 89 and WTI near USD 84 as attacks on ships and stalled U.S.-Iran diplomacy kept supply-risk premia elevated. Vessel traffic through Hormuz remains far below normal, while U.S. strategic reserves remain constrained relative to historical capacity.",
-      "whyItMatters": "Energy is the most direct channel through which geopolitics can reverse the favorable CPI impulse, lift long yields and pressure margins, consumers and transport-intensive businesses.",
-      "assets": ["Brent", "WTI", "XLE", "XOM", "CVX", "TLT", "XLRE"],
-      "agciSignal": "HIGH-CONVICTION MACRO RISK / ENERGY HEDGE",
-      "sourceUrl": "https://www.reuters.com/"
+      "summary": "Barron's highlights the rapid institutionalization of AI infrastructure finance: Nvidia is working with major Wall Street firms to mobilize roughly USD 500 billion, while structures backed by chips and data-center assets could evolve into securitized products. The opportunity is real, but leverage, collateral values and obsolescence now become part of the AI risk map.",
+      "whyItMatters": "The AI cycle is migrating from corporate capex into private credit, leasing and potentially securitized debt. If utilization, productivity or residual chip values disappoint, losses could transmit beyond technology equities into credit markets and financial institutions.",
+      "assets": ["NVDA", "GS", "BLK", "KKR", "APO", "BX", "QQQ", "HYG"],
+      "agciSignal": "STRUCTURAL DEMAND / CREDIT DISCIPLINE REQUIRED",
+      "sourceUrl": "https://www.barrons.com/"
     },
     {
       "rank": 3,
       "publisher": "Barron's",
       "newsletter": "The Barron's Daily",
-      "headline": "Japan carry-trade risk becomes a second-order threat to U.S. duration assets",
-      "category": "Rates / FX / Global Liquidity",
-      "relevance": 94,
-      "summary": "Barron's highlights the narrowing yield differential between Japan and the U.S. as a potential threat to yen-funded carry trades. If the Bank of Japan tightens while the Fed stays on hold, leveraged positions in Treasuries and U.S. growth assets could face forced unwinds even without a U.S. rate hike.",
-      "whyItMatters": "The risk is not only the level of U.S. inflation but also global relative rates. A stronger yen and less attractive carry can tighten financial conditions independently of the Fed.",
-      "assets": ["JPY", "USDJPY", "TLT", "QQQ", "SPY"],
-      "agciSignal": "MONITOR GLOBAL LIQUIDITY / REDUCE LEVERAGE",
+      "headline": "Cisco validates broadening AI infrastructure demand beyond GPUs",
+      "category": "AI / Networking / Enterprise Infrastructure",
+      "relevance": 95,
+      "summary": "Cisco reported fiscal fourth-quarter adjusted EPS and revenue above expectations, with networking revenue rising strongly and fiscal-year AI infrastructure orders from hyperscalers reaching roughly USD 9.3 billion. Management also guided fiscal 2027 revenue and earnings above prior market expectations.",
+      "whyItMatters": "AI spending is broadening into networking, switching and connectivity. This supports the thesis that the buildout has multiple beneficiaries, while Cisco's margin pressure shows component inflation and hardware mix still matter.",
+      "assets": ["CSCO", "ANET", "AVGO", "NVDA", "COHR", "LITE"],
+      "agciSignal": "AI DEMAND BROADENING / QUALITY MATTERS",
       "sourceUrl": "https://www.barrons.com/"
     },
     {
       "rank": 4,
-      "publisher": "Barron's / Reuters",
-      "newsletter": "Daily Roundup / public validation",
-      "headline": "CoreWeave validates AI demand but raises the capital-intensity bar",
-      "category": "AI / Cloud / Capital Allocation",
-      "relevance": 93,
-      "summary": "CoreWeave reported Q2 revenue of USD 2.58 billion, backlog of USD 104.2 billion and more than USD 25 billion of new commitments, while increasing its 2026 capital-spending plan to USD 35–39 billion. The demand signal is strong, but the scale of capex and ongoing losses keep financing efficiency central to the thesis.",
-      "whyItMatters": "AI infrastructure demand remains real, but the investment case increasingly depends on utilization, cost of capital, contract quality and eventual free cash flow rather than bookings alone.",
-      "assets": ["CRWV", "NVDA", "META", "MSFT", "AMZN"],
-      "agciSignal": "DEMAND CONFIRMED / CAPITAL DISCIPLINE REQUIRED",
-      "sourceUrl": "https://www.reuters.com/"
+      "publisher": "Barron's",
+      "newsletter": "Daily Roundup",
+      "headline": "July U.S. budget deficit reopens the long-duration fiscal-risk discussion",
+      "category": "Fiscal Policy / Rates / Sovereign Risk",
+      "relevance": 92,
+      "summary": "Barron's flagged a five-year high for the July monthly U.S. budget deficit, reversing recent improvement. The signal is material because elevated borrowing needs coincide with Treasury yields already near multi-decade highs.",
+      "whyItMatters": "Persistent fiscal deficits can keep term premia and long yields elevated even if monthly inflation cools, limiting the valuation benefit from softer CPI/PPI and keeping real-estate refinancing costs sticky.",
+      "assets": ["US10Y", "US30Y", "TLT", "IEF", "XLRE", "SPY"],
+      "agciSignal": "FISCAL RISK / LONG-END CAUTION",
+      "sourceUrl": "https://www.barrons.com/"
     },
     {
       "rank": 5,
-      "publisher": "Barron's / public corporate sources",
-      "newsletter": "Daily Roundup",
-      "headline": "Lumentum shows that optical connectivity remains a high-growth AI bottleneck",
-      "category": "AI / Networking / Semiconductors",
-      "relevance": 89,
-      "summary": "Lumentum reported quarterly revenue of roughly USD 1.0 billion, more than double a year earlier, with strong earnings and guidance as AI data-center demand drives optical connectivity. The result supports the networking layer of the AI buildout even as valuation and recent price volatility demand discipline.",
-      "whyItMatters": "Compute growth requires bandwidth, switching and optical links. The result broadens the AI beneficiaries beyond GPUs, but high expectations mean entry price matters.",
-      "assets": ["LITE", "COHR", "AVGO", "NVDA", "QQQ"],
-      "agciSignal": "STRUCTURAL POSITIVE / DO NOT CHASE",
-      "sourceUrl": "https://investor.lumentum.com/"
-    },
-    {
-      "rank": 6,
-      "publisher": "Barron's",
-      "newsletter": "The Barron's Daily",
-      "headline": "Labor-force participation decline adds a structural supply constraint",
-      "category": "Macro / Labor / Demographics",
-      "relevance": 84,
-      "summary": "Barron's reports a sharp 2026 decline in U.S. labor-force participation, driven by retirements and immigration-policy effects. Near-term AI displacement remains limited, but reduced labor supply could keep wage and service inflation more persistent than headline employment data imply.",
-      "whyItMatters": "A softer payroll number does not automatically mean slack if labor supply is also shrinking. That complicates rate-cut expectations and reinforces the need to watch participation, wages and productivity together.",
-      "assets": ["SPY", "IWM", "TLT", "DXY"],
-      "agciSignal": "STRUCTURAL INFLATION WATCH",
-      "sourceUrl": "https://www.barrons.com/"
+      "publisher": "Reuters / Barron's",
+      "newsletter": "Review & Preview / public validation",
+      "headline": "Softer inflation supports risk assets, but the curve and oil keep policy uncertainty alive",
+      "category": "Markets / Rates / Energy",
+      "relevance": 91,
+      "summary": "Markets received the July CPI constructively and the July PPI was also soft, but long Treasury yields remain elevated and oil risks are not fully reflected in the latest inflation prints. The near-term macro signal improved without resolving the medium-term duration problem.",
+      "whyItMatters": "A benign inflation print can support equities while long yields stay restrictive. AGCI therefore separates tactical relief from a durable change in the cost-of-capital regime.",
+      "assets": ["SPY", "QQQ", "TLT", "XLE", "DXY"],
+      "agciSignal": "SELECTIVE RISK APPETITE / LIQUIDITY VALUABLE",
+      "sourceUrl": "https://www.reuters.com/"
     }
   ],
   "watch": [
-    "U.S. PPI for July — August 13, 2026 at 8:30 a.m. ET",
     "Core PCE later in August",
-    "Hormuz vessel traffic, ceasefire diplomacy and Brent around USD 90",
-    "Bank of Japan communication and USD/JPY carry-trade stress",
-    "CoreWeave capex, funding costs and backlog conversion",
-    "Lumentum/optical networking guidance and AI capex read-through",
-    "U.S. labor-force participation, wages and productivity"
+    "Long-end Treasury yields and auction demand",
+    "Hormuz, Brent and August energy pass-through into inflation",
+    "AI private-credit/leasing structures and Nvidia-linked financing",
+    "Cisco AI orders, networking margins and FY2027 execution",
+    "Applied Materials results and semiconductor-equipment demand",
+    "The Economist newsletters — awaiting first delivery to authorized Gmail"
   ],
   "excluded": [
     {
@@ -101,8 +88,8 @@
       "reason": "No new Economist newsletter was found in the authorized Gmail during this review window."
     },
     {
-      "headline": "Low-impact single-stock headlines",
-      "reason": "Excluded where the information did not alter AGCI portfolio, macro, capital-allocation or risk conclusions."
+      "headline": "Single-stock or entertainment headlines with low portfolio relevance",
+      "reason": "Excluded where the information did not materially alter AGCI portfolio, macro, capital-allocation or risk conclusions."
     }
   ]
 }
