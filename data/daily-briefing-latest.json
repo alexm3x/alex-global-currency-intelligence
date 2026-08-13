@@ -1,65 +1,67 @@
 {
   "schemaVersion": 2,
-  "date": "2026-08-12",
-  "timestamp": "2026-08-12T07:28:00-06:00",
+  "date": "2026-08-13",
+  "timestamp": "2026-08-13T07:28:00-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "CPI da alivio, pero petróleo, Japón y capex AI mantienen el riesgo elevado",
-  "dek": "La inflación de julio en Estados Unidos se moderó a 3.4% anual y elimina el peor escenario inmediato, pero Brent cerca de USD 89, el riesgo de carry trade en yenes y el aumento del capex de infraestructura AI impiden declarar un entorno de riesgo limpio.",
+  "title": "PPI enfría el riesgo inmediato, pero deuda y financiación AI mantienen presión de largo plazo",
+  "dek": "El PPI de julio fue más benigno de lo esperado y mejora el entorno táctico para riesgo, mientras la caída del petróleo ayuda. Sin embargo, yields largos, déficit fiscal y la entrada de crédito privado en infraestructura AI mantienen un régimen de costo de capital exigente.",
   "stance": "Riesgo selectivo con liquidez",
   "risk": "Elevado",
   "horizon": "1–12 meses",
-  "executiveSummary": "El CPI reduce el riesgo de una sorpresa inflacionaria inmediata, pero AGCI mantiene 10–15% de liquidez y compras escalonadas. La prioridad es vigilar PPI, Brent/Hormuz, tasas largas, USD/JPY y la conversión de capex AI a flujo de caja. CoreWeave y Lumentum confirman demanda real de infraestructura, pero también una intensidad de capital que exige disciplina de entrada y estructura financiera.",
+  "executiveSummary": "La combinación CPI-PPI reduce el riesgo de una sorpresa inflacionaria inmediata y el Brent cae por debajo de USD 90, pero AGCI mantiene disciplina de liquidez y valuación. La señal nueva más importante es que la infraestructura AI está migrando hacia crédito, leasing y estructuras potencialmente securitizadas; Cisco confirma demanda real de networking, mientras el déficit fiscal y los Treasury largos limitan el alivio en costo de capital.",
   "threeSignals": [
-    {"label":"CPI EE.UU.","type":"HECHO CONFIRMADO","summary":"El CPI de julio subió 0.1% mensual y 3.4% anual, frente a 3.5% anual en junio; el dato fue aproximadamente el esperado y redujo el riesgo de un shock hawkish inmediato."},
-    {"label":"Petróleo / Hormuz","type":"RIESGO","summary":"Brent se mantiene cerca de USD 89 y WTI alrededor de USD 84 mientras persisten ataques a embarcaciones y falta de avance entre Estados Unidos e Irán; la energía sigue siendo el principal riesgo de reinflación."},
-    {"label":"AI infraestructura","type":"HECHO CONFIRMADO","summary":"CoreWeave elevó su plan de capex 2026 a USD 35–39 mil millones tras reportar USD 2.58 mil millones de ingresos y USD 104.2 mil millones de backlog; Lumentum confirmó fuerte demanda de óptica para centros de datos."}
+    {"label":"PPI EE.UU.","type":"HECHO CONFIRMADO","summary":"El PPI de julio no registró cambio mensual y subió 4.7% anual, desacelerándose desde junio y quedando por debajo del consenso; bienes cayeron y servicios aumentaron moderadamente."},
+    {"label":"AI + crédito","type":"RIESGO ESTRUCTURAL","summary":"Barron’s destaca que Nvidia y grandes firmas financieras buscan movilizar alrededor de USD 500 mil millones para infraestructura AI, incorporando private credit, leasing y riesgo de valor residual de chips."},
+    {"label":"Networking AI","type":"HECHO CONFIRMADO","summary":"Cisco superó expectativas en su trimestre fiscal y reportó aproximadamente USD 9.3 mil millones en órdenes de infraestructura AI de hyperscalers durante el ejercicio, confirmando que la demanda se amplía más allá de GPUs."}
   ],
   "briefs": [
-    {"kicker":"MERCADOS E INVERSIÓN","title":"El CPI ayuda, pero no elimina el riesgo de duración","text":"Futuros de S&P 500 y Nasdaq avanzaron después de un CPI en línea. La señal es favorable para calidad y crecimiento rentable, no una licencia para perseguir múltiplos mientras petróleo y tasas globales sigan tensos."},
-    {"kicker":"PREMIUM — BARRON’S","title":"Japón aparece como riesgo de liquidez global","text":"Barron’s destaca que una subida de tasas del Banco de Japón con la Fed en pausa puede reducir el atractivo del carry trade en yenes y provocar ventas forzadas de Treasuries y acciones de larga duración."},
-    {"kicker":"AI Y CAPITAL","title":"La demanda es real; el costo de financiarla también","text":"CoreWeave y Lumentum refuerzan la tesis estructural de AI, pero CoreWeave también eleva capex de forma agresiva. AGCI separa crecimiento de bookings de creación de valor por acción."},
-    {"kicker":"MÉXICO","title":"Sin cambio de régimen monetario local","text":"Banxico mantiene la tasa objetivo en 6.50%. No aparece hoy una novedad local que justifique cambiar la tesis MXN; la transmisión relevante sigue viniendo de tasas globales, petróleo y dólar."}
+    {"kicker":"MERCADOS E INVERSIÓN","title":"Inflación mayorista da alivio táctico","text":"CPI y PPI reducen el riesgo de un giro hawkish inmediato. El S&P 500 cerró ayer en 7,748.50 y el Nasdaq en 26,588.49; la señal sigue siendo constructiva mientras yields largos no se aceleren."},
+    {"kicker":"PREMIUM — BARRON’S","title":"AI entra en el balance del sistema financiero","text":"El financiamiento de centros de datos y chips empieza a convertirse en una clase de activo crediticio. AGCI incorpora riesgo de colateral, obsolescencia y apalancamiento al análisis de AI."},
+    {"kicker":"AI Y TECNOLOGÍA","title":"Cisco amplía la confirmación de demanda","text":"Networking, switching y óptica continúan beneficiándose de la construcción de infraestructura AI. La demanda es sólida, pero los márgenes muestran que memoria y componentes pueden absorber parte del beneficio."},
+    {"kicker":"CAPITAL Y REAL ESTATE","title":"El largo plazo sigue condicionado por deuda pública","text":"El alivio inflacionario no elimina presión de term premium. El déficit fiscal y Treasury a largo plazo cerca de máximos de varias décadas mantienen refinanciamiento y cap rates bajo vigilancia."}
   ],
   "decisions": [
-    {"label":"PORTAFOLIO","title":"Mantener liquidez, pero retirar parte de la defensa táctica","text":"Conservar 10–15% de liquidez; el CPI permite mantener exposición a calidad, pero todavía no justifica perseguir máximos."},
-    {"label":"AI","title":"Favorecer demanda demostrada con balance sostenible","text":"Premiar infraestructura con backlog, utilización y pricing power; penalizar crecimiento financiado con deuda, dilución o circularidad excesiva."},
-    {"label":"TASAS / FX","title":"Añadir USD/JPY al tablero de riesgo","text":"Un cierre de carry trade puede endurecer condiciones financieras aunque la Fed no suba tasas; vigilar yen, JGB y Treasuries conjuntamente."},
-    {"label":"REAL ESTATE","title":"No asumir alivio rápido de cap rates","text":"El CPI ayuda a duración, pero petróleo y tasas largas todavía justifican estrés de refinanciamiento a +50/+100 pb."}
+    {"label":"PORTAFOLIO","title":"Mantener riesgo selectivo","text":"Conservar liquidez desplegable y aumentar exposición sólo donde calidad, crecimiento y valuación estén alineados; evitar interpretar dos datos benignos de inflación como cambio completo de régimen."},
+    {"label":"AI","title":"Añadir riesgo crediticio al análisis","text":"Evaluar deuda, leasing, garantías, vida económica del hardware y dependencia de refinanciamiento junto con capex, backlog y flujo de caja."},
+    {"label":"TASAS","title":"Separar Fed de curva larga","text":"Un Fed en pausa puede coexistir con yields largos altos por déficit, term premium y oferta de Treasury; no asumir alivio automático para real estate."},
+    {"label":"ENERGÍA","title":"Menor petróleo reduce presión inmediata","text":"Brent alrededor de USD 87.4 ayuda al margen macro, pero Hormuz y la geopolítica siguen capaces de revertir el movimiento rápidamente."}
   ],
   "sections": [
-    {"title":"1. Mercados e inversiones","body":"El S&P 500 cerró el 11 de agosto en 7,728.20, el Dow en 53,791.85 y el Nasdaq en 26,445.45, con caídas moderadas previas al CPI. Esta mañana, tras conocerse un CPI de julio de +0.1% mensual y 3.4% anual, los futuros estadounidenses mejoraron y el dólar se debilitó. La reacción es constructiva, pero no borra la presión de petróleo ni el riesgo de tasas globales.","why":"El mercado evitó el peor escenario de inflación inmediata y puede sostener múltiplos si PPI y PCE no contradicen la señal.","implication":"Mantener exposición a calidad; aumentar sólo en tramos y con disciplina de valuación.","opportunity":"Growth rentable, balances fuertes y duración moderada si yields confirman estabilización.","risk":"PPI alto, Brent >90, repunte de yields largos o unwind de carry trade en yenes.","signal":"PPI 13 agosto, Brent, Treasury 10/30 años, USD/JPY, amplitud y spreads de crédito."},
-    {"title":"2. Capital, bienes raíces y negocios","body":"La mejora del CPI reduce algo la presión sobre costo de capital, pero no cambia la necesidad de modelar escenarios conservadores. Petróleo alto afecta transporte, construcción y consumo; al mismo tiempo, el ciclo AI compite por electricidad, suelo, agua y financiación. En real estate, el mejor terreno sigue siendo presión financiera sobre activos sanos, no activos operativamente dañados.","why":"La inflación puede moderarse mientras el costo marginal de capital y de energía permanece elevado.","implication":"Estresar deuda 2026–2028 a tasa actual, +50 pb y +100 pb; exigir cobertura de intereses y retorno real sobre capex.","opportunity":"Activos con flujo estable, baja necesidad de capex y vendedores forzados por refinanciamiento.","risk":"Cap rates rígidos, deuda corta, energía y competencia por infraestructura.","signal":"Curva Treasury, spreads, refinanciamientos, energía y absorción inmobiliaria."},
-    {"title":"3. Inteligencia artificial y tecnología","body":"CoreWeave reportó USD 2.58 mil millones de ingresos trimestrales, backlog de USD 104.2 mil millones y elevó capex 2026 a USD 35–39 mil millones. Lumentum reportó aproximadamente USD 1.0 mil millones de ingresos trimestrales, más del doble interanual, reforzando la demanda de conectividad óptica. Barron’s también vuelve a poner sobre la mesa el riesgo de que el crecimiento AI dependa cada vez más de crédito, leasing y estructuras de financiación.","why":"La demanda de AI está siendo validada por múltiples capas de infraestructura, pero el retorno para accionistas depende de convertir capex y backlog en flujo de caja libre.","implication":"Separar empresas con demanda y balance de aquellas que requieren financiación continua para sostener crecimiento.","opportunity":"NVDA, GOOGL y proveedores de networking/óptica en correcciones razonables; evitar FOMO en nombres con expectativas extremas.","risk":"Sobrecapacidad, deuda, contratos concentrados, circularidad financiera y compresión de múltiplos.","signal":"Capex/FCF, utilización, backlog conversion, margen bruto, deuda neta y resultados NVDA 26 agosto."},
-    {"title":"4. México, divisas y viajes","body":"Banco de México mantiene 6.50% y no hay hoy una noticia local suficientemente material para alterar la postura. El riesgo externo relevante es una combinación de petróleo elevado, volatilidad del dólar y tasas globales. El radar de viajes permanece sin cambio editorial porque no se ha validado una nueva oferta con suficiente ventaja de costo total desde la edición anterior.","why":"Evitar cambios por ruido preserva consistencia; la señal mexicana depende hoy más del entorno externo que de una decisión doméstica nueva.","implication":"Mantener disciplina en MXN, deuda y reservas de viaje; confirmar precios y disponibilidad antes de ejecutar.","opportunity":"Revisar destinos sólo cuando FX, tarifa aérea y hotel produzcan ahorro total verificable.","risk":"Shock petrolero, dólar fuerte y reversión de carry global.","signal":"USD/MXN, Banxico, Brent, Treasury y costo total de viaje."}
+    {"title":"1. Mercados e inversiones","body":"El PPI de julio fue plano mensual y 4.7% anual, frente a 5.5% en junio. El dato complementa un CPI benigno y refuerza la expectativa de que la Fed pueda mantener tasas en septiembre. El S&P 500 cerró el 12 de agosto en 7,748.50, Nasdaq en 26,588.49 y Dow en 53,770.27. Brent retrocede hacia USD 87.4 y WTI hacia USD 81.7 por inventarios altos y una perspectiva de demanda más débil.","why":"La inflación inmediata mejora, pero el mercado sigue cerca de máximos y la curva larga continúa sensible a déficit y oferta de Treasury.","implication":"Mantener exposición a calidad sin perseguir múltiplos; exigir confirmación de yields y breadth antes de elevar riesgo de forma amplia.","opportunity":"Growth rentable, networking AI, balances fuertes y activos sensibles a tasas sólo si la curva confirma estabilización.","risk":"Repunte de petróleo, nueva presión en 30 años, deterioro de crédito o desaceleración de utilidades.","signal":"Core PCE, Treasury 10/30 años, spreads de crédito, Brent y amplitud del mercado."},
+    {"title":"2. Capital, bienes raíces y negocios","body":"Barron’s destacó un deterioro del déficit mensual de Estados Unidos y Reuters señala que la subasta de Treasury a 10 años se realizó cerca de rendimientos máximos de casi dos décadas. El alivio de CPI/PPI reduce una parte del riesgo, pero el costo de capital de largo plazo permanece elevado. En real estate, la tesis sigue siendo encontrar activos operativamente sanos con presión de refinanciamiento, no asumir un descenso rápido de cap rates.","why":"Los déficits pueden mantener altos los rendimientos largos independientemente de la próxima decisión de la Fed.","implication":"Conservar escenarios de refinanciamiento a tasa actual, +50 pb y +100 pb; priorizar DSCR, plazo de deuda y flujo operativo.","opportunity":"Activos con contratos estables, bajo capex y vendedores con presión de balance.","risk":"Term premium, oferta de deuda pública y vacancia operativa.","signal":"Subastas Treasury, 10y/30y, spreads, absorción y vencimientos 2026–2028."},
+    {"title":"3. Inteligencia artificial y tecnología","body":"El ciclo AI amplía su base: Cisco reportó fuerte crecimiento de networking y aproximadamente USD 9.3 mil millones en órdenes de infraestructura AI de hyperscalers para el ejercicio. Al mismo tiempo, Barron’s señala que Nvidia y grandes gestores de capital buscan movilizar cerca de USD 500 mil millones para infraestructura mediante capital institucional, private credit y estructuras respaldadas por hardware. Esto transforma parte del riesgo AI en riesgo financiero.","why":"La demanda está siendo validada por múltiples capas de infraestructura, pero el sistema depende cada vez más de valor residual del hardware, utilización y refinanciamiento.","implication":"Analizar AI como combinación de tecnología y crédito: capex/FCF, deuda, garantías, concentración de clientes, vida útil de GPUs y pricing del financiamiento.","opportunity":"Networking, óptica y plataformas con balance fuerte y demanda contratada; Cisco entra en vigilancia positiva por expansión de AI orders.","risk":"Sobreinversión, obsolescencia rápida, circularidad financiera, deterioro del colateral y compresión de márgenes.","signal":"Cisco FY2027 execution, Nvidia financing structures, Applied Materials, NVDA 26 agosto y spreads de private credit."},
+    {"title":"4. México, divisas y viajes","body":"No apareció una nueva señal mexicana suficientemente material para cambiar la postura. El T-MEC continúa en un régimen de revisiones anuales y la incertidumbre sigue afectando inversión, aunque el acuerdo permanece vigente. Para MXN, el descenso del petróleo ayuda parcialmente, pero la dirección de Treasury y dólar sigue siendo determinante. No se validó una nueva oferta de viaje con ventaja suficiente de costo total para reemplazar el radar vigente.","why":"La disciplina editorial exige no alterar recomendaciones por ruido ni por precios de viaje no confirmados.","implication":"Mantener vigilancia de USD/MXN, T-MEC, energía y costo de capital; revalidar tarifas antes de reservar.","opportunity":"Nearshoring y activos industriales con demanda comprobable; viajes sólo cuando FX + vuelo + hotel generen ahorro verificable.","risk":"Revisión T-MEC prolongada, dólar fuerte y shock geopolítico.","signal":"USD/MXN, rondas T-MEC, Treasury, Brent y costo total de viaje."}
   ],
   "watch": [
-    "PPI EE.UU. — 13 agosto 2026, 8:30 ET",
     "Core PCE — próxima publicación de agosto",
-    "Hormuz / Brent cerca de USD 90",
-    "USD/JPY y comunicación del Banco de Japón",
-    "Treasury EE.UU. 10 y 30 años",
-    "CoreWeave — capex, funding y backlog conversion",
-    "Lumentum / óptica AI — crecimiento y valuación",
-    "NVDA — resultados 26 agosto"
+    "Treasury EE.UU. 10 y 30 años / demanda en subastas",
+    "Hormuz y Brent después de la caída hacia USD 87",
+    "Nvidia / estructura del financiamiento AI de ~USD 500 mil millones",
+    "Cisco — ejecución FY2027 y márgenes de networking",
+    "Applied Materials — resultados y señal de semiconductor equipment",
+    "NVDA — resultados 26 agosto",
+    "The Economist — pendiente primera entrega de newsletter en Gmail autorizado"
   ],
   "markets": [
-    {"asset":"S&P 500","value":"7,728.20","asOf":"2026-08-11 cierre ET","interpretation":"-0.3%; retroceso previo al CPI, con mejora en futuros tras el dato."},
-    {"asset":"Dow Jones","value":"53,791.85","asOf":"2026-08-11 cierre ET","interpretation":"-0.3%; cautela macro y petróleo elevado."},
-    {"asset":"Nasdaq Composite","value":"26,445.45","asOf":"2026-08-11 cierre ET","interpretation":"-0.6%; mayor sensibilidad de duración antes del CPI."},
-    {"asset":"Brent","value":"~USD 89.2","asOf":"2026-08-12 mañana ET","interpretation":"Quinto día de avance; Hormuz mantiene prima geopolítica e inflacionaria."},
-    {"asset":"WTI","value":"~USD 83.7","asOf":"2026-08-12 mañana ET","interpretation":"Riesgo de oferta persiste pese a señales mixtas de inventarios."},
-    {"asset":"Fed funds","value":"3.50%–3.75%","asOf":"2026-08-12","interpretation":"Fed en pausa; mercado mantiene probabilidad mayoritaria de hold en septiembre tras CPI en línea."},
-    {"asset":"Banxico","value":"6.50%","asOf":"última decisión disponible","interpretation":"Sin cambio de régimen monetario local confirmado."}
+    {"asset":"S&P 500","value":"7,748.50","asOf":"2026-08-12 cierre ET","interpretation":"+0.3%; recuperación tras CPI y resultados AI."},
+    {"asset":"Dow Jones","value":"53,770.27","asOf":"2026-08-12 cierre ET","interpretation":"Prácticamente plano; menor sensibilidad al impulso AI."},
+    {"asset":"Nasdaq Composite","value":"26,588.49","asOf":"2026-08-12 cierre ET","interpretation":"+0.5%; liderazgo de tecnología e infraestructura AI."},
+    {"asset":"Russell 2000","value":"3,045.48","asOf":"2026-08-12 cierre ET","interpretation":"+0.6%; mejora en sensibilidad a tasas tras CPI."},
+    {"asset":"Treasury EE.UU. 10 años","value":"~4.68%","asOf":"2026-08-12","interpretation":"Sigue elevado pese a inflación benigna; term premium limita alivio."},
+    {"asset":"Brent","value":"~USD 87.44","asOf":"2026-08-13 mañana ET","interpretation":"-1.7%; inventarios y menor demanda reducen presión inflacionaria inmediata."},
+    {"asset":"WTI","value":"~USD 81.66","asOf":"2026-08-13 mañana ET","interpretation":"-1.9%; gran aumento de inventarios estadounidenses."},
+    {"asset":"Fed funds","value":"3.50%–3.75%","asOf":"2026-08-13","interpretation":"Mercado eleva probabilidad de pausa en septiembre tras CPI/PPI benignos."},
+    {"asset":"Banxico","value":"6.50%","asOf":"última decisión disponible","interpretation":"Sin cambio confirmado de régimen local."}
   ],
   "equities": [
     {"ticker":"GOOGL","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Balance fuerte, monetización AI y capacidad de financiar capex internamente."},
-    {"ticker":"JPM","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Balance, escala y capacidad de capturar actividad de crédito y capital markets con disciplina de riesgo."},
-    {"ticker":"NVDA","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda estructural fuerte; riesgo elevado por expectativas, financiación de ecosistema y concentración de capex."},
-    {"ticker":"LITE","classification":"COMPRAR EN CORRECCIÓN","confidence":"Media","thesis":"Óptica AI confirma crecimiento excepcional; valuación y volatilidad exigen margen de seguridad."},
-    {"ticker":"CRWV","classification":"MANTENER/VIGILAR","confidence":"Media","thesis":"Backlog y crecimiento muy fuertes, compensados por capex elevado, pérdidas y dependencia de financiación."},
-    {"ticker":"META","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"FCF y escala sostienen la tesis; infraestructura, energía y permisos siguen siendo riesgos de retorno sobre capital."},
-    {"ticker":"INTC","classification":"EVITAR AL PRECIO ACTUAL","confidence":"Media","thesis":"Riesgo de dilución y elevada intensidad de capital hasta demostrar retornos superiores sobre fondos captados."}
+    {"ticker":"JPM","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Escala y balance; beneficiario de actividad de capital markets con disciplina de riesgo."},
+    {"ticker":"CSCO","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"AI orders y networking confirman demanda; vigilar margen bruto y ejecución FY2027."},
+    {"ticker":"NVDA","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda estructural alta, pero aumenta el riesgo por expectativas y exposición indirecta a estructuras de financiación del ecosistema."},
+    {"ticker":"LITE","classification":"COMPRAR EN CORRECCIÓN","confidence":"Media","thesis":"Óptica AI mantiene crecimiento fuerte; volatilidad y valuación exigen margen de seguridad."},
+    {"ticker":"CRWV","classification":"MANTENER/VIGILAR","confidence":"Media","thesis":"Backlog fuerte compensado por capex, pérdidas y dependencia de financiación."},
+    {"ticker":"META","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"FCF y escala sostienen la tesis; energía, permisos y retorno sobre infraestructura siguen siendo riesgos."}
   ],
   "travel": [
     {"destination":"Oaxaca","airport":"NLU","fare":"MXN 1,643","dates":"13–15 sep 2026","classification":"Revalidar antes de reservar"},
@@ -68,34 +70,33 @@
   ],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
-    "No perseguir el rebote post-CPI; aumentar exposición sólo en tramos.",
-    "Añadir USD/JPY y JGB al tablero de riesgo de liquidez global.",
-    "Vigilar Brent alrededor de USD 90 como principal riesgo de reinflación.",
-    "Exigir capex/FCF, backlog conversion y estructura de deuda en toda tesis AI.",
-    "Mantener estrés inmobiliario de +50/+100 pb hasta que yields largos confirmen alivio."
+    "Interpretar CPI + PPI como alivio táctico, no como cambio completo del régimen de tasas.",
+    "Añadir riesgo de crédito, leasing y valor residual del hardware a toda tesis de infraestructura AI.",
+    "Vigilar Treasury 10/30 años antes de aumentar exposición a activos de larga duración.",
+    "Mantener estrés inmobiliario de +50/+100 pb hasta confirmar descenso sostenible de yields largos.",
+    "Revisar Cisco como señal de ampliación de demanda AI, sin perseguir precio tras resultados."
   ],
   "sources": [
-    {"name":"Barron's — The Barron's Daily / Review & Preview / Daily Roundup, síntesis AGCI de newsletters autorizados","asOf":"2026-08-12"},
-    {"name":"Reuters — CPI, mercados globales, petróleo/Hormuz y CoreWeave","asOf":"2026-08-12"},
-    {"name":"U.S. Bureau of Labor Statistics — calendario y marco CPI/PPI","asOf":"2026-08-12"},
-    {"name":"Federal Reserve — FOMC statement 2026-07-29","asOf":"2026-08-12"},
-    {"name":"Banco de México — última decisión de política monetaria disponible","asOf":"2026-08-12"},
-    {"name":"Lumentum Investor Relations — resultados y guía corporativa","asOf":"2026-08-12"}
+    {"name":"Barron's — The Barron's Daily / Review & Preview / Daily Roundup, síntesis AGCI de newsletters autorizados","asOf":"2026-08-13"},
+    {"name":"Reuters — PPI, mercados globales, petróleo y Treasury","asOf":"2026-08-13"},
+    {"name":"U.S. Bureau of Labor Statistics — PPI July 2026 / calendario oficial","asOf":"2026-08-13"},
+    {"name":"Cisco Investor Relations / Barron's — resultados y guía","asOf":"2026-08-13"},
+    {"name":"Secretaría de Economía de México — revisión T-MEC","asOf":"2026-08-13"}
   ],
   "pdfUrl": null,
   "audio": {
     "title":"AGCI Morning Intelligence",
     "subtitle":"Mercados, inversión y oportunidades estratégicas.",
     "chapters":[
-      {"id":"apertura","title":"Apertura","speaker":"CIO","text":"Buenos días. El CPI de julio en Estados Unidos subió una décima mensual y tres punto cuatro por ciento anual, ligeramente por debajo de junio. El mercado recibió el dato con alivio, pero AGCI no declara vía libre: Brent ronda ochenta y nueve dólares y la liquidez global enfrenta un nuevo riesgo desde Japón."},
-      {"id":"senales","title":"Las tres señales del día","speaker":"CIO","text":"Primera señal: el CPI elimina el peor escenario inmediato. Segunda: Hormuz sigue perturbado y el petróleo amenaza con reactivar inflación. Tercera: CoreWeave y Lumentum confirman que la demanda de infraestructura AI sigue fuerte, aunque el capex y la financiación crecen a una velocidad que exige mayor disciplina."},
-      {"id":"mercados","title":"Mercados globales","speaker":"ANALISTA","text":"El S&P 500 cerró ayer en siete mil setecientos veintiocho, el Dow en cincuenta y tres mil setecientos noventa y dos y el Nasdaq en veintiséis mil cuatrocientos cuarenta y cinco. Esta mañana los futuros mejoran tras el CPI. El siguiente examen es PPI, junto con Brent y la curva larga."},
-      {"id":"inversion","title":"Radar de Inversión AGCI","speaker":"ANALISTA","text":"Alphabet y JPMorgan siguen como compras escalonadas. Nvidia permanece en vigilancia positiva. Lumentum entra como compra sólo en corrección porque el crecimiento óptico es fuerte pero la expectativa también. CoreWeave se mantiene en vigilancia: backlog extraordinario, pero capex, pérdidas y financiación siguen siendo el punto crítico."},
-      {"id":"mexico","title":"México en 60 segundos","speaker":"CIO","text":"Banxico mantiene seis punto cincuenta por ciento. No existe hoy una señal doméstica que cambie la tesis. Para México, petróleo, dólar y tasas globales pesan más en el margen. Evitamos convertir una sola sesión post-CPI en una señal estructural para el peso."},
-      {"id":"capital","title":"Capital y Negocios","speaker":"ANALISTA","text":"En real estate mantenemos estrés de refinanciamiento a tasa actual, más cincuenta y más cien puntos base. En negocios, el alivio del CPI ayuda, pero energía cara sigue afectando transporte, márgenes y consumo. La mejor oportunidad continúa siendo comprar calidad bajo presión financiera, no deterioro operativo."},
-      {"id":"ia","title":"AI Capital Monitor","speaker":"ANALISTA","text":"CoreWeave elevó capex anual a treinta y cinco–treinta y nueve mil millones de dólares con backlog superior a cien mil millones. Lumentum duplicó ingresos interanuales. La demanda es real, pero AGCI exige una pregunta adicional: cuánto flujo de caja libre recibe finalmente el accionista por cada dólar de infraestructura."},
-      {"id":"riesgo","title":"Riesgo de liquidez global","speaker":"CIO","text":"Barron’s destaca un riesgo menos obvio: si Japón eleva tasas mientras la Fed mantiene las suyas, el carry trade financiado en yenes pierde atractivo. Un unwind puede presionar Treasuries y tecnología aun sin una subida de la Fed. Añadimos USD yen al radar diario."},
-      {"id":"acciones","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría diez a quince por ciento de liquidez, evitaría perseguir el rebote post-CPI y compraría calidad sólo en tramos. Vigilaría PPI, Brent, USD yen y yields largos. En AI, priorizaría balance, utilización y flujo de caja sobre crecimiento bruto de capex. Investigación AGCI; no asesoría financiera personalizada."}
+      {"id":"apertura","title":"Apertura","speaker":"CIO","text":"Buenos días. El PPI de julio en Estados Unidos fue plano mensual y desaceleró a cuatro punto siete por ciento anual. Junto con el CPI, reduce el riesgo de un shock inflacionario inmediato. Pero AGCI mantiene cautela: los Treasury largos siguen altos y la financiación de inteligencia artificial empieza a trasladar riesgo desde acciones hacia crédito."},
+      {"id":"senales","title":"Las tres señales del día","speaker":"CIO","text":"Primera: la inflación mayorista salió mejor de lo esperado. Segunda: Brent cae hacia ochenta y siete dólares por inventarios y menor demanda, aunque Hormuz sigue abierto como riesgo geopolítico. Tercera: Barron’s muestra que el ciclo AI entra en private credit, leasing y estructuras respaldadas por chips, elevando el riesgo financiero del ecosistema."},
+      {"id":"mercados","title":"Mercados globales","speaker":"ANALISTA","text":"El S&P 500 cerró ayer en siete mil setecientos cuarenta y ocho, Nasdaq avanzó medio por ciento y Russell dos mil ganó seis décimas. La reacción es constructiva, pero el Treasury a diez años alrededor de cuatro punto sesenta y ocho por ciento recuerda que un Fed en pausa no garantiza tasas largas bajas."},
+      {"id":"inversion","title":"Radar de Inversión AGCI","speaker":"ANALISTA","text":"La prioridad permanece en calidad y balance. Alphabet y JPMorgan conservan mejor perfil para compras escalonadas. Nvidia sigue en vigilancia antes de resultados, ahora con un riesgo adicional: la expansión del financiamiento del ecosistema. Cisco entra en vigilancia positiva porque sus órdenes de infraestructura AI confirman que networking participa de forma material en el ciclo."},
+      {"id":"mexico","title":"México en 60 segundos","speaker":"CIO","text":"No hay una señal mexicana nueva que justifique cambiar la postura. El T-MEC sigue vigente bajo revisiones anuales y la incertidumbre continúa afectando inversión. Para el peso, la combinación de dólar, Treasury y petróleo sigue siendo más importante hoy que una noticia doméstica aislada."},
+      {"id":"capital","title":"Capital y Negocios","speaker":"ANALISTA","text":"El déficit fiscal estadounidense y los rendimientos largos siguen siendo la restricción principal para real estate y empresas apalancadas. Aunque CPI y PPI mejoraron, mantenemos escenarios de refinanciamiento a tasa actual, más cincuenta y más cien puntos base. La oportunidad sigue siendo presión financiera sobre activos operativamente sanos."},
+      {"id":"ia","title":"AI Capital Monitor","speaker":"ANALISTA","text":"Cisco reportó fuerte crecimiento de networking y aproximadamente nueve punto tres mil millones de dólares en órdenes AI de hyperscalers. Al mismo tiempo, Nvidia y grandes firmas financieras buscan movilizar alrededor de quinientos mil millones para infraestructura. El análisis AGCI ahora incorpora deuda, garantías, obsolescencia del hardware y valor residual del colateral."},
+      {"id":"viajes","title":"AGCI Travel Opportunity","speaker":"ANALISTA","text":"No se validó una nueva oportunidad de viaje con ventaja suficiente para sustituir el radar vigente. Oaxaca, Guatemala y Madrid permanecen sólo como referencias a revalidar. La regla sigue siendo costo total: vuelo, equipaje, hotel, divisa, tiempo y calidad antes de reservar."},
+      {"id":"acciones","title":"Qué haría hoy","speaker":"CIO","text":"Uno: mantener diez a quince por ciento de liquidez. Dos: tratar CPI y PPI como alivio táctico, no como señal definitiva. Tres: vigilar Treasury largos antes de elevar duración. Cuatro: añadir riesgo crediticio a toda tesis AI. Cinco: observar Cisco y Applied Materials como lectura de infraestructura. Investigación AGCI, no asesoría financiera personalizada."}
     ]
   }
 }
