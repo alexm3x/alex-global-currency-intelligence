@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T06:03:01.360Z",
+  "generatedAt": "2026-08-13T10:39:28.204Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-08-13T06:03:01.360Z",
+        "retrievedAt": "2026-08-13T10:39:28.204Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -111,7 +111,7 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-08-13T06:03:01.360Z",
+        "retrievedAt": "2026-08-13T10:39:28.204Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
@@ -141,13 +141,13 @@
               "period": "2026-07",
               "status": "A"
             },
-            "XM": {
-              "value": 2.25,
+            "US": {
+              "value": 3.625,
               "period": "2026-07",
               "status": "A"
             },
-            "US": {
-              "value": 3.625,
+            "XM": {
+              "value": 2.25,
               "period": "2026-07",
               "status": "A"
             }
@@ -157,18 +157,8 @@
           "series": "BIS,WS_EER,1.0 / M.R.B",
           "frequency": "Mensual",
           "values": {
-            "BR": {
-              "value": 118.28,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "CN": {
-              "value": 92.24,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "US": {
-              "value": 107.84,
+            "MX": {
+              "value": 140.34,
               "period": "2026-06",
               "status": "A"
             },
@@ -177,13 +167,23 @@
               "period": "2026-06",
               "status": "A"
             },
+            "US": {
+              "value": 107.84,
+              "period": "2026-06",
+              "status": "A"
+            },
             "GB": {
               "value": 111.41,
               "period": "2026-06",
               "status": "A"
             },
-            "MX": {
-              "value": 140.34,
+            "BR": {
+              "value": 118.28,
+              "period": "2026-06",
+              "status": "A"
+            },
+            "CN": {
+              "value": 92.24,
               "period": "2026-06",
               "status": "A"
             },
@@ -203,7 +203,7 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-08-13T06:03:01.360Z",
+        "retrievedAt": "2026-08-13T10:39:28.204Z",
         "series": "VIX daily close",
         "risk": {
           "vix": 14.55,
