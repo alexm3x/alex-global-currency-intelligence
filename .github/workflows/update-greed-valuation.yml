@@ -43,11 +43,11 @@ jobs:
         run: node scripts/apply-valuation-to-greed.mjs ${{ github.event_name == 'pull_request' && '--dry-run' || '' }}
       - name: Validate generated contracts
         run: |
-          node <<'NODE'
-          const fs=require('fs');
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { buildMarketSnapshot } from './greed-valuation-core.js';
           const latest=JSON.parse(fs.readFileSync('data/greed-valuation-latest.json','utf8'));
           const valuation=JSON.parse(fs.readFileSync('data/valuation-market-latest.json','utf8'));
-          const {buildMarketSnapshot}=await import('./greed-valuation-core.js');
           const check=buildMarketSnapshot({greed_components:latest.components||{},valuation_components:valuation.components||{}});
           if(!Number.isFinite(check.greed)||(check.coverage?.greed??0)<.60) throw new Error('Greed policy threshold failed');
           if(!Number.isFinite(check.valuation)||(check.coverage?.valuation??0)<.55) throw new Error('Valuation policy threshold failed');
