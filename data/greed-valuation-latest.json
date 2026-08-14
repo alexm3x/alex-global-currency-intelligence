@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-08-14T13:59:46.243Z",
+  "timestamp": "2026-08-14T14:28:06.935Z",
   "timezone": "America/Mexico_City",
-  "methodology_version": "AGCI-GV-v1.1",
-  "status": "greed_live_valuation_pending",
+  "methodology_version": "AGCI-GV-v1.2",
+  "status": "greed_valuation_live",
   "market": {
     "greed": 90,
     "greed_label": "Extreme Greed",
-    "valuation": null,
-    "valuation_label": "Unavailable",
+    "valuation": 85,
+    "valuation_label": "Extreme Valuation",
     "regime": "Mid Bull",
     "opportunity": null,
-    "confidence": 38,
+    "confidence": 73,
     "coverage": {
       "greed": 0.65,
-      "valuation": 0
+      "valuation": 0.55
     },
     "condition": {
-      "code": "INSUFFICIENT_DATA",
-      "label": "Insufficient data",
-      "severity": "neutral"
+      "code": "EUPHORIA_RISK",
+      "label": "Capital preservation / Do not chase",
+      "severity": "red"
     },
-    "interpretation": "Greed 90/100 (Extreme Greed) con cobertura verificable de 65%. La valoración agregada permanece N/D hasta contar con métricas de mercado primarias o autorizadas suficientes. Régimen: Mid Bull."
+    "interpretation": "Greed 90/100 (Extreme Greed) y Valuation 85/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Capital preservation / Do not chase."
   },
   "changes": {
     "greed_1d": null,
@@ -81,9 +81,9 @@
       "value": 2.71,
       "normalized_score": 88,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-08-12",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-08-13",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 92,
       "source_quality": 96
     }
@@ -110,7 +110,7 @@
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-08-12",
+      "asOf": "2026-08-13",
       "status": "connected"
     },
     {
@@ -124,9 +124,29 @@
       "frequency": "WEEKLY",
       "asOf": null,
       "status": "authorized_access_required"
+    },
+    {
+      "name": "Robert J. Shiller / ShillerData distribution",
+      "url": "https://img1.wsimg.com/blobby/go/e5e77e0b-59d1-44d9-ab25-4763ac982e53/downloads/e27e58c1-8ae0-488c-a976-a298708c7175/ie_data.xls?ver=1785857394436",
+      "frequency": "MONTHLY",
+      "asOf": "2026-03-01",
+      "status": "connected"
+    },
+    {
+      "name": "Federal Reserve / FRED DGS10",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "frequency": "DAILY_WITH_MONTHLY_HISTORY",
+      "asOf": "2026-08-12",
+      "status": "connected"
     }
   ],
-  "signals": [],
+  "signals": [
+    {
+      "code": "EUPHORIA_RISK",
+      "severity": "red",
+      "label": "Capital preservation / Do not chase"
+    }
+  ],
   "errors": [],
   "governance": {
     "minimum_greed_coverage": 0.6,
@@ -135,6 +155,55 @@
     "missing_values_are_never_zero": true,
     "scores_reproducible_in_code": true,
     "ai_may_explain_but_not_set_scores": true,
-    "valuation_withheld_until_authorized_coverage": true
+    "valuation_withheld_until_authorized_coverage": false,
+    "valuation_methodology_version": "AGCI-VALUATION-v1.3",
+    "forward_pe_unavailable_not_proxied": true,
+    "fcf_yield_unavailable_not_proxied": true
+  },
+  "valuation_components": {
+    "trailingPE": {
+      "label": "Trailing P/E",
+      "value": 25.425,
+      "normalized_score": 89,
+      "source": "Robert J. Shiller / ShillerData distribution",
+      "asOf": "2026-03-01",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 92,
+      "source_quality": 97
+    },
+    "cape": {
+      "label": "Shiller CAPE",
+      "value": 37.032,
+      "normalized_score": 96,
+      "source": "Robert J. Shiller / ShillerData distribution",
+      "asOf": "2026-03-01",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 96,
+      "source_quality": 97
+    },
+    "earningsYieldSpread": {
+      "label": "Trailing Earnings Yield − Treasury 10Y",
+      "value": -0.747,
+      "normalized_score": 70,
+      "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
+      "asOf": "2026-08-12",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 90,
+      "source_quality": 97
+    },
+    "equityRiskPremium": {
+      "label": "CAPE Earnings Yield − Treasury 10Y",
+      "value": -1.98,
+      "normalized_score": 86,
+      "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
+      "asOf": "2026-08-12",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 88,
+      "source_quality": 97
+    }
   }
 }

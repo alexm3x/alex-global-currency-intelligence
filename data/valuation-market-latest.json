@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-14T14:28:06.561965Z",
+  "methodology_version": "AGCI-VALUATION-v1.3",
+  "status": "connected",
+  "inputs": {
+    "treasury10y": 4.68,
+    "trailingEarningsYield": 3.933,
+    "capeEarningsYield": 2.7
+  },
+  "components": {
+    "trailingPE": {
+      "label": "Trailing P/E",
+      "value": 25.425,
+      "normalized_score": 89,
+      "source": "Robert J. Shiller / ShillerData distribution",
+      "asOf": "2026-03-01",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 92,
+      "source_quality": 97
+    },
+    "cape": {
+      "label": "Shiller CAPE",
+      "value": 37.032,
+      "normalized_score": 96,
+      "source": "Robert J. Shiller / ShillerData distribution",
+      "asOf": "2026-03-01",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 96,
+      "source_quality": 97
+    },
+    "earningsYieldSpread": {
+      "label": "Trailing Earnings Yield \u2212 Treasury 10Y",
+      "value": -0.747,
+      "normalized_score": 70,
+      "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
+      "asOf": "2026-08-12",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 90,
+      "source_quality": 97
+    },
+    "equityRiskPremium": {
+      "label": "CAPE Earnings Yield \u2212 Treasury 10Y",
+      "value": -1.98,
+      "normalized_score": 86,
+      "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
+      "asOf": "2026-08-12",
+      "freshness": "MIXED",
+      "freshness_score": 88,
+      "confidence": 88,
+      "source_quality": 97
+    }
+  },
+  "sources": [
+    {
+      "name": "Robert J. Shiller / ShillerData distribution",
+      "url": "https://img1.wsimg.com/blobby/go/e5e77e0b-59d1-44d9-ab25-4763ac982e53/downloads/e27e58c1-8ae0-488c-a976-a298708c7175/ie_data.xls?ver=1785857394436",
+      "frequency": "MONTHLY",
+      "asOf": "2026-03-01",
+      "status": "connected"
+    },
+    {
+      "name": "Federal Reserve / FRED DGS10",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "frequency": "DAILY_WITH_MONTHLY_HISTORY",
+      "asOf": "2026-08-12",
+      "status": "connected"
+    }
+  ],
+  "governance": {
+    "no_forward_pe_proxy": true,
+    "no_fcf_yield_proxy": true,
+    "no_price_sales_proxy": true,
+    "no_price_book_proxy": true,
+    "derived_spreads_are_labeled": true,
+    "spread_history_uses_fred_dgs10": true,
+    "dgs10_transport": "NODE_FETCH_BRIDGE",
+    "provider_retries_enabled": true,
+    "provider_timeouts_bounded": true,
+    "shiller_direct_distribution_first": true,
+    "missing_values_are_never_zero": true
+  }
+}
