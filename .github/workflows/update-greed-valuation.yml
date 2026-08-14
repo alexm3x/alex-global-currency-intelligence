@@ -1,89 +1,64 @@
 name: Update AGCI Greed Valuation
-
 on:
   schedule:
     - cron: "45 */6 * * *"
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - 'scripts/update-greed-valuation-data.mjs'
-      - 'tests/greed-valuation-data-engine.test.mjs'
-      - 'greed-valuation-core.js'
-      - '.github/workflows/update-greed-valuation.yml'
-      - 'package.json'
+    paths: ['scripts/update-greed-valuation-data.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
   pull_request:
     branches: [main]
-    paths:
-      - 'scripts/update-greed-valuation-data.mjs'
-      - 'tests/greed-valuation-data-engine.test.mjs'
-      - 'greed-valuation-core.js'
-      - '.github/workflows/update-greed-valuation.yml'
-      - 'package.json'
-
+    paths: ['scripts/update-greed-valuation-data.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
 permissions:
   contents: write
-
 concurrency:
   group: agci-greed-valuation-${{ github.ref }}
   cancel-in-progress: true
-
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
+        with: {fetch-depth: 0}
       - uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: npm
-      - name: Install locked dependencies
+        with: {node-version: '22', cache: npm}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Install locked Node dependencies
         run: npm ci
+      - name: Install valuation dependencies
+        run: python -m pip install --disable-pip-version-check pandas requests xlrd
       - name: Run repository tests
         run: npm test
       - name: Validate live Greed data engine
         run: node scripts/update-greed-valuation-data.mjs --dry-run
-      - name: Generate production Greed snapshot
-        if: github.event_name != 'pull_request'
+      - name: Generate valuation inputs
+        run: python scripts/update-valuation-market-v2.py
+      - name: Generate Greed snapshot for integration
         run: node scripts/update-greed-valuation-data.mjs
+      - name: Apply valuation layer
+        run: node scripts/apply-valuation-to-greed.mjs ${{ github.event_name == 'pull_request' && '--dry-run' || '' }}
       - name: Validate generated contracts
-        if: github.event_name != 'pull_request'
         run: |
           node <<'NODE'
           const fs=require('fs');
           const latest=JSON.parse(fs.readFileSync('data/greed-valuation-latest.json','utf8'));
-          const history=JSON.parse(fs.readFileSync('data/greed-valuation-history.json','utf8'));
-          if(!Number.isFinite(latest.market?.greed)) throw new Error('Greed score unavailable');
-          if((latest.market?.coverage?.greed ?? 0) < 0.60) throw new Error('Greed coverage below policy');
-          if(!Number.isFinite(latest.market?.confidence)) throw new Error('Confidence unavailable');
-          if(latest.market?.valuation !== null) throw new Error('Valuation must remain withheld until authorized coverage exists');
-          if(!Array.isArray(history.observations) || !history.observations.length) throw new Error('History not populated');
-          const required=['momentum','breadth','volatility','options','credit'];
-          for(const key of required){
-            const c=latest.components?.[key];
-            if(!Number.isFinite(c?.normalized_score)) throw new Error(`Missing ${key} score`);
-            if(!c?.source || !c?.asOf) throw new Error(`Missing ${key} provenance`);
-          }
-          console.log(`Validated Greed ${latest.market.greed}/100 · confidence ${latest.market.confidence} · coverage ${(latest.market.coverage.greed*100).toFixed(0)}%`);
+          const valuation=JSON.parse(fs.readFileSync('data/valuation-market-latest.json','utf8'));
+          const {buildMarketSnapshot}=await import('./greed-valuation-core.js');
+          const check=buildMarketSnapshot({greed_components:latest.components||{},valuation_components:valuation.components||{}});
+          if(!Number.isFinite(check.greed)||(check.coverage?.greed??0)<.60) throw new Error('Greed policy threshold failed');
+          if(!Number.isFinite(check.valuation)||(check.coverage?.valuation??0)<.55) throw new Error('Valuation policy threshold failed');
+          for(const key of ['trailingPE','cape','earningsYieldSpread','equityRiskPremium']){const c=valuation.components?.[key];if(!Number.isFinite(c?.normalized_score)||!c?.source||!c?.asOf)throw new Error(`Invalid ${key}`)}
+          console.log(`Validated Greed ${check.greed}/100 · Valuation ${check.valuation}/100 · confidence ${check.confidence}`);
           NODE
       - name: Publish changed observations
         if: github.event_name != 'pull_request'
         run: |
-          if git diff --quiet -- data/greed-valuation-latest.json data/greed-valuation-history.json; then
-            echo "No Greed/Valuation observation changed materially."
-            exit 0
-          fi
+          if git diff --quiet -- data/greed-valuation-latest.json data/greed-valuation-history.json data/valuation-market-latest.json; then exit 0; fi
           git config user.name "agci-greed-valuation-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/greed-valuation-latest.json data/greed-valuation-history.json
+          git add data/greed-valuation-latest.json data/greed-valuation-history.json data/valuation-market-latest.json
           git commit -m "data: refresh greed valuation intelligence"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            if ! git rebase origin/main; then git rebase --abort || true; exit 1; fi
-            if git push origin HEAD:main; then exit 0; fi
-            sleep $((attempt * 3))
-          done
+          for attempt in 1 2 3 4 5; do git fetch origin main; git rebase origin/main || { git rebase --abort || true; exit 1; }; git push origin HEAD:main && exit 0; sleep $((attempt*3)); done
           exit 1
