@@ -9,6 +9,7 @@
     "build:viajes:css": "tailwindcss -c viajes/tailwind.config.cjs -i viajes/tailwind.input.css -o viajes/app.css --minify",
     "test": "node --test tests/*.test.mjs",
     "update:data": "node scripts/update-structural-data.mjs",
+    "update:greed-valuation": "node scripts/update-greed-valuation-data.mjs",
     "deploy": "npm test && wrangler deploy",
     "deploy:market": "npm test && wrangler deploy --config wrangler.market-data.jsonc",
     "deploy:equities": "npm test && wrangler deploy --config wrangler.equity-fundamentals.jsonc",
