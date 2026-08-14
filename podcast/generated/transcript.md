@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-13 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-14 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. El PPI de julio en Estados Unidos fue plano mensual y desaceleró a cuatro punto siete por ciento anual. Junto con el CPI, reduce el riesgo de un shock inflacionario inmediato.
+**CIO:** Buenos días. AGCI abre el viernes 14 de agosto con una combinación distinta: inflación más tranquila, consumo más débil y un costo de capital estructuralmente alto. Las ventas minoristas de julio cayeron cero punto seis por ciento, mientras el S&P 500 viene de un nuevo máximo. La postura sigue siendo riesgo selectivo con liquidez.
 
 ## Las tres señales del día
 
-**CIO:** Primera: la inflación mayorista salió mejor de lo esperado. Segunda: Brent cae hacia ochenta y siete dólares por inventarios y menor demanda, aunque Hormuz sigue abierto como riesgo geopolítico. Tercera: Barron’s muestra que el ciclo AI entra en private credit, leasing y estructuras respaldadas por chips, elevando el riesgo financiero del ecosistema.
+**CIO:** Primera: el consumidor estadounidense perdió impulso en julio. Segunda: los yields reales de largo plazo siguen cerca de máximos de décadas porque gobiernos y grandes compañías de AI compiten por capital. Tercera: Estados Unidos eleva el control de transshipment, haciendo más valiosa la trazabilidad de origen para México.
 
 ## Mercados globales
 
-**ANALISTA:** El S&P 500 cerró ayer en siete mil setecientos cuarenta y ocho, Nasdaq avanzó medio por ciento y Russell dos mil ganó seis décimas. La reacción es constructiva, pero el Treasury a diez años alrededor de cuatro punto sesenta y ocho por ciento recuerda que un Fed en pausa no garantiza tasas largas bajas.
+**ANALISTA:** El S&P 500 cerró ayer en siete mil setecientos noventa y ocho punto noventa y nueve, otro récord. El Nasdaq también avanzó. El alivio de CPI y PPI ayudó, pero las ventas minoristas de esta mañana obligan a distinguir desinflación saludable de desaceleración. No perseguimos beta en máximos.
 
-## Radar de Inversión AGCI
+## Radar de inversión AGCI
 
-**ANALISTA:** La prioridad permanece en calidad y balance. Alphabet y JPMorgan conservan mejor perfil para compras escalonadas. Nvidia sigue en vigilancia antes de resultados, ahora con un riesgo adicional: la expansión del financiamiento del ecosistema. Cisco entra en vigilancia positiva porque sus órdenes de infraestructura AI confirman que networking participa de forma material en el ciclo.
+**ANALISTA:** Alphabet y JPMorgan siguen como compras en tramos. Applied Materials entra en vigilancia positiva: ingresos crecieron veinticinco por ciento y la guía superó consenso, confirmando demanda en DRAM y advanced packaging. Nvidia, Cisco y Meta permanecen en vigilancia; calidad sí, precio y financiación importan.
 
-## México en 60 segundos
+## Capital y bienes raíces
 
-**CIO:** No hay una señal mexicana nueva que justifique cambiar la postura. El T-MEC sigue vigente bajo revisiones anuales y la incertidumbre continúa afectando inversión. Para el peso, la combinación de dólar, Treasury y petróleo sigue siendo más importante hoy que una noticia doméstica aislada.
-
-## Capital y Negocios
-
-**ANALISTA:** El déficit fiscal estadounidense y los rendimientos largos siguen siendo la restricción principal para real estate y empresas apalancadas. Aunque CPI y PPI mejoraron, mantenemos escenarios de refinanciamiento a tasa actual, más cincuenta y más cien puntos base. La oportunidad sigue siendo presión financiera sobre activos operativamente sanos.
+**ANALISTA:** El riesgo más subestimado sigue siendo el costo real del dinero. El Treasury real a treinta años ronda tres por ciento. Aunque la Fed no suba en septiembre, déficits y nueva deuda corporativa pueden mantener la curva larga elevada.
 
 ## AI Capital Monitor
 
-**ANALISTA:** Cisco reportó fuerte crecimiento de networking y aproximadamente nueve punto tres mil millones de dólares en órdenes AI de hyperscalers. Al mismo tiempo, Nvidia y grandes firmas financieras buscan movilizar alrededor de quinientos mil millones para infraestructura.
+**ANALISTA:** El ciclo AI continúa fuerte, pero cambia de naturaleza. Ya no basta con medir chips, backlog y capex: hay que seguir bonos, private credit y costo de financiación. Favorecemos compañías capaces de financiar expansión con flujo de caja y penalizamos estructuras dependientes de refinanciamiento continuo.
 
-## AGCI Travel Opportunity
+## México en 60 segundos
 
-**ANALISTA:** No se validó una nueva oportunidad de viaje con ventaja suficiente para sustituir el radar vigente. Oaxaca, Guatemala y Madrid permanecen sólo como referencias a revalidar. La regla sigue siendo costo total: vuelo, equipaje, hotel, divisa, tiempo y calidad antes de reservar.
+**CIO:** La ofensiva estadounidense contra evasión arancelaria por transshipment incluye mayor vigilancia sobre rutas globales, también México. No hay un nuevo arancel general confirmado contra exportaciones T-MEC-compliant. La acción es práctica: revisar certificados de origen, BOM, proveedores y trazabilidad antes de que el enforcement se endurezca.
+
+## Energía y geopolítica
+
+**CIO:** Hormuz sigue siendo el principal riesgo de reversión inflacionaria. El tráfico permanece por debajo de su promedio de agosto y dos buques de ADNOC fueron atacados. Un nuevo repunte del petróleo afectaría inflación, consumo, fletes y márgenes simultáneamente.
 
 ## Qué haría hoy
 
-**CIO:** Uno: mantener diez a quince por ciento de liquidez. Dos: tratar CPI y PPI como alivio táctico, no como señal definitiva. Tres: vigilar Treasury largos antes de elevar duración. Cuatro: añadir riesgo crediticio a toda tesis AI. Cinco: observar Cisco y Applied Materials como lectura de infraestructura. Investigación AGCI, no asesoría financiera personalizada.
+**CIO:** Uno: mantener diez a quince por ciento de liquidez. Dos: no perseguir récords si retail sales y breadth no confirman fortaleza. Tres: añadir yields reales y deuda AI al tablero tecnológico. Cuatro: sostener estrés inmobiliario. Cinco: auditar reglas de origen México–Estados Unidos y vigilar Hormuz. Esto es investigación, no asesoría financiera personalizada.
