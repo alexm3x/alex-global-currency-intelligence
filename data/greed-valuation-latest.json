@@ -1,23 +1,27 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-08-14T07:30:00-06:00",
+  "timestamp": "2026-08-14T13:59:46.243Z",
   "timezone": "America/Mexico_City",
-  "methodology_version": "AGCI-GV-v1.0",
-  "status": "partial_coverage",
+  "methodology_version": "AGCI-GV-v1.1",
+  "status": "greed_live_valuation_pending",
   "market": {
-    "greed": null,
-    "greed_label": "Unavailable",
+    "greed": 90,
+    "greed_label": "Extreme Greed",
     "valuation": null,
     "valuation_label": "Unavailable",
-    "regime": "N/D",
+    "regime": "Mid Bull",
     "opportunity": null,
-    "confidence": 0,
+    "confidence": 38,
+    "coverage": {
+      "greed": 0.65,
+      "valuation": 0
+    },
     "condition": {
       "code": "INSUFFICIENT_DATA",
       "label": "Insufficient data",
       "severity": "neutral"
     },
-    "interpretation": "Motor publicado con contrato y gobernanza activos. No se emitirá un score agregado hasta alcanzar cobertura mínima verificable de componentes Greed y Valuation."
+    "interpretation": "Greed 90/100 (Extreme Greed) con cobertura verificable de 65%. La valoración agregada permanece N/D hasta contar con métricas de mercado primarias o autorizadas suficientes. Régimen: Mid Bull."
   },
   "changes": {
     "greed_1d": null,
@@ -27,20 +31,110 @@
     "valuation_7d": null,
     "valuation_30d": null
   },
-  "components": {},
+  "components": {
+    "momentum": {
+      "label": "Market Momentum",
+      "value": 7798.99,
+      "normalized_score": 70,
+      "source": "Federal Reserve / FRED — SP500",
+      "asOf": "2026-08-13",
+      "freshness": "DAILY",
+      "freshness_score": 100,
+      "confidence": 90,
+      "source_quality": 95
+    },
+    "breadth": {
+      "label": "Cross-index Breadth Proxy",
+      "value": null,
+      "normalized_score": 100,
+      "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
+      "asOf": "2026-08-13",
+      "freshness": "DAILY",
+      "freshness_score": 100,
+      "confidence": 82,
+      "source_quality": 92
+    },
+    "volatility": {
+      "label": "VIX / Volatility",
+      "value": 14.63,
+      "normalized_score": 95,
+      "source": "Cboe Global Markets — VIX",
+      "asOf": "2026-08-13",
+      "freshness": "DAILY",
+      "freshness_score": 100,
+      "confidence": 90,
+      "source_quality": 95
+    },
+    "options": {
+      "label": "Options Term Structure",
+      "value": 0.7861,
+      "normalized_score": 100,
+      "source": "Cboe Global Markets — VIX / VIX3M",
+      "asOf": "2026-08-13",
+      "freshness": "DAILY",
+      "freshness_score": 100,
+      "confidence": 88,
+      "source_quality": 96
+    },
+    "credit": {
+      "label": "Credit Spreads",
+      "value": 2.71,
+      "normalized_score": 88,
+      "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
+      "asOf": "2026-08-12",
+      "freshness": "RECENT",
+      "freshness_score": 90,
+      "confidence": 92,
+      "source_quality": 96
+    }
+  },
   "sources": [
-    {"name":"CBOE","frequency":"DAILY/LIVE","asOf":null,"status":"connector_pending"},
-    {"name":"Federal Reserve / FRED","frequency":"DAILY/WEEKLY","asOf":null,"status":"connector_pending"},
-    {"name":"U.S. Treasury","frequency":"DAILY","asOf":null,"status":"connector_pending"},
-    {"name":"AAII","frequency":"WEEKLY","asOf":null,"status":"authorized_access_required"},
-    {"name":"NAAIM","frequency":"WEEKLY","asOf":null,"status":"authorized_access_required"}
+    {
+      "name": "Cboe Global Markets — VIX",
+      "frequency": "DAILY",
+      "asOf": "2026-08-13",
+      "status": "connected"
+    },
+    {
+      "name": "Cboe Global Markets — VIX3M",
+      "frequency": "DAILY",
+      "asOf": "2026-08-13",
+      "status": "connected"
+    },
+    {
+      "name": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
+      "frequency": "DAILY",
+      "asOf": "2026-08-13",
+      "status": "connected"
+    },
+    {
+      "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
+      "frequency": "DAILY",
+      "asOf": "2026-08-12",
+      "status": "connected"
+    },
+    {
+      "name": "AAII",
+      "frequency": "WEEKLY",
+      "asOf": null,
+      "status": "authorized_access_required"
+    },
+    {
+      "name": "NAAIM",
+      "frequency": "WEEKLY",
+      "asOf": null,
+      "status": "authorized_access_required"
+    }
   ],
   "signals": [],
+  "errors": [],
   "governance": {
-    "minimum_greed_coverage": 0.60,
+    "minimum_greed_coverage": 0.6,
     "minimum_valuation_coverage": 0.55,
+    "breadth_is_cross_index_proxy": true,
     "missing_values_are_never_zero": true,
     "scores_reproducible_in_code": true,
-    "ai_may_explain_but_not_set_scores": true
+    "ai_may_explain_but_not_set_scores": true,
+    "valuation_withheld_until_authorized_coverage": true
   }
 }
