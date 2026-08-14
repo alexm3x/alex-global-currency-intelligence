@@ -1,0 +1,57 @@
+name: AGCI Greed Valuation CI
+
+on:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "greed-valuation*.js"
+      - "greed-valuation*.css"
+      - "data/greed-valuation*.json"
+      - "data/stock-greed-valuation.json"
+      - "tests/greed-valuation.test.mjs"
+      - "docs/AGCI_GREED_VALUATION_METHODOLOGY.md"
+      - "index.html"
+  push:
+    branches: ["feat/agci-greed-valuation-v1", "main"]
+    paths:
+      - "greed-valuation*.js"
+      - "greed-valuation*.css"
+      - "data/greed-valuation*.json"
+      - "data/stock-greed-valuation.json"
+      - "tests/greed-valuation.test.mjs"
+      - "docs/AGCI_GREED_VALUATION_METHODOLOGY.md"
+      - "index.html"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Syntax and deterministic tests
+        run: |
+          node --check greed-valuation-core.js
+          node --check greed-valuation.js
+          node tests/greed-valuation.test.mjs
+      - name: Validate data contracts
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          for (const f of ['data/greed-valuation-latest.json','data/greed-valuation-history.json','data/stock-greed-valuation.json']) JSON.parse(fs.readFileSync(f,'utf8'));
+          const x=JSON.parse(fs.readFileSync('data/greed-valuation-latest.json','utf8'));
+          if(x.methodology_version!=='AGCI-GV-v1.0') process.exit(1);
+          if(x.market.greed===0||x.market.valuation===0) process.exit(1);
+          if(!x.governance?.missing_values_are_never_zero) process.exit(1);
+          NODE
+      - name: Validate integration hooks
+        run: |
+          grep -q 'data-view="greedValuation"' index.html
+          grep -q 'id="greedValuationRoot"' index.html
+          grep -q 'greed-valuation.js' index.html
+          grep -q 'PSYCHOLOGY & VALUE' greed-valuation.js
+          grep -q 'MARKET PSYCHOLOGY & VALUATION' greed-valuation.js

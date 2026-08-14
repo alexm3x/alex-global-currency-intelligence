@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-14T07:30:00-06:00",
+  "timezone": "America/Mexico_City",
+  "methodology_version": "AGCI-GV-v1.0",
+  "status": "partial_coverage",
+  "market": {
+    "greed": null,
+    "greed_label": "Unavailable",
+    "valuation": null,
+    "valuation_label": "Unavailable",
+    "regime": "N/D",
+    "opportunity": null,
+    "confidence": 0,
+    "condition": {
+      "code": "INSUFFICIENT_DATA",
+      "label": "Insufficient data",
+      "severity": "neutral"
+    },
+    "interpretation": "Motor publicado con contrato y gobernanza activos. No se emitirá un score agregado hasta alcanzar cobertura mínima verificable de componentes Greed y Valuation."
+  },
+  "changes": {
+    "greed_1d": null,
+    "greed_7d": null,
+    "greed_30d": null,
+    "valuation_1d": null,
+    "valuation_7d": null,
+    "valuation_30d": null
+  },
+  "components": {},
+  "sources": [
+    {"name":"CBOE","frequency":"DAILY/LIVE","asOf":null,"status":"connector_pending"},
+    {"name":"Federal Reserve / FRED","frequency":"DAILY/WEEKLY","asOf":null,"status":"connector_pending"},
+    {"name":"U.S. Treasury","frequency":"DAILY","asOf":null,"status":"connector_pending"},
+    {"name":"AAII","frequency":"WEEKLY","asOf":null,"status":"authorized_access_required"},
+    {"name":"NAAIM","frequency":"WEEKLY","asOf":null,"status":"authorized_access_required"}
+  ],
+  "signals": [],
+  "governance": {
+    "minimum_greed_coverage": 0.60,
+    "minimum_valuation_coverage": 0.55,
+    "missing_values_are_never_zero": true,
+    "scores_reproducible_in_code": true,
+    "ai_may_explain_but_not_set_scores": true
+  }
+}
