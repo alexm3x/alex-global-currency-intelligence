@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-13",
-  "timestamp": "2026-08-13T07:22:00-06:00",
+  "date": "2026-08-14",
+  "timestamp": "2026-08-14T07:17:00-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Barron's subscriber newsletters in authorized Gmail plus validated public primary/reputable sources",
@@ -9,78 +9,79 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "Reuters / U.S. Bureau of Labor Statistics",
+      "publisher": "U.S. Census Bureau / Reuters",
       "newsletter": "Public validation",
-      "headline": "July PPI is flat, easing the immediate wholesale-inflation shock",
-      "category": "Macro / Inflation / Rates",
+      "headline": "July retail sales fall 0.6%, adding a growth warning after softer inflation",
+      "category": "Macro / Consumer / Rates",
       "relevance": 100,
-      "summary": "U.S. producer prices were unchanged in July after a revised June decline. Final-demand goods prices fell while services rose modestly; the year-over-year rate slowed from June. The result was softer than consensus and reduces the immediate inflation surprise risk, although late-July oil spikes are not fully captured.",
-      "whyItMatters": "CPI and PPI now both argue against a fresh near-term inflation acceleration, but core PCE, energy and long-duration yields still matter for the September Fed decision and equity multiples.",
-      "assets": ["SPY", "QQQ", "TLT", "US10Y", "US30Y", "DXY", "GLD"],
-      "agciSignal": "MACRO RELIEF / DURATION STILL SENSITIVE",
-      "sourceUrl": "https://www.reuters.com/"
+      "summary": "U.S. retail sales fell 0.6% in July after a 0.2% rise in June, while the GDP control group also declined. Part of the weakness reflects timing effects from promotions and softer autos, but the result is materially weaker than expected.",
+      "whyItMatters": "The macro mix now shifts from pure inflation anxiety toward a two-sided risk: softer demand can support shorter-duration rates, while elevated long real yields and energy prices still constrain valuations and financing.",
+      "assets": ["SPY", "QQQ", "TLT", "XLY", "XLP", "US10Y", "US30Y"],
+      "agciSignal": "GROWTH COOLING / RATE RELIEF TACTICAL",
+      "sourceUrl": "https://www.census.gov/retail/"
     },
     {
       "rank": 2,
-      "publisher": "Barron's",
+      "publisher": "Barron's / Reuters",
       "newsletter": "The Barron's Daily",
-      "headline": "AI financing is becoming a credit-market risk, not only an equity-capex story",
-      "category": "AI / Credit / Capital Allocation",
-      "relevance": 99,
-      "summary": "Barron's highlights the rapid institutionalization of AI infrastructure finance: Nvidia is working with major Wall Street firms to mobilize roughly USD 500 billion, while structures backed by chips and data-center assets could evolve into securitized products. The opportunity is real, but leverage, collateral values and obsolescence now become part of the AI risk map.",
-      "whyItMatters": "The AI cycle is migrating from corporate capex into private credit, leasing and potentially securitized debt. If utilization, productivity or residual chip values disappoint, losses could transmit beyond technology equities into credit markets and financial institutions.",
-      "assets": ["NVDA", "GS", "BLK", "KKR", "APO", "BX", "QQQ", "HYG"],
-      "agciSignal": "STRUCTURAL DEMAND / CREDIT DISCIPLINE REQUIRED",
-      "sourceUrl": "https://www.barrons.com/"
+      "headline": "Oil remains the main inflation tail risk as Hormuz traffic stays impaired",
+      "category": "Energy / Geopolitics / Inflation",
+      "relevance": 98,
+      "summary": "Barron's warns that benign CPI and PPI do not neutralize energy risk. Reuters reports Hormuz commodity traffic remains below its August average and two ADNOC vessels were attacked while transiting the strait, keeping freight, insurance and crude risk elevated.",
+      "whyItMatters": "A renewed oil spike could reverse part of the disinflation relief, compress consumer spending and keep the Fed and long bond market cautious even as current inflation prints improve.",
+      "assets": ["XLE", "USO", "SPY", "TLT", "DXY"],
+      "agciSignal": "ENERGY TAIL RISK / DO NOT DECLARE INFLATION VICTORY",
+      "sourceUrl": "https://www.reuters.com/world/middle-east/hormuz-shipping-traffic-capped-amid-competing-claims-us-iran-2026-08-14/"
     },
     {
       "rank": 3,
-      "publisher": "Barron's",
-      "newsletter": "The Barron's Daily",
-      "headline": "Cisco validates broadening AI infrastructure demand beyond GPUs",
-      "category": "AI / Networking / Enterprise Infrastructure",
-      "relevance": 95,
-      "summary": "Cisco reported fiscal fourth-quarter adjusted EPS and revenue above expectations, with networking revenue rising strongly and fiscal-year AI infrastructure orders from hyperscalers reaching roughly USD 9.3 billion. Management also guided fiscal 2027 revenue and earnings above prior market expectations.",
-      "whyItMatters": "AI spending is broadening into networking, switching and connectivity. This supports the thesis that the buildout has multiple beneficiaries, while Cisco's margin pressure shows component inflation and hardware mix still matter.",
-      "assets": ["CSCO", "ANET", "AVGO", "NVDA", "COHR", "LITE"],
-      "agciSignal": "AI DEMAND BROADENING / QUALITY MATTERS",
-      "sourceUrl": "https://www.barrons.com/"
+      "publisher": "Reuters",
+      "newsletter": "Public validation",
+      "headline": "AI and sovereign borrowing push real yields toward multi-decade highs",
+      "category": "Rates / AI / Capital Allocation",
+      "relevance": 97,
+      "summary": "Inflation-adjusted yields are near multi-decade highs across major markets as governments and AI hyperscalers compete for capital. Reuters estimates large technology issuers have already raised roughly USD 220 billion in bonds in 2026.",
+      "whyItMatters": "The AI boom is creating a capital-scarcity channel: stronger demand for financing can raise discount rates and weaken the valuation benefit from good earnings. This reinforces AGCI's distinction between operational AI winners and financing-sensitive beneficiaries.",
+      "assets": ["GOOGL", "AMZN", "META", "NVDA", "TLT", "HYG", "QQQ"],
+      "agciSignal": "AI DEMAND STRONG / COST OF CAPITAL RISING",
+      "sourceUrl": "https://www.reuters.com/world/asia-pacific/ai-driven-surge-bond-yields-could-be-next-risk-markets-growth-2026-08-14/"
     },
     {
       "rank": 4,
-      "publisher": "Barron's",
-      "newsletter": "Daily Roundup",
-      "headline": "July U.S. budget deficit reopens the long-duration fiscal-risk discussion",
-      "category": "Fiscal Policy / Rates / Sovereign Risk",
-      "relevance": 92,
-      "summary": "Barron's flagged a five-year high for the July monthly U.S. budget deficit, reversing recent improvement. The signal is material because elevated borrowing needs coincide with Treasury yields already near multi-decade highs.",
-      "whyItMatters": "Persistent fiscal deficits can keep term premia and long yields elevated even if monthly inflation cools, limiting the valuation benefit from softer CPI/PPI and keeping real-estate refinancing costs sticky.",
-      "assets": ["US10Y", "US30Y", "TLT", "IEF", "XLRE", "SPY"],
-      "agciSignal": "FISCAL RISK / LONG-END CAUTION",
-      "sourceUrl": "https://www.barrons.com/"
+      "publisher": "Barron's / Applied Materials",
+      "newsletter": "The Barron's Daily",
+      "headline": "Applied Materials confirms semiconductor-equipment demand, but expectations remain demanding",
+      "category": "AI / Semiconductors / Capital Equipment",
+      "relevance": 94,
+      "summary": "Applied Materials reported fiscal third-quarter adjusted EPS of USD 3.50 and revenue of USD 9.12 billion, up 25%, while guiding next-quarter revenue and adjusted EPS above prior consensus. DRAM exposure increased as AI drives memory and advanced packaging investment.",
+      "whyItMatters": "The semiconductor capex cycle remains strong, but solid results can still disappoint a market already pricing in exceptional growth. AGCI treats AMAT as confirmation of demand rather than a reason to chase valuation.",
+      "assets": ["AMAT", "LRCX", "KLAC", "MU", "NVDA", "SOXX"],
+      "agciSignal": "FUNDAMENTALS STRONG / VALUATION DISCIPLINE",
+      "sourceUrl": "https://investor.appliedmaterials.com/events"
     },
     {
       "rank": 5,
-      "publisher": "Reuters / Barron's",
-      "newsletter": "Review & Preview / public validation",
-      "headline": "Softer inflation supports risk assets, but the curve and oil keep policy uncertainty alive",
-      "category": "Markets / Rates / Energy",
-      "relevance": 91,
-      "summary": "Markets received the July CPI constructively and the July PPI was also soft, but long Treasury yields remain elevated and oil risks are not fully reflected in the latest inflation prints. The near-term macro signal improved without resolving the medium-term duration problem.",
-      "whyItMatters": "A benign inflation print can support equities while long yields stay restrictive. AGCI therefore separates tactical relief from a durable change in the cost-of-capital regime.",
-      "assets": ["SPY", "QQQ", "TLT", "XLE", "DXY"],
-      "agciSignal": "SELECTIVE RISK APPETITE / LIQUIDITY VALUABLE",
-      "sourceUrl": "https://www.reuters.com/"
+      "publisher": "Barron's / Financial Times / White House reporting",
+      "newsletter": "The Barron's Daily",
+      "headline": "U.S. tariff-enforcement push raises rules-of-origin risk for Mexico and global supply chains",
+      "category": "Mexico / Trade / T-MEC / Supply Chains",
+      "relevance": 93,
+      "summary": "The White House plans AI-enabled monitoring of transshipment and has identified more than 40 jurisdictions, including Mexico, in the broader enforcement discussion. The policy focus is on tariff evasion and origin verification rather than a confirmed new blanket tariff on compliant Mexican exports.",
+      "whyItMatters": "For Mexico, the near-term risk is compliance intensity: customs documentation, traceability and rules of origin become more valuable. Genuine T-MEC-compliant manufacturing may gain relative advantage while opaque intermediary structures face higher enforcement risk.",
+      "assets": ["EWW", "GM", "F", "STLA", "KSU", "USD/MXN"],
+      "agciSignal": "T-MEC COMPLIANCE PREMIUM / TRANSshipment RISK",
+      "sourceUrl": "https://www.barrons.com/"
     }
   ],
   "watch": [
-    "Core PCE later in August",
-    "Long-end Treasury yields and auction demand",
-    "Hormuz, Brent and August energy pass-through into inflation",
-    "AI private-credit/leasing structures and Nvidia-linked financing",
-    "Cisco AI orders, networking margins and FY2027 execution",
-    "Applied Materials results and semiconductor-equipment demand",
-    "The Economist newsletters — awaiting first delivery to authorized Gmail"
+    "Retail-sales revisions and August consumer spending",
+    "Hormuz vessel traffic, Brent and insurance/freight costs",
+    "U.S. 10y/30y real yields and AI-related bond issuance",
+    "Applied Materials, KLA and Lam execution into the next semiconductor capex cycle",
+    "U.S. transshipment enforcement and Mexico rules-of-origin compliance",
+    "Target, Home Depot and Lowe's commentary on consumer demand next week",
+    "NVDA earnings — 26 August",
+    "The Economist newsletters — no new delivery found in authorized Gmail"
   ],
   "excluded": [
     {
@@ -88,8 +89,8 @@
       "reason": "No new Economist newsletter was found in the authorized Gmail during this review window."
     },
     {
-      "headline": "Single-stock or entertainment headlines with low portfolio relevance",
-      "reason": "Excluded where the information did not materially alter AGCI portfolio, macro, capital-allocation or risk conclusions."
+      "headline": "Lower-impact single-stock and entertainment stories",
+      "reason": "Excluded where they did not materially alter AGCI macro, portfolio, capital-allocation or risk conclusions."
     }
   ]
 }
