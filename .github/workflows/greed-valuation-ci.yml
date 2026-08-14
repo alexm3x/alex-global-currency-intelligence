@@ -8,8 +8,10 @@ on:
       - "greed-valuation*.css"
       - "data/greed-valuation*.json"
       - "data/stock-greed-valuation.json"
-      - "tests/greed-valuation.test.mjs"
+      - "scripts/update-greed-valuation-data.mjs"
+      - "tests/greed-valuation*.test.mjs"
       - "docs/AGCI_GREED_VALUATION_METHODOLOGY.md"
+      - ".github/workflows/greed-valuation-ci.yml"
       - "index.html"
   push:
     branches: ["feat/agci-greed-valuation-v1", "main"]
@@ -18,8 +20,10 @@ on:
       - "greed-valuation*.css"
       - "data/greed-valuation*.json"
       - "data/stock-greed-valuation.json"
-      - "tests/greed-valuation.test.mjs"
+      - "scripts/update-greed-valuation-data.mjs"
+      - "tests/greed-valuation*.test.mjs"
       - "docs/AGCI_GREED_VALUATION_METHODOLOGY.md"
+      - ".github/workflows/greed-valuation-ci.yml"
       - "index.html"
 
 permissions:
@@ -37,16 +41,25 @@ jobs:
         run: |
           node --check greed-valuation-core.js
           node --check greed-valuation.js
+          node --check scripts/update-greed-valuation-data.mjs
           node tests/greed-valuation.test.mjs
+          node --test tests/greed-valuation-data-engine.test.mjs
       - name: Validate data contracts
         run: |
           node - <<'NODE'
           const fs=require('fs');
           for (const f of ['data/greed-valuation-latest.json','data/greed-valuation-history.json','data/stock-greed-valuation.json']) JSON.parse(fs.readFileSync(f,'utf8'));
           const x=JSON.parse(fs.readFileSync('data/greed-valuation-latest.json','utf8'));
-          if(x.methodology_version!=='AGCI-GV-v1.0') process.exit(1);
+          if(!['AGCI-GV-v1.0','AGCI-GV-v1.1'].includes(x.methodology_version)) process.exit(1);
           if(x.market.greed===0||x.market.valuation===0) process.exit(1);
           if(!x.governance?.missing_values_are_never_zero) process.exit(1);
+          if(x.methodology_version==='AGCI-GV-v1.1') {
+            if(!Number.isFinite(x.market.greed) || (x.market.coverage?.greed ?? 0) < 0.60) process.exit(1);
+            if(x.market.valuation !== null) process.exit(1);
+            for(const key of ['momentum','breadth','volatility','options','credit']) {
+              if(!Number.isFinite(x.components?.[key]?.normalized_score)) process.exit(1);
+            }
+          }
           NODE
       - name: Validate integration hooks
         run: |
