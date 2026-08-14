@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 import pandas as pd, requests
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'data/valuation-market-latest.json'
-UA='AGCI Valuation Engine/1.1'; FRED='https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1962-01-01&fq=Monthly&fam=Average'; YALE='https://www.econ.yale.edu/~shiller/data/ie_data.xls'; SHILLER_PAGE='https://shillerdata.com/'
+UA='AGCI Valuation Engine/1.2'; FRED='https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1962-01-01&fq=Monthly&fam=Average'; YALE='https://www.econ.yale.edu/~shiller/data/ie_data.xls'; SHILLER_PAGE='https://shillerdata.com/'; SHILLER_DIRECT='https://img1.wsimg.com/blobby/go/e5e77e0b-59d1-44d9-ab25-4763ac982e53/downloads/e27e58c1-8ae0-488c-a976-a298708c7175/ie_data.xls?ver=1785857394436'
 def get(u,attempts=3,read_timeout=30):
  last=None
  for i in range(attempts):
@@ -17,16 +17,19 @@ def get(u,attempts=3,read_timeout=30):
    if i+1<attempts: time.sleep(2*(i+1))
  raise RuntimeError(f'Provider unavailable after {attempts} attempts: {u}; {last}')
 def shiller_bytes():
- try: return (*get(YALE,1,15),'Robert J. Shiller / Yale')
- except Exception as primary:
-  html,landing=get(SHILLER_PAGE,2,20); text=html.decode('utf-8','ignore'); links=re.findall(r'href=["\']([^"\']+)["\']',text,re.I)
-  candidates=[urljoin(landing,x.replace('&amp;','&')) for x in links if ('ie_data' in x.lower() or x.lower().split('?')[0].endswith('.xls'))]
-  for u in candidates:
-   try:
-    raw,final=get(u,2,30)
-    if len(raw)>100000: return raw,final,'Robert J. Shiller / ShillerData distribution'
-   except Exception: pass
-  raise RuntimeError(f'No authorized Shiller workbook source reachable; Yale error={primary}')
+ for u,name in [(SHILLER_DIRECT,'Robert J. Shiller / ShillerData distribution'),(YALE,'Robert J. Shiller / Yale')]:
+  try:
+   raw,final=get(u,1,20)
+   if len(raw)>100000: return raw,final,name
+  except Exception: pass
+ html,landing=get(SHILLER_PAGE,2,20); text=html.decode('utf-8','ignore'); links=re.findall(r'href=["\']([^"\']+)["\']',text,re.I)
+ candidates=[urljoin(landing,x.replace('&amp;','&')) for x in links if ('ie_data' in x.lower() or x.lower().split('?')[0].endswith('.xls'))]
+ for u in candidates:
+  try:
+   raw,final=get(u,2,30)
+   if len(raw)>100000: return raw,final,'Robert J. Shiller / ShillerData distribution'
+  except Exception: pass
+ raise RuntimeError('No authorized Shiller workbook source reachable')
 def pct(vals,v):
  a=sorted(float(x) for x in vals if pd.notna(x) and math.isfinite(float(x))); return round(100*sum(x<=v for x in a)/len(a))
 def inv(vals,v): return 100-pct(vals,v)
@@ -54,6 +57,6 @@ def main():
  rawdate=str(x.Date); ym=shiller_ym(rawdate); asof=f'{ym}-01' if ym else rawdate; rasof=str(rates.iloc[-1][dcol].date())
  def c(label,val,score,src,a,conf): return {'label':label,'value':round(val,3),'normalized_score':score,'source':src,'asOf':a,'freshness':'MIXED','freshness_score':88,'confidence':conf,'source_quality':97}
  comps={'trailingPE':c('Trailing P/E',pe,pct(hist.PE,pe),source_name,asof,92),'cape':c('Shiller CAPE',cape,pct(hist.CAPE,cape),source_name,asof,96),'earningsYieldSpread':c('Trailing Earnings Yield − Treasury 10Y',esp,inv(sph,esp),source_name+' + Federal Reserve / FRED DGS10',rasof,90),'equityRiskPremium':c('CAPE Earnings Yield − Treasury 10Y',erp,inv(cph,erp),source_name+' + Federal Reserve / FRED DGS10',rasof,88)}
- payload={'schema_version':1,'timestamp':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'methodology_version':'AGCI-VALUATION-v1.1','status':'connected','inputs':{'treasury10y':round(ten,3),'trailingEarningsYield':round(ey,3),'capeEarningsYield':round(cy,3)},'components':comps,'sources':[{'name':source_name,'url':source_url,'frequency':'MONTHLY','asOf':asof,'status':'connected'},{'name':'Federal Reserve / FRED DGS10','url':FRED,'frequency':'MONTHLY_AVG','asOf':rasof,'status':'connected'}],'governance':{'no_forward_pe_proxy':True,'no_fcf_yield_proxy':True,'no_price_sales_proxy':True,'no_price_book_proxy':True,'derived_spreads_are_labeled':True,'spread_history_uses_fred_dgs10':True,'fred_monthly_compact_feed':True,'provider_retries_enabled':True,'provider_timeouts_bounded':True,'missing_values_are_never_zero':True}}
+ payload={'schema_version':1,'timestamp':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'methodology_version':'AGCI-VALUATION-v1.2','status':'connected','inputs':{'treasury10y':round(ten,3),'trailingEarningsYield':round(ey,3),'capeEarningsYield':round(cy,3)},'components':comps,'sources':[{'name':source_name,'url':source_url,'frequency':'MONTHLY','asOf':asof,'status':'connected'},{'name':'Federal Reserve / FRED DGS10','url':FRED,'frequency':'MONTHLY_AVG','asOf':rasof,'status':'connected'}],'governance':{'no_forward_pe_proxy':True,'no_fcf_yield_proxy':True,'no_price_sales_proxy':True,'no_price_book_proxy':True,'derived_spreads_are_labeled':True,'spread_history_uses_fred_dgs10':True,'fred_monthly_compact_feed':True,'provider_retries_enabled':True,'provider_timeouts_bounded':True,'shiller_direct_distribution_first':True,'missing_values_are_never_zero':True}}
  OUT.write_text(json.dumps(payload,indent=2)+'\n'); print(json.dumps({'status':'connected','source':source_name,'PE':pe,'CAPE':cape,'DGS10':ten,'aligned_months':len(sph),'scores':{k:v['normalized_score'] for k,v in comps.items()}},indent=2))
 if __name__=='__main__': main()
