@@ -5,10 +5,10 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['scripts/update-greed-valuation-data.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
+    paths: ['scripts/update-greed-valuation-data.mjs','scripts/fetch-valuation-dgs10.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
   pull_request:
     branches: [main]
-    paths: ['scripts/update-greed-valuation-data.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
+    paths: ['scripts/update-greed-valuation-data.mjs','scripts/fetch-valuation-dgs10.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
 permissions:
   contents: write
 concurrency:
@@ -33,6 +33,8 @@ jobs:
         run: npm test
       - name: Validate live Greed data engine
         run: node scripts/update-greed-valuation-data.mjs --dry-run
+      - name: Fetch valuation DGS10 bridge
+        run: node scripts/fetch-valuation-dgs10.mjs
       - name: Generate valuation inputs
         run: python scripts/update-valuation-market-v2.py
       - name: Generate Greed snapshot for integration
@@ -52,6 +54,9 @@ jobs:
           for(const key of ['trailingPE','cape','earningsYieldSpread','equityRiskPremium']){const c=valuation.components?.[key];if(!Number.isFinite(c?.normalized_score)||!c?.source||!c?.asOf)throw new Error(`Invalid ${key}`)}
           console.log(`Validated Greed ${check.greed}/100 · Valuation ${check.valuation}/100 · confidence ${check.confidence}`);
           NODE
+      - name: Remove transient valuation bridge
+        if: always()
+        run: rm -f data/valuation-dgs10-input.json
       - name: Publish changed observations
         if: github.event_name != 'pull_request'
         run: |
