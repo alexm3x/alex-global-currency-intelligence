@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="equity-comparator.css?v=20260805-phase1">
   <link rel="stylesheet" href="equity-intelligence-dashboard.css?v=20260806-visible2">
   <link rel="stylesheet" href="decision-engine.css?v=20260810-phase2">
+  <link rel="stylesheet" href="greed-valuation.css?v=20260814-v1">
   <link rel="stylesheet" href="mobile-nav-polish.css?v=20260807-mobile1">
   <link rel="stylesheet" href="desktop-nav-fix.css?v=20260809-navfix1">
 </head>
@@ -43,6 +44,7 @@
       <button class="active" data-view="home">Overview</button>
       <button data-view="equityIntelligence">Equity Intelligence</button>
       <button data-view="decisionEngine">Motor de Decisión</button>
+      <button data-view="greedValuation">Greed + Valuation</button>
       <button data-view="markets">Currency Rankings</button>
       <button data-view="research">Research</button>
       <button data-view="methodology">Methodology</button>
@@ -54,6 +56,7 @@
   <main>
     <section id="home" class="view active">
       <div class="section-label">GLOBAL CURRENCY OUTLOOK</div>
+      <div id="agciGreedValuationHome"></div>
       <div class="lead-grid">
         <article class="lead-story">
           <p class="rubric">AGCI HOUSE VIEW</p>
@@ -91,52 +94,23 @@
       </section>
     </section>
 
-    <section id="decisionEngine" class="view">
-      <div id="decisionEngineRoot"></div>
-    </section>
+    <section id="decisionEngine" class="view"><div id="decisionEngineRoot"></div></section>
+    <section id="greedValuation" class="view"><div id="greedValuationRoot"></div></section>
 
     <section id="markets" class="view">
       <div class="page-head"><p class="rubric">GLOBAL MARKETS</p><h2>Currency Rankings</h2><p>Comparable scores across 21 economies, including Mexico.</p></div>
-      <div class="market-toolbar">
-        <input id="searchInput" type="search" placeholder="Search country, currency or code" aria-label="Buscar país, moneda o código">
-        <select id="signalFilter" aria-label="Filtrar por señal"><option value="">All signals</option><option>Compra fuerte</option><option>Compra</option><option>Neutral</option><option>Reducir</option><option>Evitar</option></select>
-        <select id="sortSelect" aria-label="Ordenar ranking"><option value="score-desc">Highest AGCI score</option><option value="score-asc">Lowest AGCI score</option><option value="change-desc">Largest market change</option></select>
-        <button id="exportBtn">Export CSV</button>
-      </div>
+      <div class="market-toolbar"><input id="searchInput" type="search" placeholder="Search country, currency or code" aria-label="Buscar país, moneda o código"><select id="signalFilter" aria-label="Filtrar por señal"><option value="">All signals</option><option>Compra fuerte</option><option>Compra</option><option>Neutral</option><option>Reducir</option><option>Evitar</option></select><select id="sortSelect" aria-label="Ordenar ranking"><option value="score-desc">Highest AGCI score</option><option value="score-asc">Lowest AGCI score</option><option value="change-desc">Largest market change</option></select><button id="exportBtn">Export CSV</button></div>
       <div class="data-table-wrap"><table><thead><tr><th>Rank</th><th>Economy</th><th>Currency</th><th>AGCI</th><th>Valuation</th><th>Fundamentals</th><th>Momentum</th><th>Risk</th><th>Signal</th><th>Δ mercado</th></tr></thead><tbody id="rankingBody"></tbody></table></div>
     </section>
 
-    <section id="research" class="view">
-      <div class="page-head"><p class="rubric">AGCI RESEARCH</p><h2>Currency Strategy</h2><p>Editorial intelligence for portfolio decisions.</p></div>
-      <div class="research-grid">
-        <article class="research-lead"><span>FEATURED</span><h3>The valuation trap: when a cheap currency should stay cheap</h3><p>Low valuation can coexist with weak institutions, inflation and impaired capital access.</p></article>
-        <article><span>ASIA</span><h3>Yen: value and policy risk</h3><p>Why a high score still requires disciplined sizing.</p></article>
-        <article><span>LATAM</span><h3>Mexico and Brazil</h3><p>Separating carry from structural strength.</p></article>
-        <article><span>DEVELOPED MARKETS</span><h3>Dollar, euro and franc</h3><p>Safety can become expensive.</p></article>
-      </div>
-    </section>
+    <section id="research" class="view"><div class="page-head"><p class="rubric">AGCI RESEARCH</p><h2>Currency Strategy</h2><p>Editorial intelligence for portfolio decisions.</p></div><div class="research-grid"><article class="research-lead"><span>FEATURED</span><h3>The valuation trap: when a cheap currency should stay cheap</h3><p>Low valuation can coexist with weak institutions, inflation and impaired capital access.</p></article><article><span>ASIA</span><h3>Yen: value and policy risk</h3><p>Why a high score still requires disciplined sizing.</p></article><article><span>LATAM</span><h3>Mexico and Brazil</h3><p>Separating carry from structural strength.</p></article><article><span>DEVELOPED MARKETS</span><h3>Dollar, euro and franc</h3><p>Safety can become expensive.</p></article></div></section>
 
-    <section id="methodology" class="view">
-      <div class="page-head"><p class="rubric">MODEL GOVERNANCE</p><h2>AGCI Methodology</h2><p>A transparent benchmark designed for comparison, not certainty.</p></div>
-      <div class="methodology-grid">
-        <article><b>30%</b><h3>Valuation</h3><p>PPP, Big Mac Index, REER and fair value.</p></article>
-        <article><b>30%</b><h3>Fundamentals</h3><p>Inflation, growth, external balance, reserves and fiscal position.</p></article>
-        <article><b>25%</b><h3>Momentum</h3><p>Price trend, rate differentials and macro revisions.</p></article>
-        <article><b>15%</b><h3>Risk</h3><p>Volatility, liquidity, institutions and tail events.</p></article>
-      </div>
-      <div class="method-note"><h3>Signal bands</h3><p><strong>80–100:</strong> Strong Buy · <strong>65–79:</strong> Buy · <strong>50–64:</strong> Neutral · <strong>40–49:</strong> Reduce · <strong>0–39:</strong> Avoid</p></div>
-    </section>
+    <section id="methodology" class="view"><div class="page-head"><p class="rubric">MODEL GOVERNANCE</p><h2>AGCI Methodology</h2><p>A transparent benchmark designed for comparison, not certainty.</p></div><div class="methodology-grid"><article><b>30%</b><h3>Valuation</h3><p>PPP, Big Mac Index, REER and fair value.</p></article><article><b>30%</b><h3>Fundamentals</h3><p>Inflation, growth, external balance, reserves and fiscal position.</p></article><article><b>25%</b><h3>Momentum</h3><p>Price trend, rate differentials and macro revisions.</p></article><article><b>15%</b><h3>Risk</h3><p>Volatility, liquidity, institutions and tail events.</p></article></div><div class="method-note"><h3>Signal bands</h3><p><strong>80–100:</strong> Strong Buy · <strong>65–79:</strong> Buy · <strong>50–64:</strong> Neutral · <strong>40–49:</strong> Reduce · <strong>0–39:</strong> Avoid</p></div></section>
 
-    <section id="briefing" class="view">
-      <article class="briefing-layout">
-        <div class="briefing-main"><p class="rubric">DAILY BRIEFING</p><h2>Asia and Latin America lead the value table</h2><p class="standfirst">The gap between cheap and investable remains central.</p><p>The market tape and supported daily changes now come from Twelve Data through a secured Cloudflare Worker.</p><h3>Portfolio implication</h3><p>Favor diversified, volatility-budgeted exposure and avoid oversized positions.</p><h3>Watch list</h3><p>Central-bank guidance, inflation, fiscal credibility and geopolitical risk.</p></div>
-        <aside class="briefing-sidebar"><h3>Today’s dashboard</h3><div><span>Top score</span><strong>JPY 82</strong></div><div><span>Mexico</span><strong>MXN 74</strong></div><div><span>Highest risk</span><strong>ARS 36</strong></div><div><span>Market refresh</span><strong>6 hours</strong></div></aside>
-      </article>
-    </section>
+    <section id="briefing" class="view"><article class="briefing-layout"><div class="briefing-main"><p class="rubric">DAILY BRIEFING</p><h2>Asia and Latin America lead the value table</h2><p class="standfirst">The gap between cheap and investable remains central.</p><p>The market tape and supported daily changes now come from Twelve Data through a secured Cloudflare Worker.</p><h3>Portfolio implication</h3><p>Favor diversified, volatility-budgeted exposure and avoid oversized positions.</p><h3>Watch list</h3><p>Central-bank guidance, inflation, fiscal credibility and geopolitical risk.</p></div><aside class="briefing-sidebar"><h3>Today’s dashboard</h3><div><span>Top score</span><strong>JPY 82</strong></div><div><span>Mexico</span><strong>MXN 74</strong></div><div><span>Highest risk</span><strong>ARS 36</strong></div><div><span>Market refresh</span><strong>6 hours</strong></div></aside></article></section>
   </main>
 
   <footer><div class="footer-brand">AGCI</div><p>Alex Global Currency Intelligence</p><p class="disclaimer">Cotizaciones: Twelve Data vía Cloudflare. Datos estructurales: World Bank, BIS y Cboe, validados automáticamente cada seis horas. El score compuesto sigue sujeto a la metodología y limitaciones publicadas.</p></footer>
-
   <dialog id="currencyDialog" aria-labelledby="dialogContent"><button id="dialogClose" class="dialog-close" aria-label="Cerrar análisis">×</button><div id="dialogContent"></div></dialog>
   <noscript>Este sitio requiere JavaScript para mostrar cotizaciones, rankings y oportunidades.</noscript>
   <script src="app.js?v=20260805-cachefix1"></script>
@@ -153,6 +127,7 @@
   <script src="equity-comparator-nav-fix.js?v=20260806-visible1"></script>
   <script src="equity-intelligence-dashboard.js?v=20260806-visible2"></script>
   <script type="module" src="decision-engine.js?v=20260810-phase2"></script>
+  <script type="module" src="greed-valuation.js?v=20260814-v1"></script>
   <script src="nav-dedupe.js?v=20260810-decision5a"></script>
   <script defer src="currency-history-core.js?v=20260805-premium1"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
