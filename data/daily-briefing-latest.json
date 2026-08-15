@@ -1,66 +1,65 @@
 {
   "schemaVersion": 2,
-  "date": "2026-08-14",
-  "timestamp": "2026-08-14T07:18:00-06:00",
+  "date": "2026-08-15",
+  "timestamp": "2026-08-15T07:16:00-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "Ventas minoristas enfrían crecimiento mientras petróleo y yields reales mantienen el costo de capital alto",
-  "dek": "La inflación reciente dio alivio, pero las ventas minoristas de julio sorprendieron a la baja. El nuevo equilibrio combina menor presión de demanda con riesgo energético persistente, yields reales elevados y mayor disciplina en financiación AI y comercio T-MEC.",
+  "title": "Complacencia extrema pese a consumo débil; Berkshire refuerza Alphabet y Hormuz mantiene el riesgo inflacionario",
+  "dek": "El viernes cerró con índices apenas a la baja, VIX en la zona de 14 y yields largos todavía altos. Berkshire elevó de forma material su exposición a Alphabet y Delta, mientras la tensión en Hormuz sigue impidiendo declarar victoria sobre la inflación.",
   "stance": "Riesgo selectivo con liquidez",
   "risk": "Elevado",
   "horizon": "1–12 meses",
-  "executiveSummary": "Las ventas minoristas de EE.UU. cayeron 0.6% en julio y el grupo de control también retrocedió, trasladando parte del foco desde inflación hacia crecimiento. El S&P 500 cerró el 13 de agosto en un nuevo máximo, pero AGCI no interpreta el rally como señal para elevar riesgo de forma indiscriminada: Hormuz mantiene petróleo y fletes como riesgo de inflación, los yields reales de largo plazo siguen altos por la competencia de capital entre gobiernos y AI, y la nueva ofensiva estadounidense contra transshipment eleva la importancia de reglas de origen para México.",
+  "executiveSummary": "El cierre del 14 de agosto confirmó una divergencia relevante: el S&P 500 retrocedió sólo 0.2% pese a ventas minoristas débiles, Brent al alza y tensión geopolítica, mientras el VIX permaneció cerca de 14. La lectura AGCI es complacencia elevada, coherente con el motor Greed + Valuation y no una señal para perseguir precios. En paralelo, Barron's reportó que Berkshire aumentó con fuerza Alphabet y Delta y redujo Bank of America en el segundo trimestre; esto valida selectividad de capital, no un giro indiscriminado hacia riesgo. Hormuz continúa siendo el principal riesgo de reversión inflacionaria. No hubo nueva entrega de The Economist en Gmail autorizado.",
   "threeSignals": [
-    {"label":"Consumo EE.UU.","type":"HECHO CONFIRMADO","summary":"Las ventas minoristas de julio cayeron 0.6% mensual y el grupo de control retrocedió 0.4%, una señal de demanda más débil que el consenso."},
-    {"label":"Costo de capital","type":"RIESGO ESTRUCTURAL","summary":"Reuters señala yields reales cercanos a máximos de décadas mientras gobiernos y hyperscalers AI elevan emisión de deuda y compiten por capital."},
-    {"label":"México / T-MEC","type":"ACCIÓN A VIGILAR","summary":"El endurecimiento estadounidense contra transshipment aumenta el valor de trazabilidad y cumplimiento de reglas de origen para exportadores mexicanos."}
+    {"label":"Complacencia de mercado","type":"HECHO CONFIRMADO","summary":"El S&P 500 cayó 0.2% el viernes y el VIX se mantuvo en la zona de 14 pese a retail sales débiles, petróleo más alto y tensión geopolítica."},
+    {"label":"Berkshire / Alphabet","type":"HECHO CONFIRMADO EN NEWSLETTER; VALIDACIÓN REGULATORIA EN CURSO","summary":"Barron's reporta un aumento material de Berkshire en Alphabet y Delta y una reducción de Bank of America durante el segundo trimestre. AGCI lo interpreta como asignación selectiva a calidad y ciclo, no como señal automática de compra."},
+    {"label":"Hormuz / energía","type":"RIESGO ESTRUCTURAL","summary":"Reuters reporta nueva escalada en Hormuz y ataques adicionales a buques vinculados a ADNOC, manteniendo elevada la prima de petróleo, seguro y fletes."}
   ],
   "briefs": [
-    {"kicker":"MERCADOS E INVERSIÓN","title":"Menor consumo compensa parte del alivio inflacionario","text":"CPI y PPI benignos reducen presión inmediata sobre la Fed, pero las ventas minoristas débiles añaden riesgo de desaceleración. El S&P 500 cerró el 13 de agosto en 7,798.99, nuevo máximo."},
-    {"kicker":"PREMIUM — BARRON’S","title":"Petróleo sigue siendo la amenaza inflacionaria más clara","text":"Barron’s advierte que el alivio de CPI/PPI puede revertirse si energía repunta; Hormuz continúa operando por debajo de su tráfico normal y dos buques de ADNOC fueron atacados."},
-    {"kicker":"AI Y TECNOLOGÍA","title":"Applied Materials confirma capex, pero no justifica perseguir múltiplos","text":"AMAT reportó ingresos de USD 9.12 mil millones, +25%, y guía superior a consenso. La lectura AGCI es demanda estructural sólida con necesidad de disciplina de entrada."},
-    {"kicker":"MÉXICO Y NEGOCIOS","title":"La trazabilidad gana valor estratégico","text":"La ofensiva estadounidense contra evasión arancelaria por transshipment puede elevar requisitos de origen y cumplimiento. Los productores genuinamente T-MEC-compliant deberían beneficiarse relativamente."}
+    {"kicker":"MERCADOS E INVERSIÓN","title":"Headline fatigue aumenta el riesgo de complacencia","text":"Los principales índices cedieron sólo marginalmente el viernes y el VIX permaneció inusualmente bajo. La debilidad del consumidor todavía no provoca repricing de riesgo proporcional."},
+    {"kicker":"CAPITAL ALLOCATION","title":"Berkshire vuelve a desplegar capital de forma concentrada","text":"El aumento reportado en Alphabet refuerza la tesis AGCI de compañías capaces de autofinanciar AI; la reducción de Bank of America muestra que la asignación sigue siendo selectiva."},
+    {"kicker":"ENERGÍA Y GEOPOLÍTICA","title":"Hormuz impide relajar el escenario de inflación","text":"La tensión en el estrecho sigue afectando navegación y mantiene petróleo, seguros y transporte como riesgos simultáneos para inflación y márgenes."},
+    {"kicker":"PREMIUM","title":"PayPal sigue siendo una tesis de evento, no de certeza","text":"La atención sobre Stripe-Advent continúa, pero sin una transacción firmada AGCI no incorpora el rumor como fundamento de valoración."}
   ],
   "decisions": [
-    {"label":"PORTAFOLIO","title":"No perseguir máximos","text":"Mantener 10–15% de liquidez y aumentar riesgo sólo cuando calidad, valuación y balance compensen yields reales altos."},
-    {"label":"AI","title":"Favorecer demanda financiable","text":"Separar negocios que autofinancian capex de beneficiarios dependientes de deuda, leasing o crédito privado."},
-    {"label":"REAL ESTATE","title":"Mantener estrés de refinanciamiento","text":"No asumir que inflación más suave reducirá rápidamente la curva larga; conservar escenarios de +50 y +100 pb."},
-    {"label":"MÉXICO","title":"Auditar reglas de origen","text":"Priorizar proveedores con trazabilidad documental clara y evitar estructuras que puedan confundirse con transshipment."}
+    {"label":"PORTAFOLIO","title":"Mantener liquidez desplegable","text":"Conservar 10–15% de liquidez y exigir margen de seguridad adicional cuando Greed y Valuation permanezcan en zona extrema."},
+    {"label":"GOOGL","title":"Confirmación cualitativa, no persecución","text":"Mantener compra en tramos sólo en terreno de entrada definido; el 13F de Berkshire mejora convicción relativa, no elimina disciplina de precio."},
+    {"label":"REAL ESTATE","title":"No bajar el estrés de refinanciamiento","text":"La curva larga sigue elevada y el petróleo puede retrasar cualquier alivio sostenido del costo de capital."},
+    {"label":"MÉXICO / NEGOCIOS","title":"Mantener control de origen y energía","text":"Conservar auditoría T-MEC y añadir sensibilidad de fletes/energía a márgenes y capital de trabajo."}
   ],
   "sections": [
-    {"title":"1. Mercados e inversiones","body":"El 13 de agosto el S&P 500 cerró en 7,798.99, Dow en 53,839.99 y Nasdaq en 26,803.03 tras un PPI benigno. Esta mañana, Census reportó una caída de 0.6% mensual en ventas minoristas de julio, con retroceso de 0.4% en el grupo de control. La señal cambia el balance: menor presión de demanda ayuda al tramo corto de tasas, pero también cuestiona la fortaleza del consumidor.","why":"Un mercado en máximos necesita que menor inflación no se convierta en deterioro de utilidades o consumo.","implication":"Mantener exposición a calidad rentable, evitar beta indiscriminada y exigir confirmación de spreads y breadth.","opportunity":"Empresas con pricing power, balances fuertes y flujos de caja resilientes; duración sólo de forma selectiva.","risk":"Consumo más débil, petróleo alto y yields reales persistentes pueden comprimir múltiplos simultáneamente.","signal":"Revisiones de retail sales, Treasury reales, spreads de crédito y resultados de retailers la próxima semana."},
-    {"title":"2. Capital, bienes raíces y negocios","body":"Reuters señala que los yields reales de largo plazo están cerca de máximos de décadas, impulsados por déficit público y fuerte emisión de deuda corporativa ligada al ciclo AI. El 30 años real estadounidense ronda 3%, una advertencia para proyectos de larga duración. En real estate, el costo de capital sigue siendo la variable rectora aun con inflación más suave.","why":"El descuento de flujos puede permanecer elevado aunque la Fed no suba en septiembre.","implication":"Mantener pruebas de refinanciamiento y exigir DSCR, plazo de deuda y retorno sobre capital más altos.","opportunity":"Activos operativamente sanos con vendedores presionados por deuda, no activos cuyo NOI esté deteriorándose.","risk":"Capital scarcity, term premium y vencimientos concentrados.","signal":"10y/30y reales, subastas Treasury, spreads y costo marginal de deuda inmobiliaria."},
-    {"title":"3. Inteligencia artificial y tecnología","body":"Applied Materials reportó ingresos trimestrales de USD 9.12 mil millones, +25%, EPS ajustado de USD 3.50 y guía de cuarto trimestre por encima del consenso. DRAM gana peso dentro del negocio por la expansión de AI. Al mismo tiempo, la mayor emisión de deuda de hyperscalers refuerza que el ciclo AI ya debe analizarse tanto por demanda tecnológica como por costo de financiación.","why":"Buenos fundamentales pueden coexistir con retornos bursátiles pobres cuando las expectativas y el costo de capital son demasiado altos.","implication":"Favorecer líderes con FCF y balance; usar AMAT como confirmación del ciclo, no como señal automática de compra a cualquier precio.","opportunity":"Semiconductor equipment, memoria, networking y óptica con crecimiento verificable y disciplina de capital.","risk":"Valuaciones exigentes, capex financiado con deuda y obsolescencia rápida.","signal":"AMAT/LRCX/KLAC, NVDA 26 agosto, emisión de bonos hyperscaler y márgenes de memoria."},
-    {"title":"4. México, comercio, energía y viajes","body":"La Casa Blanca ha elevado el foco sobre transshipment y origen de mercancías, incluyendo a México dentro de la discusión global de enforcement. No se confirmó un nuevo arancel general contra exportaciones mexicanas T-MEC-compliant; el riesgo inmediato es mayor inspección y exigencia documental. Hormuz sigue siendo un riesgo para petróleo, seguros y fletes. No se validó una nueva oportunidad de viaje con ahorro total suficiente para reemplazar el radar vigente.","why":"Cumplimiento de origen puede convertirse en ventaja competitiva para manufactura mexicana auténticamente integrada a Norteamérica.","implication":"Auditar BOM, proveedores, certificados de origen y trazabilidad; conservar colchón logístico por energía y fletes.","opportunity":"Nearshoring con contenido regional verificable y cadenas transparentes.","risk":"Sanciones por origen, retrasos aduanales, petróleo y disrupción marítima.","signal":"Reglas T-MEC, enforcement estadounidense, tráfico Hormuz, Brent y costo total de transporte."}
+    {"title":"1. Mercados e inversiones","body":"El viernes 14 de agosto el S&P 500 cerró en 7,785.76, el Dow en 53,732.41 y el Nasdaq en 26,729.16. Los tres cedieron sólo entre 0.2% y 0.3% pese a la caída de 0.6% en retail sales, petróleo más alto y nuevas tensiones en Medio Oriente. El Russell 2000 avanzó 0.5%. Barron's destacó que el VIX cayó hacia 14.25, una lectura de complacencia considerable.","why":"La absorción casi indiferente de malas noticias puede sostener el mercado mientras la liquidez sea abundante, pero también aumenta la asimetría si aparece un catalizador que obligue a repricing rápido.","implication":"No reducir liquidez por FOMO. Favorecer calidad y balances fuertes; usar volatilidad baja para revisar coberturas y tamaños de posición.","opportunity":"Compras escalonadas en nombres de alta calidad cuando precio y valoración entren en terreno definido por el Decision Engine.","risk":"Un shock de petróleo, tasas o resultados puede producir compresión rápida porque el mercado está descontando poca incertidumbre.","signal":"VIX, breadth, spreads, Treasury 10y/30y y resultados de retailers la próxima semana."},
+    {"title":"2. Capital allocation, acciones y filings","body":"Barron's reportó que Berkshire Hathaway aumentó significativamente Alphabet y Delta en el segundo trimestre y redujo Bank of America. La lectura es relevante porque combina una asignación de gran escala hacia un compounder tecnológico con una apuesta cíclica específica, mientras recorta exposición bancaria. AGCI mantiene a GOOGL como compra en tramos y no eleva la clasificación sólo por replicar a Berkshire.","why":"Las decisiones de Berkshire funcionan como evidencia adicional de valoración y calidad, pero un 13F es retrospectivo y no revela precio objetivo, horizonte ni tesis completa.","implication":"Aumentar convicción relativa en GOOGL dentro del universo de AI autofinanciado, sin modificar los límites de tamaño ni el margen de seguridad.","opportunity":"GOOGL/GOOG en correcciones o dentro del terreno de compra; DAL sólo como tesis separada y con análisis de combustible, capacidad y ciclo.","risk":"Sobreinterpretar un 13F, comprar después del movimiento o asumir que una posición institucional elimina riesgo de valoración.","signal":"Próximo 13F, capex AI, FCF de Alphabet, precios de combustible y spreads de crédito."},
+    {"title":"3. Capital, bienes raíces y tecnología","body":"Los yields nominales y reales largos continúan altos incluso después del alivio en CPI/PPI. Esto mantiene presión sobre proyectos inmobiliarios y empresas que dependen de financiación externa. La expansión de Vanguard hacia cash, advice y active fixed income refuerza la competencia por activos de corto plazo y renta fija mientras los rendimientos reales siguen atractivos.","why":"Una Fed en pausa no equivale a dinero barato. El costo de capital puede permanecer estructuralmente alto por déficit, term premium y demanda de financiación corporativa ligada a AI.","implication":"Mantener estrés de +50/+100 pb en real estate y favorecer compañías tecnológicas que autofinancian crecimiento.","opportunity":"Bonos de alta calidad, cash management competitivo y activos inmobiliarios sanos con vendedores presionados por deuda.","risk":"Refinanciamiento, cap rates lentos en ajustar y exceso de capex financiado con deuda.","signal":"Fed minutes 19 agosto, 10y/30y reales, spreads y nueva emisión corporativa."},
+    {"title":"4. Energía, México, geopolítica y viajes","body":"Reuters reporta nueva escalada en Hormuz, incluyendo ataques adicionales a buques vinculados a ADNOC y una postura iraní más dura sobre la reapertura del estrecho. El petróleo subió el viernes y el riesgo de seguro/flete sigue elevado. Para México no se identificó una nueva medida T-MEC material desde la edición anterior, pero la combinación de energía alta y enforcement de origen continúa siendo relevante. No se validó una nueva oportunidad de viaje con ahorro total suficiente para sustituir el radar vigente.","why":"Hormuz puede afectar simultáneamente inflación, consumo, fletes, márgenes y política monetaria.","implication":"Mantener colchón logístico y sensibilidad de energía en negocios expuestos a transporte; no suavizar aún los escenarios de inflación.","opportunity":"Energía de calidad como cobertura táctica y cadenas mexicanas con trazabilidad regional verificable.","risk":"Escalada militar, combustible más caro, seguros marítimos y retrasos logísticos.","signal":"Brent, tráfico Hormuz, gasoline, insurance/freight, USD/MXN y enforcement T-MEC."}
   ],
   "watch": [
-    "Retail sales — revisiones y lectura del consumo real",
-    "Hormuz — tráfico, ataques y costo de seguro marítimo",
-    "Treasury 10/30 años reales y nueva emisión de deuda AI",
-    "Applied Materials — ejecución de guía y ciclo DRAM/advanced packaging",
-    "Target, Home Depot y Lowe's — comentario sobre consumidor la próxima semana",
-    "U.S. transshipment enforcement / reglas de origen T-MEC",
+    "VIX por debajo de 15 frente a breadth y spreads",
+    "Fed minutes — 19 agosto",
+    "Walmart, Home Depot y Target — lectura del consumidor",
+    "Berkshire — evolución de Alphabet, Delta y Bank of America",
+    "Hormuz — tráfico, ataques, Brent, gasolina y seguros",
     "NVDA — resultados 26 agosto",
-    "The Economist — pendiente primera entrega de newsletter en Gmail autorizado"
+    "PayPal — sólo tratar como transacción si aparece evidencia formal",
+    "The Economist — no hubo nueva entrega en Gmail autorizado"
   ],
   "markets": [
-    {"asset":"S&P 500","value":"7,798.99","asOf":"2026-08-13 cierre ET","interpretation":"Nuevo máximo; rally sostenido por alivio inflacionario y earnings."},
-    {"asset":"Dow Jones","value":"53,839.99","asOf":"2026-08-13 cierre ET","interpretation":"Avance moderado; menor sensibilidad al impulso AI."},
-    {"asset":"Nasdaq Composite","value":"26,803.03","asOf":"2026-08-13 cierre ET","interpretation":"+0.81%; tecnología mantiene liderazgo."},
-    {"asset":"Brent","value":"~USD 87–90","asOf":"2026-08-14 mañana ET","interpretation":"Elevado y volátil; Hormuz mantiene prima geopolítica."},
-    {"asset":"WTI","value":"~USD 81–82","asOf":"2026-08-14 mañana ET","interpretation":"Riesgo energético todavía relevante para inflación y consumidor."},
-    {"asset":"U.S. 30y real yield","value":"~3%","asOf":"2026-08-14","interpretation":"Cerca de máximo de 18 años; presión estructural sobre duración y valuaciones."},
-    {"asset":"Fed funds","value":"3.50%–3.75%","asOf":"2026-08-14","interpretation":"Mercado reduce probabilidad de alza en septiembre tras CPI/PPI y retail sales."},
-    {"asset":"Banxico","value":"6.50%","asOf":"última decisión disponible","interpretation":"Sin cambio confirmado de régimen local."}
+    {"asset":"S&P 500","value":"7,785.76","asOf":"2026-08-14 cierre ET","interpretation":"-0.2%; leve retroceso desde récord, complacencia todavía alta."},
+    {"asset":"Dow Jones","value":"53,732.41","asOf":"2026-08-14 cierre ET","interpretation":"-0.2%; semana más débil que S&P 500."},
+    {"asset":"Nasdaq Composite","value":"26,729.16","asOf":"2026-08-14 cierre ET","interpretation":"-0.3%; sensibilidad a valuación y tasas persiste."},
+    {"asset":"Russell 2000","value":"3,068.42","asOf":"2026-08-14 cierre ET","interpretation":"+0.5%; small caps superaron pese a macro más débil."},
+    {"asset":"VIX","value":"~14.25","asOf":"2026-08-14","interpretation":"Complacencia elevada frente a riesgos macro y geopolíticos."},
+    {"asset":"Brent","value":"~USD 88.5","asOf":"2026-08-14 cierre","interpretation":"Al alza por Hormuz; principal riesgo de reversión inflacionaria."},
+    {"asset":"U.S. 10y Treasury","value":"~4.7%","asOf":"2026-08-14","interpretation":"Curva larga continúa restrictiva para valoración y real estate."},
+    {"asset":"Fed funds","value":"3.50%–3.75%","asOf":"2026-08-15","interpretation":"Retail sales débiles reducen presión inmediata para alza en septiembre."}
   ],
   "equities": [
-    {"ticker":"GOOGL","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Balance fuerte y capacidad de financiar AI internamente; vigilar costo marginal de deuda sectorial."},
-    {"ticker":"JPM","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Escala, capital markets y disciplina de balance; sensible a curva y crédito."},
-    {"ticker":"AMAT","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda AI, DRAM y packaging fuerte; resultados confirman ciclo, pero expectativas exigen disciplina de entrada."},
-    {"ticker":"CSCO","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Órdenes AI validan networking; vigilar márgenes y ejecución FY2027."},
-    {"ticker":"NVDA","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda estructural alta, con mayor sensibilidad a financiación del ecosistema y expectativas."},
-    {"ticker":"LITE","classification":"COMPRAR EN CORRECCIÓN","confidence":"Media","thesis":"Óptica AI mantiene crecimiento fuerte; volatilidad y valuación requieren margen de seguridad."},
-    {"ticker":"META","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"FCF robusto, pero el costo de capital y capex AI deben seguirse de cerca."}
+    {"ticker":"GOOGL","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Berkshire añade confirmación cualitativa a una tesis ya basada en balance, FCF y capacidad de financiar AI internamente."},
+    {"ticker":"JPM","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Escala y balance sólidos; mantener disciplina ante curva larga y crédito."},
+    {"ticker":"AMAT","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Fundamentales AI fuertes, pero la caída post-resultados confirma que expectativas importan tanto como crecimiento."},
+    {"ticker":"DAL","classification":"VIGILAR","confidence":"Media","thesis":"El aumento reportado de Berkshire es relevante, pero la tesis depende de combustible, capacidad, pricing y ciclo."},
+    {"ticker":"PYPL","classification":"EVENTO / NO PERSEGUIR","confidence":"Baja-Media","thesis":"La especulación M&A no sustituye valoración ni certeza de cierre."},
+    {"ticker":"NVDA","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda estructural alta; resultados del 26 de agosto son el próximo catalizador mayor."}
   ],
   "travel": [
     {"destination":"Oaxaca","airport":"NLU","fare":"MXN 1,643","dates":"13–15 sep 2026","classification":"Revalidar antes de reservar"},
@@ -69,33 +68,34 @@
   ],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
-    "No perseguir nuevos máximos mientras retail sales y breadth no confirmen crecimiento saludable.",
-    "Añadir yields reales y emisión de deuda AI al tablero de riesgo tecnológico.",
+    "No perseguir máximos mientras VIX bajo y valoración extrema reduzcan margen de error.",
+    "Mantener GOOGL como compra en tramos; usar la asignación de Berkshire como confirmación, no como detonador automático.",
     "Mantener estrés inmobiliario de +50/+100 pb.",
-    "Auditar trazabilidad y reglas de origen en cadenas México–EE.UU.",
-    "Vigilar Hormuz y petróleo como principal riesgo de reversión inflacionaria."
+    "Vigilar Hormuz y petróleo como principal riesgo de reversión inflacionaria.",
+    "No convertir rumores de M&A en tesis fundamental sin evidencia formal."
   ],
   "sources": [
-    {"name":"Barron's — The Barron's Daily / Review & Preview / Daily Roundup, síntesis AGCI de newsletters autorizados","asOf":"2026-08-14"},
-    {"name":"U.S. Census Bureau — Advance Monthly Sales for Retail and Food Services","asOf":"2026-08-14"},
-    {"name":"Reuters — retail sales, real yields, Hormuz y mercados globales","asOf":"2026-08-14"},
-    {"name":"Applied Materials Investor Relations — Q3 FY2026 earnings materials","asOf":"2026-08-13"},
-    {"name":"White House / fuentes reputadas — enforcement de transshipment y reglas de origen","asOf":"2026-08-14"}
+    {"name":"Barron's — Review & Preview, Daily Roundup, Barron's Preview y Market Lab; síntesis AGCI de newsletters autorizados","asOf":"2026-08-15"},
+    {"name":"Reuters — Hormuz, energía y retail sales","asOf":"2026-08-14"},
+    {"name":"Associated Press — cierre de mercados de EE.UU.","asOf":"2026-08-14"},
+    {"name":"SEC EDGAR — Berkshire Hathaway institutional filings context","asOf":"2026-08-15"},
+    {"name":"Federal Reserve — calendario oficial de agosto 2026","asOf":"2026-08-15"}
   ],
   "pdfUrl": null,
   "audio": {
     "title":"AGCI Morning Intelligence",
     "subtitle":"Mercados, inversión y oportunidades estratégicas en menos de 4 minutos.",
     "chapters":[
-      {"id":"apertura","title":"Apertura","text":"Buenos días. AGCI abre el viernes 14 de agosto con una combinación distinta: inflación más tranquila, consumo más débil y un costo de capital estructuralmente alto. Las ventas minoristas de julio cayeron cero punto seis por ciento, mientras el S&P 500 viene de un nuevo máximo. La postura sigue siendo riesgo selectivo con liquidez."},
-      {"id":"senales","title":"Las tres señales del día","text":"Primera: el consumidor estadounidense perdió impulso en julio. Segunda: los yields reales de largo plazo siguen cerca de máximos de décadas porque gobiernos y grandes compañías de AI compiten por capital. Tercera: Estados Unidos eleva el control de transshipment, haciendo más valiosa la trazabilidad de origen para México."},
-      {"id":"mercados","title":"Mercados globales","text":"El S&P 500 cerró ayer en siete mil setecientos noventa y ocho punto noventa y nueve, otro récord. El Nasdaq también avanzó. El alivio de CPI y PPI ayudó, pero las ventas minoristas de esta mañana obligan a distinguir desinflación saludable de desaceleración. No perseguimos beta en máximos."},
-      {"id":"inversion","title":"Radar de inversión AGCI","text":"Alphabet y JPMorgan siguen como compras en tramos. Applied Materials entra en vigilancia positiva: ingresos crecieron veinticinco por ciento y la guía superó consenso, confirmando demanda en DRAM y advanced packaging. Nvidia, Cisco y Meta permanecen en vigilancia; calidad sí, precio y financiación importan."},
-      {"id":"capital","title":"Capital y bienes raíces","text":"El riesgo más subestimado sigue siendo el costo real del dinero. El Treasury real a treinta años ronda tres por ciento. Aunque la Fed no suba en septiembre, déficits y nueva deuda corporativa pueden mantener la curva larga elevada. Conservamos estrés de refinanciamiento a tasa actual, más cincuenta y más cien puntos base."},
-      {"id":"ia","title":"AI Capital Monitor","text":"El ciclo AI continúa fuerte, pero cambia de naturaleza. Ya no basta con medir chips, backlog y capex: hay que seguir bonos, private credit y costo de financiación. Favorecemos compañías capaces de financiar expansión con flujo de caja y penalizamos estructuras dependientes de refinanciamiento continuo."},
-      {"id":"mexico","title":"México en 60 segundos","text":"La ofensiva estadounidense contra evasión arancelaria por transshipment incluye mayor vigilancia sobre rutas globales, también México. No hay un nuevo arancel general confirmado contra exportaciones T-MEC-compliant. La acción es práctica: revisar certificados de origen, BOM, proveedores y trazabilidad antes de que el enforcement se endurezca."},
-      {"id":"energia","title":"Energía y geopolítica","text":"Hormuz sigue siendo el principal riesgo de reversión inflacionaria. El tráfico permanece por debajo de su promedio de agosto y dos buques de ADNOC fueron atacados. Un nuevo repunte del petróleo afectaría inflación, consumo, fletes y márgenes simultáneamente. Energía continúa como hedge táctico, no como apuesta lineal."},
-      {"id":"acciones","title":"Qué haría hoy","text":"Uno: mantener diez a quince por ciento de liquidez. Dos: no perseguir récords si retail sales y breadth no confirman fortaleza. Tres: añadir yields reales y deuda AI al tablero tecnológico. Cuatro: sostener estrés inmobiliario. Cinco: auditar reglas de origen México–Estados Unidos y vigilar Hormuz. Esto es investigación, no asesoría financiera personalizada."}
+      {"id":"apertura","title":"Apertura","text":"Buenos días. AGCI abre el sábado quince de agosto con una señal que exige disciplina: el mercado absorbió malas noticias con muy poca volatilidad. El S&P quinientos cayó apenas cero punto dos por ciento el viernes, mientras el VIX permaneció cerca de catorce. La postura sigue siendo riesgo selectivo con liquidez."},
+      {"id":"senales","title":"Las tres señales del día","text":"Primera: complacencia extrema. Segunda: Berkshire aumentó de forma material Alphabet y Delta y redujo Bank of America, según Barron's. Tercera: Hormuz volvió a escalar y mantiene petróleo, seguros y fletes como el principal riesgo de reversión inflacionaria."},
+      {"id":"mercados","title":"Mercados globales","text":"El S&P quinientos cerró en siete mil setecientos ochenta y cinco punto setenta y seis. Dow y Nasdaq también cedieron ligeramente, mientras el Russell dos mil subió medio por ciento. La combinación de retail sales débiles y VIX bajo sugiere headline fatigue: el mercado está descontando poca incertidumbre."},
+      {"id":"inversion","title":"Radar de inversión AGCI","text":"Alphabet permanece como compra en tramos. La mayor posición reportada de Berkshire mejora convicción relativa, pero no justifica perseguir precio. Delta entra en vigilancia como tesis cíclica separada. PayPal sigue siendo sólo una situación de evento mientras no exista transacción formal."},
+      {"id":"capital","title":"Capital y bienes raíces","text":"El costo real del dinero sigue alto. El Treasury a diez años ronda cuatro punto siete por ciento y la curva larga continúa limitando valuaciones y real estate. Mantener estrés de refinanciamiento de cincuenta y cien puntos base sigue siendo prudente."},
+      {"id":"ia","title":"AI Capital Monitor","text":"La lectura de Berkshire sobre Alphabet encaja con la preferencia AGCI por empresas capaces de financiar inteligencia artificial con flujo de caja propio. En un entorno de yields reales elevados, calidad de balance y retorno sobre capex importan más que narrativa."},
+      {"id":"energia","title":"Energía y geopolítica","text":"Hormuz sigue siendo el riesgo macro más asimétrico. Reuters reporta nuevos ataques y una postura iraní más dura sobre la reapertura del estrecho. Un nuevo salto del petróleo puede afectar inflación, consumidor, fletes y márgenes simultáneamente."},
+      {"id":"mexico","title":"México y negocios","text":"No hay un cambio T-MEC material nuevo desde ayer. La acción sigue siendo mantener trazabilidad de origen y añadir sensibilidad de energía y transporte a márgenes, inventarios y capital de trabajo."},
+      {"id":"acciones","title":"Qué haría hoy","text":"Uno: conservar diez a quince por ciento de liquidez. Dos: no perseguir un mercado con volatilidad demasiado baja. Tres: mantener Alphabet como compra escalonada, no emocional. Cuatro: sostener estrés inmobiliario. Cinco: vigilar Hormuz. Esto es investigación, no asesoría financiera personalizada."}
     ]
-  }
+  },
+  "legal": "AGCI es una herramienta de investigación y apoyo a decisiones. No constituye asesoría financiera personalizada, recomendación fiduciaria ni garantía de resultados."
 }
