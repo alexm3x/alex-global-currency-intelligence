@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-14",
-  "timestamp": "2026-08-14T07:17:00-06:00",
+  "date": "2026-08-15",
+  "timestamp": "2026-08-15T07:15:00-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Barron's subscriber newsletters in authorized Gmail plus validated public primary/reputable sources",
@@ -9,88 +9,88 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "U.S. Census Bureau / Reuters",
-      "newsletter": "Public validation",
-      "headline": "July retail sales fall 0.6%, adding a growth warning after softer inflation",
-      "category": "Macro / Consumer / Rates",
+      "publisher": "Barron's / SEC context",
+      "newsletter": "Daily Roundup — 14 Aug 2026",
+      "headline": "Berkshire accelerates capital deployment into Alphabet and Delta while trimming Bank of America",
+      "category": "Capital Allocation / Equities / Filings",
       "relevance": 100,
-      "summary": "U.S. retail sales fell 0.6% in July after a 0.2% rise in June, while the GDP control group also declined. Part of the weakness reflects timing effects from promotions and softer autos, but the result is materially weaker than expected.",
-      "whyItMatters": "The macro mix now shifts from pure inflation anxiety toward a two-sided risk: softer demand can support shorter-duration rates, while elevated long real yields and energy prices still constrain valuations and financing.",
-      "assets": ["SPY", "QQQ", "TLT", "XLY", "XLP", "US10Y", "US30Y"],
-      "agciSignal": "GROWTH COOLING / RATE RELIEF TACTICAL",
-      "sourceUrl": "https://www.census.gov/retail/"
+      "summary": "Barron's reports that Berkshire Hathaway materially increased its Alphabet and Delta positions during the second quarter while reducing Bank of America. The change is notable because it combines a large-scale technology allocation with selective cyclical exposure rather than a broad risk-on move.",
+      "whyItMatters": "For AGCI this reinforces the existing preference for Alphabet as a high-quality AI compounder with internal financing capacity, but it is not a stand-alone buy signal. The Delta increase is a separate cyclical thesis and should not be generalized to airlines as a group.",
+      "assets": ["GOOGL", "GOOG", "DAL", "BAC", "BRK.B"],
+      "agciSignal": "QUALITY CAPITAL DEPLOYMENT / PRICE DISCIPLINE STILL REQUIRED",
+      "sourceUrl": "https://www.sec.gov/edgar/browse/?CIK=1067983&owner=exclude"
     },
     {
       "rank": 2,
-      "publisher": "Barron's / Reuters",
-      "newsletter": "The Barron's Daily",
-      "headline": "Oil remains the main inflation tail risk as Hormuz traffic stays impaired",
-      "category": "Energy / Geopolitics / Inflation",
-      "relevance": 98,
-      "summary": "Barron's warns that benign CPI and PPI do not neutralize energy risk. Reuters reports Hormuz commodity traffic remains below its August average and two ADNOC vessels were attacked while transiting the strait, keeping freight, insurance and crude risk elevated.",
-      "whyItMatters": "A renewed oil spike could reverse part of the disinflation relief, compress consumer spending and keep the Fed and long bond market cautious even as current inflation prints improve.",
-      "assets": ["XLE", "USO", "SPY", "TLT", "DXY"],
-      "agciSignal": "ENERGY TAIL RISK / DO NOT DECLARE INFLATION VICTORY",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/hormuz-shipping-traffic-capped-amid-competing-claims-us-iran-2026-08-14/"
+      "publisher": "Barron's",
+      "newsletter": "Review & Preview — 14 Aug 2026",
+      "headline": "Markets show headline fatigue: indexes slip only modestly while VIX remains unusually low",
+      "category": "Markets / Volatility / Positioning",
+      "relevance": 99,
+      "summary": "The S&P 500, Dow and Nasdaq each slipped modestly on Friday despite weak retail sales, higher oil and persistent geopolitical risk. The VIX fell into the mid-14 area, showing unusually low near-term fear even as macro and energy risks remain unresolved.",
+      "whyItMatters": "The combination of weak macro sensitivity, subdued volatility and elevated valuations is consistent with AGCI's current Extreme Greed / Extreme Valuation regime. It argues for retaining liquidity and avoiding forced purchases simply because negative headlines are being ignored.",
+      "assets": ["SPY", "QQQ", "IWM", "VIX", "TLT", "XLE"],
+      "agciSignal": "COMPLACENCY / DO NOT CHASE",
+      "sourceUrl": "https://www.barrons.com/"
     },
     {
       "rank": 3,
-      "publisher": "Reuters",
-      "newsletter": "Public validation",
-      "headline": "AI and sovereign borrowing push real yields toward multi-decade highs",
-      "category": "Rates / AI / Capital Allocation",
-      "relevance": 97,
-      "summary": "Inflation-adjusted yields are near multi-decade highs across major markets as governments and AI hyperscalers compete for capital. Reuters estimates large technology issuers have already raised roughly USD 220 billion in bonds in 2026.",
-      "whyItMatters": "The AI boom is creating a capital-scarcity channel: stronger demand for financing can raise discount rates and weaken the valuation benefit from good earnings. This reinforces AGCI's distinction between operational AI winners and financing-sensitive beneficiaries.",
-      "assets": ["GOOGL", "AMZN", "META", "NVDA", "TLT", "HYG", "QQQ"],
-      "agciSignal": "AI DEMAND STRONG / COST OF CAPITAL RISING",
-      "sourceUrl": "https://www.reuters.com/world/asia-pacific/ai-driven-surge-bond-yields-could-be-next-risk-markets-growth-2026-08-14/"
+      "publisher": "Reuters / Barron's",
+      "newsletter": "Daily market validation",
+      "headline": "Hormuz risk escalates again as tanker attacks and political rhetoric keep oil inflation risk alive",
+      "category": "Energy / Geopolitics / Inflation",
+      "relevance": 98,
+      "summary": "Reuters reports continued disruption in the Strait of Hormuz and another attack involving an ADNOC vessel, while U.S.-Iran rhetoric hardened. Brent rose on Friday and the probability of a rapid normalization in shipping remains low.",
+      "whyItMatters": "Energy remains the clearest route through which geopolitical stress can reaccelerate headline inflation, weaken consumers and keep long yields elevated. This is the principal counterweight to the recent soft CPI/PPI narrative.",
+      "assets": ["XLE", "USO", "SPY", "TLT", "DXY", "USD/MXN"],
+      "agciSignal": "ENERGY TAIL RISK / INFLATION REVERSAL RISK",
+      "sourceUrl": "https://www.reuters.com/world/us/trump-urges-americans-accept-higher-gas-prices-he-escalates-iran-rhetoric-2026-08-14/"
     },
     {
       "rank": 4,
-      "publisher": "Barron's / Applied Materials",
-      "newsletter": "The Barron's Daily",
-      "headline": "Applied Materials confirms semiconductor-equipment demand, but expectations remain demanding",
-      "category": "AI / Semiconductors / Capital Equipment",
-      "relevance": 94,
-      "summary": "Applied Materials reported fiscal third-quarter adjusted EPS of USD 3.50 and revenue of USD 9.12 billion, up 25%, while guiding next-quarter revenue and adjusted EPS above prior consensus. DRAM exposure increased as AI drives memory and advanced packaging investment.",
-      "whyItMatters": "The semiconductor capex cycle remains strong, but solid results can still disappoint a market already pricing in exceptional growth. AGCI treats AMAT as confirmation of demand rather than a reason to chase valuation.",
-      "assets": ["AMAT", "LRCX", "KLAC", "MU", "NVDA", "SOXX"],
-      "agciSignal": "FUNDAMENTALS STRONG / VALUATION DISCIPLINE",
-      "sourceUrl": "https://investor.appliedmaterials.com/events"
+      "publisher": "Barron's / Reuters",
+      "newsletter": "Daily Roundup — 14 Aug 2026",
+      "headline": "PayPal takeover speculation remains active but is not yet a fundamental AGCI thesis",
+      "category": "Fintech / M&A / Event Risk",
+      "relevance": 91,
+      "summary": "Barron's highlighted renewed attention to reported Stripe-Advent discussions around PayPal. The underlying bid history dates to July and PayPal's board had already viewed the reported USD 60.50 offer as inadequate, so the current development remains event-driven rather than a confirmed transaction.",
+      "whyItMatters": "PYPL may carry asymmetric event volatility, but AGCI should not convert takeover speculation into a core valuation signal without a signed agreement or new formal disclosure.",
+      "assets": ["PYPL"],
+      "agciSignal": "EVENT-DRIVEN ONLY / NO DEAL CERTAINTY",
+      "sourceUrl": "https://www.reuters.com/"
     },
     {
       "rank": 5,
-      "publisher": "Barron's / Financial Times / White House reporting",
-      "newsletter": "The Barron's Daily",
-      "headline": "U.S. tariff-enforcement push raises rules-of-origin risk for Mexico and global supply chains",
-      "category": "Mexico / Trade / T-MEC / Supply Chains",
-      "relevance": 93,
-      "summary": "The White House plans AI-enabled monitoring of transshipment and has identified more than 40 jurisdictions, including Mexico, in the broader enforcement discussion. The policy focus is on tariff evasion and origin verification rather than a confirmed new blanket tariff on compliant Mexican exports.",
-      "whyItMatters": "For Mexico, the near-term risk is compliance intensity: customs documentation, traceability and rules of origin become more valuable. Genuine T-MEC-compliant manufacturing may gain relative advantage while opaque intermediary structures face higher enforcement risk.",
-      "assets": ["EWW", "GM", "F", "STLA", "KSU", "USD/MXN"],
-      "agciSignal": "T-MEC COMPLIANCE PREMIUM / TRANSshipment RISK",
+      "publisher": "Barron's",
+      "newsletter": "Barron's Preview — 15 Aug 2026",
+      "headline": "Vanguard broadens from passive ETFs toward cash, advice and active fixed income",
+      "category": "ETFs / Asset Management / Fixed Income",
+      "relevance": 88,
+      "summary": "Barron's Preview describes Vanguard's push beyond its dominant passive ETF franchise into cash savings, advice and active fixed income. The strategic direction reflects investor demand for low-cost implementation across a wider share of household and institutional balance sheets.",
+      "whyItMatters": "The trend supports fee compression, greater competition for cash balances and a deeper role for active fixed income while real yields remain high. It is strategically relevant but does not alter AGCI's immediate portfolio stance.",
+      "assets": ["BND", "VTI", "VOO", "TLT", "SGOV"],
+      "agciSignal": "LOW-COST PLATFORM EXPANSION / FIXED-INCOME COMPETITION",
       "sourceUrl": "https://www.barrons.com/"
     }
   ],
   "watch": [
-    "Retail-sales revisions and August consumer spending",
-    "Hormuz vessel traffic, Brent and insurance/freight costs",
-    "U.S. 10y/30y real yields and AI-related bond issuance",
-    "Applied Materials, KLA and Lam execution into the next semiconductor capex cycle",
-    "U.S. transshipment enforcement and Mexico rules-of-origin compliance",
-    "Target, Home Depot and Lowe's commentary on consumer demand next week",
+    "Berkshire 13F follow-through and whether Alphabet accumulation persists",
+    "VIX below 15 versus S&P 500 breadth and credit spreads",
+    "Hormuz traffic, Brent, gasoline, insurance and freight costs",
+    "Fed minutes on 19 August and implications for September policy",
+    "Walmart, Home Depot and Target commentary on consumer demand",
     "NVDA earnings — 26 August",
+    "PayPal — only upgrade event status on formal transaction evidence",
     "The Economist newsletters — no new delivery found in authorized Gmail"
   ],
   "excluded": [
     {
       "headline": "The Economist newsletters",
-      "reason": "No new Economist newsletter was found in the authorized Gmail during this review window."
+      "reason": "No new Economist newsletter was found in authorized Gmail during this review window."
     },
     {
-      "headline": "Lower-impact single-stock and entertainment stories",
-      "reason": "Excluded where they did not materially alter AGCI macro, portfolio, capital-allocation or risk conclusions."
+      "headline": "Quantum-computing earnings roundup and lower-impact single-stock stories",
+      "reason": "Interesting for thematic monitoring but insufficient to change AGCI capital-allocation or macro conclusions today."
     }
   ]
 }
