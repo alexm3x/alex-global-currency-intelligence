@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-14 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-15 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI abre el viernes 14 de agosto con una combinación distinta: inflación más tranquila, consumo más débil y un costo de capital estructuralmente alto. Las ventas minoristas de julio cayeron cero punto seis por ciento, mientras el S&P 500 viene de un nuevo máximo. La postura sigue siendo riesgo selectivo con liquidez.
+**CIO:** Buenos días. AGCI abre el sábado quince de agosto con una señal que exige disciplina: el mercado absorbió malas noticias con muy poca volatilidad. El S&P quinientos cayó apenas cero punto dos por ciento el viernes, mientras el VIX permaneció cerca de catorce. La postura sigue siendo riesgo selectivo con liquidez.
 
 ## Las tres señales del día
 
-**CIO:** Primera: el consumidor estadounidense perdió impulso en julio. Segunda: los yields reales de largo plazo siguen cerca de máximos de décadas porque gobiernos y grandes compañías de AI compiten por capital. Tercera: Estados Unidos eleva el control de transshipment, haciendo más valiosa la trazabilidad de origen para México.
+**CIO:** Primera: complacencia extrema. Segunda: Berkshire aumentó de forma material Alphabet y Delta y redujo Bank of America, según Barron's. Tercera: Hormuz volvió a escalar y mantiene petróleo, seguros y fletes como el principal riesgo de reversión inflacionaria.
 
 ## Mercados globales
 
-**ANALISTA:** El S&P 500 cerró ayer en siete mil setecientos noventa y ocho punto noventa y nueve, otro récord. El Nasdaq también avanzó. El alivio de CPI y PPI ayudó, pero las ventas minoristas de esta mañana obligan a distinguir desinflación saludable de desaceleración. No perseguimos beta en máximos.
+**ANALISTA:** El S&P quinientos cerró en siete mil setecientos ochenta y cinco punto setenta y seis. Dow y Nasdaq también cedieron ligeramente, mientras el Russell dos mil subió medio por ciento. La combinación de retail sales débiles y VIX bajo sugiere headline fatigue: el mercado está descontando poca incertidumbre.
 
 ## Radar de inversión AGCI
 
-**ANALISTA:** Alphabet y JPMorgan siguen como compras en tramos. Applied Materials entra en vigilancia positiva: ingresos crecieron veinticinco por ciento y la guía superó consenso, confirmando demanda en DRAM y advanced packaging. Nvidia, Cisco y Meta permanecen en vigilancia; calidad sí, precio y financiación importan.
+**ANALISTA:** Alphabet permanece como compra en tramos. La mayor posición reportada de Berkshire mejora convicción relativa, pero no justifica perseguir precio. Delta entra en vigilancia como tesis cíclica separada. PayPal sigue siendo sólo una situación de evento mientras no exista transacción formal.
 
 ## Capital y bienes raíces
 
-**ANALISTA:** El riesgo más subestimado sigue siendo el costo real del dinero. El Treasury real a treinta años ronda tres por ciento. Aunque la Fed no suba en septiembre, déficits y nueva deuda corporativa pueden mantener la curva larga elevada.
+**ANALISTA:** El costo real del dinero sigue alto. El Treasury a diez años ronda cuatro punto siete por ciento y la curva larga continúa limitando valuaciones y real estate. Mantener estrés de refinanciamiento de cincuenta y cien puntos base sigue siendo prudente.
 
 ## AI Capital Monitor
 
-**ANALISTA:** El ciclo AI continúa fuerte, pero cambia de naturaleza. Ya no basta con medir chips, backlog y capex: hay que seguir bonos, private credit y costo de financiación. Favorecemos compañías capaces de financiar expansión con flujo de caja y penalizamos estructuras dependientes de refinanciamiento continuo.
-
-## México en 60 segundos
-
-**CIO:** La ofensiva estadounidense contra evasión arancelaria por transshipment incluye mayor vigilancia sobre rutas globales, también México. No hay un nuevo arancel general confirmado contra exportaciones T-MEC-compliant. La acción es práctica: revisar certificados de origen, BOM, proveedores y trazabilidad antes de que el enforcement se endurezca.
+**ANALISTA:** La lectura de Berkshire sobre Alphabet encaja con la preferencia AGCI por empresas capaces de financiar inteligencia artificial con flujo de caja propio. En un entorno de yields reales elevados, calidad de balance y retorno sobre capex importan más que narrativa.
 
 ## Energía y geopolítica
 
-**CIO:** Hormuz sigue siendo el principal riesgo de reversión inflacionaria. El tráfico permanece por debajo de su promedio de agosto y dos buques de ADNOC fueron atacados. Un nuevo repunte del petróleo afectaría inflación, consumo, fletes y márgenes simultáneamente.
+**CIO:** Hormuz sigue siendo el riesgo macro más asimétrico. Reuters reporta nuevos ataques y una postura iraní más dura sobre la reapertura del estrecho. Un nuevo salto del petróleo puede afectar inflación, consumidor, fletes y márgenes simultáneamente.
+
+## México y negocios
+
+**CIO:** No hay un cambio T-MEC material nuevo desde ayer. La acción sigue siendo mantener trazabilidad de origen y añadir sensibilidad de energía y transporte a márgenes, inventarios y capital de trabajo.
 
 ## Qué haría hoy
 
-**CIO:** Uno: mantener diez a quince por ciento de liquidez. Dos: no perseguir récords si retail sales y breadth no confirman fortaleza. Tres: añadir yields reales y deuda AI al tablero tecnológico. Cuatro: sostener estrés inmobiliario. Cinco: auditar reglas de origen México–Estados Unidos y vigilar Hormuz. Esto es investigación, no asesoría financiera personalizada.
+**CIO:** Uno: conservar diez a quince por ciento de liquidez. Dos: no perseguir un mercado con volatilidad demasiado baja. Tres: mantener Alphabet como compra escalonada, no emocional. Cuatro: sostener estrés inmobiliario. Cinco: vigilar Hormuz. Esto es investigación, no asesoría financiera personalizada.
