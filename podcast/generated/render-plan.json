@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "date": "2026-08-15",
-  "totalWords": 394,
+  "date": "2026-08-16",
+  "totalWords": 450,
   "targetSeconds": 240,
   "primaryPlayback": "deviceSpeech",
   "fallbackVoiceMode": "dual-espeak",
@@ -13,7 +13,7 @@
       "file": "podcast/generated/segments/00.txt",
       "title": "Apertura",
       "category": "apertura",
-      "words": 52
+      "words": 53
     },
     {
       "index": 1,
@@ -22,7 +22,7 @@
       "file": "podcast/generated/segments/01.txt",
       "title": "Las tres señales del día",
       "category": "senales",
-      "words": 42
+      "words": 64
     },
     {
       "index": 2,
@@ -31,15 +31,15 @@
       "file": "podcast/generated/segments/02.txt",
       "title": "Mercados globales",
       "category": "mercados",
-      "words": 50
+      "words": 51
     },
     {
       "index": 3,
-      "speaker": "ANALISTA",
-      "voice": "es+f3",
+      "speaker": "CIO",
+      "voice": "es+m3",
       "file": "podcast/generated/segments/03.txt",
-      "title": "Radar de inversión AGCI",
-      "category": "inversion",
+      "title": "Valuation discipline",
+      "category": "general",
       "words": 45
     },
     {
@@ -47,36 +47,36 @@
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/04.txt",
-      "title": "Capital y bienes raíces",
-      "category": "capital",
-      "words": 45
+      "title": "AI Capital Monitor",
+      "category": "ia",
+      "words": 32
     },
     {
       "index": 5,
-      "speaker": "ANALISTA",
-      "voice": "es+f3",
+      "speaker": "CIO",
+      "voice": "es+m3",
       "file": "podcast/generated/segments/05.txt",
-      "title": "AI Capital Monitor",
-      "category": "ia",
-      "words": 44
+      "title": "Oro y reservas",
+      "category": "general",
+      "words": 47
     },
     {
       "index": 6,
-      "speaker": "CIO",
-      "voice": "es+m3",
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
       "file": "podcast/generated/segments/06.txt",
-      "title": "Energía y geopolítica",
-      "category": "general",
-      "words": 39
+      "title": "Capital y bienes raíces",
+      "category": "capital",
+      "words": 53
     },
     {
       "index": 7,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/07.txt",
-      "title": "México y negocios",
-      "category": "mexico",
-      "words": 34
+      "title": "Energía y geopolítica",
+      "category": "general",
+      "words": 48
     },
     {
       "index": 8,
@@ -85,7 +85,7 @@
       "file": "podcast/generated/segments/08.txt",
       "title": "Qué haría hoy",
       "category": "acciones",
-      "words": 43
+      "words": 57
     }
   ]
 }
