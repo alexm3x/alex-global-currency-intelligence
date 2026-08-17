@@ -1,102 +1,84 @@
 {
   "schemaVersion": 2,
-  "date": "2026-08-16",
-  "timestamp": "2026-08-16T07:16:00-06:00",
+  "date": "2026-08-17",
+  "timestamp": "2026-08-17T07:28:00-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "La gran divergencia de valuación en AI exige más disciplina mientras el financiamiento del capex se vuelve más complejo",
-  "dek": "El mercado permanece en complacencia alta, pero Barron's identifica una dispersión récord en price targets y una mayor dependencia de deuda y equity para financiar infraestructura de AI. Hormuz y yields largos siguen limitando el margen de error.",
+  "title": "Hormuz pasa de riesgo de titulares a disrupción observable mientras el mercado sigue en extrema complacencia",
+  "dek": "El petróleo sube, el dólar y los yields ceden por datos débiles de EE.UU. y AGCI marca Greed 91 / Valuation 85. La combinación exige preservar liquidez y no confundir alivio de tasas con desaparición del riesgo inflacionario.",
   "stance": "Riesgo selectivo con liquidez",
   "risk": "Elevado",
   "horizon": "1–12 meses",
-  "executiveSummary": "No hubo una nueva sesión de mercado desde el cierre del viernes 14 de agosto, por lo que AGCI conserva la postura de riesgo selectivo con 10–15% de liquidez desplegable. Sí surgieron dos cambios editoriales materiales. Primero, Barron's documenta que la dispersión entre price targets del S&P 500 alcanzó aproximadamente 62.5% del consenso, máximo de más de una década; Nvidia concentra una de las mayores divergencias. Segundo, el ciclo de inversión en AI está recurriendo cada vez más a deuda, equity y estructuras externas para financiar capex 2026–2027. La lectura AGCI es clara: el crecimiento de AI sigue siendo estructural, pero la calidad de financiamiento y el margen de seguridad deben pesar más en position sizing. Tether aparece además como comprador físico relevante de oro, reforzando una fuente estructural de demanda. Hormuz continúa siendo el principal riesgo de reversión inflacionaria y las minutas del FOMC del 19 de agosto siguen siendo el siguiente catalizador macro oficial. No hubo nueva entrega de The Economist en Gmail autorizado.",
+  "executiveSummary": "AGCI mantiene la postura de riesgo selectivo con 10–15% de liquidez desplegable, pero incorpora un cambio material: Reuters reportó el 17 de agosto que el tránsito de buques de commodities por Hormuz cayó a cero el domingo frente a 31 el fin de semana previo, señal de una disrupción logística observable y no sólo retórica geopolítica. Brent avanzó hacia USD 89.4. Al mismo tiempo, datos débiles de ventas minoristas y confianza redujeron la probabilidad implícita de una subida de la Fed en septiembre; el dólar cayó a mínimos desde junio y los Treasury yields cedieron. El motor AGCI Greed + Valuation actualizó Greed a 91/100 y mantiene Valuation en 85/100, Mid Bull y EUPHORIA_RISK. Hecho confirmado: la tensión energética y logística aumentó. Análisis AGCI: el alivio de tasas puede sostener activos de duración, pero no compensa un shock de petróleo suficientemente persistente; por ello no se modifica el rango de liquidez ni la disciplina de entradas. No se encontraron nuevos newsletters de Barron's ni The Economist en Gmail autorizado desde el corte previo.",
   "threeSignals": [
-    {"label":"Dispersion de price targets","type":"HECHO CONFIRMADO / BARRON'S","summary":"La dispersión promedio entre el target alto y bajo del S&P 500 ronda 62.5% del consenso, máximo de más de una década. En NVDA el rango reportado va aproximadamente de USD 180 a USD 743."},
-    {"label":"Financiamiento de AI","type":"HECHO CONFIRMADO / BARRON'S","summary":"El capex de AI se apoya cada vez más en deuda, equity y financiamiento estructurado además de flujo operativo, elevando la importancia de balance, costo de capital y retorno sobre activos."},
-    {"label":"Hormuz / energía","type":"RIESGO ESTRUCTURAL","summary":"El petróleo sigue elevado por tensiones entre EE.UU. e Irán y el estrecho continúa siendo el canal más directo hacia una nueva presión inflacionaria."}
+    {"label":"Hormuz","type":"HECHO CONFIRMADO / REUTERS","summary":"El tránsito de buques de commodities citado por Reuters cayó a cero el domingo, frente a 31 el fin de semana anterior, mientras las tensiones EE.UU.-Irán continúan."},
+    {"label":"Fed / crecimiento","type":"HECHO CONFIRMADO / REUTERS","summary":"Datos más débiles de ventas minoristas y confianza redujeron expectativas de una subida de tasas en septiembre; el dólar cayó a mínimos desde junio y los yields cedieron."},
+    {"label":"Greed + Valuation","type":"SEÑAL PROPIETARIA AGCI","summary":"Greed 91/100, Valuation 85/100, régimen Mid Bull, confianza 72/100 y condición EUPHORIA_RISK: Capital preservation / Do not chase."}
   ],
   "briefs": [
-    {"kicker":"VALUATION DISCIPLINE","title":"El consenso de Wall Street es menos confiable cuando aumenta el desacuerdo","text":"La amplitud entre targets altos y bajos obliga a separar promedio de consenso de convicción real. AGCI incorpora la dispersión como modificador de confianza, no como valor razonable."},
-    {"kicker":"AI CAPITAL MONITOR","title":"La calidad del financiamiento pasa al centro del análisis","text":"GOOGL y otros compounders autofinanciados mantienen ventaja relativa frente a compañías cuyo crecimiento depende cada vez más de deuda, equity o estructuras externas."},
-    {"kicker":"GOLD / RESERVES","title":"Tether emerge como comprador físico relevante de oro","text":"La demanda de una gran entidad privada vinculada a stablecoins añade un nuevo comprador estructural al mercado físico, aunque AGCI no persigue momentum sin margen de seguridad."},
-    {"kicker":"ENERGÍA Y GEOPOLÍTICA","title":"Hormuz mantiene viva la cola inflacionaria","text":"Petróleo, seguros y fletes siguen siendo el principal puente entre geopolítica y política monetaria."}
+    {"kicker":"ENERGÍA Y GEOPOLÍTICA","title":"Hormuz ya muestra fricción logística medible","text":"La caída del tránsito de commodities eleva el riesgo de persistencia en petróleo, seguros y fletes. AGCI lo trata como canal inflacionario activo hasta que el flujo marítimo se normalice."},
+    {"kicker":"RATES / FX","title":"El mercado descuenta menos endurecimiento de la Fed","text":"El dólar y los Treasury yields ceden por crecimiento más débil, creando alivio táctico para duración. Sin embargo, un petróleo más alto limita la duración de ese alivio si se transmite a inflación."},
+    {"kicker":"BEHAVIORAL FINANCE","title":"La complacencia aumenta pese al shock energético","text":"Greed sube a 91 mientras Valuation permanece en 85. La divergencia entre percepción de riesgo y riesgo físico observable refuerza la necesidad de liquidez y compras escalonadas."},
+    {"kicker":"CALENDARIO","title":"Producción industrial y minutas de la Fed son los siguientes catalizadores","text":"El 18 de agosto se publica producción industrial y el 19 de agosto las minutas del FOMC del 28–29 de julio."}
   ],
   "decisions": [
-    {"label":"PORTAFOLIO","title":"Mantener liquidez desplegable","text":"Conservar 10–15% de liquidez y exigir mayor margen de seguridad en activos con alta dispersión de targets o dependencia creciente de capital externo."},
-    {"label":"AI","title":"Premiar autofinanciamiento","text":"Favorecer compañías con FCF, balance y retorno sobre capex suficientes para sostener inversión en AI sin deteriorar estructura financiera."},
-    {"label":"NVDA","title":"No convertir target promedio en ancla","text":"Mantener vigilancia y revisar escenario bajo/base/alto; la dispersión extrema de targets reduce la utilidad del consenso como referencia única."},
-    {"label":"REAL ESTATE","title":"Mantener estrés de refinanciamiento","text":"La curva larga continúa elevada; preservar pruebas de +50/+100 pb y disciplina de cap rate hasta que el costo de capital muestre alivio persistente."}
+    {"label":"PORTAFOLIO","title":"Mantener 10–15% de liquidez desplegable","text":"No reducir cash por el alivio de yields; el shock de energía y la extrema complacencia siguen justificando capacidad de reacción."},
+    {"label":"EQUITIES","title":"Comprar calidad sólo en terreno de entrada","text":"Favorecer FCF, balance sólido y baja dependencia de financiación externa. Evitar aumentar posiciones simplemente porque bajan los yields."},
+    {"label":"FIXED INCOME","title":"Duración táctica, no complacencia estructural","text":"La caída de yields mejora el carry/mark-to-market, pero un petróleo persistentemente alto puede volver a elevar inflación y term premium."},
+    {"label":"REAL ESTATE","title":"Mantener estrés de +50/+100 pb","text":"Todavía no hay evidencia suficiente de alivio duradero del costo de capital; preservar underwriting conservador y disciplina de cap rate."}
   ],
   "sections": [
-    {"title":"1. Mercados e inversión","body":"No hubo nueva sesión desde el viernes. El S&P 500 cerró el 14 de agosto en 7,785.76, el Dow en 53,732.41 y el Nasdaq en 26,729.16, con VIX cerca de 14.25. La lectura de complacencia permanece intacta: los índices absorbieron retail sales débiles y petróleo más alto con una caída limitada.","why":"Cuando la volatilidad implícita es baja y las valoraciones son exigentes, el costo de equivocarse aumenta si aparece un shock que obligue a repricing rápido.","implication":"No reducir liquidez por FOMO. Mantener compras escalonadas y tamaños de posición coherentes con riesgo de valoración.","opportunity":"Alta calidad en correcciones y activos con flujo de caja visible; no perseguir índices en máximos.","risk":"Petróleo, yields largos y resultados de retailers pueden cambiar rápidamente la lectura de crecimiento e inflación.","signal":"VIX, breadth, spreads, 10y/30y y resultados de consumo de la próxima semana."},
-    {"title":"2. Valuation y capital allocation","body":"Barron's reporta que la dispersión promedio entre los price targets altos y bajos del S&P 500 alcanzó aproximadamente 62.5% del consenso, frente a una media cercana a 43% desde 2016. En Nvidia, los targets citados se extienden aproximadamente de USD 180 a USD 743 alrededor de un promedio cercano a USD 314.","why":"Un consenso alto puede ocultar gran desacuerdo sobre crecimiento, márgenes, múltiplos y duración de la ventaja competitiva. Cuanto mayor sea la dispersión, menor debe ser la confianza automática en el target promedio.","implication":"AGCI debe usar dispersión como penalización de confianza y exigir mayor margen de seguridad antes de aumentar tamaño en nombres muy divididos.","opportunity":"Comparar empresas de AI no sólo por upside de consenso, sino por dispersión, FCF, balance y dependencia de capital externo.","risk":"Comprar una narrativa porque el target promedio luce atractivo aun cuando los modelos subyacentes son incompatibles entre sí.","signal":"Dispersión de targets, revisiones de EPS, FCF y cambios de recomendación en NVDA, MSFT, AVGO y otros líderes AI."},
-    {"title":"3. AI, tecnología y financiamiento","body":"Barron's describe un nuevo esfuerzo de aproximadamente USD 500 mil millones para financiar infraestructura de AI alrededor de Nvidia, mientras hyperscalers complementan flujo operativo con deuda y equity para sostener capex 2026–2027. Intel, por separado, busca una gran colocación de capital mientras su negocio de fabricación continúa bajo presión.","why":"La demanda de AI puede seguir creciendo mientras el riesgo se desplaza desde la pregunta de adopción hacia la calidad del financiamiento, la vida útil económica de los activos y el retorno sobre capital invertido.","implication":"Favorecer compañías que pueden financiar AI internamente. Penalizar crecimiento que requiera refinanciamiento continuo o dilución para sostener capex.","opportunity":"GOOGL, MSFT, AMZN y META deben compararse por FCF después de capex, deuda neta y retorno incremental, no sólo por crecimiento de ingresos AI.","risk":"Sobreinversión, dependencia de deuda, depreciación tecnológica acelerada y menor poder de pricing de chips o infraestructura.","signal":"Capex guidance, deuda nueva, equity issuance, FCF post-capex, utilization y márgenes de infraestructura."},
-    {"title":"4. Oro, macro, bienes raíces y geopolítica","body":"Tether compró más de 27 toneladas métricas de oro durante el primer semestre de 2026, según Barron's, convirtiéndose en un comprador incremental relevante junto a bancos centrales. Paralelamente, Hormuz mantiene el petróleo elevado y la curva larga sigue restrictiva para activos sensibles a financiación. Las minutas del FOMC del 28–29 de julio se publican oficialmente el 19 de agosto.","why":"Oro recibe demanda tanto oficial como privada mientras energía y yields mantienen abierta la discusión sobre inflación y costo de capital.","implication":"Mantener estrés inmobiliario de +50/+100 pb; considerar oro como diversificador estructural, no como trade de persecución; conservar sensibilidad de energía en negocios y márgenes.","opportunity":"Bonos de alta calidad, liquidez remunerada, oro en asignación disciplinada y real estate sano con vendedores presionados por deuda.","risk":"Reaceleración inflacionaria por energía, long yields persistentes y compresión de cap rates insuficiente para compensar costo financiero.","signal":"Fed minutes 19 agosto, Brent, gold flows, Treasury real yields y spreads de crédito."}
+    {"title":"1. Mercados, tasas y divisas","body":"Antes de la apertura de EE.UU. del 17 de agosto, los futuros del S&P 500 y Nasdaq avanzaban modestamente, el dólar se debilitaba a mínimos desde junio y el Treasury 10Y rondaba 4.69%. Brent subía hacia USD 89.4. La combinación refleja menor temor a una subida inmediata de la Fed, pero mayor prima geopolítica en energía.","why":"Crecimiento más débil reduce presión de tasas, mientras petróleo más alto puede reintroducir inflación. Son fuerzas opuestas sobre múltiplos y duración.","implication":"No confundir caída de yields con un nuevo régimen estructural de tasas bajas. Mantener diversificación entre liquidez, duración de alta calidad y equities con FCF.","opportunity":"Bonos de alta calidad y growth de calidad en correcciones pueden beneficiarse si los yields siguen cediendo sin una nueva aceleración inflacionaria.","risk":"Un shock de petróleo persistente puede revertir rápidamente la caída de yields y comprimir múltiplos.","signal":"Brent, breakevens, 10Y/30Y, DXY, producción industrial y FOMC minutes."},
+    {"title":"2. Energía, geopolítica y capital allocation","body":"Reuters reportó que el tránsito de buques de commodities por Hormuz cayó a cero el domingo, frente a 31 el fin de semana anterior. Mercados del Golfo cedieron mientras las tensiones EE.UU.-Irán y la disrupción marítima continúan.","why":"Hormuz es un cuello de botella físico con capacidad de trasladar geopolítica a inflación, logística, márgenes y política monetaria.","implication":"Mantener liquidez, evitar apuestas concentradas contra energía y vigilar compañías sensibles a combustible, seguros y fletes.","opportunity":"Exposición energética disciplinada y negocios con pricing power pueden actuar como cobertura parcial; no perseguir movimientos verticales del crudo.","risk":"Escalada militar, interrupción prolongada, aumento de primas de seguros y reducción adicional de tránsito.","signal":"Número de buques, Brent/WTI, spreads físicos, tanker rates y seguros marítimos."},
+    {"title":"3. Valuation, AI y comportamiento","body":"El motor AGCI Greed + Valuation registra Greed 91/100 y Valuation 85/100, con régimen Mid Bull, confianza 72/100 y condición EUPHORIA_RISK. La dispersión de price targets y la creciente importancia de la calidad de financiación del capex AI permanecen como filtros activos de la edición anterior.","why":"La complacencia extrema reduce el colchón ante shocks inesperados y eleva el costo de comprar crecimiento sin margen de seguridad.","implication":"Mantener penalización de confianza cuando exista alta dispersión de targets; priorizar autofinanciamiento, FCF post-capex y balance.","opportunity":"GOOGL, MSFT, AMZN y META siguen siendo comparables relevantes por capacidad de financiar AI internamente; entradas deben depender de precio y fair value independiente.","risk":"Sobreinversión en AI, refinanciamiento caro y repricing rápido si volatilidad o yields repuntan.","signal":"Capex, FCF post-capex, deuda nueva, revisiones de EPS y VIX."},
+    {"title":"4. Real estate, México y agenda macro","body":"No apareció durante el periodo un cambio suficientemente confirmado en México/T-MEC que altere la postura vigente. Para real estate, el costo de capital largo sigue siendo la variable principal. La Fed publica producción industrial el 18 de agosto y las minutas del FOMC el 19 de agosto.","why":"El real estate continúa altamente sensible a financiación; México mantiene exposición a negociaciones comerciales norteamericanas pero sin novedad incremental validada que justifique cambiar asignación hoy.","implication":"Preservar pruebas de estrés de +50/+100 pb, exigir DSCR y cap rates conservadores, y separar headlines de T-MEC de cambios regulatorios efectivamente confirmados.","opportunity":"Activos inmobiliarios sanos con vendedores presionados por deuda y oportunidades en MXN sólo cuando el precio compense riesgo de tasa/comercio.","risk":"Long yields persistentes, presión de refinanciamiento y cambios abruptos en reglas comerciales.","signal":"Treasury real yields, spreads de crédito, T-MEC oficial y costo bancario de financiación."}
   ],
   "watch": [
-    "Price-target dispersion — NVDA, MSFT, AVGO y líderes AI",
-    "AI capex funding mix — flujo operativo versus deuda/equity",
-    "VIX por debajo de 15 frente a breadth y spreads",
-    "Fed minutes — 19 agosto",
+    "Hormuz — tránsito de buques, seguros y fletes",
+    "Brent — sostenibilidad por encima de USD 89",
+    "U.S. industrial production — 18 agosto",
+    "FOMC minutes — 19 agosto",
     "Walmart, Home Depot y Target — lectura del consumidor",
-    "Hormuz — tráfico, Brent, gasolina, seguros y fletes",
-    "NVDA — resultados 26 agosto",
-    "Tether y bancos centrales — demanda física de oro",
-    "The Economist — no hubo nueva entrega en Gmail autorizado"
+    "DXY y Treasury yields — confirmación o reversión del alivio",
+    "AGCI Greed 91 / Valuation 85",
+    "AI capex funding mix y dispersión de price targets",
+    "Barron's y The Economist — no hubo nueva entrega en Gmail autorizado desde el corte previo"
   ],
   "markets": [
-    {"asset":"S&P 500","value":"7,785.76","asOf":"2026-08-14 cierre ET","interpretation":"-0.2%; complacencia elevada pese a macro débil y energía alta."},
-    {"asset":"Dow Jones","value":"53,732.41","asOf":"2026-08-14 cierre ET","interpretation":"-0.2%; sin nueva sesión desde el viernes."},
-    {"asset":"Nasdaq Composite","value":"26,729.16","asOf":"2026-08-14 cierre ET","interpretation":"-0.3%; alta sensibilidad a valoración y dispersión de expectativas."},
-    {"asset":"Russell 2000","value":"3,068.42","asOf":"2026-08-14 cierre ET","interpretation":"+0.5%; small caps superaron pese a macro más débil."},
-    {"asset":"VIX","value":"~14.25","asOf":"2026-08-14","interpretation":"Complacencia alta frente a riesgos macro, AI y geopolíticos."},
-    {"asset":"Brent","value":"~USD 88.5","asOf":"2026-08-14 cierre","interpretation":"Elevado por Hormuz; principal riesgo de reversión inflacionaria."},
-    {"asset":"U.S. 10y Treasury","value":"~4.7%","asOf":"2026-08-14","interpretation":"Costo de capital largo continúa restrictivo para valoración y real estate."},
-    {"asset":"Fed funds","value":"3.50%–3.75%","asOf":"2026-08-16","interpretation":"Siguiente catalizador oficial: minutas FOMC del 19 de agosto."}
+    {"asset":"S&P 500","value":"7,785.76","asOf":"2026-08-14 cierre ET","interpretation":"Último cierre confirmado; futuros modestamente positivos el 17 de agosto."},
+    {"asset":"VIX","value":"14.25","asOf":"2026-08-14","interpretation":"Complacencia extrema según AGCI frente a riesgo geopolítico observable."},
+    {"asset":"Brent","value":"~USD 89.4","asOf":"2026-08-17 mañana","interpretation":"Al alza por riesgo de suministro y Hormuz."},
+    {"asset":"U.S. 10y Treasury","value":"~4.69%","asOf":"2026-08-17 mañana","interpretation":"Cede por datos más débiles y menor probabilidad de endurecimiento inmediato."},
+    {"asset":"U.S. Dollar","value":"mínimo desde junio","asOf":"2026-08-17 mañana","interpretation":"Debilidad asociada a menor expectativa de subida de tasas."},
+    {"asset":"AGCI Greed","value":"91/100","asOf":"2026-08-17","interpretation":"Extreme Greed."},
+    {"asset":"AGCI Valuation","value":"85/100","asOf":"2026-08-17","interpretation":"Extreme Valuation."}
   ],
   "equities": [
-    {"ticker":"GOOGL","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"Capacidad de autofinanciar AI con FCF y balance fuerte; la ventaja relativa aumenta cuando el costo de capital externo sube."},
-    {"ticker":"MSFT","classification":"MANTENER/COMPRAR EN CORRECCIONES","confidence":"Alta","thesis":"Escala y generación de caja fuertes; vigilar intensidad de capex y retorno incremental."},
-    {"ticker":"NVDA","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda estructural alta, pero la dispersión extrema de targets y el financiamiento del ecosistema elevan incertidumbre de valoración."},
-    {"ticker":"AVGO","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Exposición AI atractiva; aplicar mayor margen de seguridad cuando la dispersión de expectativas permanezca elevada."},
-    {"ticker":"INTC","classification":"VIGILAR / ALTO RIESGO DE EJECUCIÓN","confidence":"Media","thesis":"La necesidad de capital externo y pérdidas de fabricación aumentan la dependencia de ejecución y financiación."},
-    {"ticker":"GLD","classification":"DIVERSIFICADOR / NO PERSEGUIR","confidence":"Media-Alta","thesis":"Demanda física estructural de bancos centrales y Tether mejora soporte, pero momentum elevado exige disciplina de entrada."}
-  ],
-  "travel": [
-    {"destination":"Oaxaca","airport":"NLU","fare":"MXN 1,643","dates":"13–15 sep 2026","classification":"Revalidar antes de reservar"},
-    {"destination":"Ciudad de Guatemala","airport":"MEX","fare":"MXN 4,623","dates":"14–28 sep 2026","classification":"Revalidar antes de reservar"},
-    {"destination":"Madrid","airport":"MEX","fare":"MXN 11,899","dates":"2–9 dic 2026","classification":"Revalidar antes de reservar"}
+    {"ticker":"GOOGL","classification":"COMPRAR EN TRAMOS","confidence":"Alta","thesis":"FCF y balance permiten financiar AI internamente; mantener disciplina de precio."},
+    {"ticker":"MSFT","classification":"MANTENER/COMPRAR EN CORRECCIONES","confidence":"Alta","thesis":"Calidad y escala elevadas; vigilar intensidad de capex y retorno incremental."},
+    {"ticker":"NVDA","classification":"MANTENER/VIGILAR","confidence":"Media-Alta","thesis":"Demanda estructural fuerte, pero dispersión de valoración y financiación del ecosistema elevan incertidumbre."},
+    {"ticker":"XLE","classification":"COBERTURA TÁCTICA / NO PERSEGUIR","confidence":"Media","thesis":"Hormuz aumenta valor de cobertura energética, pero la entrada debe considerar volatilidad y riesgo de reversión diplomática."},
+    {"ticker":"TLT","classification":"VIGILAR / DURACIÓN TÁCTICA","confidence":"Media","thesis":"Yields más bajos apoyan duración, pero petróleo alto limita convicción estructural."}
   ],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
-    "Añadir dispersión de price targets como penalización de confianza en valuation y position sizing.",
-    "Favorecer empresas de AI capaces de autofinanciar capex con flujo operativo y balance sólido.",
-    "No usar el target promedio de NVDA como ancla de fair value sin escenarios independientes.",
+    "Tratar Hormuz como riesgo logístico e inflacionario activo hasta normalización verificable del tránsito.",
+    "No aumentar duration ni growth únicamente por la caída de yields; exigir confirmación macro.",
+    "Mantener penalización de confianza por alta dispersión de price targets en AI.",
+    "Favorecer empresas capaces de autofinanciar capex con FCF y balance sólido.",
     "Mantener estrés inmobiliario de +50/+100 pb.",
-    "Vigilar Hormuz y petróleo como principal riesgo de reversión inflacionaria.",
-    "Tratar oro como diversificador estructural y no como trade de persecución."
+    "Vigilar producción industrial del 18 de agosto y minutas FOMC del 19 de agosto."
   ],
   "sources": [
-    {"name":"Barron's — This Week's Magazine, newsletter autorizado y artículos públicos validados","asOf":"2026-08-15"},
-    {"name":"Barron's — price-target dispersion, AI financing, Tether/gold y China capital flows","asOf":"2026-08-15"},
-    {"name":"Reuters — mercados, petróleo y tensión EE.UU.-Irán","asOf":"2026-08-14"},
-    {"name":"Federal Reserve — calendario oficial y minutas FOMC del 19 de agosto","asOf":"2026-08-16"}
+    {"name":"Reuters — global markets, rates, FX and oil","asOf":"2026-08-17"},
+    {"name":"Reuters — Gulf markets and Hormuz shipping disruption","asOf":"2026-08-17"},
+    {"name":"Federal Reserve — official August 2026 calendar","asOf":"2026-08-17"},
+    {"name":"AGCI Greed + Valuation live engine","asOf":"2026-08-17"},
+    {"name":"Authorized Gmail — Barron's and The Economist review","asOf":"2026-08-17"}
   ],
-  "pdfUrl": null,
-  "audio": {
-    "title":"AGCI Morning Intelligence",
-    "subtitle":"Mercados, inversión y oportunidades estratégicas en menos de 4 minutos.",
-    "chapters":[
-      {"id":"apertura","title":"Apertura","text":"Buenos días. AGCI abre el domingo dieciséis de agosto sin una nueva sesión de mercado, pero con dos cambios materiales en la lectura de riesgo. El consenso de Wall Street muestra una dispersión de valuaciones excepcional y el ciclo de inversión en inteligencia artificial está recurriendo cada vez más a capital externo. La postura sigue siendo riesgo selectivo con liquidez."},
-      {"id":"senales","title":"Las tres señales del día","text":"Primera: la dispersión entre price targets del S&P quinientos está en máximos de más de una década y Nvidia es uno de los casos más extremos. Segunda: el capex de inteligencia artificial está pasando de flujo operativo puro a una mezcla creciente de deuda, equity y estructuras de financiación. Tercera: Hormuz sigue siendo el principal riesgo de reversión inflacionaria."},
-      {"id":"mercados","title":"Mercados globales","text":"El cierre vigente sigue siendo el viernes. El S&P quinientos terminó en siete mil setecientos ochenta y cinco punto setenta y seis y el VIX cerca de catorce punto veinticinco. Esa baja volatilidad, combinada con valoración elevada, deja poco margen para absorber un shock de petróleo, tasas o resultados."},
-      {"id":"valuation","title":"Valuation discipline","text":"Barron's calcula que la brecha promedio entre el target alto y bajo del S&P quinientos equivale a aproximadamente sesenta y dos punto cinco por ciento del consenso. En Nvidia, el rango reportado va de aproximadamente ciento ochenta a setecientos cuarenta y tres dólares. El promedio deja de ser una ancla suficiente cuando los modelos discrepan de esa forma."},
-      {"id":"ia","title":"AI Capital Monitor","text":"El crecimiento de inteligencia artificial sigue siendo estructural, pero ahora importa más cómo se financia. Hyperscalers y proveedores recurren cada vez más a deuda y equity para sostener capex. AGCI favorece empresas capaces de autofinanciar inversión con flujo de caja y penaliza modelos que dependen de refinanciamiento o dilución."},
-      {"id":"oro","title":"Oro y reservas","text":"Tether compró más de veintisiete toneladas métricas de oro en el primer semestre, convirtiéndose en un comprador incremental relevante junto a bancos centrales. Esto mejora el soporte estructural del oro, pero no cambia la regla: diversificar con disciplina y no perseguir un movimiento vertical."},
-      {"id":"capital","title":"Capital y bienes raíces","text":"El Treasury a diez años continúa alrededor de cuatro punto siete por ciento. Mantener estrés inmobiliario de cincuenta y cien puntos base sigue siendo prudente. En tecnología, el mismo principio aplica: cuanto más caro sea el capital externo, mayor valor tiene un balance fuerte y flujo de caja libre."},
-      {"id":"geopolitica","title":"Energía y geopolítica","text":"Hormuz continúa siendo la cola macro más asimétrica. Petróleo, seguros y fletes pueden reactivar inflación y debilitar consumo al mismo tiempo. Las minutas de la Reserva Federal del diecinueve de agosto son el siguiente catalizador oficial para leer la tolerancia del comité a ese riesgo."},
-      {"id":"acciones","title":"Qué haría hoy","text":"Uno: conservar diez a quince por ciento de liquidez. Dos: aumentar margen de seguridad cuando la dispersión de targets sea extrema. Tres: favorecer compañías de inteligencia artificial autofinanciadas. Cuatro: no usar el consenso de Nvidia como valor razonable automático. Cinco: mantener estrés inmobiliario y vigilancia sobre Hormuz. Esto es investigación, no asesoría financiera personalizada."}
-    ]
+  "methodology": {
+    "status":"unchanged",
+    "note":"No methodology, score weights or decision thresholds were changed in this edition. Facts from sources are separated from AGCI analysis and interpretation."
   },
-  "legal": "AGCI es una herramienta de investigación y apoyo a decisiones. No constituye asesoría financiera personalizada, recomendación fiduciaria ni garantía de resultados."
+  "legalNotice": "Información para análisis y apoyo a decisiones; no constituye recomendación personalizada, oferta, asesoría fiduciaria, fiscal o legal. Verificar precios, liquidez, riesgo y fuentes antes de ejecutar operaciones."
 }
