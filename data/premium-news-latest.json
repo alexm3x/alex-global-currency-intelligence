@@ -1,115 +1,88 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-16",
-  "timestamp": "2026-08-16T07:16:00-06:00",
+  "date": "2026-08-17",
+  "timestamp": "2026-08-17T07:28:00-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
-  "source": "Barron's subscriber newsletters in authorized Gmail plus validated public primary/reputable sources",
+  "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
   "copyrightPolicy": "AGCI stores original summaries and metadata only; no full-text republication or private tracking links.",
   "items": [
     {
       "rank": 1,
-      "publisher": "Barron's",
-      "newsletter": "This Week's Magazine — 15 Aug 2026",
-      "headline": "Analyst price-target dispersion reaches a decade high and weakens the reliability of consensus upside",
-      "category": "Capital Allocation / Valuation / Technology",
+      "publisher": "Reuters",
+      "newsletter": "Public market/geopolitical validation",
+      "headline": "Hormuz disruption becomes observable as commodity-vessel transit reportedly fell to zero on Sunday",
+      "category": "Geopolitics / Energy / Macro / Capital Allocation",
       "relevance": 100,
-      "summary": "Barron's finds that the gap between the highest and lowest S&P 500 analyst price targets has risen to roughly 62.5% of consensus, the highest level in more than a decade. Technology carries much of the disagreement: Nvidia targets range from about USD 180 to USD 743 around a USD 314 average, illustrating how an apparently attractive consensus can conceal unusually high model uncertainty.",
-      "whyItMatters": "AGCI should treat target dispersion as a confidence modifier rather than as fair value. High disagreement reinforces margin-of-safety requirements for AI and other high-duration equities and argues against using consensus targets as a stand-alone reason to increase position size.",
-      "assets": ["NVDA", "MSFT", "AVGO", "QQQ", "SPY"],
-      "agciSignal": "CONSENSUS UNCERTAINTY / REQUIRE WIDER MARGIN OF SAFETY",
-      "sourceUrl": "https://www.barrons.com/articles/wall-street-stock-price-targets-2aa8879e"
+      "summary": "Reuters reported on 17 August that tensions between the U.S. and Iran were materially disrupting shipping through the Strait of Hormuz. Commodity-vessel transit cited for Sunday fell to zero versus 31 the prior weekend, while Gulf equity markets weakened.",
+      "whyItMatters": "This moves Hormuz from a headline-risk scenario toward an observable logistics shock. AGCI should therefore keep energy, freight and insurance as active inflation channels and preserve liquidity rather than assuming geopolitical risk is fully priced.",
+      "assets": ["BZ=F", "CL=F", "XLE", "USO", "SPY", "TLT"],
+      "agciSignal": "HORMUZ DISRUPTION / INFLATION TAIL RISK ACTIVE",
+      "sourceUrl": "https://www.reuters.com/world/middle-east/most-gulf-markets-ease-iran-tensions-hormuz-shipping-disruptions-weigh-2026-08-17/"
     },
     {
       "rank": 2,
-      "publisher": "Barron's",
-      "newsletter": "This Week's Magazine — 15 Aug 2026",
-      "headline": "AI infrastructure financing broadens beyond operating cash flow, raising balance-sheet and capital-cycle risk",
-      "category": "AI / Capital Markets / Technology",
-      "relevance": 99,
-      "summary": "Barron's highlights a new USD 500 billion AI data-center financing initiative centered on Nvidia as hyperscalers increasingly supplement operating cash flow with debt and equity to fund 2026–2027 capex. Intel is separately pursuing a large equity raise while its foundry economics remain under pressure.",
-      "whyItMatters": "The AI investment cycle remains structurally powerful, but the financing mix is becoming more important. AGCI should distinguish self-funded compounders from firms whose AI thesis increasingly depends on external capital, refinancing conditions or sustained asset values.",
-      "assets": ["NVDA", "INTC", "AMZN", "MSFT", "GOOGL", "META"],
-      "agciSignal": "AI CAPEX STRONG / FINANCING QUALITY NOW A PRIMARY FILTER",
-      "sourceUrl": "https://www.barrons.com/articles/ai-spending-nvidia-tech-stocks-89d46703"
+      "publisher": "Reuters",
+      "newsletter": "Public markets validation",
+      "headline": "Soft U.S. data lowers near-term Fed-tightening expectations while oil remains elevated",
+      "category": "Markets / Rates / FX / Macro",
+      "relevance": 98,
+      "summary": "Global shares were steady on 17 August while the dollar fell to its weakest level since June after weaker U.S. retail sales and consumer sentiment reduced expectations for a September Fed hike. Brent advanced to about USD 89.4 and Treasury yields eased.",
+      "whyItMatters": "The market is simultaneously pricing softer domestic demand and persistent energy risk. That combination can support duration and growth equities tactically, but it also leaves the inflation path vulnerable to a renewed oil shock.",
+      "assets": ["DXY", "EURUSD", "TLT", "IEF", "SPY", "QQQ", "BZ=F"],
+      "agciSignal": "GROWTH SOFTENING / RATE PRESSURE EASES / OIL RISK OFFSETS",
+      "sourceUrl": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-17/"
     },
     {
       "rank": 3,
-      "publisher": "Barron's",
-      "newsletter": "This Week's Magazine — 15 Aug 2026",
-      "headline": "Tether becomes a material incremental physical-gold buyer",
-      "category": "Gold / Digital Assets / Reserve Management",
-      "relevance": 94,
-      "summary": "Barron's reports that Tether purchased more than 27 metric tons of gold in the first half of 2026, placing its incremental buying alongside major official-sector purchasers. The company is using gold as a reserve diversifier and inflation/dollar hedge while also expanding tokenized-gold exposure.",
-      "whyItMatters": "This creates a non-sovereign structural source of physical gold demand and further blurs the boundary between stablecoin reserve management and traditional reserve assets. It supports gold's demand backdrop but does not by itself justify chasing a price spike.",
-      "assets": ["GLD", "IAU", "GC", "USDT"],
-      "agciSignal": "STRUCTURAL GOLD DEMAND / DO NOT CHASE MOMENTUM",
-      "sourceUrl": "https://www.barrons.com/articles/why-is-tether-looking-like-a-central-bank-d9abebb7"
+      "publisher": "AGCI",
+      "newsletter": "Greed + Valuation live engine",
+      "headline": "AGCI Greed rises to 91 while Valuation remains 85",
+      "category": "Behavioral Finance / Valuation / Capital Allocation",
+      "relevance": 99,
+      "summary": "The live AGCI Greed + Valuation engine shows Greed at 91/100, Valuation at 85/100, Mid Bull regime and confidence 72/100. The model condition remains EUPHORIA_RISK with the directive 'Capital preservation / Do not chase'.",
+      "whyItMatters": "The market remains highly complacent despite a more tangible energy and shipping shock. This divergence increases the value of cash reserves, staged entries and strict valuation discipline.",
+      "assets": ["SPY", "QQQ", "VIX", "TLT", "GLD"],
+      "agciSignal": "EXTREME GREED + EXTREME VALUATION / DO NOT CHASE",
+      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
     },
     {
       "rank": 4,
-      "publisher": "Barron's",
-      "newsletter": "This Week's Magazine — 15 Aug 2026",
-      "headline": "China's external surplus is increasingly recycled into overseas portfolio assets, including AI-linked securities",
-      "category": "China / Capital Flows / AI / Geopolitics",
+      "publisher": "Federal Reserve",
+      "newsletter": "Official calendar",
+      "headline": "Industrial production precedes FOMC minutes in this week's macro sequence",
+      "category": "Central Banks / Macro",
       "relevance": 93,
-      "summary": "Barron's cites estimates that a significant share of China's record external surplus is being recycled into overseas portfolio investments as domestic property and fixed-income opportunities remain unattractive. Beijing is tightening tax enforcement on some offshore structures while preserving export competitiveness.",
-      "whyItMatters": "The flow can provide incremental demand for global AI equities and corporate credit while exposing those markets to future Chinese capital-control enforcement. AGCI should treat it as a liquidity tailwind with policy-reversal risk rather than a durable valuation anchor.",
-      "assets": ["QQQ", "NVDA", "MSFT", "GOOGL", "LQD", "CNY", "CNH"],
-      "agciSignal": "GLOBAL LIQUIDITY SUPPORT / CHINA POLICY REVERSAL RISK",
-      "sourceUrl": "https://www.barrons.com/articles/china-capital-flight-ai-5e20ded1"
-    },
-    {
-      "rank": 5,
-      "publisher": "Barron's",
-      "newsletter": "This Week's Magazine — 15 Aug 2026",
-      "headline": "Vanguard broadens from passive ETFs toward cash, advice and active fixed income",
-      "category": "ETFs / Asset Management / Fixed Income",
-      "relevance": 90,
-      "summary": "Barron's describes Vanguard's push beyond its dominant passive ETF franchise into cash savings, advice and active fixed income. The strategic direction reflects investor demand for low-cost implementation across a wider share of household and institutional balance sheets.",
-      "whyItMatters": "The trend supports fee compression, greater competition for cash balances and a deeper role for active fixed income while real yields remain high. It is strategically relevant but does not alter AGCI's immediate portfolio stance.",
-      "assets": ["BND", "VTI", "VOO", "TLT", "SGOV"],
-      "agciSignal": "LOW-COST PLATFORM EXPANSION / FIXED-INCOME COMPETITION",
-      "sourceUrl": "https://www.barrons.com/"
-    },
-    {
-      "rank": 6,
-      "publisher": "Barron's / Reuters",
-      "newsletter": "Carry-forward macro validation",
-      "headline": "Low volatility remains inconsistent with unresolved Hormuz and inflation risk",
-      "category": "Markets / Energy / Geopolitics",
-      "relevance": 96,
-      "summary": "Friday's U.S. equity decline remained small despite weaker retail sales and higher oil. Brent stayed elevated as U.S.-Iran negotiations remained strained, while the VIX remained in the mid-teens.",
-      "whyItMatters": "The combination remains consistent with AGCI's Extreme Greed / Extreme Valuation regime: headline risk is being absorbed with little fear premium, which increases the importance of liquidity and entry-price discipline.",
-      "assets": ["SPY", "QQQ", "VIX", "XLE", "USO", "TLT"],
-      "agciSignal": "COMPLACENCY / ENERGY TAIL RISK / DO NOT CHASE",
-      "sourceUrl": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-08-14/"
+      "summary": "The Federal Reserve calendar shows U.S. industrial production for 18 August and the minutes of the 28–29 July FOMC meeting for 19 August.",
+      "whyItMatters": "Industrial production can confirm or challenge the soft-consumer narrative, while the minutes will clarify the Committee's tolerance for weaker demand versus energy-driven inflation risk.",
+      "assets": ["TLT", "IEF", "DXY", "SPY", "XLF"],
+      "agciSignal": "MACRO CATALYSTS / RATE PATH SENSITIVE",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-august.htm"
     }
   ],
   "watch": [
-    "Analyst price-target dispersion in NVDA, MSFT, AVGO and other AI leaders",
-    "AI capex funding mix: operating cash flow versus debt, equity and structured financing",
-    "Tether and central-bank physical gold demand",
-    "Chinese offshore portfolio flows and tighter capital-control enforcement",
-    "VIX below 15 versus S&P 500 breadth and credit spreads",
-    "Hormuz traffic, Brent, gasoline, insurance and freight costs",
-    "Fed minutes on 19 August and implications for September policy",
-    "Walmart, Home Depot and Target commentary on consumer demand",
-    "NVDA earnings — 26 August",
-    "The Economist newsletters — no new delivery found in authorized Gmail"
+    "Hormuz vessel traffic, tanker insurance and freight rates",
+    "Brent above USD 89 and pass-through to gasoline/inflation expectations",
+    "U.S. industrial production — 18 August",
+    "FOMC minutes — 19 August",
+    "Walmart, Home Depot and Target earnings/commentary",
+    "Dollar weakness versus Treasury yields",
+    "AGCI Greed 91 / Valuation 85 divergence",
+    "AI capex funding quality and price-target dispersion",
+    "The Economist and Barron's newsletters — no new delivery found in authorized Gmail during this review window"
   ],
   "excluded": [
     {
-      "headline": "Barron's Market Lab — 17 Aug 2026",
-      "reason": "The delivery contained broad statistical tables and filing counts but no single new item sufficiently material to alter AGCI conclusions without company-specific validation."
+      "headline": "Barron's newsletters",
+      "reason": "No new Barron's newsletter was found in authorized Gmail after the prior review cutoff."
     },
     {
       "headline": "The Economist newsletters",
-      "reason": "No new Economist newsletter was found in authorized Gmail during this review window."
+      "reason": "No new Economist newsletter was found in authorized Gmail after the prior review cutoff."
     },
     {
-      "headline": "Lower-impact single-stock magazine ideas",
-      "reason": "Interesting for thematic monitoring but insufficient to change AGCI capital allocation or macro conclusions today."
+      "headline": "Single-stock premarket movers",
+      "reason": "Excluded unless company-specific evidence was sufficient to alter AGCI capital allocation or valuation conclusions."
     }
   ]
 }
