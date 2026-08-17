@@ -11,6 +11,7 @@ on:
     paths: ['scripts/update-greed-valuation-data.mjs','scripts/fetch-valuation-dgs10.mjs','scripts/update-valuation-market-v2.py','scripts/apply-valuation-to-greed.mjs','greed-valuation-core.js','.github/workflows/update-greed-valuation.yml','package.json']
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: agci-greed-valuation-${{ github.ref }}
   cancel-in-progress: true
@@ -60,10 +61,26 @@ jobs:
       - name: Publish changed observations
         if: github.event_name != 'pull_request'
         run: |
-          if git diff --quiet -- data/greed-valuation-latest.json data/greed-valuation-history.json data/valuation-market-latest.json; then exit 0; fi
+          if git diff --quiet -- data/greed-valuation-latest.json data/greed-valuation-history.json data/valuation-market-latest.json; then
+            echo "PUBLISHED=0" >> "$GITHUB_ENV"
+            exit 0
+          fi
           git config user.name "agci-greed-valuation-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/greed-valuation-latest.json data/greed-valuation-history.json data/valuation-market-latest.json
           git commit -m "data: refresh greed valuation intelligence"
-          for attempt in 1 2 3 4 5; do git fetch origin main; git rebase origin/main || { git rebase --abort || true; exit 1; }; git push origin HEAD:main && exit 0; sleep $((attempt*3)); done
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort || true; exit 1; }
+            if git push origin HEAD:main; then
+              echo "PUBLISHED=1" >> "$GITHUB_ENV"
+              exit 0
+            fi
+            sleep $((attempt*3))
+          done
           exit 1
+      - name: Deploy refreshed Greed + Valuation snapshot to GitHub Pages
+        if: github.event_name != 'pull_request' && env.PUBLISHED == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
