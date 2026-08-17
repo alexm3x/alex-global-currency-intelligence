@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-16 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-17 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI abre el domingo dieciséis de agosto sin una nueva sesión de mercado, pero con dos cambios materiales en la lectura de riesgo. El consenso de Wall Street muestra una dispersión de valuaciones excepcional y el ciclo de inversión en inteligencia artificial está recurriendo cada vez más a capital externo.
+**CIO:** Buenos días. AGCI abre el lunes diecisiete de agosto con una señal más concreta desde Oriente Medio: Hormuz ya muestra disrupción logística observable. Al mismo tiempo, el mercado reduce expectativas de endurecimiento de la Reserva Federal por datos débiles de consumo. La postura sigue siendo riesgo selectivo con liquidez.
 
 ## Las tres señales del día
 
-**CIO:** Primera: la dispersión entre price targets del S&P quinientos está en máximos de más de una década y Nvidia es uno de los casos más extremos. Segunda: el capex de inteligencia artificial está pasando de flujo operativo puro a una mezcla creciente de deuda, equity y estructuras de financiación. Tercera: Hormuz sigue siendo el principal riesgo de reversión inflacionaria.
+**CIO:** Primera: Reuters reporta que el tránsito de buques de commodities por Hormuz cayó a cero el domingo, frente a treinta y uno el fin de semana anterior. Segunda: Brent avanza hacia ochenta y nueve dólares mientras el dólar y los Treasury yields ceden. Tercera: AGCI registra Greed en noventa y uno y Valuation en ochenta y cinco.
 
 ## Mercados globales
 
-**ANALISTA:** El cierre vigente sigue siendo el viernes. El S&P quinientos terminó en siete mil setecientos ochenta y cinco punto setenta y seis y el VIX cerca de catorce punto veinticinco. Esa baja volatilidad, combinada con valoración elevada, deja poco margen para absorber un shock de petróleo, tasas o resultados.
+**ANALISTA:** Antes de la apertura estadounidense, los futuros del S&P quinientos y Nasdaq avanzan modestamente. El Treasury a diez años ronda cuatro punto sesenta y nueve por ciento y el dólar toca mínimos desde junio. El mercado premia la posibilidad de menos endurecimiento monetario, pero todavía subestima un shock energético persistente.
 
-## Valuation discipline
+## Hormuz y energía
 
-**CIO:** Barron's calcula que la brecha promedio entre el target alto y bajo del S&P quinientos equivale a aproximadamente sesenta y dos punto cinco por ciento del consenso. En Nvidia, el rango reportado va de aproximadamente ciento ochenta a setecientos cuarenta y tres dólares.
+**CIO:** La novedad más importante no es retórica sino logística. Si el tránsito marítimo permanece restringido, petróleo, seguros y fletes pueden trasladar la tensión geopolítica hacia inflación y márgenes corporativos. AGCI mantiene cobertura energética disciplinada, pero no persigue un movimiento vertical del crudo.
 
-## AI Capital Monitor
+## Greed y valuation
 
-**ANALISTA:** El crecimiento de inteligencia artificial sigue siendo estructural, pero ahora importa más cómo se financia. Hyperscalers y proveedores recurren cada vez más a deuda y equity para sostener capex.
+**CIO:** El motor propietario muestra Greed noventa y uno sobre cien, Valuation ochenta y cinco y régimen Mid Bull. La condición sigue siendo Euphoria Risk: preservar capital y no perseguir precios.
 
-## Oro y reservas
+## AI y capital allocation
 
-**CIO:** Tether compró más de veintisiete toneladas métricas de oro en el primer semestre, convirtiéndose en un comprador incremental relevante junto a bancos centrales. Esto mejora el soporte estructural del oro, pero no cambia la regla: diversificar con disciplina y no perseguir un movimiento vertical.
+**ANALISTA:** La disciplina de la edición anterior continúa. En inteligencia artificial, AGCI favorece compañías que pueden financiar capex con flujo de caja y balance propio. La dispersión de price targets sigue siendo una penalización de confianza y el consenso no se usa como valor razonable automático.
 
-## Capital y bienes raíces
+## Real estate y tasas
 
-**ANALISTA:** El Treasury a diez años continúa alrededor de cuatro punto siete por ciento. Mantener estrés inmobiliario de cincuenta y cien puntos base sigue siendo prudente. En tecnología, el mismo principio aplica: cuanto más caro sea el capital externo, mayor valor tiene un balance fuerte y flujo de caja libre.
+**CIO:** Aunque los yields ceden hoy, todavía no existe evidencia de un nuevo régimen de costo de capital bajo. En bienes raíces se mantienen pruebas de estrés de cincuenta y cien puntos base, DSCR conservador y disciplina de cap rate.
 
-## Energía y geopolítica
+## Agenda macro
 
-**CIO:** Hormuz continúa siendo la cola macro más asimétrica. Petróleo, seguros y fletes pueden reactivar inflación y debilitar consumo al mismo tiempo. Las minutas de la Reserva Federal del diecinueve de agosto son el siguiente catalizador oficial para leer la tolerancia del comité a ese riesgo.
+**CIO:** Mañana dieciocho de agosto la Reserva Federal publica producción industrial y el miércoles diecinueve las minutas del FOMC de julio. Esos datos ayudarán a distinguir entre desaceleración suficiente para bajar presión de tasas y una economía todavía vulnerable a inflación por energía.
 
 ## Qué haría hoy
 
-**CIO:** Uno: conservar diez a quince por ciento de liquidez. Dos: aumentar margen de seguridad cuando la dispersión de targets sea extrema. Tres: favorecer compañías de inteligencia artificial autofinanciadas. Cuatro: no usar el consenso de Nvidia como valor razonable automático. Cinco: mantener estrés inmobiliario y vigilancia sobre Hormuz. Esto es investigación, no asesoría financiera personalizada.
+**CIO:** Uno: conservar diez a quince por ciento de liquidez. Dos: tratar Hormuz como riesgo inflacionario activo hasta normalización del tránsito. Tres: no aumentar duración o growth sólo porque bajan los yields. Cuatro: favorecer compañías autofinanciadas. Cinco: mantener estrés inmobiliario. Esto es investigación y apoyo a decisiones, no asesoría financiera personalizada.
