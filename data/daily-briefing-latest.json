@@ -60,6 +60,11 @@
     {"ticker":"XLE","classification":"COBERTURA TÁCTICA / NO PERSEGUIR","confidence":"Media","thesis":"Hormuz aumenta valor de cobertura energética, pero la entrada debe considerar volatilidad y riesgo de reversión diplomática."},
     {"ticker":"TLT","classification":"VIGILAR / DURACIÓN TÁCTICA","confidence":"Media","thesis":"Yields más bajos apoyan duración, pero petróleo alto limita convicción estructural."}
   ],
+  "travel": [
+    {"destination":"Oaxaca","airport":"NLU","fare":"MXN 1,643","dates":"13–15 sep 2026","classification":"Revalidar antes de reservar"},
+    {"destination":"Ciudad de Guatemala","airport":"MEX","fare":"MXN 4,623","dates":"14–28 sep 2026","classification":"Revalidar antes de reservar"},
+    {"destination":"Madrid","airport":"MEX","fare":"MXN 11,899","dates":"2–9 dic 2026","classification":"Revalidar antes de reservar"}
+  ],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
     "Tratar Hormuz como riesgo logístico e inflacionario activo hasta normalización verificable del tránsito.",
@@ -76,9 +81,26 @@
     {"name":"AGCI Greed + Valuation live engine","asOf":"2026-08-17"},
     {"name":"Authorized Gmail — Barron's and The Economist review","asOf":"2026-08-17"}
   ],
+  "pdfUrl": null,
+  "audio": {
+    "title":"AGCI Morning Intelligence",
+    "subtitle":"Mercados, inversión y oportunidades estratégicas en menos de 4 minutos.",
+    "chapters":[
+      {"id":"apertura","title":"Apertura","text":"Buenos días. AGCI abre el lunes diecisiete de agosto con una señal más concreta desde Oriente Medio: Hormuz ya muestra disrupción logística observable. Al mismo tiempo, el mercado reduce expectativas de endurecimiento de la Reserva Federal por datos débiles de consumo. La postura sigue siendo riesgo selectivo con liquidez."},
+      {"id":"senales","title":"Las tres señales del día","text":"Primera: Reuters reporta que el tránsito de buques de commodities por Hormuz cayó a cero el domingo, frente a treinta y uno el fin de semana anterior. Segunda: Brent avanza hacia ochenta y nueve dólares mientras el dólar y los Treasury yields ceden. Tercera: AGCI registra Greed en noventa y uno y Valuation en ochenta y cinco."},
+      {"id":"mercados","title":"Mercados globales","text":"Antes de la apertura estadounidense, los futuros del S&P quinientos y Nasdaq avanzan modestamente. El Treasury a diez años ronda cuatro punto sesenta y nueve por ciento y el dólar toca mínimos desde junio. El mercado premia la posibilidad de menos endurecimiento monetario, pero todavía subestima un shock energético persistente."},
+      {"id":"energia","title":"Hormuz y energía","text":"La novedad más importante no es retórica sino logística. Si el tránsito marítimo permanece restringido, petróleo, seguros y fletes pueden trasladar la tensión geopolítica hacia inflación y márgenes corporativos. AGCI mantiene cobertura energética disciplinada, pero no persigue un movimiento vertical del crudo."},
+      {"id":"valuation","title":"Greed y valuation","text":"El motor propietario muestra Greed noventa y uno sobre cien, Valuation ochenta y cinco y régimen Mid Bull. La condición sigue siendo Euphoria Risk: preservar capital y no perseguir precios. La complacencia extrema frente a un riesgo físico creciente refuerza el valor de liquidez y entradas escalonadas."},
+      {"id":"ia","title":"AI y capital allocation","text":"La disciplina de la edición anterior continúa. En inteligencia artificial, AGCI favorece compañías que pueden financiar capex con flujo de caja y balance propio. La dispersión de price targets sigue siendo una penalización de confianza y el consenso no se usa como valor razonable automático."},
+      {"id":"realestate","title":"Real estate y tasas","text":"Aunque los yields ceden hoy, todavía no existe evidencia de un nuevo régimen de costo de capital bajo. En bienes raíces se mantienen pruebas de estrés de cincuenta y cien puntos base, DSCR conservador y disciplina de cap rate. Menor yield hoy no elimina el riesgo de refinanciamiento."},
+      {"id":"agenda","title":"Agenda macro","text":"Mañana dieciocho de agosto la Reserva Federal publica producción industrial y el miércoles diecinueve las minutas del FOMC de julio. Esos datos ayudarán a distinguir entre desaceleración suficiente para bajar presión de tasas y una economía todavía vulnerable a inflación por energía."},
+      {"id":"acciones","title":"Qué haría hoy","text":"Uno: conservar diez a quince por ciento de liquidez. Dos: tratar Hormuz como riesgo inflacionario activo hasta normalización del tránsito. Tres: no aumentar duración o growth sólo porque bajan los yields. Cuatro: favorecer compañías autofinanciadas. Cinco: mantener estrés inmobiliario. Esto es investigación y apoyo a decisiones, no asesoría financiera personalizada."}
+    ]
+  },
   "methodology": {
     "status":"unchanged",
     "note":"No methodology, score weights or decision thresholds were changed in this edition. Facts from sources are separated from AGCI analysis and interpretation."
   },
+  "legal": "AGCI es una herramienta de investigación y apoyo a decisiones. No constituye asesoría financiera personalizada, recomendación fiduciaria ni garantía de resultados.",
   "legalNotice": "Información para análisis y apoyo a decisiones; no constituye recomendación personalizada, oferta, asesoría fiduciaria, fiscal o legal. Verificar precios, liquidez, riesgo y fuentes antes de ejecutar operaciones."
 }
