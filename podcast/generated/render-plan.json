@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "date": "2026-08-17",
-  "totalWords": 431,
+  "date": "2026-08-18",
+  "totalWords": 472,
   "targetSeconds": 240,
   "primaryPlayback": "deviceSpeech",
   "fallbackVoiceMode": "dual-espeak",
@@ -13,7 +13,7 @@
       "file": "podcast/generated/segments/00.txt",
       "title": "Apertura",
       "category": "apertura",
-      "words": 50
+      "words": 45
     },
     {
       "index": 1,
@@ -22,61 +22,61 @@
       "file": "podcast/generated/segments/01.txt",
       "title": "Las tres señales del día",
       "category": "senales",
-      "words": 62
+      "words": 55
     },
     {
       "index": 2,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/02.txt",
-      "title": "Mercados globales",
+      "title": "Mercados y tasas",
       "category": "mercados",
-      "words": 52
+      "words": 66
     },
     {
       "index": 3,
-      "speaker": "CIO",
-      "voice": "es+m3",
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
       "file": "podcast/generated/segments/03.txt",
-      "title": "Hormuz y energía",
-      "category": "general",
-      "words": 45
+      "title": "Radar de inversión",
+      "category": "inversion",
+      "words": 61
     },
     {
       "index": 4,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/04.txt",
-      "title": "Greed y valuation",
-      "category": "general",
-      "words": 33
+      "title": "México y real estate",
+      "category": "mexico",
+      "words": 49
     },
     {
       "index": 5,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/05.txt",
-      "title": "AI y capital allocation",
-      "category": "ia",
-      "words": 49
+      "title": "Capital allocation",
+      "category": "capital",
+      "words": 51
     },
     {
       "index": 6,
-      "speaker": "CIO",
-      "voice": "es+m3",
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
       "file": "podcast/generated/segments/06.txt",
-      "title": "Real estate y tasas",
-      "category": "general",
-      "words": 43
+      "title": "IA y tecnología",
+      "category": "ia",
+      "words": 35
     },
     {
       "index": 7,
-      "speaker": "CIO",
-      "voice": "es+m3",
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
       "file": "podcast/generated/segments/07.txt",
-      "title": "Agenda macro",
-      "category": "general",
-      "words": 44
+      "title": "Oportunidades de viaje",
+      "category": "viajes",
+      "words": 47
     },
     {
       "index": 8,
@@ -85,7 +85,7 @@
       "file": "podcast/generated/segments/08.txt",
       "title": "Qué haría hoy",
       "category": "acciones",
-      "words": 53
+      "words": 63
     }
   ]
 }

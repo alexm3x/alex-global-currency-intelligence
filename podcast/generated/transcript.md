@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-17 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-18 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI abre el lunes diecisiete de agosto con una señal más concreta desde Oriente Medio: Hormuz ya muestra disrupción logística observable. Al mismo tiempo, el mercado reduce expectativas de endurecimiento de la Reserva Federal por datos débiles de consumo. La postura sigue siendo riesgo selectivo con liquidez.
+**CIO:** Buenos días. AGCI abre el martes dieciocho de agosto con un cambio importante: el alivio de tasas largas se revirtió. El Treasury a treinta años toca aproximadamente cinco punto treinta y tres por ciento, máximo desde dos mil siete, mientras Brent supera noventa dólares.
 
 ## Las tres señales del día
 
-**CIO:** Primera: Reuters reporta que el tránsito de buques de commodities por Hormuz cayó a cero el domingo, frente a treinta y uno el fin de semana anterior. Segunda: Brent avanza hacia ochenta y nueve dólares mientras el dólar y los Treasury yields ceden. Tercera: AGCI registra Greed en noventa y uno y Valuation en ochenta y cinco.
+**CIO:** Primera señal: el treinta años estadounidense marca un máximo de diecinueve años y endurece el costo de capital incluso con menor expectativa de subidas de la Fed. Segunda: petróleo y Hormuz mantienen vivo el riesgo inflacionario. Tercera: AGCI registra Greed noventa y Valuation ochenta y cinco, todavía en Euphoria Risk.
 
-## Mercados globales
+## Mercados y tasas
 
-**ANALISTA:** Antes de la apertura estadounidense, los futuros del S&P quinientos y Nasdaq avanzan modestamente. El Treasury a diez años ronda cuatro punto sesenta y nueve por ciento y el dólar toca mínimos desde junio. El mercado premia la posibilidad de menos endurecimiento monetario, pero todavía subestima un shock energético persistente.
+**ANALISTA:** Los futuros de Wall Street retroceden y el Nasdaq muestra mayor sensibilidad al repunte de yields. El diez años ronda cuatro punto setenta y cuatro por ciento y el treinta años cinco punto treinta y tres. El dólar sigue cerca de mínimos de varios meses. Esta divergencia indica que el mercado separa política monetaria de term premium, oferta de deuda y riesgo fiscal.
 
-## Hormuz y energía
+## Radar de inversión
 
-**CIO:** La novedad más importante no es retórica sino logística. Si el tránsito marítimo permanece restringido, petróleo, seguros y fletes pueden trasladar la tensión geopolítica hacia inflación y márgenes corporativos. AGCI mantiene cobertura energética disciplinada, pero no persigue un movimiento vertical del crudo.
+**ANALISTA:** La consecuencia práctica es elevar el hurdle rate. Growth de larga duración, real estate apalancado y proyectos de inteligencia artificial financiados con deuda requieren más margen de seguridad. Preferimos negocios con flujo de caja libre actual, balance sólido y capacidad de autofinanciar capex. Google, Amazon y Meta mantienen calidad relativa, pero sólo en correcciones compatibles con fair value.
 
-## Greed y valuation
+## México y real estate
 
-**CIO:** El motor propietario muestra Greed noventa y uno sobre cien, Valuation ochenta y cinco y régimen Mid Bull. La condición sigue siendo Euphoria Risk: preservar capital y no perseguir precios.
+**CIO:** Home Depot superó expectativas de ventas del segundo trimestre, pero mantuvo su guidance y los proyectos grandes siguen presionados por tasas y affordability. Para real estate no cambia la regla: conservar estrés de cincuenta y cien puntos base, DSCR conservador y disciplina de cap rate.
 
-## AI y capital allocation
+## Capital allocation
 
-**ANALISTA:** La disciplina de la edición anterior continúa. En inteligencia artificial, AGCI favorece compañías que pueden financiar capex con flujo de caja y balance propio. La dispersión de price targets sigue siendo una penalización de confianza y el consenso no se usa como valor razonable automático.
+**ANALISTA:** Mantenemos entre diez y quince por ciento de liquidez desplegable. No reducimos cash por datos blandos mientras el costo de capital largo suba. En renta fija preferimos escalonamiento y calidad frente a una apuesta agresiva por duration. En energía, cobertura táctica sí; perseguir un movimiento vertical del crudo, no.
 
-## Real estate y tasas
+## IA y tecnología
 
-**CIO:** Aunque los yields ceden hoy, todavía no existe evidencia de un nuevo régimen de costo de capital bajo. En bienes raíces se mantienen pruebas de estrés de cincuenta y cien puntos base, DSCR conservador y disciplina de cap rate.
+**ANALISTA:** Los nuevos Barron's vuelven a señalar gasto elevado de Amazon y Meta, monetización de infraestructura y volatilidad en semiconductores. La tesis estructural de AI sigue viva, pero la financiación ahora pesa más.
 
-## Agenda macro
+## Oportunidades de viaje
 
-**CIO:** Mañana dieciocho de agosto la Reserva Federal publica producción industrial y el miércoles diecinueve las minutas del FOMC de julio. Esos datos ayudarán a distinguir entre desaceleración suficiente para bajar presión de tasas y una economía todavía vulnerable a inflación por energía.
+**ANALISTA:** Las oportunidades de viaje previamente detectadas se mantienen sólo como referencias a revalidar: Oaxaca desde NLU, Ciudad de Guatemala desde MEX y Madrid en diciembre. No incorporamos una nueva tarifa hoy porque no apareció una señal suficientemente verificada que justifique sustituir el ranking vigente.
 
 ## Qué haría hoy
 
-**CIO:** Uno: conservar diez a quince por ciento de liquidez. Dos: tratar Hormuz como riesgo inflacionario activo hasta normalización del tránsito. Tres: no aumentar duración o growth sólo porque bajan los yields. Cuatro: favorecer compañías autofinanciadas. Cinco: mantener estrés inmobiliario. Esto es investigación y apoyo a decisiones, no asesoría financiera personalizada.
+**CIO:** Hoy haría tres cosas. Mantendría liquidez. Exigiría mayor margen de seguridad en tecnología y real estate. Y esperaría la producción industrial de esta mañana y las minutas de la Fed de mañana antes de aumentar duration. El mensaje rector es simple: Greed sigue extremo, valoración también, y ahora el treinta años confirma que el mercado tiene menos margen de error.
