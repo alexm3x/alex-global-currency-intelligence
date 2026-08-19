@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "product": "Viajes ASC",
+  "release": "asc-viajes-phase13-2026-08-19",
+  "phase": 13,
+  "releaseDate": "2026-08-19",
+  "contracts": {
+    "profile": "travel-data-v4",
+    "research": "asc-travel-intelligence-v1",
+    "window": "asc-travel-window-v1",
+    "logistics": "asc-travel-logistics-v1",
+    "itinerary": "asc-travel-itinerary-v1",
+    "cost": "asc-travel-cost-v1",
+    "pdf": "asc-travel-pdf-v1",
+    "integration": "asc-travel-integration-v1"
+  },
+  "clientAssets": [
+    "travel-assistant-core.js",
+    "travel-assistant.js",
+    "travel-intelligence-core.js",
+    "travel-intelligence.js",
+    "travel-window-engine.js",
+    "travel-logistics-core.js",
+    "travel-logistics.js",
+    "travel-itinerary-core.js",
+    "travel-itinerary.js",
+    "travel-cost-core.js",
+    "travel-cost.js",
+    "travel-pdf-core.js",
+    "travel-pdf.js",
+    "travel-integration-core.js",
+    "travel-integration.js"
+  ],
+  "qualityPolicy": {
+    "phase11": "full_test_suite_plus_static_audit_plus_release_gate",
+    "phase12": "publish_only_after_phase11_passes",
+    "phase13": "verify_pages_worker_cors_and_runtime_state_without_hiding_external_blockers",
+    "noFabrication": true,
+    "syntheticStaysMayBecomeLive": false,
+    "implicitFxConversion": false,
+    "externalAlertsMayBeClaimedActiveWithoutConnector": false
+  },
+  "externalDependencies": [
+    {
+      "id": "openai_research",
+      "requiredFor": "live web research and inverse-window research",
+      "failSafe": "assistant_unavailable",
+      "releaseBlocking": false
+    },
+    {
+      "id": "custom_domain",
+      "requiredFor": "https://alexsaldana.com/viajes/",
+      "failSafe": "GitHub Pages deployment remains independently auditable",
+      "releaseBlocking": false
+    }
+  ]
+}
