@@ -20,11 +20,22 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v7
         with:
           ref: main
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Audit Viajes ASC before publication
+        run: |
+          node scripts/audit-viajes-site.mjs
+          node --check viajes/travel-assistant.js
+          node --check viajes/travel-assistant-core.js
+          node --check viajes/travel-intelligence-core.js
+          node --check viajes/travel-intelligence.js
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
@@ -37,3 +48,28 @@ jobs:
         uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Verify Viajes ASC in public production
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://alexsaldana.com/viajes'
+          ok=0
+          for attempt in $(seq 1 18); do
+            echo "Production smoke attempt $attempt"
+            if curl --fail --silent --show-error --max-time 20 "$base/" -o /tmp/viajes-index.html \
+              && curl --fail --silent --show-error --max-time 20 "$base/travel-assistant.js" -o /tmp/travel-assistant.js \
+              && curl --fail --silent --show-error --max-time 20 "$base/travel-intelligence-core.js" -o /tmp/travel-intelligence-core.js \
+              && curl --fail --silent --show-error --max-time 20 "$base/travel-intelligence.js" -o /tmp/travel-intelligence.js; then
+              if grep -q 'VIAJES ASC' /tmp/viajes-index.html \
+                && grep -q 'YA SÉ CUÁNDO VIAJO' /tmp/travel-assistant.js \
+                && grep -q 'travel-intelligence-core.js' /tmp/travel-assistant.js \
+                && grep -q 'asc-travel-intelligence-v1' /tmp/travel-intelligence-core.js \
+                && grep -q 'viajes-asc-assistant.proadmexico.workers.dev' /tmp/travel-intelligence.js; then
+                ok=1
+                break
+              fi
+            fi
+            sleep 5
+          done
+          test "$ok" = "1" || (echo 'Viajes ASC production smoke test failed' && exit 1)
+          echo 'Viajes ASC production assets verified on alexsaldana.com.'
