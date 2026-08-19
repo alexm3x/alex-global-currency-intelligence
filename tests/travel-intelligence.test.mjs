@@ -121,3 +121,11 @@ test('Phase 5 client transfers a selected window into the known-dates workflow',
   assert.match(source, /research_windows/);
   assert.match(source, /No se inventan precios ni factores faltantes/);
 });
+
+test('research UI preserves null as missing evidence and clears stale trip research before a new request', async () => {
+  const source = await readFile(new URL('../viajes/travel-intelligence.js', import.meta.url), 'utf8');
+  assert.match(source, /value !== null && value !== undefined && value !== ''/);
+  assert.match(source, /window\.__VIAJES_ASC_TRAVEL_RESEARCH__ = null/);
+  assert.match(source, /viajes:research-start/);
+  assert.doesNotMatch(source, /const fmt = value => Number\.isFinite\(Number\(value\)\)/);
+});
