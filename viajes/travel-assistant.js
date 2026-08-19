@@ -1,396 +1,117 @@
 (() => {
   'use strict';
-
   if (window.__VIAJES_ASC_TRAVEL_ASSISTANT__) return;
   window.__VIAJES_ASC_TRAVEL_ASSISTANT__ = true;
 
   const core = window.TravelAssistantCore;
-  const dialog = document.getElementById('travelAssistantDialog');
-  const form = document.getElementById('travelAssistantForm');
-  const content = document.getElementById('assistantStepContent');
-  const errorBox = document.getElementById('assistantFormError');
-  const nextButton = document.getElementById('assistantNext');
-  const backButton = document.getElementById('assistantBack');
-  const saveButton = document.getElementById('assistantSave');
-  const progressBar = document.getElementById('assistantProgressBar');
-  const stepLabel = document.getElementById('assistantStepLabel');
-  const privacyLabel = document.getElementById('assistantPrivacyLabel');
+  const $ = id => document.getElementById(id);
+  const dialog = $('travelAssistantDialog');
+  const form = $('travelAssistantForm');
+  const host = $('assistantStepContent');
+  const errorBox = $('assistantFormError');
+  const next = $('assistantNext');
+  const back = $('assistantBack');
+  const save = $('assistantSave');
+  const progress = $('assistantProgressBar');
+  const stepLabel = $('assistantStepLabel');
+  const privacy = $('assistantPrivacyLabel');
   const savedKey = 'viajesASCTripProfileV4';
   const draftKey = 'viajesASCTripDraftSession';
-  const totalSteps = 7;
-  const sessionId = (() => {
-    const existing = sessionStorage.getItem('viajesASCAssistantSession');
-    if (existing) return existing;
-    const created = globalThis.crypto?.randomUUID?.() || `session-${Date.now()}`;
-    sessionStorage.setItem('viajesASCAssistantSession', created);
-    return created;
-  })();
+  const TOTAL = 6;
   let step = 0;
-  let profile = null;
-  let conclusion = null;
-  let raw = defaultRaw();
+  let raw = defaults();
+  if (!core || !dialog || !form || !host) return;
 
-  if (!core || !dialog || !form || !content) return;
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const value = (id, fallback='') => $(id)?.value ?? fallback;
+  const opts = (items, selected) => items.map(([v,l]) => `<option value="${esc(v)}" ${String(v)===String(selected)?'selected':''}>${esc(l)}</option>`).join('');
+  const chips = (name, items, selected=[]) => `<div class="assistant-chip-grid">${items.map(([v,l]) => `<label class="assistant-chip"><input type="checkbox" name="${name}" value="${esc(v)}" ${selected.includes(v)?'checked':''}><span>${esc(l)}</span></label>`).join('')}</div>`;
 
-  function dateISO(daysAhead) {
-    const date = new Date();
-    date.setHours(12, 0, 0, 0);
-    date.setDate(date.getDate() + daysAhead);
-    return date.toISOString().slice(0, 10);
-  }
-
-  function defaultRaw() {
+  function defaults(){
     return {
-      origin: 'MEX', destinationMode: 'open', destination: '',
-      start: dateISO(90), end: dateISO(97), flexDays: 3, nightsMin: 7, nightsMax: 10,
-      climate: 'indifferent', maxTotalHours: '', budgetAmount: '', currency: 'MXN',
-      budgetBasis: 'total', budgetIncludes: ['flights', 'lodging', 'destination'],
-      contingencyPct: 10, strictness: 'moderate', adults: 2, childCount: 0,
-      childAges: [], rooms: 1, groupType: 'couple', roomPreferences: [], accessibility: '',
-      priorities: ['precio-calidad', 'gastronomía', 'cultura e historia'], cabin: 'economy',
-      directPreference: 'preferred', maxStops: 1, lodgingTypes: ['hotel'], categoryMin: 4,
-      locationPreferences: ['central'], pace: 'balanced', concerns: ['hidden_costs', 'fx'],
-      hardConstraints: [], comments: '', saveProfile: false
+      planningMode:'known_dates', origin:value('originInput','MEX'), destination:'', start:value('startDate',''), end:value('endDate',''),
+      periodApprox:'', durationChoice:'4', durationCustom:4, flexDays:7,
+      adults:Number(value('adultsInput',2))||2, childCount:Number(value('minorsInput',0))||0, rooms:Number(value('roomsInput',1))||1, groupType:'couple',
+      priorities:['gastronomía','museos','eventos especiales'], budgetTier:'high', budgetAmount:value('budgetInput',''), currency:value('currencyInput','MXN')||'MXN',
+      pace:'balanced', hotel:'', preferredZone:'', cabin:'economy', directPreference:'preferred', concerns:['hidden_costs','crowds'], comments:'', saveProfile:false
     };
   }
 
-  const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  }[char]));
-
-  const money = (amount, currency = 'MXN') => new Intl.NumberFormat('es-MX', {
-    style: 'currency', currency, maximumFractionDigits: 0
-  }).format(Number(amount) || 0);
-
-  const options = (items, selected) => items.map(([value, label]) => (
-    `<option value="${esc(value)}" ${String(selected) === String(value) ? 'selected' : ''}>${esc(label)}</option>`
-  )).join('');
-
-  function chips(name, items, selected = [], type = 'checkbox') {
-    const values = Array.isArray(selected) ? selected : [selected];
-    return `<div class="assistant-chip-grid">${items.map(([value, label]) => `
-      <label class="assistant-chip"><input type="${type}" name="${name}" value="${esc(value)}" ${values.includes(value) ? 'checked' : ''}><span>${esc(label)}</span></label>
-    `).join('')}</div>`;
+  function stylePhase2(){
+    if ($('viajes-intelligence-phase2-styles')) return;
+    const style=document.createElement('style'); style.id='viajes-intelligence-phase2-styles';
+    style.textContent=`.assistant-mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.assistant-mode-card{position:relative;display:block;padding:20px;border:1px solid #334155;border-radius:14px;background:linear-gradient(145deg,rgba(8,18,27,.94),rgba(5,11,16,.72));cursor:pointer}.assistant-mode-card input{position:absolute;opacity:0}.assistant-mode-card:has(input:checked){border-color:#e8c66a;background:linear-gradient(145deg,rgba(232,198,106,.09),rgba(5,11,16,.88))}.assistant-mode-card b{display:inline-flex;padding:6px 8px;border:1px solid rgba(232,198,106,.35);border-radius:999px;color:#e8c66a;font:700 9px/1 ui-monospace,monospace}.assistant-mode-card strong{display:block;margin-top:15px;color:#fff;font-size:17px}.assistant-mode-card span{display:block;margin-top:9px;color:#8fa0b5;font-size:12px;line-height:1.6}.assistant-mode-flow{color:#67e8f9!important;font:600 9px/1.5 ui-monospace,monospace!important}.assistant-section-note{grid-column:1/-1;padding:12px 14px;border-left:2px solid #e8c66a;background:rgba(232,198,106,.045);color:#91a0b4;font-size:10px;line-height:1.55}.assistant-summary__mode{display:inline-flex;margin-bottom:10px;padding:6px 8px;border:1px solid rgba(103,232,249,.35);border-radius:999px;color:#67e8f9;font:700 9px/1 ui-monospace,monospace;text-transform:uppercase}@media(max-width:760px){.assistant-mode-grid{grid-template-columns:1fr}}`;
+    document.head.appendChild(style);
   }
 
-  function stepOne() {
-    return `<h3>Origen, destino y fechas</h3><p>Defina el marco del viaje. Si el destino está abierto, el motor buscará valor integral dentro de su presupuesto.</p>
-      <div class="assistant-grid">
-        <label class="assistant-field"><span>Ciudad o aeropuerto de salida</span><input name="origin" value="${esc(raw.origin)}" placeholder="MEX, NLU, GDL…" autocomplete="off" required></label>
-        <label class="assistant-field"><span>Alcance del destino</span><select name="destinationMode">${options([['fixed','Destino específico'],['region','País o región'],['open','Destino abierto · recomiéndame']],raw.destinationMode)}</select></label>
-        <label class="assistant-field assistant-field--full ${raw.destinationMode === 'open' ? 'assistant-open-destination' : ''}"><span>Zona, país, región o destino considerado</span><input name="destination" value="${esc(raw.destination)}" placeholder="Ej. Japón, Mediterráneo o dejar abierto" ${raw.destinationMode === 'open' ? '' : 'required'}><small>Con destino abierto, puede dejar este campo vacío.</small></label>
-        <label class="assistant-field"><span>Salida</span><input type="date" name="start" value="${esc(raw.start)}"></label>
-        <label class="assistant-field"><span>Regreso</span><input type="date" name="end" value="${esc(raw.end)}"></label>
-        <label class="assistant-field"><span>Flexibilidad</span><select name="flexDays">${options([[0,'Fechas fijas'],[3,'±3 días'],[7,'±7 días'],[31,'Mes completo']],raw.flexDays)}</select></label>
-        <label class="assistant-field"><span>Duración aceptable</span><div class="assistant-grid assistant-grid--3" style="margin-top:0"><input type="number" name="nightsMin" min="1" max="60" value="${esc(raw.nightsMin)}" aria-label="Noches mínimas"><input type="number" name="nightsMax" min="1" max="90" value="${esc(raw.nightsMax)}" aria-label="Noches máximas"></div></label>
-        <label class="assistant-field"><span>Clima preferido</span><select name="climate">${options([['indifferent','Indiferente'],['warm','Cálido'],['mild','Templado'],['cold','Frío / nieve']],raw.climate)}</select></label>
-        <label class="assistant-field"><span>Tiempo máximo de traslado</span><input type="number" name="maxTotalHours" min="1" max="72" value="${esc(raw.maxTotalHours)}" placeholder="No lo sé / recomiéndame"><small>Horas totales; puede dejarlo vacío.</small></label>
-      </div>`;
+  function tuneEntry(){
+    const entry=$('travelAssistant');
+    if ($('travelAssistantTitle')) $('travelAssistantTitle').textContent='Inteligencia de Viaje';
+    const p=entry?.querySelector('.assistant-entry__copy > p'); if(p) p.textContent='Descubra cuándo viajar, qué está ocurriendo durante sus fechas y cómo aprovechar mejor su estancia.';
+    const k=entry?.querySelector('.assistant-kicker span:first-child'); if(k) k.textContent='VIAJES ASC — INTELIGENCIA DE VIAJE';
+    if ($('startTravelAssistant')) $('startTravelAssistant').textContent='CREAR VIAJE INTELIGENTE';
+    const s=entry?.querySelector('.assistant-entry__signal'); if(s) s.innerHTML='<span>Fechas</span><b>A</b><i></i><span>Motor inverso</span><b>B</b><i></i><span>PDF</span><b>→</b>';
   }
 
-  function stepTwo() {
-    return `<h3>Presupuesto real</h3><p>El presupuesto se aplicará antes del ranking. Las opciones principales no lo excederán silenciosamente.</p>
-      <div class="assistant-grid">
-        <label class="assistant-field"><span>Presupuesto máximo</span><input type="number" inputmode="decimal" name="budgetAmount" min="1" step="100" value="${esc(raw.budgetAmount)}" placeholder="Ej. 120000" required></label>
-        <label class="assistant-field"><span>Moneda</span><select name="currency">${options([['MXN','MXN · Peso mexicano'],['USD','USD · Dólar'],['EUR','EUR · Euro'],['JPY','JPY · Yen']],raw.currency)}</select></label>
-        <label class="assistant-field"><span>El importe es</span><select name="budgetBasis">${options([['total','Total del viaje'],['person','Por persona'],['night','Por noche']],raw.budgetBasis)}</select></label>
-        <label class="assistant-field"><span>Contingencia aceptable</span><select name="contingencyPct">${options([[5,'5%'],[10,'10%'],[15,'15%'],[20,'20%']],raw.contingencyPct)}</select></label>
-        <fieldset class="assistant-fieldset"><legend>Qué incluye</legend>${chips('budgetIncludes',[['flights','Vuelos'],['lodging','Alojamiento'],['destination','Gastos en destino'],['experiences','Experiencias'],['insurance','Seguro']],raw.budgetIncludes)}</fieldset>
-        <fieldset class="assistant-fieldset"><legend>Flexibilidad del presupuesto</legend>${chips('strictness',[['strict','Estricto'],['moderate','Moderado'],['opportunity','Ampliable por oportunidad extraordinaria']],raw.strictness,'radio')}</fieldset>
-      </div>`;
+  const interests=[['cultura','Cultura'],['gastronomía','Gastronomía'],['compras','Compras'],['museos','Museos'],['deportes','Deportes'],['conciertos','Conciertos'],['teatro','Teatro'],['moda','Moda'],['arte','Arte'],['arquitectura','Arquitectura'],['vida nocturna','Vida nocturna'],['experiencias premium','Experiencias premium'],['negocios','Negocios'],['familia','Familia'],['naturaleza','Naturaleza'],['eventos especiales','Eventos especiales'],['descanso','Descanso']];
+  const concerns=[['security','Seguridad'],['hidden_costs','Cargos inesperados'],['visa','Visas'],['weather','Clima extremo'],['layovers','Escalas largas'],['fatigue','Fatiga / jet lag'],['lodging_quality','Calidad del alojamiento'],['location','Ubicación'],['cancellation','Cancelación'],['fx','Tipo de cambio'],['crowds','Saturación turística']];
+
+  function duration(){ return raw.durationChoice==='custom' ? Math.max(2,Math.min(30,Number(raw.durationCustom)||4)) : Math.max(2,Number(raw.durationChoice)||4); }
+  function modeView(){ return `<h3>¿Ya sabe cuándo quiere viajar?</h3><p>Elija el punto de partida. Viajes ASC reutilizará los datos disponibles en el portal.</p><div class="assistant-mode-grid"><label class="assistant-mode-card"><input type="radio" name="planningMode" value="known_dates" ${raw.planningMode==='known_dates'?'checked':''}><b>MODO A</b><strong>YA SÉ CUÁNDO VIAJO</strong><span>Analizar mis fechas y construir mi guía.</span><span class="assistant-mode-flow">Fechas → investigación → oportunidades → itinerario → PDF</span></label><label class="assistant-mode-card"><input type="radio" name="planningMode" value="inverse_dates" ${raw.planningMode==='inverse_dates'?'checked':''}><b>MODO B</b><strong>AYÚDAME A ELEGIR CUÁNDO VIAJAR</strong><span>Encontrar las mejores fechas según experiencias, precio y oportunidad.</span><span class="assistant-mode-flow">Periodo → comparar ventanas → elegir fecha → construir viaje</span></label></div>`; }
+  function frameView(){
+    if(raw.planningMode==='inverse_dates') return `<h3>Encontrar las mejores fechas</h3><p>Destino + duración + periodo aproximado → comparar fechas → detectar oportunidades → recomendar cuándo viajar.</p><div class="assistant-grid"><label class="assistant-field"><span>Destino *</span><input name="destination" value="${esc(raw.destination)}" required></label><label class="assistant-field"><span>Ciudad de origen</span><input name="origin" value="${esc(raw.origin)}"></label><label class="assistant-field assistant-field--full"><span>Periodo aproximado *</span><input name="periodApprox" value="${esc(raw.periodApprox)}" placeholder="Septiembre 2026, próximos 3 meses…" required></label><label class="assistant-field"><span>Duración</span><select name="durationChoice">${opts([['2','Fin de semana'],['3','3 noches'],['4','4 días'],['7','7 días'],['custom','Personalizada']],raw.durationChoice)}</select></label><label class="assistant-field"><span>Días personalizados</span><input type="number" name="durationCustom" min="2" max="30" value="${esc(raw.durationCustom)}" ${raw.durationChoice==='custom'?'':'disabled'}></label><label class="assistant-field"><span>Flexibilidad</span><select name="flexDays">${opts([[3,'±3 días'],[7,'±7 días'],[14,'±14 días'],[31,'Cualquier fecha']],raw.flexDays)}</select></label><div class="assistant-section-note">No se asignará una fecha definitiva hasta que exista una recomendación trazable del Motor Inverso.</div></div>`;
+    return `<h3>Analizar mis fechas</h3><p>Los únicos campos obligatorios son destino, llegada y salida.</p><div class="assistant-grid"><label class="assistant-field assistant-field--full"><span>Destino *</span><input name="destination" value="${esc(raw.destination)}" required></label><label class="assistant-field"><span>Fecha de llegada *</span><input type="date" name="start" value="${esc(raw.start)}" required></label><label class="assistant-field"><span>Fecha de salida *</span><input type="date" name="end" value="${esc(raw.end)}" required></label><label class="assistant-field assistant-field--full"><span>Ciudad de origen</span><input name="origin" value="${esc(raw.origin)}"></label><div class="assistant-section-note">Origen, viajeros, presupuesto y preferencias se reutilizan si ya existen en Viajes ASC.</div></div>`;
+  }
+  function preferenceView(){ return `<h3>¿Qué debe priorizar el viaje?</h3><p>Seleccione hasta ocho intereses.</p><div class="assistant-grid"><fieldset class="assistant-fieldset"><legend>Tipo de viaje</legend>${chips('priorities',interests,raw.priorities)}</fieldset><label class="assistant-field"><span>Integrantes</span><select name="groupType">${opts([['solo','Solo'],['couple','Pareja'],['family','Familia'],['friends','Amigos'],['business','Negocios']],raw.groupType)}</select></label><label class="assistant-field"><span>Adultos</span><input type="number" name="adults" min="1" max="12" value="${raw.adults}"></label><label class="assistant-field"><span>Menores</span><input type="number" name="childCount" min="0" max="8" value="${raw.childCount}"></label><label class="assistant-field"><span>Habitaciones</span><input type="number" name="rooms" min="1" max="8" value="${raw.rooms}"></label></div>`; }
+  function budgetView(){ return `<h3>Presupuesto, ritmo y estancia</h3><p>Estos campos son opcionales.</p><div class="assistant-grid"><label class="assistant-field"><span>Nivel de presupuesto</span><select name="budgetTier">${opts([['economic','Económico'],['medium','Medio'],['high','Alto'],['premium','Premium'],['unrestricted','Sin restricción']],raw.budgetTier)}</select></label><label class="assistant-field"><span>Presupuesto máximo opcional</span><input type="number" name="budgetAmount" min="0" value="${esc(raw.budgetAmount)}" placeholder="Sin importe fijo"></label><label class="assistant-field"><span>Moneda</span><select name="currency">${opts([['MXN','MXN'],['USD','USD'],['EUR','EUR'],['JPY','JPY']],raw.currency)}</select></label><label class="assistant-field"><span>Ritmo</span><select name="pace">${opts([['relaxed','Relajado'],['balanced','Balanceado'],['intensive','Intensivo']],raw.pace)}</select></label><label class="assistant-field"><span>Hotel</span><input name="hotel" value="${esc(raw.hotel)}" placeholder="Opcional"></label><label class="assistant-field"><span>Zona preferida</span><input name="preferredZone" value="${esc(raw.preferredZone)}" placeholder="Opcional"></label><label class="assistant-field"><span>Cabina</span><select name="cabin">${opts([['economy','Económica'],['premium','Premium economy'],['business','Business'],['first','Primera']],raw.cabin)}</select></label><label class="assistant-field"><span>Vuelo directo</span><select name="directPreference">${opts([['required','Obligatorio'],['preferred','Preferido'],['indifferent','Indiferente']],raw.directPreference)}</select></label></div>`; }
+  function contextView(){ return `<h3>Comentarios y restricciones</h3><p>Indique cualquier cosa que quiera hacer, evitar o priorizar.</p><div class="assistant-grid"><fieldset class="assistant-fieldset"><legend>Inquietudes</legend>${chips('concerns',concerns,raw.concerns)}</fieldset><label class="assistant-field assistant-field--full"><span>Comentarios</span><textarea name="comments" maxlength="1500">${esc(raw.comments)}</textarea></label><label class="assistant-toggle"><input type="checkbox" name="saveProfile" ${raw.saveProfile?'checked':''}><span>Guardar este perfil en este dispositivo. Si no se marca, la sesión permanece temporal.</span></label></div>`; }
+
+  function profile(){
+    const p=core.createProfile({...raw,destinationMode:'fixed',destination:raw.destination,start:raw.planningMode==='known_dates'?raw.start:'',end:raw.planningMode==='known_dates'?raw.end:'',nightsMin:raw.planningMode==='inverse_dates'?duration():undefined,nightsMax:raw.planningMode==='inverse_dates'?duration():undefined,budgetAmount:Number(raw.budgetAmount)||0,budgetBasis:'total',budgetIncludes:['flights','lodging','destination','experiences'],strictness:raw.budgetTier==='unrestricted'?'opportunity':'moderate',lodgingTypes:['hotel'],locationPreferences:raw.preferredZone?[raw.preferredZone]:[],roomPreferences:[],hardConstraints:[]});
+    p.planning={mode:raw.planningMode,period_approx:raw.periodApprox||null,duration_days:raw.planningMode==='inverse_dates'?duration():null,budget_tier:raw.budgetTier,pace:raw.pace,hotel:raw.hotel||null,preferred_zone:raw.preferredZone||null,prepared_at:new Date().toISOString()};
+    return p;
+  }
+  function summaryView(){
+    const p=profile(), inverse=raw.planningMode==='inverse_dates', temporal=inverse?`${raw.periodApprox} · ${duration()} días · ±${raw.flexDays} días`:`${raw.start} → ${raw.end}`;
+    const budget=Number(raw.budgetAmount)>0?new Intl.NumberFormat('es-MX',{style:'currency',currency:raw.currency,maximumFractionDigits:0}).format(Number(raw.budgetAmount)):({economic:'Económico',medium:'Medio',high:'Alto',premium:'Premium',unrestricted:'Sin restricción'}[raw.budgetTier]);
+    return `<h3>Viaje inteligente preparado</h3><p>Revise la información antes de transferirla al resto de Viajes ASC.</p><div class="assistant-summary"><div class="assistant-summary__hero"><div><span class="assistant-summary__mode">${inverse?'Modo B · Motor inverso':'Modo A · Fechas conocidas'}</span><strong>${esc(raw.destination)}</strong><p>${inverse?'Comparar ventanas → evaluar experiencias, precio y oportunidad → recomendar cuándo viajar.':'Analizar fechas → investigar coincidencias → priorizar oportunidades → itinerario → PDF.'}</p></div><span class="assistant-viability assistant-viability--high">Preparado</span></div><div class="assistant-summary__grid"><div><span>Marco temporal</span><strong>${esc(temporal)}</strong></div><div><span>Origen</span><strong>${esc(raw.origin||'No especificado')}</strong></div><div><span>Viajeros</span><strong>${p.travelers.adults+p.travelers.children.length} viajero(s) · ${p.travelers.rooms} habitación(es)</strong></div><div><span>Presupuesto</span><strong>${esc(budget)}</strong></div><div><span>Prioridades</span><strong>${esc(raw.priorities.join(' · ')||'Abierto')}</strong></div><div><span>Siguiente motor</span><strong>${inverse?'Comparación de ventanas':'Investigación por fechas'}</strong></div></div><div class="assistant-disclosure">No se inventarán eventos, precios, disponibilidad ni enlaces. Toda investigación posterior deberá conservar fuente, fecha y estado de verificación.</div></div>`;
   }
 
-  function stepThree() {
-    return `<h3>Integrantes y configuración</h3><p>Solo pedimos datos que afectan tarifas, habitaciones y logística. No se requieren nombres ni documentos.</p>
-      <div class="assistant-grid assistant-grid--3">
-        <label class="assistant-field"><span>Adultos</span><input type="number" inputmode="numeric" name="adults" min="1" max="12" value="${esc(raw.adults)}" required></label>
-        <label class="assistant-field"><span>Menores</span><input type="number" inputmode="numeric" name="childCount" min="0" max="8" value="${esc(raw.childCount)}"></label>
-        <label class="assistant-field"><span>Habitaciones</span><input type="number" inputmode="numeric" name="rooms" min="1" max="8" value="${esc(raw.rooms)}" required></label>
-        <label class="assistant-field"><span>Edades de menores</span><input name="childAges" value="${esc((raw.childAges || []).join(', '))}" placeholder="Ej. 6, 11"><small>Solo cuando corresponda.</small></label>
-        <label class="assistant-field"><span>Tipo de grupo</span><select name="groupType">${options([['solo','Solo'],['couple','Pareja'],['family','Familia'],['friends','Amigos'],['business','Negocio'],['mixed','Grupo mixto']],raw.groupType)}</select></label>
-        <label class="assistant-field"><span>Camas y privacidad</span><input name="roomPreferences" value="${esc((raw.roomPreferences || []).join(', '))}" placeholder="King, camas separadas…"></label>
-        <label class="assistant-field assistant-field--full"><span>Movilidad, accesibilidad o alimentación relevante</span><textarea name="accessibility" placeholder="Opcional. No incluya diagnósticos ni datos médicos innecesarios.">${esc(raw.accessibility)}</textarea></label>
-      </div>`;
+  const views=[modeView,frameView,preferenceView,budgetView,contextView,summaryView];
+  function collect(){
+    const data=new FormData(form), names=[...new Set([...form.elements].map(e=>e.name).filter(Boolean))];
+    names.forEach(name=>{ const elements=[...form.elements].filter(e=>e.name===name); if(!elements.length)return; if(elements[0].type==='checkbox'&&elements.length===1)raw[name]=elements[0].checked; else if(elements[0].type==='checkbox')raw[name]=data.getAll(name); else if(elements[0].type==='radio')raw[name]=data.get(name)??raw[name]; else raw[name]=data.get(name)??raw[name]; });
+    ['flexDays','durationCustom','adults','childCount','rooms'].forEach(k=>{ if(raw[k]!==''&&raw[k]!=null)raw[k]=Number(raw[k]); });
   }
-
-  function stepFour() {
-    const priorities = [
-      ['precio-calidad','Precio-calidad'],['lujo accesible','Lujo accesible'],['gastronomía','Gastronomía'],['cultura e historia','Cultura e historia'],
-      ['playa y descanso','Playa'],['buceo','Buceo'],['golf','Golf'],['esquí','Esquí'],['naturaleza y aventura','Naturaleza'],
-      ['compras','Compras'],['vida nocturna','Vida nocturna'],['negocios y conectividad','Negocios'],['viaje familiar','Familiar'],['bienestar y spa','Bienestar'],['crucero','Crucero']
-    ];
-    return `<h3>Estilo y prioridades</h3><p>Seleccione hasta cinco prioridades. Las primeras tres se destacarán en la conclusión ejecutiva.</p>
-      <div class="assistant-grid">
-        <fieldset class="assistant-fieldset"><legend>Prioridades</legend>${chips('priorities',priorities,raw.priorities)}</fieldset>
-        <label class="assistant-field"><span>Cabina</span><select name="cabin">${options([['economy','Económica'],['premium','Premium economy'],['business','Business'],['first','Primera']],raw.cabin)}</select></label>
-        <label class="assistant-field"><span>Vuelo directo</span><select name="directPreference">${options([['required','Obligatorio'],['preferred','Preferido'],['indifferent','Indiferente']],raw.directPreference)}</select></label>
-        <label class="assistant-field"><span>Máximo de escalas</span><input type="number" name="maxStops" min="0" max="4" value="${esc(raw.maxStops)}"></label>
-        <label class="assistant-field"><span>Categoría mínima</span><select name="categoryMin">${options([['','Recomiéndame'],[3,'3 estrellas'],[4,'4 estrellas'],[5,'5 estrellas']],raw.categoryMin)}</select></label>
-        <fieldset class="assistant-fieldset"><legend>Alojamiento</legend>${chips('lodgingTypes',[['hotel','Hotel'],['vacation_rental','Alquiler vacacional'],['resort','Resort'],['cruise','Crucero']],raw.lodgingTypes)}</fieldset>
-        <fieldset class="assistant-fieldset"><legend>Ubicación</legend>${chips('locationPreferences',[['central','Céntrica'],['residential','Residencial'],['beach','Playa'],['airport','Aeropuerto'],['business','Distrito de negocios']],raw.locationPreferences)}</fieldset>
-        <label class="assistant-field"><span>Ritmo</span><select name="pace">${options([['relaxed','Relajado'],['balanced','Equilibrado'],['intensive','Intensivo']],raw.pace)}</select></label>
-      </div>`;
+  function validate(){
+    collect(); if(step===0&&!['known_dates','inverse_dates'].includes(raw.planningMode))return'Seleccione cómo quiere planear el viaje.';
+    if(step===1){ if(!String(raw.destination||'').trim())return'Indique el destino.'; if(raw.planningMode==='known_dates'){ if(!raw.start||!raw.end)return'Indique fecha de llegada y fecha de salida.'; if(Date.parse(raw.end)<=Date.parse(raw.start))return'La fecha de salida debe ser posterior a la llegada.'; } else if(!String(raw.periodApprox||'').trim()) return'Indique el periodo aproximado.'; }
+    if(step===2){ if(!(Number(raw.adults)>=1))return'Debe incluir al menos un adulto.'; if(!(Number(raw.rooms)>=1))return'Debe incluir al menos una habitación.'; if((raw.priorities||[]).length>8)return'Seleccione un máximo de ocho prioridades.'; }
+    return'';
   }
-
-  function stepFive() {
-    const concerns = [
-      ['security','Seguridad'],['hidden_costs','Cargos inesperados'],['visa','Visas'],['weather','Clima extremo'],
-      ['layovers','Escalas largas'],['fatigue','Fatiga y jet lag'],['lodging_quality','Calidad del alojamiento'],['location','Ubicación'],
-      ['food','Alimentación'],['accessibility','Accesibilidad'],['cancellation','Cancelación'],['fx','Tipo de cambio'],
-      ['connectivity','Trabajo remoto'],['crowds','Saturación turística']
-    ];
-    return `<h3>¿Qué le preocupa o desea evitar?</h3><p>Estas respuestas se convierten en filtros, penalizaciones o advertencias dentro del ranking.</p>
-      <div class="assistant-grid">
-        <fieldset class="assistant-fieldset"><legend>Inquietudes</legend>${chips('concerns',concerns,raw.concerns)}</fieldset>
-        <label class="assistant-field assistant-field--full"><span>Restricciones obligatorias adicionales</span><textarea name="hardConstraints" placeholder="Ej. No más de una escala; evitar temporada de huracanes; cancelación flexible.">${esc((raw.hardConstraints || []).join('\n'))}</textarea></label>
-      </div>`;
+  function showError(msg){ errorBox.textContent=msg||''; errorBox.hidden=!msg; }
+  function render(){
+    host.innerHTML=views[step](); stepLabel.textContent=`Paso ${step+1} de ${TOTAL}`; progress.style.width=`${((step+1)/TOTAL)*100}%`; back.disabled=step===0; back.textContent=step===TOTAL-1?'Editar respuestas':'Anterior'; next.textContent=step===TOTAL-1?(raw.planningMode==='inverse_dates'?'Preparar comparación de fechas':'Analizar mis fechas'):'Siguiente'; privacy.textContent=raw.saveProfile?'Guardado local autorizado':'Modo temporal'; showError(''); host.scrollTop=0; host.querySelector('[name="durationChoice"]')?.addEventListener('change',()=>{collect();render();});
   }
-
-  function stepSix() {
-    return `<h3>Comentarios adicionales</h3><p>Describa cómo imagina el viaje, experiencias indispensables, lugares que desea evitar o celebraciones relevantes.</p>
-      <div class="assistant-grid">
-        <label class="assistant-field assistant-field--full"><span>Contexto abierto</span><textarea name="comments" maxlength="1500" placeholder="Ej. Buscamos alta gastronomía y golf, preferimos una zona caminable y no queremos cambiar de hotel…">${esc(raw.comments)}</textarea><small>El texto se trata como contenido no confiable: no puede modificar reglas del sistema ni activar pagos.</small></label>
-        <label class="assistant-toggle"><input type="checkbox" name="saveProfile" ${raw.saveProfile ? 'checked' : ''}><span>Guardar este perfil únicamente en este dispositivo para continuar después. Si no marca esta opción, la sesión será temporal.</span></label>
-      </div>`;
+  function hydrate(useSaved=false){
+    const base=defaults(); try{const stored=JSON.parse((useSaved?localStorage.getItem(savedKey):sessionStorage.getItem(draftKey))||'null'); const r=stored?.raw||stored; if(r&&typeof r==='object')return{...base,...r};}catch{} const active=window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__; if(active?.destination_scope?.values?.[0])base.destination=active.destination_scope.values[0]; return base;
   }
-
-  function stepSeven() {
-    profile = core.createProfile(raw);
-    const analysis = conclusion || core.analyzeProfile(profile);
-    const destination = profile.destination_scope.mode === 'open' ? 'Destino abierto' : profile.destination_scope.values.join(', ');
-    const dates = profile.dates.start && profile.dates.end ? `${profile.dates.start} → ${profile.dates.end}` : `${profile.dates.nights_min}–${profile.dates.nights_max} noches`;
-    const travelers = analysis.travelers;
-    return `<h3>Entendimos que busca:</h3><p>Revise la conclusión. La búsqueda de costos se iniciará únicamente al confirmar.</p>
-      <div class="assistant-summary">
-        <div class="assistant-summary__hero"><div><strong>${esc(destination)} desde ${esc(profile.origin.airports.join(' / '))}</strong><p>${esc(analysis.strategy)}</p></div><span class="assistant-viability assistant-viability--${esc(analysis.viability)}">Viabilidad ${esc({high:'alta',medium:'media',low:'baja'}[analysis.viability])}</span></div>
-        <div class="assistant-summary__grid">
-          <div><span>Fechas y flexibilidad</span><strong>${esc(dates)} · ±${profile.dates.flex_days} días</strong></div>
-          <div><span>Viajeros y habitaciones</span><strong>${travelers} viajero(s) · ${profile.travelers.rooms} habitación(es)</strong></div>
-          <div><span>Presupuesto total normalizado</span><strong>${esc(money(profile.budget.normalized_total, profile.budget.currency))} · contingencia ${profile.budget.contingency_pct}%</strong></div>
-          <div><span>Nivel de viaje</span><strong>${esc(profile.transport.cabin)} · ${esc(profile.lodging.types.join(', '))}</strong></div>
-          <div><span>Prioridades principales</span><strong>${esc(profile.priorities.slice(0,3).join(' · ') || 'Precio-calidad')}</strong></div>
-          <div><span>Principal tensión</span><strong>${esc(analysis.tension)}</strong></div>
-          <div><span>Restricciones</span><strong>${esc(profile.hard_constraints.join(' · ') || 'Sin restricciones obligatorias adicionales')}</strong></div>
-          <div><span>Inquietudes</span><strong>${esc(profile.concerns.join(' · ') || 'Sin inquietudes seleccionadas')}</strong></div>
-        </div>
-        <div class="assistant-disclosure">La clasificación utilizará los datos publicados en Viajes ASC. Los precios baseline, estimados o en caché se identificarán como tales y deberán verificarse antes de reservar.</div>
-      </div>`;
+  function open(useSaved=false){raw=hydrate(useSaved);step=0;render();typeof dialog.showModal==='function'?dialog.showModal():dialog.setAttribute('open','');document.body.style.overflow='hidden';track('assistant_started');}
+  function close(){dialog.open&&typeof dialog.close==='function'?dialog.close():dialog.removeAttribute('open');document.body.style.overflow='';}
+  function saveDraft(force=false){collect();sessionStorage.setItem(draftKey,JSON.stringify(raw));if(force||raw.saveProfile){localStorage.setItem(savedKey,JSON.stringify({raw:{...raw,saveProfile:true},profile:profile()}));if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=false;privacy.textContent='Guardado local autorizado';}}
+  function selectValue(el,v){if(!el||!v)return;if(![...el.options].some(o=>o.value===v))el.add(new Option(v,v));el.value=v;}
+  function activeSummary(p){const h=$('assistantActiveSummary');if(!h)return;const inverse=p.planning?.mode==='inverse_dates', temporal=inverse?`${p.planning.period_approx} · ${p.planning.duration_days} días`:`${p.dates.start} → ${p.dates.end}`;h.hidden=false;h.innerHTML=`<div><strong>${inverse?'Motor inverso preparado':'Guía inteligente preparada'} · ${esc(p.destination_scope.values.join(', '))}</strong><span>${esc(temporal)} · ${p.travelers.adults+p.travelers.children.length} viajero(s) · ${esc(p.priorities.slice(0,4).join(' · ')||'sin prioridades específicas')}.</span></div><button type="button" class="assistant-secondary" data-edit-profile>Modificar criterios</button>`;h.querySelector('[data-edit-profile]')?.addEventListener('click',()=>open(false));}
+  function apply(){
+    const p=profile();p.consent.search_confirmed=true;window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__=p;
+    if(Number(raw.budgetAmount)>0&&$('budgetInput')){selectValue($('currencyInput'),raw.currency);$('currencyInput')?.dispatchEvent(new Event('change',{bubbles:true}));$('budgetInput').value=String(Math.round(Number(raw.budgetAmount)));$('budgetInput').dispatchEvent(new Event('input',{bubbles:true}));}
+    if(raw.origin)selectValue($('originInput'),raw.origin); if($('adultsInput'))$('adultsInput').value=raw.adults;if($('minorsInput'))$('minorsInput').value=raw.childCount;if($('roomsInput'))$('roomsInput').value=raw.rooms;if($('interestInput'))$('interestInput').value=raw.priorities.join(', ');
+    if(raw.planningMode==='known_dates'){if($('startDate'))$('startDate').value=raw.start;if($('endDate'))$('endDate').value=raw.end;$('queryForm')?.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));window.dispatchEvent(new CustomEvent('viajes:known-dates-request',{detail:{profile:p}}));}else{window.__VIAJES_ASC_INVERSE_DATE_REQUEST__=p;window.dispatchEvent(new CustomEvent('viajes:inverse-date-request',{detail:{profile:p}}));}
+    if(raw.saveProfile)saveDraft(true);else localStorage.removeItem(savedKey);sessionStorage.removeItem(draftKey);activeSummary(p);close();track(raw.planningMode==='inverse_dates'?'inverse_dates_prepared':'known_dates_prepared');setTimeout(()=>$('travelAssistant')?.scrollIntoView({behavior:'smooth',block:'start'}),120);
   }
+  function track(event){window.dispatchEvent(new CustomEvent('viajes:assistant-event',{detail:{event,step:step+1,mode:raw.planningMode,at:new Date().toISOString()}}));}
 
-  const renderers = [stepOne, stepTwo, stepThree, stepFour, stepFive, stepSix, stepSeven];
-
-  function showError(message) {
-    errorBox.textContent = message;
-    errorBox.hidden = !message;
-  }
-
-  function collect() {
-    const data = new FormData(form);
-    const names = [...new Set([...form.elements].map(element => element.name).filter(Boolean))];
-    names.forEach(name => {
-      const elements = [...form.elements].filter(element => element.name === name);
-      if (!elements.length) return;
-      if (elements[0].type === 'checkbox' && elements.length === 1) raw[name] = elements[0].checked;
-      else if (elements[0].type === 'checkbox') raw[name] = data.getAll(name);
-      else if (elements[0].type === 'radio') raw[name] = data.get(name) ?? raw[name];
-      else raw[name] = data.get(name) ?? raw[name];
-    });
-    ['flexDays','nightsMin','nightsMax','contingencyPct','adults','childCount','rooms','maxStops','categoryMin','maxTotalHours'].forEach(key => {
-      if (raw[key] !== '' && raw[key] !== null && raw[key] !== undefined) raw[key] = Number(raw[key]);
-    });
-    if (typeof raw.childAges === 'string') raw.childAges = raw.childAges.split(',').map(value => Number(value.trim())).filter(Number.isFinite);
-    if (typeof raw.roomPreferences === 'string') raw.roomPreferences = raw.roomPreferences.split(',').map(value => value.trim()).filter(Boolean);
-    if (typeof raw.hardConstraints === 'string') raw.hardConstraints = raw.hardConstraints.split(/\n|;/).map(value => value.trim()).filter(Boolean);
-  }
-
-  function validateStep() {
-    collect();
-    if (step === 0) {
-      if (!String(raw.origin || '').trim()) return 'Indique la ciudad o aeropuerto de salida.';
-      if (raw.destinationMode !== 'open' && !String(raw.destination || '').trim()) return 'Indique el destino, país o región; o elija destino abierto.';
-      if (raw.start && raw.end && Date.parse(raw.end) <= Date.parse(raw.start)) return 'La fecha de regreso debe ser posterior a la salida.';
-      if (Number(raw.nightsMax) < Number(raw.nightsMin)) return 'La duración máxima no puede ser menor que la mínima.';
-    }
-    if (step === 1 && (!(Number(raw.budgetAmount) > 0))) return 'Indique un presupuesto mayor a cero.';
-    if (step === 2) {
-      if (!(Number(raw.adults) >= 1)) return 'Debe incluir al menos un adulto.';
-      if (!(Number(raw.rooms) >= 1)) return 'Debe incluir al menos una habitación.';
-      if (Number(raw.childCount) > 0 && raw.childAges.length && raw.childAges.length !== Number(raw.childCount)) return 'Indique una edad por cada menor o deje las edades vacías.';
-    }
-    if (step === 3 && raw.priorities.length > 5) return 'Seleccione un máximo de cinco prioridades.';
-    return '';
-  }
-
-  function render() {
-    content.innerHTML = renderers[step]();
-    stepLabel.textContent = `Paso ${step + 1} de ${totalSteps}`;
-    progressBar.style.width = `${((step + 1) / totalSteps) * 100}%`;
-    backButton.disabled = step === 0;
-    backButton.textContent = step === totalSteps - 1 ? 'Editar respuestas' : 'Anterior';
-    nextButton.textContent = step === totalSteps - 1 ? 'Confirmar y buscar' : 'Siguiente';
-    saveButton.hidden = false;
-    privacyLabel.textContent = raw.saveProfile ? 'Guardado local autorizado' : 'Modo temporal';
-    showError('');
-    content.scrollTop = 0;
-    const destinationMode = content.querySelector('[name="destinationMode"]');
-    destinationMode?.addEventListener('change', () => { collect(); render(); });
-    const direct = content.querySelector('[name="directPreference"]');
-    direct?.addEventListener('change', () => {
-      if (direct.value === 'required') content.querySelector('[name="maxStops"]').value = '0';
-    });
-  }
-
-  function openAssistant(useSaved = false) {
-    if (useSaved) {
-      try {
-        const saved = JSON.parse(localStorage.getItem(savedKey) || 'null');
-        if (saved?.raw) raw = { ...defaultRaw(), ...saved.raw, saveProfile: true };
-      } catch { /* Ignore invalid device data. */ }
-    } else {
-      try {
-        const draft = JSON.parse(sessionStorage.getItem(draftKey) || 'null');
-        if (draft) raw = { ...defaultRaw(), ...draft };
-      } catch { raw = defaultRaw(); }
-    }
-    step = 0;
-    conclusion = null;
-    render();
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', '');
-    document.body.style.overflow = 'hidden';
-    track('assistant_started');
-  }
-
-  function closeAssistant() {
-    if (dialog.open && typeof dialog.close === 'function') dialog.close();
-    else dialog.removeAttribute('open');
-    document.body.style.overflow = '';
-  }
-
-  function saveDraft(force = false) {
-    collect();
-    sessionStorage.setItem(draftKey, JSON.stringify(raw));
-    if (force || raw.saveProfile) {
-      const normalized = core.createProfile({ ...raw, saveProfile: true });
-      localStorage.setItem(savedKey, JSON.stringify({ raw: { ...raw, saveProfile: true }, profile: normalized }));
-      document.getElementById('continueTravelAssistant').disabled = false;
-      privacyLabel.textContent = 'Guardado local autorizado';
-    }
-  }
-
-  async function enrichConclusion() {
-    profile = core.createProfile(raw);
-    conclusion = core.analyzeProfile(profile);
-    const endpoint = document.querySelector('meta[name="viajes-assistant-api"]')?.content || window.VIAJES_ASC_CONFIG?.assistantEndpoint || '';
-    if (!endpoint) return;
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 8500);
-      const response = await fetch(endpoint, {
-        method: 'POST', headers: { 'content-type': 'application/json', 'x-asc-session': sessionId },
-        body: JSON.stringify({ action: 'summarize_profile', profile }), signal: controller.signal
-      });
-      clearTimeout(timer);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const payload = await response.json();
-      if (payload?.conclusion?.strategy) conclusion = { ...conclusion, ...payload.conclusion };
-    } catch (error) {
-      console.warn('ASC assistant deterministic fallback:', error.message);
-    }
-  }
-
-  function setSelectValue(select, value) {
-    if (!select) return;
-    if (![...select.options].some(option => option.value === value)) {
-      select.add(new Option(value, value));
-    }
-    select.value = value;
-  }
-
-  function applyProfile() {
-    profile = core.createProfile(raw);
-    const validation = core.validateProfile(profile);
-    if (!validation.valid) {
-      showError(`Falta completar: ${validation.errors.join(', ')}.`);
-      return;
-    }
-    profile.consent.search_confirmed = true;
-    window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__ = profile;
-    const currency = document.getElementById('currencyInput');
-    const budget = document.getElementById('budgetInput');
-    if (currency) {
-      budget.value = '';
-      setSelectValue(currency, profile.budget.currency);
-      currency.dispatchEvent(new Event('change', { bubbles: true }));
-    }
-    budget.value = String(Math.round(profile.budget.normalized_total));
-    budget.dispatchEvent(new Event('input', { bubbles: true }));
-    setSelectValue(document.getElementById('originInput'), profile.origin.airports[0] || 'MEX');
-    if (profile.dates.start) document.getElementById('startDate').value = profile.dates.start;
-    if (profile.dates.end) document.getElementById('endDate').value = profile.dates.end;
-    document.getElementById('adultsInput').value = profile.travelers.adults;
-    document.getElementById('minorsInput').value = profile.travelers.children.length;
-    document.getElementById('roomsInput').value = profile.travelers.rooms;
-    document.getElementById('interestInput').value = profile.priorities.join(', ');
-    document.getElementById('sortInput').value = 'score';
-    const cabin = ['business','first'].includes(profile.transport.cabin) ? 'business' : 'tourist';
-    document.querySelector(`#cabinTabs [data-cabin="${cabin}"]`)?.click();
-    const priorities = profile.priorities.join(' ').toLowerCase();
-    const type = priorities.includes('crucero') ? 'cruise' : (priorities.includes('playa') || priorities.includes('naturaleza') || priorities.includes('buceo')) ? 'beach' : 'all';
-    document.querySelector(`#typeTabs [data-type="${type}"]`)?.click();
-    document.getElementById('queryForm').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-    if (profile.consent.save_profile || raw.saveProfile) saveDraft(true);
-    else localStorage.removeItem(savedKey);
-    sessionStorage.removeItem(draftKey);
-    renderActiveSummary(profile, conclusion || core.analyzeProfile(profile));
-    closeAssistant();
-    track('search_confirmed');
-    window.setTimeout(() => document.getElementById('recommendations')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 180);
-  }
-
-  function renderActiveSummary(active, analysis) {
-    const host = document.getElementById('assistantActiveSummary');
-    const destination = active.destination_scope.mode === 'open' ? 'destino abierto' : active.destination_scope.values.join(', ');
-    host.hidden = false;
-    host.innerHTML = `<div><strong>Búsqueda activa · ${esc(destination)}</strong><span>${esc(money(active.budget.normalized_total, active.budget.currency))} · ${analysis.travelers} viajero(s) · viabilidad ${esc({high:'alta',medium:'media',low:'baja'}[analysis.viability])}. ${esc(analysis.strategy)}</span></div><button type="button" class="assistant-secondary" data-edit-profile>Modificar criterios</button>`;
-    host.querySelector('[data-edit-profile]').addEventListener('click', () => { step = 0; render(); if (!dialog.open) dialog.showModal(); document.body.style.overflow = 'hidden'; });
-  }
-
-  function track(eventName) {
-    window.dispatchEvent(new CustomEvent('viajes:assistant-event', { detail: { event: eventName, step: step + 1, at: new Date().toISOString() } }));
-  }
-
-  document.getElementById('startTravelAssistant').addEventListener('click', () => openAssistant(false));
-  document.getElementById('continueTravelAssistant').addEventListener('click', () => openAssistant(true));
-  document.getElementById('closeTravelAssistant').addEventListener('click', closeAssistant);
-  dialog.addEventListener('cancel', event => { event.preventDefault(); closeAssistant(); });
-  dialog.addEventListener('click', event => { if (event.target === dialog) closeAssistant(); });
-  backButton.addEventListener('click', () => { collect(); if (step > 0) step -= 1; render(); track('step_back'); });
-  saveButton.addEventListener('click', () => { saveDraft(true); showError('Perfil guardado en este dispositivo. Puede continuar después.'); track('profile_saved'); });
-  nextButton.addEventListener('click', async () => {
-    const error = validateStep();
-    if (error) { showError(error); return; }
-    saveDraft(false);
-    if (step === totalSteps - 1) { applyProfile(); return; }
-    if (step === totalSteps - 2) {
-      nextButton.disabled = true;
-      nextButton.textContent = 'Preparando conclusión…';
-      await enrichConclusion();
-      nextButton.disabled = false;
-    }
-    step += 1;
-    render();
-    track('step_completed');
-  });
-
-  try {
-    const saved = JSON.parse(localStorage.getItem(savedKey) || 'null');
-    document.getElementById('continueTravelAssistant').disabled = !saved?.profile;
-  } catch { document.getElementById('continueTravelAssistant').disabled = true; }
-
-  window.TravelAssistant = {
-    getProfile: () => window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__ || null,
-    open: openAssistant,
-    clearSaved: () => { localStorage.removeItem(savedKey); document.getElementById('continueTravelAssistant').disabled = true; }
-  };
+  stylePhase2();tuneEntry();
+  $('startTravelAssistant')?.addEventListener('click',()=>open(false));$('continueTravelAssistant')?.addEventListener('click',()=>open(true));$('closeTravelAssistant')?.addEventListener('click',close);dialog.addEventListener('cancel',e=>{e.preventDefault();close();});dialog.addEventListener('click',e=>{if(e.target===dialog)close();});back.addEventListener('click',()=>{collect();if(step>0)step--;render();track('step_back');});save.addEventListener('click',()=>{saveDraft(true);showError('Perfil guardado en este dispositivo. Puede continuar después.');});next.addEventListener('click',()=>{const err=validate();if(err){showError(err);return;}saveDraft(false);if(step===TOTAL-1){apply();return;}step++;render();track('step_completed');});
+  try{const saved=JSON.parse(localStorage.getItem(savedKey)||'null');if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=!saved?.profile;}catch{if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=true;}
+  window.TravelAssistant={getProfile:()=>window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__||null,getInverseRequest:()=>window.__VIAJES_ASC_INVERSE_DATE_REQUEST__||null,open,clearSaved:()=>{localStorage.removeItem(savedKey);if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=true;}};
 })();
