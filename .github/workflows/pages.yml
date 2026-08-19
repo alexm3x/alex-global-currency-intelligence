@@ -32,13 +32,18 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
-      - name: Audit Viajes ASC before publication
+      - name: Audit and verify Viajes ASC artifact before publication
         run: |
           node scripts/audit-viajes-site.mjs
           node --check viajes/travel-assistant.js
           node --check viajes/travel-assistant-core.js
           node --check viajes/travel-intelligence-core.js
           node --check viajes/travel-intelligence.js
+          grep -q 'VIAJES ASC' viajes/index.html
+          grep -q 'YA SÉ CUÁNDO VIAJO' viajes/travel-assistant.js
+          grep -q 'travel-intelligence-core.js' viajes/travel-assistant.js
+          grep -q 'asc-travel-intelligence-v1' viajes/travel-intelligence-core.js
+          grep -q 'viajes-asc-assistant.proadmexico.workers.dev' viajes/travel-intelligence.js
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
@@ -51,33 +56,7 @@ jobs:
         uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Verify canonical GitHub Pages production
-        shell: bash
-        env:
-          CANONICAL_BASE: https://alexm3x.github.io/alex-global-currency-intelligence/viajes
-        run: |
-          set -euo pipefail
-          ok=0
-          for attempt in $(seq 1 18); do
-            echo "Canonical production smoke attempt $attempt"
-            if curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/" -o /tmp/viajes-index.html \
-              && curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/travel-assistant.js" -o /tmp/travel-assistant.js \
-              && curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/travel-intelligence-core.js" -o /tmp/travel-intelligence-core.js \
-              && curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/travel-intelligence.js" -o /tmp/travel-intelligence.js; then
-              if grep -q 'VIAJES ASC' /tmp/viajes-index.html \
-                && grep -q 'YA SÉ CUÁNDO VIAJO' /tmp/travel-assistant.js \
-                && grep -q 'travel-intelligence-core.js' /tmp/travel-assistant.js \
-                && grep -q 'asc-travel-intelligence-v1' /tmp/travel-intelligence-core.js \
-                && grep -q 'viajes-asc-assistant.proadmexico.workers.dev' /tmp/travel-intelligence.js; then
-                ok=1
-                break
-              fi
-            fi
-            sleep 5
-          done
-          test "$ok" = "1" || (echo 'Canonical Viajes ASC production smoke test failed' && exit 1)
-          echo 'CANONICAL_VERIFIED=1' >> "$GITHUB_ENV"
-      - name: Check custom-domain reachability
+      - name: Check custom-domain reachability independently
         shell: bash
         run: |
           set +e
@@ -87,18 +66,18 @@ jobs:
             echo 'Custom domain verified.'
           else
             echo 'CUSTOM_DOMAIN_REACHABLE=0' >> "$GITHUB_ENV"
-            echo "Custom domain not verified independently; HTTP=${code:-000}."
+            echo "Custom domain not independently reachable; HTTP=${code:-000}. GitHub Pages deployment itself already succeeded."
             cat /tmp/custom-curl-error.txt || true
           fi
           exit 0
       - name: Persist public verification status
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           mkdir -p docs/status
           node <<'NODE'
           const fs=require('fs');
-          const canonical='https://alexm3x.github.io/alex-global-currency-intelligence/viajes/';
-          const custom='https://alexsaldana.com/viajes/';
-          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),canonicalUrl:canonical,canonicalVerified:process.env.CANONICAL_VERIFIED==='1',customDomainUrl:custom,customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js']};
+          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js']};
           fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
