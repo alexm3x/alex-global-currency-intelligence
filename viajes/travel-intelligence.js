@@ -84,3 +84,19 @@
   script.addEventListener('error',()=>console.error('Viajes ASC Phase 5: no fue posible cargar travel-window-engine.js'),{once:true});
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (window.__VIAJES_ASC_LOGISTICS_LOADER__) return;
+  window.__VIAJES_ASC_LOGISTICS_LOADER__ = true;
+  const load=(src,id)=>new Promise((resolve,reject)=>{
+    const existing=document.getElementById(id);
+    if(existing){if(existing.dataset.loaded==='true')resolve();else existing.addEventListener('load',resolve,{once:true});return;}
+    const script=document.createElement('script');script.src=src;script.id=id;script.defer=true;
+    script.addEventListener('load',()=>{script.dataset.loaded='true';resolve();},{once:true});
+    script.addEventListener('error',()=>reject(new Error(`No fue posible cargar ${src}`)),{once:true});
+    document.body.appendChild(script);
+  });
+  load('travel-logistics-core.js','viajes-phase6-logistics-core-script')
+    .then(()=>load('travel-logistics.js','viajes-phase6-logistics-ui-script'))
+    .catch(error=>console.error('Viajes ASC Phase 6:',error.message));
+})();
