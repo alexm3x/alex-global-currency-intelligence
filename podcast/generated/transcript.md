@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-18 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-19 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI abre el martes dieciocho de agosto con un cambio importante: el alivio de tasas largas se revirtió. El Treasury a treinta años toca aproximadamente cinco punto treinta y tres por ciento, máximo desde dos mil siete, mientras Brent supera noventa dólares.
+**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. La novedad principal es que Greed cayó a 84, cinco puntos en un día, pero Valuation permanece en 85. La psicología se enfría; la valoración agregada todavía no ofrece margen suficiente para perseguir precios.
 
-## Las tres señales del día
+## Señales rectoras
 
-**CIO:** Primera señal: el treinta años estadounidense marca un máximo de diecinueve años y endurece el costo de capital incluso con menor expectativa de subidas de la Fed. Segunda: petróleo y Hormuz mantienen vivo el riesgo inflacionario. Tercera: AGCI registra Greed noventa y Valuation ochenta y cinco, todavía en Euphoria Risk.
+**CIO:** Tres señales dominan la sesión. Primero, los bonos largos se estabilizan después del shock, sin normalizar el costo de capital. Segundo, Brent sigue alrededor de 91 dólares y conserva riesgo inflacionario. Tercero, las minutas del FOMC llegan hoy y pueden redefinir la lectura de tasas.
 
 ## Mercados y tasas
 
-**ANALISTA:** Los futuros de Wall Street retroceden y el Nasdaq muestra mayor sensibilidad al repunte de yields. El diez años ronda cuatro punto setenta y cuatro por ciento y el treinta años cinco punto treinta y tres. El dólar sigue cerca de mínimos de varios meses. Esta divergencia indica que el mercado separa política monetaria de term premium, oferta de deuda y riesgo fiscal.
+**ANALISTA:** El S&P 500 cerró el martes cerca de 7,692 y el VIX en 15.84. El Treasury a diez años cedía hacia 4.69 por ciento esta mañana. La caída de yields ofrece alivio táctico, pero AGCI no interpreta una sesión de estabilización como cambio estructural de régimen.
 
 ## Radar de inversión
 
-**ANALISTA:** La consecuencia práctica es elevar el hurdle rate. Growth de larga duración, real estate apalancado y proyectos de inteligencia artificial financiados con deuda requieren más margen de seguridad. Preferimos negocios con flujo de caja libre actual, balance sólido y capacidad de autofinanciar capex. Google, Amazon y Meta mantienen calidad relativa, pero sólo en correcciones compatibles con fair value.
+**ANALISTA:** La corrección en chips y AI mejora puntos de entrada potenciales, pero obliga a discriminar. Favorecemos GOOGL, META y AMZN por balance y flujo de caja. NVDA y Micron permanecen en vigilancia: demanda estructural fuerte no elimina riesgo de múltiplo, ciclo ni sobreinversión.
 
-## México y real estate
+## México y macro
 
-**CIO:** Home Depot superó expectativas de ventas del segundo trimestre, pero mantuvo su guidance y los proyectos grandes siguen presionados por tasas y affordability. Para real estate no cambia la regla: conservar estrés de cincuenta y cien puntos base, DSCR conservador y disciplina de cap rate.
+**CIO:** No encontramos una nueva decisión oficial material sobre México o T-MEC durante el periodo. El catalizador macro inmediato es la publicación de las minutas del FOMC de julio a las dos de la tarde, hora del Este. No anticipamos el documento con una apuesta direccional.
 
-## Capital allocation
+## Capital y bienes raíces
 
-**ANALISTA:** Mantenemos entre diez y quince por ciento de liquidez desplegable. No reducimos cash por datos blandos mientras el costo de capital largo suba. En renta fija preferimos escalonamiento y calidad frente a una apuesta agresiva por duration. En energía, cobertura táctica sí; perseguir un movimiento vertical del crudo, no.
+**ANALISTA:** Toll Brothers confirma una vivienda bifurcada. Bajaron entregas y revenue interanual, pero el precio medio y el valor de contratos firmados mejoraron. El comprador premium resiste mejor, aunque las tasas siguen limitando volumen. Mantenemos estrés inmobiliario de cincuenta y cien puntos base.
 
 ## IA y tecnología
 
-**ANALISTA:** Los nuevos Barron's vuelven a señalar gasto elevado de Amazon y Meta, monetización de infraestructura y volatilidad en semiconductores. La tesis estructural de AI sigue viva, pero la financiación ahora pesa más.
+**ANALISTA:** Barron's vuelve a destacar competencia entre Estados Unidos y China en AI y robótica, debilidad en chips y mayor uso de bonos convertibles.
 
 ## Oportunidades de viaje
 
-**ANALISTA:** Las oportunidades de viaje previamente detectadas se mantienen sólo como referencias a revalidar: Oaxaca desde NLU, Ciudad de Guatemala desde MEX y Madrid en diciembre. No incorporamos una nueva tarifa hoy porque no apareció una señal suficientemente verificada que justifique sustituir el ranking vigente.
+**ANALISTA:** Las oportunidades de viaje vigentes no cambian de forma sustantiva. Oaxaca, Guatemala y Madrid permanecen como referencias a revalidar antes de reservar. No elevamos ninguna tarifa a oportunidad confirmada sin una nueva comprobación de precio, disponibilidad, equipaje e impuestos.
 
 ## Qué haría hoy
 
-**CIO:** Hoy haría tres cosas. Mantendría liquidez. Exigiría mayor margen de seguridad en tecnología y real estate. Y esperaría la producción industrial de esta mañana y las minutas de la Fed de mañana antes de aumentar duration. El mensaje rector es simple: Greed sigue extremo, valoración también, y ahora el treinta años confirma que el mercado tiene menos margen de error.
+**CIO:** Mantendría entre diez y quince por ciento de liquidez desplegable. No compraría duration larga agresivamente antes de las minutas. En equities usaría la corrección para comprar calidad por tramos, no beta indiscriminada. En real estate conservaría DSCR y cap rates conservadores. Disciplina primero, velocidad después.
