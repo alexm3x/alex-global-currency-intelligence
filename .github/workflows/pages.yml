@@ -6,9 +6,11 @@ on:
       - '.github/workflows/update-structural-data.yml'
       - 'scripts/update-structural-data.mjs'
       - 'tests/structural-data.test.mjs'
+      - 'docs/status/viajes-intelligence-production.json'
+      - 'docs/status/viajes-pages-production.json'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -73,3 +75,17 @@ jobs:
           done
           test "$ok" = "1" || (echo 'Viajes ASC production smoke test failed' && exit 1)
           echo 'Viajes ASC production assets verified on alexsaldana.com.'
+      - name: Persist public verification status
+        run: |
+          mkdir -p docs/status
+          node <<'NODE'
+          const fs=require('fs');
+          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),publicUrl:'https://alexsaldana.com/viajes/',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js']};
+          fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
+          NODE
+          git config user.name "viajes-asc-ci"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/status/viajes-pages-production.json
+          git commit -m "status(viajes): verify public Pages deployment" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
