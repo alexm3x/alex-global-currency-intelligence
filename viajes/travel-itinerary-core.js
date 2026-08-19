@@ -64,6 +64,7 @@
   }
 
   function planningBlocks(selected = []) {
+    if (!Array.isArray(selected) || !selected.length) return [];
     const blocks = [];
     if (!selected.some(stop => overlapsRange(stop, 780, 840))) {
       blocks.push({ id:'planning-lunch', type:'planning_block', label:'Comida / pausa logística', period:'lunch', start:780, end:840, evidence:'generated_planning_block', cost_status:'not_priced' });
