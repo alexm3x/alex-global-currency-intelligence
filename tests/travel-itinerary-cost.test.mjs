@@ -39,6 +39,7 @@ test('Phase 7 maps source times to dayparts and applies pace without retiming fi
 
 test('Phase 7 adds only generic planning blocks and never named fabricated venues or prices', async () => {
   const core = await loadCore('travel-itinerary-core.js', 'TravelItineraryCore');
+  assert.equal(core.planningBlocks([]).length, 0, 'an empty day must remain visually empty');
   const blocks = core.planningBlocks([{id:'a',time:{start:600,end:660}},{id:'b',time:{start:900,end:960}},{id:'c',time:null}]);
   assert.ok(blocks.length >= 1);
   assert.ok(blocks.every(block => block.type === 'planning_block'));
