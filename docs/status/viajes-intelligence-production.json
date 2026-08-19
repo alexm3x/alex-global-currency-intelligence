@@ -1,17 +1,21 @@
 {
   "schemaVersion": 1,
   "service": "viajes-asc-intelligence",
-  "status": "verified",
-  "phase": 10,
+  "release": "asc-viajes-phase13-2026-08-19",
+  "status": "verified_with_external_blockers",
+  "phase": 13,
+  "phase11QaPassed": true,
+  "phase12WorkerPublicationSucceeded": true,
+  "phase13WorkerVerificationPassed": true,
   "workerPhase": 5,
   "clientLogisticsContract": "asc-travel-logistics-v1",
   "clientItineraryContract": "asc-travel-itinerary-v1",
   "clientCostContract": "asc-travel-cost-v1",
   "clientPdfContract": "asc-travel-pdf-v1",
   "clientIntegrationContract": "asc-travel-integration-v1",
-  "commit": "4fc779c828de6201f1f286ad443b65e1045deb34",
-  "runId": "32298720189",
-  "verifiedAt": "2026-08-19T20:29:23.873Z",
+  "commit": "9b1f43d9dee6a9d8044e5c5be293c857446dbeca",
+  "runId": "32299781852",
+  "verifiedAt": "2026-08-19T20:40:33.536Z",
   "workerUrl": "https://viajes-asc-assistant.proadmexico.workers.dev",
   "health": {
     "status": "ok",
@@ -25,6 +29,9 @@
   "researchOperational": false,
   "windowResearchOperational": false,
   "githubOpenAISecretConfigured": false,
+  "externalBlockers": [
+    "openai_research_unavailable"
+  ],
   "researchSmoke": {
     "contract": null,
     "itemCount": 0,
