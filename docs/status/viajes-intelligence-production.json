@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "service": "viajes-asc-intelligence",
+  "status": "verified",
+  "commit": "9e80de977ea099a15ff69ea248e1410afcc51e59",
+  "runId": "32289000157",
+  "verifiedAt": "2026-08-19T18:44:23.909Z",
+  "workerUrl": "https://viajes-asc-assistant.proadmexico.workers.dev",
+  "health": {
+    "status": "ok",
+    "service": "viajes-asc-assistant",
+    "contractVersion": "asc-travel-intelligence-v1",
+    "research": "web_search",
+    "model": "gpt-5"
+  },
+  "openaiResearchConfigured": false
+}
