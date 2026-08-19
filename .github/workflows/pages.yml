@@ -40,6 +40,8 @@ jobs:
           node --check viajes/travel-intelligence-core.js
           node --check viajes/travel-intelligence.js
           node --check viajes/travel-window-engine.js
+          node --check viajes/travel-logistics-core.js
+          node --check viajes/travel-logistics.js
           grep -q 'VIAJES ASC' viajes/index.html
           grep -q 'YA SÉ CUÁNDO VIAJO' viajes/travel-assistant.js
           grep -q 'travel-intelligence-core.js' viajes/travel-assistant.js
@@ -47,6 +49,10 @@ jobs:
           grep -q 'travel-window-engine.js' viajes/travel-intelligence.js
           grep -q 'research_windows' viajes/travel-window-engine.js
           grep -q 'viajes:window-selected' viajes/travel-window-engine.js
+          grep -q 'travel-logistics-core.js' viajes/travel-intelligence.js
+          grep -q 'travel-logistics.js' viajes/travel-intelligence.js
+          grep -q 'asc-travel-logistics-v1' viajes/travel-logistics-core.js
+          grep -q 'viajes:logistics-ready' viajes/travel-logistics.js
           grep -q 'viajes-asc-assistant.proadmexico.workers.dev' viajes/travel-intelligence.js
       - name: Setup Pages
         uses: actions/configure-pages@v6
@@ -81,7 +87,7 @@ jobs:
           mkdir -p docs/status
           node <<'NODE'
           const fs=require('fs');
-          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',phase:5,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js']};
+          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',phase:6,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js']};
           fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
