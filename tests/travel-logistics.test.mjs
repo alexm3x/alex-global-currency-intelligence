@@ -70,3 +70,16 @@ test('Phase 6 exposes a traceable Maps route and client integration contract', a
   assert.match(client, /Abrir ruta del día en Maps/);
   assert.match(client, /no tiempos de tráfico en vivo/i);
 });
+
+test('Phase 6 publishes an explicit logistics contract and keeps empty evidence neutral', async () => {
+  const core = await logisticsCore();
+  const analysis = core.analyzeTrip({
+    trip_id:'phase6-contract',
+    dates:{ start:'2026-09-12', end:'2026-09-13' },
+    destination_scope:{ values:['Nueva York'] },
+    planning:{}
+  }, { items:[] });
+  assert.equal(analysis.contract, 'asc-travel-logistics-v1');
+  assert.equal(analysis.metrics.logistics_score, null);
+  assert.equal(analysis.methodology.unknown_data, 'never_scored_as_zero');
+});
