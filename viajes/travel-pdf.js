@@ -63,7 +63,8 @@
   }
 
   function printReport(){
-    if(!state.report)return;const popup=window.open('','_blank','noopener,noreferrer');if(!popup){status('El navegador bloqueó la ventana del PDF. Permita pop-ups para Viajes ASC y vuelva a intentarlo.','partial');return;}
+    if(!state.report)return;const popup=window.open('','_blank');if(!popup){status('El navegador bloqueó la ventana del PDF. Permita pop-ups para Viajes ASC y vuelva a intentarlo.','partial');return;}
+    try{popup.opener=null;}catch{}
     popup.document.open();popup.document.write(printDocument(state.report));popup.document.close();popup.focus();window.setTimeout(()=>popup.print(),250);
   }
   function downloadJson(){
