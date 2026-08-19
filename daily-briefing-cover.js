@@ -2,15 +2,16 @@
   'use strict';
   const DATA_URL = 'data/daily-briefing-latest.json';
   const FALLBACK = {
-    date:'2026-08-09', title:'Daily Strategic Briefing temporalmente no disponible',
-    dek:'Se mantiene la última postura validada mientras se restablece la fuente editorial.',
-    stance:'Selectivo', risk:'Elevado', horizon:'1–12 meses', briefs:[], decisions:[], sections:[], watch:[]
+    date:null, title:'Daily Strategic Briefing temporalmente no disponible',
+    dek:'La fuente editorial no está disponible en este momento. No se muestran fecha ni datos anteriores como si fueran actuales.',
+    stance:'—', risk:'—', horizon:'—', briefs:[], decisions:[], sections:[], watch:[]
   };
   let REPORT = FALLBACK;
   const esc = (v='') => String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   function fechaLarga(iso){
+    if(!iso) return 'Fecha no disponible';
     try { const [y,m,d]=iso.split('-').map(Number); return new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d))); }
-    catch { return iso; }
+    catch { return 'Fecha no disponible'; }
   }
   async function loadReport(){
     try{
@@ -34,7 +35,7 @@
     document.getElementById('dailyStrategicFront')?.remove();
     const front=document.createElement('section');
     front.id='dailyStrategicFront';front.className='strategic-front';
-    const stale=REPORT.isStale?'<span class="briefing-note">Última edición validada</span>':'';
+    const stale=REPORT.isStale?'<span class="briefing-note">Fuente editorial no disponible</span>':'';
     front.innerHTML=`
       <div class="strategic-front__label"><strong>DAILY STRATEGIC BRIEFING</strong><span>${esc(fechaLarga(REPORT.date))} · Ciudad de México · Lectura ejecutiva</span>${stale}</div>
       <div class="strategic-front__grid">
