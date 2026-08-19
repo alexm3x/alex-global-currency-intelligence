@@ -10,9 +10,10 @@
   const state = { profile: null, result: null, loading: false, controller: null };
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
   const safeHref = value => { try { const url = new URL(String(value || '')); return url.protocol === 'https:' ? url.href : ''; } catch { return ''; } };
-  const fmt = value => Number.isFinite(Number(value)) ? new Intl.NumberFormat('es-MX', { maximumFractionDigits: 1 }).format(Number(value)) : '—';
+  const hasNumber = value => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
+  const fmt = value => hasNumber(value) ? new Intl.NumberFormat('es-MX', { maximumFractionDigits: 1 }).format(Number(value)) : '—';
   const money = price => {
-    if (!price || !Number.isFinite(Number(price.amount))) return price?.note ? esc(price.note) : 'No observado';
+    if (!price || !hasNumber(price.amount)) return price?.note ? esc(price.note) : 'No observado';
     try { return new Intl.NumberFormat('es-MX', { style:'currency', currency:price.currency || 'USD', maximumFractionDigits:0 }).format(Number(price.amount)); }
     catch { return `${Number(price.amount)} ${esc(price.currency || '')}`; }
   };
@@ -51,12 +52,17 @@
     const items = Array.isArray(result.items) ? result.items : [];
     if (!items.length) { grid.innerHTML = '<div class="asc-empty"><strong>No se encontraron oportunidades suficientemente verificadas.</strong><br>Viajes ASC no rellenará el espacio con eventos, precios o enlaces inventados. Ajuste fechas o vuelva a consultar más adelante.</div>'; return; }
     grid.innerHTML = items.map(item => {
-      const href = safeHref(item.source_url); const date = [item.date_start, item.time].filter(Boolean).join(' · ') || 'Fecha pendiente'; const place = [item.venue, item.location].filter(Boolean).join(' · ') || 'Lugar pendiente'; const cls = `asc-status--${esc(item.verification_status || 'pending')}`; const premium = Number.isFinite(Number(item.event_premium_pct)) ? ` · Event Premium ${Number(item.event_premium_pct) >= 0 ? '+' : ''}${fmt(item.event_premium_pct)}%` : '';
+      const href = safeHref(item.source_url); const date = [item.date_start, item.time].filter(Boolean).join(' · ') || 'Fecha pendiente'; const place = [item.venue, item.location].filter(Boolean).join(' · ') || 'Lugar pendiente'; const cls = `asc-status--${esc(item.verification_status || 'pending')}`; const premium = hasNumber(item.event_premium_pct) ? ` · Event Premium ${Number(item.event_premium_pct) >= 0 ? '+' : ''}${fmt(item.event_premium_pct)}%` : '';
       return `<article class="asc-event"><div class="asc-event__top"><div><span class="asc-event__tag">${esc(item.category || 'experiencia')}</span><h3>${esc(item.name || 'Oportunidad')}</h3></div><div class="asc-event__scores"><div class="asc-score"><span>Experience</span><strong>${fmt(item.asc_experience_score)}</strong></div><div class="asc-score"><span>Opportunity</span><strong>${fmt(item.opportunity_index)}</strong></div></div></div><div class="asc-event__meta"><span>${esc(date)}</span><span>${esc(place)}</span><span>${money(item.price_observed)}</span><span class="${cls}">${esc(item.verification_status || 'pending')}</span></div><p class="asc-event__why">${esc(item.why_relevant || '')}</p><div class="asc-event__foot"><small>${esc(item.executive_classification || '')}${premium}</small>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">Fuente oficial / verificada →</a>` : '<small>Link pendiente de confirmación</small>'}</div></article>`;
     }).join('');
   }
   async function research(profile) {
-    if (!profile || state.loading) return; state.profile = profile; const panel = ensurePanel(); panel.hidden = false; state.loading = true; const retry = document.getElementById('travelIntelligenceRetry'); if (retry) retry.disabled = true;
+    if (!profile || state.loading) return;
+    state.profile = profile;
+    state.result = null;
+    window.__VIAJES_ASC_TRAVEL_RESEARCH__ = null;
+    window.dispatchEvent(new CustomEvent('viajes:research-start', { detail:{ profile } }));
+    const panel = ensurePanel(); panel.hidden = false; state.loading = true; const retry = document.getElementById('travelIntelligenceRetry'); if (retry) retry.disabled = true;
     status('Investigando coincidencias temporales y validando fuentes…', 'loading'); document.getElementById('travelIntelligenceGrid').innerHTML = '<div class="asc-empty">Consultando fuentes actuales. Solo se mostrarán resultados que superen las reglas de trazabilidad.</div>';
     state.controller?.abort(); state.controller = new AbortController(); const timer = setTimeout(() => state.controller.abort(), 45000);
     try {
