@@ -23,6 +23,12 @@ const integrationCore = await readFile(path.join(viajes, 'travel-integration-cor
 const integration = await readFile(path.join(viajes, 'travel-integration.js'), 'utf8');
 const worker = await readFile(path.join(root, 'cloudflare', 'viajes-assistant-worker.js'), 'utf8');
 const config = await readFile(path.join(root, 'wrangler.viajes-assistant.jsonc'), 'utf8');
+const manifest = JSON.parse(await readFile(path.join(viajes, 'release-manifest.json'), 'utf8'));
+const qaRelease = await readFile(path.join(root, 'scripts', 'qa-viajes-release.mjs'), 'utf8');
+const verifyProduction = await readFile(path.join(root, 'scripts', 'verify-viajes-production.mjs'), 'utf8');
+const pagesWorkflow = await readFile(path.join(root, '.github', 'workflows', 'pages.yml'), 'utf8');
+const workerWorkflow = await readFile(path.join(root, '.github', 'workflows', 'deploy-viajes-assistant.yml'), 'utf8');
+const securityWorkflow = await readFile(path.join(root, '.github', 'workflows', 'viajes-toolchain-security.yml'), 'utf8');
 
 function requireMatch(source, regex, label) { if (!regex.test(source)) errors.push(`Missing: ${label}`); }
 
@@ -100,6 +106,30 @@ requireMatch(integration, /no alimentan el costo trazable/i, 'Phase 10 demo data
 requireMatch(integration, /viajesASCTripHistory/, 'Phase 10 history integration');
 requireMatch(integration, /viajesASCTripFavorites/, 'Phase 10 favorites integration');
 requireMatch(integration, /viajesASCTripAlerts/, 'Phase 10 local alert-intent integration');
+
+if (manifest.phase !== 13) errors.push(`Release manifest phase must be 13; got ${manifest.phase}`);
+if (manifest.release !== 'asc-viajes-phase13-2026-08-19') errors.push(`Unexpected release id: ${manifest.release}`);
+const expectedContracts = ['travel-data-v4','asc-travel-intelligence-v1','asc-travel-window-v1','asc-travel-logistics-v1','asc-travel-itinerary-v1','asc-travel-cost-v1','asc-travel-pdf-v1','asc-travel-integration-v1'];
+for (const contract of expectedContracts) if (!Object.values(manifest.contracts || {}).includes(contract)) errors.push(`Release manifest missing contract: ${contract}`);
+for (const asset of manifest.clientAssets || []) {
+  try { await access(path.join(viajes, asset)); } catch { errors.push(`Release manifest references missing client asset: ${asset}`); }
+}
+requireMatch(qaRelease, /viajes-asc-phase11-qa/, 'Phase 11 QA service contract');
+requireMatch(qaRelease, /syntheticStaysStayDemo/, 'Phase 11 synthetic-stay safety check');
+requireMatch(qaRelease, /externalAlertsRequireRealConnector/, 'Phase 11 alert safety check');
+requireMatch(verifyProduction, /verified_with_external_blockers/, 'Phase 13 truthful degraded status');
+requireMatch(verifyProduction, /worker_health_failed/, 'Phase 13 Worker health hard failure');
+requireMatch(verifyProduction, /custom_domain_unreachable/, 'Phase 13 custom-domain external blocker');
+requireMatch(pagesWorkflow, /Phase 11 · Institutional QA gate/, 'Phase 11 Pages gate');
+requireMatch(pagesWorkflow, /Phase 12 · Publish consolidated release/, 'Phase 12 Pages publication');
+requireMatch(pagesWorkflow, /Phase 13 · Verify production runtime/, 'Phase 13 Pages verification');
+requireMatch(pagesWorkflow, /viajes-release-production\.json/, 'Phase 13 persisted release evidence');
+requireMatch(workerWorkflow, /Phase 11 · QA backend and complete client chain/, 'Phase 11 Worker gate');
+requireMatch(workerWorkflow, /Phase 12 · Publish Viajes ASC Intelligence Worker/, 'Phase 12 Worker publication');
+requireMatch(workerWorkflow, /Phase 13 · Verify public health contract/, 'Phase 13 Worker verification');
+requireMatch(securityWorkflow, /Phase 11 · Validate security and institutional release QA/, 'Phase 11 security gate');
+requireMatch(securityWorkflow, /phase:13/, 'Phase 13 security status');
+
 requireMatch(worker, /type:\s*'web_search'/, 'OpenAI web search research tool');
 requireMatch(worker, /research_trip/, 'research_trip backend action');
 requireMatch(worker, /research_windows/, 'research_windows backend action');
@@ -108,17 +138,20 @@ requireMatch(worker, /event_premium/, 'Event Premium window evidence');
 requireMatch(config, /alexsaldana\.com/, 'production custom-domain CORS origin');
 requireMatch(config, /alexm3x\.github\.io/, 'GitHub Pages CORS origin');
 
-const modules = ['travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js'];
+const modules = ['travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js','release-manifest.json'];
 for (const file of modules) {
-  try { await access(path.join(viajes, file)); } catch { errors.push(`Missing intelligence module: ${file}`); }
+  try { await access(path.join(viajes, file)); } catch { errors.push(`Missing intelligence/release module: ${file}`); }
+}
+for (const file of ['qa-viajes-release.mjs','verify-viajes-production.mjs']) {
+  try { await access(path.join(root, 'scripts', file)); } catch { errors.push(`Missing release script: ${file}`); }
 }
 
 const secretPatterns = [/sk-[A-Za-z0-9_-]{20,}/, /OPENAI_API_KEY\s*[:=]\s*["'][^"']+["']/];
-for (const [name, source] of [['index.html', page], ['travel-assistant.js', assistant], ['travel-intelligence.js', intelligence], ['travel-window-engine.js', windowEngine], ['travel-logistics-core.js', logisticsCore], ['travel-logistics.js', logistics], ['travel-itinerary-core.js', itineraryCore], ['travel-itinerary.js', itinerary], ['travel-cost-core.js', costCore], ['travel-cost.js', cost], ['travel-pdf-core.js', pdfCore], ['travel-pdf.js', pdf], ['travel-integration-core.js', integrationCore], ['travel-integration.js', integration], ['viajes-assistant-worker.js', worker], ['wrangler.viajes-assistant.jsonc', config]]) {
+for (const [name, source] of [['index.html', page], ['travel-assistant.js', assistant], ['travel-intelligence.js', intelligence], ['travel-window-engine.js', windowEngine], ['travel-logistics-core.js', logisticsCore], ['travel-logistics.js', logistics], ['travel-itinerary-core.js', itineraryCore], ['travel-itinerary.js', itinerary], ['travel-cost-core.js', costCore], ['travel-cost.js', cost], ['travel-pdf-core.js', pdfCore], ['travel-pdf.js', pdf], ['travel-integration-core.js', integrationCore], ['travel-integration.js', integration], ['viajes-assistant-worker.js', worker], ['wrangler.viajes-assistant.jsonc', config], ['qa-viajes-release.mjs', qaRelease], ['verify-viajes-production.mjs', verifyProduction]]) {
   if (secretPatterns.some(pattern => pattern.test(source))) errors.push(`Potential embedded secret in ${name}`);
 }
 
-console.log(`Viajes ASC audit: ${ids.length} ids, ${localAssets.length} local assets, ${warnings.length} warning(s), ${errors.length} error(s).`);
+console.log(`Viajes ASC audit: ${ids.length} ids, ${localAssets.length} local assets, ${warnings.length} warning(s), ${errors.length} error(s), release phase ${manifest.phase}.`);
 warnings.slice(0, 10).forEach(value => console.warn(`WARN ${value}`));
 if (errors.length) {
   errors.forEach(value => console.error(`ERROR ${value}`));
