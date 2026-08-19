@@ -72,10 +72,12 @@ test('concerns adjust ranking and recommendation roles stay distinct', async () 
   assert.equal(new Set(Array.from(selected, item => item.id)).size, 3);
 });
 
-test('assistant exposes both planning modes and loads Phase 3/4 modules', async () => {
-  const [page, client, config, backend] = await Promise.all([
+test('assistant exposes both planning modes and loads Phase 3/4/5 modules', async () => {
+  const [page, client, intelligence, windows, config, backend] = await Promise.all([
     readFile(new URL('../viajes/index.html', import.meta.url), 'utf8'),
     readFile(new URL('../viajes/travel-assistant.js', import.meta.url), 'utf8'),
+    readFile(new URL('../viajes/travel-intelligence.js', import.meta.url), 'utf8'),
+    readFile(new URL('../viajes/travel-window-engine.js', import.meta.url), 'utf8'),
     readFile(new URL('../wrangler.viajes-assistant.jsonc', import.meta.url), 'utf8'),
     readFile(new URL('../cloudflare/viajes-assistant-worker.js', import.meta.url), 'utf8')
   ]);
@@ -85,19 +87,27 @@ test('assistant exposes both planning modes and loads Phase 3/4 modules', async 
   assert.match(client, /Presupuesto máximo opcional/);
   assert.match(client, /travel-intelligence-core\.js/);
   assert.match(client, /travel-intelligence\.js/);
+  assert.match(intelligence, /travel-window-engine\.js/);
+  assert.match(windows, /research_windows/);
+  assert.match(windows, /viajes:window-selected/);
   assert.match(backend, /research_trip/);
+  assert.match(backend, /research_windows/);
+  assert.match(backend, /asc-travel-window-v1/);
   assert.match(backend, /type:\s*'web_search'/);
   assert.match(backend, /strict:\s*true/);
   assert.match(config, /ASSISTANT_RATE_LIMITER/);
   assert.doesNotMatch(config, /OPENAI_API_KEY/);
 });
 
-test('worker health is public, rejects unknown origins and fails safely without OpenAI', async () => {
+test('worker health exposes Phase 5, rejects unknown origins and fails safely without OpenAI', async () => {
   const limiter = { limit: async () => ({ success: true }) };
   const env = { ASSISTANT_RATE_LIMITER: limiter, ALLOWED_ORIGINS: 'https://alexm3x.github.io,https://alexsaldana.com' };
   const health = await worker.fetch(new Request('https://worker.test/health'), env);
   assert.equal(health.status, 200);
-  assert.equal((await health.json()).contractVersion, 'asc-travel-intelligence-v1');
+  const healthBody = await health.json();
+  assert.equal(healthBody.contractVersion, 'asc-travel-intelligence-v1');
+  assert.equal(healthBody.windowContractVersion, 'asc-travel-window-v1');
+  assert.equal(healthBody.phase5, 'inverse_windows');
 
   const denied = await worker.fetch(new Request('https://worker.test/research', {
     method: 'POST', headers: { origin: 'https://evil.example', 'content-type': 'application/json' }, body: '{}'
@@ -108,7 +118,7 @@ test('worker health is public, rejects unknown origins and fails safely without 
   const unavailable = await worker.fetch(new Request('https://worker.test/research', {
     method: 'POST',
     headers: { origin: 'https://alexsaldana.com', 'content-type': 'application/json', 'x-asc-session': 'test-session' },
-    body: JSON.stringify({ action: 'research_trip', profile })
+    body: JSON.stringify({ action: 'research_windows', profile, windows:[{ id:'w1', start:'2026-09-12', end:'2026-09-15' }] })
   }), env);
   assert.equal(unavailable.status, 503);
   assert.equal((await unavailable.json()).fallback, 'deterministic');
