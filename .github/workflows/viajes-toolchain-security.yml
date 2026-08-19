@@ -10,7 +10,12 @@ on:
       - 'viajes/travel-itinerary.js'
       - 'viajes/travel-cost-core.js'
       - 'viajes/travel-cost.js'
+      - 'viajes/travel-pdf-core.js'
+      - 'viajes/travel-pdf.js'
+      - 'viajes/travel-integration-core.js'
+      - 'viajes/travel-integration.js'
       - 'tests/travel-itinerary-cost.test.mjs'
+      - 'tests/travel-pdf-integration.test.mjs'
       - 'scripts/audit-viajes-site.mjs'
       - '.github/workflows/pages.yml'
       - '.github/workflows/deploy-viajes-assistant.yml'
@@ -51,6 +56,10 @@ jobs:
           node --check viajes/travel-itinerary.js
           node --check viajes/travel-cost-core.js
           node --check viajes/travel-cost.js
+          node --check viajes/travel-pdf-core.js
+          node --check viajes/travel-pdf.js
+          node --check viajes/travel-integration-core.js
+          node --check viajes/travel-integration.js
       - name: Persist remediation and security status
         run: |
           mkdir -p docs/status
@@ -58,7 +67,7 @@ jobs:
           const fs=require('fs');
           const before=JSON.parse(fs.readFileSync('/tmp/audit-before.json','utf8')).metadata?.vulnerabilities||{};
           const after=JSON.parse(fs.readFileSync('/tmp/audit-after.json','utf8')).metadata?.vulnerabilities||{};
-          const status={schemaVersion:1,service:'viajes-toolchain-security',status:'verified',phase:8,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),before,after,policy:'zero critical/high after non-breaking npm audit remediation'};
+          const status={schemaVersion:1,service:'viajes-toolchain-security',status:'verified',phase:10,phase9Contract:'asc-travel-pdf-v1',phase10Contract:'asc-travel-integration-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),before,after,policy:'zero critical/high after non-breaking npm audit remediation'};
           fs.writeFileSync('docs/status/viajes-toolchain-security.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
