@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "release": "asc-viajes-phase13-2026-08-19",
+  "phase": 13,
+  "commit": "9b1f43d9dee6a9d8044e5c5be293c857446dbeca",
+  "runId": "32299781945",
+  "verifiedAt": "2026-08-19T20:41:07.438Z",
+  "service": "viajes-asc-release",
+  "status": "verified_with_external_blockers",
+  "phase11": {
+    "qaPassed": true
+  },
+  "phase12": {
+    "pagesDeploymentSucceeded": true,
+    "pagesUrl": "https://alexm3x.github.io/alex-global-currency-intelligence/",
+    "pagesRoute": "https://alexm3x.github.io/alex-global-currency-intelligence/viajes/"
+  },
+  "phase13": {
+    "pages": {
+      "ok": true,
+      "status": 200,
+      "location": null,
+      "bodyMarker": true,
+      "error": null
+    },
+    "customDomain": {
+      "url": "https://alexsaldana.com/viajes/",
+      "ok": false,
+      "status": 308,
+      "location": "/viajes",
+      "bodyMarker": false,
+      "error": null
+    },
+    "workerUrl": "https://viajes-asc-assistant.proadmexico.workers.dev",
+    "workerHealth": {
+      "ok": true,
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "viajes-asc-assistant",
+        "contractVersion": "asc-travel-intelligence-v1",
+        "windowContractVersion": "asc-travel-window-v1",
+        "research": "web_search",
+        "phase5": "inverse_windows",
+        "model": "gpt-5"
+      },
+      "error": null
+    },
+    "workerCors": {
+      "ok": true,
+      "status": 204,
+      "allowOrigin": "https://alexsaldana.com",
+      "error": null
+    },
+    "research": {
+      "operational": false,
+      "status": 503,
+      "contract": null,
+      "error": "assistant_unavailable",
+      "classification": "external_dependency_unavailable_fail_safe"
+    },
+    "coreFailures": [],
+    "externalBlockers": [
+      "custom_domain_unreachable",
+      "openai_research_unavailable"
+    ]
+  },
+  "releaseDecision": "release_verified_with_truthful_runtime_state"
+}

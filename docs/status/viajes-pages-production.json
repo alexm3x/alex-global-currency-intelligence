@@ -1,21 +1,36 @@
 {
   "schemaVersion": 1,
+  "release": "asc-viajes-phase13-2026-08-19",
+  "phase": 13,
+  "commit": "9b1f43d9dee6a9d8044e5c5be293c857446dbeca",
+  "runId": "32299781945",
+  "verifiedAt": "2026-08-19T20:41:07.493Z",
   "service": "viajes-asc-pages",
-  "status": "verified",
-  "phase": 10,
-  "phase7Contract": "asc-travel-itinerary-v1",
-  "phase8Contract": "asc-travel-cost-v1",
-  "phase9Contract": "asc-travel-pdf-v1",
-  "phase10Contract": "asc-travel-integration-v1",
-  "commit": "4fc779c828de6201f1f286ad443b65e1045deb34",
-  "runId": "32298720183",
-  "verifiedAt": "2026-08-19T20:30:00.812Z",
+  "status": "verified_with_external_blockers",
+  "phase11QaPassed": true,
+  "phase12PublicationSucceeded": true,
+  "phase13VerificationStatus": "verified_with_external_blockers",
   "pagesDeploymentSucceeded": true,
   "pagesUrl": "https://alexm3x.github.io/alex-global-currency-intelligence/",
+  "pagesRoute": "https://alexm3x.github.io/alex-global-currency-intelligence/viajes/",
+  "pagesRuntime": {
+    "ok": true,
+    "status": 200,
+    "location": null,
+    "bodyMarker": true,
+    "error": null
+  },
   "artifactVerifiedBeforeDeployment": true,
   "customDomainUrl": "https://alexsaldana.com/viajes/",
   "customDomainReachable": false,
+  "externalBlockers": [
+    "custom_domain_unreachable",
+    "openai_research_unavailable"
+  ],
+  "phase9Contract": "asc-travel-pdf-v1",
+  "phase10Contract": "asc-travel-integration-v1",
   "assets": [
+    "travel-assistant-core.js",
     "travel-assistant.js",
     "travel-intelligence-core.js",
     "travel-intelligence.js",
@@ -29,6 +44,7 @@
     "travel-pdf-core.js",
     "travel-pdf.js",
     "travel-integration-core.js",
-    "travel-integration.js"
+    "travel-integration.js",
+    "release-manifest.json"
   ]
 }

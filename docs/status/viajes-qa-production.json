@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "release": "asc-viajes-phase13-2026-08-19",
+  "phase": 11,
+  "commit": "9b1f43d9dee6a9d8044e5c5be293c857446dbeca",
+  "runId": "32299781945",
+  "verifiedAt": "2026-08-19T20:41:07.493Z",
+  "service": "viajes-asc-phase11-qa",
+  "targetPhase": 13,
+  "generatedAt": "2026-08-19T20:40:32.707Z",
+  "status": "passed",
+  "checks": {
+    "total": 75,
+    "passed": 75,
+    "failed": 0
+  },
+  "failures": [],
+  "policy": {
+    "noFabrication": true,
+    "syntheticStaysStayDemo": true,
+    "implicitFxForbidden": true,
+    "externalAlertsRequireRealConnector": true,
+    "privacyBoundedLocalHistory": true
+  }
+}
