@@ -73,3 +73,14 @@
   window.addEventListener('viajes:inverse-date-request', event => research(event.detail?.profile));
   window.TravelIntelligence = { research, getResult:() => state.result, scoreWindow:(factors, weights) => core.travelWindowScore(factors, weights), endpoint };
 })();
+
+(() => {
+  if (window.__VIAJES_ASC_WINDOW_ENGINE_LOADER__) return;
+  window.__VIAJES_ASC_WINDOW_ENGINE_LOADER__ = true;
+  const script=document.createElement('script');
+  script.src='travel-window-engine.js';
+  script.id='viajes-phase5-window-engine-script';
+  script.defer=true;
+  script.addEventListener('error',()=>console.error('Viajes ASC Phase 5: no fue posible cargar travel-window-engine.js'),{once:true});
+  document.body.appendChild(script);
+})();
