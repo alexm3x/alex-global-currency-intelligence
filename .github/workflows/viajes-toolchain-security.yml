@@ -1,0 +1,55 @@
+name: Viajes ASC Toolchain Security
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - '.github/workflows/viajes-toolchain-security.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: viajes-toolchain-security
+  cancel-in-progress: false
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Capture current audit
+        run: |
+          npm ci
+          npm audit --json > /tmp/audit-before.json || true
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/audit-before.json'));console.log('Before:',x.metadata?.vulnerabilities||{})"
+      - name: Apply non-breaking npm audit remediation
+        run: npm audit fix --package-lock-only
+      - name: Validate remediated dependency graph
+        run: |
+          npm ci
+          npm audit --json > /tmp/audit-after.json || true
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/audit-after.json'));const v=x.metadata?.vulnerabilities||{};console.log('After:',v);if((v.critical||0)>0||(v.high||0)>0)process.exit(1)"
+          npm test
+          node scripts/audit-viajes-site.mjs
+      - name: Persist remediation and security status
+        run: |
+          mkdir -p docs/status
+          node <<'NODE'
+          const fs=require('fs');
+          const before=JSON.parse(fs.readFileSync('/tmp/audit-before.json','utf8')).metadata?.vulnerabilities||{};
+          const after=JSON.parse(fs.readFileSync('/tmp/audit-after.json','utf8')).metadata?.vulnerabilities||{};
+          const status={schemaVersion:1,service:'viajes-toolchain-security',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),before,after,policy:'zero critical/high after non-breaking npm audit remediation'};
+          fs.writeFileSync('docs/status/viajes-toolchain-security.json',JSON.stringify(status,null,2)+'\n');
+          NODE
+          git config user.name "viajes-asc-ci"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json docs/status/viajes-toolchain-security.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore(deps): remediate Viajes toolchain audit findings"
+          git pull --rebase origin main
+          git push origin HEAD:main
