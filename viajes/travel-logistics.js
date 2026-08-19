@@ -65,3 +65,21 @@
   window.addEventListener('viajes:window-selected',event=>{const profile=event.detail?.profile||window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__;analyze(profile,window.__VIAJES_ASC_TRAVEL_RESEARCH__||{items:[]});});
   window.TravelLogistics={analyze,getResult:()=>state.analysis};
 })();
+
+(() => {
+  if (window.__VIAJES_ASC_PHASE78_LOADER__) return;
+  window.__VIAJES_ASC_PHASE78_LOADER__ = true;
+  const load=(src,id)=>new Promise((resolve,reject)=>{
+    const existing=document.getElementById(id);
+    if(existing){if(existing.dataset.loaded==='true')resolve();else existing.addEventListener('load',resolve,{once:true});return;}
+    const script=document.createElement('script');script.src=src;script.id=id;script.defer=true;
+    script.addEventListener('load',()=>{script.dataset.loaded='true';resolve();},{once:true});
+    script.addEventListener('error',()=>reject(new Error(`No fue posible cargar ${src}`)),{once:true});
+    document.body.appendChild(script);
+  });
+  load('travel-itinerary-core.js','viajes-phase7-itinerary-core-script')
+    .then(()=>load('travel-itinerary.js','viajes-phase7-itinerary-ui-script'))
+    .then(()=>load('travel-cost-core.js','viajes-phase8-cost-core-script'))
+    .then(()=>load('travel-cost.js','viajes-phase8-cost-ui-script'))
+    .catch(error=>console.error('Viajes ASC Phases 7-8:',error.message));
+})();
