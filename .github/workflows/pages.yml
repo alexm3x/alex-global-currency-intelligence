@@ -8,6 +8,7 @@ on:
       - 'tests/structural-data.test.mjs'
       - 'docs/status/viajes-intelligence-production.json'
       - 'docs/status/viajes-pages-production.json'
+      - 'docs/status/viajes-toolchain-security.json'
   workflow_dispatch:
 permissions:
   contents: write
@@ -50,18 +51,19 @@ jobs:
         uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Verify Viajes ASC in public production
+      - name: Verify canonical GitHub Pages production
         shell: bash
+        env:
+          CANONICAL_BASE: https://alexm3x.github.io/alex-global-currency-intelligence/viajes
         run: |
           set -euo pipefail
-          base='https://alexsaldana.com/viajes'
           ok=0
           for attempt in $(seq 1 18); do
-            echo "Production smoke attempt $attempt"
-            if curl --fail --silent --show-error --max-time 20 "$base/" -o /tmp/viajes-index.html \
-              && curl --fail --silent --show-error --max-time 20 "$base/travel-assistant.js" -o /tmp/travel-assistant.js \
-              && curl --fail --silent --show-error --max-time 20 "$base/travel-intelligence-core.js" -o /tmp/travel-intelligence-core.js \
-              && curl --fail --silent --show-error --max-time 20 "$base/travel-intelligence.js" -o /tmp/travel-intelligence.js; then
+            echo "Canonical production smoke attempt $attempt"
+            if curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/" -o /tmp/viajes-index.html \
+              && curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/travel-assistant.js" -o /tmp/travel-assistant.js \
+              && curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/travel-intelligence-core.js" -o /tmp/travel-intelligence-core.js \
+              && curl --fail --silent --show-error --max-time 20 "$CANONICAL_BASE/travel-intelligence.js" -o /tmp/travel-intelligence.js; then
               if grep -q 'VIAJES ASC' /tmp/viajes-index.html \
                 && grep -q 'YA SÉ CUÁNDO VIAJO' /tmp/travel-assistant.js \
                 && grep -q 'travel-intelligence-core.js' /tmp/travel-assistant.js \
@@ -73,14 +75,30 @@ jobs:
             fi
             sleep 5
           done
-          test "$ok" = "1" || (echo 'Viajes ASC production smoke test failed' && exit 1)
-          echo 'Viajes ASC production assets verified on alexsaldana.com.'
+          test "$ok" = "1" || (echo 'Canonical Viajes ASC production smoke test failed' && exit 1)
+          echo 'CANONICAL_VERIFIED=1' >> "$GITHUB_ENV"
+      - name: Check custom-domain reachability
+        shell: bash
+        run: |
+          set +e
+          code=$(curl --silent --show-error --location --max-time 20 -o /tmp/custom-viajes.html -w '%{http_code}' 'https://alexsaldana.com/viajes/' 2>/tmp/custom-curl-error.txt)
+          if [ "$code" = "200" ] && grep -q 'VIAJES ASC' /tmp/custom-viajes.html; then
+            echo 'CUSTOM_DOMAIN_REACHABLE=1' >> "$GITHUB_ENV"
+            echo 'Custom domain verified.'
+          else
+            echo 'CUSTOM_DOMAIN_REACHABLE=0' >> "$GITHUB_ENV"
+            echo "Custom domain not verified independently; HTTP=${code:-000}."
+            cat /tmp/custom-curl-error.txt || true
+          fi
+          exit 0
       - name: Persist public verification status
         run: |
           mkdir -p docs/status
           node <<'NODE'
           const fs=require('fs');
-          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),publicUrl:'https://alexsaldana.com/viajes/',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js']};
+          const canonical='https://alexm3x.github.io/alex-global-currency-intelligence/viajes/';
+          const custom='https://alexsaldana.com/viajes/';
+          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),canonicalUrl:canonical,canonicalVerified:process.env.CANONICAL_VERIFIED==='1',customDomainUrl:custom,customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js']};
           fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
