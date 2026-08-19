@@ -9,6 +9,7 @@ on:
       - 'viajes/travel-assistant.js'
       - 'viajes/travel-intelligence-core.js'
       - 'viajes/travel-intelligence.js'
+      - 'viajes/travel-window-engine.js'
       - 'tests/viajes-assistant.test.mjs'
       - 'tests/travel-intelligence.test.mjs'
       - 'scripts/audit-viajes-site.mjs'
@@ -18,11 +19,11 @@ permissions:
   contents: write
 concurrency:
   group: viajes-asc-intelligence-production
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 20
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: 466b5e1f242272e2f95046caa4347b7d
@@ -46,6 +47,7 @@ jobs:
           node --check viajes/travel-assistant-core.js
           node --check viajes/travel-intelligence-core.js
           node --check viajes/travel-intelligence.js
+          node --check viajes/travel-window-engine.js
           npx wrangler deploy --dry-run --env="" --config wrangler.viajes-assistant.jsonc
       - name: Sync OpenAI secret when configured
         if: env.OPENAI_API_KEY != ''
@@ -63,7 +65,7 @@ jobs:
             sleep 5
           done
           test "$code" = "200" || (cat /tmp/viajes-health.json; exit 1)
-          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/viajes-health.json'));if(x.status!=='ok'||x.service!=='viajes-asc-assistant'||x.contractVersion!=='asc-travel-intelligence-v1'||x.research!=='web_search')process.exit(1)"
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/viajes-health.json'));if(x.status!=='ok'||x.service!=='viajes-asc-assistant'||x.contractVersion!=='asc-travel-intelligence-v1'||x.windowContractVersion!=='asc-travel-window-v1'||x.phase5!=='inverse_windows'||x.research!=='web_search')process.exit(1)"
       - name: Verify production CORS
         run: |
           headers=$(curl --silent --show-error --max-time 20 -D - -o /dev/null -X OPTIONS -H 'Origin: https://alexsaldana.com' -H 'Access-Control-Request-Method: POST' "$WORKER_URL/research")
@@ -73,7 +75,7 @@ jobs:
         shell: bash
         run: |
           cat > /tmp/research-request.json <<'JSON'
-          {"action":"research_trip","profile":{"schema_version":"travel-data-v4","trip_id":"ci-smoke","created_at":"2026-08-19T18:00:00.000Z","origin":{"city":"MEX","airports":["MEX"]},"destination_scope":{"mode":"fixed","values":["Nueva York"]},"dates":{"start":"2026-09-12","end":"2026-09-13","month":null,"flex_days":0,"nights_min":1,"nights_max":1},"travelers":{"adults":2,"children":[],"rooms":1,"relation":"couple","room_preferences":[],"accessibility":""},"budget":{"amount":0,"normalized_total":0,"currency":"MXN","basis":"total","includes":[],"strictness":"moderate","contingency_pct":10},"transport":{"cabin":"economy","direct_preference":"preferred","max_stops":1,"max_total_hours":null},"lodging":{"types":["hotel"],"category_min":null,"location_preferences":[]},"priorities":["museos","deportes","eventos especiales"],"hard_constraints":[],"concerns":[],"concern_rules":[],"free_comments":"","derived_preferences":[],"clarifications":[],"planning":{"mode":"known_dates","period_approx":null,"duration_days":null,"budget_tier":"high","pace":"balanced","hotel":null,"preferred_zone":null,"prepared_at":"2026-08-19T18:00:00.000Z"}}}
+          {"action":"research_trip","profile":{"schema_version":"travel-data-v4","trip_id":"ci-smoke","created_at":"2026-08-19T18:00:00.000Z","origin":{"city":"MEX","airports":["MEX"]},"destination_scope":{"mode":"fixed","values":["Nueva York"]},"dates":{"start":null,"end":null,"month":null,"flex_days":7,"nights_min":4,"nights_max":4},"travelers":{"adults":2,"children":[],"rooms":1,"relation":"couple","room_preferences":[],"accessibility":""},"budget":{"amount":0,"normalized_total":0,"currency":"MXN","basis":"total","includes":[],"strictness":"moderate","contingency_pct":10},"transport":{"cabin":"economy","direct_preference":"preferred","max_stops":1,"max_total_hours":null},"lodging":{"types":["hotel"],"category_min":null,"location_preferences":[]},"priorities":["museos","deportes","eventos especiales"],"hard_constraints":[],"concerns":[],"concern_rules":[],"free_comments":"","derived_preferences":[],"clarifications":[],"planning":{"mode":"inverse_dates","period_approx":"septiembre 2026","duration_days":4,"budget_tier":"high","pace":"balanced","hotel":null,"preferred_zone":null,"prepared_at":"2026-08-19T18:00:00.000Z"}}}
           JSON
           code=$(curl --silent --show-error --max-time 90 -o /tmp/research-response.json -w '%{http_code}' -H 'Origin: https://alexsaldana.com' -H 'Content-Type: application/json' -H 'x-asc-session: ci-live-research' --data-binary @/tmp/research-request.json "$WORKER_URL/research" || true)
           echo "Live research HTTP $code"
@@ -87,6 +89,23 @@ jobs:
             echo "Unexpected research response HTTP $code"
             exit 1
           fi
+      - name: Smoke-test Phase 5 window research when research is operational
+        if: env.RESEARCH_OPERATIONAL == '1'
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const req=JSON.parse(fs.readFileSync('/tmp/research-request.json','utf8'));
+          req.action='research_windows';
+          req.windows=[
+            {id:'w-20260910-20260913',start:'2026-09-10',end:'2026-09-13',matched_item_ids:[],preliminary_score:null},
+            {id:'w-20260917-20260920',start:'2026-09-17',end:'2026-09-20',matched_item_ids:[],preliminary_score:null}
+          ];
+          fs.writeFileSync('/tmp/window-request.json',JSON.stringify(req));
+          NODE
+          curl --fail --silent --show-error --max-time 120 -H 'Origin: https://alexsaldana.com' -H 'Content-Type: application/json' -H 'x-asc-session: ci-window-research' --data-binary @/tmp/window-request.json "$WORKER_URL/research" > /tmp/window-response.json
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/window-response.json'));if(x.window_research?.contract!=='asc-travel-window-v1'||!Array.isArray(x.window_research?.windows)||!Array.isArray(x.window_research?.sources))process.exit(1)"
+          echo 'WINDOW_RESEARCH_OPERATIONAL=1' >> "$GITHUB_ENV"
       - name: Persist verified deployment status
         env:
           GITHUB_OPENAI_SECRET: ${{ secrets.OPENAI_API_KEY != '' }}
@@ -96,7 +115,8 @@ jobs:
           const fs=require('fs');
           const health=JSON.parse(fs.readFileSync('/tmp/viajes-health.json','utf8'));
           const response=fs.existsSync('/tmp/research-response.json')?JSON.parse(fs.readFileSync('/tmp/research-response.json','utf8')):{};
-          const status={schemaVersion:1,service:'viajes-asc-intelligence',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,researchOperational:process.env.RESEARCH_OPERATIONAL==='1',githubOpenAISecretConfigured:process.env.GITHUB_OPENAI_SECRET==='true',researchSmoke:{contract:response.research?.contract||null,itemCount:response.research?.items?.length||0,sourceCount:response.research?.sources?.length||0,error:response.error||null}};
+          const windowResponse=fs.existsSync('/tmp/window-response.json')?JSON.parse(fs.readFileSync('/tmp/window-response.json','utf8')):{};
+          const status={schemaVersion:1,service:'viajes-asc-intelligence',status:'verified',phase:5,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,researchOperational:process.env.RESEARCH_OPERATIONAL==='1',windowResearchOperational:process.env.WINDOW_RESEARCH_OPERATIONAL==='1',githubOpenAISecretConfigured:process.env.GITHUB_OPENAI_SECRET==='true',researchSmoke:{contract:response.research?.contract||null,itemCount:response.research?.items?.length||0,sourceCount:response.research?.sources?.length||0,error:response.error||null},windowSmoke:{contract:windowResponse.window_research?.contract||null,windowCount:windowResponse.window_research?.windows?.length||0,sourceCount:windowResponse.window_research?.sources?.length||0,error:windowResponse.error||null}};
           fs.writeFileSync('docs/status/viajes-intelligence-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
@@ -107,8 +127,10 @@ jobs:
           git push origin HEAD:main
       - name: Deployment summary
         run: |
-          echo '### Viajes ASC — Fases 3 + 4' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Viajes ASC — Fases 3 + 4 + 5' >> "$GITHUB_STEP_SUMMARY"
           echo '- Worker: deployed and health-checked' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Contract: asc-travel-intelligence-v1' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Research contract: asc-travel-intelligence-v1' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Window contract: asc-travel-window-v1' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 5: inverse window engine enabled' >> "$GITHUB_STEP_SUMMARY"
           echo '- CORS: alexsaldana.com verified' >> "$GITHUB_STEP_SUMMARY"
           if [ "${RESEARCH_OPERATIONAL:-0}" = "1" ]; then echo '- Live research: operational and smoke-tested' >> "$GITHUB_STEP_SUMMARY"; else echo '- Live research: unavailable because OPENAI_API_KEY is not present in the Worker' >> "$GITHUB_STEP_SUMMARY"; fi
