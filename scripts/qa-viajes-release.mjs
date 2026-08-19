@@ -77,7 +77,7 @@ check('stays remain explicitly demonstrative', /Modo demostración:/i.test(sourc
 check('integration forbids demo-to-live promotion', /parameter_sync_only_demo_data_never_promoted_to_live/.test(sources['travel-integration-core.js']));
 check('external alert state remains inactive', /local_watch_intent_only_external_notification_inactive/.test(sources['travel-integration-core.js']));
 check('UI labels external notification inactive', /Notificación externa: NO ACTIVA/.test(sources['travel-integration.js']));
-check('history storage is bounded', /slice\(-20\)/.test(sources['travel-integration.js']));
+check('history storage is bounded', /mergeBounded\(parse\(KEYS\.history,\[\]\),record,20/.test(sources['travel-integration.js']) && /slice\(0, Math\.max\(1, Number\(max\)/.test(sources['travel-integration-core.js']));
 check('private free comments are not copied by integration core', !/free_comments\s*:/.test(sources['travel-integration-core.js']));
 
 const auditScript = await readFile(path.join(root, 'scripts', 'audit-viajes-site.mjs'), 'utf8');
@@ -88,8 +88,9 @@ check('site audit exists', /Viajes ASC audit:/.test(auditScript));
 check('Pages workflow has release manifest gate', /release-manifest\.json/.test(pagesWorkflow));
 check('Worker workflow has release manifest gate', /release-manifest\.json/.test(workerWorkflow));
 check('Security workflow has release gate', /qa-viajes-release\.mjs/.test(securityWorkflow));
-check('Pages workflow declares Phase 13', /phase:?\s*13|phase:13/.test(pagesWorkflow));
-check('Worker workflow declares Phase 13', /phase:?\s*13|phase:13/.test(workerWorkflow));
+check('Pages workflow declares Phase 13', /phase:13/.test(pagesWorkflow));
+check('Worker workflow declares Phase 13', /phase:13/.test(workerWorkflow));
+check('Security workflow declares Phase 13', /phase:13/.test(securityWorkflow));
 
 const secretPattern = /sk-[A-Za-z0-9_-]{20,}/;
 for (const [file, source] of Object.entries(sources)) check(`no embedded OpenAI key in ${file}`, !secretPattern.test(source));
