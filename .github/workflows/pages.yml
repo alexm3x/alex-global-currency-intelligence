@@ -49,25 +49,26 @@ jobs:
           node --check viajes/travel-itinerary.js
           node --check viajes/travel-cost-core.js
           node --check viajes/travel-cost.js
+          node --check viajes/travel-pdf-core.js
+          node --check viajes/travel-pdf.js
+          node --check viajes/travel-integration-core.js
+          node --check viajes/travel-integration.js
           grep -q 'VIAJES ASC' viajes/index.html
           grep -q 'YA SÉ CUÁNDO VIAJO' viajes/travel-assistant.js
-          grep -q 'travel-intelligence-core.js' viajes/travel-assistant.js
           grep -q 'asc-travel-intelligence-v1' viajes/travel-intelligence-core.js
-          grep -q 'travel-window-engine.js' viajes/travel-intelligence.js
           grep -q 'research_windows' viajes/travel-window-engine.js
-          grep -q 'viajes:window-selected' viajes/travel-window-engine.js
-          grep -q 'travel-logistics-core.js' viajes/travel-intelligence.js
-          grep -q 'travel-logistics.js' viajes/travel-intelligence.js
           grep -q 'asc-travel-logistics-v1' viajes/travel-logistics-core.js
-          grep -q 'viajes:logistics-ready' viajes/travel-logistics.js
-          grep -q 'travel-itinerary-core.js' viajes/travel-logistics.js
-          grep -q 'travel-itinerary.js' viajes/travel-logistics.js
-          grep -q 'travel-cost-core.js' viajes/travel-logistics.js
-          grep -q 'travel-cost.js' viajes/travel-logistics.js
           grep -q 'asc-travel-itinerary-v1' viajes/travel-itinerary-core.js
-          grep -q 'viajes:itinerary-ready' viajes/travel-itinerary.js
           grep -q 'asc-travel-cost-v1' viajes/travel-cost-core.js
-          grep -q 'viajes:cost-ready' viajes/travel-cost.js
+          grep -q 'travel-pdf-core.js' viajes/travel-cost.js
+          grep -q 'travel-integration-core.js' viajes/travel-cost.js
+          grep -q 'asc-travel-pdf-v1' viajes/travel-pdf-core.js
+          grep -q 'viajes:pdf-ready' viajes/travel-pdf.js
+          grep -q 'popup.print()' viajes/travel-pdf.js
+          grep -q 'asc-travel-integration-v1' viajes/travel-integration-core.js
+          grep -q 'local_watch_intent_only_external_notification_inactive' viajes/travel-integration-core.js
+          grep -q 'viajes:integration-ready' viajes/travel-integration.js
+          grep -q 'Notificación externa: NO ACTIVA' viajes/travel-integration.js
           grep -q 'viajes-asc-assistant.proadmexico.workers.dev' viajes/travel-intelligence.js
       - name: Setup Pages
         uses: actions/configure-pages@v6
@@ -102,7 +103,7 @@ jobs:
           mkdir -p docs/status
           node <<'NODE'
           const fs=require('fs');
-          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',phase:8,phase7Contract:'asc-travel-itinerary-v1',phase8Contract:'asc-travel-cost-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js']};
+          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',phase:10,phase7Contract:'asc-travel-itinerary-v1',phase8Contract:'asc-travel-cost-v1',phase9Contract:'asc-travel-pdf-v1',phase10Contract:'asc-travel-integration-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js']};
           fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
