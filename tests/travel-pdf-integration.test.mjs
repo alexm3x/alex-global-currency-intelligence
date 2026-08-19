@@ -29,7 +29,7 @@ test('Phase 9 builds an executive PDF contract only from existing Phase 3-8 evid
   const f=fixture();const report=core.buildReport(f.profile,f.research,f.logistics,f.itinerary,f.cost,f.selectedWindow);
   assert.equal(report.contract,'asc-travel-pdf-v1');
   assert.equal(report.trip.destination,'Nueva York');
-  assert.deepEqual(report.costs.totals_by_currency,{USD:1200});
+  assert.deepEqual({ ...report.costs.totals_by_currency },{USD:1200});
   assert.equal(report.only_during_trip.length,1);
   assert.equal(report.only_during_trip[0].id,'a');
   assert.ok(!report.only_during_trip.some(item=>item.id==='b'||item.id==='c'));
