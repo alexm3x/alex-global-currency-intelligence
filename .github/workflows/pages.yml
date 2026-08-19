@@ -39,10 +39,14 @@ jobs:
           node --check viajes/travel-assistant-core.js
           node --check viajes/travel-intelligence-core.js
           node --check viajes/travel-intelligence.js
+          node --check viajes/travel-window-engine.js
           grep -q 'VIAJES ASC' viajes/index.html
           grep -q 'YA SÉ CUÁNDO VIAJO' viajes/travel-assistant.js
           grep -q 'travel-intelligence-core.js' viajes/travel-assistant.js
           grep -q 'asc-travel-intelligence-v1' viajes/travel-intelligence-core.js
+          grep -q 'travel-window-engine.js' viajes/travel-intelligence.js
+          grep -q 'research_windows' viajes/travel-window-engine.js
+          grep -q 'viajes:window-selected' viajes/travel-window-engine.js
           grep -q 'viajes-asc-assistant.proadmexico.workers.dev' viajes/travel-intelligence.js
       - name: Setup Pages
         uses: actions/configure-pages@v6
@@ -77,7 +81,7 @@ jobs:
           mkdir -p docs/status
           node <<'NODE'
           const fs=require('fs');
-          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js']};
+          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',phase:5,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js']};
           fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
