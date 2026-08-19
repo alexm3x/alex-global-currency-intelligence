@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-18",
-  "timestamp": "2026-08-18T07:14:00-06:00",
+  "date": "2026-08-19",
+  "timestamp": "2026-08-19T07:12:51-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
@@ -9,94 +9,93 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "Reuters",
-      "newsletter": "Public markets validation",
-      "headline": "Long-end Treasury stress becomes the dominant macro signal as oil and Hormuz lift inflation risk",
-      "category": "Rates / Energy / Geopolitics / Capital Allocation",
+      "publisher": "AGCI",
+      "newsletter": "Greed + Valuation live engine",
+      "headline": "Greed falls to 84 while valuation remains extreme at 85",
+      "category": "Behavioral Finance / Valuation / Capital Allocation",
       "relevance": 100,
-      "summary": "On 18 August the U.S. 30-year Treasury yield reached about 5.33%, its highest level since 2007, while the 10-year traded near 4.74%. Brent moved above USD 90 as hopes for a near-term U.S.-Iran settlement faded and Hormuz remained constrained.",
-      "whyItMatters": "The market is now experiencing weaker growth data and higher long-end yields at the same time. AGCI treats this as a term-premium and inflation-risk warning rather than a simple monetary-policy signal. It raises the hurdle rate for long-duration equities, leveraged real estate and capital-intensive AI projects.",
-      "assets": ["TLT", "IEF", "SPY", "QQQ", "XLE", "BZ=F", "CL=F", "DXY"],
-      "agciSignal": "LONG-END YIELD SHOCK / OIL-INFLATION RISK / REDUCE DURATION COMPLACENCY",
-      "sourceUrl": "https://www.reuters.com/business/us-30-year-yields-hit-highest-level-since-2007-war-oil-worries-fester-2026-08-18/"
+      "summary": "The 19 August AGCI snapshot records Greed 84/100, down 5 points in one day, while Valuation remains 85/100. The regime is still Mid Bull and the matrix condition remains EUPHORIA_RISK.",
+      "whyItMatters": "The decline in greed shows the first meaningful cooling in market psychology, but not enough to offset extreme valuation, elevated long yields and oil-driven inflation risk. AGCI therefore preserves liquidity and staged-entry discipline rather than treating the pullback as an automatic buy signal.",
+      "assets": ["SPY", "QQQ", "VIX", "TLT", "GLD"],
+      "agciSignal": "GREED COOLING / VALUATION STILL EXTREME / DO NOT CHASE",
+      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
     },
     {
       "rank": 2,
-      "publisher": "Barron's",
-      "newsletter": "The Barron's Daily / Daily Roundup",
-      "headline": "Barron's flags 30-year yield stress, AI capital intensity and renewed chip dispersion",
-      "category": "Markets / AI / Technology / Capital Allocation",
-      "relevance": 98,
-      "summary": "New Barron's newsletters received after the prior cutoff emphasized the 30-year Treasury yield at its highest since 2007, heavy AI spending at Amazon and Meta, Nvidia/OpenAI data-center economics, Micron's memory-cycle momentum and continued debate over whether high AI investment can earn adequate returns.",
-      "whyItMatters": "These stories reinforce an existing AGCI distinction: AI demand can remain structurally strong while financing conditions deteriorate. The correct response is not to abandon AI exposure, but to demand stronger free-cash-flow coverage, lower refinancing dependence and wider valuation margins.",
-      "assets": ["AMZN", "META", "NVDA", "MU", "SNDK", "WDC", "QQQ", "SMH"],
-      "agciSignal": "AI STRUCTURAL DEMAND / FINANCING QUALITY MATTERS MORE",
-      "sourceUrl": "https://www.barrons.com/"
+      "publisher": "Reuters",
+      "newsletter": "Public markets validation",
+      "headline": "Bond rout pauses but Brent near USD 91 keeps inflation and duration risk elevated",
+      "category": "Rates / Energy / Geopolitics / Capital Allocation",
+      "relevance": 99,
+      "summary": "On 19 August global long-end bond markets stabilized after the prior selloff, but Brent remained near USD 91 as U.S.-Iran tensions persisted. European equities hovered near two-week lows while investors awaited the July FOMC minutes.",
+      "whyItMatters": "Stabilization is not normalization. Long yields remain historically restrictive and oil remains high enough to threaten inflation expectations and margins. AGCI treats any relief in duration as tactical until energy and term-premium risks improve together.",
+      "assets": ["TLT", "IEF", "SPY", "QQQ", "XLE", "BZ=F", "CL=F", "DXY"],
+      "agciSignal": "YIELD STRESS PAUSES / OIL-INFLATION RISK PERSISTS",
+      "sourceUrl": "https://www.reuters.com/markets/europe/european-shares-muted-mining-gains-offset-middle-east-jitters-2026-08-19/"
     },
     {
       "rank": 3,
-      "publisher": "Reuters / Home Depot",
-      "newsletter": "Corporate earnings validation",
-      "headline": "Home Depot beats Q2 sales expectations but housing-sensitive demand remains constrained",
-      "category": "Equities / Real Estate / Consumer / Business",
-      "relevance": 96,
-      "summary": "Home Depot reported second-quarter sales above expectations and shares rose premarket, but the broader housing backdrop remains weak and management kept its full-year outlook unchanged. Smaller projects improved while large-ticket activity remained pressured by elevated borrowing costs and affordability constraints.",
-      "whyItMatters": "The result does not justify relaxing AGCI real-estate underwriting. It supports the view that repair-and-maintenance demand is resilient, while transaction-driven housing activity and large discretionary projects remain rate-sensitive.",
-      "assets": ["HD", "LOW", "XHB", "ITB", "VNQ"],
-      "agciSignal": "HOUSING DEMAND RESILIENT AT THE MARGIN / LARGE PROJECTS STILL RATE-CONSTRAINED",
-      "sourceUrl": "https://ir.homedepot.com/"
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily / Review & Preview / Daily Roundup",
+      "headline": "AI and robotics remain strategic, but chip weakness and financing risk force greater selectivity",
+      "category": "AI / Technology / Equities / Capital Allocation",
+      "relevance": 98,
+      "summary": "New Barron's newsletters received after the prior cutoff focused on U.S.-China competition in AI and robotics, a broad selloff in chip-related names, convertible-bond issuance benefiting from AI enthusiasm, and renewed questions over memory and semiconductor valuations.",
+      "whyItMatters": "AGCI distinguishes secular AI demand from security-specific return. A strategic industry can still experience multiple compression, capital dilution and cyclical oversupply. Balance-sheet quality, free cash flow after capex and entry valuation remain decisive.",
+      "assets": ["NVDA", "MU", "SMH", "SOXX", "QQQ", "META", "AMZN", "GOOGL"],
+      "agciSignal": "AI STRUCTURAL / CHIP BETA COOLING / FINANCING QUALITY MATTERS",
+      "sourceUrl": "https://www.barrons.com/"
     },
     {
       "rank": 4,
-      "publisher": "AGCI",
-      "newsletter": "Greed + Valuation live engine",
-      "headline": "Greed eases slightly to 90 but remains extreme against Valuation 85",
-      "category": "Behavioral Finance / Valuation / Capital Allocation",
-      "relevance": 99,
-      "summary": "The 18 August AGCI snapshot shows Greed 90/100, Valuation 85/100, Mid Bull regime and confidence 73/100. Greed is down two points on the day but the condition remains EUPHORIA_RISK with the directive 'Capital preservation / Do not chase'.",
-      "whyItMatters": "A two-point decline in Greed is not enough to neutralize the valuation and macro warning. With long yields rising and oil above USD 90, cash optionality and staged entries remain more valuable than chasing momentum.",
-      "assets": ["SPY", "QQQ", "VIX", "TLT", "GLD"],
-      "agciSignal": "EXTREME GREED + EXTREME VALUATION / DO NOT CHASE",
-      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
+      "publisher": "Toll Brothers",
+      "newsletter": "Corporate earnings validation",
+      "headline": "Luxury housing shows weaker deliveries but firmer contract value and pricing",
+      "category": "Real Estate / Equities / Consumer",
+      "relevance": 96,
+      "summary": "Toll Brothers reported lower year-over-year revenue and deliveries for fiscal Q3, while average selling prices increased and signed contract value improved. The affluent buyer segment remains more resilient than the broader housing market.",
+      "whyItMatters": "The report supports a bifurcated housing thesis: premium demand can remain resilient even while financing costs suppress transaction volumes. AGCI does not relax real-estate stress assumptions because unit deliveries and aggregate revenue are still pressured.",
+      "assets": ["TOL", "XHB", "ITB", "HD", "LOW", "VNQ"],
+      "agciSignal": "LUXURY HOUSING RESILIENT / VOLUME STILL RATE-CONSTRAINED",
+      "sourceUrl": "https://investors.tollbrothers.com/financials-and-filings/quarterly-results/2026"
     },
     {
       "rank": 5,
       "publisher": "Federal Reserve",
       "newsletter": "Official calendar",
-      "headline": "Industrial production is due today; FOMC minutes follow on 19 August",
-      "category": "Central Banks / Macro",
-      "relevance": 93,
-      "summary": "The Federal Reserve's official calendar schedules industrial production for 18 August and the minutes of the 28-29 July FOMC meeting for 19 August.",
-      "whyItMatters": "The data sequence can test whether the current combination of soft consumption, elevated energy prices and rising long-term yields is becoming a stagflationary mix or remains a temporary market dislocation.",
-      "assets": ["TLT", "IEF", "DXY", "SPY", "XLF"],
-      "agciSignal": "MACRO CONFIRMATION PENDING / FOMC MINUTES HIGH IMPORTANCE",
-      "sourceUrl": "https://www.federalreserve.gov/releases/G17/"
+      "headline": "July FOMC minutes are today's main policy catalyst",
+      "category": "Central Banks / Macro / Rates",
+      "relevance": 95,
+      "summary": "The Federal Reserve schedules publication of the minutes from the 28-29 July FOMC meeting for 19 August at 2:00 p.m. ET.",
+      "whyItMatters": "Markets are simultaneously pricing softer growth, high oil and elevated long-term yields. The minutes may clarify how policymakers weigh inflation persistence against weaker demand, but AGCI will not front-run the release by changing duration or cash targets before the document is available.",
+      "assets": ["TLT", "IEF", "DXY", "SPY", "QQQ", "XLF"],
+      "agciSignal": "FOMC MINUTES HIGH IMPORTANCE / WAIT FOR CONFIRMATION",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-august.htm"
     }
   ],
   "watch": [
-    "U.S. 30-year Treasury yield around 5.33% and term-premium persistence",
-    "Brent above USD 90 and Hormuz shipping constraints",
-    "U.S. industrial production — 18 August",
-    "FOMC minutes — 19 August",
-    "Home Depot / Lowe's / homebuilder read-through to housing demand",
-    "AI capex funding mix, hyperscaler debt issuance and FCF post-capex",
-    "Semiconductor volatility after renewed memory-sector strength",
-    "AGCI Greed 90 / Valuation 85",
-    "The Economist newsletters — no new delivery found in authorized Gmail during this review window",
-    "USMCA / Mexico — no new official bilateral round or rule change found since the July 23 USTR statement"
+    "AGCI Greed 84 / Valuation 85 and whether psychology continues to cool",
+    "U.S. 30-year and 10-year Treasury yields after the global bond selloff",
+    "Brent around USD 91 and Hormuz-related shipping risk",
+    "FOMC minutes — 19 August, 2:00 p.m. ET",
+    "Semiconductor breadth after the 18 August AI/chip selloff",
+    "AI and robotics capital intensity, convertible issuance and FCF after capex",
+    "Toll Brothers contracts versus deliveries as a luxury-housing lead indicator",
+    "Mexico/USMCA — no new official bilateral decision validated in the review window",
+    "The Economist — no new newsletter found in authorized Gmail after the prior cutoff"
   ],
   "excluded": [
     {
-      "headline": "SpaceX USD 60 billion Anysphere/Cursor acquisition",
-      "reason": "Mentioned again in today's newsletter, but the underlying transaction was announced in June and is not new to this review period."
+      "headline": "Private Barron's tracking links",
+      "reason": "Tracking URLs from authorized Gmail are intentionally not stored; only publisher-level public URLs and original AGCI summaries are retained."
     },
     {
       "headline": "The Economist newsletters",
       "reason": "No new Economist newsletter was found in authorized Gmail after the prior review cutoff."
     },
     {
-      "headline": "Single-stock technical breakouts",
-      "reason": "Excluded unless supported by new fundamental, policy or capital-allocation evidence material to AGCI."
+      "headline": "Unconfirmed industrial-production figures",
+      "reason": "The official Federal Reserve page available during this review did not expose a validated 18 August release payload, so AGCI does not invent or backfill the figure."
     }
   ]
 }
