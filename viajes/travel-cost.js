@@ -48,3 +48,21 @@
   window.addEventListener('viajes:itinerary-ready',event=>analyze(event.detail?.profile,event.detail?.research,event.detail?.itinerary,window.__VIAJES_ASC_SELECTED_WINDOW__||{}));
   window.TravelCost={analyze,getResult:()=>state.cost};
 })();
+
+(() => {
+  if (window.__VIAJES_ASC_PHASE910_LOADER__) return;
+  window.__VIAJES_ASC_PHASE910_LOADER__ = true;
+  const load=(src,id)=>new Promise((resolve,reject)=>{
+    const existing=document.getElementById(id);
+    if(existing){if(existing.dataset.loaded==='true')resolve();else existing.addEventListener('load',resolve,{once:true});return;}
+    const script=document.createElement('script');script.src=src;script.id=id;script.defer=true;
+    script.addEventListener('load',()=>{script.dataset.loaded='true';resolve();},{once:true});
+    script.addEventListener('error',()=>reject(new Error(`No fue posible cargar ${src}`)),{once:true});
+    document.body.appendChild(script);
+  });
+  load('travel-pdf-core.js','viajes-phase9-pdf-core-script')
+    .then(()=>load('travel-pdf.js','viajes-phase9-pdf-ui-script'))
+    .then(()=>load('travel-integration-core.js','viajes-phase10-integration-core-script'))
+    .then(()=>load('travel-integration.js','viajes-phase10-integration-ui-script'))
+    .catch(error=>console.error('Viajes ASC Phases 9-10:',error.message));
+})();
