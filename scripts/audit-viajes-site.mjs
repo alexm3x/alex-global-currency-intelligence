@@ -13,6 +13,10 @@ const windowEngine = await readFile(path.join(viajes, 'travel-window-engine.js')
 const core = await readFile(path.join(viajes, 'travel-intelligence-core.js'), 'utf8');
 const logisticsCore = await readFile(path.join(viajes, 'travel-logistics-core.js'), 'utf8');
 const logistics = await readFile(path.join(viajes, 'travel-logistics.js'), 'utf8');
+const itineraryCore = await readFile(path.join(viajes, 'travel-itinerary-core.js'), 'utf8');
+const itinerary = await readFile(path.join(viajes, 'travel-itinerary.js'), 'utf8');
+const costCore = await readFile(path.join(viajes, 'travel-cost-core.js'), 'utf8');
+const cost = await readFile(path.join(viajes, 'travel-cost.js'), 'utf8');
 const worker = await readFile(path.join(root, 'cloudflare', 'viajes-assistant-worker.js'), 'utf8');
 const config = await readFile(path.join(root, 'wrangler.viajes-assistant.jsonc'), 'utf8');
 
@@ -64,6 +68,23 @@ requireMatch(logistics, /viajes:research-ready/, 'Phase 6 research handoff');
 requireMatch(logistics, /viajes:window-selected/, 'Phase 6 selected-window handoff');
 requireMatch(logistics, /Abrir ruta del día en Maps/, 'Phase 6 daily map route');
 requireMatch(logistics, /no tiempos de tráfico en vivo/, 'Phase 6 live-traffic disclosure');
+requireMatch(logistics, /travel-itinerary-core\.js/, 'Phase 7 itinerary core loader');
+requireMatch(logistics, /travel-itinerary\.js/, 'Phase 7 itinerary UI loader');
+requireMatch(logistics, /travel-cost-core\.js/, 'Phase 8 cost core loader');
+requireMatch(logistics, /travel-cost\.js/, 'Phase 8 cost UI loader');
+requireMatch(itineraryCore, /asc-travel-itinerary-v1/, 'Phase 7 itinerary contract');
+requireMatch(itineraryCore, /fixed_times:'never_retimed'/, 'Phase 7 fixed-time governance');
+requireMatch(itineraryCore, /untimed_activities:'kept_flexible'/, 'Phase 7 unknown-time governance');
+requireMatch(itinerary, /viajes:logistics-ready/, 'Phase 7 logistics handoff');
+requireMatch(itinerary, /viajes:itinerary-ready/, 'Phase 7 downstream handoff');
+requireMatch(itinerary, /no inventa restaurantes/i, 'Phase 7 no-fabrication disclosure');
+requireMatch(costCore, /asc-travel-cost-v1/, 'Phase 8 cost contract');
+requireMatch(costCore, /summation:'only_explicit_total_basis'/, 'Phase 8 explicit-total summation rule');
+requireMatch(costCore, /unit_prices:'visible_but_excluded'/, 'Phase 8 unit-price exclusion rule');
+requireMatch(costCore, /currency:'never_converted_without_explicit_fx_evidence'/, 'Phase 8 FX governance');
+requireMatch(cost, /viajes:itinerary-ready/, 'Phase 8 itinerary handoff');
+requireMatch(cost, /viajes:cost-ready/, 'Phase 8 downstream handoff');
+requireMatch(cost, /no es una cotización final/i, 'Phase 8 partial-cost disclosure');
 requireMatch(worker, /type:\s*'web_search'/, 'OpenAI web search research tool');
 requireMatch(worker, /research_trip/, 'research_trip backend action');
 requireMatch(worker, /research_windows/, 'research_windows backend action');
@@ -72,12 +93,12 @@ requireMatch(worker, /event_premium/, 'Event Premium window evidence');
 requireMatch(config, /alexsaldana\.com/, 'production custom-domain CORS origin');
 requireMatch(config, /alexm3x\.github\.io/, 'GitHub Pages CORS origin');
 
-for (const file of ['travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js']) {
+for (const file of ['travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js']) {
   try { await access(path.join(viajes, file)); } catch { errors.push(`Missing intelligence module: ${file}`); }
 }
 
 const secretPatterns = [/sk-[A-Za-z0-9_-]{20,}/, /OPENAI_API_KEY\s*[:=]\s*["'][^"']+["']/];
-for (const [name, source] of [['index.html', page], ['travel-assistant.js', assistant], ['travel-intelligence.js', intelligence], ['travel-window-engine.js', windowEngine], ['travel-logistics-core.js', logisticsCore], ['travel-logistics.js', logistics], ['viajes-assistant-worker.js', worker], ['wrangler.viajes-assistant.jsonc', config]]) {
+for (const [name, source] of [['index.html', page], ['travel-assistant.js', assistant], ['travel-intelligence.js', intelligence], ['travel-window-engine.js', windowEngine], ['travel-logistics-core.js', logisticsCore], ['travel-logistics.js', logistics], ['travel-itinerary-core.js', itineraryCore], ['travel-itinerary.js', itinerary], ['travel-cost-core.js', costCore], ['travel-cost.js', cost], ['viajes-assistant-worker.js', worker], ['wrangler.viajes-assistant.jsonc', config]]) {
   if (secretPatterns.some(pattern => pattern.test(source))) errors.push(`Potential embedded secret in ${name}`);
 }
 
