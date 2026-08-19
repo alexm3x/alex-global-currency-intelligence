@@ -1,0 +1,86 @@
+name: Deploy Viajes ASC Intelligence
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'cloudflare/viajes-assistant-worker.js'
+      - 'wrangler.viajes-assistant.jsonc'
+      - 'viajes/travel-assistant-core.js'
+      - 'viajes/travel-assistant.js'
+      - 'viajes/travel-intelligence-core.js'
+      - 'viajes/travel-intelligence.js'
+      - 'tests/viajes-assistant.test.mjs'
+      - 'tests/travel-intelligence.test.mjs'
+      - 'scripts/audit-viajes-site.mjs'
+      - '.github/workflows/deploy-viajes-assistant.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: viajes-asc-intelligence-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 466b5e1f242272e2f95046caa4347b7d
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      WORKER_URL: https://viajes-asc-assistant.proadmexico.workers.dev
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Validate deployment credential
+        run: test -n "$CLOUDFLARE_API_TOKEN" || (echo 'CLOUDFLARE_API_TOKEN is not configured' && exit 1)
+      - name: Install and audit complete Viajes site
+        run: |
+          npm ci
+          npm test
+          node scripts/audit-viajes-site.mjs
+          node --check cloudflare/viajes-assistant-worker.js
+          node --check viajes/travel-assistant.js
+          node --check viajes/travel-assistant-core.js
+          node --check viajes/travel-intelligence-core.js
+          node --check viajes/travel-intelligence.js
+          npx wrangler deploy --dry-run --env="" --config wrangler.viajes-assistant.jsonc
+      - name: Sync OpenAI secret when configured
+        if: env.OPENAI_API_KEY != ''
+        run: printf '%s' "$OPENAI_API_KEY" | npx wrangler secret put OPENAI_API_KEY --env="" --config wrangler.viajes-assistant.jsonc
+      - name: Deploy Viajes ASC Intelligence Worker
+        run: npx wrangler deploy --env="" --config wrangler.viajes-assistant.jsonc
+      - name: Verify public health contract
+        run: |
+          rm -f /tmp/viajes-health.json
+          code=000
+          for attempt in $(seq 1 15); do
+            code=$(curl --silent --show-error --max-time 20 -o /tmp/viajes-health.json -w '%{http_code}' "$WORKER_URL/health" || true)
+            echo "Health attempt $attempt: HTTP $code"
+            if [ "$code" = "200" ]; then break; fi
+            sleep 5
+          done
+          test "$code" = "200" || (cat /tmp/viajes-health.json; exit 1)
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/viajes-health.json'));if(x.status!=='ok'||x.service!=='viajes-asc-assistant'||x.contractVersion!=='asc-travel-intelligence-v1'||x.research!=='web_search')process.exit(1)"
+      - name: Verify production CORS
+        run: |
+          headers=$(curl --silent --show-error --max-time 20 -D - -o /dev/null -X OPTIONS -H 'Origin: https://alexsaldana.com' -H 'Access-Control-Request-Method: POST' "$WORKER_URL/research")
+          printf '%s\n' "$headers"
+          printf '%s' "$headers" | tr -d '\r' | grep -qi '^access-control-allow-origin: https://alexsaldana.com$'
+      - name: Smoke-test live research when OpenAI is configured
+        if: env.OPENAI_API_KEY != ''
+        run: |
+          cat > /tmp/research-request.json <<'JSON'
+          {"action":"research_trip","profile":{"schema_version":"travel-data-v4","trip_id":"ci-smoke","created_at":"2026-08-19T18:00:00.000Z","origin":{"city":"MEX","airports":["MEX"]},"destination_scope":{"mode":"fixed","values":["Nueva York"]},"dates":{"start":"2026-09-12","end":"2026-09-13","month":null,"flex_days":0,"nights_min":1,"nights_max":1},"travelers":{"adults":2,"children":[],"rooms":1,"relation":"couple","room_preferences":[],"accessibility":""},"budget":{"amount":0,"normalized_total":0,"currency":"MXN","basis":"total","includes":[],"strictness":"moderate","contingency_pct":10},"transport":{"cabin":"economy","direct_preference":"preferred","max_stops":1,"max_total_hours":null},"lodging":{"types":["hotel"],"category_min":null,"location_preferences":[]},"priorities":["museos","deportes","eventos especiales"],"hard_constraints":[],"concerns":[],"concern_rules":[],"free_comments":"","derived_preferences":[],"clarifications":[],"planning":{"mode":"known_dates","period_approx":null,"duration_days":null,"budget_tier":"high","pace":"balanced","hotel":null,"preferred_zone":null,"prepared_at":"2026-08-19T18:00:00.000Z"}}}
+          JSON
+          curl --fail --silent --show-error --retry 2 --retry-delay 4 --max-time 90 -H 'Origin: https://alexsaldana.com' -H 'Content-Type: application/json' -H 'x-asc-session: ci-live-research' --data-binary @/tmp/research-request.json "$WORKER_URL/research" > /tmp/research-response.json
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/research-response.json'));if(x.research?.contract!=='asc-travel-intelligence-v1'||!Array.isArray(x.research?.sources)||!Array.isArray(x.research?.items))process.exit(1);console.log('Live research contract OK:',x.research.items.length,'items /',x.research.sources.length,'sources')"
+      - name: Deployment summary
+        run: |
+          echo '### Viajes ASC — Fases 3 + 4' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Worker: deployed and health-checked' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Contract: asc-travel-intelligence-v1' >> "$GITHUB_STEP_SUMMARY"
+          echo '- CORS: alexsaldana.com verified' >> "$GITHUB_STEP_SUMMARY"
+          if [ -n "$OPENAI_API_KEY" ]; then echo '- Live research: smoke-tested with OpenAI web search' >> "$GITHUB_STEP_SUMMARY"; else echo '- Live research: OPENAI_API_KEY is not configured; worker remains fail-safe' >> "$GITHUB_STEP_SUMMARY"; fi
