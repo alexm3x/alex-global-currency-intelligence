@@ -12,9 +12,14 @@ on:
       - 'viajes/travel-window-engine.js'
       - 'viajes/travel-logistics-core.js'
       - 'viajes/travel-logistics.js'
+      - 'viajes/travel-itinerary-core.js'
+      - 'viajes/travel-itinerary.js'
+      - 'viajes/travel-cost-core.js'
+      - 'viajes/travel-cost.js'
       - 'tests/viajes-assistant.test.mjs'
       - 'tests/travel-intelligence.test.mjs'
       - 'tests/travel-logistics.test.mjs'
+      - 'tests/travel-itinerary-cost.test.mjs'
       - 'scripts/audit-viajes-site.mjs'
       - '.github/workflows/deploy-viajes-assistant.yml'
   workflow_dispatch:
@@ -53,6 +58,14 @@ jobs:
           node --check viajes/travel-window-engine.js
           node --check viajes/travel-logistics-core.js
           node --check viajes/travel-logistics.js
+          node --check viajes/travel-itinerary-core.js
+          node --check viajes/travel-itinerary.js
+          node --check viajes/travel-cost-core.js
+          node --check viajes/travel-cost.js
+          grep -q 'asc-travel-itinerary-v1' viajes/travel-itinerary-core.js
+          grep -q 'asc-travel-cost-v1' viajes/travel-cost-core.js
+          grep -q 'viajes:itinerary-ready' viajes/travel-itinerary.js
+          grep -q 'viajes:cost-ready' viajes/travel-cost.js
           npx wrangler deploy --dry-run --env="" --config wrangler.viajes-assistant.jsonc
       - name: Sync OpenAI secret when configured
         if: env.OPENAI_API_KEY != ''
@@ -121,7 +134,7 @@ jobs:
           const health=JSON.parse(fs.readFileSync('/tmp/viajes-health.json','utf8'));
           const response=fs.existsSync('/tmp/research-response.json')?JSON.parse(fs.readFileSync('/tmp/research-response.json','utf8')):{};
           const windowResponse=fs.existsSync('/tmp/window-response.json')?JSON.parse(fs.readFileSync('/tmp/window-response.json','utf8')):{};
-          const status={schemaVersion:1,service:'viajes-asc-intelligence',status:'verified',phase:6,workerPhase:5,clientLogisticsContract:'asc-travel-logistics-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,researchOperational:process.env.RESEARCH_OPERATIONAL==='1',windowResearchOperational:process.env.WINDOW_RESEARCH_OPERATIONAL==='1',githubOpenAISecretConfigured:process.env.GITHUB_OPENAI_SECRET==='true',researchSmoke:{contract:response.research?.contract||null,itemCount:response.research?.items?.length||0,sourceCount:response.research?.sources?.length||0,error:response.error||null},windowSmoke:{contract:windowResponse.window_research?.contract||null,windowCount:windowResponse.window_research?.windows?.length||0,sourceCount:windowResponse.window_research?.sources?.length||0,error:windowResponse.error||null}};
+          const status={schemaVersion:1,service:'viajes-asc-intelligence',status:'verified',phase:8,workerPhase:5,clientLogisticsContract:'asc-travel-logistics-v1',clientItineraryContract:'asc-travel-itinerary-v1',clientCostContract:'asc-travel-cost-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,researchOperational:process.env.RESEARCH_OPERATIONAL==='1',windowResearchOperational:process.env.WINDOW_RESEARCH_OPERATIONAL==='1',githubOpenAISecretConfigured:process.env.GITHUB_OPENAI_SECRET==='true',researchSmoke:{contract:response.research?.contract||null,itemCount:response.research?.items?.length||0,sourceCount:response.research?.sources?.length||0,error:response.error||null},windowSmoke:{contract:windowResponse.window_research?.contract||null,windowCount:windowResponse.window_research?.windows?.length||0,sourceCount:windowResponse.window_research?.sources?.length||0,error:windowResponse.error||null}};
           fs.writeFileSync('docs/status/viajes-intelligence-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
@@ -132,11 +145,12 @@ jobs:
           git push origin HEAD:main
       - name: Deployment summary
         run: |
-          echo '### Viajes ASC — Fases 3 + 4 + 5 + 6' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Viajes ASC — Fases 3 a 8' >> "$GITHUB_STEP_SUMMARY"
           echo '- Worker: deployed and health-checked' >> "$GITHUB_STEP_SUMMARY"
           echo '- Research contract: asc-travel-intelligence-v1' >> "$GITHUB_STEP_SUMMARY"
           echo '- Window contract: asc-travel-window-v1' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 5: inverse window engine enabled' >> "$GITHUB_STEP_SUMMARY"
           echo '- Phase 6: logistics contract asc-travel-logistics-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 7: itinerary contract asc-travel-itinerary-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 8: cost contract asc-travel-cost-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
           echo '- CORS: alexsaldana.com verified' >> "$GITHUB_STEP_SUMMARY"
           if [ "${RESEARCH_OPERATIONAL:-0}" = "1" ]; then echo '- Live research: operational and smoke-tested' >> "$GITHUB_STEP_SUMMARY"; else echo '- Live research: unavailable because OPENAI_API_KEY is not present in the Worker' >> "$GITHUB_STEP_SUMMARY"; fi
