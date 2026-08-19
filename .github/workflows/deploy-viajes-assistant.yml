@@ -15,7 +15,7 @@ on:
       - '.github/workflows/deploy-viajes-assistant.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: viajes-asc-intelligence-production
   cancel-in-progress: false
@@ -77,6 +77,23 @@ jobs:
           JSON
           curl --fail --silent --show-error --retry 2 --retry-delay 4 --max-time 90 -H 'Origin: https://alexsaldana.com' -H 'Content-Type: application/json' -H 'x-asc-session: ci-live-research' --data-binary @/tmp/research-request.json "$WORKER_URL/research" > /tmp/research-response.json
           node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/research-response.json'));if(x.research?.contract!=='asc-travel-intelligence-v1'||!Array.isArray(x.research?.sources)||!Array.isArray(x.research?.items))process.exit(1);console.log('Live research contract OK:',x.research.items.length,'items /',x.research.sources.length,'sources')"
+      - name: Persist verified deployment status
+        env:
+          OPENAI_READY: ${{ secrets.OPENAI_API_KEY != '' }}
+        run: |
+          mkdir -p docs/status
+          node <<'NODE'
+          const fs=require('fs');
+          const health=JSON.parse(fs.readFileSync('/tmp/viajes-health.json','utf8'));
+          const status={schemaVersion:1,service:'viajes-asc-intelligence',status:'verified',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,openaiResearchConfigured:process.env.OPENAI_READY==='true'};
+          fs.writeFileSync('docs/status/viajes-intelligence-production.json',JSON.stringify(status,null,2)+'\n');
+          NODE
+          git config user.name "viajes-asc-ci"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/status/viajes-intelligence-production.json
+          git commit -m "status(viajes): verify intelligence production" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
       - name: Deployment summary
         run: |
           echo '### Viajes ASC — Fases 3 + 4' >> "$GITHUB_STEP_SUMMARY"
