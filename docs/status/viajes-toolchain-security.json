@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "service": "viajes-toolchain-security",
+  "status": "verified",
+  "commit": "7a6f752b01907fe0a7ce3131b2488a8ee38ebb87",
+  "runId": "32289252349",
+  "verifiedAt": "2026-08-19T18:46:59.415Z",
+  "before": {
+    "info": 0,
+    "low": 0,
+    "moderate": 2,
+    "high": 2,
+    "critical": 0,
+    "total": 4
+  },
+  "after": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "policy": "zero critical/high after non-breaking npm audit remediation"
+}
