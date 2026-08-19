@@ -38,6 +38,16 @@ test('Phase 13 production verifier separates core failures from external blocker
   assert.match(source, /release_verified_with_truthful_runtime_state/);
 });
 
+test('Phase 13 production verifier follows only bounded same-origin redirects', async () => {
+  const source = await read('scripts/verify-viajes-production.mjs');
+  assert.match(source, /redirect:'manual'/);
+  assert.match(source, /next\.origin !== allowedOrigin/);
+  assert.match(source, /cross_origin_redirect_not_followed/);
+  assert.match(source, /same_origin_redirect_loop/);
+  assert.match(source, /too_many_same_origin_redirects/);
+  assert.match(source, /redirects\.push/);
+});
+
 test('Phase 12 publication is gated by Phase 11 and followed by Phase 13 verification', async () => {
   const pages = await read('.github/workflows/pages.yml');
   assert.match(pages, /Phase 11/);
