@@ -2,12 +2,14 @@
   "schemaVersion": 1,
   "service": "viajes-asc-pages",
   "status": "verified",
-  "phase": 8,
+  "phase": 10,
   "phase7Contract": "asc-travel-itinerary-v1",
   "phase8Contract": "asc-travel-cost-v1",
-  "commit": "d513711b5fad34cbdac1c7248bd6d6d5f1b428ff",
-  "runId": "32295864612",
-  "verifiedAt": "2026-08-19T19:58:21.576Z",
+  "phase9Contract": "asc-travel-pdf-v1",
+  "phase10Contract": "asc-travel-integration-v1",
+  "commit": "4fc779c828de6201f1f286ad443b65e1045deb34",
+  "runId": "32298720183",
+  "verifiedAt": "2026-08-19T20:30:00.812Z",
   "pagesDeploymentSucceeded": true,
   "pagesUrl": "https://alexm3x.github.io/alex-global-currency-intelligence/",
   "artifactVerifiedBeforeDeployment": true,
@@ -23,6 +25,10 @@
     "travel-itinerary-core.js",
     "travel-itinerary.js",
     "travel-cost-core.js",
-    "travel-cost.js"
+    "travel-cost.js",
+    "travel-pdf-core.js",
+    "travel-pdf.js",
+    "travel-integration-core.js",
+    "travel-integration.js"
   ]
 }
