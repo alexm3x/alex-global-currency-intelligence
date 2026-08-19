@@ -1,4 +1,4 @@
-name: Deploy Viajes ASC Intelligence
+name: Deploy Viajes ASC Intelligence · Release
 on:
   push:
     branches: ["main"]
@@ -20,12 +20,16 @@ on:
       - 'viajes/travel-pdf.js'
       - 'viajes/travel-integration-core.js'
       - 'viajes/travel-integration.js'
+      - 'viajes/release-manifest.json'
       - 'tests/viajes-assistant.test.mjs'
       - 'tests/travel-intelligence.test.mjs'
       - 'tests/travel-logistics.test.mjs'
       - 'tests/travel-itinerary-cost.test.mjs'
       - 'tests/travel-pdf-integration.test.mjs'
+      - 'tests/viajes-release.test.mjs'
       - 'scripts/audit-viajes-site.mjs'
+      - 'scripts/qa-viajes-release.mjs'
+      - 'scripts/verify-viajes-production.mjs'
       - '.github/workflows/deploy-viajes-assistant.yml'
   workflow_dispatch:
 permissions:
@@ -50,11 +54,12 @@ jobs:
           cache: npm
       - name: Validate deployment credential
         run: test -n "$CLOUDFLARE_API_TOKEN" || (echo 'CLOUDFLARE_API_TOKEN is not configured' && exit 1)
-      - name: Install and audit complete Viajes site
+      - name: Phase 11 · QA backend and complete client chain
         run: |
           npm ci
           npm test
           node scripts/audit-viajes-site.mjs
+          node scripts/qa-viajes-release.mjs --output /tmp/viajes-qa.json
           node --check cloudflare/viajes-assistant-worker.js
           node --check viajes/travel-assistant.js
           node --check viajes/travel-assistant-core.js
@@ -71,19 +76,16 @@ jobs:
           node --check viajes/travel-pdf.js
           node --check viajes/travel-integration-core.js
           node --check viajes/travel-integration.js
-          grep -q 'asc-travel-itinerary-v1' viajes/travel-itinerary-core.js
-          grep -q 'asc-travel-cost-v1' viajes/travel-cost-core.js
-          grep -q 'asc-travel-pdf-v1' viajes/travel-pdf-core.js
-          grep -q 'asc-travel-integration-v1' viajes/travel-integration-core.js
-          grep -q 'viajes:pdf-ready' viajes/travel-pdf.js
-          grep -q 'viajes:integration-ready' viajes/travel-integration.js
+          node --check scripts/qa-viajes-release.mjs
+          node --check scripts/verify-viajes-production.mjs
+          node -e "const m=require('./viajes/release-manifest.json');if(m.phase!==13)process.exit(1)"
           npx wrangler deploy --dry-run --env="" --config wrangler.viajes-assistant.jsonc
       - name: Sync OpenAI secret when configured
         if: env.OPENAI_API_KEY != ''
         run: printf '%s' "$OPENAI_API_KEY" | npx wrangler secret put OPENAI_API_KEY --env="" --config wrangler.viajes-assistant.jsonc
-      - name: Deploy Viajes ASC Intelligence Worker
+      - name: Phase 12 · Publish Viajes ASC Intelligence Worker
         run: npx wrangler deploy --env="" --config wrangler.viajes-assistant.jsonc
-      - name: Verify public health contract
+      - name: Phase 13 · Verify public health contract
         run: |
           rm -f /tmp/viajes-health.json
           code=000
@@ -95,12 +97,12 @@ jobs:
           done
           test "$code" = "200" || (cat /tmp/viajes-health.json; exit 1)
           node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/viajes-health.json'));if(x.status!=='ok'||x.service!=='viajes-asc-assistant'||x.contractVersion!=='asc-travel-intelligence-v1'||x.windowContractVersion!=='asc-travel-window-v1'||x.phase5!=='inverse_windows'||x.research!=='web_search')process.exit(1)"
-      - name: Verify production CORS
+      - name: Phase 13 · Verify production CORS
         run: |
           headers=$(curl --silent --show-error --max-time 20 -D - -o /dev/null -X OPTIONS -H 'Origin: https://alexsaldana.com' -H 'Access-Control-Request-Method: POST' "$WORKER_URL/research")
           printf '%s\n' "$headers"
           printf '%s' "$headers" | tr -d '\r' | grep -qi '^access-control-allow-origin: https://alexsaldana.com$'
-      - name: Detect actual live research availability
+      - name: Phase 13 · Detect actual live research availability
         shell: bash
         run: |
           cat > /tmp/research-request.json <<'JSON'
@@ -143,27 +145,24 @@ jobs:
           node <<'NODE'
           const fs=require('fs');
           const health=JSON.parse(fs.readFileSync('/tmp/viajes-health.json','utf8'));
+          const qa=JSON.parse(fs.readFileSync('/tmp/viajes-qa.json','utf8'));
           const response=fs.existsSync('/tmp/research-response.json')?JSON.parse(fs.readFileSync('/tmp/research-response.json','utf8')):{};
           const windowResponse=fs.existsSync('/tmp/window-response.json')?JSON.parse(fs.readFileSync('/tmp/window-response.json','utf8')):{};
-          const status={schemaVersion:1,service:'viajes-asc-intelligence',status:'verified',phase:10,workerPhase:5,clientLogisticsContract:'asc-travel-logistics-v1',clientItineraryContract:'asc-travel-itinerary-v1',clientCostContract:'asc-travel-cost-v1',clientPdfContract:'asc-travel-pdf-v1',clientIntegrationContract:'asc-travel-integration-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,researchOperational:process.env.RESEARCH_OPERATIONAL==='1',windowResearchOperational:process.env.WINDOW_RESEARCH_OPERATIONAL==='1',githubOpenAISecretConfigured:process.env.GITHUB_OPENAI_SECRET==='true',researchSmoke:{contract:response.research?.contract||null,itemCount:response.research?.items?.length||0,sourceCount:response.research?.sources?.length||0,error:response.error||null},windowSmoke:{contract:windowResponse.window_research?.contract||null,windowCount:windowResponse.window_research?.windows?.length||0,sourceCount:windowResponse.window_research?.sources?.length||0,error:windowResponse.error||null}};
+          const researchOperational=process.env.RESEARCH_OPERATIONAL==='1';
+          const status={schemaVersion:1,service:'viajes-asc-intelligence',release:'asc-viajes-phase13-2026-08-19',status:researchOperational?'verified':'verified_with_external_blockers',phase:13,phase11QaPassed:qa.status==='passed',phase12WorkerPublicationSucceeded:true,phase13WorkerVerificationPassed:true,workerPhase:5,clientLogisticsContract:'asc-travel-logistics-v1',clientItineraryContract:'asc-travel-itinerary-v1',clientCostContract:'asc-travel-cost-v1',clientPdfContract:'asc-travel-pdf-v1',clientIntegrationContract:'asc-travel-integration-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),workerUrl:process.env.WORKER_URL,health,researchOperational,windowResearchOperational:process.env.WINDOW_RESEARCH_OPERATIONAL==='1',githubOpenAISecretConfigured:process.env.GITHUB_OPENAI_SECRET==='true',externalBlockers:researchOperational?[]:['openai_research_unavailable'],researchSmoke:{contract:response.research?.contract||null,itemCount:response.research?.items?.length||0,sourceCount:response.research?.sources?.length||0,error:response.error||null},windowSmoke:{contract:windowResponse.window_research?.contract||null,windowCount:windowResponse.window_research?.windows?.length||0,sourceCount:windowResponse.window_research?.sources?.length||0,error:windowResponse.error||null}};
           fs.writeFileSync('docs/status/viajes-intelligence-production.json',JSON.stringify(status,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/status/viajes-intelligence-production.json
-          git commit -m "status(viajes): verify intelligence production" || exit 0
+          git commit -m "status(viajes): verify phase 13 intelligence" || exit 0
           git pull --rebase origin main
           git push origin HEAD:main
       - name: Deployment summary
         run: |
-          echo '### Viajes ASC — Fases 3 a 10' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Worker: deployed and health-checked' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Research contract: asc-travel-intelligence-v1' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Window contract: asc-travel-window-v1' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 6: logistics contract asc-travel-logistics-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 7: itinerary contract asc-travel-itinerary-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 8: cost contract asc-travel-cost-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 9: PDF contract asc-travel-pdf-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 10: integration contract asc-travel-integration-v1 enabled on client' >> "$GITHUB_STEP_SUMMARY"
-          echo '- CORS: alexsaldana.com verified' >> "$GITHUB_STEP_SUMMARY"
-          if [ "${RESEARCH_OPERATIONAL:-0}" = "1" ]; then echo '- Live research: operational and smoke-tested' >> "$GITHUB_STEP_SUMMARY"; else echo '- Live research: unavailable because OPENAI_API_KEY is not present in the Worker' >> "$GITHUB_STEP_SUMMARY"; fi
+          echo '### Viajes ASC · Intelligence · Fases 11–13' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 11: complete client/backend QA passed' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 12: Worker publication succeeded' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 13: Worker health and production CORS verified' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Client release: asc-viajes-phase13-2026-08-19' >> "$GITHUB_STEP_SUMMARY"
+          if [ "${RESEARCH_OPERATIONAL:-0}" = "1" ]; then echo '- Live research: operational and smoke-tested' >> "$GITHUB_STEP_SUMMARY"; else echo '- External blocker: OPENAI_API_KEY absent; fail-safe assistant_unavailable verified' >> "$GITHUB_STEP_SUMMARY"; fi

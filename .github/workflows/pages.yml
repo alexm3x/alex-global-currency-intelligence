@@ -1,4 +1,4 @@
-name: Deploy AGCI to GitHub Pages
+name: Deploy AGCI to GitHub Pages · Viajes Release
 on:
   push:
     branches: ["main"]
@@ -9,6 +9,8 @@ on:
       - 'docs/status/viajes-intelligence-production.json'
       - 'docs/status/viajes-pages-production.json'
       - 'docs/status/viajes-toolchain-security.json'
+      - 'docs/status/viajes-qa-production.json'
+      - 'docs/status/viajes-release-production.json'
   workflow_dispatch:
 permissions:
   contents: write
@@ -23,7 +25,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      WORKER_URL: https://viajes-asc-assistant.proadmexico.workers.dev
+      CUSTOM_DOMAIN_URL: https://alexsaldana.com/viajes/
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v7
@@ -33,11 +38,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Audit and verify Viajes ASC artifact before publication
+      - name: Phase 11 · Institutional QA gate
         run: |
           npm ci
           npm test
           node scripts/audit-viajes-site.mjs
+          node scripts/qa-viajes-release.mjs --output /tmp/viajes-qa.json
           node --check viajes/travel-assistant.js
           node --check viajes/travel-assistant-core.js
           node --check viajes/travel-intelligence-core.js
@@ -53,6 +59,9 @@ jobs:
           node --check viajes/travel-pdf.js
           node --check viajes/travel-integration-core.js
           node --check viajes/travel-integration.js
+          node --check scripts/qa-viajes-release.mjs
+          node --check scripts/verify-viajes-production.mjs
+          node -e "const m=require('./viajes/release-manifest.json');if(m.phase!==13||m.release!=='asc-viajes-phase13-2026-08-19')process.exit(1)"
           grep -q 'VIAJES ASC' viajes/index.html
           grep -q 'YA SÉ CUÁNDO VIAJO' viajes/travel-assistant.js
           grep -q 'asc-travel-intelligence-v1' viajes/travel-intelligence-core.js
@@ -60,55 +69,54 @@ jobs:
           grep -q 'asc-travel-logistics-v1' viajes/travel-logistics-core.js
           grep -q 'asc-travel-itinerary-v1' viajes/travel-itinerary-core.js
           grep -q 'asc-travel-cost-v1' viajes/travel-cost-core.js
-          grep -q 'travel-pdf-core.js' viajes/travel-cost.js
-          grep -q 'travel-integration-core.js' viajes/travel-cost.js
           grep -q 'asc-travel-pdf-v1' viajes/travel-pdf-core.js
-          grep -q 'viajes:pdf-ready' viajes/travel-pdf.js
-          grep -q 'popup.print()' viajes/travel-pdf.js
           grep -q 'asc-travel-integration-v1' viajes/travel-integration-core.js
-          grep -q 'local_watch_intent_only_external_notification_inactive' viajes/travel-integration-core.js
-          grep -q 'viajes:integration-ready' viajes/travel-integration.js
           grep -q 'Notificación externa: NO ACTIVA' viajes/travel-integration.js
-          grep -q 'viajes-asc-assistant.proadmexico.workers.dev' viajes/travel-intelligence.js
-      - name: Setup Pages
+          echo 'PHASE11_QA_PASSED=1' >> "$GITHUB_ENV"
+      - name: Phase 12 · Configure Pages
         uses: actions/configure-pages@v6
-      - name: Upload artifact
+      - name: Phase 12 · Upload consolidated release artifact
         uses: actions/upload-pages-artifact@v5
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: "."
-      - name: Deploy
+      - name: Phase 12 · Publish consolidated release
         id: deployment
         uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Check custom-domain reachability independently
-        shell: bash
+      - name: Phase 13 · Verify production runtime
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+          PAGES_DEPLOYMENT_SUCCEEDED: '1'
         run: |
-          set +e
-          code=$(curl --silent --show-error --location --max-time 20 -o /tmp/custom-viajes.html -w '%{http_code}' 'https://alexsaldana.com/viajes/' 2>/tmp/custom-curl-error.txt)
-          if [ "$code" = "200" ] && grep -q 'VIAJES ASC' /tmp/custom-viajes.html; then
-            echo 'CUSTOM_DOMAIN_REACHABLE=1' >> "$GITHUB_ENV"
-            echo 'Custom domain verified.'
-          else
-            echo 'CUSTOM_DOMAIN_REACHABLE=0' >> "$GITHUB_ENV"
-            echo "Custom domain not independently reachable; HTTP=${code:-000}. GitHub Pages deployment itself already succeeded."
-            cat /tmp/custom-curl-error.txt || true
-          fi
-          exit 0
-      - name: Persist public verification status
+          node scripts/verify-viajes-production.mjs --output /tmp/viajes-release-verification.json
+          cat /tmp/viajes-release-verification.json
+      - name: Phase 13 · Persist final release evidence
         env:
           PAGES_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           mkdir -p docs/status
           node <<'NODE'
           const fs=require('fs');
-          const status={schemaVersion:1,service:'viajes-asc-pages',status:'verified',phase:10,phase7Contract:'asc-travel-itinerary-v1',phase8Contract:'asc-travel-cost-v1',phase9Contract:'asc-travel-pdf-v1',phase10Contract:'asc-travel-integration-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,artifactVerifiedBeforeDeployment:true,customDomainUrl:'https://alexsaldana.com/viajes/',customDomainReachable:process.env.CUSTOM_DOMAIN_REACHABLE==='1',assets:['travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js']};
-          fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(status,null,2)+'\n');
+          const qa=JSON.parse(fs.readFileSync('/tmp/viajes-qa.json','utf8'));
+          const release=JSON.parse(fs.readFileSync('/tmp/viajes-release-verification.json','utf8'));
+          const base={schemaVersion:1,release:'asc-viajes-phase13-2026-08-19',phase:13,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString()};
+          const pages={...base,service:'viajes-asc-pages',status:release.status,phase11QaPassed:qa.status==='passed',phase12PublicationSucceeded:true,phase13VerificationStatus:release.status,pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,pagesRoute:release.phase12.pagesRoute,pagesRuntime:release.phase13.pages,artifactVerifiedBeforeDeployment:true,customDomainUrl:release.phase13.customDomain.url,customDomainReachable:release.phase13.customDomain.ok,externalBlockers:release.phase13.externalBlockers,phase9Contract:'asc-travel-pdf-v1',phase10Contract:'asc-travel-integration-v1',assets:['travel-assistant-core.js','travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js','release-manifest.json']};
+          fs.writeFileSync('docs/status/viajes-qa-production.json',JSON.stringify({...base,...qa,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID},null,2)+'\n');
+          fs.writeFileSync('docs/status/viajes-release-production.json',JSON.stringify({...base,...release,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID},null,2)+'\n');
+          fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(pages,null,2)+'\n');
           NODE
           git config user.name "viajes-asc-ci"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/status/viajes-pages-production.json
-          git commit -m "status(viajes): verify public Pages deployment" || exit 0
+          git add docs/status/viajes-qa-production.json docs/status/viajes-release-production.json docs/status/viajes-pages-production.json
+          git commit -m "status(viajes): verify phase 13 release" || exit 0
           git pull --rebase origin main
           git push origin HEAD:main
+      - name: Release summary
+        run: |
+          echo '### Viajes ASC · Fases 11–13' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 11: institutional QA passed' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 12: consolidated GitHub Pages artifact published' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 13: Pages + Worker + CORS + runtime state verified' >> "$GITHUB_STEP_SUMMARY"
+          node -e "const r=JSON.parse(require('fs').readFileSync('/tmp/viajes-release-verification.json'));console.log('- Final status: '+r.status);console.log('- External blockers: '+(r.phase13.externalBlockers.join(', ')||'none'))" >> "$GITHUB_STEP_SUMMARY"

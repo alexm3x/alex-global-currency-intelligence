@@ -1,0 +1,68 @@
+name: Viajes ASC · Phase 11 Release QA
+on:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - 'viajes/**'
+      - 'cloudflare/viajes-assistant-worker.js'
+      - 'wrangler.viajes-assistant.jsonc'
+      - 'tests/**'
+      - 'scripts/audit-viajes-site.mjs'
+      - 'scripts/qa-viajes-release.mjs'
+      - 'scripts/verify-viajes-production.mjs'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/deploy-viajes-assistant.yml'
+      - '.github/workflows/viajes-toolchain-security.yml'
+      - '.github/workflows/viajes-release-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: viajes-phase11-qa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  institutional-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install deterministic dependency graph
+        run: npm ci
+      - name: Run complete repository test suite
+        run: npm test
+      - name: Audit Viajes ASC site and release architecture
+        run: node scripts/audit-viajes-site.mjs
+      - name: Execute Phase 11 institutional release gate
+        run: node scripts/qa-viajes-release.mjs --output /tmp/viajes-qa.json
+      - name: Validate release scripts and client syntax
+        run: |
+          node --check scripts/qa-viajes-release.mjs
+          node --check scripts/verify-viajes-production.mjs
+          node --check viajes/travel-assistant-core.js
+          node --check viajes/travel-assistant.js
+          node --check viajes/travel-intelligence-core.js
+          node --check viajes/travel-intelligence.js
+          node --check viajes/travel-window-engine.js
+          node --check viajes/travel-logistics-core.js
+          node --check viajes/travel-logistics.js
+          node --check viajes/travel-itinerary-core.js
+          node --check viajes/travel-itinerary.js
+          node --check viajes/travel-cost-core.js
+          node --check viajes/travel-cost.js
+          node --check viajes/travel-pdf-core.js
+          node --check viajes/travel-pdf.js
+          node --check viajes/travel-integration-core.js
+          node --check viajes/travel-integration.js
+          node --check cloudflare/viajes-assistant-worker.js
+      - name: Enforce dependency security threshold
+        run: |
+          npm audit --json > /tmp/audit.json || true
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/audit.json'));const v=x.metadata?.vulnerabilities||{};console.log(v);if((v.critical||0)>0||(v.high||0)>0)process.exit(1)"
+      - name: Phase 11 summary
+        run: |
+          echo '### Viajes ASC · Phase 11 QA' >> "$GITHUB_STEP_SUMMARY"
+          node -e "const q=JSON.parse(require('fs').readFileSync('/tmp/viajes-qa.json'));console.log('- Release: '+q.release);console.log('- Checks: '+q.checks.passed+'/'+q.checks.total);console.log('- Status: '+q.status)" >> "$GITHUB_STEP_SUMMARY"
