@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T03:27:22.175Z",
+  "generatedAt": "2026-08-20T19:57:05.811Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-08-20T03:27:22.175Z",
+        "retrievedAt": "2026-08-20T19:57:05.811Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -111,7 +111,7 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-08-20T03:27:22.175Z",
+        "retrievedAt": "2026-08-20T19:57:05.811Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
@@ -131,13 +131,13 @@
               "period": "2026-07",
               "status": "A"
             },
-            "JP": {
-              "value": 1,
+            "MX": {
+              "value": 6.5,
               "period": "2026-07",
               "status": "A"
             },
-            "MX": {
-              "value": 6.5,
+            "JP": {
+              "value": 1,
               "period": "2026-07",
               "status": "A"
             },
@@ -158,38 +158,38 @@
           "frequency": "Mensual",
           "values": {
             "MX": {
-              "value": 140.34,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "XM": {
-              "value": 102.69,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "US": {
-              "value": 107.84,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "GB": {
-              "value": 111.41,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "BR": {
-              "value": 118.28,
-              "period": "2026-06",
-              "status": "A"
-            },
-            "CN": {
-              "value": 92.24,
-              "period": "2026-06",
+              "value": 139.78,
+              "period": "2026-07",
               "status": "A"
             },
             "JP": {
-              "value": 65.3,
-              "period": "2026-06",
+              "value": 65.04,
+              "period": "2026-07",
+              "status": "A"
+            },
+            "US": {
+              "value": 108.25,
+              "period": "2026-07",
+              "status": "A"
+            },
+            "XM": {
+              "value": 102.55,
+              "period": "2026-07",
+              "status": "A"
+            },
+            "CN": {
+              "value": 92.72,
+              "period": "2026-07",
+              "status": "A"
+            },
+            "BR": {
+              "value": 118.89,
+              "period": "2026-07",
+              "status": "A"
+            },
+            "GB": {
+              "value": 112.04,
+              "period": "2026-07",
               "status": "A"
             }
           }
@@ -203,7 +203,7 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-08-20T03:27:22.175Z",
+        "retrievedAt": "2026-08-20T19:57:05.811Z",
         "series": "VIX daily close",
         "risk": {
           "vix": 14.89,
@@ -240,8 +240,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 140.34,
-        "period": "2026-06",
+        "value": 139.78,
+        "period": "2026-07",
         "status": "A"
       }
     },
@@ -266,8 +266,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 107.84,
-        "period": "2026-06",
+        "value": 108.25,
+        "period": "2026-07",
         "status": "A"
       }
     },
@@ -289,8 +289,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 102.69,
-        "period": "2026-06",
+        "value": 102.55,
+        "period": "2026-07",
         "status": "A"
       }
     },
@@ -315,8 +315,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 111.41,
-        "period": "2026-06",
+        "value": 112.04,
+        "period": "2026-07",
         "status": "A"
       }
     },
@@ -341,8 +341,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 65.3,
-        "period": "2026-06",
+        "value": 65.04,
+        "period": "2026-07",
         "status": "A"
       }
     },
@@ -367,8 +367,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 92.24,
-        "period": "2026-06",
+        "value": 92.72,
+        "period": "2026-07",
         "status": "A"
       }
     },
@@ -393,8 +393,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 118.28,
-        "period": "2026-06",
+        "value": 118.89,
+        "period": "2026-07",
         "status": "A"
       }
     }
