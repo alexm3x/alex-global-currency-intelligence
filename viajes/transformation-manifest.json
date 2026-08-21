@@ -1,11 +1,14 @@
 {
   "schemaVersion": 1,
   "program": "Viajes ASC Global Personal Travel Intelligence 2026",
-  "currentPhase": 4,
-  "completed": [0,1,2,3,4],
-  "phase2": {"name":"Personalization Foundation","contract":"asc-travel-dna-v1","status":"implemented_pending_release"},
-  "phase3": {"name":"ASC Travel Copilot","contract":"asc-travel-intent-v1","status":"implemented_pending_release"},
-  "phase4": {"name":"Search & Compare","contract":"asc-destination-battle-v1","status":"implemented_pending_release"},
-  "next": [5,6,7],
-  "governance": {"noFabrication":true,"guestMode":true,"consentBasedProfile":true,"liveAvailabilityMustBeVerified":true}
+  "currentPhase": 7,
+  "completed": [0,1,2,3,4,5,6,7],
+  "phase2": {"name":"Personalization Foundation","contract":"asc-travel-dna-v1","status":"published_verified"},
+  "phase3": {"name":"ASC Travel Copilot","contract":"asc-travel-intent-v1","status":"published_verified"},
+  "phase4": {"name":"Search & Compare","contract":"asc-destination-battle-v1","status":"published_verified"},
+  "phase5": {"name":"Intelligence Engine","contract":"asc-intelligence-score-v1","status":"implemented_pending_release"},
+  "phase6": {"name":"Trip Command Center","contract":"asc-trip-command-v1","status":"implemented_pending_release"},
+  "phase7": {"name":"Monitoring","contract":"asc-travel-monitoring-v1","status":"implemented_pending_release"},
+  "next": [8,9,10],
+  "governance": {"noFabrication":true,"guestMode":true,"consentBasedProfile":true,"liveAvailabilityMustBeVerified":true,"externalAlertsMustUseRealConnector":true}
 }
