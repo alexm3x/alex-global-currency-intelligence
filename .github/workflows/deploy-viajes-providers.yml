@@ -11,6 +11,7 @@ on:
       - 'viajes/sw.js'
       - 'viajes/production-hardening-manifest.json'
       - 'tests/viajes-provider-hardening.test.mjs'
+      - 'scripts/audit-viajes-production-hardening.mjs'
       - '.github/workflows/deploy-viajes-providers.yml'
   workflow_dispatch:
 
@@ -46,6 +47,7 @@ jobs:
           npm test
           node scripts/audit-viajes-site.mjs
           node scripts/audit-viajes-global.mjs
+          node scripts/audit-viajes-production-hardening.mjs
           node --check cloudflare/viajes-provider-gateway.js
           node --check viajes/asc-live-providers.js
           node --check viajes/sw.js
