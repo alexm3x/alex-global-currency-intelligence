@@ -1,0 +1,26 @@
+{
+  "name": "Viajes ASC — Global Personal Travel Intelligence",
+  "short_name": "Viajes ASC",
+  "description": "Copiloto personal de inteligencia de viajes: decisión, planificación, costos, oportunidades e itinerarios.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050b10",
+  "theme_color": "#071119",
+  "lang": "es-MX",
+  "orientation": "any",
+  "categories": ["travel", "productivity", "lifestyle"],
+  "icons": [
+    {
+      "src": "asc-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {"name": "Planear viaje", "short_name": "Planear", "url": "./#travelAssistant"},
+    {"name": "Mis viajes", "short_name": "Viajes", "url": "./#ascTripCommandCenter"}
+  ]
+}

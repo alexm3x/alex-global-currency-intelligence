@@ -1,0 +1,48 @@
+name: Viajes ASC · Global Transformation QA
+
+on:
+  pull_request:
+    paths:
+      - 'viajes/**'
+      - 'scripts/audit-viajes-global.mjs'
+      - 'tests/viajes-global-quality.test.mjs'
+      - 'docs/VIAJES_ASC_GLOBAL_COMPETITIVE_MATRIX_2026.md'
+      - '.github/workflows/viajes-global-transformation-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  global-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install deterministic dependency graph
+        run: npm ci
+      - name: Run complete repository test suite
+        run: npm test
+      - name: Audit existing Viajes release architecture
+        run: node scripts/audit-viajes-site.mjs
+      - name: Audit phases 0-10 global transformation
+        run: node scripts/audit-viajes-global.mjs
+      - name: Validate final client syntax
+        run: |
+          node --check viajes/asc-global-quality.js
+          node --check viajes/sw.js
+          node --check viajes/asc-travel-os.js
+          node --check viajes/asc-intelligence-command.js
+      - name: Validate final transformation manifest
+        run: node -e "const m=require('./viajes/transformation-manifest.json');if(m.currentPhase!==10||m.completed.length!==11)process.exit(1)"
+      - name: Summary
+        run: |
+          echo '### Viajes ASC · Global Transformation 0–10' >> "$GITHUB_STEP_SUMMARY"
+          echo '- PWA/offline shell: validated' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Global quality audit: passed' >> "$GITHUB_STEP_SUMMARY"
+          echo '- International benchmark: present and dated 2026-08-21' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Existing institutional release governance: preserved' >> "$GITHUB_STEP_SUMMARY"
