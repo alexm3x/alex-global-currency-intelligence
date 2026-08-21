@@ -1,0 +1,101 @@
+name: Viajes ASC · Provider Gateway Release
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'cloudflare/viajes-provider-gateway.js'
+      - 'wrangler.viajes-providers.jsonc'
+      - 'viajes/asc-live-providers.js'
+      - 'viajes/opportunity-imports.js'
+      - 'viajes/sw.js'
+      - 'viajes/production-hardening-manifest.json'
+      - 'tests/viajes-provider-hardening.test.mjs'
+      - '.github/workflows/deploy-viajes-providers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viajes-asc-provider-production
+  cancel-in-progress: true
+
+jobs:
+  provider-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 466b5e1f242272e2f95046caa4347b7d
+      DUFFEL_ACCESS_TOKEN: ${{ secrets.DUFFEL_ACCESS_TOKEN }}
+      BOOKING_DEMAND_TOKEN: ${{ secrets.BOOKING_DEMAND_TOKEN }}
+      BOOKING_AFFILIATE_ID: ${{ secrets.BOOKING_AFFILIATE_ID }}
+      PROVIDER_URL: https://viajes-asc-providers.proadmexico.workers.dev
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Validate Cloudflare deployment credential
+        run: test -n "$CLOUDFLARE_API_TOKEN" || (echo 'CLOUDFLARE_API_TOKEN is not configured' && exit 1)
+      - name: Phase 11 · Full reliability gate
+        run: |
+          npm ci
+          npm test
+          node scripts/audit-viajes-site.mjs
+          node scripts/audit-viajes-global.mjs
+          node --check cloudflare/viajes-provider-gateway.js
+          node --check viajes/asc-live-providers.js
+          node --check viajes/sw.js
+          npx wrangler deploy --dry-run --env="" --config wrangler.viajes-providers.jsonc
+      - name: Sync Duffel secret when configured
+        if: env.DUFFEL_ACCESS_TOKEN != ''
+        run: printf '%s' "$DUFFEL_ACCESS_TOKEN" | npx wrangler secret put DUFFEL_ACCESS_TOKEN --env="" --config wrangler.viajes-providers.jsonc
+      - name: Sync Booking token when configured
+        if: env.BOOKING_DEMAND_TOKEN != ''
+        run: printf '%s' "$BOOKING_DEMAND_TOKEN" | npx wrangler secret put BOOKING_DEMAND_TOKEN --env="" --config wrangler.viajes-providers.jsonc
+      - name: Sync Booking affiliate id when configured
+        if: env.BOOKING_AFFILIATE_ID != ''
+        run: printf '%s' "$BOOKING_AFFILIATE_ID" | npx wrangler secret put BOOKING_AFFILIATE_ID --env="" --config wrangler.viajes-providers.jsonc
+      - name: Phase 12 · Publish provider gateway
+        run: npx wrangler deploy --env="" --config wrangler.viajes-providers.jsonc
+      - name: Phase 13 · Verify health and truthful readiness
+        run: |
+          code=000
+          for attempt in $(seq 1 15); do
+            code=$(curl --silent --show-error --max-time 20 -o /tmp/provider-health.json -w '%{http_code}' "$PROVIDER_URL/health" || true)
+            echo "Provider health attempt $attempt: HTTP $code"
+            if [ "$code" = "200" ]; then break; fi
+            sleep 5
+          done
+          test "$code" = "200" || (cat /tmp/provider-health.json; exit 1)
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/provider-health.json'));if(x.status!=='ok'||x.service!=='viajes-asc-providers'||x.contract!=='asc-live-provider-gateway-v1'||x.truth_policy!=='no_fabricated_price_or_availability')process.exit(1)"
+      - name: Verify production CORS
+        run: |
+          headers=$(curl --silent --show-error --max-time 20 -D - -o /dev/null -X OPTIONS -H 'Origin: https://alexm3x.github.io' -H 'Access-Control-Request-Method: POST' "$PROVIDER_URL/search")
+          printf '%s\n' "$headers"
+          printf '%s' "$headers" | tr -d '\r' | grep -qi '^access-control-allow-origin: https://alexm3x.github.io$'
+      - name: Persist provider production status
+        run: |
+          mkdir -p docs/status
+          node <<'NODE'
+          const fs=require('fs');
+          const health=JSON.parse(fs.readFileSync('/tmp/provider-health.json','utf8'));
+          const status={schemaVersion:1,service:'viajes-asc-providers',contract:'asc-live-provider-gateway-v1',commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString(),status:'verified',workerUrl:process.env.PROVIDER_URL,providers:health.providers,truthPolicy:health.truth_policy,externalDependencies:{openaiSecretRequired:true,duffelSecretRequired:true,bookingSecretsRequired:true,customDomainRequiresExternalRouting:true}};
+          fs.writeFileSync('docs/status/viajes-provider-production.json',JSON.stringify(status,null,2)+'\n');
+          NODE
+          git config user.name "viajes-asc-ci"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/status/viajes-provider-production.json
+          git commit -m "status(viajes): verify provider gateway" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Release summary
+        run: |
+          echo '### Viajes ASC · Production Hardening 11–13' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 11: reliability QA passed' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 12: provider gateway published' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 13: health/CORS/readiness verified' >> "$GITHUB_STEP_SUMMARY"
+          node -e "const x=require('/tmp/provider-health.json');for(const [k,v] of Object.entries(x.providers))console.log('- '+k+': '+v.status)" >> "$GITHUB_STEP_SUMMARY"
