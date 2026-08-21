@@ -120,3 +120,13 @@
   switchTab(localStorage.getItem('viajesASCWorkspaceTab') || 'intelligence');
   loadPublished();
 })();
+
+(() => {
+  'use strict';
+  if (document.querySelector('script[data-asc-global-experience]')) return;
+  const script = document.createElement('script');
+  script.src = 'asc-global-experience.js';
+  script.dataset.ascGlobalExperience = 'true';
+  script.addEventListener('error', () => console.error('Viajes ASC: no fue posible cargar la capa global de experiencia.'));
+  document.body.appendChild(script);
+})();

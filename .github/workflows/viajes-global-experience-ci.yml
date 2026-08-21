@@ -1,0 +1,48 @@
+name: Viajes ASC · Global Experience CI
+
+on:
+  pull_request:
+    paths:
+      - 'viajes/asc-global-experience.js'
+      - 'viajes/opportunity-imports.js'
+      - 'docs/VIAJES_ASC_GLOBAL_TRANSFORMATION_AUDIT_2026.md'
+      - '.github/workflows/viajes-global-experience-ci.yml'
+  push:
+    branches:
+      - 'feat/viajes-global-experience-2026'
+    paths:
+      - 'viajes/asc-global-experience.js'
+      - 'viajes/opportunity-imports.js'
+      - '.github/workflows/viajes-global-experience-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  static-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Validate JavaScript syntax
+        run: |
+          node --check viajes/asc-global-experience.js
+          node --check viajes/opportunity-imports.js
+      - name: Validate integration markers
+        run: |
+          grep -q 'asc-global-experience.js' viajes/opportunity-imports.js
+          grep -q 'ASC TRAVEL COPILOT' viajes/asc-global-experience.js
+          grep -q 'prefers-reduced-motion' viajes/asc-global-experience.js
+          grep -q 'asc-mobile-nav' viajes/asc-global-experience.js
+          grep -q 'data-asc-theme' viajes/asc-global-experience.js
+      - name: Confirm protected core remains present
+        run: |
+          test -f viajes/travel-assistant.js
+          test -f viajes/travel-intelligence-core.js
+          test -f viajes/travel-window-engine.js
+          test -f viajes/travel-cost-core.js
+          test -f viajes/travel-pdf-core.js
+          grep -q 'VIAJES ASC' viajes/index.html
