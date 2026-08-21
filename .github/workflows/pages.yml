@@ -7,6 +7,7 @@ on:
       - 'scripts/update-structural-data.mjs'
       - 'tests/structural-data.test.mjs'
       - 'docs/status/viajes-intelligence-production.json'
+      - 'docs/status/viajes-provider-production.json'
       - 'docs/status/viajes-pages-production.json'
       - 'docs/status/viajes-toolchain-security.json'
       - 'docs/status/viajes-qa-production.json'
@@ -28,6 +29,7 @@ jobs:
     timeout-minutes: 20
     env:
       WORKER_URL: https://viajes-asc-assistant.proadmexico.workers.dev
+      PROVIDER_URL: https://viajes-asc-providers.proadmexico.workers.dev
       CUSTOM_DOMAIN_URL: https://alexsaldana.com/viajes/
     steps:
       - name: Checkout latest main
@@ -43,6 +45,8 @@ jobs:
           npm ci
           npm test
           node scripts/audit-viajes-site.mjs
+          node scripts/audit-viajes-global.mjs
+          node scripts/audit-viajes-production-hardening.mjs
           node scripts/qa-viajes-release.mjs --output /tmp/viajes-qa.json
           node --check viajes/travel-assistant.js
           node --check viajes/travel-assistant-core.js
@@ -59,9 +63,17 @@ jobs:
           node --check viajes/travel-pdf.js
           node --check viajes/travel-integration-core.js
           node --check viajes/travel-integration.js
+          node --check viajes/asc-global-experience.js
+          node --check viajes/asc-travel-os.js
+          node --check viajes/asc-intelligence-command.js
+          node --check viajes/asc-global-quality.js
+          node --check viajes/asc-live-providers.js
+          node --check viajes/sw.js
+          node --check cloudflare/viajes-provider-gateway.js
           node --check scripts/qa-viajes-release.mjs
           node --check scripts/verify-viajes-production.mjs
           node -e "const m=require('./viajes/release-manifest.json');if(m.phase!==13||m.release!=='asc-viajes-phase13-2026-08-19')process.exit(1)"
+          node -e "const m=require('./viajes/production-hardening-manifest.json');if(m.currentStage!==13||m.truthPolicy.fabricatedPrices!==false)process.exit(1)"
           grep -q 'VIAJES ASC' viajes/index.html
           grep -q 'YA SÉ CUÁNDO VIAJO' viajes/travel-assistant.js
           grep -q 'asc-travel-intelligence-v1' viajes/travel-intelligence-core.js
@@ -72,6 +84,7 @@ jobs:
           grep -q 'asc-travel-pdf-v1' viajes/travel-pdf-core.js
           grep -q 'asc-travel-integration-v1' viajes/travel-integration-core.js
           grep -q 'Notificación externa: NO ACTIVA' viajes/travel-integration.js
+          grep -q 'asc-live-providers.js' viajes/opportunity-imports.js
           echo 'PHASE11_QA_PASSED=1' >> "$GITHUB_ENV"
       - name: Phase 12 · Configure Pages
         uses: actions/configure-pages@v6
@@ -101,8 +114,8 @@ jobs:
           const fs=require('fs');
           const qa=JSON.parse(fs.readFileSync('/tmp/viajes-qa.json','utf8'));
           const release=JSON.parse(fs.readFileSync('/tmp/viajes-release-verification.json','utf8'));
-          const base={schemaVersion:1,release:'asc-viajes-phase13-2026-08-19',phase:13,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString()};
-          const pages={...base,service:'viajes-asc-pages',status:release.status,phase11QaPassed:qa.status==='passed',phase12PublicationSucceeded:true,phase13VerificationStatus:release.status,pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,pagesRoute:release.phase12.pagesRoute,pagesRuntime:release.phase13.pages,artifactVerifiedBeforeDeployment:true,customDomainUrl:release.phase13.customDomain.url,customDomainReachable:release.phase13.customDomain.ok,externalBlockers:release.phase13.externalBlockers,phase9Contract:'asc-travel-pdf-v1',phase10Contract:'asc-travel-integration-v1',assets:['travel-assistant-core.js','travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js','release-manifest.json']};
+          const base={schemaVersion:2,release:'asc-viajes-production-hardening-2026-08-21',phase:13,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID,verifiedAt:new Date().toISOString()};
+          const pages={...base,service:'viajes-asc-pages',status:release.status,phase11QaPassed:qa.status==='passed',phase12PublicationSucceeded:true,phase13VerificationStatus:release.status,pagesDeploymentSucceeded:true,pagesUrl:process.env.PAGES_URL||null,pagesRoute:release.phase12.pagesRoute,pagesRuntime:release.phase13.pages,liveProviderAsset:release.phase12.liveProviderAsset,artifactVerifiedBeforeDeployment:true,customDomainUrl:release.phase13.customDomain.url,customDomainReachable:release.phase13.customDomain.ok,assistantRuntime:release.phase13.assistant,providerRuntime:release.phase13.providers,externalBlockers:release.phase13.externalBlockers,phase9Contract:'asc-travel-pdf-v1',phase10Contract:'asc-travel-integration-v1',providerContract:'asc-live-provider-gateway-v1',assets:['travel-assistant-core.js','travel-assistant.js','travel-intelligence-core.js','travel-intelligence.js','travel-window-engine.js','travel-logistics-core.js','travel-logistics.js','travel-itinerary-core.js','travel-itinerary.js','travel-cost-core.js','travel-cost.js','travel-pdf-core.js','travel-pdf.js','travel-integration-core.js','travel-integration.js','asc-global-experience.js','asc-travel-os.js','asc-intelligence-command.js','asc-global-quality.js','asc-live-providers.js','manifest.webmanifest','sw.js','production-hardening-manifest.json','release-manifest.json']};
           fs.writeFileSync('docs/status/viajes-qa-production.json',JSON.stringify({...base,...qa,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID},null,2)+'\n');
           fs.writeFileSync('docs/status/viajes-release-production.json',JSON.stringify({...base,...release,commit:process.env.GITHUB_SHA,runId:process.env.GITHUB_RUN_ID},null,2)+'\n');
           fs.writeFileSync('docs/status/viajes-pages-production.json',JSON.stringify(pages,null,2)+'\n');
@@ -110,13 +123,13 @@ jobs:
           git config user.name "viajes-asc-ci"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/status/viajes-qa-production.json docs/status/viajes-release-production.json docs/status/viajes-pages-production.json
-          git commit -m "status(viajes): verify phase 13 release" || exit 0
+          git commit -m "status(viajes): verify production hardening release" || exit 0
           git pull --rebase origin main
           git push origin HEAD:main
       - name: Release summary
         run: |
-          echo '### Viajes ASC · Fases 11–13' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 11: institutional QA passed' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Viajes ASC · Production Hardening 11–13' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 11: institutional + hardening QA passed' >> "$GITHUB_STEP_SUMMARY"
           echo '- Phase 12: consolidated GitHub Pages artifact published' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Phase 13: Pages + Worker + CORS + runtime state verified' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Phase 13: Pages + Assistant Worker + Provider Gateway + CORS + provider asset verified' >> "$GITHUB_STEP_SUMMARY"
           node -e "const r=JSON.parse(require('fs').readFileSync('/tmp/viajes-release-verification.json'));console.log('- Final status: '+r.status);console.log('- External blockers: '+(r.phase13.externalBlockers.join(', ')||'none'))" >> "$GITHUB_STEP_SUMMARY"
