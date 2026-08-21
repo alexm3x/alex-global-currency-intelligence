@@ -40,7 +40,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Phase 11 · Institutional + hardening QA gate
+      - name: Phase 11 · Institutional QA gate
         run: |
           npm ci
           npm test
@@ -98,7 +98,7 @@ jobs:
         uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Phase 13 · Verify complete production runtime
+      - name: Phase 13 · Verify production runtime
         env:
           PAGES_URL: ${{ steps.deployment.outputs.page_url }}
           PAGES_DEPLOYMENT_SUCCEEDED: '1'
