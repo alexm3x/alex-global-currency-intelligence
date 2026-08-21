@@ -134,4 +134,5 @@
   load('asc-global-experience.js', 'data-asc-global-experience', 'Viajes ASC: no fue posible cargar la capa global de experiencia.');
   load('asc-travel-os.js', 'data-asc-travel-os', 'Viajes ASC: no fue posible cargar Travel DNA / Copilot / Compare.');
   load('asc-intelligence-command.js', 'data-asc-intelligence-command', 'Viajes ASC: no fue posible cargar Intelligence / Command Center / Monitoring.');
+  load('asc-global-quality.js', 'data-asc-global-quality', 'Viajes ASC: no fue posible cargar PWA / Global Quality / Command Palette.');
 })();
