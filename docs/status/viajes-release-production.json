@@ -1,10 +1,10 @@
 {
-  "schemaVersion": 1,
-  "release": "asc-viajes-phase13-2026-08-19",
+  "schemaVersion": 2,
+  "release": "asc-viajes-production-hardening-2026-08-21",
   "phase": 13,
-  "commit": "1df8f6ced17d5ba81ab9681924b12d3fca79dbfc",
-  "runId": "32513283597",
-  "verifiedAt": "2026-08-21T18:27:27.420Z",
+  "commit": "28cee097b8c5b5c8df92a504f8e6264b20adb142",
+  "runId": "32513804498",
+  "verifiedAt": "2026-08-21T18:32:43.854Z",
   "service": "viajes-asc-release",
   "status": "verified_with_external_blockers",
   "phase11": {
@@ -13,7 +13,14 @@
   "phase12": {
     "pagesDeploymentSucceeded": true,
     "pagesUrl": "https://alexm3x.github.io/alex-global-currency-intelligence/",
-    "pagesRoute": "https://alexm3x.github.io/alex-global-currency-intelligence/viajes/"
+    "pagesRoute": "https://alexm3x.github.io/alex-global-currency-intelligence/viajes/",
+    "liveProviderAsset": {
+      "url": "https://alexm3x.github.io/alex-global-currency-intelligence/viajes/asc-live-providers.js",
+      "ok": true,
+      "status": 200,
+      "marker": "__VIAJES_ASC_LIVE_PROVIDERS__",
+      "error": null
+    }
   },
   "phase13": {
     "pages": {
@@ -43,38 +50,96 @@
       "bodyMarker": false,
       "error": null
     },
-    "workerUrl": "https://viajes-asc-assistant.proadmexico.workers.dev",
-    "workerHealth": {
-      "ok": true,
-      "status": 200,
-      "body": {
-        "status": "ok",
-        "service": "viajes-asc-assistant",
-        "contractVersion": "asc-travel-intelligence-v1",
-        "windowContractVersion": "asc-travel-window-v1",
-        "research": "web_search",
-        "phase5": "inverse_windows",
-        "model": "gpt-5"
+    "assistant": {
+      "workerUrl": "https://viajes-asc-assistant.proadmexico.workers.dev",
+      "workerHealth": {
+        "ok": true,
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "service": "viajes-asc-assistant",
+          "contractVersion": "asc-travel-intelligence-v1",
+          "windowContractVersion": "asc-travel-window-v1",
+          "research": "web_search",
+          "phase5": "inverse_windows",
+          "model": "gpt-5"
+        },
+        "error": null
       },
-      "error": null
+      "workerCors": {
+        "ok": true,
+        "status": 204,
+        "allowOrigin": "https://alexsaldana.com",
+        "error": null
+      },
+      "research": {
+        "operational": false,
+        "status": 503,
+        "contract": null,
+        "error": "assistant_unavailable",
+        "classification": "external_dependency_unavailable_fail_safe"
+      }
     },
-    "workerCors": {
-      "ok": true,
-      "status": 204,
-      "allowOrigin": "https://alexsaldana.com",
-      "error": null
-    },
-    "research": {
-      "operational": false,
-      "status": 503,
-      "contract": null,
-      "error": "assistant_unavailable",
-      "classification": "external_dependency_unavailable_fail_safe"
+    "providers": {
+      "workerUrl": "https://viajes-asc-providers.proadmexico.workers.dev",
+      "workerHealth": {
+        "ok": true,
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "service": "viajes-asc-providers",
+          "contract": "asc-live-provider-gateway-v1",
+          "providers": {
+            "flights": {
+              "provider": "duffel",
+              "configured": false,
+              "status": "UNAVAILABLE"
+            },
+            "stays": {
+              "provider": "booking_demand",
+              "configured": false,
+              "status": "UNAVAILABLE"
+            },
+            "research": {
+              "provider": "openai",
+              "configured": false,
+              "status": "UNAVAILABLE"
+            }
+          },
+          "truth_policy": "no_fabricated_price_or_availability"
+        },
+        "error": null
+      },
+      "workerCors": {
+        "ok": true,
+        "status": 204,
+        "allowOrigin": "https://alexm3x.github.io",
+        "error": null
+      },
+      "readiness": {
+        "flights": {
+          "provider": "duffel",
+          "configured": false,
+          "status": "UNAVAILABLE"
+        },
+        "stays": {
+          "provider": "booking_demand",
+          "configured": false,
+          "status": "UNAVAILABLE"
+        },
+        "research": {
+          "provider": "openai",
+          "configured": false,
+          "status": "UNAVAILABLE"
+        }
+      }
     },
     "coreFailures": [],
     "externalBlockers": [
       "custom_domain_unreachable",
-      "openai_research_unavailable"
+      "openai_research_unavailable",
+      "duffel_provider_unconfigured",
+      "booking_provider_unconfigured"
     ]
   },
   "releaseDecision": "release_verified_with_truthful_runtime_state"
