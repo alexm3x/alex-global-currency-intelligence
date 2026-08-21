@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "program": "Viajes ASC Production Hardening 2026",
+  "currentStage": 13,
+  "stages": {
+    "11": {"name":"Hardening & Production Reliability","status":"implemented_pending_release","contract":"asc-production-hardening-v1"},
+    "12": {"name":"Live Provider Integration","status":"implemented_pending_release","contract":"asc-live-provider-gateway-v1","providers":["duffel","booking_demand"]},
+    "13": {"name":"Execution, Alerts & Domain Recovery","status":"implemented_with_external_dependencies","execution":"search-look-redirect","externalAlerts":"inactive_until_real_connector","domain":"diagnosed_external_routing_blocker"}
+  },
+  "requiredSecrets": {
+    "openai":"OPENAI_API_KEY",
+    "flights":"DUFFEL_ACCESS_TOKEN",
+    "stays":["BOOKING_DEMAND_TOKEN","BOOKING_AFFILIATE_ID"]
+  },
+  "truthPolicy": {
+    "fabricatedPrices":false,
+    "fabricatedAvailability":false,
+    "crossOriginProviderCaching":false,
+    "externalAlertsWithoutConnector":false
+  }
+}

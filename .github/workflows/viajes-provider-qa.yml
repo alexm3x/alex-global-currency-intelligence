@@ -1,0 +1,42 @@
+name: Viajes ASC · Provider Gateway QA
+
+on:
+  pull_request:
+    paths:
+      - 'cloudflare/viajes-provider-gateway.js'
+      - 'wrangler.viajes-providers.jsonc'
+      - 'viajes/asc-live-providers.js'
+      - 'viajes/opportunity-imports.js'
+      - 'viajes/sw.js'
+      - 'viajes/production-hardening-manifest.json'
+      - 'tests/viajes-provider-hardening.test.mjs'
+      - 'scripts/audit-viajes-production-hardening.mjs'
+      - '.github/workflows/viajes-provider-qa.yml'
+      - '.github/workflows/deploy-viajes-providers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  provider-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run complete test suite
+        run: npm test
+      - name: Audit production hardening
+        run: node scripts/audit-viajes-production-hardening.mjs
+      - name: Validate Worker and client syntax
+        run: |
+          node --check cloudflare/viajes-provider-gateway.js
+          node --check viajes/asc-live-providers.js
+          node --check viajes/sw.js
+      - name: Dry-run provider Worker
+        run: npx wrangler deploy --dry-run --env="" --config wrangler.viajes-providers.jsonc

@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "viajes-asc-providers",
+  "main": "cloudflare/viajes-provider-gateway.js",
+  "compatibility_date": "2026-08-21",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://alexm3x.github.io,https://alexsaldana.com",
+    "BOOKING_ENV": "sandbox"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
