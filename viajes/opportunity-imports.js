@@ -123,10 +123,14 @@
 
 (() => {
   'use strict';
-  if (document.querySelector('script[data-asc-global-experience]')) return;
-  const script = document.createElement('script');
-  script.src = 'asc-global-experience.js';
-  script.dataset.ascGlobalExperience = 'true';
-  script.addEventListener('error', () => console.error('Viajes ASC: no fue posible cargar la capa global de experiencia.'));
-  document.body.appendChild(script);
+  const load = (src, marker, errorMessage) => {
+    if (document.querySelector(`script[${marker}]`)) return;
+    const script = document.createElement('script');
+    script.src = src;
+    script.setAttribute(marker, 'true');
+    script.addEventListener('error', () => console.error(errorMessage));
+    document.body.appendChild(script);
+  };
+  load('asc-global-experience.js', 'data-asc-global-experience', 'Viajes ASC: no fue posible cargar la capa global de experiencia.');
+  load('asc-travel-os.js', 'data-asc-travel-os', 'Viajes ASC: no fue posible cargar Travel DNA / Copilot / Compare.');
 })();
