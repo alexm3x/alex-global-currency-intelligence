@@ -292,3 +292,129 @@ body { background: #050b10; max-width: 100%; overflow-x: hidden; }
 .opportunity-import-guide code { color: #67e8f9; }
 @media (max-width: 900px) { .opportunity-import-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .opportunity-import-guide { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .workspace-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .workspace-tabs button { padding: 10px 7px; } .opportunity-import-header { flex-direction: column; padding: 18px; } .opportunity-import-actions { justify-content: flex-start; } .opportunity-import-status { align-items: flex-start; flex-direction: column; padding: 12px 18px; } .opportunity-import-grid { grid-template-columns: 1fr; padding: 18px; } }
+
+/* VIAJES ASC VISUAL SYSTEM — PHASES 0 + 1 */
+:root {
+  --asc-ink-950: #02070b;
+  --asc-ink-900: #071119;
+  --asc-ink-800: #0a1720;
+  --asc-edge: rgba(148, 163, 184, .25);
+  --asc-cyan: #67e8f9;
+  --asc-gold: #e8c66a;
+  --asc-green: #34d399;
+  --asc-amber: #f6c85f;
+  --asc-red: #fb7185;
+  --asc-focus: #8cf3ff;
+  --asc-ease-out: cubic-bezier(.22, 1, .36, 1);
+  --asc-ease-press: cubic-bezier(.2, .8, .2, 1);
+  --asc-duration-fast: 140ms;
+  --asc-duration-base: 240ms;
+  --asc-shadow-surface: 0 18px 48px rgba(0, 0, 0, .28), inset 0 1px rgba(255, 255, 255, .045);
+  --asc-shadow-raised: 0 28px 76px rgba(0, 0, 0, .38), inset 0 1px rgba(255, 255, 255, .06);
+  --asc-button-depth: #0a2734;
+  --asc-glow-x: 0px;
+  --asc-glow-y: 0px;
+  --asc-globe-x: 0px;
+  --asc-globe-y: 0px;
+  --asc-codes-x: 0px;
+}
+
+.decision-viz {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(103, 232, 249, .18) !important;
+  background: linear-gradient(155deg, rgba(10, 23, 32, .92), rgba(5, 11, 16, .78)) !important;
+  box-shadow: var(--asc-shadow-raised) !important;
+}
+.decision-viz::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(103, 232, 249, .48), rgba(232, 198, 106, .34), transparent);
+}
+.decision-viz__header { gap: 16px; }
+.decision-viz__purpose { max-width: 48rem; margin-top: 5px; color: #8fa0b5; font-size: 11px; line-height: 1.55; }
+.decision-viz .chart-wrap { position: relative; border-radius: 10px; }
+
+.asc-depth-surface {
+  box-shadow: var(--asc-shadow-surface);
+  transform: translateZ(0);
+}
+
+.asc-depth-control {
+  min-height: 40px;
+  touch-action: manipulation;
+  transform: translate3d(0, -1px, 0);
+  transform-origin: center bottom;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .09), inset 0 -1px rgba(0, 0, 0, .24), 0 3px 0 rgba(2, 7, 11, .86), 0 9px 22px rgba(0, 0, 0, .22);
+  transition: transform var(--asc-duration-fast) var(--asc-ease-press), box-shadow var(--asc-duration-fast) var(--asc-ease-press), border-color var(--asc-duration-base) ease, color var(--asc-duration-base) ease, background-color var(--asc-duration-base) ease, filter var(--asc-duration-base) ease;
+}
+.asc-depth-control--primary {
+  border-color: rgba(255, 231, 154, .72) !important;
+  background: linear-gradient(180deg, #f4d982 0%, var(--asc-gold) 58%, #cda745 100%) !important;
+  color: var(--asc-ink-950) !important;
+  text-shadow: 0 1px rgba(255, 255, 255, .3);
+  --asc-button-depth: #8f6c1f;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .52), inset 0 -1px rgba(90, 62, 6, .34), 0 4px 0 var(--asc-button-depth), 0 12px 26px rgba(232, 198, 106, .2);
+}
+.asc-depth-control--secondary {
+  background: linear-gradient(180deg, rgba(25, 46, 58, .96), rgba(7, 17, 25, .96)) !important;
+  border-color: rgba(103, 232, 249, .28) !important;
+  color: #dce8f2 !important;
+}
+.asc-depth-control:hover:not(:disabled):not([aria-disabled="true"]) {
+  transform: translate3d(0, -3px, 0);
+  filter: brightness(1.07) saturate(1.04);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .14), inset 0 -1px rgba(0, 0, 0, .22), 0 5px 0 rgba(2, 7, 11, .82), 0 15px 30px rgba(0, 0, 0, .28);
+}
+.asc-depth-control--primary:hover:not(:disabled):not([aria-disabled="true"]) {
+  box-shadow: inset 0 1px rgba(255, 255, 255, .58), inset 0 -1px rgba(90, 62, 6, .3), 0 6px 0 var(--asc-button-depth), 0 17px 34px rgba(232, 198, 106, .25);
+}
+.asc-depth-control:active:not(:disabled):not([aria-disabled="true"]),
+.asc-depth-control[aria-pressed="true"] {
+  transform: translate3d(0, 2px, 0);
+  filter: brightness(.98);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, .28), 0 1px 0 rgba(2, 7, 11, .9), 0 5px 12px rgba(0, 0, 0, .18);
+}
+.asc-depth-control:focus-visible {
+  outline: 2px solid var(--asc-focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(103, 232, 249, .18), inset 0 1px rgba(255, 255, 255, .12), 0 4px 0 rgba(2, 7, 11, .86), 0 12px 26px rgba(0, 0, 0, .26);
+}
+.asc-depth-control:disabled,
+.asc-depth-control[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .48;
+  transform: none;
+  filter: grayscale(.28);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .04), 0 1px 0 rgba(2, 7, 11, .7);
+}
+.asc-depth-control[aria-busy="true"], .asc-depth-control.is-loading { cursor: wait; opacity: .72; filter: saturate(.7); box-shadow: inset 0 2px 7px rgba(0, 0, 0, .3), 0 0 0 2px rgba(103, 232, 249, .16); }
+
+.travel-motion__glow { translate: var(--asc-glow-x) var(--asc-glow-y); }
+.travel-motion__globe { translate: var(--asc-globe-x) var(--asc-globe-y); }
+.travel-motion__codes { margin-left: var(--asc-codes-x); }
+.asc-page-hidden .travel-motion *,
+.asc-page-hidden .travel-motion::before,
+.asc-page-hidden .travel-motion::after { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+  .asc-depth-control { transition-duration: .01ms !important; transform: none !important; }
+  .asc-depth-control:hover:not(:disabled):not([aria-disabled="true"]),
+  .asc-depth-control:active:not(:disabled):not([aria-disabled="true"]) { transform: none !important; }
+  .travel-motion__glow, .travel-motion__globe { translate: none; }
+  .travel-motion__codes { margin-left: 0; }
+}
+
+@media (forced-colors: active) {
+  .asc-depth-control, .decision-viz, .asc-depth-surface { border: 1px solid CanvasText !important; box-shadow: none !important; }
+  .asc-depth-control:focus-visible { outline: 3px solid Highlight; }
+}
+
+@media (max-width: 640px) {
+  .decision-viz__header { align-items: flex-start; flex-direction: column; }
+  .asc-depth-control { min-height: 44px; }
+}
+/* /VIAJES ASC VISUAL SYSTEM — PHASES 0 + 1 */

@@ -376,14 +376,14 @@
         </div>
       </section>
 
-      <section class="grid gap-4 xl:grid-cols-2">
-        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal">
-          <div class="mb-4 flex items-center justify-between"><div><p class="font-mono text-[10px] uppercase text-cyanx">ASC Total Cost Index</p><h3 class="font-semibold text-white">Costo estimado de 7 noches</h3></div><span id="costModeLabel" class="rounded border border-slate-700 px-2 py-1 font-mono text-[10px] text-slate-400">TURISTA</span></div>
-          <div class="chart-wrap"><canvas id="costChart"></canvas></div>
+      <section class="grid gap-4 xl:grid-cols-2" aria-label="Visualizaciones para decidir">
+        <article class="decision-viz rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal" aria-labelledby="costChartTitle" aria-describedby="costChartPurpose">
+          <div class="decision-viz__header mb-4 flex items-center justify-between"><div><p class="font-mono text-[10px] uppercase text-cyanx">ASC Total Cost Index</p><h3 id="costChartTitle" class="font-semibold text-white">Costo total comparable</h3><p id="costChartPurpose" class="decision-viz__purpose">Compare destinos por costo estimado; una barra más corta indica menor inversión.</p></div><span id="costModeLabel" class="rounded border border-slate-700 px-2 py-1 font-mono text-[10px] text-slate-400">TURISTA</span></div>
+          <div class="chart-wrap"><canvas id="costChart" role="img" aria-label="Comparación del costo total estimado por destino"></canvas></div>
         </article>
-        <article class="rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal">
-          <div class="mb-4"><p class="font-mono text-[10px] uppercase text-cyanx">FX Opportunity Monitor</p><h3 class="font-semibold text-white">Tendencia y posición cambiaria</h3></div>
-          <div class="chart-wrap"><canvas id="fxChart"></canvas></div>
+        <article class="decision-viz rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal" aria-labelledby="fxChartTitle" aria-describedby="fxChartPurpose">
+          <div class="decision-viz__header mb-4"><p class="font-mono text-[10px] uppercase text-cyanx">FX Opportunity Monitor</p><h3 id="fxChartTitle" class="font-semibold text-white">Tendencia y posición cambiaria</h3><p id="fxChartPurpose" class="decision-viz__purpose">Detecte si la divisa mejora o encarece el momento de compra del destino seleccionado.</p></div>
+          <div class="chart-wrap"><canvas id="fxChart" role="img" aria-label="Tendencia cambiaria del destino seleccionado"></canvas></div>
         </article>
       </section>
 
@@ -526,5 +526,6 @@
   <script src="opportunity-imports.js"></script>
   <script src="stays-intelligence.js"></script>
   <script src="travel-assistant.js"></script>
+  <script src="asc-visual-system.js"></script>
 </body>
 </html>
