@@ -162,7 +162,9 @@ jobs:
 
       - name: Publicar audio y metadatos generados
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "agci-morning-intelligence-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add podcast/latest.json podcast/archive.json podcast/feed.xml podcast/generated podcast/episodes
@@ -171,7 +173,38 @@ jobs:
             echo "PUBLISHED=0" >> "$GITHUB_ENV"
           else
             git commit -m "podcast: sync audio with briefing $DATE via $AUDIO_ENGINE"
-            git push origin HEAD:main
+            PUBLISHED=0
+            for attempt in 1 2 3; do
+              echo "Intento de publicación $attempt/3"
+              if git push origin HEAD:main; then
+                PUBLISHED=1
+                break
+              fi
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "Conflicto durante rebase; no se publicará una edición potencialmente inconsistente."
+                exit 1
+              fi
+            done
+            if [ "$PUBLISHED" != "1" ]; then
+              echo "No fue posible publicar después de 3 intentos."
+              exit 1
+            fi
+
+            git fetch origin main
+            git show origin/main:data/daily-briefing-latest.json > /tmp/briefing-remote.json
+            git show origin/main:podcast/latest.json > /tmp/podcast-remote.json
+            node - <<'NODE'
+            const fs = require('fs');
+            const b = JSON.parse(fs.readFileSync('/tmp/briefing-remote.json','utf8'));
+            const p = JSON.parse(fs.readFileSync('/tmp/podcast-remote.json','utf8'));
+            if (b.date !== p.date || p.date !== process.env.DATE || p.status !== 'published' || !p.audioUrl) {
+              console.error(`Desfase post-push: briefing=${b.date}, podcast=${p.date}, esperado=${process.env.DATE}, status=${p.status}`);
+              process.exit(1);
+            }
+            console.log(`Publicación verificada: ${p.date} / ${p.audioUrl}`);
+            NODE
             echo "PUBLISHED=1" >> "$GITHUB_ENV"
           fi
 
