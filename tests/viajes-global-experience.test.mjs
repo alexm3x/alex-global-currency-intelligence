@@ -27,6 +27,9 @@ test('phase 1 contains the required international experience primitives', () => 
   assert.match(experience, /prefers-reduced-motion/);
   assert.match(experience, /viajes:natural-language-intent/);
   assert.match(experience, /viajes:global-navigation/);
+  assert.match(experience, /parseNaturalLanguageIntent/);
+  assert.match(experience, /analyzeNaturalIntent/);
+  assert.match(experience, /Analizando…/);
 });
 
 test('phase 1 preserves truthful behavior and does not embed obvious secrets', () => {

@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_VERSION = 'asc-viajes-pwa-v2';
+const CACHE_VERSION = 'asc-viajes-pwa-v3-natural-analysis';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const SHELL = [

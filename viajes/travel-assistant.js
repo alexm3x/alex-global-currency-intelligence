@@ -20,6 +20,7 @@
   const TOTAL = 6;
   let step = 0;
   let raw = defaults();
+  let intelligenceReady = Promise.resolve();
   if (!core || !dialog || !form || !host) return;
 
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -65,12 +66,13 @@
     });
   }
   function loadIntelligence(){
-    loadScript('travel-intelligence-core.js','viajes-intelligence-core-script')
+    intelligenceReady = loadScript('travel-intelligence-core.js','viajes-intelligence-core-script')
       .then(()=>loadScript('travel-intelligence.js','viajes-intelligence-ui-script'))
-      .catch(error=>console.error('Viajes ASC Intelligence modules:',error.message));
+      .catch(error=>{console.error('Viajes ASC Intelligence modules:',error.message);throw error;});
+    return intelligenceReady;
   }
 
-  const interests=[['cultura','Cultura'],['gastronomía','Gastronomía'],['compras','Compras'],['museos','Museos'],['deportes','Deportes'],['conciertos','Conciertos'],['teatro','Teatro'],['moda','Moda'],['arte','Arte'],['arquitectura','Arquitectura'],['vida nocturna','Vida nocturna'],['experiencias premium','Experiencias premium'],['negocios','Negocios'],['familia','Familia'],['naturaleza','Naturaleza'],['eventos especiales','Eventos especiales'],['descanso','Descanso']];
+  const interests=[['crucero','Crucero'],['cultura','Cultura'],['gastronomía','Gastronomía'],['compras','Compras'],['museos','Museos'],['deportes','Deportes'],['conciertos','Conciertos'],['teatro','Teatro'],['moda','Moda'],['arte','Arte'],['arquitectura','Arquitectura'],['vida nocturna','Vida nocturna'],['experiencias premium','Experiencias premium'],['negocios','Negocios'],['familia','Familia'],['naturaleza','Naturaleza'],['eventos especiales','Eventos especiales'],['descanso','Descanso']];
   const concerns=[['security','Seguridad'],['hidden_costs','Cargos inesperados'],['visa','Visas'],['weather','Clima extremo'],['layovers','Escalas largas'],['fatigue','Fatiga / jet lag'],['lodging_quality','Calidad del alojamiento'],['location','Ubicación'],['cancellation','Cancelación'],['fx','Tipo de cambio'],['crowds','Saturación turística']];
 
   function duration(){ return raw.durationChoice==='custom' ? Math.max(2,Math.min(30,Number(raw.durationCustom)||4)) : Math.max(2,Number(raw.durationChoice)||4); }
@@ -84,7 +86,8 @@
   function contextView(){return `<h3>Comentarios y restricciones</h3><p>Indique cualquier cosa que quiera hacer, evitar o priorizar.</p><div class="assistant-grid"><fieldset class="assistant-fieldset"><legend>Inquietudes</legend>${chips('concerns',concerns,raw.concerns)}</fieldset><label class="assistant-field assistant-field--full"><span>Comentarios</span><textarea name="comments" maxlength="1500">${esc(raw.comments)}</textarea></label><label class="assistant-toggle"><input type="checkbox" name="saveProfile" ${raw.saveProfile?'checked':''}><span>Guardar este perfil en este dispositivo. Si no se marca, la sesión permanece temporal.</span></label></div>`;}
 
   function profile(){
-    const p=core.createProfile({...raw,destinationMode:'fixed',destination:raw.destination,start:raw.planningMode==='known_dates'?raw.start:'',end:raw.planningMode==='known_dates'?raw.end:'',nightsMin:raw.planningMode==='inverse_dates'?duration():undefined,nightsMax:raw.planningMode==='inverse_dates'?duration():undefined,budgetAmount:Number(raw.budgetAmount)||0,budgetBasis:'total',budgetIncludes:['flights','lodging','destination','experiences'],strictness:raw.budgetTier==='unrestricted'?'opportunity':'moderate',lodgingTypes:['hotel'],locationPreferences:raw.preferredZone?[raw.preferredZone]:[],roomPreferences:[],hardConstraints:[]});
+    const lodgingTypes=raw.tripType==='cruise'||raw.priorities?.includes('crucero')?['cruise']:['hotel'];
+    const p=core.createProfile({...raw,destinationMode:'fixed',destination:raw.destination,start:raw.planningMode==='known_dates'?raw.start:'',end:raw.planningMode==='known_dates'?raw.end:'',nightsMin:raw.planningMode==='inverse_dates'?duration():undefined,nightsMax:raw.planningMode==='inverse_dates'?duration():undefined,budgetAmount:Number(raw.budgetAmount)||0,budgetBasis:'total',budgetIncludes:['flights','lodging','destination','experiences'],strictness:raw.budgetTier==='unrestricted'?'opportunity':'moderate',lodgingTypes,locationPreferences:raw.preferredZone?[raw.preferredZone]:[],roomPreferences:[],hardConstraints:[]});
     p.planning={mode:raw.planningMode,period_approx:raw.periodApprox||null,duration_days:raw.planningMode==='inverse_dates'?duration():null,budget_tier:raw.budgetTier,pace:raw.pace,hotel:raw.hotel||null,preferred_zone:raw.preferredZone||null,prepared_at:new Date().toISOString()};
     return p;
   }
@@ -118,10 +121,35 @@
     const p=profile(); p.consent.search_confirmed=true; window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__=p;
     if(Number(raw.budgetAmount)>0&&$('budgetInput')){selectValue($('currencyInput'),raw.currency);$('currencyInput')?.dispatchEvent(new Event('change',{bubbles:true}));$('budgetInput').value=String(Math.round(Number(raw.budgetAmount)));$('budgetInput').dispatchEvent(new Event('input',{bubbles:true}));}
     if(raw.origin)selectValue($('originInput'),raw.origin); if($('adultsInput'))$('adultsInput').value=raw.adults;if($('minorsInput'))$('minorsInput').value=raw.childCount;if($('roomsInput'))$('roomsInput').value=raw.rooms;if($('interestInput'))$('interestInput').value=raw.priorities.join(', ');
+    const requestedType=raw.tripType==='cruise'||raw.priorities?.includes('crucero')?'cruise':raw.tripType;
+    if(requestedType&&requestedType!=='all')document.querySelector(`#typeTabs button[data-type="${requestedType}"]`)?.click();
     if(raw.planningMode==='known_dates'){if($('startDate'))$('startDate').value=raw.start;if($('endDate'))$('endDate').value=raw.end;$('queryForm')?.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));window.dispatchEvent(new CustomEvent('viajes:known-dates-request',{detail:{profile:p}}));}else{window.__VIAJES_ASC_INVERSE_DATE_REQUEST__=p;window.dispatchEvent(new CustomEvent('viajes:inverse-date-request',{detail:{profile:p}}));}
-    if(raw.saveProfile)saveDraft(true);else localStorage.removeItem(savedKey);sessionStorage.removeItem(draftKey);activeSummary(p);close();track(raw.planningMode==='inverse_dates'?'inverse_dates_research_started':'known_dates_research_started');setTimeout(()=>$('travelIntelligenceResearch')?.scrollIntoView({behavior:'smooth',block:'start'}),180);
+    if(raw.saveProfile)saveDraft(true);else localStorage.removeItem(savedKey);sessionStorage.removeItem(draftKey);activeSummary(p);close();track(raw.planningMode==='inverse_dates'?'inverse_dates_research_started':'known_dates_research_started');setTimeout(()=>$(raw.planningMode==='inverse_dates'?'travelWindowEngine':'travelIntelligenceResearch')?.scrollIntoView({behavior:'smooth',block:'start'}),180);
   }
   function track(event){window.dispatchEvent(new CustomEvent('viajes:assistant-event',{detail:{event,step:step+1,mode:raw.planningMode,at:new Date().toISOString()}}));}
+
+  function rawFromIntent(text, parsed){
+    const base=defaults(), interpreted=parsed?.raw||{};
+    Object.entries(interpreted).forEach(([key,item])=>{if(item!==undefined&&item!==null&&item!=='')base[key]=item;});
+    if(!interpreted.priorities?.length)base.priorities=defaults().priorities;
+    base.comments=String(interpreted.comments||text||'').slice(0,1500);
+    return base;
+  }
+  async function waitForRuntime(mode){
+    try{await intelligenceReady;}catch{return;}
+    if(mode!=='inverse_dates'||window.TravelWindowEngine)return;
+    for(let attempt=0;attempt<30&&!window.TravelWindowEngine;attempt++)await new Promise(resolve=>setTimeout(resolve,50));
+  }
+  async function analyzeNaturalIntent(text, parsed=core.parseNaturalLanguageIntent?.(text)){
+    if(!parsed)throw new Error('No fue posible interpretar la solicitud.');
+    raw=rawFromIntent(text,parsed);sessionStorage.setItem(draftKey,JSON.stringify(raw));
+    if(!parsed.ready){
+      step=1;render();typeof dialog.showModal==='function'?dialog.showModal():dialog.setAttribute('open','');document.body.style.overflow='hidden';
+      showError(`Complete únicamente: ${parsed.requiredMissing.join(', ')}.`);track('natural_intent_needs_clarification');
+      return{started:false,parsed};
+    }
+    await waitForRuntime(raw.planningMode);apply();track('natural_intent_analysis_started');return{started:true,parsed,profile:window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__};
+  }
 
   addStyles(); tuneEntry(); loadIntelligence();
   $('startTravelAssistant')?.addEventListener('click',()=>open(false)); $('continueTravelAssistant')?.addEventListener('click',()=>open(true)); $('closeTravelAssistant')?.addEventListener('click',close);
@@ -129,5 +157,5 @@
   back.addEventListener('click',()=>{collect();if(step>0)step--;render();track('step_back');}); save.addEventListener('click',()=>{saveDraft(true);showError('Perfil guardado en este dispositivo. Puede continuar después.');});
   next.addEventListener('click',()=>{const err=validate();if(err){showError(err);return;}saveDraft(false);if(step===TOTAL-1){apply();return;}step++;render();track('step_completed');});
   try{const saved=JSON.parse(localStorage.getItem(savedKey)||'null');if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=!saved?.profile;}catch{if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=true;}
-  window.TravelAssistant={getProfile:()=>window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__||null,getInverseRequest:()=>window.__VIAJES_ASC_INVERSE_DATE_REQUEST__||null,open,clearSaved:()=>{localStorage.removeItem(savedKey);if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=true;}};
+  window.TravelAssistant={getProfile:()=>window.__VIAJES_ASC_ACTIVE_TRIP_PROFILE__||null,getInverseRequest:()=>window.__VIAJES_ASC_INVERSE_DATE_REQUEST__||null,open,analyzeNaturalIntent,clearSaved:()=>{localStorage.removeItem(savedKey);if($('continueTravelAssistant'))$('continueTravelAssistant').disabled=true;}};
 })();

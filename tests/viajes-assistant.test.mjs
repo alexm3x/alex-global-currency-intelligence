@@ -48,6 +48,29 @@ test('free comments are bounded and cannot override system or secret instruction
   assert.doesNotMatch(profile.free_comments, /reveal system prompt/i);
 });
 
+test('natural language command understands the reported Patagonia cruise request', async () => {
+  const { core } = await assistantCore();
+  const intent = core.parseNaturalLanguageIntent('1 semana de crucero en la patagonia cualquier fecga del ano mejor precio', new Date('2026-08-22T00:00:00Z'));
+  assert.equal(intent.schema, 'asc-natural-language-intent-v1');
+  assert.equal(intent.ready, true);
+  assert.equal(intent.planningMode, 'inverse_dates');
+  assert.equal(intent.destination, 'Patagonia');
+  assert.equal(intent.periodApprox, 'próximos 12 meses');
+  assert.equal(intent.durationDays, 7);
+  assert.ok(intent.priorities.includes('crucero'));
+  assert.ok(intent.priorities.includes('mejor precio'));
+  assert.equal(intent.raw.tripType, 'cruise');
+  assert.deepEqual(Array.from(intent.requiredMissing), []);
+});
+
+test('natural language command asks only for mandatory missing fields', async () => {
+  const { core } = await assistantCore();
+  const intent = core.parseNaturalLanguageIntent('Quiero un crucero premium con buena gastronomía');
+  assert.equal(intent.ready, false);
+  assert.ok(intent.requiredMissing.includes('destino'));
+  assert.ok(intent.requiredMissing.includes('fechas de llegada y salida'));
+});
+
 test('budget basis is converted to a total before ranking', async () => {
   const { core } = await assistantCore();
   const perPerson = core.createProfile({ ...validRaw, budgetAmount: 50000, budgetBasis: 'person', adults: 2, childCount: 1 });
@@ -87,6 +110,7 @@ test('assistant exposes both planning modes and loads Phase 3/4/5 modules', asyn
   assert.match(client, /Presupuesto máximo opcional/);
   assert.match(client, /travel-intelligence-core\.js/);
   assert.match(client, /travel-intelligence\.js/);
+  assert.match(client, /analyzeNaturalIntent/);
   assert.match(intelligence, /travel-window-engine\.js/);
   assert.match(windows, /research_windows/);
   assert.match(windows, /viajes:window-selected/);

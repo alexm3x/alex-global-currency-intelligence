@@ -30,6 +30,81 @@
     .replace(/\s+/g, ' ').trim().slice(0, max);
   const list = (value, max = 20) => [...new Set((Array.isArray(value) ? value : []).map(item => text(item, 120)).filter(Boolean))].slice(0, max);
   const integer = (value, min, max, fallback) => Math.round(clamp(value, min, max, fallback));
+  const intentKey = value => text(value, 1500)
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[–—]/g, '-');
+
+  function parseNaturalLanguageIntent(input, now = new Date()) {
+    const clean = text(input, 1200);
+    const normalized = intentKey(clean);
+    const numberWords = { un:1, una:1, dos:2, tres:3, cuatro:4, cinco:5, seis:6, siete:7, ocho:8, nueve:9, diez:10, once:11, doce:12 };
+    const numberFrom = value => /^\d+$/.test(value || '') ? Number(value) : numberWords[value] || null;
+    const durationMatch = normalized.match(/\b(\d{1,2}|un|una|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce)\s*(semana|semanas|dia|dias|noche|noches)\b/);
+    const durationUnit = durationMatch?.[2] || '';
+    const durationDays = durationMatch ? Math.max(2, Math.min(30, numberFrom(durationMatch[1]) * (durationUnit.startsWith('semana') ? 7 : 1))) : null;
+    const exactDates = [...normalized.matchAll(/\b(20\d{2}-\d{2}-\d{2})\b/g)].map(match => match[1]).slice(0, 2);
+    const anyYear = /\b(?:cualquier|toda|todo)\s+(?:fecga|fecha|epoca|momento)?\s*(?:del|de|en)?\s*(?:el\s+)?ano\b|\b(?:durante\s+)?todo\s+el\s+ano\b/.test(normalized);
+    const inverseSignal = anyYear || /\b(cuando|mejor(?:es)?\s+fechas?|fecha\s+conveniente|conviene\s+viajar|flexible|mejor\s+precio|precio\s+mas\s+bajo|mas\s+barato)\b/.test(normalized);
+    const planningMode = exactDates.length === 2 ? 'known_dates' : inverseSignal ? 'inverse_dates' : 'known_dates';
+
+    const originMatch = normalized.match(/\b(?:salgo\s+de|saliendo\s+de|desde)\s+([a-z0-9 .'-]{2,60}?)(?=\s+(?:a|hacia|para|con|en|durante|entre|el|la|los|las)\b|[,.;]|$)/);
+    const destinationMatch = normalized.match(/\b(?:destino(?:\s+es)?|viaje\s+a|viajar\s+a|ir\s+a|hacia|en)\s+(?:la|el|los|las)?\s*([a-z][a-z .'-]{2,80}?)(?=\s+(?:cualquier|durante|entre|con|por|mejor|buscando|saliendo|desde|al\s+mejor|de\s+(?:un|una|\d)|para\s+\d)\b|[,.;]|$)/);
+    const titleCase = value => String(value || '').trim().replace(/\b\p{L}/gu, letter => letter.toUpperCase());
+    const destination = titleCase(destinationMatch?.[1]);
+    const origin = String(originMatch?.[1] || '').trim().toUpperCase();
+
+    let periodApprox = '';
+    if (anyYear) periodApprox = 'próximos 12 meses';
+    else {
+      const relative = clean.match(/(?:pr[oó]ximos?|siguientes?)\s+\d{1,2}\s+mes(?:es)?/i);
+      const quarter = clean.match(/\bQ[1-4]\s+20\d{2}\b/i);
+      const year = clean.match(/\b20\d{2}\b/);
+      const months = clean.match(/\b(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre)(?:\s*(?:-|a|y)\s*(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre))?(?:\s+20\d{2})?/i);
+      const season = clean.match(/\b(?:primavera|verano|oto[nñ]o|invierno)(?:\s+20\d{2})?/i);
+      periodApprox = relative?.[0] || quarter?.[0] || months?.[0] || season?.[0] || (planningMode === 'inverse_dates' ? year?.[0] || '' : '');
+    }
+
+    const priorities = [];
+    const prioritySignals = [
+      [/\bcrucer/, 'crucero'], [/\bgastronom/, 'gastronomía'], [/\bgolf\b/, 'golf'], [/\bbuce/, 'buceo'],
+      [/\bplaya\b/, 'playa'], [/\bmuseo|cultur|histori/, 'cultura'], [/\bconcierto|musica/, 'conciertos'],
+      [/\bdeporte|partido/, 'deportes'], [/\bnaturaleza|sender|montana/, 'naturaleza'], [/\bspa|bienestar/, 'bienestar']
+    ];
+    prioritySignals.forEach(([pattern, label]) => { if (pattern.test(normalized)) priorities.push(label); });
+    if (/\bmejor\s+precio|precio\s+mas\s+bajo|mas\s+barato\b/.test(normalized)) priorities.push('mejor precio');
+
+    const currencyMatch = normalized.match(/\b(mxn|usd|eur|jpy)\s*\$?\s*([\d.,]+)|\b([\d.,]+)\s*(mxn|usd|eur|jpy)\b/);
+    const currency = String(currencyMatch?.[1] || currencyMatch?.[4] || '').toUpperCase();
+    const amountText = currencyMatch?.[2] || currencyMatch?.[3] || '';
+    const budgetAmount = Number(amountText.replace(/,(?=\d{3}\b)/g, '').replace(/\.(?=\d{3}\b)/g, '').replace(',', '.')) || 0;
+    const partyMatch = normalized.match(/\b(?:somos|para)\s+(\d{1,2})\s+(?:personas?|adultos?|viajeros?)\b/);
+    const adults = partyMatch ? Math.max(1, Math.min(12, Number(partyMatch[1]))) : null;
+    const cruise = priorities.includes('crucero');
+    const raw = {
+      planningMode,
+      destination,
+      origin,
+      start: exactDates[0] || '',
+      end: exactDates[1] || '',
+      periodApprox,
+      durationChoice: durationDays && ['2','3','4','7'].includes(String(durationDays)) ? String(durationDays) : durationDays ? 'custom' : '4',
+      durationCustom: durationDays || 4,
+      flexDays: anyYear ? 31 : inverseSignal ? 14 : 7,
+      priorities: list(priorities, 8),
+      tripType: cruise ? 'cruise' : 'all',
+      budgetTier: /\bmejor\s+precio|precio\s+mas\s+bajo|mas\s+barato\b/.test(normalized) ? 'economic' : 'high',
+      budgetAmount,
+      currency: currency || 'MXN',
+      adults: adults || undefined,
+      concerns: list(['hidden_costs', ...(inverseSignal ? ['crowds'] : [])]),
+      comments: clean
+    };
+    const requiredMissing = [];
+    if (!destination) requiredMissing.push('destino');
+    if (planningMode === 'inverse_dates' && !periodApprox) requiredMissing.push('periodo aproximado');
+    if (planningMode === 'known_dates' && exactDates.length < 2) requiredMissing.push('fechas de llegada y salida');
+    return { schema:'asc-natural-language-intent-v1', text:clean, planningMode, destination, periodApprox, durationDays, priorities:raw.priorities, requiredMissing, ready:requiredMissing.length === 0, raw, interpreted_at:new Date(now).toISOString() };
+  }
 
   function tripId() {
     if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
@@ -170,7 +245,7 @@
     return output;
   }
 
-  window.TravelAssistantCore = { VERSION, CONCERN_RULES, createProfile, validateProfile, analyzeProfile, destinationMatches, scoreAdjustment, selectRecommendations, sanitizeText: text, nightsBetween };
+  window.TravelAssistantCore = { VERSION, CONCERN_RULES, createProfile, validateProfile, analyzeProfile, destinationMatches, scoreAdjustment, selectRecommendations, parseNaturalLanguageIntent, sanitizeText: text, nightsBetween };
   if (window.TravelDataV4) {
     window.TravelDataV4.normalizeTripProfile = createProfile;
     window.TravelDataV4.validateTripProfile = validateProfile;

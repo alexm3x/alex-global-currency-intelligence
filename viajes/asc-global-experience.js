@@ -71,6 +71,9 @@
       .asc-quick-action:hover, .asc-quick-action:focus-visible { border-color:rgba(232,198,106,.55); color:var(--asc-text); outline:none; }
       .asc-quick-action strong { display:block; margin-bottom:4px; color:var(--asc-text); font-size:11px; }
       .asc-command-status { min-height:18px; margin-top:8px; padding:0 4px; color:var(--asc-green); font-size:10px; }
+      .asc-command-status[data-state="loading"] { color:var(--asc-cyan); }
+      .asc-command-status[data-state="error"] { color:var(--asc-danger); }
+      .asc-command-submit:disabled { cursor:wait; opacity:.72; transform:none; }
 
       .workspace-tabs { position:sticky; top:72px; z-index:25; backdrop-filter:blur(18px); }
       .workspace-tabs button { min-height:42px; }
@@ -256,19 +259,38 @@
       if (action) routeAction(action);
     });
 
-    $('#ascAnalyzeIntent')?.addEventListener('click', () => {
+    $('#ascAnalyzeIntent')?.addEventListener('click', async () => {
       const text = $('#ascNaturalLanguageIntent')?.value.trim();
       const status = $('#ascCommandStatus');
+      const button = $('#ascAnalyzeIntent');
       if (!text) {
         if (status) status.textContent = 'Describa brevemente el viaje para preparar el Copilot.';
+        if (status) status.dataset.state = 'error';
         $('#ascNaturalLanguageIntent')?.focus();
         return;
       }
       sessionStorage.setItem(STORAGE_INTENT, text);
-      if (status) status.textContent = 'Intención capturada. Complete únicamente los datos que falten.';
-      const inverse = /\b(cu[aá]ndo|mejores? fechas?|fecha conveniente|conviene viajar|flexible)\b/i.test(text);
-      openAssistant(inverse ? 'inverse_dates' : 'known_dates');
-      window.dispatchEvent(new CustomEvent('viajes:natural-language-intent', { detail:{ text, inferredMode: inverse ? 'inverse_dates' : 'known_dates' } }));
+      const parsed = window.TravelAssistantCore?.parseNaturalLanguageIntent?.(text);
+      const inferredMode = parsed?.planningMode || (/\b(cu[aá]ndo|mejores? fechas?|fecha conveniente|conviene viajar|flexible|mejor precio|cualquier fecha)\b/i.test(text) ? 'inverse_dates' : 'known_dates');
+      if (status) { status.textContent = 'Interpretando destino, duración, periodo y prioridad…'; status.dataset.state = 'loading'; }
+      if (button) { button.disabled = true; button.textContent = 'Analizando…'; button.setAttribute('aria-busy','true'); }
+      window.dispatchEvent(new CustomEvent('viajes:natural-language-intent', { detail:{ text, inferredMode, parsed } }));
+      try {
+        if (window.TravelAssistant?.analyzeNaturalIntent) {
+          const result = await window.TravelAssistant.analyzeNaturalIntent(text, parsed);
+          if (status) status.textContent = result.started
+            ? `Análisis iniciado · ${parsed.destination} · ${parsed.durationDays || 'duración por confirmar'} días · ${parsed.periodApprox || 'fechas indicadas'}.`
+            : `Solicitud interpretada. Complete únicamente: ${parsed.requiredMissing.join(', ')}.`;
+        } else {
+          openAssistant(inferredMode);
+          if (status) status.textContent = 'Solicitud interpretada. Complete únicamente los datos que falten.';
+        }
+        if (status) status.dataset.state = 'ready';
+      } catch (error) {
+        if (status) { status.textContent = `No fue posible iniciar el análisis: ${error.message}`; status.dataset.state = 'error'; }
+      } finally {
+        if (button) { button.disabled = false; button.textContent = 'Analizar viaje'; button.removeAttribute('aria-busy'); }
+      }
     });
   }
 
