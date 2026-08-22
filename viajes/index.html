@@ -24,8 +24,19 @@
       <div class="travel-motion__codes">
         <span>MEX</span><i>→</i><span>NRT</span><i>·</i><span>CDG</span><i>·</i><span>MAD</span><i>·</i><span>SIN</span><i>·</i><span>FCO</span>
       </div>
+      <div class="travel-motion__coordinates"><span>19.4326° N</span><i></i><span>99.1332° W</span></div>
+      <div class="travel-motion__nodes">
+        <i style="--node-x:16%;--node-y:31%;--node-delay:0s"></i>
+        <i style="--node-x:38%;--node-y:18%;--node-delay:1.7s"></i>
+        <i style="--node-x:63%;--node-y:42%;--node-delay:3.1s"></i>
+        <i style="--node-x:79%;--node-y:24%;--node-delay:4.4s"></i>
+        <i style="--node-x:28%;--node-y:68%;--node-delay:5.8s"></i>
+        <i style="--node-x:88%;--node-y:66%;--node-delay:7.2s"></i>
+      </div>
+      <div class="travel-motion__signals"><span>FX · LIVE</span><span>GLOBAL ROUTES</span><span>ASC · 20 DESTINOS</span></div>
       <div class="travel-motion__horizon travel-motion__horizon--far"></div>
       <div class="travel-motion__horizon travel-motion__horizon--near"></div>
+      <div class="travel-motion__veil"></div>
     </div>
     <!-- /VIAJES ASC DYNAMIC TRAVEL BACKDROP -->
     <header class="sticky top-0 z-50 border-b border-slate-800 bg-terminal-950/95 backdrop-blur-xl">
@@ -377,13 +388,17 @@
       </section>
 
       <section class="grid gap-4 xl:grid-cols-2" aria-label="Visualizaciones para decidir">
-        <article class="decision-viz rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal" aria-labelledby="costChartTitle" aria-describedby="costChartPurpose">
-          <div class="decision-viz__header mb-4 flex items-center justify-between"><div><p class="font-mono text-[10px] uppercase text-cyanx">ASC Total Cost Index</p><h3 id="costChartTitle" class="font-semibold text-white">Costo total comparable</h3><p id="costChartPurpose" class="decision-viz__purpose">Compare destinos por costo estimado; una barra más corta indica menor inversión.</p></div><span id="costModeLabel" class="rounded border border-slate-700 px-2 py-1 font-mono text-[10px] text-slate-400">TURISTA</span></div>
+        <article class="decision-viz rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal" aria-labelledby="costChartTitle" aria-describedby="costChartPurpose costChartSummary">
+          <div class="decision-viz__header mb-3 flex items-center justify-between"><div><p class="font-mono text-[10px] uppercase text-cyanx">ASC Total Cost Index</p><h3 id="costChartTitle" class="font-semibold text-white">¿Qué destino ofrece el menor costo total?</h3><p id="costChartPurpose" class="decision-viz__purpose">Ranking comparable según los viajeros, noches y cabina seleccionados.</p></div><span id="costModeLabel" class="rounded border border-slate-700 px-2 py-1 font-mono text-[10px] text-slate-400">TURISTA</span></div>
+          <div id="costChartMeta" class="decision-viz__meta" aria-label="Metadatos del gráfico de costos"></div>
           <div class="chart-wrap"><canvas id="costChart" role="img" aria-label="Comparación del costo total estimado por destino"></canvas></div>
+          <p id="costChartSummary" class="asc-decision-summary" role="status" aria-live="polite">Esperando datos comparables.</p>
         </article>
-        <article class="decision-viz rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal" aria-labelledby="fxChartTitle" aria-describedby="fxChartPurpose">
-          <div class="decision-viz__header mb-4"><p class="font-mono text-[10px] uppercase text-cyanx">FX Opportunity Monitor</p><h3 id="fxChartTitle" class="font-semibold text-white">Tendencia y posición cambiaria</h3><p id="fxChartPurpose" class="decision-viz__purpose">Detecte si la divisa mejora o encarece el momento de compra del destino seleccionado.</p></div>
+        <article class="decision-viz rounded-xl border border-slate-800 bg-terminal-900 p-4 shadow-terminal" aria-labelledby="fxChartTitle" aria-describedby="fxChartPurpose fxChartSummary">
+          <div class="decision-viz__header mb-3"><p class="font-mono text-[10px] uppercase text-cyanx">FX Opportunity Monitor</p><h3 id="fxChartTitle" class="font-semibold text-white">¿La divisa favorece comprar ahora?</h3><p id="fxChartPurpose" class="decision-viz__purpose">Seleccione una recomendación para comparar su moneda contra la referencia histórica observada.</p></div>
+          <div id="fxChartMeta" class="decision-viz__meta" aria-label="Metadatos del gráfico cambiario"></div>
           <div class="chart-wrap"><canvas id="fxChart" role="img" aria-label="Tendencia cambiaria del destino seleccionado"></canvas></div>
+          <p id="fxChartSummary" class="asc-decision-summary" role="status" aria-live="polite">Seleccione un destino para obtener la lectura ejecutiva.</p>
         </article>
       </section>
 
@@ -413,6 +428,7 @@
   <script src="travel-data-v4.js"></script>
   <script src="travel-decision-core.js"></script>
   <script src="travel-assistant-core.js"></script>
+  <script src="asc-decision-charts.js"></script>
   <script>
     const DATA_URL = './data/destinations.json';
     const DATA_CACHE_KEY = 'viajesASCTravelDataV4';
@@ -505,7 +521,12 @@
     }
 
     function chartDefaults(){if(!window.Chart)return;Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='rgba(51,65,85,.55)';Chart.defaults.font.family='IBM Plex Mono, ui-monospace, monospace';}
-    function renderCharts(list){if(!window.Chart)return;chartDefaults();const top=list.slice(0,10);const canvas=$('#costChart');if(!canvas)return;if(state.costChart){state.costChart.destroy();state.costChart=null}const existing=Chart.getChart(canvas);if(existing)existing.destroy();if(!top.length)return;state.costChart=new Chart(canvas,{type:'bar',data:{labels:top.map(d=>d.city),datasets:[{label:'Costo total estimado',data:top.map(currentCost),borderColor:'#e8c66a',backgroundColor:'rgba(232,198,106,.68)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.raw)}}},scales:{x:{grid:{display:false},ticks:{maxRotation:40,minRotation:20}},y:{ticks:{callback:v=>`${Math.round(v/1000)}k`}}}}});$('#costModeLabel').textContent=`${state.cabin==='business'?'BUSINESS':'TURISTA'} · ${tripNights()} NOCHES`;
+    function renderCharts(list){
+      if(!window.Chart)return;chartDefaults();const top=list.slice(0,10);const canvas=$('#costChart');if(!canvas)return;
+      if(state.costChart){state.costChart.destroy();state.costChart=null}const existing=Chart.getChart(canvas);if(existing)existing.destroy();
+      $('#costModeLabel').textContent=`${state.cabin==='business'?'BUSINESS':'TURISTA'} · ${tripNights()} NOCHES`;
+      if(window.ASCDecisionCharts){state.costChart=window.ASCDecisionCharts.renderCost({canvas,items:top,getCost:currentCost,formatMoney:money,cabin:state.cabin,nights:tripNights(),generatedAt:state.data?.meta?.generated_at,source:state.data?.source_status?.cost_model,isStale:Boolean(state.data?.isStale||top.some(item=>item.isStale))});return}
+      if(!top.length)return;state.costChart=new Chart(canvas,{type:'bar',data:{labels:top.map(d=>d.city),datasets:[{label:'Costo total estimado',data:top.map(currentCost),borderColor:'#e8c66a',backgroundColor:'rgba(232,198,106,.68)',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.raw)}}},scales:{x:{grid:{display:false},ticks:{maxRotation:40,minRotation:20}},y:{ticks:{callback:v=>`${Math.round(v/1000)}k`}}}}});
     }
 
     function renderHeader(data){const stale=Boolean(data.isStale||data.destinations.some(d=>d.isStale));const live=data.source_status.current_fx==='live'&&!stale;$('#usdMxn').textContent=number(data.market_snapshot.usd_mxn,2);$('#usdMxnContext').textContent=live?'Mercado actualizado':'Dato de respaldo';$('#destinationCount').textContent=`${data.meta.destination_count} destinos`;$('#greenCount').textContent=data.market_snapshot.green_destinations;const generated=new Date(data.meta.generated_at);$('#updatedAt').textContent=`${stale?'Datos en caché · ':'Actualizado '}${generated.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`;$('#pipelineBadge').textContent=stale?'DATOS EN CACHÉ':`Pipeline: ${live?'LIVE':'FALLBACK'}`;$('#pipelineBadge').className=`hidden rounded border px-3 py-1.5 font-mono text-[10px] uppercase sm:inline-flex ${live?'border-emerald-500/40 text-emeraldx':'border-amber-500/40 text-amber-400'}`;$('#sourceNote').textContent=`FX actual: ${data.source_status.current_fx}. Históricos: Frankfurter cuando existe cobertura. Costos: ${data.source_status.cost_model}. Contrato: ${data.meta.schema_version}.`}

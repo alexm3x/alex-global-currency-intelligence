@@ -1,13 +1,13 @@
 'use strict';
 
-const CACHE_VERSION = 'asc-viajes-pwa-v4-visual-phase01';
+const CACHE_VERSION = 'asc-viajes-pwa-v5-visual-phase23';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const SHELL = [
   './', './index.html', './app.css', './manifest.webmanifest', './asc-icon.svg',
   './asc-global-experience.js', './asc-travel-os.js', './asc-intelligence-command.js',
   './asc-global-quality.js', './asc-live-providers.js', './opportunity-imports.js', './travel-assistant-core.js', './travel-assistant.js',
-  './asc-visual-system.js'
+  './asc-visual-system.js', './asc-decision-charts.js'
 ];
 
 self.addEventListener('install', event => {

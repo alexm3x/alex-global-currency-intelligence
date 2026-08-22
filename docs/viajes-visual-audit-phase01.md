@@ -1,12 +1,18 @@
-# Viajes ASC — Auditoría visual y sistema base (fases 0–1)
+# Viajes ASC — Auditoría y transformación visual (fases 0–3)
 
 Fecha: 2026-08-22  
 Línea base: `86a1b54f6f3a9fc6d07bcb90dc0a01946d4dfbe3`  
 Respaldo remoto: `backup/viajes-pre-visual-phase01-2026-08-22`
 
+Continuación fases 2–3: 2026-08-22
+
+Línea base fases 2–3: `9c4cde951ec0c33e483669ceb8c25a91ef09d977`
+
+Respaldo remoto fases 2–3: `backup/viajes-pre-visual-phase23-2026-08-22`
+
 ## Alcance
 
-Esta entrega se limita a la auditoría y al sistema visual base. No cambia datos, fórmulas, fuentes, reglas de negocio ni contratos. La conversión completa de cada gráfica y la producción final del fondo corresponden a las fases 2 y 3.
+La primera entrega estableció la auditoría y el sistema visual base. La segunda completa las fases 2 y 3 sin cambiar datos, fórmulas, fuentes, reglas de negocio ni contratos.
 
 ## Inventario de visualizaciones
 
@@ -57,3 +63,30 @@ La página ya incluye aurora, retícula en perspectiva, globo, rutas, códigos I
 - Cada gráfica debe declarar: pregunta, lectura principal, unidad, fuente/fecha y acción recomendada.
 - Tooltips y animaciones deben ser breves, cancelables y compatibles con teclado.
 - El fondo no puede competir con formularios ni reducir el contraste del contenido.
+
+## Fase 2 — Gráficos intuitivos
+
+- El costo total se convierte en ranking horizontal ascendente con posición visible, valor exacto y resaltado de la alternativa de menor inversión.
+- El cálculo respeta la cabina, noches, integrantes y habitaciones seleccionados; no utiliza un total fijo de siete noches.
+- Los tooltips explican costo, diferencia frente al líder y estado estimado/caché.
+- Cada tarjeta declara unidad, periodo, fuente, actualización, confianza disponible y estado del dato.
+- Cada gráfico publica una conclusión textual equivalente para lectores de pantalla.
+- La tendencia FX utiliza exclusivamente `fx_trend`; se eliminó la generación de puntos sintéticos cuando falta historia.
+- El gráfico FX ofrece periodos 3M, 6M y 12M sobre las observaciones existentes, línea de referencia real y tooltip de fecha/valor.
+- Las instancias anteriores se destruyen antes de reconstruirse.
+
+## Fase 3 — Fondo profesional
+
+- Se conservaron las capas existentes de ambiente, aurora, retícula, globo, rutas y horizonte.
+- Se añadieron coordenadas, seis nodos de datos, tres señales ejecutivas y un velo de contraste.
+- El parallax utiliza como máximo 9 px por puntero y 12 px por desplazamiento vertical; nunca mueve el contenido.
+- El movimiento se pausa cuando la pestaña queda oculta.
+- `prefers-reduced-motion` inmoviliza las capas y elimina pulsos.
+- En móvil, equipos con memoria limitada o ahorro de datos, el sistema activa movimiento limitado y elimina capas no esenciales.
+- Las animaciones nuevas utilizan `transform`, `translate`, `opacity` y un número acotado de nodos DOM.
+
+## Riesgos residuales para fases 4–5
+
+1. Los módulos dinámicos que inyectan CSS mantienen estilos locales; la fase 4 deberá adoptar gradualmente los componentes comunes.
+2. Lightweight Charts se carga desde un CDN y conserva un SVG de respaldo cuando el proveedor no está disponible.
+3. La aplicación se publica actualmente en modo oscuro; la validación integral de un modo claro pertenece a la fase 5.

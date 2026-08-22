@@ -5,7 +5,9 @@
   const motion = document.querySelector('.travel-motion');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const precisePointer = window.matchMedia('(pointer: fine)');
+  const compactViewport = window.matchMedia('(max-width: 760px)');
   let frame = 0;
+  let scrollFrame = 0;
 
   const primarySelector = [
     '.assistant-primary', '.asc-os-primary', '.asc-command-submit',
@@ -30,7 +32,9 @@
   }
 
   function syncMotionPreference() {
-    root.dataset.ascMotion = reducedMotion.matches ? 'reduced' : 'full';
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const limited = compactViewport.matches || connection?.saveData || (Number(navigator.deviceMemory) > 0 && Number(navigator.deviceMemory) <= 4);
+    root.dataset.ascMotion = reducedMotion.matches ? 'reduced' : limited ? 'limited' : 'full';
   }
 
   function updatePointer(event) {
@@ -44,6 +48,18 @@
       root.style.setProperty('--asc-globe-x', `${(x * 9).toFixed(1)}px`);
       root.style.setProperty('--asc-globe-y', `${(y * 6).toFixed(1)}px`);
       root.style.setProperty('--asc-codes-x', `${(x * -5).toFixed(1)}px`);
+      root.style.setProperty('--asc-signal-x', `${(x * 4).toFixed(1)}px`);
+      root.style.setProperty('--asc-signal-inverse-x', `${(x * -4).toFixed(1)}px`);
+    });
+  }
+
+  function updateScroll() {
+    if (reducedMotion.matches || root.dataset.ascMotion === 'limited' || !motion) return;
+    if (scrollFrame) cancelAnimationFrame(scrollFrame);
+    scrollFrame = requestAnimationFrame(() => {
+      const offset = Math.max(-12, Math.min(12, window.scrollY * -.012));
+      root.style.setProperty('--asc-scroll-far', `${(offset * .45).toFixed(1)}px`);
+      root.style.setProperty('--asc-scroll-near', `${offset.toFixed(1)}px`);
     });
   }
 
@@ -56,6 +72,8 @@
   }))).observe(document.body, { childList: true, subtree: true });
 
   reducedMotion.addEventListener?.('change', syncMotionPreference);
+  compactViewport.addEventListener?.('change', syncMotionPreference);
   window.addEventListener('pointermove', updatePointer, { passive: true });
+  window.addEventListener('scroll', updateScroll, { passive: true });
   document.addEventListener('visibilitychange', () => root.classList.toggle('asc-page-hidden', document.hidden));
 })();

@@ -43,7 +43,10 @@
       .v3-impact.high{color:var(--v3-red);border-color:rgba(255,107,122,.35);background:rgba(255,107,122,.08)}.v3-impact.medium{color:var(--v3-amber);border-color:rgba(246,200,95,.35);background:rgba(246,200,95,.08)}.v3-impact.low{color:var(--v3-green);border-color:rgba(61,220,151,.35);background:rgba(61,220,151,.08)}
       .v3-time{color:#59667a;font:9px ui-monospace,monospace}.v3-risk{padding:18px}.v3-risk-card{padding:14px;border:1px solid var(--v3-edge);border-radius:10px;background:${COLORS.bg};margin-bottom:11px}.v3-risk-line{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:${COLORS.muted}}.v3-risk-line strong{color:#fff}
       .v3-progress{height:5px;margin-top:10px;border-radius:999px;overflow:hidden;background:#0A1019}.v3-progress i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--v3-cyan),var(--v3-gold))}
-      #fxChartV3{height:320px;position:relative}.v3-fx-header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center;margin:0 0 10px}.v3-fx-header strong{font-size:13px}.v3-fx-header span{font:10px ui-monospace,monospace;color:${COLORS.muted}}
+      #fxChartV3{height:290px;position:relative}.v3-fx-header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center;margin:0 0 10px}.v3-fx-header strong{font-size:13px}.v3-fx-header>span{font:10px ui-monospace,monospace;color:${COLORS.muted}}
+      .v3-period-tabs{display:inline-flex;gap:4px;padding:3px;border:1px solid var(--v3-edge);border-radius:8px;background:rgba(5,11,16,.62)}.v3-period-tabs button{min-height:30px;padding:5px 8px;border-radius:5px;color:${COLORS.muted};font:750 9px ui-monospace,monospace}.v3-period-tabs button[aria-pressed=true]{background:rgba(103,232,249,.14);color:var(--v3-cyan)}
+      .v3-chart-tooltip{position:absolute;z-index:5;min-width:150px;pointer-events:none;border:1px solid rgba(103,232,249,.35);border-radius:8px;background:rgba(5,11,16,.96);padding:9px 10px;color:#fff;box-shadow:0 14px 34px rgba(0,0,0,.38);font:10px/1.5 ui-monospace,monospace;transform:translate(10px,-110%)}.v3-chart-tooltip[hidden]{display:none}
+      .v3-fx-empty{display:grid;place-items:center;height:100%;padding:24px;border:1px dashed var(--v3-edge);border-radius:10px;color:${COLORS.muted};text-align:center;font-size:12px;line-height:1.65}
       .v3-card-selected{border-color:rgba(228,197,106,.7)!important;box-shadow:0 14px 40px rgba(0,0,0,.28)}
       .v3-svg{width:100%;height:100%;display:block}.v3-attribution{text-align:right;color:#566175;font-size:9px;margin-top:5px}
       @media(max-width:920px){#newsIntelligenceV3{grid-template-columns:1fr}}@media(max-width:640px){#fxChartV3{height:275px}}
@@ -92,18 +95,52 @@
     catch { return 'moderate_total_7n_mxn'; }
   }
 
-  function syntheticTrend(item) {
+  function observedTrend(item) {
     const supplied = Array.isArray(item.fx_trend) ? item.fx_trend : [];
-    if (supplied.length >= 2) return supplied.map(point => ({ time: point.date, value: Number(point.local_per_usd) })).filter(point => point.time && Number.isFinite(point.value));
-    const current = Number(item.current_local_per_usd) || 1;
-    const anchor = Number(item.historical_average_local_per_usd) || current;
-    const today = new Date();
-    return Array.from({ length: 12 }, (_, index) => {
-      const date = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() - (11 - index), 1));
-      const progress = index / 11;
-      const wave = Math.sin(index * 1.3 + item.currency.charCodeAt(0) / 10) * Math.max(Math.abs(current - anchor) * .035, anchor * .002);
-      return { time: date.toISOString().slice(0, 10), value: Math.max(.000001, anchor + (current - anchor) * progress + wave) };
-    });
+    return supplied.map(point => ({ time: point.date, value: Number(point.local_per_usd) })).filter(point => point.time && Number.isFinite(point.value)).sort((a, b) => String(a.time).localeCompare(String(b.time)));
+  }
+
+  function periodTrend(data, months) {
+    if (!data.length || months >= 12) return data;
+    const last = new Date(`${data[data.length - 1].time}T00:00:00Z`);
+    if (Number.isNaN(last.getTime())) return data;
+    const cutoff = new Date(last); cutoff.setUTCMonth(cutoff.getUTCMonth() - months);
+    const filtered = data.filter(point => new Date(`${point.time}T00:00:00Z`) >= cutoff);
+    return filtered.length >= 2 ? filtered : data;
+  }
+
+  function fxState(item) {
+    const history = String(item.history_status || '').toLowerCase();
+    if (item.isStale || history.includes('cached')) return { label:'Caché', tone:'warning' };
+    if (history.includes('live')) return { label:'Observado', tone:'live' };
+    if (!observedTrend(item).length) return { label:'No disponible', tone:'warning' };
+    return { label:'Baseline', tone:'estimated' };
+  }
+
+  function fxConclusion(item) {
+    const advantage = Number(item.fx_advantage_pct);
+    if (!Number.isFinite(advantage)) return 'No existe evidencia suficiente para emitir una recomendación cambiaria.';
+    if (advantage >= 5) return `${item.city} muestra una ventaja cambiaria de ${decimal(advantage)}% frente a la referencia. Acción: verificar precios actuales antes de asegurar la compra.`;
+    if (advantage <= -3) return `${item.city} cotiza ${decimal(Math.abs(advantage))}% por debajo de la referencia favorable. Acción: comparar fechas y limitar exposición cambiaria antes de comprar.`;
+    return `${item.city} se encuentra en zona cambiaria neutral (${advantage >= 0 ? '+' : ''}${decimal(advantage)}%). Acción: decidir principalmente por costo total, experiencia y flexibilidad.`;
+  }
+
+  function updateFxDecision(item, data) {
+    const first = data[0]?.time || 'No disponible';
+    const last = data[data.length - 1]?.time || 'No disponible';
+    const stateLabel = fxState(item);
+    const source = typeof state !== 'undefined' ? state.data?.source_status?.historical_fx_source : null;
+    const updated = typeof state !== 'undefined' ? state.data?.meta?.generated_at : null;
+    window.ASCDecisionCharts?.setMeta('fxChartMeta', [
+      { label:'Unidad', value:`${item.currency} por USD` },
+      { label:'Periodo', value:first === 'No disponible' ? first : `${first} → ${last}` },
+      { label:'Fuente', value:source && data.length ? 'Frankfurter' : 'No disponible', tone:'source' },
+      { label:'Actualizado', value:window.ASCDecisionCharts?.safeDate(updated) || 'No disponible' },
+      { label:'Confianza', value:item.confidence !== null && item.confidence !== undefined && Number.isFinite(Number(item.confidence)) ? `${Math.round(Number(item.confidence) * 100)}%` : 'No publicada' },
+      { label:'Estado', value:stateLabel.label, tone:stateLabel.tone }
+    ]);
+    const summary = document.getElementById('fxChartSummary');
+    if (summary) summary.innerHTML = `<strong>Lectura ejecutiva:</strong> ${html(fxConclusion(item))}`;
   }
 
   function destroyFx() {
@@ -114,25 +151,31 @@
   function renderFxFallback(container, item, data) {
     destroyFx();
     const values = data.map(point => point.value);
-    if (values.length < 2) { container.innerHTML = '<div style="display:flex;height:100%;align-items:center;justify-content:center;color:#8290A5">Sin tendencia disponible</div>'; return; }
+    if (values.length < 2) { container.innerHTML = '<div class="v3-fx-empty"><span><strong style="display:block;color:#fff">Tendencia no disponible</strong>No se generan puntos sintéticos. El resto del análisis permanece operativo.</span></div>'; return; }
     const width = 820, height = 280, min = Math.min(...values), max = Math.max(...values), range = max - min || 1;
     const path = values.map((value, index) => `${index ? 'L' : 'M'} ${(index / (values.length - 1)) * width} ${height - 28 - ((value - min) / range) * (height - 58)}`).join(' ');
     container.innerHTML = `<svg class="v3-svg" viewBox="0 0 ${width} ${height}"><defs><linearGradient id="v3FxGradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${COLORS.cyan}" stop-opacity=".42"/><stop offset="1" stop-color="${COLORS.cyan}" stop-opacity="0"/></linearGradient></defs><path d="${path} L ${width} ${height} L 0 ${height} Z" fill="url(#v3FxGradient)"/><path d="${path}" fill="none" stroke="${COLORS.cyan}" stroke-width="3"/></svg>`;
   }
 
-  async function drawFxChart(item) {
+  async function drawFxChart(item, selectedMonths = 12) {
     let host = document.getElementById('fxChart');
     if (!host) return;
     if (host.tagName === 'CANVAS') {
       const replacement = document.createElement('div');
       replacement.id = 'fxChart';
       replacement.className = host.className;
+      replacement.setAttribute('role', 'img');
       host.replaceWith(replacement);
       host = replacement;
     }
-    host.innerHTML = `<div class="v3-fx-header"><strong>${html(item.city)} · ${html(item.currency)} por USD</strong><span>${Number(item.fx_advantage_pct) >= 0 ? '+' : ''}${decimal(item.fx_advantage_pct)}% vs referencia</span></div><div id="fxChartV3"></div><div class="v3-attribution">Charts by TradingView Lightweight Charts™</div>`;
+    const allData = observedTrend(item);
+    const data = periodTrend(allData, selectedMonths);
+    updateFxDecision(item, data);
+    host.setAttribute('aria-label', fxConclusion(item));
+    host.innerHTML = `<div class="v3-fx-header"><strong>${html(item.city)} · ${html(item.currency)} por USD</strong><div class="v3-period-tabs" aria-label="Periodo de tendencia"><button type="button" data-fx-months="3" aria-pressed="${selectedMonths === 3}">3M</button><button type="button" data-fx-months="6" aria-pressed="${selectedMonths === 6}">6M</button><button type="button" data-fx-months="12" aria-pressed="${selectedMonths === 12}">12M</button></div><span>${Number(item.fx_advantage_pct) >= 0 ? '+' : ''}${decimal(item.fx_advantage_pct)}% vs referencia</span></div><div id="fxChartV3"></div><div id="fxChartTooltip" class="v3-chart-tooltip" role="status" aria-live="polite" hidden></div><div class="v3-attribution">Serie histórica observada · Charts by TradingView Lightweight Charts™</div>`;
+    host.querySelectorAll('[data-fx-months]').forEach(button => button.addEventListener('click', () => drawFxChart(item, Number(button.dataset.fxMonths))));
     const container = document.getElementById('fxChartV3');
-    const data = syntheticTrend(item);
+    if (data.length < 2) { renderFxFallback(container, item, data); return; }
     try {
       const LightweightCharts = await loadLightweightCharts();
       destroyFx();
@@ -148,7 +191,18 @@
       else if (chart.addAreaSeries) series = chart.addAreaSeries({ lineColor: COLORS.cyan, topColor: 'rgba(85,223,247,.42)', bottomColor: 'rgba(85,223,247,.02)', lineWidth: 3 });
       else throw new Error('Area series unavailable');
       series.setData(data);
+      const reference = Number(item.historical_average_local_per_usd);
+      if (Number.isFinite(reference) && series.createPriceLine) series.createPriceLine({ price:reference, color:'rgba(228,197,106,.72)', lineWidth:1, lineStyle:2, axisLabelVisible:true, title:'Referencia' });
       chart.timeScale().fitContent();
+      const tooltip = document.getElementById('fxChartTooltip');
+      chart.subscribeCrosshairMove?.(param => {
+        const value = param.seriesData?.get(series)?.value;
+        if (!param.time || !Number.isFinite(value) || !param.point || param.point.x < 0 || param.point.y < 0) { tooltip.hidden = true; return; }
+        tooltip.hidden = false;
+        tooltip.textContent = `${param.time} · 1 USD = ${decimal(value, value < 10 ? 4 : 2)} ${item.currency}`;
+        tooltip.style.left = `${Math.min(param.point.x, Math.max(0, container.clientWidth - 180))}px`;
+        tooltip.style.top = `${Math.max(48, param.point.y)}px`;
+      });
       fxChartV3 = chart;
       fxResizeV3 = new ResizeObserver(entries => entries.forEach(entry => chart.applyOptions({ width: entry.contentRect.width, height: entry.contentRect.height })));
       fxResizeV3.observe(container);
