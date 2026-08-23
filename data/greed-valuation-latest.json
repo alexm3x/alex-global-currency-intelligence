@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-08-22T19:41:18.334Z",
+  "timestamp": "2026-08-23T03:36:57.342Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
@@ -11,7 +11,7 @@
     "valuation_label": "Extreme Valuation",
     "regime": "Mid Bull",
     "opportunity": null,
-    "confidence": 73,
+    "confidence": 72,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
@@ -24,7 +24,7 @@
     "interpretation": "Greed 87/100 (Extreme Greed) y Valuation 85/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Capital preservation / Do not chase."
   },
   "changes": {
-    "greed_1d": 5,
+    "greed_1d": 0,
     "greed_7d": -4,
     "greed_30d": -3,
     "valuation_1d": null,
@@ -38,8 +38,8 @@
       "normalized_score": 68,
       "source": "Federal Reserve / FRED — SP500",
       "asOf": "2026-08-21",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -49,8 +49,8 @@
       "normalized_score": 100,
       "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
       "asOf": "2026-08-21",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 82,
       "source_quality": 92
     },
@@ -60,8 +60,8 @@
       "normalized_score": 90,
       "source": "Cboe Global Markets — VIX",
       "asOf": "2026-08-21",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -71,8 +71,8 @@
       "normalized_score": 96,
       "source": "Cboe Global Markets — VIX / VIX3M",
       "asOf": "2026-08-21",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 88,
       "source_quality": 96
     },
