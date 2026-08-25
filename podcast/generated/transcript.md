@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-20 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-25 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. La principal novedad es una Fed más restrictiva de lo que descontaba el mercado, mientras Greed vuelve a 88 y Valuation permanece en 85.
+**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed cae a ochenta y tres, cinco puntos menos, mientras Valuation permanece en ochenta y cinco. Tecnología ya suma siete sesiones consecutivas de baja, pero el mercado sigue caro. La prioridad es conservar capacidad de respuesta antes de Nvidia, PCE y Jackson Hole.
 
-## Fed y tasas
+## Greed y tecnología
 
-**CIO:** Las minutas de julio muestran que varios participantes estaban preparados para subir tasas y muchos contemplan endurecer si la inflación no converge al dos por ciento. Esto obliga a mantener un hurdle rate elevado para duration, growth y activos apalancados.
+**CIO:** El S&P 500 cerró el lunes en siete mil seiscientos cincuenta y dos punto ochenta y seis y el VIX subió a quince punto ochenta y cinco. La caída de Greed mejora el punto psicológico, pero no convierte automáticamente la corrección en valor. Buscamos precio, balance y earnings alineados.
 
-## Bonos y fiscal
+## Nvidia
 
-**CIO:** El Treasury alivió el mercado con mayor actividad de recompras de bonos largos. Es soporte de liquidez, no una solución fiscal. Con deuda federal por encima de cuarenta trillion dólares, la oferta estructural de duración sigue siendo una variable crítica.
+**CIO:** Nvidia reporta mañana y el mercado de opciones descuenta cerca de doscientos ochenta mil millones de dólares de movimiento en capitalización. AGCI evita una apuesta binaria grande.
 
-## Energía y geopolítica
+## AI y capital allocation
 
-**CIO:** Brent se acerca a noventa y tres dólares mientras continúan las tensiones con Irán. El petróleo vuelve a ser una amenaza directa para inflación, transporte, seguros y poder adquisitivo del consumidor.
+**CIO:** La corrección tecnológica debe usarse para discriminar. Favorecemos plataformas capaces de financiar inteligencia artificial con flujo propio y proveedores con pricing power real. No equiparamos más capex con más valor. El retorno sobre capital y el flujo de caja libre después de inversión son ahora variables centrales.
 
-## Greed y valoración
+## Irán y petróleo
 
-**CIO:** AGCI Greed rebota cinco puntos hasta ochenta y ocho. Valuation permanece en ochenta y cinco. La combinación sigue en Euphoria Risk: preservación de capital y no perseguir precios.
+**CIO:** Las nuevas medidas contra Irán ampliaron la amenaza de sanciones secundarias, pero el primer paso evitó castigos inmediatos a terceros países. El petróleo cayó más de tres por ciento.
 
-## Moderna y biotecnología
+## PCE, GDP y tasas
 
-**CIO:** Moderna obtiene una validación clínica importante en melanoma junto con Merck. El dato cambia la tesis científica, pero una subida diaria de ciento setenta y siete por ciento hace imprescindible reconstruir fair value antes de considerar una entrada.
+**CIO:** Mañana también llegan PCE de julio y el segundo estimado de GDP. Un dato de inflación caliente junto con Nvidia débil sería una combinación negativa para growth y duration.
 
-## Walmart y consumidor
+## Real estate
 
-**CIO:** Walmart reporta un raro miss en comparable sales de Estados Unidos. El consumidor sigue comprando, pero prioriza esenciales y precio. E-commerce y advertising aportan resiliencia, mientras gasolina reduce flexibilidad discrecional.
+**CIO:** En bienes raíces no relajamos underwriting. La caída del petróleo ayuda marginalmente a inflación, pero long yields, déficit y riesgo macro siguen justificando estrés de cincuenta a cien puntos base sobre financiamiento y cap rates. El DSCR debe seguir siendo robusto bajo escenarios adversos.
 
-## Real estate y México
+## Capital allocation
 
-**CIO:** En real estate mantenemos estrés de cincuenta a cien puntos base. No hay un nuevo acuerdo oficial México T-MEC en esta revisión; septiembre sigue siendo la próxima ronda bilateral relevante.
+**CIO:** La asignación permanece disciplinada: diez a quince por ciento de liquidez desplegable, compras por tramos y tamaño prudente antes de eventos. La liquidez no es una posición pasiva; es capital de oportunidad para actuar cuando una compañía de calidad entre realmente en terreno de fair value.
 
 ## Cierre ejecutivo
 
-**CIO:** La conclusión es sencilla: mantener diez a quince por ciento de liquidez desplegable, elevar tasas de descuento, comprar calidad sólo en fair value y evitar perseguir rallies impulsados por headlines. Fed, petróleo y fiscal siguen dominando el balance de riesgo.
+**CIO:** La conclusión es simple. Greed se enfría, pero Valuation sigue extrema. No perseguimos el rebote previo a Nvidia ni el petróleo después de titulares. Esperamos confirmación, mantenemos optionality y compramos calidad sólo cuando precio y fundamental ofrezcan margen de seguridad suficiente.
