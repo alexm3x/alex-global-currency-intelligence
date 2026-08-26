@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-25 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-26 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed cae a ochenta y tres, cinco puntos menos, mientras Valuation permanece en ochenta y cinco. Tecnología ya suma siete sesiones consecutivas de baja, pero el mercado sigue caro. La prioridad es conservar capacidad de respuesta antes de Nvidia, PCE y Jackson Hole.
+**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed rebota a ochenta y seis mientras Valuation permanece en ochenta y cinco. El PCE de julio se mantiene en tres punto siete por ciento anual, arriba del consenso, por lo que el mercado entra a Nvidia sin un alivio claro del costo de capital.
 
-## Greed y tecnología
+## Señales principales
 
-**CIO:** El S&P 500 cerró el lunes en siete mil seiscientos cincuenta y dos punto ochenta y seis y el VIX subió a quince punto ochenta y cinco. La caída de Greed mejora el punto psicológico, pero no convierte automáticamente la corrección en valor. Buscamos precio, balance y earnings alineados.
+**CIO:** Tres señales dominan la sesión. Primero, inflación pegajosa mantiene viva la discusión de tasas. Segundo, la psicología volvió a calentarse después del rebote del martes sin que la valoración agregada haya cedido. Tercero, el evento Nvidia coincide con una prueba más amplia para software, donde adopción de inteligencia artificial no necesariamente significa mejores economics para el accionista.
 
-## Nvidia
+## Mercados y Greed
 
-**CIO:** Nvidia reporta mañana y el mercado de opciones descuenta cerca de doscientos ochenta mil millones de dólares de movimiento en capitalización. AGCI evita una apuesta binaria grande.
+**ANALISTA:** El S&P 500 cerró el martes en siete mil seiscientos setenta y siete punto veintiocho y el VIX bajó a quince punto cuarenta y cinco. Semiconductores lideraron el rebote y SOXX avanzó aproximadamente uno punto seis por ciento. Pero AGCI Greed sube a ochenta y seis y Valuation sigue en ochenta y cinco. Consideramos el movimiento táctico, no una confirmación amplia de risk-on.
 
-## AI y capital allocation
+## Inversión y Nvidia
 
-**CIO:** La corrección tecnológica debe usarse para discriminar. Favorecemos plataformas capaces de financiar inteligencia artificial con flujo propio y proveedores con pricing power real. No equiparamos más capex con más valor. El retorno sobre capital y el flujo de caja libre después de inversión son ahora variables centrales.
+**ANALISTA:** Nvidia reporta después del cierre. No buscamos adivinar el print. Revisaremos ingresos, margen bruto, Rubin, calidad de órdenes, customer financing y guidance. Un beat sólo será valioso si sostiene retorno económico del ecosistema. En paralelo, Salesforce, Okta y Nutanix ayudan a medir si el software convierte AI en retención, pricing y margen o enfrenta una disrupción real.
 
-## Irán y petróleo
+## México y geopolítica
 
-**CIO:** Las nuevas medidas contra Irán ampliaron la amenaza de sanciones secundarias, pero el primer paso evitó castigos inmediatos a terceros países. El petróleo cayó más de tres por ciento.
+**CIO:** En México no apareció una nueva decisión oficial T-MEC que cambie la tesis; septiembre sigue siendo la próxima ventana bilateral relevante. En geopolítica, Irán y Omán discuten un corredor temporal en Hormuz.
 
-## PCE, GDP y tasas
+## Capital y bienes raíces
 
-**CIO:** Mañana también llegan PCE de julio y el segundo estimado de GDP. Un dato de inflación caliente junto con Nvidia débil sería una combinación negativa para growth y duration.
+**ANALISTA:** La vivienda estadounidense confirma el costo del capital. Las ventas de casas nuevas cayeron diez punto cinco por ciento en julio y las hipotecas a treinta años rondan seis punto ocho por ciento. No relajamos underwriting.
 
-## Real estate
+## AI y calidad del crecimiento
 
-**CIO:** En bienes raíces no relajamos underwriting. La caída del petróleo ayuda marginalmente a inflación, pero long yields, déficit y riesgo macro siguen justificando estrés de cincuenta a cien puntos base sobre financiamiento y cap rates. El DSCR debe seguir siendo robusto bajo escenarios adversos.
+**ANALISTA:** La inteligencia artificial ya exige distinguir tres capas: chips e infraestructura, hyperscalers que financian capex y software que debe monetizar la tecnología. Favorecemos compañías que pueden financiar inversión con flujo propio y demostrar retorno incremental. Más gasto no es automáticamente más valor.
 
-## Capital allocation
+## Oportunidades de viaje
 
-**CIO:** La asignación permanece disciplinada: diez a quince por ciento de liquidez desplegable, compras por tramos y tamaño prudente antes de eventos. La liquidez no es una posición pasiva; es capital de oportunidad para actuar cuando una compañía de calidad entre realmente en terreno de fair value.
+**ANALISTA:** No se validó una nueva tarifa material en las fuentes autorizadas durante este corte. Las oportunidades previas a Oaxaca, Ciudad de Guatemala y Madrid permanecen únicamente como referencias y deben revalidarse antes de reservar.
 
-## Cierre ejecutivo
+## Qué haría hoy
 
-**CIO:** La conclusión es simple. Greed se enfría, pero Valuation sigue extrema. No perseguimos el rebote previo a Nvidia ni el petróleo después de titulares. Esperamos confirmación, mantenemos optionality y compramos calidad sólo cuando precio y fundamental ofrezcan margen de seguridad suficiente.
+**CIO:** Mantendría diez a quince por ciento de liquidez desplegable, duration escalonada y un hedge energético pequeño mientras Hormuz no normalice físicamente. No aumentaría de forma importante Nvidia antes del reporte ni compraría software sólo porque haya caído. Esperaría evidencia. Con Valuation en ochenta y cinco, la ventaja está en exigir precio, balance y earnings alineados antes de comprometer capital.
