@@ -4,36 +4,36 @@
 
 ## Apertura
 
-**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed rebota a ochenta y seis mientras Valuation permanece en ochenta y cinco. El PCE de julio se mantiene en tres punto siete por ciento anual, arriba del consenso, por lo que el mercado entra a Nvidia sin un alivio claro del costo de capital.
+**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed está en ochenta y seis y Valuation en ochenta y cinco. El PCE de julio se mantiene en tres punto siete por ciento anual, ligeramente arriba del consenso.
 
 ## Señales principales
 
-**CIO:** Tres señales dominan la sesión. Primero, inflación pegajosa mantiene viva la discusión de tasas. Segundo, la psicología volvió a calentarse después del rebote del martes sin que la valoración agregada haya cedido. Tercero, el evento Nvidia coincide con una prueba más amplia para software, donde adopción de inteligencia artificial no necesariamente significa mejores economics para el accionista.
+**CIO:** Tres señales dominan la sesión. Primero, inflación pegajosa mantiene viva la discusión de tasas. Segundo, la psicología sigue extrema sin alivio de valoración. Tercero, el snapshot premium de Barron's eleva el riesgo de calidad del capital: deuda, equity, garantías y oposición local a nuevos data centers importan ya tanto como chips y backlog.
 
 ## Mercados y Greed
 
-**ANALISTA:** El S&P 500 cerró el martes en siete mil seiscientos setenta y siete punto veintiocho y el VIX bajó a quince punto cuarenta y cinco. Semiconductores lideraron el rebote y SOXX avanzó aproximadamente uno punto seis por ciento. Pero AGCI Greed sube a ochenta y seis y Valuation sigue en ochenta y cinco. Consideramos el movimiento táctico, no una confirmación amplia de risk-on.
+**ANALISTA:** El S&P 500 cerró el martes en siete mil seiscientos setenta y siete punto veintiocho y el VIX en quince punto cuarenta y cinco. Semiconductores lideraron el rebote, pero AGCI Greed permanece en ochenta y seis y Valuation en ochenta y cinco. Consideramos el movimiento táctico, no una confirmación amplia de risk-on.
 
 ## Inversión y Nvidia
 
-**ANALISTA:** Nvidia reporta después del cierre. No buscamos adivinar el print. Revisaremos ingresos, margen bruto, Rubin, calidad de órdenes, customer financing y guidance. Un beat sólo será valioso si sostiene retorno económico del ecosistema. En paralelo, Salesforce, Okta y Nutanix ayudan a medir si el software convierte AI en retención, pricing y margen o enfrenta una disrupción real.
+**ANALISTA:** Nvidia reporta después del cierre. Barron's recuerda que la empresa ha superado consensos repetidamente y aun así la acción cayó al día siguiente en seis de los últimos ocho trimestres. Revisaremos ingresos, margen, Rubin, calidad de órdenes, customer financing y guidance. Un beat sólo será valioso si confirma retorno económico y no sólo expectativas más altas.
 
 ## México y geopolítica
 
-**CIO:** En México no apareció una nueva decisión oficial T-MEC que cambie la tesis; septiembre sigue siendo la próxima ventana bilateral relevante. En geopolítica, Irán y Omán discuten un corredor temporal en Hormuz.
+**CIO:** La disputa comercial entre Estados Unidos y Canadá eleva la incertidumbre alrededor de la futura arquitectura del T-MEC. México mantiene una estrategia de menor fricción, pero no anticipamos acuerdos no publicados. En Hormuz hay avances entre Irán y Omán, aunque la reapertura sigue condicionada y el tráfico físico permanece deprimido.
 
 ## Capital y bienes raíces
 
-**ANALISTA:** La vivienda estadounidense confirma el costo del capital. Las ventas de casas nuevas cayeron diez punto cinco por ciento en julio y las hipotecas a treinta años rondan seis punto ocho por ciento. No relajamos underwriting.
+**ANALISTA:** Las ventas de casas nuevas en Estados Unidos cayeron diez punto cinco por ciento en julio y las hipotecas a treinta años rondan seis punto ocho por ciento. No relajamos underwriting.
 
-## AI y calidad del crecimiento
+## AI y calidad del capital
 
-**ANALISTA:** La inteligencia artificial ya exige distinguir tres capas: chips e infraestructura, hyperscalers que financian capex y software que debe monetizar la tecnología. Favorecemos compañías que pueden financiar inversión con flujo propio y demostrar retorno incremental. Más gasto no es automáticamente más valor.
+**ANALISTA:** El ciclo AI entra en una fase donde financiación y permisos importan más. Barron's estima más de setecientos mil millones de dólares de capex este año entre los principales hyperscalers y observa más uso de deuda y equity en el ecosistema.
 
 ## Oportunidades de viaje
 
-**ANALISTA:** No se validó una nueva tarifa material en las fuentes autorizadas durante este corte. Las oportunidades previas a Oaxaca, Ciudad de Guatemala y Madrid permanecen únicamente como referencias y deben revalidarse antes de reservar.
+**ANALISTA:** No se validó una nueva tarifa material durante este corte. Las oportunidades previas a Oaxaca, Ciudad de Guatemala y Madrid permanecen únicamente como referencias y deben revalidarse antes de reservar.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría diez a quince por ciento de liquidez desplegable, duration escalonada y un hedge energético pequeño mientras Hormuz no normalice físicamente. No aumentaría de forma importante Nvidia antes del reporte ni compraría software sólo porque haya caído. Esperaría evidencia. Con Valuation en ochenta y cinco, la ventaja está en exigir precio, balance y earnings alineados antes de comprometer capital.
+**CIO:** Mantendría diez a quince por ciento de liquidez desplegable, duration escalonada y un hedge energético pequeño mientras Hormuz no normalice físicamente. No aumentaría de forma importante Nvidia antes del reporte. Añadiría calidad de financiación, permisos y utilización al score de AI. Con Valuation en ochenta y cinco, exigiría precio, balance y earnings alineados antes de comprometer capital.
