@@ -1,392 +1,64 @@
 {
   "schemaVersion": 2,
-  "date": "2026-08-26",
-  "timestamp": "2026-08-26T08:06:00-06:00",
+  "date": "2026-08-27",
+  "timestamp": "2026-08-27T07:15:16-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "PCE pegajoso y Nvidia enfrenta una prueba de calidad del capital",
-  "dek": "Inflación PCE de 3.7%, Valuation en 85 y un nuevo snapshot premium que cuestiona la financiación y sostenibilidad del capex AI mantienen elevado el hurdle rate antes de Nvidia y Jackson Hole.",
+  "title": "Nvidia valida la demanda AI, pero tasas y valoración exigen disciplina",
+  "dek": "El ciclo AI recibe una confirmación fundamental importante mientras el mercado laboral estadounidense sigue resistente y AGCI mantiene Valuation extrema.",
   "stance": "Riesgo selectivo con liquidez",
   "risk": "Elevado",
   "horizon": "1–12 meses",
-  "methodologyStatus": "Sin cambios: se preservan metodología, ponderaciones, umbrales de cobertura, criterios de materialidad y gobernanza AGCI vigentes.",
+  "methodologyStatus": "Sin cambios: se preservan metodología, ponderaciones, umbrales de cobertura, criterios de materialidad, gobernanza y avisos legales AGCI vigentes.",
   "capitalAllocationPolicy": {
     "deployableLiquidity": "10–15%",
     "entryMethod": "Compras por tramos únicamente con fair value y margen de seguridad",
     "realEstateStress": "+50/+100 pb sobre financiamiento y cap rates",
     "duration": "Escalonada; evitar apuesta direccional concentrada"
   },
-  "executiveSummary": "AGCI mantiene riesgo selectivo con 10–15% de liquidez desplegable. Greed se sitúa en 86/100 y Valuation permanece en 85/100, por lo que la matriz continúa en EUPHORIA_RISK: preservación de capital y no perseguir precios. El PCE de julio subió 0.2% mensual y 3.7% anual, ligeramente por encima del consenso, mientras el GDP Q2 se mantuvo en 1.5%; esto limita la tesis de alivio rápido de tasas. El snapshot premium de Barron's posterior al corte inicial añade una dimensión material: Nvidia ha superado consensos repetidamente sin evitar caídas posteriores de la acción, los hyperscalers proyectan más de USD 700 mil millones de capex AI este año y parte del ecosistema depende cada vez más de deuda, equity y garantías financieras. Barron's también identifica una mayor oposición política local a nuevos data centers, elevando el riesgo de permisos y de retorno sobre capital. En energía, Brent cae hacia USD 86 por avances Irán-Omán, pero el Estrecho de Hormuz sigue sin normalización física. En comercio norteamericano, la escalada arancelaria EE.UU.-Canadá aumenta la incertidumbre sobre la arquitectura futura del T-MEC. En vivienda, ventas de casas nuevas cayeron 10.5% en julio y las hipotecas rondan 6.8%. No llegó una nueva edición de The Economist ni se validó una nueva oportunidad de viaje.",
+  "executiveSummary": "AGCI mantiene riesgo selectivo con 10–15% de liquidez desplegable. Nvidia confirmó que la demanda de infraestructura AI sigue extraordinariamente fuerte: reportó ingresos trimestrales de USD 96.22 mil millones, data center de USD 89 mil millones y guidance de aproximadamente USD 108 mil millones para el próximo trimestre. El dato fortalece la tesis estructural de AI, pero no elimina el riesgo de valoración, márgenes, memoria y calidad del capital. En macro, las solicitudes iniciales de desempleo bajaron a 203 mil, señal de layoffs todavía bajos; combinado con PCE pegajoso, esto reduce la urgencia de alivio monetario. AGCI Greed permanece en 86/100 y Valuation en 85/100 hasta el próximo refresh del motor, por lo que la matriz continúa en EUPHORIA_RISK. Barron's refuerza una lectura selectiva: los ganadores AI con monetización y ejecución demostrables merecen prima relativa, pero no cualquier múltiplo. México/T-MEC sigue sin nuevo acuerdo material y el underwriting inmobiliario conserva estrés de +50/+100 pb. No llegó una nueva edición de The Economist ni se validó una oportunidad de viaje material.",
   "threeSignals": [
-    {
-      "label": "PCE / Fed",
-      "type": "HECHO CONFIRMADO — BEA/REUTERS",
-      "summary": "PCE julio 3.7% anual y +0.2% mensual; GDP Q2 1.5%. La desinflación es insuficiente para bajar agresivamente el hurdle rate."
-    },
-    {
-      "label": "Greed + Valuation",
-      "type": "SEÑAL PROPIETARIA AGCI",
-      "summary": "Greed 86/100 y Valuation 85/100 mantienen EUPHORIA_RISK. El rebote de riesgo no ha abaratado el mercado."
-    },
-    {
-      "label": "AI / calidad del capital",
-      "type": "BARRON'S PREMIUM + REUTERS",
-      "summary": "Nvidia debe validar no sólo demanda y margen, sino calidad de financiación, retorno del capex y capacidad de expansión frente a mayor oposición a data centers."
-    }
-  ],
-  "briefs": [
-    {
-      "kicker": "MACRO / TASAS",
-      "title": "PCE pegajoso limita el alivio de múltiplos",
-      "text": "Inflación anual de 3.7% mantiene a la Fed lejos de una victoria clara. Duration, growth y real estate todavía requieren margen de seguridad elevado."
-    },
-    {
-      "kicker": "MERCADO / PSICOLOGÍA",
-      "title": "Greed sube sin alivio de Valuation",
-      "text": "Greed se mantiene extremo y Valuation sigue en 85. No hay confirmación suficiente para ampliar beta indiscriminadamente."
-    },
-    {
-      "kicker": "AI / NVDA",
-      "title": "El reto es la calidad del crecimiento",
-      "text": "Nvidia debe validar ingresos, margen, Rubin, customer financing y retorno económico. Un beat por sí solo no resuelve el riesgo de expectativas ni de capital."
-    },
-    {
-      "kicker": "T-MEC",
-      "title": "La disputa EE.UU.-Canadá eleva el riesgo regional",
-      "text": "Los nuevos aranceles a bienes canadienses reabren dudas sobre la futura arquitectura del T-MEC y aumentan el valor de trazabilidad y flexibilidad de cadenas mexicanas."
-    },
-    {
-      "kicker": "REAL ESTATE",
-      "title": "Vivienda sigue transmitiendo el costo del capital",
-      "text": "Ventas nuevas -10.5% y mortgage cerca de 6.8% confirman que no hay base para relajar DSCR ni cap-rate stress."
-    }
-  ],
-  "decisions": [
-    {
-      "label": "PORTAFOLIO",
-      "title": "Mantener 10–15% de liquidez desplegable",
-      "text": "PCE y Valuation no justifican perseguir el rebote. Conservar optionality para dislocaciones posteriores a earnings."
-    },
-    {
-      "label": "EQUITIES / AI",
-      "title": "Evitar posición binaria grande antes de Nvidia",
-      "text": "Aumentar sólo después de validar demanda, margen, Rubin, calidad de órdenes, customer financing y guidance."
-    },
-    {
-      "label": "AI CAPITAL",
-      "title": "Penalizar crecimiento financiado con fragilidad",
-      "text": "Favorecer hyperscalers y proveedores capaces de financiar expansión con flujo propio; elevar descuento cuando el crecimiento depende de deuda, equity o garantías cruzadas."
-    },
-    {
-      "label": "FIXED INCOME",
-      "title": "Mantener duration escalonada",
-      "text": "PCE por encima del consenso mantiene incertidumbre sobre la Fed; evitar concentración en el tramo largo."
-    },
-    {
-      "label": "ENERGÍA / HEDGE",
-      "title": "Mantener hedge pequeño mientras Hormuz no normalice físicamente",
-      "text": "La diplomacia reduce prima de riesgo, pero los tránsitos permanecen muy por debajo de niveles normales."
-    },
-    {
-      "label": "REAL ESTATE",
-      "title": "Mantener estrés de +50/+100 pb",
-      "text": "La vivienda confirma que las tasas largas siguen afectando demanda y affordability."
-    }
-  ],
-  "sections": [
-    {
-      "title": "1. Macro, inflación y Fed",
-      "body": "El PCE de julio aumentó 0.2% mensual y 3.7% anual, frente a 3.6% esperado. El segundo estimado de GDP Q2 quedó en 1.5% anualizado. Reuters reportó que la probabilidad implícita de una subida de septiembre aumentó modestamente tras el dato.",
-      "why": "La inflación permanece demasiado alta para asumir un ciclo rápido de relajamiento monetario.",
-      "implication": "Mantener hurdle rate elevado en growth, bonos largos y real estate apalancado.",
-      "opportunity": "Cash, T-bills y duration intermedia pueden seguir ofreciendo carry mientras se espera mayor claridad de la Fed.",
-      "risk": "Una lectura hawkish en Jackson Hole puede volver a elevar yields y comprimir múltiplos.",
-      "signal": "PCE, 2Y/10Y/30Y, breakevens y expectativas de Fed."
-    },
-    {
-      "title": "2. Mercados, Greed y breadth",
-      "body": "AGCI registra Greed 86/100, Valuation 85/100 y EUPHORIA_RISK. El S&P 500 cerró el 25 de agosto en 7,677.28 y VIX en 15.45. El rebote reciente fue liderado por semiconductores, pero la amplitud todavía no justifica declarar un régimen de riesgo más benigno.",
-      "why": "La psicología volvió a calentarse antes de un evento importante sin que la valoración agregada haya mejorado.",
-      "implication": "No confundir un rebote concentrado con confirmación amplia de risk-on.",
-      "opportunity": "Comprar calidad sólo si el precio entra en terreno defendible después de earnings.",
-      "risk": "Un beat de Nvidia puede reactivar FOMO desde Valuation extrema.",
-      "signal": "QQQ/SOXX/SMH breadth, VIX, credit spreads y AGCI Greed."
-    },
-    {
-      "title": "3. Nvidia, semiconductores y financiación AI",
-      "body": "El snapshot premium más reciente de Barron's señala que Nvidia ha superado métricas clave en los últimos ocho trimestres, pero la acción cayó al día siguiente en seis de esas ocasiones. También estima más de USD 700 mil millones de capex de AI este año entre Amazon, Microsoft, Alphabet y Meta, con una dependencia creciente de deuda y equity en el ecosistema. Barron's añade que Nvidia participa como respaldo financiero en grandes proyectos y que la oposición local a nuevos data centers ha aumentado, elevando riesgo de permisos y de retorno sobre capital.",
-      "why": "El siguiente tramo del ciclo AI depende menos de la narrativa y más de financiación, utilización, permisos y retorno económico.",
-      "implication": "Evitar una apuesta binaria grande y evaluar resultados post-evento por calidad del crecimiento, no sólo por EPS.",
-      "opportunity": "NVDA, AVGO, ANET, VRT y hyperscalers con balance fuerte únicamente con valoración defendible y retorno incremental visible.",
-      "risk": "Guidance débil, presión de memoria, customer financing excesivo, menor utilización o fricción política a nuevos data centers.",
-      "signal": "Revenue, gross margin, Rubin, rental pricing, customer financing, capex hyperscaler, permisos y utilización de data centers."
-    },
-    {
-      "title": "4. Irán, Hormuz y energía",
-      "body": "Irán y Omán alcanzaron entendimientos sobre su participación en el Estrecho de Hormuz, pero Irán condicionó la reapertura a la aceptación estadounidense. Brent cayó hacia USD 86, mientras el tráfico físico continúa deprimido y los ataques a navegación siguen siendo un riesgo.",
-      "why": "El mercado está descontando una normalización diplomática antes de que exista normalización física completa.",
-      "implication": "No perseguir petróleo a la baja ni eliminar por completo el hedge geopolítico.",
-      "opportunity": "Reducir hedge excesivo sólo si el tráfico se normaliza de forma verificable.",
-      "risk": "Fracaso de conversaciones, sanciones o nuevos ataques pueden reconstruir rápidamente la prima de riesgo.",
-      "signal": "Tránsitos físicos, Brent/WTI, seguros, fletes y anuncios Irán-Omán/US Treasury."
-    },
-    {
-      "title": "5. México, T-MEC, real estate y viajes",
-      "body": "La escalada comercial EE.UU.-Canadá, con aranceles de 50% sobre una parte acotada de exportaciones canadienses, eleva el riesgo para la próxima arquitectura del T-MEC. México conserva una estrategia de menor fricción, pero AGCI no anticipa acuerdos no publicados. En vivienda estadounidense, ventas de casas nuevas cayeron 10.5% en julio a 607 mil anualizadas y el mortgage a 30 años ronda 6.77%. No se validó una nueva tarifa de viaje material en este corte.",
-      "why": "Comercio regional y costo de capital siguen siendo variables de primer orden para inversión productiva, nearshoring y real estate.",
-      "implication": "Mantener trazabilidad de origen, DSCR conservador y flexibilidad financiera.",
-      "opportunity": "Nearshoring de alta trazabilidad y activos inmobiliarios con flujos robustos pueden ganar valor relativo si aumenta la incertidumbre regional.",
-      "risk": "Mayor fragmentación del T-MEC o tasas largas persistentemente altas pueden frenar inversión y transacciones.",
-      "signal": "USTR/Secretaría de Economía, autos/acero/aluminio, mortgage rates, cap rates, DSCR y tarifas de viaje verificadas."
-    }
-  ],
-  "watch": [
-    "Nvidia FY27 Q2 después del cierre del 26 de agosto: revenue, gross margin, Rubin, customer financing, order quality y guidance",
-    "Reacción de NVDA: distinguir beat operativo de reacción por expectativas",
-    "Capex y financiación AI: deuda, equity, garantías y utilización de data centers",
-    "Salesforce, Okta y Nutanix: monetización AI, retention, margins y guidance",
-    "Jackson Hole: Kevin Warsh el 28 de agosto",
-    "Repricing de Fed después de PCE 3.7%",
-    "AGCI Greed 86 con Valuation 85",
-    "Hormuz: tránsitos físicos versus titulares diplomáticos",
-    "EE.UU.-Canadá y posibles efectos sobre la revisión T-MEC",
-    "10Y/30Y, DXY, oro y bitcoin",
-    "Housing: mortgage rates, new-home sales y buyer intent",
-    "The Economist — sin nueva entrega en Gmail autorizado desde el corte anterior",
-    "Travel — sin nueva tarifa validada; revalidar oportunidades previas antes de reservar"
+    {"label":"Nvidia / AI","type":"HECHO CONFIRMADO — NVIDIA/REUTERS","summary":"Revenue USD 96.22B, data center USD 89B y guidance de USD 108B confirman demanda AI estructuralmente fuerte."},
+    {"label":"Labor / Fed","type":"HECHO CONFIRMADO — DOL/REUTERS","summary":"Initial claims bajan a 203 mil; layoffs siguen contenidos y la Fed conserva espacio para priorizar inflación."},
+    {"label":"Greed + Valuation","type":"SEÑAL PROPIETARIA AGCI","summary":"Greed 86/100 y Valuation 85/100 mantienen EUPHORIA_RISK; la mejora fundamental de AI no equivale a mercado barato."}
   ],
   "markets": [
-    {
-      "asset": "S&P 500",
-      "value": "7,677.28",
-      "asOf": "2026-08-25 cierre / AGCI",
-      "interpretation": "Rebote moderado antes de Nvidia; amplitud todavía selectiva."
-    },
-    {
-      "asset": "VIX",
-      "value": "15.45",
-      "asOf": "2026-08-25 / AGCI",
-      "interpretation": "Volatilidad contenida frente a un riesgo de evento elevado."
-    },
-    {
-      "asset": "AGCI Greed",
-      "value": "86/100",
-      "asOf": "2026-08-26",
-      "interpretation": "Extreme Greed; mantener disciplina de entrada."
-    },
-    {
-      "asset": "AGCI Valuation",
-      "value": "85/100",
-      "asOf": "2026-08-26",
-      "interpretation": "Extreme Valuation; sin alivio material."
-    },
-    {
-      "asset": "PCE headline",
-      "value": "3.7% YoY",
-      "asOf": "2026-07 publicado 2026-08-26",
-      "interpretation": "Inflación pegajosa y ligeramente arriba del consenso."
-    },
-    {
-      "asset": "Brent",
-      "value": "~USD 86",
-      "asOf": "2026-08-26 mañana",
-      "interpretation": "Menor prima geopolítica por diplomacia; tráfico físico aún deprimido."
-    }
+    {"asset":"AGCI Greed","value":"86/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Greed; no ampliar beta indiscriminadamente."},
+    {"asset":"AGCI Valuation","value":"85/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Valuation; exigir margen de seguridad."},
+    {"asset":"Nvidia revenue","value":"USD 96.22B","asOf":"FY27 Q2 reportado 2026-08-26","interpretation":"Confirmación material de demanda AI."},
+    {"asset":"U.S. initial jobless claims","value":"203K","asOf":"semana terminada 2026-08-22","interpretation":"Layoffs bajos; menor urgencia de giro dovish."}
   ],
   "equities": [
-    {
-      "ticker": "GOOGL",
-      "classification": "COMPRAR EN TRAMOS",
-      "confidence": "Alta",
-      "thesis": "Balance y FCF permiten financiar AI internamente; exigir fair value y retorno del capex."
-    },
-    {
-      "ticker": "META",
-      "classification": "MANTENER/COMPRAR EN CORRECCIONES",
-      "confidence": "Alta",
-      "thesis": "Autofinanciación fuerte; vigilar retorno incremental del capex AI."
-    },
-    {
-      "ticker": "MSFT",
-      "classification": "MANTENER/COMPRAR EN CORRECCIONES",
-      "confidence": "Alta",
-      "thesis": "Calidad de balance y recurrencia, con sensibilidad a duration y magnitud del capex."
-    },
-    {
-      "ticker": "AMZN",
-      "classification": "MANTENER/COMPRAR EN CORRECCIONES",
-      "confidence": "Alta",
-      "thesis": "AWS y advertising sostienen tesis; medir FCF post-capex y financiación incremental."
-    },
-    {
-      "ticker": "NVDA",
-      "classification": "VIGILAR / NO PERSEGUIR ANTES DE RESULTADOS",
-      "confidence": "Alta",
-      "thesis": "Validar demanda, margen, Rubin, customer financing, concentración de riesgo y retorno del ecosistema."
-    },
-    {
-      "ticker": "CRM",
-      "classification": "VIGILAR RESULTADOS",
-      "confidence": "Media-Alta",
-      "thesis": "La prueba es monetización AI, retención y margen; adopción no equivale automáticamente a valor accionista."
-    },
-    {
-      "ticker": "ANET",
-      "classification": "VIGILAR / BENEFICIARIO AI CAPEX",
-      "confidence": "Media-Alta",
-      "thesis": "Networking favorecido estructuralmente; exigir valoración defendible y utilización de capacidad."
-    },
-    {
-      "ticker": "VRT",
-      "classification": "VIGILAR / BENEFICIARIO AI INFRA",
-      "confidence": "Media-Alta",
-      "thesis": "Power/cooling favorecido por data centers; sensible a permisos, múltiplo y costo de capital."
-    },
-    {
-      "ticker": "TLT",
-      "classification": "CAUTELA / ESCALONAR",
-      "confidence": "Alta",
-      "thesis": "PCE pegajoso no justifica concentración agresiva en duration larga."
-    },
-    {
-      "ticker": "EWW",
-      "classification": "VIGILAR / SESGO CONSTRUCTIVO",
-      "confidence": "Media",
-      "thesis": "Nearshoring sigue atractivo, pero la disputa EE.UU.-Canadá aumenta la incertidumbre institucional del T-MEC."
-    }
+    {"ticker":"NVDA","action":"MANTENER / COMPRAR SÓLO EN TRAMOS","thesis":"Demanda y guidance fortalecen la tesis estructural, pero el precio de entrada sigue gobernado por fair value, margen, memoria y calidad de financiación."},
+    {"ticker":"CRM","action":"VIGILAR","thesis":"Monetización AI y revisión al alza de forecasts mejoran calidad relativa; validar crecimiento orgánico y margen."},
+    {"ticker":"CRWD","action":"VIGILAR","thesis":"Seguridad mantiene ventaja estructural si AI mejora productividad y monetización sin deteriorar retención."}
   ],
-  "travel": [
-    {
-      "destination": "Oaxaca",
-      "airport": "NLU",
-      "fare": "MXN 1,643",
-      "dates": "13–15 sep 2026",
-      "classification": "Tarifa previa; revalidar antes de reservar"
-    },
-    {
-      "destination": "Ciudad de Guatemala",
-      "airport": "MEX",
-      "fare": "MXN 4,623",
-      "dates": "14–28 sep 2026",
-      "classification": "Tarifa previa; revalidar antes de reservar"
-    },
-    {
-      "destination": "Madrid",
-      "airport": "MEX",
-      "fare": "MXN 11,899",
-      "dates": "2–9 dic 2026",
-      "classification": "Tarifa previa; revalidar antes de reservar"
-    }
-  ],
+  "travel": [],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
-    "No interpretar Greed 86 como confirmación de risk-on: Valuation permanece en 85.",
-    "Evitar una posición binaria grande en NVDA antes del reporte y preparar escenarios post-earnings.",
-    "Añadir calidad de financiación, permisos y utilización de data centers al score de AI capex.",
-    "Evaluar software por monetización, retención y economics, no por narrativa AI.",
-    "Mantener duration escalonada después de PCE 3.7%.",
-    "Mantener hedge energético pequeño hasta que Hormuz normalice físicamente.",
-    "Mantener estrés inmobiliario de +50/+100 pb y DSCR conservador.",
-    "Elevar vigilancia T-MEC por la escalada EE.UU.-Canadá sin anticipar decisiones oficiales mexicanas."
+    "No perseguir el gap post-earnings de Nvidia; usar compras por tramos y fair value.",
+    "Mantener duration escalonada hasta observar una mejora clara de inflación o deterioro laboral.",
+    "Conservar estrés inmobiliario de +50/+100 pb y DSCR conservador.",
+    "Mantener exposición AI sesgada a compañías con monetización, balance y FCF demostrables."
   ],
-  "sources": [
-    {
-      "name": "AGCI Greed + Valuation live engine",
-      "asOf": "2026-08-26"
-    },
-    {
-      "name": "BEA / Reuters — July PCE and Q2 GDP second estimate",
-      "asOf": "2026-08-26"
-    },
-    {
-      "name": "Authorized Gmail — The Barron's Daily: Nvidia's Big Day",
-      "asOf": "2026-08-26"
-    },
-    {
-      "name": "Authorized Gmail — Barron's Tech: The Nvidia Paradox",
-      "asOf": "2026-08-26"
-    },
-    {
-      "name": "Reuters — Iran and Oman reach accord on Strait of Hormuz",
-      "asOf": "2026-08-26"
-    },
-    {
-      "name": "Reuters — U.S. inflation remains sticky in July",
-      "asOf": "2026-08-26"
-    },
-    {
-      "name": "Reuters — U.S.-Canada tariff stand-off and USMCA risk",
-      "asOf": "2026-08-25"
-    },
-    {
-      "name": "Reuters — New U.S. single-family home sales slide in July",
-      "asOf": "2026-08-25"
-    },
-    {
-      "name": "Authorized Gmail — The Economist review; no new delivery after prior cutoff",
-      "asOf": "2026-08-26"
-    }
-  ],
-  "legalDisclaimer": "Contenido informativo y de apoyo a decisiones; no constituye asesoría financiera, fiscal, legal ni una recomendación personalizada de compra o venta. Verificar precios, liquidez, condiciones de mercado y situación personal antes de ejecutar.",
-  "pdfUrl": null,
   "audio": {
-    "target": "Morning Intelligence ≤4 minutes",
-    "preferredEngine": "Google Chirp 3 HD",
     "chapters": [
-      {
-        "id": "apertura",
-        "title": "Apertura",
-        "speaker": "CIO",
-        "text": "Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed está en ochenta y seis y Valuation en ochenta y cinco. El PCE de julio se mantiene en tres punto siete por ciento anual, ligeramente arriba del consenso. Entramos a Nvidia con un costo de capital todavía exigente y con una nueva pregunta: no sólo cuánto crece AI, sino cómo se financia ese crecimiento."
-      },
-      {
-        "id": "senales",
-        "title": "Señales principales",
-        "speaker": "CIO",
-        "text": "Tres señales dominan la sesión. Primero, inflación pegajosa mantiene viva la discusión de tasas. Segundo, la psicología sigue extrema sin alivio de valoración. Tercero, el snapshot premium de Barron's eleva el riesgo de calidad del capital: deuda, equity, garantías y oposición local a nuevos data centers importan ya tanto como chips y backlog."
-      },
-      {
-        "id": "mercados",
-        "title": "Mercados y Greed",
-        "speaker": "ANALISTA",
-        "text": "El S&P 500 cerró el martes en siete mil seiscientos setenta y siete punto veintiocho y el VIX en quince punto cuarenta y cinco. Semiconductores lideraron el rebote, pero AGCI Greed permanece en ochenta y seis y Valuation en ochenta y cinco. Consideramos el movimiento táctico, no una confirmación amplia de risk-on."
-      },
-      {
-        "id": "inversion",
-        "title": "Inversión y Nvidia",
-        "speaker": "ANALISTA",
-        "text": "Nvidia reporta después del cierre. Barron's recuerda que la empresa ha superado consensos repetidamente y aun así la acción cayó al día siguiente en seis de los últimos ocho trimestres. Revisaremos ingresos, margen, Rubin, calidad de órdenes, customer financing y guidance. Un beat sólo será valioso si confirma retorno económico y no sólo expectativas más altas."
-      },
-      {
-        "id": "mexico",
-        "title": "México y geopolítica",
-        "speaker": "CIO",
-        "text": "La disputa comercial entre Estados Unidos y Canadá eleva la incertidumbre alrededor de la futura arquitectura del T-MEC. México mantiene una estrategia de menor fricción, pero no anticipamos acuerdos no publicados. En Hormuz hay avances entre Irán y Omán, aunque la reapertura sigue condicionada y el tráfico físico permanece deprimido."
-      },
-      {
-        "id": "capital",
-        "title": "Capital y bienes raíces",
-        "speaker": "ANALISTA",
-        "text": "Las ventas de casas nuevas en Estados Unidos cayeron diez punto cinco por ciento en julio y las hipotecas a treinta años rondan seis punto ocho por ciento. No relajamos underwriting. Conservamos estrés de cincuenta a cien puntos base, DSCR robusto y preferencia por activos con flujos resistentes en lugar de depender de una caída rápida de tasas."
-      },
-      {
-        "id": "ia",
-        "title": "AI y calidad del capital",
-        "speaker": "ANALISTA",
-        "text": "El ciclo AI entra en una fase donde financiación y permisos importan más. Barron's estima más de setecientos mil millones de dólares de capex este año entre los principales hyperscalers y observa más uso de deuda y equity en el ecosistema. Favorecemos compañías con flujo propio y retorno incremental demostrable. Más gasto no es automáticamente más valor."
-      },
-      {
-        "id": "viajes",
-        "title": "Oportunidades de viaje",
-        "speaker": "ANALISTA",
-        "text": "No se validó una nueva tarifa material durante este corte. Las oportunidades previas a Oaxaca, Ciudad de Guatemala y Madrid permanecen únicamente como referencias y deben revalidarse antes de reservar. AGCI no presentará precios antiguos como oportunidades actuales sin una comprobación nueva de disponibilidad y costo total."
-      },
-      {
-        "id": "acciones",
-        "title": "Qué haría hoy",
-        "speaker": "CIO",
-        "text": "Mantendría diez a quince por ciento de liquidez desplegable, duration escalonada y un hedge energético pequeño mientras Hormuz no normalice físicamente. No aumentaría de forma importante Nvidia antes del reporte. Añadiría calidad de financiación, permisos y utilización al score de AI. Con Valuation en ochenta y cinco, exigiría precio, balance y earnings alineados antes de comprometer capital."
-      }
+      {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"Hoy la señal central cambia en tecnología, no en disciplina de portafolio. Nvidia confirmó una demanda de inteligencia artificial mucho más fuerte de lo esperado, pero AGCI sigue viendo Greed extremo y Valuation extrema. La consecuencia es mantener liquidez y aumentar exposición sólo cuando precio y calidad coincidan."},
+      {"id":"senales","title":"Señales que cambiaron","speaker":"CIO","text":"La primera señal es Nvidia: ingresos de noventa y seis punto veintidós mil millones de dólares, data center de ochenta y nueve mil millones y guidance de ciento ocho mil millones. La segunda es laboral: initial claims bajan a doscientos tres mil, señal de layoffs todavía contenidos."},
+      {"id":"mercados","title":"Mercados y riesgo","speaker":"ANALISTA","text":"Los mercados globales estabilizan tras el reporte de Nvidia y mejora el sentimiento tecnológico. Sin embargo, el último snapshot AGCI mantiene Greed en ochenta y seis y Valuation en ochenta y cinco. La mejora fundamental de AI no representa una corrección de múltiplos ni una señal general de compra."},
+      {"id":"inversion","title":"Radar de inversión","speaker":"ANALISTA","text":"En AI favorecemos empresas con monetización visible, balances sólidos y capacidad de financiar crecimiento con flujo propio. Nvidia, Broadcom, Arista, Vertiv y hyperscalers pueden seguir creando valor, pero evitamos perseguir movimientos verticales. Salesforce y CrowdStrike entran en vigilancia por ejecución, recurrencia y monetización de AI."},
+      {"id":"mexico","title":"México y T-MEC","speaker":"CIO","text":"No hubo un nuevo acuerdo material México Estados Unidos en este corte. La incertidumbre sobre la arquitectura futura del T-MEC sigue siendo una variable de capital allocation. Para nearshoring, priorizamos proyectos con trazabilidad de origen, flexibilidad de proveedores y rentabilidad que sobreviva escenarios de aranceles y reglas más estrictas."},
+      {"id":"capital","title":"Capital y bienes raíces","speaker":"ANALISTA","text":"El mercado laboral resistente y el PCE pegajoso reducen la urgencia de un giro dovish. Mantenemos duration escalonada, liquidez del diez al quince por ciento y estrés inmobiliario de cincuenta a cien puntos base. No asumimos una caída rápida del costo hipotecario ni de cap rates."},
+      {"id":"ia","title":"AI y calidad del capital","speaker":"ANALISTA","text":"La conclusión de Nvidia es positiva, pero ahora el análisis debe pasar de demanda a calidad. Observamos margen bruto, costos de memoria, ejecución de Rubin, utilización de data centers y financiación de clientes. El crecimiento financiado con deuda, equity o garantías excesivas merece una tasa de descuento más alta."},
+      {"id":"acciones","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría posiciones de calidad, evitaría una compra grande después del gap de Nvidia y reservaría liquidez para retrocesos. No ampliaría duration de forma concentrada antes de mayor claridad de Fed. En real estate conservaría DSCR conservador. La regla sigue siendo simple: comprar calidad sólo dentro de fair value."}
     ]
-  }
+  },
+  "sources": [
+    {"name":"Reuters — Nvidia earnings and outlook","url":"https://www.reuters.com/business/media-telecom/nvidia-forecasts-quarterly-revenue-above-estimates-2026-08-26/","asOf":"2026-08-26"},
+    {"name":"Reuters — U.S. jobless claims","url":"https://www.reuters.com/world/us/jobless-claims-dip-latest-week-goods-trade-deficit-widens-july-2026-08-27/","asOf":"2026-08-27"},
+    {"name":"Reuters — global markets","url":"https://www.reuters.com/world/china/global-markets-wrapup-1-2026-08-27/","asOf":"2026-08-27"},
+    {"name":"Barron's authorized Gmail newsletter — Nvidia Relights the AI Fire","url":"https://www.barrons.com/","asOf":"2026-08-27"},
+    {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-08-26"}
+  ],
+  "legal": "Contenido informativo y analítico. No constituye recomendación personalizada, oferta, asesoría financiera, fiscal o legal. Toda inversión implica riesgo y requiere verificación independiente de precios, liquidez, impuestos y circunstancias del inversionista."
 }
