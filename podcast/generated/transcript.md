@@ -1,39 +1,35 @@
 # AGCI Morning Intelligence
 
-**2026-08-26 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-27 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
-## Apertura
+## Apertura ejecutiva
 
-**CIO:** Buenos días. AGCI mantiene riesgo selectivo con liquidez. Greed está en ochenta y seis y Valuation en ochenta y cinco. El PCE de julio se mantiene en tres punto siete por ciento anual, ligeramente arriba del consenso.
+**CIO:** Hoy la señal central cambia en tecnología, no en disciplina de portafolio. Nvidia confirmó una demanda de inteligencia artificial mucho más fuerte de lo esperado, pero AGCI sigue viendo Greed extremo y Valuation extrema. La consecuencia es mantener liquidez y aumentar exposición sólo cuando precio y calidad coincidan.
 
-## Señales principales
+## Señales que cambiaron
 
-**CIO:** Tres señales dominan la sesión. Primero, inflación pegajosa mantiene viva la discusión de tasas. Segundo, la psicología sigue extrema sin alivio de valoración. Tercero, el snapshot premium de Barron's eleva el riesgo de calidad del capital: deuda, equity, garantías y oposición local a nuevos data centers importan ya tanto como chips y backlog.
+**CIO:** La primera señal es Nvidia: ingresos de noventa y seis punto veintidós mil millones de dólares, data center de ochenta y nueve mil millones y guidance de ciento ocho mil millones. La segunda es laboral: initial claims bajan a doscientos tres mil, señal de layoffs todavía contenidos.
 
-## Mercados y Greed
+## Mercados y riesgo
 
-**ANALISTA:** El S&P 500 cerró el martes en siete mil seiscientos setenta y siete punto veintiocho y el VIX en quince punto cuarenta y cinco. Semiconductores lideraron el rebote, pero AGCI Greed permanece en ochenta y seis y Valuation en ochenta y cinco. Consideramos el movimiento táctico, no una confirmación amplia de risk-on.
+**ANALISTA:** Los mercados globales estabilizan tras el reporte de Nvidia y mejora el sentimiento tecnológico. Sin embargo, el último snapshot AGCI mantiene Greed en ochenta y seis y Valuation en ochenta y cinco. La mejora fundamental de AI no representa una corrección de múltiplos ni una señal general de compra.
 
-## Inversión y Nvidia
+## Radar de inversión
 
-**ANALISTA:** Nvidia reporta después del cierre. Barron's recuerda que la empresa ha superado consensos repetidamente y aun así la acción cayó al día siguiente en seis de los últimos ocho trimestres. Revisaremos ingresos, margen, Rubin, calidad de órdenes, customer financing y guidance. Un beat sólo será valioso si confirma retorno económico y no sólo expectativas más altas.
+**ANALISTA:** En AI favorecemos empresas con monetización visible, balances sólidos y capacidad de financiar crecimiento con flujo propio. Nvidia, Broadcom, Arista, Vertiv y hyperscalers pueden seguir creando valor, pero evitamos perseguir movimientos verticales. Salesforce y CrowdStrike entran en vigilancia por ejecución, recurrencia y monetización de AI.
 
-## México y geopolítica
+## México y T-MEC
 
-**CIO:** La disputa comercial entre Estados Unidos y Canadá eleva la incertidumbre alrededor de la futura arquitectura del T-MEC. México mantiene una estrategia de menor fricción, pero no anticipamos acuerdos no publicados. En Hormuz hay avances entre Irán y Omán, aunque la reapertura sigue condicionada y el tráfico físico permanece deprimido.
+**CIO:** No hubo un nuevo acuerdo material México Estados Unidos en este corte. La incertidumbre sobre la arquitectura futura del T-MEC sigue siendo una variable de capital allocation. Para nearshoring, priorizamos proyectos con trazabilidad de origen, flexibilidad de proveedores y rentabilidad que sobreviva escenarios de aranceles y reglas más estrictas.
 
 ## Capital y bienes raíces
 
-**ANALISTA:** Las ventas de casas nuevas en Estados Unidos cayeron diez punto cinco por ciento en julio y las hipotecas a treinta años rondan seis punto ocho por ciento. No relajamos underwriting.
+**ANALISTA:** El mercado laboral resistente y el PCE pegajoso reducen la urgencia de un giro dovish. Mantenemos duration escalonada, liquidez del diez al quince por ciento y estrés inmobiliario de cincuenta a cien puntos base. No asumimos una caída rápida del costo hipotecario ni de cap rates.
 
 ## AI y calidad del capital
 
-**ANALISTA:** El ciclo AI entra en una fase donde financiación y permisos importan más. Barron's estima más de setecientos mil millones de dólares de capex este año entre los principales hyperscalers y observa más uso de deuda y equity en el ecosistema.
-
-## Oportunidades de viaje
-
-**ANALISTA:** No se validó una nueva tarifa material durante este corte. Las oportunidades previas a Oaxaca, Ciudad de Guatemala y Madrid permanecen únicamente como referencias y deben revalidarse antes de reservar.
+**ANALISTA:** La conclusión de Nvidia es positiva, pero ahora el análisis debe pasar de demanda a calidad. Observamos margen bruto, costos de memoria, ejecución de Rubin, utilización de data centers y financiación de clientes.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría diez a quince por ciento de liquidez desplegable, duration escalonada y un hedge energético pequeño mientras Hormuz no normalice físicamente. No aumentaría de forma importante Nvidia antes del reporte. Añadiría calidad de financiación, permisos y utilización al score de AI. Con Valuation en ochenta y cinco, exigiría precio, balance y earnings alineados antes de comprometer capital.
+**CIO:** Mantendría posiciones de calidad, evitaría una compra grande después del gap de Nvidia y reservaría liquidez para retrocesos. No ampliaría duration de forma concentrada antes de mayor claridad de Fed. En real estate conservaría DSCR conservador. La regla sigue siendo simple: comprar calidad sólo dentro de fair value.
