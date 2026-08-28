@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-27",
-  "timestamp": "2026-08-27T07:15:16-06:00",
+  "date": "2026-08-28",
+  "timestamp": "2026-08-28T07:16:29-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
@@ -9,82 +9,82 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "Nvidia / Reuters",
-      "newsletter": "Post-earnings verification — 26/27 Aug 2026",
-      "headline": "Nvidia validates the AI demand cycle with $96.22B revenue and $108B next-quarter guidance",
-      "category": "AI / Semiconductors / Capital Allocation",
+      "publisher": "Barron's / Federal Reserve",
+      "newsletter": "The Barron's Daily — Fed’s Silence Could Be Deafening — 28 Aug 2026",
+      "headline": "Jackson Hole becomes the immediate macro catalyst; AGCI will not infer Warsh's policy message before the 10:00 a.m. ET keynote",
+      "category": "Macro / Federal Reserve / Rates / Capital Allocation",
       "relevance": 100,
-      "summary": "Nvidia reported quarterly revenue of $96.22 billion, above expectations, with data-center revenue of $89 billion. Management guided next-quarter revenue to about $108 billion and projected roughly 70% revenue growth for the fiscal year ending January 2028, citing broadening demand across hyperscalers, AI labs, enterprises, sovereign buyers and industrial customers.",
-      "whyItMatters": "The earnings result materially strengthens the structural AI-demand thesis, but does not remove valuation or financing risk. AGCI upgrades confidence in infrastructure demand while keeping a high hurdle rate on customer economics, memory constraints, margins and capital intensity.",
-      "assets": ["NVDA", "SMH", "SOXX", "QQQ", "AVGO", "ANET", "VRT", "AMZN", "META", "GOOGL", "MSFT"],
-      "agciSignal": "AI DEMAND CONFIRMED / QUALITY UP / VALUATION DISCIPLINE STILL REQUIRED",
-      "sourceUrl": "https://www.reuters.com/business/media-telecom/nvidia-forecasts-quarterly-revenue-above-estimates-2026-08-26/"
+      "summary": "Barron's centers today's risk setup on Chair Kevin Warsh's Jackson Hole keynote. The Federal Reserve calendar confirms the speech for 10:00 a.m. ET on August 28. Until the remarks are delivered, the only confirmed fact is event timing; no dovish or hawkish policy conclusion is assumed.",
+      "whyItMatters": "With sticky inflation, resilient labor and long-duration valuations still elevated, a material change in the Fed reaction function could reprice Treasuries, the dollar, growth equities and real estate. AGCI keeps duration staggered and avoids positioning the portfolio around an unconfirmed speech outcome.",
+      "assets": ["TLT", "IEF", "SHY", "DXY", "SPY", "QQQ", "VNQ", "GLD"],
+      "agciSignal": "EVENT RISK HIGH / DO NOT PRE-POSITION ON UNCONFIRMED FED MESSAGE",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-august.htm"
     },
     {
       "rank": 2,
-      "publisher": "Barron's",
-      "newsletter": "The Barron's Daily — Nvidia Relights the AI Fire — 27 Aug 2026",
-      "headline": "Barron's frames Nvidia, Salesforce and CrowdStrike as evidence that established AI leaders retain pricing and execution advantages",
-      "category": "Technology / AI / Software",
+      "publisher": "Barron's / Reuters",
+      "newsletter": "Daily Roundup + Review & Preview — 27/28 Aug 2026",
+      "headline": "Marvell shows that strong AI exposure is no longer enough when revenue timing and valuation fail the market's hurdle",
+      "category": "AI / Semiconductors / Valuation",
       "relevance": 98,
-      "summary": "The new Barron's Daily emphasizes renewed confidence in established AI leaders after Nvidia's report and highlights solid execution across selected enterprise software and cybersecurity names. The material investment takeaway is that the market is rewarding demonstrated monetization and execution rather than AI branding alone.",
-      "whyItMatters": "AGCI should distinguish proven monetizers from narrative beneficiaries. Strong post-earnings confirmation supports selective exposure to AI infrastructure and software franchises with durable recurring economics, but does not justify broad multiple expansion at any price.",
-      "assets": ["NVDA", "CRM", "CRWD", "NTNX", "QQQ", "IGV"],
-      "agciSignal": "PROVEN AI MONETIZATION > AI NARRATIVE / SELECTIVITY RISES",
-      "sourceUrl": "https://www.barrons.com/"
+      "summary": "Marvell reported solid results and raised longer-term revenue expectations, yet shares fell about 8% premarket as investors focused on the timing of revenue from its Alphabet custom-AI-chip relationship. Material contributions are expected to become more important later, while the stock still trades at a premium multiple.",
+      "whyItMatters": "The post-Nvidia phase of the AI trade is becoming more discriminating. AGCI should reward near-term monetization, margin durability and cash-flow visibility rather than assign the same premium to every company with AI exposure.",
+      "assets": ["MRVL", "GOOGL", "AVGO", "NVDA", "MU", "SMH", "SOXX"],
+      "agciSignal": "AI SELECTIVITY RISES / MONETIZATION TIMING > NARRATIVE",
+      "sourceUrl": "https://www.reuters.com/business/marvell-shares-slide-concerns-over-timing-google-ai-deal-revenue-eclipse-strong-2026-08-28/"
     },
     {
       "rank": 3,
-      "publisher": "U.S. Labor Department / Reuters",
-      "newsletter": "U.S. labor data — 27 Aug 2026",
-      "headline": "Initial jobless claims fall to 203,000, keeping the labor market resilient",
-      "category": "Macro / Federal Reserve / Rates",
-      "relevance": 97,
-      "summary": "Initial U.S. jobless claims fell by 4,000 to 203,000 in the week ended August 22, below the 208,000 consensus. Continuing claims also declined to 1.778 million. The data indicate low layoff intensity despite softer employment readings elsewhere.",
-      "whyItMatters": "A resilient labor market gives the Fed more room to prioritize inflation control. Combined with sticky PCE, this argues against assuming rapid rate relief and supports keeping duration staggered and real-estate underwriting conservative.",
-      "assets": ["TLT", "IEF", "SHY", "DXY", "SPY", "QQQ", "VNQ"],
-      "agciSignal": "LABOR RESILIENT / FED RELIEF NOT URGENT / KEEP HURDLE RATE HIGH",
-      "sourceUrl": "https://www.reuters.com/world/us/jobless-claims-dip-latest-week-goods-trade-deficit-widens-july-2026-08-27/"
+      "publisher": "Reuters / LSEG Lipper",
+      "newsletter": "Fund flows — week ended 26 Aug 2026",
+      "headline": "U.S. equity funds suffer their largest weekly outflow since March despite renewed AI optimism",
+      "category": "Markets / Flows / Capital Allocation",
+      "relevance": 96,
+      "summary": "U.S. equity funds recorded net outflows of about $22.33 billion in the week through August 26, the largest weekly withdrawal since March. Large-cap funds bore most of the selling, while technology still attracted inflows and bond funds continued to receive capital.",
+      "whyItMatters": "The flow picture argues against reading the Nvidia rally as broad risk-on confirmation. AGCI treats the divergence between technology enthusiasm and large-cap outflows as a reason to keep liquidity and demand breadth confirmation before increasing beta.",
+      "assets": ["SPY", "QQQ", "IWM", "TLT", "LQD", "HYG", "SMH"],
+      "agciSignal": "BREADTH/FLOWS NOT CONFIRMED / KEEP LIQUIDITY",
+      "sourceUrl": "https://www.reuters.com/business/us-equity-funds-post-biggest-weekly-outflow-since-march-ahead-nvidia-earnings-2026-08-28/"
     },
     {
       "rank": 4,
       "publisher": "Reuters",
-      "newsletter": "Global markets — 27 Aug 2026",
-      "headline": "Global equities stabilize as Nvidia's outlook lifts technology sentiment",
-      "category": "Markets / Risk Appetite / Technology",
-      "relevance": 94,
-      "summary": "Global stocks steadied after Nvidia's stronger-than-expected outlook supported technology shares. The reaction confirms that AI earnings remain a major marginal driver of equity risk appetite.",
-      "whyItMatters": "The post-earnings rally improves near-term breadth potential in technology, but AGCI should not infer a market-wide valuation reset. Confirmation from credit, volatility and broader earnings remains necessary before increasing beta materially.",
-      "assets": ["SPY", "QQQ", "SMH", "SOXX", "VIX"],
-      "agciSignal": "TECH SENTIMENT IMPROVES / WAIT FOR BREADTH CONFIRMATION",
-      "sourceUrl": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-08-27/"
+      "newsletter": "Iran / Hormuz — 28 Aug 2026",
+      "headline": "Hormuz diplomacy advances, but physical normalization remains incomplete and oil risk premium persists",
+      "category": "Geopolitics / Energy / Inflation",
+      "relevance": 95,
+      "summary": "Mediators intensified efforts to reopen the Strait of Hormuz and Tehran agreed to draft conditions for restoring more normal maritime traffic. Some flows have resumed, but traffic remains below normal; Brent traded near $89.65 and was still on track for a weekly decline after earlier spikes.",
+      "whyItMatters": "The probability of an extreme supply shock has eased at the margin, but the route is not normalized. AGCI keeps only a moderate energy tail hedge and avoids chasing crude while monitoring shipping volumes, sanctions and mine-clearance progress.",
+      "assets": ["BNO", "USO", "XLE", "CVX", "XOM", "TLT", "GLD", "DXY"],
+      "agciSignal": "TAIL RISK EASING MARGINALLY / HEDGE, DO NOT CHASE",
+      "sourceUrl": "https://www.reuters.com/world/middle-east/iran-war-diplomacy-turns-toward-reopening-strait-hormuz-2026-08-28/"
     },
     {
       "rank": 5,
-      "publisher": "Reuters",
-      "newsletter": "North America trade watch",
-      "headline": "USMCA uncertainty remains a capital-allocation risk for North American manufacturing",
-      "category": "Mexico / USMCA / Industrial Investment",
+      "publisher": "Reuters / S&P Global Ratings",
+      "newsletter": "China macro — 28 Aug 2026",
+      "headline": "China retains A+ stable rating, but property weakness and soft domestic demand remain the core constraint",
+      "category": "China / Macro / Real Estate",
       "relevance": 89,
-      "summary": "No new Mexico-U.S. agreement was announced in this review window. Recent corporate commentary, including Honda's warning that future North American investment could change if USMCA continuity weakens, reinforces that trade architecture remains a live investment variable.",
-      "whyItMatters": "For Mexico and nearshoring, AGCI should continue favoring projects with strong rules-of-origin compliance, flexible supply chains and economics that remain viable under tariff stress rather than assuming seamless treaty continuity.",
-      "assets": ["EWW", "MXN", "GM", "F", "STLA", "TM", "HMC"],
-      "agciSignal": "NEARSHORING POSITIVE BUT TREATY RISK PERSISTS / REQUIRE TRACEABILITY",
-      "sourceUrl": "https://www.reuters.com/business/autos-transportation/honda-says-it-may-not-build-new-plant-in-north-america-without-trade-deal-extension-2026-08-25/"
+      "summary": "S&P affirmed China's A+ sovereign rating with a stable outlook and expects growth above 4% over the next one to two years, supported by fiscal measures and manufacturing strength. The rating agency still identifies the prolonged property downturn and weak domestic demand as major vulnerabilities.",
+      "whyItMatters": "AGCI keeps China exposure selective. Fiscal support and manufacturing resilience help the macro floor, but broad beta remains less attractive until household demand and property balance-sheet stress improve more convincingly.",
+      "assets": ["FXI", "MCHI", "KWEB", "ASHR", "CNH", "BABA", "JD"],
+      "agciSignal": "CHINA FLOOR IMPROVES / PROPERTY DEMAND STILL BLOCKS BROAD RISK-ON",
+      "sourceUrl": "https://www.reuters.com/world/asia-pacific/sp-affirms-chinas-a-rating-sees-growth-above-4-fiscal-support-continues-2026-08-28/"
     }
   ],
   "watch": [
-    "Nvidia post-earnings price action: verify whether breadth expands beyond semiconductors",
-    "Nvidia gross margin, memory constraints, Rubin execution and customer financing quality",
-    "Salesforce/CrowdStrike/enterprise software: separate durable monetization from AI narrative",
-    "Jackson Hole keynote on 28 August and any change in Fed reaction function",
-    "Sticky PCE plus resilient jobless claims: monitor 2Y/10Y/30Y repricing",
+    "Kevin Warsh Jackson Hole keynote at 10:00 a.m. ET on 28 August: update only after confirmed remarks",
+    "Marvell/Alphabet custom silicon: timing of revenue, margins and customer concentration",
+    "Micron and HBM/memory pricing as a constraint on AI system economics",
+    "U.S. equity-fund outflows versus technology inflows: require breadth confirmation",
     "AGCI Greed remains 86 and Valuation 85 until next live engine refresh",
-    "Hormuz physical normalization and oil risk premium",
-    "USMCA/nearshoring: rules of origin, autos, steel and aluminum",
+    "Hormuz shipping normalization, sanctions enforcement and Brent risk premium",
+    "China property and household demand versus fiscal/manufacturing support",
+    "USMCA/nearshoring: no new official material agreement in this cycle",
     "Real estate underwriting remains +50/+100 bp stress",
     "The Economist — no new newsletter found in authorized Gmail after the prior cutoff",
-    "Travel — no newly validated material fare in this cycle"
+    "Travel — no newly validated material fare/opportunity in this cycle"
   ],
   "excluded": [
     {
@@ -94,6 +94,10 @@
     {
       "headline": "Private newsletter tracking links",
       "reason": "Tracking URLs from authorized Gmail are intentionally not stored; publisher-level attribution and original AGCI summaries are retained instead."
+    },
+    {
+      "headline": "Unconfirmed interpretation of Warsh's speech",
+      "reason": "The speech had not yet occurred at this review cutoff; AGCI records the event risk but does not fabricate a policy signal."
     },
     {
       "headline": "Non-material daily market noise",
