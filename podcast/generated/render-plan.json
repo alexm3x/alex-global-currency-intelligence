@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "date": "2026-08-27",
-  "totalWords": 391,
+  "date": "2026-08-28",
+  "totalWords": 365,
   "targetSeconds": 240,
   "primaryPlayback": "deviceSpeech",
   "fallbackVoiceMode": "dual-espeak",
@@ -13,67 +13,76 @@
       "file": "podcast/generated/segments/00.txt",
       "title": "Apertura ejecutiva",
       "category": "apertura",
-      "words": 50
+      "words": 56
     },
     {
       "index": 1,
-      "speaker": "CIO",
-      "voice": "es+m3",
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
       "file": "podcast/generated/segments/01.txt",
-      "title": "Señales que cambiaron",
-      "category": "senales",
-      "words": 50
+      "title": "Fed y Jackson Hole",
+      "category": "general",
+      "words": 36
     },
     {
       "index": 2,
-      "speaker": "ANALISTA",
-      "voice": "es+f3",
+      "speaker": "CIO",
+      "voice": "es+m3",
       "file": "podcast/generated/segments/02.txt",
-      "title": "Mercados y riesgo",
-      "category": "mercados",
-      "words": 52
+      "title": "AI entra en fase selectiva",
+      "category": "general",
+      "words": 23
     },
     {
       "index": 3,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/03.txt",
-      "title": "Radar de inversión",
-      "category": "inversion",
-      "words": 48
+      "title": "Flujos y amplitud",
+      "category": "general",
+      "words": 24
     },
     {
       "index": 4,
-      "speaker": "CIO",
-      "voice": "es+m3",
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
       "file": "podcast/generated/segments/04.txt",
-      "title": "México y T-MEC",
-      "category": "mexico",
-      "words": 52
+      "title": "Hormuz y energía",
+      "category": "general",
+      "words": 41
     },
     {
       "index": 5,
-      "speaker": "ANALISTA",
-      "voice": "es+f3",
+      "speaker": "CIO",
+      "voice": "es+m3",
       "file": "podcast/generated/segments/05.txt",
-      "title": "Capital y bienes raíces",
-      "category": "capital",
-      "words": 50
+      "title": "China y real estate",
+      "category": "general",
+      "words": 49
     },
     {
       "index": 6,
-      "speaker": "ANALISTA",
-      "voice": "es+f3",
+      "speaker": "CIO",
+      "voice": "es+m3",
       "file": "podcast/generated/segments/06.txt",
-      "title": "AI y calidad del capital",
-      "category": "ia",
-      "words": 38
+      "title": "México y T-MEC",
+      "category": "mexico",
+      "words": 36
     },
     {
       "index": 7,
+      "speaker": "ANALISTA",
+      "voice": "es+f3",
+      "file": "podcast/generated/segments/07.txt",
+      "title": "Capital allocation",
+      "category": "capital",
+      "words": 49
+    },
+    {
+      "index": 8,
       "speaker": "CIO",
       "voice": "es+m3",
-      "file": "podcast/generated/segments/07.txt",
+      "file": "podcast/generated/segments/08.txt",
       "title": "Qué haría hoy",
       "category": "acciones",
       "words": 51
