@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "date": "2026-08-27",
-  "timestamp": "2026-08-27T07:15:16-06:00",
+  "date": "2026-08-28",
+  "timestamp": "2026-08-28T07:16:29-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "Nvidia valida la demanda AI, pero tasas y valoración exigen disciplina",
-  "dek": "El ciclo AI recibe una confirmación fundamental importante mientras el mercado laboral estadounidense sigue resistente y AGCI mantiene Valuation extrema.",
+  "title": "Warsh es el catalizador inmediato; AI entra en una fase de mayor selectividad",
+  "dek": "Nvidia confirmó la demanda estructural, pero Marvell, flujos de fondos y Hormuz muestran que el mercado exige monetización, amplitud y disciplina de capital.",
   "stance": "Riesgo selectivo con liquidez",
   "risk": "Elevado",
   "horizon": "1–12 meses",
@@ -16,48 +16,51 @@
     "realEstateStress": "+50/+100 pb sobre financiamiento y cap rates",
     "duration": "Escalonada; evitar apuesta direccional concentrada"
   },
-  "executiveSummary": "AGCI mantiene riesgo selectivo con 10–15% de liquidez desplegable. Nvidia confirmó que la demanda de infraestructura AI sigue extraordinariamente fuerte: reportó ingresos trimestrales de USD 96.22 mil millones, data center de USD 89 mil millones y guidance de aproximadamente USD 108 mil millones para el próximo trimestre. El dato fortalece la tesis estructural de AI, pero no elimina el riesgo de valoración, márgenes, memoria y calidad del capital. En macro, las solicitudes iniciales de desempleo bajaron a 203 mil, señal de layoffs todavía bajos; combinado con PCE pegajoso, esto reduce la urgencia de alivio monetario. AGCI Greed permanece en 86/100 y Valuation en 85/100 hasta el próximo refresh del motor, por lo que la matriz continúa en EUPHORIA_RISK. Barron's refuerza una lectura selectiva: los ganadores AI con monetización y ejecución demostrables merecen prima relativa, pero no cualquier múltiplo. México/T-MEC sigue sin nuevo acuerdo material y el underwriting inmobiliario conserva estrés de +50/+100 pb. No llegó una nueva edición de The Economist ni se validó una oportunidad de viaje material.",
+  "executiveSummary": "AGCI mantiene riesgo selectivo y 10–15% de liquidez desplegable. El catalizador inmediato es el keynote de Kevin Warsh en Jackson Hole a las 10:00 a.m. ET; el discurso aún no había ocurrido al cierre de esta edición, por lo que no se anticipa una señal dovish ni hawkish. En tecnología, Nvidia confirmó la fortaleza estructural de AI, pero Marvell cayó pese a resultados sólidos porque el mercado cuestiona cuándo se monetizará su relación de custom silicon con Alphabet y cuánto del crecimiento ya está descontado. Los fondos de acciones de EE.UU. registraron aproximadamente USD 22.33 mil millones de salidas semanales, la mayor desde marzo, señal de que el rally tecnológico todavía no equivale a confirmación amplia de riesgo. Hormuz muestra avances diplomáticos y algo más de flujo físico, aunque permanece por debajo de la normalidad; el hedge energético puede mantenerse moderado sin perseguir petróleo. China conserva soporte fiscal y manufacturero, pero propiedad y demanda doméstica siguen siendo el freno. AGCI Greed permanece en 86/100 y Valuation en 85/100 hasta el próximo refresh del motor, manteniendo EUPHORIA_RISK.",
   "threeSignals": [
-    {"label":"Nvidia / AI","type":"HECHO CONFIRMADO — NVIDIA/REUTERS","summary":"Revenue USD 96.22B, data center USD 89B y guidance de USD 108B confirman demanda AI estructuralmente fuerte."},
-    {"label":"Labor / Fed","type":"HECHO CONFIRMADO — DOL/REUTERS","summary":"Initial claims bajan a 203 mil; layoffs siguen contenidos y la Fed conserva espacio para priorizar inflación."},
-    {"label":"Greed + Valuation","type":"SEÑAL PROPIETARIA AGCI","summary":"Greed 86/100 y Valuation 85/100 mantienen EUPHORIA_RISK; la mejora fundamental de AI no equivale a mercado barato."}
+    {"label":"Fed / Jackson Hole","type":"HECHO CONFIRMADO — FED","summary":"Kevin Warsh habla a las 10:00 a.m. ET; AGCI no pre-posiciona el portafolio sobre un mensaje que aún no ha sido emitido."},
+    {"label":"AI / Marvell","type":"HECHO CONFIRMADO — REUTERS + BARRON'S","summary":"Marvell cae pese a resultados sólidos: la monetización tardía y el múltiplo importan más que la exposición narrativa a AI."},
+    {"label":"Flows / Risk","type":"HECHO CONFIRMADO — LSEG LIPPER/REUTERS","summary":"Fondos de acciones de EE.UU. registran USD 22.33B de salidas, la mayor semana de reembolsos desde marzo."}
   ],
   "markets": [
     {"asset":"AGCI Greed","value":"86/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Greed; no ampliar beta indiscriminadamente."},
     {"asset":"AGCI Valuation","value":"85/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Valuation; exigir margen de seguridad."},
-    {"asset":"Nvidia revenue","value":"USD 96.22B","asOf":"FY27 Q2 reportado 2026-08-26","interpretation":"Confirmación material de demanda AI."},
-    {"asset":"U.S. initial jobless claims","value":"203K","asOf":"semana terminada 2026-08-22","interpretation":"Layoffs bajos; menor urgencia de giro dovish."}
+    {"asset":"U.S. equity fund flows","value":"-USD 22.33B","asOf":"semana terminada 2026-08-26","interpretation":"Rally tecnológico sin confirmación amplia de flujos."},
+    {"asset":"Brent","value":"~USD 89.65/bbl","asOf":"mañana 2026-08-28","interpretation":"Prima geopolítica baja desde máximos, pero Hormuz sigue sin normalizarse."}
   ],
   "equities": [
-    {"ticker":"NVDA","action":"MANTENER / COMPRAR SÓLO EN TRAMOS","thesis":"Demanda y guidance fortalecen la tesis estructural, pero el precio de entrada sigue gobernado por fair value, margen, memoria y calidad de financiación."},
-    {"ticker":"CRM","action":"VIGILAR","thesis":"Monetización AI y revisión al alza de forecasts mejoran calidad relativa; validar crecimiento orgánico y margen."},
-    {"ticker":"CRWD","action":"VIGILAR","thesis":"Seguridad mantiene ventaja estructural si AI mejora productividad y monetización sin deteriorar retención."}
+    {"ticker":"NVDA","action":"MANTENER / COMPRAR SÓLO EN TRAMOS","thesis":"Demanda AI confirmada; no perseguir múltiplos después del reporte."},
+    {"ticker":"MRVL","action":"VIGILAR / ESPERAR MEJOR TERRENO","thesis":"Custom silicon y Alphabet apoyan crecimiento de largo plazo, pero timing de revenue y múltiplo exigen descuento mayor."},
+    {"ticker":"MU","action":"VIGILAR","thesis":"HBM y memoria ganan poder económico dentro del stack AI; validar pricing, supply y sostenibilidad de margen."}
   ],
   "travel": [],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
-    "No perseguir el gap post-earnings de Nvidia; usar compras por tramos y fair value.",
-    "Mantener duration escalonada hasta observar una mejora clara de inflación o deterioro laboral.",
-    "Conservar estrés inmobiliario de +50/+100 pb y DSCR conservador.",
-    "Mantener exposición AI sesgada a compañías con monetización, balance y FCF demostrables."
+    "No anticipar una postura de Fed antes del discurso confirmado de Warsh; reaccionar a datos y texto, no a rumores.",
+    "En AI, elevar el peso de monetización cercana, margen y FCF frente a narrativa de TAM.",
+    "Exigir confirmación de breadth y flujos antes de aumentar beta amplia.",
+    "Mantener duration escalonada y estrés inmobiliario de +50/+100 pb.",
+    "Conservar hedge energético moderado mientras Hormuz no normalice tráfico físico."
   ],
   "audio": {
     "chapters": [
-      {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"Hoy la señal central cambia en tecnología, no en disciplina de portafolio. Nvidia confirmó una demanda de inteligencia artificial mucho más fuerte de lo esperado, pero AGCI sigue viendo Greed extremo y Valuation extrema. La consecuencia es mantener liquidez y aumentar exposición sólo cuando precio y calidad coincidan."},
-      {"id":"senales","title":"Señales que cambiaron","speaker":"CIO","text":"La primera señal es Nvidia: ingresos de noventa y seis punto veintidós mil millones de dólares, data center de ochenta y nueve mil millones y guidance de ciento ocho mil millones. La segunda es laboral: initial claims bajan a doscientos tres mil, señal de layoffs todavía contenidos."},
-      {"id":"mercados","title":"Mercados y riesgo","speaker":"ANALISTA","text":"Los mercados globales estabilizan tras el reporte de Nvidia y mejora el sentimiento tecnológico. Sin embargo, el último snapshot AGCI mantiene Greed en ochenta y seis y Valuation en ochenta y cinco. La mejora fundamental de AI no representa una corrección de múltiplos ni una señal general de compra."},
-      {"id":"inversion","title":"Radar de inversión","speaker":"ANALISTA","text":"En AI favorecemos empresas con monetización visible, balances sólidos y capacidad de financiar crecimiento con flujo propio. Nvidia, Broadcom, Arista, Vertiv y hyperscalers pueden seguir creando valor, pero evitamos perseguir movimientos verticales. Salesforce y CrowdStrike entran en vigilancia por ejecución, recurrencia y monetización de AI."},
-      {"id":"mexico","title":"México y T-MEC","speaker":"CIO","text":"No hubo un nuevo acuerdo material México Estados Unidos en este corte. La incertidumbre sobre la arquitectura futura del T-MEC sigue siendo una variable de capital allocation. Para nearshoring, priorizamos proyectos con trazabilidad de origen, flexibilidad de proveedores y rentabilidad que sobreviva escenarios de aranceles y reglas más estrictas."},
-      {"id":"capital","title":"Capital y bienes raíces","speaker":"ANALISTA","text":"El mercado laboral resistente y el PCE pegajoso reducen la urgencia de un giro dovish. Mantenemos duration escalonada, liquidez del diez al quince por ciento y estrés inmobiliario de cincuenta a cien puntos base. No asumimos una caída rápida del costo hipotecario ni de cap rates."},
-      {"id":"ia","title":"AI y calidad del capital","speaker":"ANALISTA","text":"La conclusión de Nvidia es positiva, pero ahora el análisis debe pasar de demanda a calidad. Observamos margen bruto, costos de memoria, ejecución de Rubin, utilización de data centers y financiación de clientes. El crecimiento financiado con deuda, equity o garantías excesivas merece una tasa de descuento más alta."},
-      {"id":"acciones","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría posiciones de calidad, evitaría una compra grande después del gap de Nvidia y reservaría liquidez para retrocesos. No ampliaría duration de forma concentrada antes de mayor claridad de Fed. En real estate conservaría DSCR conservador. La regla sigue siendo simple: comprar calidad sólo dentro de fair value."}
+      {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"Hoy el mercado tiene un catalizador macro inmediato y una lección importante en inteligencia artificial. Kevin Warsh habla en Jackson Hole a las diez de la mañana, hora del Este, pero el discurso todavía no había ocurrido al cerrar esta edición. AGCI no adivina el mensaje: mantiene liquidez, duration escalonada y disciplina de precio."},
+      {"id":"fed","title":"Fed y Jackson Hole","speaker":"ANALISTA","text":"La Reserva Federal confirma el keynote de Warsh para hoy. Con inflación todavía pegajosa y empleo resistente, cualquier cambio en la función de reacción puede mover Treasuries, dólar, growth y real estate. La regla operativa es no posicionar capital sobre una conclusión que aún no existe."},
+      {"id":"ai","title":"AI entra en fase selectiva","speaker":"CIO","text":"Nvidia confirmó una demanda estructural extraordinaria, pero Marvell recuerda que exposición a AI no equivale automáticamente a retorno. Sus acciones cayeron pese a resultados sólidos porque el mercado cuestiona cuándo llegará el revenue de custom silicon con Alphabet y cuánto crecimiento ya está incorporado en el múltiplo."},
+      {"id":"flujos","title":"Flujos y amplitud","speaker":"ANALISTA","text":"Los fondos de acciones estadounidenses registraron salidas aproximadas de veintidós punto tres mil millones de dólares, la mayor semana desde marzo. Tecnología todavía atrae capital, pero la divergencia con large caps indica que el rally post Nvidia necesita confirmación de amplitud antes de justificar más beta."},
+      {"id":"energia","title":"Hormuz y energía","speaker":"ANALISTA","text":"La diplomacia para reabrir Hormuz avanza y algunos flujos físicos se recuperan, mientras Brent ronda noventa dólares. El riesgo extremo baja marginalmente, pero el estrecho todavía no opera con normalidad. Mantendríamos un hedge energético moderado sin perseguir petróleo."},
+      {"id":"china","title":"China y real estate","speaker":"CIO","text":"S and P mantuvo la calificación soberana de China en A plus con perspectiva estable y espera crecimiento superior a cuatro por ciento, apoyado por política fiscal y manufactura. Sin embargo, propiedad y demanda doméstica siguen débiles. Preferimos exposición selectiva a comprar beta China amplia."},
+      {"id":"capital","title":"Capital allocation","speaker":"ANALISTA","text":"AGCI Greed permanece en ochenta y seis y Valuation en ochenta y cinco. Mantenemos diez a quince por ciento de liquidez, duration escalonada y estrés inmobiliario de cincuenta a cien puntos base. En AI exigimos monetización, margen, flujo libre y balance, no solamente crecimiento de mercado direccionable."},
+      {"id":"acciones","title":"Qué haría hoy","speaker":"CIO","text":"No aumentaría beta antes de escuchar a Warsh. Mantendría Nvidia de calidad, esperaría mejor terreno en Marvell y vigilaría Micron por el poder económico creciente de memoria. En energía conservaría cobertura moderada. La regla final permanece: comprar calidad sólo cuando fair value y margen de seguridad sean defendibles."}
     ]
   },
   "sources": [
-    {"name":"Reuters — Nvidia earnings and outlook","url":"https://www.reuters.com/business/media-telecom/nvidia-forecasts-quarterly-revenue-above-estimates-2026-08-26/","asOf":"2026-08-26"},
-    {"name":"Reuters — U.S. jobless claims","url":"https://www.reuters.com/world/us/jobless-claims-dip-latest-week-goods-trade-deficit-widens-july-2026-08-27/","asOf":"2026-08-27"},
-    {"name":"Reuters — global markets","url":"https://www.reuters.com/world/china/global-markets-wrapup-1-2026-08-27/","asOf":"2026-08-27"},
-    {"name":"Barron's authorized Gmail newsletter — Nvidia Relights the AI Fire","url":"https://www.barrons.com/","asOf":"2026-08-27"},
+    {"name":"Federal Reserve — August 2026 calendar / Jackson Hole keynote","url":"https://www.federalreserve.gov/newsevents/2026-august.htm","asOf":"2026-08-28"},
+    {"name":"Reuters — Marvell earnings and Alphabet AI deal timing","url":"https://www.reuters.com/business/marvell-shares-slide-concerns-over-timing-google-ai-deal-revenue-eclipse-strong-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Reuters — U.S. equity fund flows","url":"https://www.reuters.com/business/us-equity-funds-post-biggest-weekly-outflow-since-march-ahead-nvidia-earnings-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Reuters — Hormuz diplomacy and shipping","url":"https://www.reuters.com/world/middle-east/iran-war-diplomacy-turns-toward-reopening-strait-hormuz-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Reuters — China sovereign rating and macro outlook","url":"https://www.reuters.com/world/asia-pacific/sp-affirms-chinas-a-rating-sees-growth-above-4-fiscal-support-continues-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Barron's authorized Gmail newsletter — Fed’s Silence Could Be Deafening","url":"https://www.barrons.com/","asOf":"2026-08-28"},
     {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-08-26"}
   ],
   "legal": "Contenido informativo y analítico. No constituye recomendación personalizada, oferta, asesoría financiera, fiscal o legal. Toda inversión implica riesgo y requiere verificación independiente de precios, liquidez, impuestos y circunstancias del inversionista."
