@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-28 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-29 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** Hoy el mercado tiene un catalizador macro inmediato y una lección importante en inteligencia artificial. Kevin Warsh habla en Jackson Hole a las diez de la mañana, hora del Este, pero el discurso todavía no había ocurrido al cerrar esta edición. AGCI no adivina el mensaje: mantiene liquidez, duration escalonada y disciplina de precio.
+**CIO:** El cambio central de hoy viene de Jackson Hole. Kevin Warsh dejó de ser un evento pendiente y se convirtió en una señal de política más restrictiva. AGCI mantiene riesgo selectivo, liquidez desplegable de diez a quince por ciento y compras sólo en terreno defendible de fair value.
 
-## Fed y Jackson Hole
+## Fed y tasas
 
-**ANALISTA:** La Reserva Federal confirma el keynote de Warsh para hoy. Con inflación todavía pegajosa y empleo resistente, cualquier cambio en la función de reacción puede mover Treasuries, dólar, growth y real estate.
+**ANALISTA:** Warsh dijo que la inflación sigue por encima de la meta y que el progreso reciente no demuestra una mejora suficiente de la tendencia subyacente. Describió el empleo como cercano a pleno empleo y las condiciones financieras como poco restrictivas.
 
-## AI entra en fase selectiva
+## Confirmación de mercado
 
-**CIO:** Nvidia confirmó una demanda estructural extraordinaria, pero Marvell recuerda que exposición a AI no equivale automáticamente a retorno.
+**CIO:** La reacción cross asset confirmó que no fue sólo retórica. El dólar subió y los yields de corto plazo aumentaron más que el tramo largo. Eso eleva el costo de oportunidad para growth, bonos de larga duración y estrategias apalancadas. No perseguiríamos duration después de este repricing.
 
-## Flujos y amplitud
+## AI y retorno sobre capital
 
-**ANALISTA:** Los fondos de acciones estadounidenses registraron salidas aproximadas de veintidós punto tres mil millones de dólares, la mayor semana desde marzo.
+**ANALISTA:** Barron's plantea si el gran ciclo de capex de inteligencia artificial puede terminar en una burbuja. AGCI no concluye que el ciclo esté terminando ahora.
+
+## Selección tecnológica
+
+**CIO:** Nvidia mantiene una demanda estructural extraordinaria. Alphabet y Meta tienen ventaja porque pueden financiar gran parte de la inversión con flujo propio. Marvell exige más paciencia porque el timing de ingresos y el múltiplo dejan menos margen de error. La calidad del balance gana peso cuando sube el hurdle rate.
 
 ## Hormuz y energía
 
-**ANALISTA:** La diplomacia para reabrir Hormuz avanza y algunos flujos físicos se recuperan, mientras Brent ronda noventa dólares. El riesgo extremo baja marginalmente, pero el estrecho todavía no opera con normalidad. Mantendríamos un hedge energético moderado sin perseguir petróleo.
+**ANALISTA:** Hormuz todavía no está normalizado. Sólo siete buques de commodities transitaron el jueves, frente a diecisiete el día previo y un promedio reciente de quince. El petróleo terminó la semana a la baja, pero el riesgo físico permanece. Mantendríamos una cobertura moderada sin perseguir crudo.
 
-## China y real estate
+## Bienes raíces y crédito
 
-**CIO:** S and P mantuvo la calificación soberana de China en A plus con perspectiva estable y espera crecimiento superior a cuatro por ciento, apoyado por política fiscal y manufactura. Sin embargo, propiedad y demanda doméstica siguen débiles. Preferimos exposición selectiva a comprar beta China amplia.
+**CIO:** La lectura de Warsh refuerza nuestro stress inmobiliario de cincuenta a cien puntos base. No asumimos una caída rápida de hipotecas, cap rates o costos de refinanciamiento. Los proyectos deben sobrevivir con DSCR conservador, menor apalancamiento y sensibilidad explícita a tasas más altas por más tiempo.
 
-## México y T-MEC
+## México, T-MEC y nearshoring
 
-**CIO:** No hubo un nuevo acuerdo material de T-MEC en este corte. Para nearshoring seguimos priorizando reglas de origen verificables, proveedores flexibles y proyectos cuya rentabilidad sobreviva escenarios de aranceles o requisitos más estrictos.
-
-## Capital allocation
-
-**ANALISTA:** AGCI Greed permanece en ochenta y seis y Valuation en ochenta y cinco. Mantenemos diez a quince por ciento de liquidez, duration escalonada y estrés inmobiliario de cincuenta a cien puntos base. En AI exigimos monetización, margen, flujo libre y balance, no solamente crecimiento de mercado direccionable.
+**ANALISTA:** No hubo un nuevo acuerdo material de T-MEC en este corte. La tesis de nearshoring sigue vigente, pero el capital debe privilegiar activos con reglas de origen verificables, flexibilidad de proveedores y retornos que sobrevivan escenarios de aranceles o requisitos más estrictos.
 
 ## Qué haría hoy
 
-**CIO:** No aumentaría beta antes de escuchar a Warsh. Mantendría Nvidia de calidad, esperaría mejor terreno en Marvell y vigilaría Micron por el poder económico creciente de memoria. En energía conservaría cobertura moderada. La regla final permanece: comprar calidad sólo cuando fair value y margen de seguridad sean defendibles.
+**CIO:** Mantendría liquidez, duration escalonada y exposición selectiva a AI de alta calidad. No aumentaría beta amplia con Greed en ochenta y seis y Valuation en ochenta y cinco. La regla final es simple: elevar el hurdle rate, conservar optionalidad y comprar calidad sólo con margen de seguridad suficiente.
