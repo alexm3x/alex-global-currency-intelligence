@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-28",
-  "timestamp": "2026-08-28T07:16:29-06:00",
+  "date": "2026-08-29",
+  "timestamp": "2026-08-29T07:12:09-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
@@ -9,80 +9,79 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "Barron's / Federal Reserve",
-      "newsletter": "The Barron's Daily — Fed’s Silence Could Be Deafening — 28 Aug 2026",
-      "headline": "Jackson Hole becomes the immediate macro catalyst; AGCI will not infer Warsh's policy message before the 10:00 a.m. ET keynote",
+      "publisher": "Federal Reserve / Barron's / Reuters",
+      "newsletter": "Barron's Review & Preview + Daily Roundup — 28 Aug 2026",
+      "headline": "Warsh turns Jackson Hole into a real tightening signal: inflation remains the predominant policy focus",
       "category": "Macro / Federal Reserve / Rates / Capital Allocation",
       "relevance": 100,
-      "summary": "Barron's centers today's risk setup on Chair Kevin Warsh's Jackson Hole keynote. The Federal Reserve calendar confirms the speech for 10:00 a.m. ET on August 28. Until the remarks are delivered, the only confirmed fact is event timing; no dovish or hawkish policy conclusion is assumed.",
-      "whyItMatters": "With sticky inflation, resilient labor and long-duration valuations still elevated, a material change in the Fed reaction function could reprice Treasuries, the dollar, growth equities and real estate. AGCI keeps duration staggered and avoids positioning the portfolio around an unconfirmed speech outcome.",
-      "assets": ["TLT", "IEF", "SHY", "DXY", "SPY", "QQQ", "VNQ", "GLD"],
-      "agciSignal": "EVENT RISK HIGH / DO NOT PRE-POSITION ON UNCONFIRMED FED MESSAGE",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-august.htm"
+      "summary": "Chair Kevin Warsh said the Fed must be confident that underlying inflation is moving clearly and sufficiently fast toward 2%; otherwise policymakers still have work to do. He described labor markets as broadly consistent with full employment, inflation progress as modest and financial conditions as showing few signs of restraint. Rate futures moved to roughly a 56–60% probability of a September hike from about 35–40% before the speech.",
+      "whyItMatters": "This is a substantive change from yesterday's event-risk posture. The policy distribution has shifted hawkishly, raising the hurdle rate for long-duration equities, Treasuries, leveraged real estate and other rate-sensitive assets. AGCI keeps duration staggered, liquidity intact and requires stronger valuation support before adding beta.",
+      "assets": ["TLT", "IEF", "SHY", "DXY", "SPY", "QQQ", "VNQ", "GLD", "HYG", "LQD"],
+      "agciSignal": "FED HAWKISH SHIFT / HIGHER HURDLE RATE / KEEP LIQUIDITY",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/speech/warsh20260828a.htm"
     },
     {
       "rank": 2,
-      "publisher": "Barron's / Reuters",
-      "newsletter": "Daily Roundup + Review & Preview — 27/28 Aug 2026",
-      "headline": "Marvell shows that strong AI exposure is no longer enough when revenue timing and valuation fail the market's hurdle",
-      "category": "AI / Semiconductors / Valuation",
-      "relevance": 98,
-      "summary": "Marvell reported solid results and raised longer-term revenue expectations, yet shares fell about 8% premarket as investors focused on the timing of revenue from its Alphabet custom-AI-chip relationship. Material contributions are expected to become more important later, while the stock still trades at a premium multiple.",
-      "whyItMatters": "The post-Nvidia phase of the AI trade is becoming more discriminating. AGCI should reward near-term monetization, margin durability and cash-flow visibility rather than assign the same premium to every company with AI exposure.",
-      "assets": ["MRVL", "GOOGL", "AVGO", "NVDA", "MU", "SMH", "SOXX"],
-      "agciSignal": "AI SELECTIVITY RISES / MONETIZATION TIMING > NARRATIVE",
-      "sourceUrl": "https://www.reuters.com/business/marvell-shares-slide-concerns-over-timing-google-ai-deal-revenue-eclipse-strong-2026-08-28/"
+      "publisher": "Barron's",
+      "newsletter": "This Week's Magazine — 29 Aug 2026",
+      "headline": "AI capex remains structurally powerful, but the investment case is moving from TAM growth to return on capital",
+      "category": "AI / Technology / Capital Allocation",
+      "relevance": 97,
+      "summary": "Barron's new weekend cover asks whether the AI capex boom is becoming a bubble and frames the cycle against long market history. The material investment takeaway is not that the cycle is ending now, but that unusually large infrastructure spending eventually requires proof of utilization, pricing power, monetization and free-cash-flow conversion.",
+      "whyItMatters": "Nvidia has confirmed demand, but the next phase of the AI trade should discriminate between companies funding growth from durable cash generation and those relying on increasingly expensive external capital. AGCI raises the weight of ROIC, FCF after capex and balance-sheet resilience in AI selection.",
+      "assets": ["NVDA", "AVGO", "MRVL", "GOOGL", "META", "AMZN", "MSFT", "MU", "SMH", "SOXX"],
+      "agciSignal": "AI STRUCTURAL / ROIC AND FCF > NARRATIVE",
+      "sourceUrl": "https://www.barrons.com/"
     },
     {
       "rank": 3,
-      "publisher": "Reuters / LSEG Lipper",
-      "newsletter": "Fund flows — week ended 26 Aug 2026",
-      "headline": "U.S. equity funds suffer their largest weekly outflow since March despite renewed AI optimism",
-      "category": "Markets / Flows / Capital Allocation",
+      "publisher": "Reuters",
+      "newsletter": "Global markets — 28 Aug 2026 close",
+      "headline": "Stocks weaken while the dollar and front-end Treasury yields rise after Warsh",
+      "category": "Markets / Rates / FX",
       "relevance": 96,
-      "summary": "U.S. equity funds recorded net outflows of about $22.33 billion in the week through August 26, the largest weekly withdrawal since March. Large-cap funds bore most of the selling, while technology still attracted inflows and bond funds continued to receive capital.",
-      "whyItMatters": "The flow picture argues against reading the Nvidia rally as broad risk-on confirmation. AGCI treats the divergence between technology enthusiasm and large-cap outflows as a reason to keep liquidity and demand breadth confirmation before increasing beta.",
-      "assets": ["SPY", "QQQ", "IWM", "TLT", "LQD", "HYG", "SMH"],
-      "agciSignal": "BREADTH/FLOWS NOT CONFIRMED / KEEP LIQUIDITY",
-      "sourceUrl": "https://www.reuters.com/business/us-equity-funds-post-biggest-weekly-outflow-since-march-ahead-nvidia-earnings-2026-08-28/"
+      "summary": "Global equities weakened in choppy trade after Warsh's speech, while the dollar and short-dated Treasury yields rose. The two-year yield increased more than the long end as markets repriced the near-term Fed path toward a higher probability of a September hike.",
+      "whyItMatters": "The cross-asset reaction confirms that the speech changed the market's policy distribution rather than merely its rhetoric. A flatter/higher front end argues for more caution in duration, growth multiple expansion and leveraged carry trades.",
+      "assets": ["SPY", "QQQ", "IWM", "DXY", "SHY", "IEF", "TLT", "HYG"],
+      "agciSignal": "CROSS-ASSET HAWKISH CONFIRMATION / DO NOT CHASE DURATION",
+      "sourceUrl": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-28/"
     },
     {
       "rank": 4,
       "publisher": "Reuters",
-      "newsletter": "Iran / Hormuz — 28 Aug 2026",
-      "headline": "Hormuz diplomacy advances, but physical normalization remains incomplete and oil risk premium persists",
+      "newsletter": "Hormuz / energy — 28 Aug 2026",
+      "headline": "Hormuz remains operationally constrained despite diplomacy; crude ends lower but chokepoint risk is unresolved",
       "category": "Geopolitics / Energy / Inflation",
-      "relevance": 95,
-      "summary": "Mediators intensified efforts to reopen the Strait of Hormuz and Tehran agreed to draft conditions for restoring more normal maritime traffic. Some flows have resumed, but traffic remains below normal; Brent traded near $89.65 and was still on track for a weekly decline after earlier spikes.",
-      "whyItMatters": "The probability of an extreme supply shock has eased at the margin, but the route is not normalized. AGCI keeps only a moderate energy tail hedge and avoids chasing crude while monitoring shipping volumes, sanctions and mine-clearance progress.",
-      "assets": ["BNO", "USO", "XLE", "CVX", "XOM", "TLT", "GLD", "DXY"],
-      "agciSignal": "TAIL RISK EASING MARGINALLY / HEDGE, DO NOT CHASE",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/iran-war-diplomacy-turns-toward-reopening-strait-hormuz-2026-08-28/"
+      "relevance": 94,
+      "summary": "Only seven commodity vessels transited Hormuz on Thursday versus 17 the prior day and a 10-day average of 15. Oil nevertheless settled lower on Friday and posted a weekly loss as markets weighed Fed tightening risk and speculation about a possible navigation deal.",
+      "whyItMatters": "The energy tail risk has not disappeared: physical traffic remains impaired even as price pressure eases. AGCI keeps a moderate hedge rather than expanding it, while monitoring shipping normalization because a renewed disruption would feed directly into inflation and the Fed reaction function.",
+      "assets": ["BNO", "USO", "XLE", "XOM", "CVX", "TLT", "GLD", "DXY"],
+      "agciSignal": "PHYSICAL RISK PERSISTS / MODERATE HEDGE / NO OIL CHASE",
+      "sourceUrl": "https://www.reuters.com/business/energy/shipping-traffic-via-strait-hormuz-slips-below-10-day-average-data-shows-2026-08-28/"
     },
     {
       "rank": 5,
-      "publisher": "Reuters / S&P Global Ratings",
-      "newsletter": "China macro — 28 Aug 2026",
-      "headline": "China retains A+ stable rating, but property weakness and soft domestic demand remain the core constraint",
-      "category": "China / Macro / Real Estate",
-      "relevance": 89,
-      "summary": "S&P affirmed China's A+ sovereign rating with a stable outlook and expects growth above 4% over the next one to two years, supported by fiscal measures and manufacturing strength. The rating agency still identifies the prolonged property downturn and weak domestic demand as major vulnerabilities.",
-      "whyItMatters": "AGCI keeps China exposure selective. Fiscal support and manufacturing resilience help the macro floor, but broad beta remains less attractive until household demand and property balance-sheet stress improve more convincingly.",
-      "assets": ["FXI", "MCHI", "KWEB", "ASHR", "CNH", "BABA", "JD"],
-      "agciSignal": "CHINA FLOOR IMPROVES / PROPERTY DEMAND STILL BLOCKS BROAD RISK-ON",
-      "sourceUrl": "https://www.reuters.com/world/asia-pacific/sp-affirms-chinas-a-rating-sees-growth-above-4-fiscal-support-continues-2026-08-28/"
+      "publisher": "Reuters",
+      "newsletter": "Energy infrastructure — 28 Aug 2026",
+      "headline": "Gulf states accelerate pipelines and ports designed to bypass Hormuz",
+      "category": "Geopolitics / Infrastructure / Real Assets",
+      "relevance": 88,
+      "summary": "The prolonged Iran conflict is accelerating Gulf investment in pipelines, Red Sea and eastern-UAE ports, and other infrastructure intended to reduce dependence on Hormuz. The shift is strategic rather than tactical and reflects an assumption that chokepoint risk can remain structurally elevated.",
+      "whyItMatters": "For AGCI, this creates a longer-duration real-asset theme in logistics, pipelines, ports and related infrastructure while reinforcing that the geopolitical risk premium should not be assumed to vanish even if oil prices temporarily fall.",
+      "assets": ["XLE", "XLI", "PAVE", "IGF", "AMLP", "BNO"],
+      "agciSignal": "STRUCTURAL INFRASTRUCTURE CAPEX / REAL-ASSET OPTIONALITY",
+      "sourceUrl": "https://www.reuters.com/business/energy/pipelines-ports-iran-war-spurs-gulf-infrastructure-investment-2026-08-28/"
     }
   ],
   "watch": [
-    "Kevin Warsh Jackson Hole keynote at 10:00 a.m. ET on 28 August: update only after confirmed remarks",
-    "Marvell/Alphabet custom silicon: timing of revenue, margins and customer concentration",
-    "Micron and HBM/memory pricing as a constraint on AI system economics",
-    "U.S. equity-fund outflows versus technology inflows: require breadth confirmation",
+    "September 15–16 FOMC: incoming August labor and inflation data now carry higher policy sensitivity after Warsh",
+    "AI capex: prioritize utilization, ROIC, FCF after capex and balance-sheet resilience",
+    "Front-end Treasury yields and DXY as confirmation of the hawkish repricing",
     "AGCI Greed remains 86 and Valuation 85 until next live engine refresh",
-    "Hormuz shipping normalization, sanctions enforcement and Brent risk premium",
-    "China property and household demand versus fiscal/manufacturing support",
+    "Hormuz physical traffic versus diplomatic headlines; moderate energy hedge only",
+    "Gulf pipeline/port capex as a structural real-assets theme",
     "USMCA/nearshoring: no new official material agreement in this cycle",
-    "Real estate underwriting remains +50/+100 bp stress",
+    "Real estate underwriting remains +50/+100 bp stress; Warsh reinforces rather than relaxes this assumption",
     "The Economist — no new newsletter found in authorized Gmail after the prior cutoff",
     "Travel — no newly validated material fare/opportunity in this cycle"
   ],
@@ -92,16 +91,16 @@
       "reason": "No new Economist newsletter was found in authorized Gmail after the prior review cutoff."
     },
     {
+      "headline": "Barron's Market Lab for August 31",
+      "reason": "No incremental thesis-changing signal was identified beyond the macro and cross-asset changes already captured."
+    },
+    {
       "headline": "Private newsletter tracking links",
       "reason": "Tracking URLs from authorized Gmail are intentionally not stored; publisher-level attribution and original AGCI summaries are retained instead."
     },
     {
-      "headline": "Unconfirmed interpretation of Warsh's speech",
-      "reason": "The speech had not yet occurred at this review cutoff; AGCI records the event risk but does not fabricate a policy signal."
-    },
-    {
-      "headline": "Non-material daily market noise",
-      "reason": "Routine price moves without a change in thesis, valuation, policy or capital-allocation implications were excluded."
+      "headline": "Routine weekend market commentary",
+      "reason": "Price moves or opinion without a change in policy, valuation, risk regime or capital-allocation implications were excluded."
     }
   ]
 }
