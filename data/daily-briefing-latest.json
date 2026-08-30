@@ -1,69 +1,62 @@
 {
   "schemaVersion": 2,
-  "date": "2026-08-29",
-  "timestamp": "2026-08-29T07:12:09-06:00",
+  "date": "2026-08-30",
+  "timestamp": "2026-08-30T07:57:56-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "Warsh endurece el mapa de tasas; AI entra en fase de retorno sobre capital",
-  "dek": "La Fed eleva el hurdle rate mientras el mercado exige más evidencia de monetización y FCF en AI; Hormuz sigue físicamente restringido pese a una menor prima en crudo.",
+  "title": "Fed hawkish, G20 y empleo dominan la semana; AI exige retorno sobre capital",
+  "dek": "AGCI conserva liquidez ante una Fed más restrictiva, tensiones comerciales y geopolíticas, mientras la siguiente prueba del mercado será empleo de EE.UU. y Broadcom.",
   "stance": "Riesgo selectivo con liquidez",
   "risk": "Elevado",
   "horizon": "1–12 meses",
   "methodologyStatus": "Sin cambios: se preservan metodología, ponderaciones, umbrales de cobertura, criterios de materialidad, gobernanza y avisos legales AGCI vigentes.",
-  "capitalAllocationPolicy": {
-    "deployableLiquidity": "10–15%",
-    "entryMethod": "Compras por tramos únicamente con fair value y margen de seguridad",
-    "realEstateStress": "+50/+100 pb sobre financiamiento y cap rates",
-    "duration": "Escalonada; evitar apuesta direccional concentrada"
-  },
-  "executiveSummary": "AGCI mantiene riesgo selectivo y 10–15% de liquidez desplegable. El principal cambio de esta edición es la señal de Kevin Warsh en Jackson Hole: la Fed debe estar convencida de que la inflación subyacente converge clara y suficientemente rápido hacia 2%; de lo contrario todavía tiene trabajo por hacer. Warsh describió el empleo como cercano a pleno empleo, el progreso de inflación como modesto y las condiciones financieras como poco restrictivas. El mercado elevó la probabilidad de un alza en septiembre hacia aproximadamente 56–60%, confirmada por un dólar más fuerte y mayores yields en el tramo corto. En AI, la nueva portada de Barron's cuestiona la sostenibilidad del capex, pero la conclusión AGCI no es que el ciclo termine ahora: el foco pasa a utilización, ROIC, FCF después de capex y balance. Hormuz continúa físicamente restringido, con siete buques de commodities frente a un promedio reciente de quince, aunque el petróleo cerró a la baja. AGCI Greed permanece en 86/100 y Valuation en 85/100 hasta el próximo refresh del motor, manteniendo EUPHORIA_RISK. La combinación Fed hawkish + valoración extrema justifica conservar liquidez, duration escalonada y un stress inmobiliario de +50/+100 pb.",
+  "capitalAllocationPolicy": {"deployableLiquidity":"10–15%","entryMethod":"Compras por tramos únicamente con fair value y margen de seguridad","realEstateStress":"+50/+100 pb sobre financiamiento y cap rates","duration":"Escalonada; evitar apuesta direccional concentrada"},
+  "executiveSummary": "AGCI mantiene riesgo selectivo y 10–15% de liquidez desplegable. El cierre semanal dejó al S&P 500 en 7,711.76, Nasdaq en 26,402.42 y Treasury 10Y cerca de 4.73%, después de que Kevin Warsh reafirmara que la Fed aún tiene trabajo por hacer si la inflación no converge suficientemente rápido a 2%. La siguiente prueba es el empleo de agosto, con consenso Reuters alrededor de 58 mil nuevas plazas, además de resultados de Broadcom. En geopolítica, el G20 de Asheville se perfila como un punto de fricción sobre aranceles, sanciones a Irán, desequilibrios comerciales y estabilidad del mercado de bonos. Hormuz continúa materialmente restringido: Reuters estima que el flujo real puede estar más cerca de 5 millones de barriles diarios que de los más de 8 millones citados por autoridades estadounidenses. En México, la economía creció 1.4% trimestral en el segundo trimestre y 2.1% anual, pero las negociaciones comerciales con EE.UU. suman fricción por indicaciones geográficas de quesos. El snapshot premium vigente de Barron's mantiene como tesis central la sostenibilidad del ciclo de capex AI; AGCI exige utilización, ROIC, FCF post-capex y fortaleza de balance. No se identificó una nueva entrega material de The Economist en el corte autorizado. Greed permanece en 86/100 y Valuation en 85/100 con el último snapshot disponible, manteniendo EUPHORIA_RISK.",
   "threeSignals": [
-    {"label":"Fed / Warsh","type":"HECHO CONFIRMADO — FED + REUTERS","summary":"Warsh pone el foco predominantemente en precios; el mercado eleva la probabilidad de alza en septiembre hacia ~56–60%."},
-    {"label":"AI / Capex","type":"HECHO CONFIRMADO — BARRON'S; ANÁLISIS AGCI","summary":"El boom AI sigue estructural, pero AGCI eleva el peso de utilización, ROIC, FCF post-capex y balance frente a narrativa de TAM."},
-    {"label":"Hormuz / Energía","type":"HECHO CONFIRMADO — REUTERS","summary":"El tránsito físico sigue por debajo de normalidad: siete buques frente a un promedio de diez días de quince; mantener hedge moderado."}
+    {"label":"Fed / empleo","type":"HECHO CONFIRMADO — REUTERS","summary":"Warsh mantiene sesgo hawkish; empleo del 4 de septiembre será la siguiente prueba crítica para tasas y duration."},
+    {"label":"G20 / comercio / Irán","type":"HECHO CONFIRMADO — REUTERS","summary":"Bessent llega al G20 con agenda de desequilibrios comerciales, sanciones a Irán y estabilidad de bonos; riesgo de fricción global elevado."},
+    {"label":"AI / capex","type":"BARRON'S AUTORIZADO + ANÁLISIS AGCI","summary":"El ciclo AI sigue estructural, pero la selección debe priorizar utilización, ROIC, FCF post-capex y capacidad de autofinanciación."}
   ],
   "markets": [
+    {"asset":"S&P 500","value":"7,711.76","asOf":"cierre 2026-08-28","interpretation":"Cerca de máximos, pero con Fed más hawkish y septiembre estacionalmente más débil."},
+    {"asset":"US Treasury 10Y","value":"~4.73%","asOf":"2026-08-28","interpretation":"Mantener duration escalonada y hurdle rates elevados."},
+    {"asset":"Brent","value":"~USD 88.29","asOf":"2026-08-28","interpretation":"Prima menor que al inicio del conflicto, pero Hormuz sigue físicamente restringido."},
     {"asset":"AGCI Greed","value":"86/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Greed; no ampliar beta indiscriminadamente."},
-    {"asset":"AGCI Valuation","value":"85/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Valuation; exigir margen de seguridad."},
-    {"asset":"Fed September hike probability","value":"~56–60%","asOf":"cierre 2026-08-28","interpretation":"Repricing hawkish sustantivo tras Jackson Hole."},
-    {"asset":"Hormuz commodity transits","value":"7 buques","asOf":"2026-08-27","interpretation":"Por debajo de 17 el día previo y del promedio de 10 días de 15; riesgo físico persiste."}
+    {"asset":"AGCI Valuation","value":"85/100","asOf":"2026-08-26 último snapshot disponible","interpretation":"Extreme Valuation; exigir margen de seguridad."}
   ],
   "equities": [
-    {"ticker":"NVDA","action":"MANTENER / COMPRAR SÓLO EN TRAMOS","thesis":"Demanda AI confirmada; elevar disciplina sobre retorno del ecosistema de capex y no perseguir múltiplos."},
-    {"ticker":"GOOGL","action":"MANTENER / VIGILAR ROIC DE AI","thesis":"Capacidad de financiar AI con FCF es ventaja relativa; vigilar monetización y retorno incremental."},
-    {"ticker":"META","action":"MANTENER / VIGILAR CAPEX","thesis":"Balance y FCF permiten financiar AI internamente, pero el hurdle rate sube con una Fed más hawkish."},
-    {"ticker":"MRVL","action":"VIGILAR / ESPERAR MEJOR TERRENO","thesis":"Exposición a custom silicon es atractiva, pero timing de revenue y costo de capital requieren mayor descuento."}
+    {"ticker":"NVDA","action":"MANTENER / COMPRAR SÓLO EN TRAMOS","thesis":"Demanda AI extraordinaria; no perseguir múltiplos y medir retorno del ecosistema de capex."},
+    {"ticker":"GOOGL","action":"MANTENER / VIGILAR ROIC AI","thesis":"Ventaja relativa por autofinanciación; priorizar monetización y FCF post-capex."},
+    {"ticker":"META","action":"MANTENER / COMPRAR EN CORRECCIONES","thesis":"Balance fuerte y monetización sólida; hurdle rate más alto exige disciplina de entrada."},
+    {"ticker":"AVGO","action":"VIGILAR RESULTADOS","thesis":"Resultados de la próxima semana serán nueva prueba de amplitud y monetización del ciclo AI."},
+    {"ticker":"MRVL","action":"VIGILAR / ESPERAR MEJOR TERRENO","thesis":"Custom silicon atractivo, pero timing de ingresos y costo de capital reducen margen de error."}
   ],
+  "macroMexico": {"growth":"PIB 2T26 +1.4% t/t y +2.1% a/a","inflation":"3.26% a/a primera mitad de agosto; subyacente 3.93%","trade":"Persisten negociaciones con EE.UU.; indicaciones geográficas de quesos emergen como nueva fricción específica."},
+  "realEstate": "Mantener estrés de +50/+100 pb sobre financiamiento y cap rates, DSCR conservador y menor apalancamiento. La Fed hawkish no justifica relajar supuestos de refinanciamiento.",
+  "businessTech": "La inversión AI debe evaluarse por utilización, ROIC, monetización, permisos, energía y FCF post-capex. Favorecer balances capaces de autofinanciar el ciclo.",
   "travel": [],
-  "actions": [
-    "Mantener 10–15% de liquidez desplegable.",
-    "Tratar Jackson Hole como un cambio real en la distribución de tasas: elevar hurdle rates y evitar perseguir duration.",
-    "Mantener duration escalonada y evitar concentración antes de los datos de empleo e inflación de agosto.",
-    "En AI, priorizar utilización, ROIC, FCF después de capex y fortaleza de balance.",
-    "Mantener estrés inmobiliario de +50/+100 pb; la señal de Warsh refuerza, no relaja, este supuesto.",
-    "Conservar hedge energético moderado mientras Hormuz no normalice tráfico físico."
-  ],
-  "audio": {
-    "chapters": [
-      {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"El cambio central de hoy viene de Jackson Hole. Kevin Warsh dejó de ser un evento pendiente y se convirtió en una señal de política más restrictiva. AGCI mantiene riesgo selectivo, liquidez desplegable de diez a quince por ciento y compras sólo en terreno defendible de fair value."},
-      {"id":"fed","title":"Fed y tasas","speaker":"ANALISTA","text":"Warsh dijo que la inflación sigue por encima de la meta y que el progreso reciente no demuestra una mejora suficiente de la tendencia subyacente. Describió el empleo como cercano a pleno empleo y las condiciones financieras como poco restrictivas. El mercado respondió elevando hacia aproximadamente sesenta por ciento la probabilidad de un alza en septiembre."},
-      {"id":"mercados","title":"Confirmación de mercado","speaker":"CIO","text":"La reacción cross asset confirmó que no fue sólo retórica. El dólar subió y los yields de corto plazo aumentaron más que el tramo largo. Eso eleva el costo de oportunidad para growth, bonos de larga duración y estrategias apalancadas. No perseguiríamos duration después de este repricing."},
-      {"id":"ai","title":"AI y retorno sobre capital","speaker":"ANALISTA","text":"Barron's plantea si el gran ciclo de capex de inteligencia artificial puede terminar en una burbuja. AGCI no concluye que el ciclo esté terminando ahora. La diferencia importante es otra: a partir de aquí importan utilización, retorno sobre capital, monetización y flujo libre después de capex, no solamente crecimiento del mercado direccionable."},
-      {"id":"acciones","title":"Selección tecnológica","speaker":"CIO","text":"Nvidia mantiene una demanda estructural extraordinaria. Alphabet y Meta tienen ventaja porque pueden financiar gran parte de la inversión con flujo propio. Marvell exige más paciencia porque el timing de ingresos y el múltiplo dejan menos margen de error. La calidad del balance gana peso cuando sube el hurdle rate."},
-      {"id":"energia","title":"Hormuz y energía","speaker":"ANALISTA","text":"Hormuz todavía no está normalizado. Sólo siete buques de commodities transitaron el jueves, frente a diecisiete el día previo y un promedio reciente de quince. El petróleo terminó la semana a la baja, pero el riesgo físico permanece. Mantendríamos una cobertura moderada sin perseguir crudo."},
-      {"id":"realestate","title":"Bienes raíces y crédito","speaker":"CIO","text":"La lectura de Warsh refuerza nuestro stress inmobiliario de cincuenta a cien puntos base. No asumimos una caída rápida de hipotecas, cap rates o costos de refinanciamiento. Los proyectos deben sobrevivir con DSCR conservador, menor apalancamiento y sensibilidad explícita a tasas más altas por más tiempo."},
-      {"id":"mexico","title":"México, T-MEC y nearshoring","speaker":"ANALISTA","text":"No hubo un nuevo acuerdo material de T-MEC en este corte. La tesis de nearshoring sigue vigente, pero el capital debe privilegiar activos con reglas de origen verificables, flexibilidad de proveedores y retornos que sobrevivan escenarios de aranceles o requisitos más estrictos."},
-      {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría liquidez, duration escalonada y exposición selectiva a AI de alta calidad. No aumentaría beta amplia con Greed en ochenta y seis y Valuation en ochenta y cinco. La regla final es simple: elevar el hurdle rate, conservar optionalidad y comprar calidad sólo con margen de seguridad suficiente."}
-    ]
-  },
+  "actions": ["Mantener 10–15% de liquidez desplegable.","Mantener duration escalonada antes del empleo de agosto.","No ampliar beta con Greed 86 y Valuation 85.","Vigilar Broadcom como siguiente read-through del ciclo AI.","Conservar hedge energético moderado mientras Hormuz no normalice flujos físicos.","Elevar vigilancia de G20, sanciones a Irán y fricciones comerciales.","En México, mantener sesgo constructivo selectivo por crecimiento y nearshoring, con stress explícito de T-MEC."],
+  "audio": {"chapters":[
+    {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"AGCI abre el domingo con riesgo selectivo y diez a quince por ciento de liquidez. La Fed se volvió más restrictiva, los mercados siguen cerca de máximos y la siguiente prueba será empleo de Estados Unidos, Broadcom y el G20."},
+    {"id":"fed","title":"Fed y empleo","speaker":"ANALISTA","text":"Kevin Warsh reafirmó que la Fed tiene más trabajo por hacer si la inflación no converge suficientemente rápido al dos por ciento. El Treasury a diez años ronda cuatro punto setenta y tres por ciento. El reporte de empleo del viernes será decisivo para la reunión de septiembre."},
+    {"id":"mercados","title":"Mercados","speaker":"CIO","text":"El S&P 500 cerró en siete mil setecientos once puntos y el Nasdaq en veintiséis mil cuatrocientos dos. Seguimos cerca de máximos, pero con valuaciones extremas y una Fed hawkish. No ampliaría beta amplia ni perseguiría duration."},
+    {"id":"ai","title":"AI y tecnología","speaker":"ANALISTA","text":"Barron's mantiene el foco en la sostenibilidad del capex de inteligencia artificial. Nuestra lectura no cambia: Nvidia conserva demanda excepcional, pero desde aquí importan utilización, retorno sobre capital y flujo libre después de capex. Broadcom será la siguiente prueba de amplitud."},
+    {"id":"g20","title":"G20 y geopolítica","speaker":"CIO","text":"El G20 de Asheville llega con aranceles, sanciones a Irán y estabilidad del mercado de bonos en primer plano. La combinación de deuda estadounidense superior a cuarenta billones y políticas comerciales agresivas puede elevar volatilidad de tasas y divisas."},
+    {"id":"energia","title":"Hormuz y energía","speaker":"ANALISTA","text":"Hormuz sigue materialmente restringido. Reuters señala que los datos de seguimiento sugieren flujos cercanos a cinco millones de barriles diarios, por debajo de cifras oficiales superiores a ocho millones. Mantendríamos una cobertura energética moderada."},
+    {"id":"mexico","title":"México y T-MEC","speaker":"CIO","text":"México llega con mejor crecimiento: el PIB del segundo trimestre avanzó uno punto cuatro por ciento trimestral y dos punto uno anual. Sin embargo, las negociaciones con Estados Unidos suman una fricción por nombres protegidos de quesos. Nearshoring sigue atractivo, pero requiere trazabilidad y flexibilidad."},
+    {"id":"realestate","title":"Bienes raíces","speaker":"ANALISTA","text":"No relajamos el stress inmobiliario. Mantenemos cincuenta a cien puntos base adicionales sobre financiamiento y cap rates, DSCR conservador y menor apalancamiento. Una Fed más restrictiva mantiene alto el costo de refinanciamiento."},
+    {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría liquidez, duration escalonada, exposición selectiva a AI de alta calidad y cobertura energética moderada. La regla sigue siendo preservar optionalidad y comprar sólo cuando fair value y margen de seguridad compensen el riesgo."}
+  ]},
   "sources": [
-    {"name":"Federal Reserve — Chairman Warsh Jackson Hole keynote","url":"https://www.federalreserve.gov/newsevents/speech/warsh20260828a.htm","asOf":"2026-08-28"},
-    {"name":"Reuters — Warsh signals Fed may need to hike rates","url":"https://www.reuters.com/business/will-warshs-jackson-hole-speech-be-course-correction-or-detour-2026-08-28/","asOf":"2026-08-28"},
-    {"name":"Reuters — Global markets after Warsh","url":"https://www.reuters.com/world/china/global-markets-global-markets-2026-08-28/","asOf":"2026-08-28"},
-    {"name":"Reuters — Hormuz shipping traffic","url":"https://www.reuters.com/business/energy/shipping-traffic-via-strait-hormuz-slips-below-10-day-average-data-shows-2026-08-28/","asOf":"2026-08-28"},
-    {"name":"Reuters — Gulf infrastructure investment","url":"https://www.reuters.com/business/energy/pipelines-ports-iran-war-spurs-gulf-infrastructure-investment-2026-08-28/","asOf":"2026-08-28"},
-    {"name":"Barron's authorized Gmail — Review & Preview / Daily Roundup / This Week's Magazine","url":"https://www.barrons.com/","asOf":"2026-08-29"},
+    {"name":"Reuters — Wall Street after Warsh","url":"https://www.reuters.com/business/sp-500-nasdaq-futures-slip-after-tech-rally-warshs-speech-awaited-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Reuters — Wall Street Week Ahead","url":"https://www.reuters.com/business/wall-st-week-ahead-jobs-report-broadcom-results-pose-next-hurdles-stock-market-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Reuters — Morning Bid: Six months and counting","url":"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Reuters — G20 diplomacy test","url":"https://www.reuters.com/world/china/us-treasurys-bessent-faces-g20-diplomacy-test-amid-tariffs-iran-war-bond-turmoil-2026-08-30/","asOf":"2026-08-30"},
+    {"name":"Reuters — Mexico Q2 growth","url":"https://www.reuters.com/world/americas/mexicos-economy-grows-14-q2-previous-quarter-2026-08-24/","asOf":"2026-08-24"},
+    {"name":"Reuters — US-Mexico cheese-name dispute","url":"https://www.reuters.com/world/americas/dispute-over-cheese-names-causes-stumbling-block-us-mexico-trade-negotiations-2026-08-28/","asOf":"2026-08-28"},
+    {"name":"Barron's authorized Gmail — This Week's Magazine / Market Lab / Review & Preview","url":"https://www.barrons.com/","asOf":"2026-08-30"},
     {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-08-26"}
   ],
+  "premiumSnapshot": {"barrons":"Vigente: portada sobre sostenibilidad del capex AI, Market Lab 31-Aug y Review & Preview sobre Warsh; síntesis AGCI sin reproducir contenido protegido.","economist":"No se identificó nueva entrega material en el corte autorizado."},
   "legal": "Contenido informativo y analítico. No constituye recomendación personalizada, oferta, asesoría financiera, fiscal o legal. Toda inversión implica riesgo y requiere verificación independiente de precios, liquidez, impuestos y circunstancias del inversionista."
 }
