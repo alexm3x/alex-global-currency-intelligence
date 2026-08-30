@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "date": "2026-08-29",
-  "totalWords": 420,
+  "date": "2026-08-30",
+  "totalWords": 360,
   "targetSeconds": 240,
   "primaryPlayback": "deviceSpeech",
   "fallbackVoiceMode": "dual-espeak",
@@ -13,43 +13,43 @@
       "file": "podcast/generated/segments/00.txt",
       "title": "Apertura ejecutiva",
       "category": "apertura",
-      "words": 50
+      "words": 42
     },
     {
       "index": 1,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/01.txt",
-      "title": "Fed y tasas",
+      "title": "Fed y empleo",
       "category": "general",
-      "words": 43
+      "words": 38
     },
     {
       "index": 2,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/02.txt",
-      "title": "Confirmación de mercado",
+      "title": "Mercados",
       "category": "mercados",
-      "words": 50
+      "words": 38
     },
     {
       "index": 3,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/03.txt",
-      "title": "AI y retorno sobre capital",
-      "category": "capital",
-      "words": 30
+      "title": "AI y tecnología",
+      "category": "general",
+      "words": 44
     },
     {
       "index": 4,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/04.txt",
-      "title": "Selección tecnológica",
-      "category": "acciones",
-      "words": 52
+      "title": "G20 y geopolítica",
+      "category": "general",
+      "words": 42
     },
     {
       "index": 5,
@@ -58,25 +58,25 @@
       "file": "podcast/generated/segments/05.txt",
       "title": "Hormuz y energía",
       "category": "general",
-      "words": 48
+      "words": 37
     },
     {
       "index": 6,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/06.txt",
-      "title": "Bienes raíces y crédito",
-      "category": "capital",
-      "words": 50
+      "title": "México y T-MEC",
+      "category": "mexico",
+      "words": 48
     },
     {
       "index": 7,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/07.txt",
-      "title": "México, T-MEC y nearshoring",
-      "category": "mexico",
-      "words": 46
+      "title": "Bienes raíces",
+      "category": "capital",
+      "words": 34
     },
     {
       "index": 8,
@@ -85,7 +85,7 @@
       "file": "podcast/generated/segments/08.txt",
       "title": "Qué haría hoy",
       "category": "acciones",
-      "words": 51
+      "words": 37
     }
   ]
 }

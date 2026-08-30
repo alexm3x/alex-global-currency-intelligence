@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-29 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-30 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** El cambio central de hoy viene de Jackson Hole. Kevin Warsh dejó de ser un evento pendiente y se convirtió en una señal de política más restrictiva. AGCI mantiene riesgo selectivo, liquidez desplegable de diez a quince por ciento y compras sólo en terreno defendible de fair value.
+**CIO:** AGCI abre el domingo con riesgo selectivo y diez a quince por ciento de liquidez. La Fed se volvió más restrictiva, los mercados siguen cerca de máximos y la siguiente prueba será empleo de Estados Unidos, Broadcom y el G20.
 
-## Fed y tasas
+## Fed y empleo
 
-**ANALISTA:** Warsh dijo que la inflación sigue por encima de la meta y que el progreso reciente no demuestra una mejora suficiente de la tendencia subyacente. Describió el empleo como cercano a pleno empleo y las condiciones financieras como poco restrictivas.
+**ANALISTA:** Kevin Warsh reafirmó que la Fed tiene más trabajo por hacer si la inflación no converge suficientemente rápido al dos por ciento. El Treasury a diez años ronda cuatro punto setenta y tres por ciento.
 
-## Confirmación de mercado
+## Mercados
 
-**CIO:** La reacción cross asset confirmó que no fue sólo retórica. El dólar subió y los yields de corto plazo aumentaron más que el tramo largo. Eso eleva el costo de oportunidad para growth, bonos de larga duración y estrategias apalancadas. No perseguiríamos duration después de este repricing.
+**CIO:** El S&P 500 cerró en siete mil setecientos once puntos y el Nasdaq en veintiséis mil cuatrocientos dos. Seguimos cerca de máximos, pero con valuaciones extremas y una Fed hawkish. No ampliaría beta amplia ni perseguiría duration.
 
-## AI y retorno sobre capital
+## AI y tecnología
 
-**ANALISTA:** Barron's plantea si el gran ciclo de capex de inteligencia artificial puede terminar en una burbuja. AGCI no concluye que el ciclo esté terminando ahora.
+**ANALISTA:** Barron's mantiene el foco en la sostenibilidad del capex de inteligencia artificial. Nuestra lectura no cambia: Nvidia conserva demanda excepcional, pero desde aquí importan utilización, retorno sobre capital y flujo libre después de capex. Broadcom será la siguiente prueba de amplitud.
 
-## Selección tecnológica
+## G20 y geopolítica
 
-**CIO:** Nvidia mantiene una demanda estructural extraordinaria. Alphabet y Meta tienen ventaja porque pueden financiar gran parte de la inversión con flujo propio. Marvell exige más paciencia porque el timing de ingresos y el múltiplo dejan menos margen de error. La calidad del balance gana peso cuando sube el hurdle rate.
+**CIO:** El G20 de Asheville llega con aranceles, sanciones a Irán y estabilidad del mercado de bonos en primer plano. La combinación de deuda estadounidense superior a cuarenta billones y políticas comerciales agresivas puede elevar volatilidad de tasas y divisas.
 
 ## Hormuz y energía
 
-**ANALISTA:** Hormuz todavía no está normalizado. Sólo siete buques de commodities transitaron el jueves, frente a diecisiete el día previo y un promedio reciente de quince. El petróleo terminó la semana a la baja, pero el riesgo físico permanece. Mantendríamos una cobertura moderada sin perseguir crudo.
+**ANALISTA:** Hormuz sigue materialmente restringido. Reuters señala que los datos de seguimiento sugieren flujos cercanos a cinco millones de barriles diarios, por debajo de cifras oficiales superiores a ocho millones. Mantendríamos una cobertura energética moderada.
 
-## Bienes raíces y crédito
+## México y T-MEC
 
-**CIO:** La lectura de Warsh refuerza nuestro stress inmobiliario de cincuenta a cien puntos base. No asumimos una caída rápida de hipotecas, cap rates o costos de refinanciamiento. Los proyectos deben sobrevivir con DSCR conservador, menor apalancamiento y sensibilidad explícita a tasas más altas por más tiempo.
+**CIO:** México llega con mejor crecimiento: el PIB del segundo trimestre avanzó uno punto cuatro por ciento trimestral y dos punto uno anual. Sin embargo, las negociaciones con Estados Unidos suman una fricción por nombres protegidos de quesos. Nearshoring sigue atractivo, pero requiere trazabilidad y flexibilidad.
 
-## México, T-MEC y nearshoring
+## Bienes raíces
 
-**ANALISTA:** No hubo un nuevo acuerdo material de T-MEC en este corte. La tesis de nearshoring sigue vigente, pero el capital debe privilegiar activos con reglas de origen verificables, flexibilidad de proveedores y retornos que sobrevivan escenarios de aranceles o requisitos más estrictos.
+**ANALISTA:** No relajamos el stress inmobiliario. Mantenemos cincuenta a cien puntos base adicionales sobre financiamiento y cap rates, DSCR conservador y menor apalancamiento. Una Fed más restrictiva mantiene alto el costo de refinanciamiento.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada y exposición selectiva a AI de alta calidad. No aumentaría beta amplia con Greed en ochenta y seis y Valuation en ochenta y cinco. La regla final es simple: elevar el hurdle rate, conservar optionalidad y comprar calidad sólo con margen de seguridad suficiente.
+**CIO:** Mantendría liquidez, duration escalonada, exposición selectiva a AI de alta calidad y cobertura energética moderada. La regla sigue siendo preservar optionalidad y comprar sólo cuando fair value y margen de seguridad compensen el riesgo.
