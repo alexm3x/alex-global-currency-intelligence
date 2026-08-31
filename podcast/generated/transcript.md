@@ -1,39 +1,39 @@
 # AGCI Morning Intelligence
 
-**2026-08-30 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-08-31 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el domingo con riesgo selectivo y diez a quince por ciento de liquidez. La Fed se volvió más restrictiva, los mercados siguen cerca de máximos y la siguiente prueba será empleo de Estados Unidos, Broadcom y el G20.
+**CIO:** AGCI abre el lunes con riesgo selectivo y diez a quince por ciento de liquidez. La novedad material es la reanudación de ataques entre Estados Unidos e Irán, que vuelve a elevar la prima energética justo antes de una semana crítica para empleo y tecnología.
+
+## Hormuz y petróleo
+
+**ANALISTA:** Reuters reporta un ataque estadounidense en Larak, dentro del Estrecho de Hormuz, seguido de nuevas represalias iraníes. El petróleo subió más de dos por ciento. Mantendríamos una cobertura energética moderada y evitaríamos perseguir el movimiento inicial.
+
+## Mercados y tasas
+
+**CIO:** El S&P quinientos llega desde siete mil setecientos once puntos y el Treasury a diez años cerca de cuatro punto setenta y tres por ciento. Con valuaciones extremas, petróleo al alza y una Fed restrictiva, la asimetría táctica empeora. Mantendría duration escalonada.
 
 ## Fed y empleo
 
-**ANALISTA:** Kevin Warsh reafirmó que la Fed tiene más trabajo por hacer si la inflación no converge suficientemente rápido al dos por ciento. El Treasury a diez años ronda cuatro punto setenta y tres por ciento.
+**ANALISTA:** El reporte de empleo de agosto será la siguiente prueba macro. Una lectura fuerte puede reforzar la probabilidad de tasas más altas; una lectura débil podría aliviar yields, pero también cuestionar crecimiento. No conviene anticipar una apuesta binaria grande.
 
-## Mercados
+## AI e infraestructura
 
-**CIO:** El S&P 500 cerró en siete mil setecientos once puntos y el Nasdaq en veintiséis mil cuatrocientos dos. Seguimos cerca de máximos, pero con valuaciones extremas y una Fed hawkish. No ampliaría beta amplia ni perseguiría duration.
+**CIO:** Nvidia anunció una inversión de tres mil quinientos millones de dólares en MediaTek, mientras SLB acordó comprar Kelvion para ampliar su negocio de cooling de data centers. La oportunidad AI se desplaza desde chips hacia toda la infraestructura física.
 
-## AI y tecnología
+## Snapshot premium
 
-**ANALISTA:** Barron's mantiene el foco en la sostenibilidad del capex de inteligencia artificial. Nuestra lectura no cambia: Nvidia conserva demanda excepcional, pero desde aquí importan utilización, retorno sobre capital y flujo libre después de capex. Broadcom será la siguiente prueba de amplitud.
+**ANALISTA:** Barron's señala que el rally enfrenta una prueba importante esta semana y mantiene el foco en empleo, Broadcom y otros resultados tecnológicos. Nuestra lectura es exigir retorno sobre capital, flujo libre después de capex y fortaleza de balance.
 
-## G20 y geopolítica
+## Riesgo operativo AI
 
-**CIO:** El G20 de Asheville llega con aranceles, sanciones a Irán y estabilidad del mercado de bonos en primer plano. La combinación de deuda estadounidense superior a cuarenta billones y políticas comerciales agresivas puede elevar volatilidad de tasas y divisas.
-
-## Hormuz y energía
-
-**ANALISTA:** Hormuz sigue materialmente restringido. Reuters señala que los datos de seguimiento sugieren flujos cercanos a cinco millones de barriles diarios, por debajo de cifras oficiales superiores a ocho millones. Mantendríamos una cobertura energética moderada.
+**CIO:** El Financial Stability Board elevó el riesgo cibernético impulsado por inteligencia artificial como una amenaza inmediata para la estabilidad financiera. Añadimos resiliencia cibernética y concentración de proveedores al análisis de empresas intensivas en AI.
 
 ## México y T-MEC
 
-**CIO:** México llega con mejor crecimiento: el PIB del segundo trimestre avanzó uno punto cuatro por ciento trimestral y dos punto uno anual. Sin embargo, las negociaciones con Estados Unidos suman una fricción por nombres protegidos de quesos. Nearshoring sigue atractivo, pero requiere trazabilidad y flexibilidad.
-
-## Bienes raíces
-
-**ANALISTA:** No relajamos el stress inmobiliario. Mantenemos cincuenta a cien puntos base adicionales sobre financiamiento y cap rates, DSCR conservador y menor apalancamiento. Una Fed más restrictiva mantiene alto el costo de refinanciamiento.
+**ANALISTA:** México mantiene un mejor pulso de crecimiento, pero no hay una nueva resolución comercial material en este corte. Nearshoring sigue atractivo si las empresas pueden demostrar trazabilidad, reglas de origen y flexibilidad de proveedores.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada, exposición selectiva a AI de alta calidad y cobertura energética moderada. La regla sigue siendo preservar optionalidad y comprar sólo cuando fair value y margen de seguridad compensen el riesgo.
+**CIO:** Mantendría liquidez, duration escalonada, exposición selectiva a AI de alta calidad y una cobertura energética moderada. No perseguiría petróleo ni beta amplia. Esperaría empleo y Broadcom para desplegar capital sólo con fair value y margen de seguridad.
