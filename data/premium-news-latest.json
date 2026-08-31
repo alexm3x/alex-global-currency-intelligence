@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-08-29",
-  "timestamp": "2026-08-29T07:12:09-06:00",
+  "date": "2026-08-31",
+  "timestamp": "2026-08-31T08:45:11-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
@@ -9,81 +9,111 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "Federal Reserve / Barron's / Reuters",
-      "newsletter": "Barron's Review & Preview + Daily Roundup — 28 Aug 2026",
-      "headline": "Warsh turns Jackson Hole into a real tightening signal: inflation remains the predominant policy focus",
-      "category": "Macro / Federal Reserve / Rates / Capital Allocation",
+      "publisher": "Reuters / Barron's",
+      "newsletter": "The Barron's Daily — Huge Test for Markets / 31 Aug 2026",
+      "headline": "Renewed U.S.-Iran strikes restore the Hormuz inflation premium as bonds face fresh selling",
+      "category": "Geopolitics / Energy / Macro / Rates / Capital Allocation",
       "relevance": 100,
-      "summary": "Chair Kevin Warsh said the Fed must be confident that underlying inflation is moving clearly and sufficiently fast toward 2%; otherwise policymakers still have work to do. He described labor markets as broadly consistent with full employment, inflation progress as modest and financial conditions as showing few signs of restraint. Rate futures moved to roughly a 56–60% probability of a September hike from about 35–40% before the speech.",
-      "whyItMatters": "This is a substantive change from yesterday's event-risk posture. The policy distribution has shifted hawkishly, raising the hurdle rate for long-duration equities, Treasuries, leveraged real estate and other rate-sensitive assets. AGCI keeps duration staggered, liquidity intact and requires stronger valuation support before adding beta.",
-      "assets": ["TLT", "IEF", "SHY", "DXY", "SPY", "QQQ", "VNQ", "GLD", "HYG", "LQD"],
-      "agciSignal": "FED HAWKISH SHIFT / HIGHER HURDLE RATE / KEEP LIQUIDITY",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/speech/warsh20260828a.htm"
+      "summary": "U.S. forces struck Iranian launchers on Larak Island in the Strait of Hormuz and Iran said it retaliated against U.S. bases in Jordan. Oil rose more than 2% and global bond markets came under renewed pressure as investors repriced the inflation path alongside Kevin Warsh's restrictive Jackson Hole signal.",
+      "whyItMatters": "The combination of physical chokepoint risk, higher oil and already-elevated policy rates worsens the near-term asymmetry for long-duration equities, leveraged real estate and concentrated Treasury duration. AGCI keeps 10–15% deployable liquidity, staggered duration and only a moderate energy hedge rather than chasing the first oil move.",
+      "assets": ["BNO", "USO", "XLE", "XOM", "CVX", "TLT", "IEF", "SHY", "DXY", "GLD", "SPY", "QQQ", "VNQ"],
+      "agciSignal": "HORMUZ RE-ESCALATION / INFLATION TAIL RISK / KEEP LIQUIDITY",
+      "sourceUrl": "https://www.reuters.com/business/energy/oil-jumps-more-than-2-after-us-attack-irans-larak-island-2026-08-30/"
     },
     {
       "rank": 2,
-      "publisher": "Barron's",
-      "newsletter": "This Week's Magazine — 29 Aug 2026",
-      "headline": "AI capex remains structurally powerful, but the investment case is moving from TAM growth to return on capital",
-      "category": "AI / Technology / Capital Allocation",
-      "relevance": 97,
-      "summary": "Barron's new weekend cover asks whether the AI capex boom is becoming a bubble and frames the cycle against long market history. The material investment takeaway is not that the cycle is ending now, but that unusually large infrastructure spending eventually requires proof of utilization, pricing power, monetization and free-cash-flow conversion.",
-      "whyItMatters": "Nvidia has confirmed demand, but the next phase of the AI trade should discriminate between companies funding growth from durable cash generation and those relying on increasingly expensive external capital. AGCI raises the weight of ROIC, FCF after capex and balance-sheet resilience in AI selection.",
-      "assets": ["NVDA", "AVGO", "MRVL", "GOOGL", "META", "AMZN", "MSFT", "MU", "SMH", "SOXX"],
-      "agciSignal": "AI STRUCTURAL / ROIC AND FCF > NARRATIVE",
-      "sourceUrl": "https://www.barrons.com/"
+      "publisher": "Reuters / Barron's",
+      "newsletter": "The Barron's Daily — AI spending bubble focus / 31 Aug 2026",
+      "headline": "Nvidia's $3.5 billion MediaTek investment expands the AI ecosystem but raises circular-financing scrutiny",
+      "category": "AI / Semiconductors / Capital Allocation",
+      "relevance": 98,
+      "summary": "Nvidia invested $3.5 billion in MediaTek convertible bonds. MediaTek will adopt NVLink Fusion for custom AI chips while the companies extend collaboration in PCs and AI vehicles. The strategic logic is clear, but the transaction also adds to investor scrutiny of Nvidia financing businesses that build products and infrastructure around its own platform.",
+      "whyItMatters": "AGCI distinguishes ecosystem expansion from independent end-demand validation. Nvidia remains a high-quality AI leader, but customer financing, guarantees, cloud commitments and cross-investments should be tracked explicitly when judging revenue quality, free-cash-flow conversion and concentration risk.",
+      "assets": ["NVDA", "2454.TW", "AVGO", "MRVL", "GOOGL", "META", "AMZN", "MSFT", "SMH", "SOXX"],
+      "agciSignal": "AI STRUCTURAL / TRACK CIRCULAR FINANCING / ROIC AND FCF DISCIPLINE",
+      "sourceUrl": "https://www.reuters.com/world/asia-pacific/nvidia-invests-35-billion-mediatek-convertible-bonds-2026-08-31/"
     },
     {
       "rank": 3,
       "publisher": "Reuters",
-      "newsletter": "Global markets — 28 Aug 2026 close",
-      "headline": "Stocks weaken while the dollar and front-end Treasury yields rise after Warsh",
-      "category": "Markets / Rates / FX",
-      "relevance": 96,
-      "summary": "Global equities weakened in choppy trade after Warsh's speech, while the dollar and short-dated Treasury yields rose. The two-year yield increased more than the long end as markets repriced the near-term Fed path toward a higher probability of a September hike.",
-      "whyItMatters": "The cross-asset reaction confirms that the speech changed the market's policy distribution rather than merely its rhetoric. A flatter/higher front end argues for more caution in duration, growth multiple expansion and leveraged carry trades.",
-      "assets": ["SPY", "QQQ", "IWM", "DXY", "SHY", "IEF", "TLT", "HYG"],
-      "agciSignal": "CROSS-ASSET HAWKISH CONFIRMATION / DO NOT CHASE DURATION",
-      "sourceUrl": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-28/"
+      "newsletter": "Energy infrastructure / 31 Aug 2026",
+      "headline": "SLB buys Kelvion for $3.4 billion to scale data-center cooling exposure",
+      "category": "AI Infrastructure / Energy / Industrials / Business",
+      "relevance": 95,
+      "summary": "SLB agreed to acquire cooling-equipment maker Kelvion for $3.4 billion in cash and assume about $700 million of debt. SLB expects the combination to expand its addressable revenue per gigawatt and targets $4.5–5.0 billion of integrated data-center revenue with $700–800 million of adjusted EBITDA by 2028.",
+      "whyItMatters": "The AI capex cycle is broadening from accelerators into thermal management, power and physical infrastructure. AGCI treats this as a real-economy confirmation of AI demand, while requiring integration discipline, leverage control and measurable return on invested capital.",
+      "assets": ["SLB", "NVDA", "VRT", "ETN", "GEV", "PWR", "XLI"],
+      "agciSignal": "AI PHYSICAL INFRASTRUCTURE / COOLING CAPEX / VERIFY ROIC",
+      "sourceUrl": "https://www.reuters.com/business/energy/slb-acquire-kelvion-34-billion-2026-08-31/"
     },
     {
       "rank": 4,
-      "publisher": "Reuters",
-      "newsletter": "Hormuz / energy — 28 Aug 2026",
-      "headline": "Hormuz remains operationally constrained despite diplomacy; crude ends lower but chokepoint risk is unresolved",
-      "category": "Geopolitics / Energy / Inflation",
+      "publisher": "Financial Stability Board / Reuters",
+      "newsletter": "Global financial stability / 31 Aug 2026",
+      "headline": "FSB elevates AI-driven cyber risk and provider concentration as immediate financial-stability concerns",
+      "category": "AI / Cybersecurity / Financial Stability / Risk Management",
       "relevance": 94,
-      "summary": "Only seven commodity vessels transited Hormuz on Thursday versus 17 the prior day and a 10-day average of 15. Oil nevertheless settled lower on Friday and posted a weekly loss as markets weighed Fed tightening risk and speculation about a possible navigation deal.",
-      "whyItMatters": "The energy tail risk has not disappeared: physical traffic remains impaired even as price pressure eases. AGCI keeps a moderate hedge rather than expanding it, while monitoring shipping normalization because a renewed disruption would feed directly into inflation and the Fed reaction function.",
-      "assets": ["BNO", "USO", "XLE", "XOM", "CVX", "TLT", "GLD", "DXY"],
-      "agciSignal": "PHYSICAL RISK PERSISTS / MODERATE HEDGE / NO OIL CHASE",
-      "sourceUrl": "https://www.reuters.com/business/energy/shipping-traffic-via-strait-hormuz-slips-below-10-day-average-data-shows-2026-08-28/"
+      "summary": "The Financial Stability Board identified AI-driven cyber risk as an immediate threat to financial stability, emphasizing the speed and economics of AI-enabled attacks, insufficient controls in some jurisdictions and dependence on a small number of major technology providers.",
+      "whyItMatters": "AGCI adds cyber resilience, recovery capability and critical-provider concentration to operational-risk scoring for banks, exchanges, insurers and AI-intensive companies. Strong AI growth does not eliminate infrastructure fragility.",
+      "assets": ["CIBR", "HACK", "PANW", "CRWD", "MSFT", "GOOGL", "AMZN", "JPM", "GS"],
+      "agciSignal": "AI CYBER RISK / PROVIDER CONCENTRATION / OPERATIONAL RESILIENCE",
+      "sourceUrl": "https://www.reuters.com/legal/litigation/ai-driven-cyber-risk-is-top-concern-global-financial-stability-watchdog-says-2026-08-31/"
     },
     {
       "rank": 5,
       "publisher": "Reuters",
-      "newsletter": "Energy infrastructure — 28 Aug 2026",
-      "headline": "Gulf states accelerate pipelines and ports designed to bypass Hormuz",
-      "category": "Geopolitics / Infrastructure / Real Assets",
+      "newsletter": "China property / 31 Aug 2026",
+      "headline": "China's completed-home financing rules accelerate developer consolidation and pressure presale-dependent balance sheets",
+      "category": "Real Estate / China / Credit",
+      "relevance": 92,
+      "summary": "New Chinese rules push mortgage issuance toward completed projects and reduce the sector's reliance on presale funding. Property equities fell sharply as investors assessed a larger financing gap and an advantage for stronger state-backed developers with better access to loans and bond markets.",
+      "whyItMatters": "The reform may improve long-run buyer protection but raises near-term liquidity pressure for weaker developers. AGCI favors visible cash flow, low refinancing dependence and stronger balance sheets rather than broad China property beta.",
+      "assets": ["MCHI", "KWEB", "FXI", "ASHR", "VNQ", "BABA", "JD"],
+      "agciSignal": "CHINA PROPERTY CONSOLIDATION / BALANCE-SHEET QUALITY FIRST",
+      "sourceUrl": "https://www.reuters.com/world/asia-pacific/new-china-property-sector-rules-expected-bring-consolidation-small-developers-2026-08-31/"
+    },
+    {
+      "rank": 6,
+      "publisher": "Reuters / Barron's",
+      "newsletter": "Barron's Daily Roundup — week ahead / 30–31 Aug 2026",
+      "headline": "U.S. jobs and Broadcom become the next macro-and-AI validation points",
+      "category": "Macro / Earnings / AI / Markets",
+      "relevance": 90,
+      "summary": "Barron's authorized newsletters frame U.S. employment data and Broadcom, Dell, HPE and Planet Labs results as the week's major tests. The investment relevance is concentrated in whether labor remains strong enough to sustain restrictive policy and whether AI demand broadens beyond Nvidia into custom silicon, networking and enterprise infrastructure.",
+      "whyItMatters": "AGCI avoids a binary pre-event position. Strong jobs could lift the rate path further, while weak jobs could lower yields but damage the growth narrative. Broadcom is the cleaner next read-through for custom silicon and networking breadth.",
+      "assets": ["AVGO", "DELL", "HPE", "PL", "NVDA", "QQQ", "SPY", "TLT", "DXY"],
+      "agciSignal": "EVENT CLUSTER / DO NOT FRONT-RUN / BROADCOM AS AI BREADTH TEST",
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 7,
+      "publisher": "Reuters",
+      "newsletter": "Venezuela energy / 30–31 Aug 2026",
+      "headline": "U.S.-Venezuela oil framework adds long-run supply optionality, but not immediate relief from Hormuz",
+      "category": "Energy / Geopolitics / Capital Allocation",
       "relevance": 88,
-      "summary": "The prolonged Iran conflict is accelerating Gulf investment in pipelines, Red Sea and eastern-UAE ports, and other infrastructure intended to reduce dependence on Hormuz. The shift is strategic rather than tactical and reflects an assumption that chokepoint risk can remain structurally elevated.",
-      "whyItMatters": "For AGCI, this creates a longer-duration real-asset theme in logistics, pipelines, ports and related infrastructure while reinforcing that the geopolitical risk premium should not be assumed to vanish even if oil prices temporarily fall.",
-      "assets": ["XLE", "XLI", "PAVE", "IGF", "AMLP", "BNO"],
-      "agciSignal": "STRUCTURAL INFRASTRUCTURE CAPEX / REAL-ASSET OPTIONALITY",
-      "sourceUrl": "https://www.reuters.com/business/energy/pipelines-ports-iran-war-spurs-gulf-infrastructure-investment-2026-08-28/"
+      "summary": "Venezuela's interim government said a 25-year U.S. energy framework would develop 17 strategic oilfields and target production of 1.5 million barrels per day. Separate Reuters reporting says Chevron, ONGC, Eni, GeoPark and GE Vernova are among firms moving toward additional agreements.",
+      "whyItMatters": "The framework can become meaningful supply optionality and investment activity over time, but infrastructure, legal and execution constraints mean it does not offset today's Hormuz shock. AGCI treats it as a medium-term bearish oil-supply factor, not a reason to remove the current geopolitical hedge.",
+      "assets": ["CVX", "COP", "XOM", "GEV", "XLE", "BNO", "USO"],
+      "agciSignal": "LONG-RUN SUPPLY OPTIONALITY / NO NEAR-TERM HORMUZ OFFSET",
+      "sourceUrl": "https://www.reuters.com/business/energy/venezuelas-interim-president-says-us-energy-deal-will-last-25-years-2026-08-30/"
     }
   ],
   "watch": [
-    "September 15–16 FOMC: incoming August labor and inflation data now carry higher policy sensitivity after Warsh",
-    "AI capex: prioritize utilization, ROIC, FCF after capex and balance-sheet resilience",
-    "Front-end Treasury yields and DXY as confirmation of the hawkish repricing",
-    "AGCI Greed remains 86 and Valuation 85 until next live engine refresh",
-    "Hormuz physical traffic versus diplomatic headlines; moderate energy hedge only",
-    "Gulf pipeline/port capex as a structural real-assets theme",
-    "USMCA/nearshoring: no new official material agreement in this cycle",
-    "Real estate underwriting remains +50/+100 bp stress; Warsh reinforces rather than relaxes this assumption",
+    "U.S.-Iran military exchanges, Hormuz physical traffic and weekly secondary-sanctions escalation",
+    "Oil-to-inflation transmission and front-end Treasury yields after Warsh's hawkish Jackson Hole signal",
+    "U.S. August employment data as the next major Fed-path catalyst",
+    "Broadcom results as a test of custom silicon, networking and AI capex breadth",
+    "Nvidia ecosystem financing: MediaTek convertibles, guarantees, cloud commitments and customer-financing concentration",
+    "AI infrastructure beyond chips: cooling, power, networking and thermal-management economics",
+    "FSB AI cyber-risk warning: resilience, recovery and provider concentration",
+    "China property liquidity after completed-home financing reforms",
+    "U.S.-Venezuela oil development as medium-term supply optionality, not immediate Hormuz relief",
+    "AGCI Greed 86 and Valuation 85 remain the latest published engine snapshot",
+    "Real estate underwriting remains +50/+100 bp stress and conservative DSCR",
+    "USMCA/nearshoring: no new Mexico-specific official material agreement identified in this cut",
     "The Economist — no new newsletter found in authorized Gmail after the prior cutoff",
-    "Travel — no newly validated material fare/opportunity in this cycle"
+    "Travel — EASA narrowed Gulf airspace guidance, but no new fare opportunity met AGCI materiality standards"
   ],
   "excluded": [
     {
@@ -91,16 +121,12 @@
       "reason": "No new Economist newsletter was found in authorized Gmail after the prior review cutoff."
     },
     {
-      "headline": "Barron's Market Lab for August 31",
-      "reason": "No incremental thesis-changing signal was identified beyond the macro and cross-asset changes already captured."
+      "headline": "Routine market and newsletter commentary",
+      "reason": "Items without a change in policy, valuation, risk regime, corporate fundamentals or capital-allocation implications were excluded."
     },
     {
       "headline": "Private newsletter tracking links",
       "reason": "Tracking URLs from authorized Gmail are intentionally not stored; publisher-level attribution and original AGCI summaries are retained instead."
-    },
-    {
-      "headline": "Routine weekend market commentary",
-      "reason": "Price moves or opinion without a change in policy, valuation, risk regime or capital-allocation implications were excluded."
     }
   ]
 }
