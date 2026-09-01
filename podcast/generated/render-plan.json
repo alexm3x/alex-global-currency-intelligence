@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "date": "2026-08-31",
-  "totalWords": 462,
+  "date": "2026-09-01",
+  "totalWords": 398,
   "targetSeconds": 240,
   "primaryPlayback": "deviceSpeech",
   "fallbackVoiceMode": "dual-espeak",
@@ -13,7 +13,7 @@
       "file": "podcast/generated/segments/00.txt",
       "title": "Apertura ejecutiva",
       "category": "apertura",
-      "words": 47
+      "words": 37
     },
     {
       "index": 1,
@@ -22,7 +22,7 @@
       "file": "podcast/generated/segments/01.txt",
       "title": "Hormuz y petróleo",
       "category": "general",
-      "words": 44
+      "words": 48
     },
     {
       "index": 2,
@@ -31,25 +31,25 @@
       "file": "podcast/generated/segments/02.txt",
       "title": "Mercados y tasas",
       "category": "mercados",
-      "words": 41
+      "words": 42
     },
     {
       "index": 3,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/03.txt",
-      "title": "Fed y empleo",
+      "title": "Europa y bancos centrales",
       "category": "general",
-      "words": 42
+      "words": 37
     },
     {
       "index": 4,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/04.txt",
-      "title": "AI y financiamiento",
+      "title": "AI y demanda eléctrica",
       "category": "general",
-      "words": 43
+      "words": 45
     },
     {
       "index": 5,
@@ -58,52 +58,43 @@
       "file": "podcast/generated/segments/05.txt",
       "title": "Snapshot premium",
       "category": "general",
-      "words": 41
+      "words": 42
     },
     {
       "index": 6,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/06.txt",
-      "title": "Riesgo operativo AI",
-      "category": "general",
-      "words": 41
+      "title": "Capital allocation",
+      "category": "capital",
+      "words": 40
     },
     {
       "index": 7,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/07.txt",
-      "title": "Real estate y China",
+      "title": "Real estate",
       "category": "general",
-      "words": 41
+      "words": 38
     },
     {
       "index": 8,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/08.txt",
-      "title": "Venezuela y oferta energética",
-      "category": "general",
-      "words": 44
+      "title": "México y T-MEC",
+      "category": "mexico",
+      "words": 32
     },
     {
       "index": 9,
-      "speaker": "ANALISTA",
-      "voice": "es+f3",
-      "file": "podcast/generated/segments/09.txt",
-      "title": "México y T-MEC",
-      "category": "mexico",
-      "words": 38
-    },
-    {
-      "index": 10,
       "speaker": "CIO",
       "voice": "es+m3",
-      "file": "podcast/generated/segments/10.txt",
+      "file": "podcast/generated/segments/09.txt",
       "title": "Qué haría hoy",
       "category": "acciones",
-      "words": 40
+      "words": 37
     }
   ]
 }

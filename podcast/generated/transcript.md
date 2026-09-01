@@ -1,47 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-08-31 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-01 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el lunes con riesgo selectivo y diez a quince por ciento de liquidez. La novedad material es la reanudación de ataques entre Estados Unidos e Irán, que vuelve a elevar la prima energética justo antes de una semana crítica para empleo y tecnología.
+**CIO:** AGCI abre septiembre con riesgo selectivo y diez a quince por ciento de liquidez. Hormuz ya no es sólo una prima geopolítica: el bloqueo está reduciendo barriles físicos mientras petróleo y yields vuelven a subir.
 
 ## Hormuz y petróleo
 
-**ANALISTA:** Fuerzas estadounidenses atacaron lanzadores iraníes en Larak, dentro del Estrecho de Hormuz, e Irán afirmó haber respondido contra bases estadounidenses en Jordania. El petróleo subió más de dos por ciento. Mantendríamos una cobertura energética moderada y evitaríamos perseguir el movimiento inicial.
+**ANALISTA:** Reuters estima que las exportaciones iraníes de crudo cayeron a aproximadamente doscientos veinte a doscientos cincuenta y cinco mil barriles diarios en agosto, desde cerca de dos millones en marzo. Brent vuelve sobre noventa y dos dólares. Mantendríamos cobertura energética moderada sin perseguir el movimiento.
 
 ## Mercados y tasas
 
-**CIO:** Los bonos globales vuelven a enfrentar ventas por el salto del petróleo y una señal monetaria todavía restrictiva. Con valuaciones extremas, la combinación de energía e inflación empeora la asimetría táctica. Mantendría duration escalonada y hurdle rates altos.
+**CIO:** El selloff global de bonos se profundiza porque energía, inflación y expectativas de tasas vuelven a alinearse en la misma dirección. Mantendría duration escalonada y evitaría asumir que un dato débil de crecimiento producirá un rally limpio en bonos.
 
-## Fed y empleo
+## Europa y bancos centrales
 
-**ANALISTA:** El reporte de empleo de agosto será la siguiente prueba macro. Una lectura fuerte puede reforzar la probabilidad de tasas más altas; una lectura débil podría aliviar yields, pero también cuestionar crecimiento. No conviene anticipar una apuesta binaria grande.
+**ANALISTA:** La inflación de la eurozona volvió por encima de tres por ciento en agosto, reforzando apuestas de una subida del Banco Central Europeo. El régimen de descuento alto es global, no únicamente estadounidense.
 
-## AI y financiamiento
+## AI y demanda eléctrica
 
-**CIO:** Nvidia invirtió tres mil quinientos millones de dólares en bonos convertibles de MediaTek, mientras SLB acordó comprar Kelvion para ampliar su negocio de cooling. La oportunidad AI se expande, pero ahora debemos separar demanda independiente de ecosistemas financiados por proveedores.
+**CIO:** Texas comenzó a frenar y auditar nuevas conexiones de data centers después de recibir solicitudes de electricidad muy superiores a la demanda plausible. A partir de ahora, distinguiría gigawatts anunciados de proyectos con depósitos, energía contratada, clientes identificados y financiamiento cerrado.
 
 ## Snapshot premium
 
-**ANALISTA:** Barron's señala que el rally enfrenta una prueba importante esta semana y mantiene el foco en empleo, Broadcom, Dell, HPE y Planet Labs. Nuestra lectura es exigir retorno sobre capital, flujo libre después de capex y fortaleza de balance.
+**ANALISTA:** Barron's abre septiembre con una ventana estacional más frágil y vuelve a señalar la complejidad del financiamiento circular alrededor de Nvidia. Empleo de Estados Unidos y Broadcom siguen siendo los dos catalizadores más útiles para validar tasas y amplitud AI.
 
-## Riesgo operativo AI
+## Capital allocation
 
-**CIO:** El Financial Stability Board elevó el riesgo cibernético impulsado por inteligencia artificial como una amenaza inmediata para la estabilidad financiera. Añadimos resiliencia cibernética, concentración de proveedores, garantías y compromisos de capital al análisis de empresas intensivas en AI.
+**CIO:** Con Greed ochenta y seis y Valuation ochenta y cinco, no aumentaría beta de forma amplia. Mantendría liquidez, compras por tramos y un hurdle rate elevado para duration, real estate y proyectos AI que dependan de financiamiento externo.
 
-## Real estate y China
+## Real estate
 
-**ANALISTA:** China reduce la dependencia de preventas y desplaza hipotecas hacia proyectos terminados. Esto puede mejorar protección al comprador, pero eleva presión de liquidez y acelera consolidación entre desarrolladores. Mantendría preferencia por balances fuertes y cash flow visible.
-
-## Venezuela y oferta energética
-
-**CIO:** El nuevo marco energético entre Estados Unidos y Venezuela puede añadir oferta y actividad de inversión a mediano plazo, pero no reemplaza barriles de Hormuz hoy. Lo tratamos como opcionalidad futura, no como razón para retirar la cobertura geopolítica actual.
+**ANALISTA:** Los yields globales altos reducen la probabilidad de un alivio rápido en cap rates. Mantendría estrés de cincuenta y cien puntos base, DSCR conservador y preferencia por activos con flujo visible y baja necesidad de refinanciamiento.
 
 ## México y T-MEC
 
-**ANALISTA:** México mantiene un mejor pulso de crecimiento, pero no hay una nueva resolución comercial México-específica en este corte. Las fricciones dentro de Norteamérica aumentan el valor de trazabilidad, reglas de origen y flexibilidad de proveedores.
+**CIO:** No hay una nueva resolución México-específica material en este corte. Mantendría trazabilidad, reglas de origen y flexibilidad de proveedores como condiciones para capturar nearshoring sin asumir continuidad regulatoria automática.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada, exposición selectiva a AI de alta calidad y una cobertura energética moderada. No perseguiría petróleo ni beta amplia. Esperaría empleo y Broadcom para desplegar capital sólo con fair value y margen de seguridad.
+**CIO:** Mantendría liquidez, duration escalonada y una cobertura energética moderada. En AI exigiría contratos, utilización y financiamiento verificable. Esperaría empleo y Broadcom antes de desplegar capital adicional fuera de fair value con margen de seguridad.
