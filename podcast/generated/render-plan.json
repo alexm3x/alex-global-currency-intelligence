@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "date": "2026-09-01",
-  "totalWords": 398,
+  "date": "2026-09-02",
+  "totalWords": 415,
   "targetSeconds": 240,
   "primaryPlayback": "deviceSpeech",
   "fallbackVoiceMode": "dual-espeak",
@@ -13,32 +13,32 @@
       "file": "podcast/generated/segments/00.txt",
       "title": "Apertura ejecutiva",
       "category": "apertura",
-      "words": 37
+      "words": 47
     },
     {
       "index": 1,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/01.txt",
-      "title": "Hormuz y petróleo",
+      "title": "Hormuz y energía",
       "category": "general",
-      "words": 48
+      "words": 46
     },
     {
       "index": 2,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/02.txt",
-      "title": "Mercados y tasas",
-      "category": "mercados",
-      "words": 42
+      "title": "Bonos y tasas",
+      "category": "general",
+      "words": 40
     },
     {
       "index": 3,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/03.txt",
-      "title": "Europa y bancos centrales",
+      "title": "Greed y Valuation",
       "category": "general",
       "words": 37
     },
@@ -47,27 +47,27 @@
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/04.txt",
-      "title": "AI y demanda eléctrica",
+      "title": "AI y semiconductores",
       "category": "general",
-      "words": 45
+      "words": 47
     },
     {
       "index": 5,
       "speaker": "ANALISTA",
       "voice": "es+f3",
       "file": "podcast/generated/segments/05.txt",
-      "title": "Snapshot premium",
+      "title": "Venezuela y Chevron",
       "category": "general",
-      "words": 42
+      "words": 24
     },
     {
       "index": 6,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/06.txt",
-      "title": "Capital allocation",
-      "category": "capital",
-      "words": 40
+      "title": "México y T-MEC",
+      "category": "mexico",
+      "words": 43
     },
     {
       "index": 7,
@@ -76,16 +76,16 @@
       "file": "podcast/generated/segments/07.txt",
       "title": "Real estate",
       "category": "general",
-      "words": 38
+      "words": 44
     },
     {
       "index": 8,
       "speaker": "CIO",
       "voice": "es+m3",
       "file": "podcast/generated/segments/08.txt",
-      "title": "México y T-MEC",
-      "category": "mexico",
-      "words": 32
+      "title": "Capital allocation",
+      "category": "capital",
+      "words": 43
     },
     {
       "index": 9,
@@ -94,7 +94,7 @@
       "file": "podcast/generated/segments/09.txt",
       "title": "Qué haría hoy",
       "category": "acciones",
-      "words": 37
+      "words": 44
     }
   ]
 }

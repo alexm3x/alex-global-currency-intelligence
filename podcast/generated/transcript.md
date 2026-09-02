@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-01 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-02 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre septiembre con riesgo selectivo y diez a quince por ciento de liquidez. Hormuz ya no es sólo una prima geopolítica: el bloqueo está reduciendo barriles físicos mientras petróleo y yields vuelven a subir.
+**CIO:** AGCI abre el dos de septiembre con riesgo selectivo y diez a quince por ciento de liquidez. El cambio central es que el shock de Hormuz y el shock de tasas se están reforzando, mientras el motor propietario finalmente registra una corrección importante del sentimiento.
 
-## Hormuz y petróleo
+## Hormuz y energía
 
-**ANALISTA:** Reuters estima que las exportaciones iraníes de crudo cayeron a aproximadamente doscientos veinte a doscientos cincuenta y cinco mil barriles diarios en agosto, desde cerca de dos millones en marzo. Brent vuelve sobre noventa y dos dólares. Mantendríamos cobertura energética moderada sin perseguir el movimiento.
+**ANALISTA:** Reuters reporta el mayor intercambio de ataques entre Estados Unidos e Irán desde julio. Hubo nuevos ataques cerca de Hormuz, represalias contra bases estadounidenses y daños a tankers. Brent superó noventa y cinco dólares intradía. Mantendría cobertura energética moderada sin perseguir el movimiento.
 
-## Mercados y tasas
+## Bonos y tasas
 
-**CIO:** El selloff global de bonos se profundiza porque energía, inflación y expectativas de tasas vuelven a alinearse en la misma dirección. Mantendría duration escalonada y evitaría asumir que un dato débil de crecimiento producirá un rally limpio en bonos.
+**CIO:** El Treasury a diez años se acerca a cuatro punto ochenta y dos por ciento y la venta global de bonos continúa. El petróleo vuelve a alimentar la inflación esperada justo cuando los bancos centrales siguen restrictivos.
 
-## Europa y bancos centrales
+## Greed y Valuation
 
-**ANALISTA:** La inflación de la eurozona volvió por encima de tres por ciento en agosto, reforzando apuestas de una subida del Banco Central Europeo. El régimen de descuento alto es global, no únicamente estadounidense.
+**ANALISTA:** El motor AGCI cambió de forma material. Greed cayó dieciséis puntos a setenta y uno, Valuation permanece en ochenta y cinco, el régimen pasó a Correction y la señal de matriz a PRICE DISCIPLINE.
 
-## AI y demanda eléctrica
+## AI y semiconductores
 
-**CIO:** Texas comenzó a frenar y auditar nuevas conexiones de data centers después de recibir solicitudes de electricidad muy superiores a la demanda plausible. A partir de ahora, distinguiría gigawatts anunciados de proyectos con depósitos, energía contratada, clientes identificados y financiamiento cerrado.
+**CIO:** Barron's destaca a Micron y Broadcom como próximos catalizadores. En este entorno exigiría pricing power, demanda financiada, margen y conversión a caja. AI sigue siendo estructural, pero el costo del capital reduce el valor de backlog narrativo y eleva la ventaja de balances fuertes.
 
-## Snapshot premium
+## Venezuela y Chevron
 
-**ANALISTA:** Barron's abre septiembre con una ventana estacional más frágil y vuelve a señalar la complejidad del financiamiento circular alrededor de Nvidia. Empleo de Estados Unidos y Broadcom siguen siendo los dos catalizadores más útiles para validar tasas y amplitud AI.
-
-## Capital allocation
-
-**CIO:** Con Greed ochenta y seis y Valuation ochenta y cinco, no aumentaría beta de forma amplia. Mantendría liquidez, compras por tramos y un hurdle rate elevado para duration, real estate y proyectos AI que dependan de financiamiento externo.
-
-## Real estate
-
-**ANALISTA:** Los yields globales altos reducen la probabilidad de un alivio rápido en cap rates. Mantendría estrés de cincuenta y cien puntos base, DSCR conservador y preferencia por activos con flujo visible y baja necesidad de refinanciamiento.
+**ANALISTA:** Chevron anunció aproximadamente siete mil millones de dólares para llevar su producción venezolana hacia seiscientos mil barriles diarios en cinco años.
 
 ## México y T-MEC
 
-**CIO:** No hay una nueva resolución México-específica material en este corte. Mantendría trazabilidad, reglas de origen y flexibilidad de proveedores como condiciones para capturar nearshoring sin asumir continuidad regulatoria automática.
+**CIO:** Reuters reporta que nuevas decisiones de inversión extranjera en México se están postergando por incertidumbre sobre T-MEC. Nearshoring sigue siendo una tesis estructural, pero ya no valoraría anuncios. Exigiría capex comprometido, contratos firmados, reglas de origen claras e infraestructura verificable.
+
+## Real estate
+
+**ANALISTA:** Con el Treasury diez años cerca de cuatro punto ochenta y dos por ciento, mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En industrial mexicano, no capitalizaría demanda futura sin arrendamientos firmados y crédito sólido del inquilino.
+
+## Capital allocation
+
+**CIO:** La caída de Greed aumenta optionality, pero Valuation ochenta y cinco obliga a esperar mejores precios. Mantendría liquidez, compras por tramos, duration escalonada y un hedge energético moderado. Broadcom, Micron y la evolución de Hormuz definirán cuánto capital adicional puede desplegarse.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada y una cobertura energética moderada. En AI exigiría contratos, utilización y financiamiento verificable. Esperaría empleo y Broadcom antes de desplegar capital adicional fuera de fair value con margen de seguridad.
+**CIO:** Hoy no perseguiría petróleo ni tecnología. Vigilaría el diez años hacia cinco por ciento, exigiría fair value con margen de seguridad y usaría la corrección para preparar entradas, no para asumir que el riesgo desapareció. PRICE DISCIPLINE es la señal operativa.
