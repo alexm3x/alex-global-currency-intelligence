@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-01T21:20:04.913Z",
+  "timestamp": "2026-09-02T05:05:00.457Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 87,
-    "greed_label": "Extreme Greed",
+    "greed": 71,
+    "greed_label": "Greed",
     "valuation": 85,
     "valuation_label": "Extreme Valuation",
-    "regime": "Mid Bull",
+    "regime": "Correction",
     "opportunity": null,
     "confidence": 73,
     "coverage": {
@@ -17,16 +17,16 @@
       "valuation": 0.55
     },
     "condition": {
-      "code": "EUPHORIA_RISK",
-      "label": "Capital preservation / Do not chase",
-      "severity": "red"
+      "code": "PRICE_DISCIPLINE",
+      "label": "Wait / Price discipline",
+      "severity": "amber"
     },
-    "interpretation": "Greed 87/100 (Extreme Greed) y Valuation 85/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Capital preservation / Do not chase."
+    "interpretation": "Greed 71/100 (Greed) y Valuation 85/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Wait / Price discipline."
   },
   "changes": {
-    "greed_1d": -4,
-    "greed_7d": 3,
-    "greed_30d": -3,
+    "greed_1d": -16,
+    "greed_7d": -15,
+    "greed_30d": -19,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -34,10 +34,10 @@
   "components": {
     "momentum": {
       "label": "Market Momentum",
-      "value": 7686.14,
-      "normalized_score": 64,
+      "value": 7631.47,
+      "normalized_score": 58,
       "source": "Federal Reserve / FRED — SP500",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 90,
@@ -46,9 +46,9 @@
     "breadth": {
       "label": "Cross-index Breadth Proxy",
       "value": null,
-      "normalized_score": 100,
+      "normalized_score": 67,
       "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 82,
@@ -56,10 +56,10 @@
     },
     "volatility": {
       "label": "VIX / Volatility",
-      "value": 14.92,
-      "normalized_score": 91,
+      "value": 16.34,
+      "normalized_score": 68,
       "source": "Cboe Global Markets — VIX",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 90,
@@ -67,10 +67,10 @@
     },
     "options": {
       "label": "Options Term Structure",
-      "value": 0.8511,
-      "normalized_score": 87,
+      "value": 0.8914,
+      "normalized_score": 77,
       "source": "Cboe Global Markets — VIX / VIX3M",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 88,
@@ -82,8 +82,8 @@
       "normalized_score": 97,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
       "asOf": "2026-08-31",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 92,
       "source_quality": 96
     }
@@ -92,19 +92,19 @@
     {
       "name": "Cboe Global Markets — VIX",
       "frequency": "DAILY",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "status": "connected"
     },
     {
       "name": "Cboe Global Markets — VIX3M",
       "frequency": "DAILY",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "status": "connected"
     },
     {
       "name": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
       "frequency": "DAILY",
-      "asOf": "2026-08-31",
+      "asOf": "2026-09-01",
       "status": "connected"
     },
     {
@@ -142,9 +142,9 @@
   ],
   "signals": [
     {
-      "code": "EUPHORIA_RISK",
-      "severity": "red",
-      "label": "Capital preservation / Do not chase"
+      "code": "PRICE_DISCIPLINE",
+      "severity": "amber",
+      "label": "Wait / Price discipline"
     }
   ],
   "errors": [],
