@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-02 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-03 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el dos de septiembre con riesgo selectivo y diez a quince por ciento de liquidez. El cambio central es que el shock de Hormuz y el shock de tasas se están reforzando, mientras el motor propietario finalmente registra una corrección importante del sentimiento.
+**CIO:** AGCI abre el tres de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. El motor rebotó a Greed setenta y ocho, pero Valuation subió a ochenta y seis. Seguimos en Correction y la señal operativa permanece PRICE DISCIPLINE.
 
-## Hormuz y energía
+## Mercado y valoración
 
-**ANALISTA:** Reuters reporta el mayor intercambio de ataques entre Estados Unidos e Irán desde julio. Hubo nuevos ataques cerca de Hormuz, represalias contra bases estadounidenses y daños a tankers. Brent superó noventa y cinco dólares intradía. Mantendría cobertura energética moderada sin perseguir el movimiento.
+**ANALISTA:** El rebote de acciones del miércoles no vino acompañado de alivio de valoración. El S&P quinientos cerró en siete mil seiscientos sesenta y seis punto sesenta y el diez años cerca de cuatro punto setenta y nueve por ciento. La optionality mejora, pero no valida ampliar beta.
 
-## Bonos y tasas
+## Empleo y Fed
 
-**CIO:** El Treasury a diez años se acerca a cuatro punto ochenta y dos por ciento y la venta global de bonos continúa. El petróleo vuelve a alimentar la inflación esperada justo cuando los bancos centrales siguen restrictivos.
+**CIO:** ADP reportó sólo treinta y ocho mil empleos privados en agosto. El Beige Book mostró crecimiento en diez de doce distritos, contratación ligeramente mejor y precios más estables.
 
-## Greed y Valuation
+## Broadcom y custom silicon
 
-**ANALISTA:** El motor AGCI cambió de forma material. Greed cayó dieciséis puntos a setenta y uno, Valuation permanece en ochenta y cinco, el régimen pasó a Correction y la señal de matriz a PRICE DISCIPLINE.
+**ANALISTA:** Broadcom elevó su visión de ingresos de chips AI para fiscal dos mil veintisiete a unos ciento quince mil millones de dólares y ve cerca de doscientos treinta mil millones en dos mil veintiocho.
 
-## AI y semiconductores
+## Nvidia y Hugging Face
 
-**CIO:** Barron's destaca a Micron y Broadcom como próximos catalizadores. En este entorno exigiría pricing power, demanda financiada, margen y conversión a caja. AI sigue siendo estructural, pero el costo del capital reduce el valor de backlog narrativo y eleva la ventaja de balances fuertes.
+**CIO:** Nvidia acordó comprar Hugging Face por doce punto noventa y tres mil millones de dólares. Estratégicamente amplía su posición desde compute hacia distribución, modelos y comunidad de desarrolladores.
 
-## Venezuela y Chevron
+## Infraestructura AI
 
-**ANALISTA:** Chevron anunció aproximadamente siete mil millones de dólares para llevar su producción venezolana hacia seiscientos mil barriles diarios en cinco años.
-
-## México y T-MEC
-
-**CIO:** Reuters reporta que nuevas decisiones de inversión extranjera en México se están postergando por incertidumbre sobre T-MEC. Nearshoring sigue siendo una tesis estructural, pero ya no valoraría anuncios. Exigiría capex comprometido, contratos firmados, reglas de origen claras e infraestructura verificable.
+**ANALISTA:** HPE elevó forecasts por demanda de servidores y networking AI, pero memoria, NAND, CPUs y drives siguen limitando supply. Vertiv comprará Utility Innovation Group para añadir microgrids y onsite power. El cuello de botella del ciclo está migrando hacia componentes, energía y ejecución física.
 
 ## Real estate
 
-**ANALISTA:** Con el Treasury diez años cerca de cuatro punto ochenta y dos por ciento, mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En industrial mexicano, no capitalizaría demanda futura sin arrendamientos firmados y crédito sólido del inquilino.
+**CIO:** Con el Treasury a diez años todavía cerca de cuatro punto setenta y nueve, mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En data centers, sólo asignaría valor pleno a proyectos con power contratado, cliente identificado y financiamiento verificable.
+
+## México y T-MEC
+
+**ANALISTA:** No apareció una nueva decisión oficial material sobre T-MEC desde el corte anterior. Nearshoring sigue siendo una tesis estructural, pero mantendría la penalización por incertidumbre y exigiría capex comprometido, contratos firmados, reglas de origen claras e infraestructura real antes de subir valuaciones.
 
 ## Capital allocation
 
-**CIO:** La caída de Greed aumenta optionality, pero Valuation ochenta y cinco obliga a esperar mejores precios. Mantendría liquidez, compras por tramos, duration escalonada y un hedge energético moderado. Broadcom, Micron y la evolución de Hormuz definirán cuánto capital adicional puede desplegarse.
+**CIO:** La lectura conjunta es clara: Greed rebotó, Valuation empeoró y AI sigue fuerte. Mantendría liquidez, compras por tramos, duration escalonada y exposición AI selectiva. El siguiente gatillo macro es payrolls; el siguiente filtro tecnológico es convertir backlog y demanda en margen y flujo de caja.
 
 ## Qué haría hoy
 
-**CIO:** Hoy no perseguiría petróleo ni tecnología. Vigilaría el diez años hacia cinco por ciento, exigiría fair value con margen de seguridad y usaría la corrección para preparar entradas, no para asumir que el riesgo desapareció. PRICE DISCIPLINE es la señal operativa.
+**CIO:** Hoy no perseguiría el rebote. Mantendría PRICE DISCIPLINE, vigilaría payrolls, evaluaría la compra de Hugging Face con disciplina de capital y usaría Broadcom como confirmación de amplitud AI. Compraría sólo dentro de fair value con margen de seguridad suficiente.
