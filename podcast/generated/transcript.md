@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-03 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-04 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el tres de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. El motor rebotó a Greed setenta y ocho, pero Valuation subió a ochenta y seis. Seguimos en Correction y la señal operativa permanece PRICE DISCIPLINE.
+**CIO:** AGCI abre el cuatro de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. El motor subió a Greed ochenta y siete con Valuation ochenta y seis. Regresamos a Mid Bull, pero la matriz vuelve a EUPHORIA RISK: preservar capital y no perseguir precios.
+
+## Payrolls y Fed
+
+**ANALISTA:** El dato decisivo llegó esta mañana. Estados Unidos creó ciento sesenta y dos mil empleos en agosto frente a cincuenta y seis mil esperados. El desempleo quedó en cuatro punto uno por ciento y los salarios avanzaron tres punto uno por ciento anual.
+
+## Tasas y neutral rate
+
+**CIO:** La sorpresa laboral reduce la urgencia de un giro dovish.
+
+## Hormuz y energía
+
+**ANALISTA:** Hormuz continúa físicamente restringido. Sólo cuatro buques de commodities cruzaron el jueves, muy por debajo del promedio reciente. Brent ronda noventa y cinco dólares y el diesel estadounidense alcanzó máximos récord. Esto mantiene presión sobre inflación, transporte y márgenes.
 
 ## Mercado y valoración
 
-**ANALISTA:** El rebote de acciones del miércoles no vino acompañado de alivio de valoración. El S&P quinientos cerró en siete mil seiscientos sesenta y seis punto sesenta y el diez años cerca de cuatro punto setenta y nueve por ciento. La optionality mejora, pero no valida ampliar beta.
+**CIO:** El S&P quinientos cerró el jueves cerca de siete mil setecientos cuarenta y ocho. La recuperación del sentimiento fue rápida: Greed saltó diez puntos y la volatilidad sigue baja. El problema es que Valuation permanece extrema. Mid Bull no significa mejor retorno esperado cuando el margen de seguridad se comprime.
 
-## Empleo y Fed
+## AI y software
 
-**CIO:** ADP reportó sólo treinta y ocho mil empleos privados en agosto. El Beige Book mostró crecimiento en diez de doce distritos, contratación ligeramente mejor y precios más estables.
-
-## Broadcom y custom silicon
-
-**ANALISTA:** Broadcom elevó su visión de ingresos de chips AI para fiscal dos mil veintisiete a unos ciento quince mil millones de dólares y ve cerca de doscientos treinta mil millones en dos mil veintiocho.
-
-## Nvidia y Hugging Face
-
-**CIO:** Nvidia acordó comprar Hugging Face por doce punto noventa y tres mil millones de dólares. Estratégicamente amplía su posición desde compute hacia distribución, modelos y comunidad de desarrolladores.
-
-## Infraestructura AI
-
-**ANALISTA:** HPE elevó forecasts por demanda de servidores y networking AI, pero memoria, NAND, CPUs y drives siguen limitando supply. Vertiv comprará Utility Innovation Group para añadir microgrids y onsite power. El cuello de botella del ciclo está migrando hacia componentes, energía y ejecución física.
+**ANALISTA:** Snowflake aportó una señal nueva de monetización: elevó su guía de producto y atribuyó aproximadamente la mitad de la aceleración reciente a AI. Esto amplía la tesis más allá de chips y servidores.
 
 ## Real estate
 
-**CIO:** Con el Treasury a diez años todavía cerca de cuatro punto setenta y nueve, mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En data centers, sólo asignaría valor pleno a proyectos con power contratado, cliente identificado y financiamiento verificable.
+**CIO:** La hipoteca fija a treinta años subió a seis punto setenta y uno por ciento, máximo desde julio de dos mil veinticinco. No asumiría alivio rápido de cap rates.
 
 ## México y T-MEC
 
-**ANALISTA:** No apareció una nueva decisión oficial material sobre T-MEC desde el corte anterior. Nearshoring sigue siendo una tesis estructural, pero mantendría la penalización por incertidumbre y exigiría capex comprometido, contratos firmados, reglas de origen claras e infraestructura real antes de subir valuaciones.
+**ANALISTA:** No apareció una nueva decisión oficial material sobre T-MEC. La tesis de nearshoring permanece, pero sin subir valuaciones por anuncios. Exigiría capex comprometido, contratos firmados, reglas de origen claras e infraestructura verificable.
 
 ## Capital allocation
 
-**CIO:** La lectura conjunta es clara: Greed rebotó, Valuation empeoró y AI sigue fuerte. Mantendría liquidez, compras por tramos, duration escalonada y exposición AI selectiva. El siguiente gatillo macro es payrolls; el siguiente filtro tecnológico es convertir backlog y demanda en margen y flujo de caja.
+**CIO:** La lectura conjunta es más defensiva que ayer: empleo resistente, energía cara, Greed extremo y Valuation extrema. Mantendría liquidez, duration escalonada y compras por tramos. El próximo filtro son PPI y CPI antes de la Fed.
 
 ## Qué haría hoy
 
-**CIO:** Hoy no perseguiría el rebote. Mantendría PRICE DISCIPLINE, vigilaría payrolls, evaluaría la compra de Hugging Face con disciplina de capital y usaría Broadcom como confirmación de amplitud AI. Compraría sólo dentro de fair value con margen de seguridad suficiente.
+**CIO:** Hoy no perseguiría el mercado ni el petróleo. Mantendría diez a quince por ciento de liquidez, hedge energético moderado y stress inmobiliario conservador. Compraría sólo cuando precio y fair value ofrezcan margen suficiente. La señal rectora vuelve a ser EUPHORIA RISK: capital preservation antes que FOMO.
