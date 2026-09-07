@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-06",
-  "timestamp": "2026-09-06T07:14:26-06:00",
+  "date": "2026-09-07",
+  "timestamp": "2026-09-07T07:21:46-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
@@ -9,72 +9,77 @@
   "items": [
     {
       "rank": 1,
-      "publisher": "U.S. Central Command / Reuters",
-      "newsletter": "Iran maritime escalation / 5-6 Sep 2026",
-      "headline": "CENTCOM confirms U.S. strikes on three Iranian crude carriers, removing prior attribution uncertainty",
+      "publisher": "Reuters",
+      "newsletter": "Hormuz physical flows / 7 Sep 2026",
+      "headline": "Hormuz traffic falls to the lowest level since May as Iran prepares a new restricted zone",
       "category": "Geopolitics / Energy / Inflation / Capital Allocation",
       "relevance": 100,
-      "summary": "U.S. Central Command confirmed that U.S. forces struck three Iranian crude-oil carriers after Iranian ballistic-missile attacks on two U.S. Navy ships. No U.S. personnel were reported injured.",
-      "whyItMatters": "The prior AGCI cut treated tanker-strike attribution near Iran as unconfirmed. Confirmation raises the probability that energy transportation itself remains inside the military escalation path, sustaining a higher oil-risk premium and inflation tail risk.",
-      "assets": ["USO", "XLE", "XOM", "CVX", "TLT", "DXY", "GLD"],
-      "agciSignal": "ATTRIBUTION CONFIRMED / ENERGY TRANSPORT AT RISK / KEEP MODERATE HEDGE",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/us-military-strikes-three-iranian-crude-oil-carriers-central-command-says-2026-09-05/"
+      "summary": "Reuters reports that an average of only 10 commodity ships per day crossed the Strait of Hormuz over the last 10 days, the lowest rate since May, while Iran said it will announce a new restricted zone and revised shipping corridors.",
+      "whyItMatters": "This is a new physical-flow deterioration, not merely rhetoric. It raises the probability of a more persistent oil and freight shock and increases the chance that energy inflation complicates the Fed path.",
+      "assets": ["USO", "BNO", "XLE", "XOM", "CVX", "TLT", "DXY", "GLD"],
+      "agciSignal": "PHYSICAL FLOWS DETERIORATE / RESTRICTED-ZONE RISK UP / KEEP MODERATE ENERGY HEDGE",
+      "sourceUrl": "https://www.reuters.com/world/middle-east/hormuz-traffic-dips-lowest-since-may-after-us-iranian-strikes-ships-2026-09-06/"
     },
     {
       "rank": 2,
-      "publisher": "OPEC+ / Reuters",
-      "newsletter": "OPEC+ October policy / 6 Sep 2026",
-      "headline": "OPEC+ keeps October output policy unchanged despite Hormuz disruption",
-      "category": "Energy / Macro / Inflation / Real Assets",
+      "publisher": "Reuters",
+      "newsletter": "Iran retaliation warning / 7 Sep 2026",
+      "headline": "Iran warns that U.S.-linked energy infrastructure in the Gulf is exposed",
+      "category": "Geopolitics / Energy / Real Assets / Sovereign Risk",
       "relevance": 98,
-      "summary": "OPEC+ decided on September 6 to keep its oil-output policy unchanged for October while the Iran conflict and Hormuz restrictions continue to impair physical exports and leave several producers below target.",
-      "whyItMatters": "No incremental policy supply cushion is being introduced now. With disrupted barrels constraining effective supply, AGCI treats OPEC+ capacity as less able to offset the geopolitical shock than headline quotas imply.",
-      "assets": ["USO", "XLE", "XOM", "CVX", "BNO", "TLT"],
-      "agciSignal": "NO NEW OPEC+ CUSHION / PHYSICAL FLOWS DOMINATE QUOTAS",
-      "sourceUrl": "https://www.reuters.com/business/energy/opec-set-keep-oil-output-policy-unchanged-sunday-sources-say-2026-09-06/"
+      "summary": "Iranian officials warned that further U.S. attacks could be answered against American-linked oil and gas facilities in the region, while Tehran prepares tighter navigation controls around Hormuz.",
+      "whyItMatters": "The escalation path is broadening from tankers toward fixed energy infrastructure. AGCI treats this as a higher tail risk for Gulf production, refining and logistics, while still separating stated threats from confirmed attacks.",
+      "assets": ["XLE", "XOM", "CVX", "USO", "BNO", "GLD", "TLT"],
+      "agciSignal": "ENERGY-INFRASTRUCTURE TAIL RISK UP / THREAT NOT YET A CONFIRMED STRIKE",
+      "sourceUrl": "https://www.reuters.com/world/middle-east/iran-says-announce-new-restricted-zone-gulf-coming-days-2026-09-07/"
     },
     {
       "rank": 3,
-      "publisher": "Reuters",
-      "newsletter": "Iran economic pressure / 6 Sep 2026",
-      "headline": "Iran acknowledges worsening economic strain while warning retaliation could intensify",
-      "category": "Geopolitics / FX / Sovereign Risk / Energy",
-      "relevance": 95,
-      "summary": "Iranian officials pledged domestic economic measures as sanctions, oil-export restrictions and conflict pressure deepen inflation, currency and import stress; senior officials also warned that further U.S. attacks would trigger a faster and more painful response.",
-      "whyItMatters": "Economic pressure may increase incentives for negotiation, but near-term retaliation risk remains elevated. AGCI therefore separates medium-term bargaining leverage from immediate military tail risk.",
-      "assets": ["USO", "GLD", "DXY", "TLT", "XLE"],
-      "agciSignal": "ECONOMIC PRESSURE RISING / NEGOTIATION OPTIONALITY UP / RETALIATION RISK STILL HIGH",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/iran-tackle-economic-issues-says-further-attacks-will-be-more-painful-2026-09-06/"
+      "publisher": "Barron's",
+      "newsletter": "Daily Roundup / 6 Sep 2026",
+      "headline": "More than $10 billion of tariff refunds are flowing back to S&P 500 companies",
+      "category": "Capital Allocation / Consumer / Trade / Equities",
+      "relevance": 86,
+      "summary": "Barron's reports that S&P 500 companies have begun receiving more than $10 billion of tariff refunds. Most recipients are directing the cash toward reinvestment, customer experience or operating needs rather than distributing the full benefit directly to consumers.",
+      "whyItMatters": "The refunds can temporarily support margins and internal funding, but AGCI does not treat them as recurring operating improvement. Retail and transport names should still be judged on traffic, pricing power, underlying margins and free cash flow.",
+      "assets": ["SPY", "WMT", "DLTR", "BURL", "FDX"],
+      "agciSignal": "ONE-TIME CASH BENEFIT / DO NOT CAPITALIZE REFUNDS AS STRUCTURAL EARNINGS",
+      "sourceUrl": "https://www.barrons.com/articles/tariff-refunds-walmart-trump-fedex-8193fdd5"
     },
     {
       "rank": 4,
       "publisher": "AGCI live engine",
-      "newsletter": "AGCI Greed + Valuation / 6 Sep 2026",
-      "headline": "Greed holds at 81 while Valuation remains 85 and regime stays Correction",
+      "newsletter": "AGCI Greed + Valuation / 7 Sep 2026",
+      "headline": "Greed remains 81 and Valuation 85; Correction regime and EUPHORIA_RISK persist",
       "category": "Market Psychology / Valuation / Capital Allocation",
       "relevance": 100,
-      "summary": "The live AGCI engine remains at Greed 81/100, Valuation 85/100, Correction regime and EUPHORIA_RISK / Capital preservation — Do not chase; one-day Greed change is zero.",
-      "whyItMatters": "The weekend geopolitical escalation has not produced a new market-price observation. AGCI therefore does not manufacture a sentiment reset and keeps liquidity plus staged entries unchanged.",
+      "summary": "The live AGCI engine remains at Greed 81/100 and Valuation 85/100 with a Correction regime and EUPHORIA_RISK / Capital preservation — Do not chase. The latest market inputs are still dated September 4.",
+      "whyItMatters": "There is no fresh U.S. cash-session observation to justify a manufactured score change. The energy shock is rising while valuation remains extreme, so liquidity and staged entries remain preferable to chasing beta.",
       "assets": ["SPY", "QQQ", "IWM", "SMH", "TLT", "GLD"],
-      "agciSignal": "SCORES UNCHANGED / CORRECTION / VALUATION STILL EXTREME",
+      "agciSignal": "SCORES UNCHANGED / EXTREME VALUATION / PRESERVE OPTIONALITY",
       "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
     }
   ],
   "watch": [
-    "PPI 10-Sep and CPI 11-Sep before the Fed meeting on 15-16 Sep.",
-    "CENTCOM-confirmed strikes on Iranian crude carriers and any further targeting of oil transport or Kharg infrastructure.",
-    "Hormuz physical flows, Brent and diesel transmission into inflation.",
-    "OPEC+ effective spare capacity versus nominal quotas after keeping October policy unchanged.",
+    "U.S. PPI on 10-Sep and CPI on 11-Sep before the Fed meeting on 15–16 Sep.",
+    "Iran's announced restricted zone and revised Hormuz shipping corridors; distinguish announcements from implemented restrictions.",
+    "Hormuz physical flows, Brent near the high-$90s and diesel/freight transmission into inflation.",
+    "Any confirmed attack on fixed Gulf oil, gas, refinery or export infrastructure.",
+    "Apple event plus Adobe and Oracle earnings as tests of AI monetization, software pricing and capex discipline.",
+    "Tariff refunds: separate one-time cash benefits from sustainable operating improvement.",
     "AGCI Greed 81 versus Valuation 85: Correction regime with EUPHORIA_RISK still active.",
-    "Long-end Treasury yields and refinancing stress for weak corporate and real-estate borrowers.",
     "Mexico/USMCA: no new official development in this cut strong enough to alter the prior thesis.",
     "The Economist: no new newsletter found in authorized Gmail after the prior cutoff.",
-    "Travel: no new opportunity met AGCI materiality standards. Gulf travel remains risk-elevated."
+    "Travel: Gulf travel remains risk-elevated; no new opportunity met AGCI materiality standards."
   ],
   "excluded": [
     {
-      "headline": "Barron's Market Lab for September 7",
-      "reason": "Reviewed in authorized Gmail; no new cross-asset or thesis-changing signal beyond the already incorporated bond/rate framework."
+      "headline": "Barron's weekly event calendar",
+      "reason": "Useful as a catalyst map for CPI, Apple, Adobe and Oracle, but not itself a thesis change; incorporated into watch items only."
+    },
+    {
+      "headline": "Barron's housing/redecorating article",
+      "reason": "Shows selective renovation spending despite a sluggish housing market, but does not change AGCI real-estate underwriting or allocation."
     },
     {
       "headline": "The Economist newsletters",
