@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-06 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-07 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el seis de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. Greed permanece en ochenta y uno, Valuation en ochenta y cinco y el régimen sigue en Correction. La señal continúa siendo EUPHORIA RISK: preservar capital y no perseguir precios.
+**CIO:** AGCI abre el siete de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. Greed permanece en ochenta y uno, Valuation en ochenta y cinco y el régimen sigue en Correction. La señal continúa siendo EUPHORIA RISK: preservar capital y no perseguir precios.
 
-## Escalada marítima confirmada
+## Hormuz: deterioro físico
 
-**ANALISTA:** El cambio material es de atribución. U.S. Central Command confirmó ataques estadounidenses contra tres petroleros iraníes después de ataques iraníes contra buques de la Marina. La incertidumbre del corte anterior queda resuelta y el transporte energético permanece claramente dentro del perímetro de escalada militar.
+**ANALISTA:** El cambio material es físico. Reuters reporta que Hormuz promedió sólo diez buques de commodities por día durante los últimos diez días, el menor tráfico desde mayo. Esto confirma que el shock afecta logística real, no solamente titulares geopolíticos.
 
-## OPEC+ y oferta física
+## Nueva zona restringida
 
-**CIO:** OPEC+ mantuvo sin cambios su política de producción para octubre. Eso significa que no aparece un colchón adicional de oferta por decisión del cartel. Con Hormuz restringiendo flujos y varios productores por debajo de objetivos, AGCI prioriza barriles físicos disponibles sobre cuotas nominales anunciadas.
+**CIO:** Irán anunció que prepara una nueva zona restringida en el Golfo y corredores revisados para el tránsito por Hormuz. AGCI separa anuncio de implementación, pero eleva el riesgo operativo porque cualquier restricción adicional puede reducir capacidad efectiva y elevar seguros, fletes y tiempos de tránsito.
 
-## Presión económica en Irán
+## Petróleo e infraestructura
 
-**ANALISTA:** Irán reconoce mayor presión económica por sanciones, exportaciones bloqueadas, inflación y escasez de importaciones. Esa presión puede aumentar la optionality de negociación a medio plazo. Sin embargo, autoridades iraníes también advierten que nuevas acciones estadounidenses podrían provocar respuestas más rápidas y dolorosas.
+**ANALISTA:** Brent vuelve a acercarse a cien dólares. Además, autoridades iraníes advirtieron que instalaciones energéticas vinculadas a Estados Unidos están expuestas a represalias. La amenaza está confirmada como declaración; no se registra como ataque consumado. Mantener hedge energético moderado y evitar perseguir el spike.
+
+## Inflación y Fed
+
+**CIO:** Con payrolls fuertes y petróleo alto, PPI del diez de septiembre y CPI del once pasan a ser los siguientes filtros. Si la energía vuelve a transmitirse hacia inflación subyacente o expectativas, la Fed conserva margen para endurecer. Duration permanece escalonada, no concentrada.
 
 ## Mercado y valoración
 
-**CIO:** No hubo nueva sesión de mercado durante el fin de semana, por lo que AGCI no fabrica un nuevo score. Greed sigue en ochenta y uno y Valuation en ochenta y cinco. La corrección de sentimiento mejora la watchlist, pero todavía no produce un reset suficiente para comprar beta amplia.
+**ANALISTA:** El motor propietario sigue en Greed ochenta y uno y Valuation ochenta y cinco. No hay nueva observación de la sesión estadounidense que justifique fabricar un score distinto. La valoración continúa extrema, por lo que una narrativa de riesgo mayor no convierte automáticamente la corrección en oportunidad amplia.
 
-## Bonos y Fed
+## Barron's y capital allocation
 
-**ANALISTA:** El dos años continúa cerca de cuatro punto treinta y siete y el diez años cerca de cuatro punto setenta y ocho, usando el último cierre disponible. PPI y CPI son los siguientes filtros.
+**CIO:** Barron's reporta más de diez mil millones de dólares en devoluciones arancelarias para compañías del S&P quinientos. AGCI las trata como beneficio de caja no recurrente. En retailers y transporte importan tráfico, pricing, margen subyacente y free cash flow, no inflar earnings estructurales con un reembolso extraordinario.
+
+## Tecnología de la semana
+
+**ANALISTA:** Apple celebra un evento de producto y Adobe y Oracle reportan resultados esta semana. Son catalizadores, no señales de compra por sí solos. AGCI exige evidencia de demanda, monetización de inteligencia artificial, utilización, margen y disciplina de capex antes de ampliar exposición tecnológica.
 
 ## Real estate y crédito
 
-**CIO:** Para real estate no relajaría underwriting. Mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor leverage. Si petróleo y diesel transmiten nuevamente a inflación, la caída esperada de yields y cap rates puede retrasarse, especialmente para activos con refinanciamiento cercano.
-
-## Newsletters y tecnología
-
-**ANALISTA:** En Gmail no apareció una nueva edición material de The Economist. El Market Lab de Barron's fue revisado, pero no cambió la tesis más allá del marco de bonos ya incorporado. En AI tampoco surgió hoy evidencia suficiente para modificar posiciones o ponderaciones.
-
-## Capital allocation
-
-**CIO:** La asignación no cambia: diez a quince por ciento de liquidez, duration escalonada y hedge energético moderado. No perseguir petróleo por titulares militares ni comprar tecnología por reflejo. Desplegar capital sólo por tramos cuando precio, fair value, balance y margen de seguridad estén alineados.
+**CIO:** Para real estate no relajaría underwriting. Mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor leverage. Petróleo cerca de cien dólares aumenta el riesgo de retrasar la desinflación y, con ella, una compresión rápida de yields o cap rates.
 
 ## Qué haría hoy
 
-**CIO:** Hoy priorizaría disciplina sobre actividad. La confirmación de ataques a petroleros eleva riesgo energético, mientras OPEC+ no añade oferta de política. Con Valuation extrema y mercados cerrados, conservaría liquidez, actualizaría escenarios de inflación y esperaría nuevas observaciones antes de aumentar exposición direccional.
+**CIO:** La asignación permanece estable: diez a quince por ciento de liquidez, duration escalonada y hedge energético moderado. Vigilaría la implementación real de la zona restringida, PPI, CPI y los catalizadores tecnológicos. Desplegar capital sólo por tramos cuando precio, fair value y margen de seguridad estén alineados.
