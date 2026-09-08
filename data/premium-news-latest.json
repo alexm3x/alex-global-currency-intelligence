@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-07",
-  "timestamp": "2026-09-07T07:21:46-06:00",
+  "date": "2026-09-08",
+  "timestamp": "2026-09-08T07:13:07-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
@@ -10,76 +10,88 @@
     {
       "rank": 1,
       "publisher": "Reuters",
-      "newsletter": "Hormuz physical flows / 7 Sep 2026",
-      "headline": "Hormuz traffic falls to the lowest level since May as Iran prepares a new restricted zone",
+      "newsletter": "Saudi energy infrastructure escalation / 8 Sep 2026",
+      "headline": "Houthi attacks hit Saudi energy facilities and broaden the regional oil-risk perimeter",
       "category": "Geopolitics / Energy / Inflation / Capital Allocation",
       "relevance": 100,
-      "summary": "Reuters reports that an average of only 10 commodity ships per day crossed the Strait of Hormuz over the last 10 days, the lowest rate since May, while Iran said it will announce a new restricted zone and revised shipping corridors.",
-      "whyItMatters": "This is a new physical-flow deterioration, not merely rhetoric. It raises the probability of a more persistent oil and freight shock and increases the chance that energy inflation complicates the Fed path.",
-      "assets": ["USO", "BNO", "XLE", "XOM", "CVX", "TLT", "DXY", "GLD"],
-      "agciSignal": "PHYSICAL FLOWS DETERIORATE / RESTRICTED-ZONE RISK UP / KEEP MODERATE ENERGY HEDGE",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/hormuz-traffic-dips-lowest-since-may-after-us-iranian-strikes-ships-2026-09-06/"
+      "summary": "Reuters reports that Iran-backed Houthi attacks struck four cities in southern Saudi Arabia, injured more than 70 people and set energy installations ablaze, marking a material expansion of the Middle East conflict into Saudi fixed infrastructure.",
+      "whyItMatters": "This moves the risk from threatened infrastructure damage to confirmed disruption at Saudi energy sites. The transmission channel is broader than Hormuz alone: production, refining, insurance, freight and inflation expectations can all be affected.",
+      "assets": ["BNO", "USO", "XLE", "XOM", "CVX", "2222.SR", "TLT", "DXY", "GLD"],
+      "agciSignal": "CONFIRMED FIXED-INFRASTRUCTURE ESCALATION / ENERGY-INFLATION TAIL RISK UP",
+      "sourceUrl": "https://www.reuters.com/world/middle-east/saudi-led-coalition-yemen-says-73-injured-houthi-attacks-kingdom-2026-09-08/"
     },
     {
       "rank": 2,
       "publisher": "Reuters",
-      "newsletter": "Iran retaliation warning / 7 Sep 2026",
-      "headline": "Iran warns that U.S.-linked energy infrastructure in the Gulf is exposed",
-      "category": "Geopolitics / Energy / Real Assets / Sovereign Risk",
+      "newsletter": "Oil / Hormuz physical market / 8 Sep 2026",
+      "headline": "Brent approaches USD 100 as physical tightness persists despite offsetting supply routes",
+      "category": "Energy / Macro / Rates / Capital Allocation",
       "relevance": 98,
-      "summary": "Iranian officials warned that further U.S. attacks could be answered against American-linked oil and gas facilities in the region, while Tehran prepares tighter navigation controls around Hormuz.",
-      "whyItMatters": "The escalation path is broadening from tankers toward fixed energy infrastructure. AGCI treats this as a higher tail risk for Gulf production, refining and logistics, while still separating stated threats from confirmed attacks.",
-      "assets": ["XLE", "XOM", "CVX", "USO", "BNO", "GLD", "TLT"],
-      "agciSignal": "ENERGY-INFRASTRUCTURE TAIL RISK UP / THREAT NOT YET A CONFIRMED STRIKE",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/iran-says-announce-new-restricted-zone-gulf-coming-days-2026-09-07/"
+      "summary": "Brent traded near USD 99.5 as Middle East disruptions, reduced Hormuz flows and attacks on Saudi facilities tightened the physical market. Reuters notes that alternative export routes, non-OPEC supply growth and softer demand are still preventing a clean break above USD 100.",
+      "whyItMatters": "AGCI should not extrapolate an unlimited oil spike, but the inflation impulse is becoming more credible. The correct posture remains a moderate hedge rather than chasing crude at elevated risk-premium levels.",
+      "assets": ["BNO", "USO", "XLE", "XOM", "CVX", "TLT", "IEF", "DXY"],
+      "agciSignal": "PHYSICAL TIGHTNESS CONFIRMED / DO NOT CHASE OIL / KEEP HEDGE",
+      "sourceUrl": "https://www.reuters.com/business/energy/oil-rises-risks-prolonged-mideast-conflict-heighten-supply-worries-2026-09-08/"
     },
     {
       "rank": 3,
-      "publisher": "Barron's",
-      "newsletter": "Daily Roundup / 6 Sep 2026",
-      "headline": "More than $10 billion of tariff refunds are flowing back to S&P 500 companies",
-      "category": "Capital Allocation / Consumer / Trade / Equities",
-      "relevance": 86,
-      "summary": "Barron's reports that S&P 500 companies have begun receiving more than $10 billion of tariff refunds. Most recipients are directing the cash toward reinvestment, customer experience or operating needs rather than distributing the full benefit directly to consumers.",
-      "whyItMatters": "The refunds can temporarily support margins and internal funding, but AGCI does not treat them as recurring operating improvement. Retail and transport names should still be judged on traffic, pricing power, underlying margins and free cash flow.",
-      "assets": ["SPY", "WMT", "DLTR", "BURL", "FDX"],
-      "agciSignal": "ONE-TIME CASH BENEFIT / DO NOT CAPITALIZE REFUNDS AS STRUCTURAL EARNINGS",
-      "sourceUrl": "https://www.barrons.com/articles/tariff-refunds-walmart-trump-fedex-8193fdd5"
+      "publisher": "AGCI live engine",
+      "newsletter": "AGCI Greed + Valuation / 8 Sep 2026",
+      "headline": "Greed falls to 78 while Valuation remains 85; PRICE_DISCIPLINE replaces EUPHORIA_RISK",
+      "category": "Market Psychology / Valuation / Capital Allocation",
+      "relevance": 100,
+      "summary": "The AGCI live engine is at Greed 78/100, down 3 points daily, with Valuation unchanged at 85/100. Regime remains Correction and the matrix signal is now PRICE_DISCIPLINE — Wait / Price discipline.",
+      "whyItMatters": "Sentiment has cooled enough to improve optionality, but valuation remains extreme and the energy shock raises the hurdle rate. This is a watchlist-building environment, not a broad beta call.",
+      "assets": ["SPY", "QQQ", "IWM", "SMH", "TLT", "GLD"],
+      "agciSignal": "PRICE_DISCIPLINE / SENTIMENT COOLER / VALUATION STILL EXTREME",
+      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
     },
     {
       "rank": 4,
-      "publisher": "AGCI live engine",
-      "newsletter": "AGCI Greed + Valuation / 7 Sep 2026",
-      "headline": "Greed remains 81 and Valuation 85; Correction regime and EUPHORIA_RISK persist",
-      "category": "Market Psychology / Valuation / Capital Allocation",
-      "relevance": 100,
-      "summary": "The live AGCI engine remains at Greed 81/100 and Valuation 85/100 with a Correction regime and EUPHORIA_RISK / Capital preservation — Do not chase. The latest market inputs are still dated September 4.",
-      "whyItMatters": "There is no fresh U.S. cash-session observation to justify a manufactured score change. The energy shock is rising while valuation remains extreme, so liquidity and staged entries remain preferable to chasing beta.",
-      "assets": ["SPY", "QQQ", "IWM", "SMH", "TLT", "GLD"],
-      "agciSignal": "SCORES UNCHANGED / EXTREME VALUATION / PRESERVE OPTIONALITY",
-      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
+      "publisher": "Barron's",
+      "newsletter": "The Barron's Daily / 8 Sep 2026",
+      "headline": "The stock market's crude problem: oil near USD 100 tightens the rates backdrop",
+      "category": "Markets / Energy / Rates / Equities",
+      "relevance": 91,
+      "summary": "Barron's highlights Brent near USD 100 as the dominant cross-asset risk for equities and bonds. The key investment implication is not the headline oil price alone, but its potential to keep inflation and long yields elevated while compressing equity valuation support.",
+      "whyItMatters": "This reinforces the AGCI preference for staged entries, shorter-duration optionality and avoiding multiple expansion in rate-sensitive growth while energy inflation remains unresolved.",
+      "assets": ["SPY", "QQQ", "TLT", "IEF", "XLE", "BNO"],
+      "agciSignal": "OIL-RATES LINK DOMINATES / NO MULTIPLE-EXPANSION ASSUMPTION",
+      "sourceUrl": "https://www.barrons.com/articles/stock-market-things-to-know-today-40c7adfa"
+    },
+    {
+      "rank": 5,
+      "publisher": "Barron's",
+      "newsletter": "Daily Roundup / 7 Sep 2026",
+      "headline": "Nvidia investment intensity and Micron strength keep AI-capital-allocation quality in focus",
+      "category": "AI / Technology / Semiconductors / Capital Allocation",
+      "relevance": 84,
+      "summary": "Barron's flags Nvidia's expanding investment activity and continued strength in Micron as evidence that AI capital formation remains broad, but increasingly dependent on disciplined financing, supply visibility and monetization rather than headline capacity alone.",
+      "whyItMatters": "AGCI keeps AI exposure selective. Incremental capital should favor businesses with funded demand, secured power and supply, margin conversion and free cash flow instead of circular financing or narrative TAM.",
+      "assets": ["NVDA", "MU", "SMH", "SOXX", "AVGO"],
+      "agciSignal": "AI DEMAND STILL STRONG / CAPITAL-QUALITY FILTER TIGHTENS",
+      "sourceUrl": "https://www.barrons.com/"
     }
   ],
   "watch": [
-    "U.S. PPI on 10-Sep and CPI on 11-Sep before the Fed meeting on 15–16 Sep.",
-    "Iran's announced restricted zone and revised Hormuz shipping corridors; distinguish announcements from implemented restrictions.",
-    "Hormuz physical flows, Brent near the high-$90s and diesel/freight transmission into inflation.",
-    "Any confirmed attack on fixed Gulf oil, gas, refinery or export infrastructure.",
-    "Apple event plus Adobe and Oracle earnings as tests of AI monetization, software pricing and capex discipline.",
-    "Tariff refunds: separate one-time cash benefits from sustainable operating improvement.",
-    "AGCI Greed 81 versus Valuation 85: Correction regime with EUPHORIA_RISK still active.",
+    "PPI on 10-Sep and CPI on 11-Sep before the Fed meeting on 15–16 Sep.",
+    "Saudi energy-facility damage, restoration timelines and any follow-on attacks.",
+    "Hormuz physical flows, Brent around USD 100, diesel, freight and insurance transmission into inflation.",
+    "AGCI Greed 78 versus Valuation 85: Correction regime with PRICE_DISCIPLINE active.",
+    "Apple, Adobe and Oracle as tests of AI monetization, software pricing and capex discipline.",
+    "Nvidia ecosystem financing and Micron demand: distinguish funded end-demand from circular capital flows.",
     "Mexico/USMCA: no new official development in this cut strong enough to alter the prior thesis.",
     "The Economist: no new newsletter found in authorized Gmail after the prior cutoff.",
-    "Travel: Gulf travel remains risk-elevated; no new opportunity met AGCI materiality standards."
+    "Travel: Gulf travel risk is higher after confirmed Saudi infrastructure attacks."
   ],
   "excluded": [
     {
-      "headline": "Barron's weekly event calendar",
-      "reason": "Useful as a catalyst map for CPI, Apple, Adobe and Oracle, but not itself a thesis change; incorporated into watch items only."
+      "headline": "Amazon plane crash coverage",
+      "reason": "Operationally material for the companies involved but not yet broad enough to alter AGCI macro or capital-allocation posture."
     },
     {
-      "headline": "Barron's housing/redecorating article",
-      "reason": "Shows selective renovation spending despite a sluggish housing market, but does not change AGCI real-estate underwriting or allocation."
+      "headline": "SpaceX valuation headlines",
+      "reason": "Interesting for private-market valuation, but no new cash-flow evidence or portfolio action threshold was met in this cut."
     },
     {
       "headline": "The Economist newsletters",
