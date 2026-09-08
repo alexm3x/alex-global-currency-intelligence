@@ -1,32 +1,32 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-08T05:14:33.934Z",
+  "timestamp": "2026-09-08T11:44:33.845Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 81,
-    "greed_label": "Extreme Greed",
+    "greed": 78,
+    "greed_label": "Greed",
     "valuation": 85,
     "valuation_label": "Extreme Valuation",
     "regime": "Correction",
     "opportunity": null,
-    "confidence": 71,
+    "confidence": 72,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
     },
     "condition": {
-      "code": "EUPHORIA_RISK",
-      "label": "Capital preservation / Do not chase",
-      "severity": "red"
+      "code": "PRICE_DISCIPLINE",
+      "label": "Wait / Price discipline",
+      "severity": "amber"
     },
-    "interpretation": "Greed 81/100 (Extreme Greed) y Valuation 85/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Capital preservation / Do not chase."
+    "interpretation": "Greed 78/100 (Greed) y Valuation 85/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Wait / Price discipline."
   },
   "changes": {
-    "greed_1d": 0,
-    "greed_7d": -6,
-    "greed_30d": -9,
+    "greed_1d": -3,
+    "greed_7d": -9,
+    "greed_30d": -12,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -56,19 +56,19 @@
     },
     "volatility": {
       "label": "VIX / Volatility",
-      "value": 14.53,
-      "normalized_score": 95,
+      "value": 15.3,
+      "normalized_score": 87,
       "source": "Cboe Global Markets — VIX",
-      "asOf": "2026-09-04",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-09-07",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 90,
       "source_quality": 95
     },
     "options": {
       "label": "Options Term Structure",
-      "value": 0.8251,
-      "normalized_score": 94,
+      "value": 0.8688,
+      "normalized_score": 83,
       "source": "Cboe Global Markets — VIX / VIX3M",
       "asOf": "2026-09-04",
       "freshness": "RECENT",
@@ -92,7 +92,7 @@
     {
       "name": "Cboe Global Markets — VIX",
       "frequency": "DAILY",
-      "asOf": "2026-09-04",
+      "asOf": "2026-09-07",
       "status": "connected"
     },
     {
@@ -142,9 +142,9 @@
   ],
   "signals": [
     {
-      "code": "EUPHORIA_RISK",
-      "severity": "red",
-      "label": "Capital preservation / Do not chase"
+      "code": "PRICE_DISCIPLINE",
+      "severity": "amber",
+      "label": "Wait / Price discipline"
     }
   ],
   "errors": [],
