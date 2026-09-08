@@ -1,242 +1,61 @@
 {
   "schemaVersion": 2,
-  "date": "2026-09-07",
-  "timestamp": "2026-09-07T07:21:46-06:00",
+  "date": "2026-09-08",
+  "timestamp": "2026-09-08T07:13:07-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "Hormuz cae a mínimos desde mayo y Teherán prepara una nueva zona restringida",
-  "dek": "Greed sigue en 81 y Valuation en 85, mientras el deterioro físico del tráfico marítimo eleva el riesgo de petróleo, inflación y tasas.",
-  "stance": "Riesgo selectivo con liquidez",
-  "risk": "Elevado / Valuation extrema, deterioro físico en Hormuz, riesgo energético ampliado y Fed dependiente de inflación",
+  "title": "Ataques alcanzan infraestructura energética saudí mientras Brent roza USD 100",
+  "dek": "Greed baja a 78 y la señal cambia a PRICE_DISCIPLINE, pero Valuation sigue en 85 y el shock energético amplía el riesgo inflacionario.",
+  "stance": "Riesgo selectivo con disciplina de precio",
+  "risk": "Elevado / Valuation extrema, escalada sobre infraestructura energética, petróleo cerca de USD 100 y Fed dependiente de inflación",
   "horizon": "1–12 meses",
   "methodologyStatus": "Sin cambios: se preservan metodología, ponderaciones, umbrales de cobertura, criterios de materialidad, gobernanza y avisos legales AGCI vigentes.",
-  "capitalAllocationPolicy": {
-    "deployableLiquidity": "10–15%",
-    "entryMethod": "Compras por tramos únicamente con fair value y margen de seguridad",
-    "realEstateStress": "+50/+100 pb sobre financiamiento y cap rates",
-    "duration": "Escalonada; evitar apuesta direccional concentrada"
-  },
-  "executiveSummary": "AGCI mantiene riesgo selectivo y 10–15% de liquidez desplegable. El motor propietario permanece en Greed 81/100 y Valuation 85/100, régimen Correction y EUPHORIA_RISK — Capital preservation / Do not chase. El cambio material del corte es físico: Reuters reporta que Hormuz promedió sólo 10 buques de commodities por día durante los últimos 10 días, el menor tráfico desde mayo, mientras Irán prepara una nueva zona restringida y corredores de navegación revisados. Brent se acerca nuevamente a USD 100, elevando el riesgo de transmisión hacia inflación, fletes y tasas. Irán además advirtió que instalaciones energéticas vinculadas a EE.UU. en el Golfo están expuestas a represalias; AGCI registra esto como amenaza confirmada en declaraciones, no como ataque consumado. Barron's añade un punto de capital allocation: más de USD 10 mil millones en devoluciones arancelarias están llegando a compañías del S&P 500, pero AGCI las trata como beneficio de caja no recurrente, no como mejora estructural de earnings. No apareció una nueva entrega material de The Economist. México/T-MEC, real estate y AI no cambian de tesis; Apple, Adobe y Oracle pasan a la watchlist de esta semana.",
+  "capitalAllocationPolicy": {"deployableLiquidity":"10–15%","entryMethod":"Compras por tramos únicamente con fair value y margen de seguridad","realEstateStress":"+50/+100 pb sobre financiamiento y cap rates","duration":"Escalonada; evitar apuesta direccional concentrada"},
+  "executiveSummary": "AGCI mantiene 10–15% de liquidez desplegable y cambia el énfasis táctico a PRICE_DISCIPLINE. El motor propietario marca Greed 78/100, tres puntos menos en el día, mientras Valuation permanece en 85/100 y el régimen sigue en Correction. El cambio material del corte está en energía: Reuters confirma ataques hutíes contra cuatro ciudades saudíes que hirieron a más de 70 personas y provocaron incendios y disrupciones en instalaciones energéticas. Esto amplía el riesgo desde Hormuz hacia infraestructura fija del principal exportador mundial. Brent se mueve cerca de USD 99–100; aunque rutas alternativas, mayor oferta no-OPEC y demanda más débil limitan por ahora un breakout sostenido, el shock físico eleva el riesgo de inflación, fletes y yields. Barron's coincide en que petróleo y tasas son hoy el principal problema cross-asset. En AI, Nvidia y Micron mantienen señales de demanda fuerte, pero AGCI endurece el filtro de calidad: demanda financiada, supply y power asegurados, margen y FCF. No apareció una nueva entrega de The Economist. México/T-MEC y real estate no cambian de tesis; para viajes, el Golfo pasa a un nivel de riesgo operativo superior.",
   "threeSignals": [
-    {
-      "label": "Hormuz físico",
-      "type": "HECHO CONFIRMADO — REUTERS",
-      "summary": "El tráfico promedio cayó a 10 buques de commodities por día en 10 días, mínimo desde mayo; Irán prepara una nueva zona restringida y corredores revisados."
-    },
-    {
-      "label": "Riesgo sobre infraestructura energética",
-      "type": "HECHO CONFIRMADO COMO DECLARACIÓN — REUTERS",
-      "summary": "Irán advirtió que instalaciones petroleras y gasíferas vinculadas a EE.UU. están expuestas; no se registra como ataque confirmado."
-    },
-    {
-      "label": "AGCI Greed + Valuation",
-      "type": "HECHO CONFIRMADO — MOTOR AGCI",
-      "summary": "Greed 81/100 y Valuation 85/100; régimen Correction y EUPHORIA_RISK continúan activos."
-    }
+    {"label":"Infraestructura energética saudí","type":"HECHO CONFIRMADO — REUTERS","summary":"Ataques hutíes alcanzaron ciudades e instalaciones energéticas saudíes, ampliando materialmente el perímetro de riesgo del conflicto."},
+    {"label":"Petróleo e inflación","type":"HECHO CONFIRMADO — REUTERS / BARRON'S","summary":"Brent se acerca a USD 100; el riesgo de transmisión a inflación, fletes y tasas aumenta aunque persisten amortiguadores de oferta y demanda."},
+    {"label":"AGCI Greed + Valuation","type":"HECHO CONFIRMADO — MOTOR AGCI","summary":"Greed 78/100, Valuation 85/100, régimen Correction y señal PRICE_DISCIPLINE — Wait / Price discipline."}
   ],
   "markets": [
-    {
-      "asset": "S&P 500",
-      "value": "7,718.60 al cierre del 4-Sep",
-      "asOf": "2026-09-04",
-      "interpretation": "No hay nueva sesión estadounidense en el motor; no se fabrica una reacción de riesgo."
-    },
-    {
-      "asset": "Brent",
-      "value": "~USD 97.47",
-      "asOf": "2026-09-07",
-      "interpretation": "El shock físico de Hormuz mantiene al crudo cerca de USD 100; hedge moderado, no perseguir."
-    },
-    {
-      "asset": "US Treasury 2Y",
-      "value": "~4.37%",
-      "asOf": "2026-09-04",
-      "interpretation": "Payrolls fuertes mantienen viva la posibilidad de hike; PPI/CPI son el siguiente filtro."
-    },
-    {
-      "asset": "US Treasury 10Y",
-      "value": "~4.78%",
-      "asOf": "2026-09-04",
-      "interpretation": "Hurdle rate elevado; duration escalonada."
-    },
-    {
-      "asset": "AGCI Greed",
-      "value": "81/100",
-      "asOf": "2026-09-07",
-      "interpretation": "Extreme Greed; cambio diario cero y régimen Correction."
-    },
-    {
-      "asset": "AGCI Valuation",
-      "value": "85/100",
-      "asOf": "2026-09-07",
-      "interpretation": "Extreme Valuation; no existe reset suficiente."
-    }
+    {"asset":"Brent","value":"~USD 99–100","asOf":"2026-09-08","interpretation":"Shock físico y geopolítico elevado; mantener hedge moderado y no perseguir."},
+    {"asset":"US Treasury 10Y","value":"~4.81% premarket","asOf":"2026-09-08","interpretation":"El petróleo mantiene presión sobre inflación implícita y hurdle rates; duration escalonada."},
+    {"asset":"AGCI Greed","value":"78/100","asOf":"2026-09-08","interpretation":"Greed; -3 puntos diarios y -9 en siete días."},
+    {"asset":"AGCI Valuation","value":"85/100","asOf":"2026-09-08","interpretation":"Extreme Valuation; aún no existe reset suficiente."}
   ],
   "equities": [
-    {
-      "ticker": "XOM",
-      "classification": "MANTENER / HEDGE ENERGÉTICO",
-      "action": "MANTENER",
-      "thesis": "El deterioro físico de Hormuz sostiene optionality energética, pero AGCI evita perseguir un spike de petróleo."
-    },
-    {
-      "ticker": "CVX",
-      "classification": "MANTENER / HEDGE ENERGÉTICO",
-      "action": "MANTENER",
-      "thesis": "Balance y exposición upstream ofrecen cobertura parcial; comprar sólo con disciplina de precio."
-    },
-    {
-      "ticker": "AAPL",
-      "classification": "MANTENER / CATALIZADOR DE PRODUCTO",
-      "action": "VIGILAR",
-      "thesis": "El evento de esta semana es un catalizador, no una razón para ampliar múltiplo sin evidencia de demanda y monetización."
-    },
-    {
-      "ticker": "ADBE",
-      "classification": "VIGILAR / TEST DE MONETIZACIÓN AI",
-      "action": "VIGILAR",
-      "thesis": "Earnings deben confirmar crecimiento, pricing y monetización AI; no anticipar re-rating."
-    },
-    {
-      "ticker": "ORCL",
-      "classification": "VIGILAR / AI CLOUD Y CAPEX",
-      "action": "VIGILAR",
-      "thesis": "Earnings deben validar backlog, utilización, margen y disciplina de capex."
-    }
+    {"ticker":"XOM","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"La escalada sobre infraestructura regional sostiene optionality energética; evitar perseguir múltiplos o spot crude."},
+    {"ticker":"CVX","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"Balance fuerte y upstream ofrecen cobertura parcial; nuevas compras sólo con disciplina de precio."},
+    {"ticker":"NVDA","classification":"MANTENER / AI SELECTIVO","action":"VIGILAR","thesis":"Demanda fuerte, pero el capital allocation del ecosistema debe validarse con monetización, clientes financiados y FCF."},
+    {"ticker":"MU","classification":"VIGILAR / MEMORIA AI","action":"VIGILAR","thesis":"Momentum de memoria AI es constructivo, pero no justifica perseguir precio con Valuation agregada extrema."},
+    {"ticker":"AAPL","classification":"MANTENER / CATALIZADOR DE PRODUCTO","action":"VIGILAR","thesis":"El evento de producto debe validar demanda y monetización; no anticipar expansión de múltiplo."},
+    {"ticker":"ADBE","classification":"VIGILAR / TEST DE MONETIZACIÓN AI","action":"VIGILAR","thesis":"Earnings deben confirmar crecimiento, pricing y monetización AI."},
+    {"ticker":"ORCL","classification":"VIGILAR / AI CLOUD Y CAPEX","action":"VIGILAR","thesis":"Earnings deben validar backlog, utilización, margen y disciplina de capex."}
   ],
-  "macroMexico": {
-    "growth": "Sin cambio sustantivo validado en este corte.",
-    "inflation": "Sin nueva lectura oficial material incorporada hoy.",
-    "trade": "Sin nueva decisión oficial material; se mantiene penalización por incertidumbre T-MEC y exigencia de capex y contratos verificables."
-  },
-  "realEstate": "Mantener estrés +50/+100 pb, DSCR conservador y menor apalancamiento. El petróleo cerca de USD 100 aumenta el riesgo de retrasar una desinflación suficiente para comprimir yields y cap rates con rapidez.",
-  "businessTech": "Sin cambio de asignación estructural. Apple, Adobe y Oracle se convierten en catalizadores de la semana; AGCI exige demanda real, monetización, margen, utilización y FCF antes de ampliar exposición.",
-  "travel": [
-    {
-      "region": "Golfo Pérsico",
-      "status": "RIESGO ELEVADO",
-      "note": "La caída del tráfico en Hormuz y la preparación de una nueva zona restringida elevan el riesgo operativo; una tarifa atractiva no compensa por sí sola la exposición geopolítica."
-    }
-  ],
-  "actions": [
-    "Mantener 10–15% de liquidez desplegable.",
-    "Mantener duration escalonada y evitar concentración en TLT antes de PPI/CPI y Fed.",
-    "Conservar hedge energético moderado; no perseguir petróleo cerca de USD 100.",
-    "Mantener stress inmobiliario +50/+100 pb y DSCR conservador.",
-    "No modificar scores AGCI sin nueva observación de mercado.",
-    "Tratar devoluciones arancelarias como caja no recurrente, no como earnings estructurales.",
-    "Comprar únicamente por tramos dentro de fair value con margen de seguridad."
-  ],
-  "watch": [
-    "PPI 10-Sep y CPI 11-Sep.",
-    "Fed 15–16 Sep: probabilidad de hike versus datos de inflación.",
-    "Implementación efectiva de la nueva zona restringida y corredores de Hormuz.",
-    "Hormuz, Brent, diesel y fletes: transmisión a inflación.",
-    "Cualquier ataque confirmado sobre infraestructura fija de petróleo o gas en el Golfo.",
-    "Apple, Adobe y Oracle: demanda, monetización AI, margen y capex.",
-    "AGCI Greed 81 frente a Valuation 85: Correction con EUPHORIA_RISK activo.",
-    "Long-end Treasury yields y riesgo de refinanciamiento corporativo e inmobiliario.",
-    "México/T-MEC: esperar decisión oficial antes de cambiar tesis."
-  ],
-  "audio": {
-    "chapters": [
-      {
-        "id": "apertura",
-        "title": "Apertura ejecutiva",
-        "speaker": "CIO",
-        "text": "AGCI abre el siete de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. Greed permanece en ochenta y uno, Valuation en ochenta y cinco y el régimen sigue en Correction. La señal continúa siendo EUPHORIA RISK: preservar capital y no perseguir precios."
-      },
-      {
-        "id": "hormuz",
-        "title": "Hormuz: deterioro físico",
-        "speaker": "ANALISTA",
-        "text": "El cambio material es físico. Reuters reporta que Hormuz promedió sólo diez buques de commodities por día durante los últimos diez días, el menor tráfico desde mayo. Esto confirma que el shock afecta logística real, no solamente titulares geopolíticos."
-      },
-      {
-        "id": "zona",
-        "title": "Nueva zona restringida",
-        "speaker": "CIO",
-        "text": "Irán anunció que prepara una nueva zona restringida en el Golfo y corredores revisados para el tránsito por Hormuz. AGCI separa anuncio de implementación, pero eleva el riesgo operativo porque cualquier restricción adicional puede reducir capacidad efectiva y elevar seguros, fletes y tiempos de tránsito."
-      },
-      {
-        "id": "energia",
-        "title": "Petróleo e infraestructura",
-        "speaker": "ANALISTA",
-        "text": "Brent vuelve a acercarse a cien dólares. Además, autoridades iraníes advirtieron que instalaciones energéticas vinculadas a Estados Unidos están expuestas a represalias. La amenaza está confirmada como declaración; no se registra como ataque consumado. Mantener hedge energético moderado y evitar perseguir el spike."
-      },
-      {
-        "id": "inflacion",
-        "title": "Inflación y Fed",
-        "speaker": "CIO",
-        "text": "Con payrolls fuertes y petróleo alto, PPI del diez de septiembre y CPI del once pasan a ser los siguientes filtros. Si la energía vuelve a transmitirse hacia inflación subyacente o expectativas, la Fed conserva margen para endurecer. Duration permanece escalonada, no concentrada."
-      },
-      {
-        "id": "mercado",
-        "title": "Mercado y valoración",
-        "speaker": "ANALISTA",
-        "text": "El motor propietario sigue en Greed ochenta y uno y Valuation ochenta y cinco. No hay nueva observación de la sesión estadounidense que justifique fabricar un score distinto. La valoración continúa extrema, por lo que una narrativa de riesgo mayor no convierte automáticamente la corrección en oportunidad amplia."
-      },
-      {
-        "id": "premium",
-        "title": "Barron's y capital allocation",
-        "speaker": "CIO",
-        "text": "Barron's reporta más de diez mil millones de dólares en devoluciones arancelarias para compañías del S&P quinientos. AGCI las trata como beneficio de caja no recurrente. En retailers y transporte importan tráfico, pricing, margen subyacente y free cash flow, no inflar earnings estructurales con un reembolso extraordinario."
-      },
-      {
-        "id": "tecnologia",
-        "title": "Tecnología de la semana",
-        "speaker": "ANALISTA",
-        "text": "Apple celebra un evento de producto y Adobe y Oracle reportan resultados esta semana. Son catalizadores, no señales de compra por sí solos. AGCI exige evidencia de demanda, monetización de inteligencia artificial, utilización, margen y disciplina de capex antes de ampliar exposición tecnológica."
-      },
-      {
-        "id": "realestate",
-        "title": "Real estate y crédito",
-        "speaker": "CIO",
-        "text": "Para real estate no relajaría underwriting. Mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor leverage. Petróleo cerca de cien dólares aumenta el riesgo de retrasar la desinflación y, con ella, una compresión rápida de yields o cap rates."
-      },
-      {
-        "id": "cierre",
-        "title": "Qué haría hoy",
-        "speaker": "CIO",
-        "text": "La asignación permanece estable: diez a quince por ciento de liquidez, duration escalonada y hedge energético moderado. Vigilaría la implementación real de la zona restringida, PPI, CPI y los catalizadores tecnológicos. Desplegar capital sólo por tramos cuando precio, fair value y margen de seguridad estén alineados."
-      }
-    ]
-  },
+  "macroMexico": {"growth":"Sin cambio sustantivo validado en este corte.","inflation":"El shock energético global eleva el riesgo importado, pero no se incorpora una nueva lectura oficial mexicana hoy.","trade":"Sin nueva decisión oficial material; se mantiene penalización por incertidumbre T-MEC y exigencia de capex y contratos verificables."},
+  "realEstate": "Mantener estrés +50/+100 pb, DSCR conservador y menor apalancamiento. Petróleo cerca de USD 100 aumenta el riesgo de tasas altas por más tiempo y retrasa una compresión rápida de cap rates.",
+  "businessTech": "AI sigue mostrando demanda fuerte, pero AGCI exige capital de clientes financiado, power y supply asegurados, utilización, margen y FCF. Evitar asignar valor pleno a capacidad anunciada o financiamiento circular.",
+  "travel": [{"region":"Golfo Pérsico / Arabia Saudita","status":"RIESGO MUY ELEVADO","note":"Los ataques confirmados sobre ciudades e instalaciones energéticas saudíes elevan el riesgo operativo regional; no priorizar oportunidades de tarifa frente a seguridad y continuidad logística."}],
+  "actions": ["Mantener 10–15% de liquidez desplegable.","Aplicar PRICE_DISCIPLINE: construir watchlist y comprar sólo por tramos con margen de seguridad.","Mantener duration escalonada y evitar concentración en TLT antes de PPI/CPI y Fed.","Conservar hedge energético moderado; no perseguir Brent cerca de USD 100.","Mantener stress inmobiliario +50/+100 pb y DSCR conservador.","Exigir demanda financiada, supply/power asegurados, margen y FCF en AI.","No modificar metodología ni ponderaciones por un solo shock de titulares."],
+  "watch": ["PPI 10-Sep y CPI 11-Sep.","Fed 15–16 Sep: reacción a inflación y energía.","Daño y tiempos de restauración de instalaciones energéticas saudíes.","Hormuz, Brent, diesel, seguros y fletes: transmisión a inflación.","AGCI Greed 78 frente a Valuation 85: Correction con PRICE_DISCIPLINE activo.","Apple, Adobe y Oracle: demanda, monetización AI, margen y capex.","Nvidia/Micron: calidad de demanda y capital allocation.","México/T-MEC: esperar decisión oficial antes de cambiar tesis."],
+  "audio": {"chapters": [
+    {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"AGCI abre el ocho de septiembre con riesgo selectivo, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed baja a setenta y ocho, Valuation sigue en ochenta y cinco y el régimen permanece en Correction. La señal ahora es PRICE DISCIPLINE: esperar mejores precios y no perseguir beta."},
+    {"id":"saudi","title":"Escalada en Arabia Saudita","speaker":"ANALISTA","text":"El cambio material es que el riesgo energético salió de Hormuz y alcanzó infraestructura fija saudí. Reuters confirma ataques hutíes contra cuatro ciudades del sur de Arabia Saudita, con más de setenta heridos e incendios y disrupciones en instalaciones energéticas."},
+    {"id":"petroleo","title":"Petróleo cerca de cien","speaker":"CIO","text":"Brent vuelve a la zona de noventa y nueve a cien dólares. El shock físico es real, pero AGCI no extrapola un precio infinito: rutas alternativas, nueva oferta no OPEP y demanda más débil todavía limitan el breakout. Mantener hedge moderado y no perseguir el crudo."},
+    {"id":"tasas","title":"Inflación y tasas","speaker":"ANALISTA","text":"El riesgo clave es la transmisión de energía hacia inflación, seguros, fletes y yields. El Treasury a diez años ronda cuatro punto ochenta y uno por ciento en premarket. Con PPI y CPI esta semana, duration debe permanecer escalonada y no concentrada."},
+    {"id":"motor","title":"Motor AGCI","speaker":"CIO","text":"Greed cae tres puntos a setenta y ocho y nueve puntos en siete días. Eso mejora optionality, pero Valuation continúa en ochenta y cinco. La matriz cambia a PRICE DISCIPLINE: construir watchlist, esperar precio y comprar sólo cuando fair value y margen de seguridad estén alineados."},
+    {"id":"premium","title":"Barron's","speaker":"ANALISTA","text":"Barron's identifica al petróleo cerca de cien dólares como el principal problema cross asset para acciones y bonos. La lectura AGCI es evitar asumir expansión de múltiplos mientras energía y tasas sigan elevando el hurdle rate."},
+    {"id":"ai","title":"AI y semiconductores","speaker":"CIO","text":"Nvidia y Micron mantienen señales de demanda AI fuerte. Pero el filtro se endurece: capital de clientes financiado, power y supply asegurados, utilización, margen y free cash flow. Capacidad anunciada o financiamiento circular no equivalen por sí solos a demanda económica de calidad."},
+    {"id":"realestate","title":"Real estate","speaker":"ANALISTA","text":"No relajaría underwriting inmobiliario. Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. Si petróleo alto retrasa la desinflación, también puede retrasar la compresión de yields y cap rates."},
+    {"id":"mexico","title":"México y T-MEC","speaker":"CIO","text":"No hay una nueva decisión oficial del T-MEC que justifique cambiar tesis. El shock energético sí aumenta el riesgo de inflación importada, pero AGCI no inventa una nueva lectura macro mexicana sin datos oficiales."},
+    {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría diez a quince por ciento de liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría daños saudíes, Hormuz, PPI y CPI. Desplegaría capital sólo por tramos, con fair value y margen de seguridad."}
+  ]},
   "sources": [
-    {
-      "name": "Reuters — Hormuz traffic dips to lowest since May",
-      "url": "https://www.reuters.com/world/middle-east/hormuz-traffic-dips-lowest-since-may-after-us-iranian-strikes-ships-2026-09-06/",
-      "asOf": "2026-09-07"
-    },
-    {
-      "name": "Reuters — Iran announces new restricted zone and retaliation warning",
-      "url": "https://www.reuters.com/world/middle-east/iran-says-announce-new-restricted-zone-gulf-coming-days-2026-09-07/",
-      "asOf": "2026-09-07"
-    },
-    {
-      "name": "Reuters — oil near six-week highs after U.S.-Iran attacks",
-      "url": "https://www.reuters.com/business/energy/oil-extends-gains-after-us-iran-strike-ships-2026-09-07/",
-      "asOf": "2026-09-07"
-    },
-    {
-      "name": "Barron's — Inflation, Apple, Adobe, Oracle and more to watch this week",
-      "url": "https://www.barrons.com/articles/inflation-apple-adobe-oracle-macys-and-more-to-watch-this-week-23a2c022",
-      "asOf": "2026-09-06"
-    },
-    {
-      "name": "Barron's — S&P 500 companies receive tariff refunds",
-      "url": "https://www.barrons.com/articles/tariff-refunds-walmart-trump-fedex-8193fdd5",
-      "asOf": "2026-09-06"
-    },
-    {
-      "name": "AGCI Greed + Valuation live engine",
-      "url": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json",
-      "asOf": "2026-09-07"
-    }
+    {"name":"Reuters — Houthi attacks disrupt Saudi energy facilities","url":"https://www.reuters.com/world/middle-east/saudi-led-coalition-yemen-says-73-injured-houthi-attacks-kingdom-2026-09-08/","asOf":"2026-09-08"},
+    {"name":"Reuters — oil rises on prolonged Middle East supply risk","url":"https://www.reuters.com/business/energy/oil-rises-risks-prolonged-mideast-conflict-heighten-supply-worries-2026-09-08/","asOf":"2026-09-08"},
+    {"name":"Reuters — why oil remains below USD 100 despite disruptions","url":"https://www.reuters.com/business/energy/why-isnt-oil-above-100-despite-supply-disruptions-2026-09-08/","asOf":"2026-09-08"},
+    {"name":"Barron's — The Stock Market's Crude Problem","url":"https://www.barrons.com/articles/stock-market-things-to-know-today-40c7adfa","asOf":"2026-09-08"},
+    {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-09-08"}
   ],
-  "premiumSnapshot": {
-    "barrons": "Daily Roundup del 6-Sep revisado. Material: inflación como catalizador de la semana, Apple/Adobe/Oracle en watch y más de USD 10 mil millones en devoluciones arancelarias; no se almacenan enlaces de tracking.",
-    "economist": "No se identificó nueva entrega material en el corte autorizado."
-  },
-  "legal": "Contenido informativo y analítico. No constituye recomendación personalizada, oferta, asesoría financiera, fiscal o legal. Toda decisión de inversión requiere validación independiente de precio, liquidez, riesgo, horizonte y circunstancias del inversionista."
+  "legalDisclaimer": "Información para análisis estratégico e inversión; no constituye recomendación individualizada, oferta ni solicitud de compra o venta. Toda inversión implica riesgo y puede perder valor."
 }
