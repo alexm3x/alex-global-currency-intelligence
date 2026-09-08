@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-07 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-08 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el siete de septiembre con riesgo selectivo y diez a quince por ciento de liquidez desplegable. Greed permanece en ochenta y uno, Valuation en ochenta y cinco y el régimen sigue en Correction. La señal continúa siendo EUPHORIA RISK: preservar capital y no perseguir precios.
+**CIO:** AGCI abre el ocho de septiembre con riesgo selectivo, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed baja a setenta y ocho, Valuation sigue en ochenta y cinco y el régimen permanece en Correction. La señal ahora es PRICE DISCIPLINE: esperar mejores precios y no perseguir beta.
 
-## Hormuz: deterioro físico
+## Escalada en Arabia Saudita
 
-**ANALISTA:** El cambio material es físico. Reuters reporta que Hormuz promedió sólo diez buques de commodities por día durante los últimos diez días, el menor tráfico desde mayo. Esto confirma que el shock afecta logística real, no solamente titulares geopolíticos.
+**ANALISTA:** El cambio material es que el riesgo energético salió de Hormuz y alcanzó infraestructura fija saudí. Reuters confirma ataques hutíes contra cuatro ciudades del sur de Arabia Saudita, con más de setenta heridos e incendios y disrupciones en instalaciones energéticas.
 
-## Nueva zona restringida
+## Petróleo cerca de cien
 
-**CIO:** Irán anunció que prepara una nueva zona restringida en el Golfo y corredores revisados para el tránsito por Hormuz. AGCI separa anuncio de implementación, pero eleva el riesgo operativo porque cualquier restricción adicional puede reducir capacidad efectiva y elevar seguros, fletes y tiempos de tránsito.
+**CIO:** Brent vuelve a la zona de noventa y nueve a cien dólares. El shock físico es real, pero AGCI no extrapola un precio infinito: rutas alternativas, nueva oferta no OPEP y demanda más débil todavía limitan el breakout.
 
-## Petróleo e infraestructura
+## Inflación y tasas
 
-**ANALISTA:** Brent vuelve a acercarse a cien dólares. Además, autoridades iraníes advirtieron que instalaciones energéticas vinculadas a Estados Unidos están expuestas a represalias. La amenaza está confirmada como declaración; no se registra como ataque consumado. Mantener hedge energético moderado y evitar perseguir el spike.
+**ANALISTA:** El riesgo clave es la transmisión de energía hacia inflación, seguros, fletes y yields. El Treasury a diez años ronda cuatro punto ochenta y uno por ciento en premarket. Con PPI y CPI esta semana, duration debe permanecer escalonada y no concentrada.
 
-## Inflación y Fed
+## Motor AGCI
 
-**CIO:** Con payrolls fuertes y petróleo alto, PPI del diez de septiembre y CPI del once pasan a ser los siguientes filtros. Si la energía vuelve a transmitirse hacia inflación subyacente o expectativas, la Fed conserva margen para endurecer. Duration permanece escalonada, no concentrada.
+**CIO:** Greed cae tres puntos a setenta y ocho y nueve puntos en siete días. Eso mejora optionality, pero Valuation continúa en ochenta y cinco.
 
-## Mercado y valoración
+## Barron's
 
-**ANALISTA:** El motor propietario sigue en Greed ochenta y uno y Valuation ochenta y cinco. No hay nueva observación de la sesión estadounidense que justifique fabricar un score distinto. La valoración continúa extrema, por lo que una narrativa de riesgo mayor no convierte automáticamente la corrección en oportunidad amplia.
+**ANALISTA:** Barron's identifica al petróleo cerca de cien dólares como el principal problema cross asset para acciones y bonos. La lectura AGCI es evitar asumir expansión de múltiplos mientras energía y tasas sigan elevando el hurdle rate.
 
-## Barron's y capital allocation
+## AI y semiconductores
 
-**CIO:** Barron's reporta más de diez mil millones de dólares en devoluciones arancelarias para compañías del S&P quinientos. AGCI las trata como beneficio de caja no recurrente. En retailers y transporte importan tráfico, pricing, margen subyacente y free cash flow, no inflar earnings estructurales con un reembolso extraordinario.
+**CIO:** Nvidia y Micron mantienen señales de demanda AI fuerte. Pero el filtro se endurece: capital de clientes financiado, power y supply asegurados, utilización, margen y free cash flow. Capacidad anunciada o financiamiento circular no equivalen por sí solos a demanda económica de calidad.
 
-## Tecnología de la semana
+## Real estate
 
-**ANALISTA:** Apple celebra un evento de producto y Adobe y Oracle reportan resultados esta semana. Son catalizadores, no señales de compra por sí solos. AGCI exige evidencia de demanda, monetización de inteligencia artificial, utilización, margen y disciplina de capex antes de ampliar exposición tecnológica.
+**ANALISTA:** No relajaría underwriting inmobiliario. Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. Si petróleo alto retrasa la desinflación, también puede retrasar la compresión de yields y cap rates.
 
-## Real estate y crédito
+## México y T-MEC
 
-**CIO:** Para real estate no relajaría underwriting. Mantendría estrés de cincuenta y cien puntos base, DSCR conservador y menor leverage. Petróleo cerca de cien dólares aumenta el riesgo de retrasar la desinflación y, con ella, una compresión rápida de yields o cap rates.
+**CIO:** No hay una nueva decisión oficial del T-MEC que justifique cambiar tesis. El shock energético sí aumenta el riesgo de inflación importada, pero AGCI no inventa una nueva lectura macro mexicana sin datos oficiales.
 
 ## Qué haría hoy
 
-**CIO:** La asignación permanece estable: diez a quince por ciento de liquidez, duration escalonada y hedge energético moderado. Vigilaría la implementación real de la zona restringida, PPI, CPI y los catalizadores tecnológicos. Desplegar capital sólo por tramos cuando precio, fair value y margen de seguridad estén alineados.
+**CIO:** Mantendría diez a quince por ciento de liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría daños saudíes, Hormuz, PPI y CPI. Desplegaría capital sólo por tramos, con fair value y margen de seguridad.
