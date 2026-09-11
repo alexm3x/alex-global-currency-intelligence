@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "date": "2026-09-10",
-  "timestamp": "2026-09-10T07:15:40-06:00",
+  "date": "2026-09-11",
+  "timestamp": "2026-09-11T07:17:32-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "Greed cae a 71 mientras Brent ronda USD 102 y el BCE vuelve a subir tasas",
-  "dek": "El shock energético se vuelve más físico, la restricción monetaria se amplía globalmente y el BIS eleva el escrutinio sobre el financiamiento del boom de AI.",
+  "title": "CPI reafirma presión de tasas mientras Greed cae a 63 y México acelera negociación comercial",
+  "dek": "El sentimiento se enfría con fuerza, pero la valoración sigue extrema; petróleo, inflación y una negociación México–EE.UU. más activa elevan la importancia de la disciplina de precio.",
   "stance": "Riesgo selectivo con disciplina de precio",
-  "risk": "Muy elevado / Valuation extrema, Brent > USD 100, tightening global y riesgo financiero creciente en AI",
+  "risk": "Muy elevado / Valuation extrema, inflación firme, petróleo > USD 100 y riesgo geopolítico persistente",
   "horizon": "1–12 meses",
   "methodologyStatus": "Sin cambios: se preservan metodología, ponderaciones, umbrales de cobertura, criterios de materialidad, gobernanza y avisos legales AGCI vigentes.",
   "capitalAllocationPolicy": {
@@ -16,77 +16,76 @@
     "realEstateStress": "+50/+100 pb sobre financiamiento y cap rates",
     "duration": "Escalonada; evitar apuesta direccional concentrada"
   },
-  "executiveSummary": "AGCI mantiene 10–15% de liquidez desplegable y PRICE_DISCIPLINE. El motor propietario marca Greed 71/100, cinco puntos menos en un día, mientras Valuation permanece en 86/100 y el régimen sigue Correction. Brent ronda USD 102 y los flujos por Hormuz continúan muy por debajo de niveles prebélicos; además, refinadores independientes chinos están buscando barriles alternativos en África Occidental, Canadá y Sudamérica, señal de tensión real en el mercado físico. El BCE elevó su tasa de depósito 25 pb a 2.50% y subió su previsión de inflación 2027, confirmando que el shock energético está ampliando el endurecimiento monetario global. En AI, el BIS advierte que estructuras opacas de deuda pueden convertir el boom de inversión en una vulnerabilidad financiera si las ganancias esperadas no se materializan. Barron's destacó la propuesta de un dividendo de USD 5,000 por adulto en EE.UU.; AGCI la trata como escenario fiscal condicionado, no como política aprobada, porque no hay detalles de implementación ni financiamiento. No apareció una nueva entrega de The Economist. México/T-MEC y real estate no cambian de tesis; viajes al Golfo y Mar Rojo siguen bajo riesgo muy elevado.",
+  "executiveSummary": "AGCI mantiene 10–15% de liquidez desplegable y PRICE_DISCIPLINE. El motor propietario marca Greed 63/100, siete puntos menos en un día y veinticuatro menos en siete días, mientras Valuation permanece en 86/100 y el régimen sigue Correction. El CPI de agosto en Estados Unidos subió 0.4% mensual y 3.4% anual; el core avanzó 0.3% mensual y 2.4% anual. Junto con PPI de 0.4% mensual y petróleo todavía por encima de USD 100, la combinación mantiene elevado el riesgo de otra subida de la Fed y limita el caso para concentrar duration. La IEA advierte un déficit de oferta de crudo más profundo por la demora en normalizar flujos del Golfo, con Arabia Saudita alrededor de 6 millones de barriles diarios y diesel bajo fuerte presión. En México, Reuters reporta que Washington y Ciudad de México aceleran un acuerdo comercial bilateral antes de las elecciones estadounidenses; esto mejora optionality para nearshoring, pero las reglas de contenido y los aranceles Section 232 pueden redistribuir ganadores. En AI, Oracle aporta una señal de mejor calidad de demanda: backlog de USD 664 mil millones, más contratos y mayor financiamiento vía prepagos de clientes. Adobe confirma monetización AI en software, aunque la guía más suave mantiene la presión competitiva. No apareció una nueva entrega de The Economist. Viajes al Golfo y Mar Rojo siguen bajo riesgo muy elevado.",
   "threeSignals": [
-    {"label":"AGCI Greed + Valuation","type":"HECHO CONFIRMADO — MOTOR AGCI","summary":"Greed cae a 71/100, Valuation permanece en 86/100, régimen Correction y PRICE_DISCIPLINE activo."},
-    {"label":"Brent y mercado físico","type":"HECHO CONFIRMADO — REUTERS","summary":"Brent ronda USD 102 y la búsqueda china de barriles alternativos confirma tensión física adicional por la disrupción de Hormuz."},
-    {"label":"BCE y tasas globales","type":"HECHO CONFIRMADO — REUTERS","summary":"El BCE subió 25 pb a 2.50% y elevó su previsión de inflación, ampliando el régimen global de tasas restrictivas."}
+    {"label":"AGCI Greed + Valuation","type":"HECHO CONFIRMADO — MOTOR AGCI","summary":"Greed cae a 63/100, Valuation permanece en 86/100, régimen Correction y PRICE_DISCIPLINE activo."},
+    {"label":"Inflación de EE.UU.","type":"HECHO CONFIRMADO — BLS / REUTERS","summary":"CPI de agosto sube 0.4% mensual y 3.4% anual; core 0.3% mensual y 2.4% anual, manteniendo vivo el riesgo de alza de la Fed."},
+    {"label":"México–EE.UU.","type":"HECHO CONFIRMADO — REUTERS","summary":"Ambos gobiernos aceleran una negociación comercial bilateral antes de noviembre, con autos, Section 232 y contenido regional como variables clave."}
   ],
   "markets": [
-    {"asset":"Brent","value":"~USD 102","asOf":"2026-09-10","interpretation":"Disrupción física más demanda alternativa china; mantener hedge moderado y no perseguir."},
-    {"asset":"AGCI Greed","value":"71/100","asOf":"2026-09-10","interpretation":"Greed; caída diaria de 5 puntos y mayor enfriamiento del sentimiento."},
-    {"asset":"AGCI Valuation","value":"86/100","asOf":"2026-09-10","interpretation":"Extreme Valuation; todavía no existe reset agregado suficiente."},
-    {"asset":"ECB deposit rate","value":"2.50%","asOf":"2026-09-10","interpretation":"Segundo aumento de 2026; el shock energético amplía el tightening global."}
+    {"asset":"AGCI Greed","value":"63/100","asOf":"2026-09-11","interpretation":"Greed; caída diaria de 7 puntos y semanal de 24 puntos. Mejora optionality, no elimina riesgo de valoración."},
+    {"asset":"AGCI Valuation","value":"86/100","asOf":"2026-09-11","interpretation":"Extreme Valuation; el reset de sentimiento todavía no se traduce en margen de seguridad agregado."},
+    {"asset":"U.S. CPI","value":"+0.4% m/m; +3.4% y/y","asOf":"2026-09-11","interpretation":"Inflación firme; aumenta el riesgo de restricción monetaria adicional."},
+    {"asset":"U.S. core CPI","value":"+0.3% m/m; +2.4% y/y","asOf":"2026-09-11","interpretation":"Core todavía por encima del objetivo; no valida relajamiento agresivo."},
+    {"asset":"Brent","value":"> USD 100","asOf":"2026-09-11","interpretation":"Persiste prima física por disrupción del Golfo; mantener hedge moderado sin perseguir."}
   ],
   "equities": [
-    {"ticker":"XOM","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"La tensión física de crudo sostiene optionality; evitar perseguir petróleo o múltiplos."},
-    {"ticker":"CVX","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"Upstream y balance cubren parcialmente el shock; nuevas compras sólo con disciplina de precio."},
-    {"ticker":"NVDA","classification":"MANTENER / AI SELECTIVO","action":"VIGILAR","thesis":"El BIS eleva el foco sobre calidad de financiamiento y riesgo sistémico; exigir FCF y retorno sobre capital."},
-    {"ticker":"AVGO","classification":"MANTENER / AI SELECTIVO","action":"VIGILAR","thesis":"Beneficiario estructural de custom silicon, pero la calidad de demanda debe medirse también por leverage y contraparte."},
-    {"ticker":"ORCL","classification":"VIGILAR / AI CLOUD Y CAPEX","action":"VIGILAR","thesis":"Validar backlog, utilización, margen, financiamiento y disciplina de capex antes de capitalizar crecimiento."},
-    {"ticker":"GOOGL","classification":"MANTENER / AI INFRASTRUCTURE","action":"VIGILAR","thesis":"Power contratado sigue siendo señal de calidad; añadir escrutinio sobre estructura de financiamiento y FCF."}
+    {"ticker":"ORCL","classification":"VIGILAR / AI CLOUD","action":"VIGILAR","thesis":"Backlog de USD 664 mil millones y prepagos de clientes mejoran la calidad del financiamiento; validar conversión, leverage, margen y FCF."},
+    {"ticker":"ADBE","classification":"VIGILAR / AI SOFTWARE","action":"VIGILAR","thesis":"La monetización AI es visible, pero la guía y competencia limitan expansión de múltiplos."},
+    {"ticker":"NVDA","classification":"MANTENER / AI SELECTIVO","action":"VIGILAR","thesis":"La demanda estructural sigue fuerte, pero el filtro AGCI exige power, contraparte, financiamiento, utilización y FCF."},
+    {"ticker":"XOM","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"La restricción física sostiene optionality; no perseguir el precio del crudo."},
+    {"ticker":"CVX","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"Balance y upstream protegen parcialmente contra el shock; nuevas entradas sólo por precio."}
   ],
   "macroMexico": {
-    "growth":"Sin cambio sustantivo validado en este corte.",
-    "inflation":"Brent alrededor de USD 102 mantiene elevado el riesgo de inflación importada; no se incorpora una nueva lectura oficial mexicana sin dato confirmado.",
-    "trade":"Sin nueva decisión oficial material; se mantiene penalización por incertidumbre T-MEC y exigencia de capex, contratos y reglas de origen verificables."
+    "growth":"La negociación bilateral con Washington mejora el margen para inversión si reduce incertidumbre arancelaria, pero no justifica un upgrade amplio antes de términos concretos.",
+    "inflation":"Petróleo por encima de USD 100 mantiene riesgo de inflación importada y presión sobre costos logísticos.",
+    "trade":"Cambio material: México y EE.UU. aceleran un acuerdo antes de las elecciones estadounidenses. Vigilar Section 232, autos, reglas de contenido y restricciones a inversión china."
   },
-  "realEstate": "Mantener stress +50/+100 pb, DSCR conservador y menor apalancamiento. El BCE vuelve a subir tasas y el shock energético reduce la probabilidad de una compresión rápida y sincronizada de yields y cap rates.",
-  "businessTech": "El BIS eleva el financiamiento a variable central del marco AI: AGCI debe exigir transparencia de deuda, contraparte, power, utilización, margen y FCF. Capex anunciado o financiado de forma opaca no equivale a demanda económica de alta calidad.",
+  "realEstate": "Mantener stress +50/+100 pb, DSCR conservador y menor apalancamiento. Inflación firme y mayor riesgo de alza de la Fed reducen la probabilidad de compresión rápida de cap rates. En México, un acuerdo comercial favorable podría apoyar industrial y logística, pero sólo debe capitalizarse cuando existan términos verificables y contratos reales.",
+  "businessTech": "Oracle ofrece una señal más fuerte de demanda AI financiada: backlog elevado y prepagos de clientes reducen parte del riesgo de capex propio. Adobe confirma monetización AI en software, pero también que crecimiento de AI no elimina presión competitiva. AGCI mantiene como filtro central deuda, contraparte, power, utilización, margen y FCF.",
   "travel": [
-    {"region":"Golfo Pérsico / Estrecho de Hormuz / Mar Rojo","status":"RIESGO MUY ELEVADO","note":"La disrupción marítima y la expansión regional del conflicto siguen deteriorando seguridad, seguros, logística y continuidad de rutas. No priorizar tarifas sobre seguridad operativa."}
+    {"region":"Golfo Pérsico / Estrecho de Hormuz / Mar Rojo","status":"RIESGO MUY ELEVADO","note":"Persisten ataques, disrupción energética, mayores costos de seguros y cambios operativos. No priorizar tarifas sobre seguridad y continuidad de rutas."}
   ],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
     "Aplicar PRICE_DISCIPLINE: compras sólo por tramos con fair value y margen de seguridad.",
-    "Mantener duration escalonada; el BCE confirma tightening global y PPI/CPI de EE.UU. siguen pendientes.",
-    "Conservar hedge energético moderado; no perseguir Brent alrededor de USD 102.",
+    "Mantener duration escalonada; CPI y PPI no justifican una apuesta agresiva a baja de tasas.",
+    "Conservar hedge energético moderado; no perseguir Brent por encima de USD 100.",
     "Mantener stress inmobiliario +50/+100 pb y DSCR conservador.",
-    "En AI, añadir estructura de deuda y contraparte al filtro de power, utilización, margen y FCF.",
-    "Tratar la propuesta de USD 5,000 por adulto como escenario fiscal hasta que existan legislación y financiamiento.",
+    "En México, elevar vigilancia sobre autos, industriales y nearshoring, pero esperar términos verificables del acuerdo bilateral.",
+    "En AI, favorecer demanda contratada y financiada por clientes; vigilar leverage, ejecución y FCF.",
     "No cambiar metodología ni ponderaciones por titulares aislados."
   ],
   "watch": [
-    "U.S. PPI más tarde el 10-Sep y CPI 11-Sep.",
-    "Fed 15–16 Sep: reacción a inflación, petróleo y expectativas fiscales.",
-    "Hormuz: tráfico, pérdidas de tankers, capacidad de rutas alternativas y seguros.",
-    "China: continuidad de compras de crudo alternativo y spot premiums.",
-    "BCE: guidance posterior al alza a 2.50% y pass-through energético.",
-    "AGCI Greed 71 frente a Valuation 86: Correction con PRICE_DISCIPLINE activo.",
-    "AI: leverage, estructuras opacas, concentración de contraparte, power, utilización, margen y FCF.",
-    "Propuesta de dividendo USD 5,000: legislación, elegibilidad, financiamiento e impacto potencial sobre Treasury issuance.",
-    "México/T-MEC: esperar decisión oficial antes de cambiar tesis."
+    "Fed 15–16 Sep: reacción a CPI 3.4% y PPI 5.4% y/y con petróleo todavía > USD 100.",
+    "Hormuz y Golfo: producción saudí, tránsito marítimo, diesel, seguros y señales diplomáticas verificables.",
+    "AGCI Greed 63 frente a Valuation 86: Correction con PRICE_DISCIPLINE activo.",
+    "México–EE.UU.: Section 232, autos, reglas de contenido, inversión china y calendario previo a noviembre.",
+    "Oracle: conversión de backlog, prepagos, leverage, capex y free cash flow.",
+    "Adobe: AI-first ARR, pricing power y competencia.",
+    "Real estate: sensibilidad de cap rates y financiamiento a una Fed potencialmente más restrictiva."
   ],
   "audio": {"chapters": [
-    {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"AGCI abre el diez de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed cae a setenta y uno, Valuation permanece en ochenta y seis y el régimen sigue en Correction. La señal continúa PRICE DISCIPLINE."},
-    {"id":"motor","title":"Motor AGCI","speaker":"ANALISTA","text":"El sentimiento se enfría otros cinco puntos en un día. Eso mejora optionality, pero no corrige una valoración agregada todavía extrema. La lectura correcta es esperar mejores precios, no ampliar beta de manera automática."},
-    {"id":"petroleo","title":"Brent y mercado físico","speaker":"CIO","text":"Brent ronda ciento dos dólares y Hormuz sigue muy restringido. Refinadores chinos están buscando barriles alternativos en África Occidental, Canadá y Sudamérica. Eso confirma tensión física y puede sostener fletes, primas spot e inflación."},
-    {"id":"ecb","title":"BCE vuelve a subir","speaker":"ANALISTA","text":"El Banco Central Europeo subió veinticinco puntos base y llevó la tasa de depósito a dos punto cincuenta por ciento. También elevó su previsión de inflación. El shock energético ya está ampliando el endurecimiento monetario fuera de Estados Unidos."},
-    {"id":"duration","title":"Implicación para bonos","speaker":"CIO","text":"No concentraría duration. Mantendría vencimientos escalonados porque petróleo alto y bancos centrales más restrictivos elevan el riesgo de yields persistentemente altos. PPI y CPI estadounidenses siguen siendo los siguientes datos críticos."},
-    {"id":"ai","title":"AI y riesgo financiero","speaker":"ANALISTA","text":"El BIS advierte que el boom de AI puede generar vulnerabilidades financieras cuando depende de deuda opaca y los beneficios esperados no llegan. AGCI añade estructura de financiamiento y contraparte al filtro de power, utilización, margen y free cash flow."},
-    {"id":"fiscal","title":"Propuesta fiscal estadounidense","speaker":"CIO","text":"Barron's destacó la propuesta de cinco mil dólares por adulto si los republicanos conservan el Congreso. Reuters confirma el anuncio, pero no existen detalles de implementación ni financiamiento. Por ahora es un escenario de inflación y emisión, no una política base."},
-    {"id":"realestate","title":"Real estate","speaker":"ANALISTA","text":"No relajaría underwriting inmobiliario. Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. El endurecimiento global reduce la probabilidad de una compresión rápida y sincronizada de cap rates."},
-    {"id":"mexico","title":"México y T-MEC","speaker":"CIO","text":"No hay una nueva decisión oficial que justifique cambiar la tesis del T-MEC. El petróleo mantiene riesgo de inflación importada, pero AGCI no inventa una lectura mexicana nueva sin datos oficiales."},
-    {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría PPI, CPI, Hormuz y el financiamiento de AI. Desplegaría capital sólo por tramos con fair value, transparencia y margen de seguridad."}
+    {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"AGCI abre el once de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed cae a sesenta y tres, Valuation permanece en ochenta y seis y el régimen sigue Correction. La señal continúa PRICE DISCIPLINE."},
+    {"id":"motor","title":"Motor AGCI","speaker":"ANALISTA","text":"El sentimiento cayó siete puntos en un día y veinticuatro en una semana. Eso mejora optionality, pero no resuelve una valoración todavía extrema. El mensaje es preparar mejores entradas, no ampliar beta de forma automática."},
+    {"id":"inflacion","title":"Inflación de Estados Unidos","speaker":"CIO","text":"El CPI de agosto subió cero punto cuatro por ciento mensual y tres punto cuatro por ciento anual. El core avanzó cero punto tres mensual y dos punto cuatro anual. Con PPI firme y petróleo alto, la Fed todavía tiene razones para mantenerse restrictiva."},
+    {"id":"tasas","title":"Implicación para bonos","speaker":"ANALISTA","text":"No concentraría duration. Mantendría vencimientos escalonados porque la inflación no está convergiendo limpiamente y el shock energético puede generar segunda vuelta. La reunión de la Fed del quince y dieciséis de septiembre es ahora el siguiente catalizador macro."},
+    {"id":"energia","title":"Petróleo y Golfo","speaker":"CIO","text":"La IEA advierte un déficit de oferta más profundo mientras los flujos del Golfo no se normalizan. Arabia Saudita opera cerca de seis millones de barriles diarios y el diesel sigue bajo presión. Mantendría hedge energético moderado, sin perseguir el rally."},
+    {"id":"mexico","title":"México y comercio","speaker":"ANALISTA","text":"México y Washington aceleran una negociación bilateral antes de las elecciones estadounidenses. Autos, aranceles Section dos treinta y dos, contenido regional e inversión china son las variables clave. Es constructivo para nearshoring, pero todavía no es un acuerdo final."},
+    {"id":"oracle","title":"Oracle y demanda AI","speaker":"CIO","text":"Oracle reportó backlog de seiscientos sesenta y cuatro mil millones de dólares y más de treinta mil millones en nuevos contratos AI cloud. Los prepagos de clientes reducen parte del riesgo de financiamiento. Ahora hay que validar conversión, leverage, margen y free cash flow."},
+    {"id":"adobe","title":"Adobe y software AI","speaker":"ANALISTA","text":"Adobe superó expectativas y duplicó el ingreso recurrente de productos AI first, pero su guía fue más moderada. Es evidencia de monetización real, aunque no elimina competencia ni garantiza expansión de múltiplos."},
+    {"id":"realestate","title":"Real estate","speaker":"CIO","text":"Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. Una Fed más restrictiva reduce la probabilidad de compresión rápida de cap rates. En México, industrial mejora sólo si el acuerdo comercial se traduce en inversión y contratos verificables."},
+    {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría la Fed, Hormuz, el acuerdo México Estados Unidos y la conversión del backlog AI. Desplegaría capital sólo por tramos con fair value, transparencia y margen de seguridad."}
   ]},
   "sources": [
-    {"name":"Reuters — Brent above USD 100 as tanker attacks constrain Hormuz","url":"https://www.reuters.com/business/energy/brent-holds-above-100-tanker-attacks-deepen-supply-fear-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Reuters — China independent refiners scramble for alternative oil","url":"https://www.reuters.com/business/energy/china-independent-refiners-scramble-oil-underpinning-spot-premiums-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Reuters — ECB raises interest rates to 2.50%","url":"https://www.reuters.com/business/ecb-raises-interest-rates-fight-off-inflation-jump-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Reuters — BIS head on AI financial stability risks","url":"https://www.reuters.com/business/finance/ai-boom-poses-new-financial-stability-risks-bis-head-says-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Reuters — Trump proposes USD 5,000 payout to U.S. adults","url":"https://www.reuters.com/world/us/trump-promises-5000-payout-us-adults-if-republicans-win-election-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Barron's — How to Spend Trump's $5K Handout","url":"https://www.barrons.com/","asOf":"2026-09-10"},
-    {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-09-10"}
+    {"name":"Reuters — U.S. consumer inflation picks up in August","url":"https://www.reuters.com/world/us/us-consumer-inflation-picks-up-august-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"U.S. BLS — Producer Price Index, August 2026","url":"https://www.bls.gov/news.release/archives/ppi_09102026.htm","asOf":"2026-09-10"},
+    {"name":"Reuters — IEA warns 2026 oil supply gap will widen","url":"https://www.reuters.com/business/energy/global-2026-oil-supply-gap-deepen-delayed-return-normal-gulf-flows-iea-says-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"Reuters — Mexico, Washington sprint toward bilateral trade deal","url":"https://www.reuters.com/business/autos-transportation/mexico-washington-sprint-toward-bilateral-trade-deal-before-us-elections-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"Reuters — Oracle quarterly revenue beats estimates","url":"https://www.reuters.com/technology/oracles-quarterly-revenue-beats-estimates-ai-boom-drives-cloud-demand-2026-09-10/","asOf":"2026-09-10"},
+    {"name":"Reuters — Adobe beats third-quarter revenue estimates","url":"https://www.reuters.com/business/adobe-beats-third-quarter-revenue-estimates-2026-09-10/","asOf":"2026-09-10"},
+    {"name":"Barron's — Markets Face Inflation Nightmare","url":"https://www.barrons.com/","asOf":"2026-09-11"},
+    {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-09-11"}
   ],
   "legalDisclaimer": "Información para análisis estratégico e inversión; no constituye recomendación individualizada, oferta ni solicitud de compra o venta. Toda inversión implica riesgo y puede perder valor."
 }
