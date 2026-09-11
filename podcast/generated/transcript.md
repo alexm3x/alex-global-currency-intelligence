@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-10 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-11 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el diez de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed cae a setenta y uno, Valuation permanece en ochenta y seis y el régimen sigue en Correction. La señal continúa PRICE DISCIPLINE.
+**CIO:** AGCI abre el once de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed cae a sesenta y tres, Valuation permanece en ochenta y seis y el régimen sigue Correction. La señal continúa PRICE DISCIPLINE.
 
 ## Motor AGCI
 
-**ANALISTA:** El sentimiento se enfría otros cinco puntos en un día. Eso mejora optionality, pero no corrige una valoración agregada todavía extrema. La lectura correcta es esperar mejores precios, no ampliar beta de manera automática.
+**ANALISTA:** El sentimiento cayó siete puntos en un día y veinticuatro en una semana. Eso mejora optionality, pero no resuelve una valoración todavía extrema. El mensaje es preparar mejores entradas, no ampliar beta de forma automática.
 
-## Brent y mercado físico
+## Inflación de Estados Unidos
 
-**CIO:** Brent ronda ciento dos dólares y Hormuz sigue muy restringido. Refinadores chinos están buscando barriles alternativos en África Occidental, Canadá y Sudamérica. Eso confirma tensión física y puede sostener fletes, primas spot e inflación.
-
-## BCE vuelve a subir
-
-**ANALISTA:** El Banco Central Europeo subió veinticinco puntos base y llevó la tasa de depósito a dos punto cincuenta por ciento. También elevó su previsión de inflación. El shock energético ya está ampliando el endurecimiento monetario fuera de Estados Unidos.
+**CIO:** El CPI de agosto subió cero punto cuatro por ciento mensual y tres punto cuatro por ciento anual. El core avanzó cero punto tres mensual y dos punto cuatro anual. Con PPI firme y petróleo alto, la Fed todavía tiene razones para mantenerse restrictiva.
 
 ## Implicación para bonos
 
-**CIO:** No concentraría duration. Mantendría vencimientos escalonados porque petróleo alto y bancos centrales más restrictivos elevan el riesgo de yields persistentemente altos. PPI y CPI estadounidenses siguen siendo los siguientes datos críticos.
+**ANALISTA:** No concentraría duration. Mantendría vencimientos escalonados porque la inflación no está convergiendo limpiamente y el shock energético puede generar segunda vuelta. La reunión de la Fed del quince y dieciséis de septiembre es ahora el siguiente catalizador macro.
 
-## AI y riesgo financiero
+## Petróleo y Golfo
 
-**ANALISTA:** El BIS advierte que el boom de AI puede generar vulnerabilidades financieras cuando depende de deuda opaca y los beneficios esperados no llegan. AGCI añade estructura de financiamiento y contraparte al filtro de power, utilización, margen y free cash flow.
+**CIO:** La IEA advierte un déficit de oferta más profundo mientras los flujos del Golfo no se normalizan. Arabia Saudita opera cerca de seis millones de barriles diarios y el diesel sigue bajo presión. Mantendría hedge energético moderado, sin perseguir el rally.
 
-## Propuesta fiscal estadounidense
+## México y comercio
 
-**CIO:** Barron's destacó la propuesta de cinco mil dólares por adulto si los republicanos conservan el Congreso. Reuters confirma el anuncio, pero no existen detalles de implementación ni financiamiento. Por ahora es un escenario de inflación y emisión, no una política base.
+**ANALISTA:** México y Washington aceleran una negociación bilateral antes de las elecciones estadounidenses. Autos, aranceles Section dos treinta y dos, contenido regional e inversión china son las variables clave. Es constructivo para nearshoring, pero todavía no es un acuerdo final.
+
+## Oracle y demanda AI
+
+**CIO:** Oracle reportó backlog de seiscientos sesenta y cuatro mil millones de dólares y más de treinta mil millones en nuevos contratos AI cloud. Los prepagos de clientes reducen parte del riesgo de financiamiento. Ahora hay que validar conversión, leverage, margen y free cash flow.
+
+## Adobe y software AI
+
+**ANALISTA:** Adobe superó expectativas y duplicó el ingreso recurrente de productos AI first, pero su guía fue más moderada. Es evidencia de monetización real, aunque no elimina competencia ni garantiza expansión de múltiplos.
 
 ## Real estate
 
-**ANALISTA:** No relajaría underwriting inmobiliario. Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. El endurecimiento global reduce la probabilidad de una compresión rápida y sincronizada de cap rates.
-
-## México y T-MEC
-
-**CIO:** No hay una nueva decisión oficial que justifique cambiar la tesis del T-MEC. El petróleo mantiene riesgo de inflación importada, pero AGCI no inventa una lectura mexicana nueva sin datos oficiales.
+**CIO:** Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. Una Fed más restrictiva reduce la probabilidad de compresión rápida de cap rates. En México, industrial mejora sólo si el acuerdo comercial se traduce en inversión y contratos verificables.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría PPI, CPI, Hormuz y el financiamiento de AI. Desplegaría capital sólo por tramos con fair value, transparencia y margen de seguridad.
+**CIO:** Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría la Fed, Hormuz, el acuerdo México Estados Unidos y la conversión del backlog AI. Desplegaría capital sólo por tramos con fair value, transparencia y margen de seguridad.
