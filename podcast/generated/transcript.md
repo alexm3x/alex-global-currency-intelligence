@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-11 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-12 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el once de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed cae a sesenta y tres, Valuation permanece en ochenta y seis y el régimen sigue Correction. La señal continúa PRICE DISCIPLINE.
+**CIO:** AGCI abre el doce de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed rebota a setenta y cinco, Valuation sube a ochenta y siete y el régimen sigue Correction. PRICE DISCIPLINE permanece activo.
 
 ## Motor AGCI
 
-**ANALISTA:** El sentimiento cayó siete puntos en un día y veinticuatro en una semana. Eso mejora optionality, pero no resuelve una valoración todavía extrema. El mensaje es preparar mejores entradas, no ampliar beta de forma automática.
+**ANALISTA:** El sentimiento recuperó doce puntos en un día, pero todavía está seis puntos debajo de hace una semana. La valoración, en cambio, subió a ochenta y siete. El rebote mejora momentum de corto plazo, no el margen de seguridad.
 
-## Inflación de Estados Unidos
+## Fed y bonos
 
-**CIO:** El CPI de agosto subió cero punto cuatro por ciento mensual y tres punto cuatro por ciento anual. El core avanzó cero punto tres mensual y dos punto cuatro anual. Con PPI firme y petróleo alto, la Fed todavía tiene razones para mantenerse restrictiva.
+**CIO:** Después del CPI firme, el mercado asigna cerca de ochenta y cinco por ciento de probabilidad a una subida de veinticinco puntos base en septiembre. El Treasury a diez años rozó cinco por ciento. Mantendría duration escalonada.
 
-## Implicación para bonos
+## Energía y Arabia Saudita
 
-**ANALISTA:** No concentraría duration. Mantendría vencimientos escalonados porque la inflación no está convergiendo limpiamente y el shock energético puede generar segunda vuelta. La reunión de la Fed del quince y dieciséis de septiembre es ahora el siguiente catalizador macro.
+**ANALISTA:** Arabia Saudita cerró temporalmente su oleoducto East West tras un ataque con drones. Esa ruta puede mover entre cuatro y cinco millones de barriles diarios y es clave cuando Hormuz está restringido. El shock ahora afecta más de un chokepoint.
 
-## Petróleo y Golfo
+## Hormuz y Bab el-Mandeb
 
-**CIO:** La IEA advierte un déficit de oferta más profundo mientras los flujos del Golfo no se normalizan. Arabia Saudita opera cerca de seis millones de barriles diarios y el diesel sigue bajo presión. Mantendría hedge energético moderado, sin perseguir el rally.
+**CIO:** El riesgo también crece en Bab el-Mandeb. La combinación de Hormuz, infraestructura saudita y Mar Rojo mantiene presión sobre diesel, fletes y seguros. Mantendría un hedge energético moderado, sin perseguir crudo después del rally.
 
-## México y comercio
+## LNG y duración del shock
 
-**ANALISTA:** México y Washington aceleran una negociación bilateral antes de las elecciones estadounidenses. Autos, aranceles Section dos treinta y dos, contenido regional e inversión china son las variables clave. Es constructivo para nearshoring, pero todavía no es un acuerdo final.
+**ANALISTA:** QatarEnergy busca contratos de LNG de varios años en Estados Unidos tras daños persistentes en Ras Laffan. Eso sugiere que parte de la disrupción puede durar más de un trimestre y crea optionality para exportadores estadounidenses.
 
-## Oracle y demanda AI
+## AI y estructura de capital
 
-**CIO:** Oracle reportó backlog de seiscientos sesenta y cuatro mil millones de dólares y más de treinta mil millones en nuevos contratos AI cloud. Los prepagos de clientes reducen parte del riesgo de financiamiento. Ahora hay que validar conversión, leverage, margen y free cash flow.
+**CIO:** Nvidia negocia una inversión ancla en la posible IPO de Anthropic. Es constructivo para el ecosistema, pero obliga a distinguir demanda final independiente de capital estratégico entre proveedor y cliente. Seguimos exigiendo contraparte, utilización, margen y free cash flow.
 
-## Adobe y software AI
+## México y autos
 
-**ANALISTA:** Adobe superó expectativas y duplicó el ingreso recurrente de productos AI first, pero su guía fue más moderada. Es evidencia de monetización real, aunque no elimina competencia ni garantiza expansión de múltiplos.
+**ANALISTA:** Washington señala apertura a fabricantes chinos dentro de Estados Unidos, pero rechazo a vehículos chinos producidos en México para exportación. Eso eleva el riesgo de reglas de origen y screening aun si avanza la negociación bilateral con México.
 
 ## Real estate
 
-**CIO:** Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. Una Fed más restrictiva reduce la probabilidad de compresión rápida de cap rates. En México, industrial mejora sólo si el acuerdo comercial se traduce en inversión y contratos verificables.
+**CIO:** Con el Treasury a diez años cerca de cinco por ciento mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En industrial mexicano priorizaría contratos reales, energía disponible y exposición regulatoria manejable.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría la Fed, Hormuz, el acuerdo México Estados Unidos y la conversión del backlog AI. Desplegaría capital sólo por tramos con fair value, transparencia y margen de seguridad.
+**CIO:** Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. No compraría el rebote por momentum. Desplegaría capital sólo por tramos cuando precio, cash flow, estructura de financiamiento y margen de seguridad estén alineados.
