@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "date": "2026-09-11",
-  "timestamp": "2026-09-11T07:17:32-06:00",
+  "date": "2026-09-12",
+  "timestamp": "2026-09-12T07:16:13-06:00",
   "timezone": "America/Mexico_City",
   "language": "es-MX",
-  "title": "CPI reafirma presión de tasas mientras Greed cae a 63 y México acelera negociación comercial",
-  "dek": "El sentimiento se enfría con fuerza, pero la valoración sigue extrema; petróleo, inflación y una negociación México–EE.UU. más activa elevan la importancia de la disciplina de precio.",
+  "title": "Greed rebota a 75 con Valuation 87 mientras el riesgo energético se extiende a rutas alternativas",
+  "dek": "El rebote de riesgo no corrige la valoración; el cierre del oleoducto saudí East-West y un Treasury a 10 años cerca de 5% elevan el costo de capital y el riesgo inflacionario.",
   "stance": "Riesgo selectivo con disciplina de precio",
-  "risk": "Muy elevado / Valuation extrema, inflación firme, petróleo > USD 100 y riesgo geopolítico persistente",
+  "risk": "Muy elevado / Valuation extrema, Fed restrictiva y riesgo energético multi-chokepoint",
   "horizon": "1–12 meses",
   "methodologyStatus": "Sin cambios: se preservan metodología, ponderaciones, umbrales de cobertura, criterios de materialidad, gobernanza y avisos legales AGCI vigentes.",
   "capitalAllocationPolicy": {
@@ -16,76 +16,77 @@
     "realEstateStress": "+50/+100 pb sobre financiamiento y cap rates",
     "duration": "Escalonada; evitar apuesta direccional concentrada"
   },
-  "executiveSummary": "AGCI mantiene 10–15% de liquidez desplegable y PRICE_DISCIPLINE. El motor propietario marca Greed 63/100, siete puntos menos en un día y veinticuatro menos en siete días, mientras Valuation permanece en 86/100 y el régimen sigue Correction. El CPI de agosto en Estados Unidos subió 0.4% mensual y 3.4% anual; el core avanzó 0.3% mensual y 2.4% anual. Junto con PPI de 0.4% mensual y petróleo todavía por encima de USD 100, la combinación mantiene elevado el riesgo de otra subida de la Fed y limita el caso para concentrar duration. La IEA advierte un déficit de oferta de crudo más profundo por la demora en normalizar flujos del Golfo, con Arabia Saudita alrededor de 6 millones de barriles diarios y diesel bajo fuerte presión. En México, Reuters reporta que Washington y Ciudad de México aceleran un acuerdo comercial bilateral antes de las elecciones estadounidenses; esto mejora optionality para nearshoring, pero las reglas de contenido y los aranceles Section 232 pueden redistribuir ganadores. En AI, Oracle aporta una señal de mejor calidad de demanda: backlog de USD 664 mil millones, más contratos y mayor financiamiento vía prepagos de clientes. Adobe confirma monetización AI en software, aunque la guía más suave mantiene la presión competitiva. No apareció una nueva entrega de The Economist. Viajes al Golfo y Mar Rojo siguen bajo riesgo muy elevado.",
+  "executiveSummary": "AGCI mantiene 10–15% de liquidez desplegable y PRICE_DISCIPLINE. El motor propietario marca Greed 75/100, doce puntos más en un día pero seis menos en siete días, mientras Valuation sube a 87/100 y el régimen sigue Correction. El rebote de acciones del viernes no mejora el margen de seguridad agregado. Tras el CPI firme, el mercado asigna alrededor de 85% de probabilidad a una subida de 25 puntos base de la Fed el 15–16 de septiembre y el Treasury a 10 años llegó cerca de 4.99%, elevando el hurdle rate para duration, real estate y equities de crecimiento. En energía, Arabia Saudita cerró temporalmente su oleoducto East-West tras un ataque con drones. Esa ruta mueve alrededor de 4–5 millones de barriles diarios y es una de las principales alternativas a Hormuz; simultáneamente aumenta el riesgo en Bab el-Mandeb. La tesis energética pasa de un solo chokepoint a riesgo multi-ruta. QatarEnergy busca contratos de LNG de varios años en Estados Unidos tras daños persistentes en Ras Laffan, señal de que parte del shock puede durar más de lo esperado. En AI, Nvidia negocia una inversión ancla en la potencial IPO de Anthropic; es constructivo para demanda, pero obliga a vigilar con más rigor los circuitos de capital entre proveedores y clientes. Para México, la postura de Washington de permitir manufactura china en EE.UU. pero rechazar vehículos chinos producidos en México refuerza el riesgo de reglas de origen y screening. No apareció una nueva entrega de The Economist.",
   "threeSignals": [
-    {"label":"AGCI Greed + Valuation","type":"HECHO CONFIRMADO — MOTOR AGCI","summary":"Greed cae a 63/100, Valuation permanece en 86/100, régimen Correction y PRICE_DISCIPLINE activo."},
-    {"label":"Inflación de EE.UU.","type":"HECHO CONFIRMADO — BLS / REUTERS","summary":"CPI de agosto sube 0.4% mensual y 3.4% anual; core 0.3% mensual y 2.4% anual, manteniendo vivo el riesgo de alza de la Fed."},
-    {"label":"México–EE.UU.","type":"HECHO CONFIRMADO — REUTERS","summary":"Ambos gobiernos aceleran una negociación comercial bilateral antes de noviembre, con autos, Section 232 y contenido regional como variables clave."}
+    {"label":"AGCI Greed + Valuation","type":"HECHO CONFIRMADO — MOTOR AGCI","summary":"Greed rebota a 75/100, Valuation sube a 87/100, régimen Correction y PRICE_DISCIPLINE permanece activo."},
+    {"label":"Energía / Arabia Saudita","type":"HECHO CONFIRMADO — REUTERS / BARRON'S","summary":"Arabia Saudita cerró temporalmente el oleoducto East-West tras un ataque, debilitando una ruta clave para evadir Hormuz."},
+    {"label":"Fed / Treasury 10Y","type":"HECHO CONFIRMADO — REUTERS","summary":"El mercado asigna cerca de 85% de probabilidad a una subida de 25 pb en septiembre y el 10Y tocó aproximadamente 4.99%."}
   ],
   "markets": [
-    {"asset":"AGCI Greed","value":"63/100","asOf":"2026-09-11","interpretation":"Greed; caída diaria de 7 puntos y semanal de 24 puntos. Mejora optionality, no elimina riesgo de valoración."},
-    {"asset":"AGCI Valuation","value":"86/100","asOf":"2026-09-11","interpretation":"Extreme Valuation; el reset de sentimiento todavía no se traduce en margen de seguridad agregado."},
-    {"asset":"U.S. CPI","value":"+0.4% m/m; +3.4% y/y","asOf":"2026-09-11","interpretation":"Inflación firme; aumenta el riesgo de restricción monetaria adicional."},
-    {"asset":"U.S. core CPI","value":"+0.3% m/m; +2.4% y/y","asOf":"2026-09-11","interpretation":"Core todavía por encima del objetivo; no valida relajamiento agresivo."},
-    {"asset":"Brent","value":"> USD 100","asOf":"2026-09-11","interpretation":"Persiste prima física por disrupción del Golfo; mantener hedge moderado sin perseguir."}
+    {"asset":"AGCI Greed","value":"75/100","asOf":"2026-09-12","interpretation":"Greed; +12 puntos diarios y -6 semanales. El rebote de sentimiento no equivale a un reset de valoración."},
+    {"asset":"AGCI Valuation","value":"87/100","asOf":"2026-09-12","interpretation":"Extreme Valuation; aumenta el riesgo de pagar demasiado por un rebote de corto plazo."},
+    {"asset":"U.S. Treasury 10Y","value":"~4.99% intradía","asOf":"2026-09-11","interpretation":"Hurdle rate elevado para duration, real estate y equities de larga duración."},
+    {"asset":"Fed Sep hike probability","value":"~85% para +25 pb","asOf":"2026-09-11","interpretation":"La inflación firme mantiene elevada la probabilidad de endurecimiento adicional."},
+    {"asset":"Brent","value":"~USD 104.49 cierre viernes","asOf":"2026-09-11","interpretation":"Sigue elevado pese a retroceso intradía; el riesgo físico ahora incluye rutas alternativas a Hormuz."}
   ],
   "equities": [
-    {"ticker":"ORCL","classification":"VIGILAR / AI CLOUD","action":"VIGILAR","thesis":"Backlog de USD 664 mil millones y prepagos de clientes mejoran la calidad del financiamiento; validar conversión, leverage, margen y FCF."},
-    {"ticker":"ADBE","classification":"VIGILAR / AI SOFTWARE","action":"VIGILAR","thesis":"La monetización AI es visible, pero la guía y competencia limitan expansión de múltiplos."},
-    {"ticker":"NVDA","classification":"MANTENER / AI SELECTIVO","action":"VIGILAR","thesis":"La demanda estructural sigue fuerte, pero el filtro AGCI exige power, contraparte, financiamiento, utilización y FCF."},
-    {"ticker":"XOM","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"La restricción física sostiene optionality; no perseguir el precio del crudo."},
-    {"ticker":"CVX","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"Balance y upstream protegen parcialmente contra el shock; nuevas entradas sólo por precio."}
+    {"ticker":"NVDA","classification":"MANTENER / AI SELECTIVO","action":"VIGILAR","thesis":"Potencial inversión ancla en Anthropic refuerza relaciones estratégicas, pero aumenta la necesidad de separar demanda independiente de circuitos de capital proveedor-cliente."},
+    {"ticker":"ORCL","classification":"VIGILAR / AI CLOUD","action":"VIGILAR","thesis":"Backlog y prepagos siguen siendo positivos; comparar calidad de demanda con estructuras cada vez más interconectadas del ecosistema AI."},
+    {"ticker":"XOM","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"El riesgo multi-chokepoint sostiene optionality energética; no perseguir petróleo después del rally."},
+    {"ticker":"CVX","classification":"MANTENER / HEDGE ENERGÉTICO","action":"MANTENER","thesis":"Balance y upstream protegen parcialmente contra el shock; nuevas entradas sólo con precio atractivo."},
+    {"ticker":"LNG","classification":"VIGILAR / LNG ESTRUCTURAL","action":"VIGILAR","thesis":"La búsqueda de contratos plurianuales por QatarEnergy mejora optionality para exportadores estadounidenses; validar términos, capacidad y ejecución."}
   ],
   "macroMexico": {
-    "growth":"La negociación bilateral con Washington mejora el margen para inversión si reduce incertidumbre arancelaria, pero no justifica un upgrade amplio antes de términos concretos.",
-    "inflation":"Petróleo por encima de USD 100 mantiene riesgo de inflación importada y presión sobre costos logísticos.",
-    "trade":"Cambio material: México y EE.UU. aceleran un acuerdo antes de las elecciones estadounidenses. Vigilar Section 232, autos, reglas de contenido y restricciones a inversión china."
+    "growth":"La negociación bilateral con Washington sigue siendo potencialmente constructiva, pero la nueva señal sobre autos chinos confirma que nearshoring debe evaluarse por origen de capital, reglas de contenido y acceso efectivo al mercado estadounidense.",
+    "inflation":"Petróleo y logística elevados mantienen riesgo de inflación importada y costos de transporte.",
+    "trade":"Washington mantiene una línea más dura contra vehículos chinos producidos en México; esto incrementa el riesgo de screening y reglas de origen aun si avanza un acuerdo bilateral más amplio."
   },
-  "realEstate": "Mantener stress +50/+100 pb, DSCR conservador y menor apalancamiento. Inflación firme y mayor riesgo de alza de la Fed reducen la probabilidad de compresión rápida de cap rates. En México, un acuerdo comercial favorable podría apoyar industrial y logística, pero sólo debe capitalizarse cuando existan términos verificables y contratos reales.",
-  "businessTech": "Oracle ofrece una señal más fuerte de demanda AI financiada: backlog elevado y prepagos de clientes reducen parte del riesgo de capex propio. Adobe confirma monetización AI en software, pero también que crecimiento de AI no elimina presión competitiva. AGCI mantiene como filtro central deuda, contraparte, power, utilización, margen y FCF.",
+  "realEstate": "Mantener stress +50/+100 pb, DSCR conservador y menor apalancamiento. Un Treasury a 10 años cerca de 5% eleva el costo de refinanciamiento y reduce el argumento para asumir compresión rápida de cap rates. En industrial mexicano, priorizar activos con contratos reales, infraestructura energética y exposición limitada a capital chino sujeto a screening.",
+  "businessTech": "La posible inversión de Nvidia en Anthropic profundiza los vínculos financieros dentro del ecosistema AI. AGCI no interpreta capital estratégico del proveedor como sustituto de demanda independiente: mantener el filtro de contraparte, estructura de financiamiento, power, utilización, margen y FCF. La búsqueda de LNG estadounidense de largo plazo por QatarEnergy también refuerza el vínculo entre energía, infraestructura y costo de cómputo.",
   "travel": [
-    {"region":"Golfo Pérsico / Estrecho de Hormuz / Mar Rojo","status":"RIESGO MUY ELEVADO","note":"Persisten ataques, disrupción energética, mayores costos de seguros y cambios operativos. No priorizar tarifas sobre seguridad y continuidad de rutas."}
+    {"region":"Golfo Pérsico / Arabia Saudita / Estrecho de Hormuz / Mar Rojo / Bab el-Mandeb","status":"RIESGO MUY ELEVADO","note":"El riesgo operativo se amplió a infraestructura terrestre y rutas marítimas alternativas. Priorizar seguridad, flexibilidad de rutas y cobertura sobre precio."}
   ],
   "actions": [
     "Mantener 10–15% de liquidez desplegable.",
     "Aplicar PRICE_DISCIPLINE: compras sólo por tramos con fair value y margen de seguridad.",
-    "Mantener duration escalonada; CPI y PPI no justifican una apuesta agresiva a baja de tasas.",
-    "Conservar hedge energético moderado; no perseguir Brent por encima de USD 100.",
+    "Mantener duration escalonada; un 10Y cerca de 5% no justifica concentrar exposición larga.",
+    "Conservar hedge energético moderado; no perseguir el rally de crudo.",
     "Mantener stress inmobiliario +50/+100 pb y DSCR conservador.",
-    "En México, elevar vigilancia sobre autos, industriales y nearshoring, pero esperar términos verificables del acuerdo bilateral.",
-    "En AI, favorecer demanda contratada y financiada por clientes; vigilar leverage, ejecución y FCF.",
+    "En México, favorecer nearshoring con contratos verificables y baja exposición a riesgos de origen de capital o contenido.",
+    "En AI, separar demanda final independiente de circuitos de capital entre proveedor y cliente.",
     "No cambiar metodología ni ponderaciones por titulares aislados."
   ],
   "watch": [
-    "Fed 15–16 Sep: reacción a CPI 3.4% y PPI 5.4% y/y con petróleo todavía > USD 100.",
-    "Hormuz y Golfo: producción saudí, tránsito marítimo, diesel, seguros y señales diplomáticas verificables.",
-    "AGCI Greed 63 frente a Valuation 86: Correction con PRICE_DISCIPLINE activo.",
-    "México–EE.UU.: Section 232, autos, reglas de contenido, inversión china y calendario previo a noviembre.",
-    "Oracle: conversión de backlog, prepagos, leverage, capex y free cash flow.",
-    "Adobe: AI-first ARR, pricing power y competencia.",
-    "Real estate: sensibilidad de cap rates y financiamiento a una Fed potencialmente más restrictiva."
+    "Fed 15–16 Sep: decisión, dot/guía y reacción del 10Y alrededor del umbral de 5%.",
+    "Restauración del oleoducto saudí East-West, Hormuz y Bab el-Mandeb; diesel, freight e insurance.",
+    "AGCI Greed 75 frente a Valuation 87: PRICE_DISCIPLINE sigue activo pese al rebote.",
+    "QatarEnergy: duración y tamaño de contratos LNG en EE.UU. como señal de persistencia del shock del Golfo.",
+    "Nvidia/Anthropic: términos de IPO e inversión ancla y efecto sobre calidad de demanda AI.",
+    "México–EE.UU.: acuerdo bilateral, autos, reglas de contenido, Section 232 e inversión china.",
+    "Real estate: refinanciamiento y cap rates con Treasury 10Y cerca de 5%."
   ],
   "audio": {"chapters": [
-    {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"AGCI abre el once de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed cae a sesenta y tres, Valuation permanece en ochenta y seis y el régimen sigue Correction. La señal continúa PRICE DISCIPLINE."},
-    {"id":"motor","title":"Motor AGCI","speaker":"ANALISTA","text":"El sentimiento cayó siete puntos en un día y veinticuatro en una semana. Eso mejora optionality, pero no resuelve una valoración todavía extrema. El mensaje es preparar mejores entradas, no ampliar beta de forma automática."},
-    {"id":"inflacion","title":"Inflación de Estados Unidos","speaker":"CIO","text":"El CPI de agosto subió cero punto cuatro por ciento mensual y tres punto cuatro por ciento anual. El core avanzó cero punto tres mensual y dos punto cuatro anual. Con PPI firme y petróleo alto, la Fed todavía tiene razones para mantenerse restrictiva."},
-    {"id":"tasas","title":"Implicación para bonos","speaker":"ANALISTA","text":"No concentraría duration. Mantendría vencimientos escalonados porque la inflación no está convergiendo limpiamente y el shock energético puede generar segunda vuelta. La reunión de la Fed del quince y dieciséis de septiembre es ahora el siguiente catalizador macro."},
-    {"id":"energia","title":"Petróleo y Golfo","speaker":"CIO","text":"La IEA advierte un déficit de oferta más profundo mientras los flujos del Golfo no se normalizan. Arabia Saudita opera cerca de seis millones de barriles diarios y el diesel sigue bajo presión. Mantendría hedge energético moderado, sin perseguir el rally."},
-    {"id":"mexico","title":"México y comercio","speaker":"ANALISTA","text":"México y Washington aceleran una negociación bilateral antes de las elecciones estadounidenses. Autos, aranceles Section dos treinta y dos, contenido regional e inversión china son las variables clave. Es constructivo para nearshoring, pero todavía no es un acuerdo final."},
-    {"id":"oracle","title":"Oracle y demanda AI","speaker":"CIO","text":"Oracle reportó backlog de seiscientos sesenta y cuatro mil millones de dólares y más de treinta mil millones en nuevos contratos AI cloud. Los prepagos de clientes reducen parte del riesgo de financiamiento. Ahora hay que validar conversión, leverage, margen y free cash flow."},
-    {"id":"adobe","title":"Adobe y software AI","speaker":"ANALISTA","text":"Adobe superó expectativas y duplicó el ingreso recurrente de productos AI first, pero su guía fue más moderada. Es evidencia de monetización real, aunque no elimina competencia ni garantiza expansión de múltiplos."},
-    {"id":"realestate","title":"Real estate","speaker":"CIO","text":"Mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor leverage. Una Fed más restrictiva reduce la probabilidad de compresión rápida de cap rates. En México, industrial mejora sólo si el acuerdo comercial se traduce en inversión y contratos verificables."},
-    {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. Vigilaría la Fed, Hormuz, el acuerdo México Estados Unidos y la conversión del backlog AI. Desplegaría capital sólo por tramos con fair value, transparencia y margen de seguridad."}
+    {"id":"apertura","title":"Apertura ejecutiva","speaker":"CIO","text":"AGCI abre el doce de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed rebota a setenta y cinco, Valuation sube a ochenta y siete y el régimen sigue Correction. PRICE DISCIPLINE permanece activo."},
+    {"id":"motor","title":"Motor AGCI","speaker":"ANALISTA","text":"El sentimiento recuperó doce puntos en un día, pero todavía está seis puntos debajo de hace una semana. La valoración, en cambio, subió a ochenta y siete. El rebote mejora momentum de corto plazo, no el margen de seguridad."},
+    {"id":"fed","title":"Fed y bonos","speaker":"CIO","text":"Después del CPI firme, el mercado asigna cerca de ochenta y cinco por ciento de probabilidad a una subida de veinticinco puntos base en septiembre. El Treasury a diez años rozó cinco por ciento. Mantendría duration escalonada."},
+    {"id":"energia","title":"Energía y Arabia Saudita","speaker":"ANALISTA","text":"Arabia Saudita cerró temporalmente su oleoducto East West tras un ataque con drones. Esa ruta puede mover entre cuatro y cinco millones de barriles diarios y es clave cuando Hormuz está restringido. El shock ahora afecta más de un chokepoint."},
+    {"id":"maritimo","title":"Hormuz y Bab el-Mandeb","speaker":"CIO","text":"El riesgo también crece en Bab el-Mandeb. La combinación de Hormuz, infraestructura saudita y Mar Rojo mantiene presión sobre diesel, fletes y seguros. Mantendría un hedge energético moderado, sin perseguir crudo después del rally."},
+    {"id":"lng","title":"LNG y duración del shock","speaker":"ANALISTA","text":"QatarEnergy busca contratos de LNG de varios años en Estados Unidos tras daños persistentes en Ras Laffan. Eso sugiere que parte de la disrupción puede durar más de un trimestre y crea optionality para exportadores estadounidenses."},
+    {"id":"ai","title":"AI y estructura de capital","speaker":"CIO","text":"Nvidia negocia una inversión ancla en la posible IPO de Anthropic. Es constructivo para el ecosistema, pero obliga a distinguir demanda final independiente de capital estratégico entre proveedor y cliente. Seguimos exigiendo contraparte, utilización, margen y free cash flow."},
+    {"id":"mexico","title":"México y autos","speaker":"ANALISTA","text":"Washington señala apertura a fabricantes chinos dentro de Estados Unidos, pero rechazo a vehículos chinos producidos en México para exportación. Eso eleva el riesgo de reglas de origen y screening aun si avanza la negociación bilateral con México."},
+    {"id":"realestate","title":"Real estate","speaker":"CIO","text":"Con el Treasury a diez años cerca de cinco por ciento mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En industrial mexicano priorizaría contratos reales, energía disponible y exposición regulatoria manejable."},
+    {"id":"cierre","title":"Qué haría hoy","speaker":"CIO","text":"Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. No compraría el rebote por momentum. Desplegaría capital sólo por tramos cuando precio, cash flow, estructura de financiamiento y margen de seguridad estén alineados."}
   ]},
   "sources": [
-    {"name":"Reuters — U.S. consumer inflation picks up in August","url":"https://www.reuters.com/world/us/us-consumer-inflation-picks-up-august-2026-09-11/","asOf":"2026-09-11"},
-    {"name":"U.S. BLS — Producer Price Index, August 2026","url":"https://www.bls.gov/news.release/archives/ppi_09102026.htm","asOf":"2026-09-10"},
-    {"name":"Reuters — IEA warns 2026 oil supply gap will widen","url":"https://www.reuters.com/business/energy/global-2026-oil-supply-gap-deepen-delayed-return-normal-gulf-flows-iea-says-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"Reuters — Saudis shut down oil pipeline as Houthis tighten grip on Red Sea shipping","url":"https://www.reuters.com/business/energy/saudis-shut-down-oil-pipeline-houthis-tighten-grip-red-sea-shipping-2026-09-12/","asOf":"2026-09-12"},
+    {"name":"Reuters — Wall Street jumps, oil lower ahead of Fed vote next week","url":"https://www.reuters.com/world/china/global-markets-corrected-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"Reuters — Nvidia in talks to invest in Anthropic's mega IPO","url":"https://www.reuters.com/legal/transactional/nvidia-talks-invest-anthropics-mega-ipo-sources-say-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"Reuters — QatarEnergy seeks U.S. LNG deals through 2031","url":"https://www.reuters.com/business/energy/qatarenergy-seeks-us-lng-deals-through-2031-sources-say-2026-09-11/","asOf":"2026-09-11"},
+    {"name":"Reuters — Trump says he would be OK with China building cars in U.S.","url":"https://www.reuters.com/world/us/trump-says-he-would-be-ok-with-china-building-cars-us-2026-09-12/","asOf":"2026-09-12"},
     {"name":"Reuters — Mexico, Washington sprint toward bilateral trade deal","url":"https://www.reuters.com/business/autos-transportation/mexico-washington-sprint-toward-bilateral-trade-deal-before-us-elections-2026-09-11/","asOf":"2026-09-11"},
-    {"name":"Reuters — Oracle quarterly revenue beats estimates","url":"https://www.reuters.com/technology/oracles-quarterly-revenue-beats-estimates-ai-boom-drives-cloud-demand-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Reuters — Adobe beats third-quarter revenue estimates","url":"https://www.reuters.com/business/adobe-beats-third-quarter-revenue-estimates-2026-09-10/","asOf":"2026-09-10"},
-    {"name":"Barron's — Markets Face Inflation Nightmare","url":"https://www.barrons.com/","asOf":"2026-09-11"},
-    {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-09-11"}
+    {"name":"Barron's — Review & Preview: Time to Hike","url":"https://www.barrons.com/","asOf":"2026-09-11"},
+    {"name":"Barron's — Daily Roundup, September 11","url":"https://www.barrons.com/","asOf":"2026-09-11"},
+    {"name":"AGCI Greed + Valuation live engine","url":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json","asOf":"2026-09-12"}
   ],
   "legalDisclaimer": "Información para análisis estratégico e inversión; no constituye recomendación individualizada, oferta ni solicitud de compra o venta. Toda inversión implica riesgo y puede perder valor."
 }
