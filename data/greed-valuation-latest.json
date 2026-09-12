@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-11T21:17:52.653Z",
+  "timestamp": "2026-09-12T05:02:46.661Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 63,
+    "greed": 75,
     "greed_label": "Greed",
     "valuation": 87,
     "valuation_label": "Extreme Valuation",
@@ -21,12 +21,12 @@
       "label": "Wait / Price discipline",
       "severity": "amber"
     },
-    "interpretation": "Greed 63/100 (Greed) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Wait / Price discipline."
+    "interpretation": "Greed 75/100 (Greed) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Wait / Price discipline."
   },
   "changes": {
-    "greed_1d": -7,
-    "greed_7d": -24,
-    "greed_30d": -27,
+    "greed_1d": 12,
+    "greed_7d": -6,
+    "greed_30d": -15,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -34,10 +34,10 @@
   "components": {
     "momentum": {
       "label": "Market Momentum",
-      "value": 7591.7,
-      "normalized_score": 58,
+      "value": 7656.98,
+      "normalized_score": 62,
       "source": "Federal Reserve / FRED — SP500",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 90,
@@ -48,7 +48,7 @@
       "value": null,
       "normalized_score": 67,
       "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 82,
@@ -56,10 +56,10 @@
     },
     "volatility": {
       "label": "VIX / Volatility",
-      "value": 17.84,
-      "normalized_score": 41,
+      "value": 15.84,
+      "normalized_score": 78,
       "source": "Cboe Global Markets — VIX",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 90,
@@ -67,10 +67,10 @@
     },
     "options": {
       "label": "Options Term Structure",
-      "value": 0.9042,
-      "normalized_score": 74,
+      "value": 0.8516,
+      "normalized_score": 87,
       "source": "Cboe Global Markets — VIX / VIX3M",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 88,
@@ -82,8 +82,8 @@
       "normalized_score": 88,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
       "asOf": "2026-09-10",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 92,
       "source_quality": 96
     }
@@ -92,19 +92,19 @@
     {
       "name": "Cboe Global Markets — VIX",
       "frequency": "DAILY",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "status": "connected"
     },
     {
       "name": "Cboe Global Markets — VIX3M",
       "frequency": "DAILY",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "status": "connected"
     },
     {
       "name": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
       "frequency": "DAILY",
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "status": "connected"
     },
     {
