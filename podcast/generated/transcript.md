@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-12 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-13 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el doce de septiembre con riesgo muy elevado, disciplina de precio y diez a quince por ciento de liquidez desplegable. Greed rebota a setenta y cinco, Valuation sube a ochenta y siete y el régimen sigue Correction. PRICE DISCIPLINE permanece activo.
+**CIO:** AGCI abre el trece de septiembre con riesgo muy elevado, PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. Greed permanece en setenta y cinco y Valuation en ochenta y siete. No hay nueva sesión de mercado de fin de semana que justifique fabricar un cambio de score.
 
-## Motor AGCI
+## Arabia Saudita y oferta física
 
-**ANALISTA:** El sentimiento recuperó doce puntos en un día, pero todavía está seis puntos debajo de hace una semana. La valoración, en cambio, subió a ochenta y siete. El rebote mejora momentum de corto plazo, no el margen de seguridad.
+**ANALISTA:** La novedad material está en el oleoducto East West. Reuters reporta que, si no reabre en días, Arabia Saudita podría perder exportaciones equivalentes a cerca de cuatro por ciento de la oferta mundial.
 
-## Fed y bonos
+## Reparación y almacenamiento
 
-**CIO:** Después del CPI firme, el mercado asigna cerca de ochenta y cinco por ciento de probabilidad a una subida de veinticinco puntos base en septiembre. El Treasury a diez años rozó cinco por ciento. Mantendría duration escalonada.
+**CIO:** Fuentes de la industria hablan de reparaciones que podrían extenderse varias semanas. El almacenamiento que sostiene las exportaciones por el Mar Rojo es limitado. Por eso el incidente dejó de ser sólo una interrupción táctica y pasa a ser un riesgo de oferta física.
 
-## Energía y Arabia Saudita
+## Nuevo ataque en Hormuz
 
-**ANALISTA:** Arabia Saudita cerró temporalmente su oleoducto East West tras un ataque con drones. Esa ruta puede mover entre cuatro y cinco millones de barriles diarios y es clave cuando Hormuz está restringido. El shock ahora afecta más de un chokepoint.
+**ANALISTA:** UK Maritime Trade Operations reportó un nuevo impacto de proyectil contra un buque en Hormuz. Hubo incendio y evacuación de la tripulación. La atribución no estaba confirmada al cierre, así que distinguimos el hecho del ataque de cualquier conclusión sobre el responsable.
 
-## Hormuz y Bab el-Mandeb
+## Inflación y tasas
 
-**CIO:** El riesgo también crece en Bab el-Mandeb. La combinación de Hormuz, infraestructura saudita y Mar Rojo mantiene presión sobre diesel, fletes y seguros. Mantendría un hedge energético moderado, sin perseguir crudo después del rally.
+**CIO:** Con el Treasury a diez años cerca de cinco por ciento, una pérdida adicional de petróleo puede retrasar la desinflación y sostener el hurdle rate para acciones de larga duración y real estate. Mantendría duration escalonada, sin una apuesta concentrada.
 
-## LNG y duración del shock
+## Omán y diplomacia
 
-**ANALISTA:** QatarEnergy busca contratos de LNG de varios años en Estados Unidos tras daños persistentes en Ras Laffan. Eso sugiere que parte de la disrupción puede durar más de un trimestre y crea optionality para exportadores estadounidenses.
+**ANALISTA:** La reunión del lunes en Omán mantiene una vía diplomática, pero un funcionario iraní dijo que no espera un acuerdo firmado sobre Hormuz. No reduciría el hedge por titulares de negociación hasta ver un marco vinculante y normalización física de los flujos.
 
-## AI y estructura de capital
+## Yen y BOJ
 
-**CIO:** Nvidia negocia una inversión ancla en la posible IPO de Anthropic. Es constructivo para el ecosistema, pero obliga a distinguir demanda final independiente de capital estratégico entre proveedor y cliente. Seguimos exigiendo contraparte, utilización, margen y free cash flow.
+**CIO:** En divisas, los especuladores pasaron a net long yen por primera vez desde febrero. Ese giro hace más sensible al mercado a cualquier señal hawkish del Banco de Japón o a repatriación de activos. Revisaría supuestos de cobertura en exposición japonesa.
 
-## México y autos
+## Qué hacer con energía
 
-**ANALISTA:** Washington señala apertura a fabricantes chinos dentro de Estados Unidos, pero rechazo a vehículos chinos producidos en México para exportación. Eso eleva el riesgo de reglas de origen y screening aun si avanza la negociación bilateral con México.
+**ANALISTA:** El riesgo energético es mayor, pero no perseguiría petróleo después del rally. Mantendría una cobertura moderada mediante compañías con balances fuertes y exposición upstream, comprando sólo cuando precio y fair value permitan margen de seguridad.
 
-## Real estate
+## México, AI y real estate
 
-**CIO:** Con el Treasury a diez años cerca de cinco por ciento mantendría stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En industrial mexicano priorizaría contratos reales, energía disponible y exposición regulatoria manejable.
+**CIO:** No hay cambios materiales nuevos en México o AI. Mantendría nearshoring selectivo, filtros estrictos de capital y demanda en AI y stress inmobiliario de cincuenta y cien puntos base. La energía más cara refuerza la importancia de contratos, electricidad disponible y leverage conservador.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, duration escalonada, hedge energético moderado y disciplina de precio. No compraría el rebote por momentum. Desplegaría capital sólo por tramos cuando precio, cash flow, estructura de financiamiento y margen de seguridad estén alineados.
+**CIO:** Mantendría liquidez, PRICE DISCIPLINE, duration escalonada y un hedge energético moderado. No compraría beta por momentum ni anticiparía una solución diplomática. Desplegaría capital sólo por tramos cuando precio, cash flow y margen de seguridad estén alineados.
