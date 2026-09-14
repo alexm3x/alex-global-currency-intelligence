@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-13 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-14 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el trece de septiembre con riesgo muy elevado, PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. Greed permanece en setenta y cinco y Valuation en ochenta y siete. No hay nueva sesión de mercado de fin de semana que justifique fabricar un cambio de score.
+**CIO:** AGCI abre el catorce de septiembre con riesgo muy elevado, PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. Greed permanece en setenta y cinco y Valuation en ochenta y siete. Los inputs de mercado siguen reflejando principalmente el cierre del viernes, así que no fabricamos un movimiento de fin de semana.
 
-## Arabia Saudita y oferta física
+## Fed y consenso de mercado
 
-**ANALISTA:** La novedad material está en el oleoducto East West. Reuters reporta que, si no reabre en días, Arabia Saudita podría perder exportaciones equivalentes a cerca de cuatro por ciento de la oferta mundial.
+**ANALISTA:** La novedad macro principal es la Fed. Reuters reporta que Goldman Sachs, J. P. Morgan, HSBC y Deutsche Bank ya esperan una subida de veinticinco puntos base esta semana. El mercado asigna alrededor de noventa por ciento de probabilidad, frente a cerca de setenta antes de los últimos datos de inflación.
 
-## Reparación y almacenamiento
+## Treasury y hurdle rate
 
-**CIO:** Fuentes de la industria hablan de reparaciones que podrían extenderse varias semanas. El almacenamiento que sostiene las exportaciones por el Mar Rojo es limitado. Por eso el incidente dejó de ser sólo una interrupción táctica y pasa a ser un riesgo de oferta física.
+**CIO:** Ese giro importa porque el Treasury a diez años está rozando cinco por ciento y el petróleo vuelve a presionar inflación.
 
-## Nuevo ataque en Hormuz
+## Hormuz sigue restringido
 
-**ANALISTA:** UK Maritime Trade Operations reportó un nuevo impacto de proyectil contra un buque en Hormuz. Hubo incendio y evacuación de la tripulación. La atribución no estaba confirmada al cierre, así que distinguimos el hecho del ataque de cualquier conclusión sobre el responsable.
+**ANALISTA:** En energía, Hormuz sigue físicamente deteriorado. Reuters contó sólo cuatro buques de commodities saliendo y diez entrando al Golfo durante el fin de semana, muy por debajo de la actividad previa a la guerra.
 
-## Inflación y tasas
+## Omán pospone las conversaciones
 
-**CIO:** Con el Treasury a diez años cerca de cinco por ciento, una pérdida adicional de petróleo puede retrasar la desinflación y sostener el hurdle rate para acciones de larga duración y real estate. Mantendría duration escalonada, sin una apuesta concentrada.
+**CIO:** La vía diplomática también perdió tracción inmediata. Omán pospuso la reunión prevista para hoy entre Irán y países del Golfo y no anunció nueva fecha. Eso no elimina la posibilidad de negociación, pero reduce la probabilidad de una solución rápida.
 
-## Omán y diplomacia
+## Petróleo y cobertura
 
-**ANALISTA:** La reunión del lunes en Omán mantiene una vía diplomática, pero un funcionario iraní dijo que no espera un acuerdo firmado sobre Hormuz. No reduciría el hedge por titulares de negociación hasta ver un marco vinculante y normalización física de los flujos.
+**ANALISTA:** El petróleo se aproxima de nuevo a ciento ocho dólares por barril. Para AGCI, eso eleva el riesgo sobre diesel, fletes, seguros y expectativas inflacionarias.
 
-## Yen y BOJ
+## AI y venta tecnológica
 
-**CIO:** En divisas, los especuladores pasaron a net long yen por primera vez desde febrero. Ese giro hace más sensible al mercado a cualquier señal hawkish del Banco de Japón o a repatriación de activos. Revisaría supuestos de cobertura en exposición japonesa.
+**CIO:** En tecnología, Barron's destacó una nueva venta en AI y Reuters confirmó presión global sobre acciones vinculadas al sector después de llamados de líderes de la industria a desacelerar el desarrollo.
 
-## Qué hacer con energía
+## Filtro de calidad AI
 
-**ANALISTA:** El riesgo energético es mayor, pero no perseguiría petróleo después del rally. Mantendría una cobertura moderada mediante compañías con balances fuertes y exposición upstream, comprando sólo cuando precio y fair value permitan margen de seguridad.
+**ANALISTA:** En AI mantendría el filtro de siempre: demanda final independiente, contratos financiados, contraparte, power, utilización, margen y free cash flow.
 
-## México, AI y real estate
+## Real estate y México
 
-**CIO:** No hay cambios materiales nuevos en México o AI. Mantendría nearshoring selectivo, filtros estrictos de capital y demanda en AI y stress inmobiliario de cincuenta y cien puntos base. La energía más cara refuerza la importancia de contratos, electricidad disponible y leverage conservador.
+**CIO:** En real estate no cambio el marco: stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. Esta semana Barron's señala vivienda, retail y Lennar como catalizadores. Hasta recibir nuevos datos o resultados, no modificaría cap rates ni supuestos de refinanciamiento.
 
 ## Qué haría hoy
 
-**CIO:** Mantendría liquidez, PRICE DISCIPLINE, duration escalonada y un hedge energético moderado. No compraría beta por momentum ni anticiparía una solución diplomática. Desplegaría capital sólo por tramos cuando precio, cash flow y margen de seguridad estén alineados.
+**CIO:** Qué haría hoy: mantener liquidez, PRICE DISCIPLINE, duration escalonada y hedge energético moderado. Vigilar la Fed, el cinco por ciento en el diez años, reparación del East West, tráfico de Hormuz y la reacción del complejo AI. Desplegar capital sólo por tramos cuando precio, cash flow y margen de seguridad estén alineados.
