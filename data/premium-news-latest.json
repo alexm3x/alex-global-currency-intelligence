@@ -1,106 +1,21 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-14",
-  "timestamp": "2026-09-14T07:20:24-06:00",
+  "date": "2026-09-15",
+  "timestamp": "2026-09-15T07:14:02-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
-  "source": "Authorized Gmail newsletters plus validated public primary/reputable sources",
-  "copyrightPolicy": "AGCI stores original summaries and metadata only; no full-text republication or private tracking links.",
+  "copyrightPolicy": "Original AGCI summaries and source metadata only; no full-text republication or private tracking links.",
   "items": [
-    {
-      "rank": 1,
-      "publisher": "AGCI live engine",
-      "newsletter": "AGCI Greed + Valuation / 14 Sep 2026",
-      "headline": "Greed stays at 75 and Valuation at 87; PRICE_DISCIPLINE remains active",
-      "category": "Market Psychology / Valuation / Capital Allocation",
-      "relevance": 100,
-      "summary": "The AGCI live engine reads Greed 75/100 and Valuation 87/100, with regime Correction and condition PRICE_DISCIPLINE — Wait / Price discipline. The underlying market inputs remain primarily from the September 11 close, so no artificial weekend score change is inferred.",
-      "whyItMatters": "Valuation remains extreme while macro and energy risk have risen. The portfolio implication remains selective risk-taking rather than chasing beta or long duration.",
-      "assets": ["SPY", "QQQ", "IWM", "SMH", "TLT", "GLD"],
-      "agciSignal": "PRICE_DISCIPLINE / GREED 75 / VALUATION 87",
-      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
-    },
-    {
-      "rank": 2,
-      "publisher": "Reuters",
-      "newsletter": "Federal Reserve / 14 Sep 2026",
-      "headline": "Major global banks converge on a September Fed hike as markets price roughly 90% odds",
-      "category": "Macro / Central Banks / Rates / Capital Allocation",
-      "relevance": 100,
-      "summary": "Goldman Sachs, J.P. Morgan, HSBC and Deutsche Bank now expect the Federal Reserve to raise rates by 25 basis points at the September 15–16 meeting after stronger August inflation and the renewed oil shock. Reuters reported market pricing near a 90% probability of a hike, up from roughly 70% before the latest inflation data.",
-      "whyItMatters": "The hurdle rate for equities, real estate and long-duration bonds has moved higher. AGCI should treat any pre-Fed risk rally cautiously and preserve staggered duration rather than front-running easing.",
-      "assets": ["TLT", "IEF", "SHY", "SPY", "QQQ", "VNQ", "DXY", "GLD"],
-      "agciSignal": "FED HIKE BASE CASE / HIGHER-FOR-LONGER RISK / STAGGER DURATION",
-      "sourceUrl": "https://www.reuters.com/business/goldman-sachs-now-expects-fed-hike-rates-september-2026-09-14/"
-    },
-    {
-      "rank": 3,
-      "publisher": "Reuters",
-      "newsletter": "Hormuz shipping / 14 Sep 2026",
-      "headline": "Hormuz commodity traffic remains severely depressed as the Saudi bypass stays impaired",
-      "category": "Energy / Geopolitics / Shipping / Inflation",
-      "relevance": 100,
-      "summary": "Reuters reported that only four commodity vessels exited and ten entered the Gulf through Hormuz over the weekend, well below recent traffic and far below pre-war activity. The slowdown follows repeated shipping incidents while Saudi Arabia's East-West pipeline remains shut after a drone attack.",
-      "whyItMatters": "The energy shock remains physical rather than purely headline-driven. Restricted maritime flows plus a compromised bypass increase upside risk to crude, diesel, freight, insurance and inflation.",
-      "assets": ["BNO", "USO", "XLE", "XOM", "CVX", "VLO", "MPC", "TLT", "DXY", "GLD"],
-      "agciSignal": "PHYSICAL ENERGY DISRUPTION / HEDGE MODERATE / DO NOT CHASE",
-      "sourceUrl": "https://www.reuters.com/business/hormuz-shipping-traffic-remains-below-10-day-average-weekend-data-shows-2026-09-14/"
-    },
-    {
-      "rank": 4,
-      "publisher": "Reuters / Oman Foreign Ministry",
-      "newsletter": "Hormuz diplomacy / 14 Sep 2026",
-      "headline": "Oman postpones Gulf-Iran Hormuz meeting with no replacement date",
-      "category": "Geopolitics / Energy / Diplomacy",
-      "relevance": 97,
-      "summary": "Oman postponed the regional meeting that had been scheduled for September 14 to discuss possible arrangements for the Strait of Hormuz. Omani Foreign Minister Badr Albusaidi cited the need for consensus; no new date was announced.",
-      "whyItMatters": "The near-term diplomatic off-ramp weakened. AGCI should not price an imminent normalization of Gulf shipping until there is a rescheduled process, a binding framework and visible recovery in physical flows.",
-      "assets": ["BNO", "USO", "XLE", "GLD", "TLT", "DXY"],
-      "agciSignal": "DIPLOMATIC DELAY / NO FRONT-RUNNING NORMALIZATION",
-      "sourceUrl": "https://www.reuters.com/world/middle-east/oman-meeting-between-gulf-states-iran-postponed-omani-foreign-minister-says-2026-09-13/"
-    },
-    {
-      "rank": 5,
-      "publisher": "Reuters / Barron's",
-      "newsletter": "Barron's — AI Slowdown and the Tech Selloff / 14 Sep 2026",
-      "headline": "AI safety warnings trigger a broad tech de-risking move ahead of the Fed",
-      "category": "AI / Technology / Equities / Capital Allocation",
-      "relevance": 94,
-      "summary": "Barron's highlighted an AI-linked technology selloff, while Reuters reported that warnings from leading AI executives about slowing development pressured global AI stocks and Nasdaq futures. Nvidia and AMD were among the names under pressure in early trading indications.",
-      "whyItMatters": "This is a valuation and duration stress test for the AI complex, not evidence that end-demand has disappeared. AGCI should separate safety/regulatory sentiment from contracted compute demand, utilization, financing quality, margins and free cash flow.",
-      "assets": ["NVDA", "AMD", "SMH", "QQQ", "MSFT", "GOOGL", "AMZN"],
-      "agciSignal": "AI VOLATILITY UP / KEEP QUALITY FILTER / NO PANIC BUYING",
-      "sourceUrl": "https://www.reuters.com/world/china/ai-linked-asian-stocks-slump-after-top-lab-ceos-call-slowing-down-technologys-2026-09-14/"
-    },
-    {
-      "rank": 6,
-      "publisher": "Barron's",
-      "newsletter": "Daily Roundup / 13 Sep 2026",
-      "headline": "Fed decision, housing and retail define the next U.S. catalyst set",
-      "category": "Macro / Real Estate / Consumer / Markets",
-      "relevance": 82,
-      "summary": "The authorized Barron's Daily Roundup flagged the September Fed decision, housing data, retail indicators and Lennar as the principal scheduled catalysts for the week. These are forward-looking watch items rather than new confirmed allocation signals.",
-      "whyItMatters": "Housing and retail will help determine how much the higher-rate and energy shock is reaching the real economy. AGCI keeps real-estate stress assumptions unchanged until fresh data or company results justify an adjustment.",
-      "assets": ["LEN", "XHB", "ITB", "VNQ", "TLT", "XLY", "SPY"],
-      "agciSignal": "CATALYST WATCH / NO THESIS CHANGE YET",
-      "sourceUrl": "https://www.barrons.com/"
-    }
+    {"rank":1,"publisher":"AGCI live engine","headline":"Greed falls to 68 while Valuation remains 87","category":"Markets / Capital Allocation","relevance":100,"summary":"Greed is 68/100, down 9 points daily, while Valuation remains 87/100. Regime is Correction and condition remains PRICE_DISCIPLINE.","whyItMatters":"Cooling sentiment improves selective-entry optionality, but extreme valuation still argues against chasing broad beta.","assets":["SPY","QQQ","IWM","SMH","TLT","GLD"],"sourceUrl":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"},
+    {"rank":2,"publisher":"Reuters / Barron's","headline":"Treasury 10Y moves above 5% ahead of the Fed","category":"Macro / Rates / Capital Allocation","relevance":100,"summary":"Reuters reported the U.S. 10-year Treasury yield above 5%, its highest since 2007, while markets priced about a 92.5% probability of a 25 bp Fed hike on September 16. Barron's highlighted rising yields, oil and AI anxiety in its September 15 Daily.","whyItMatters":"The discount rate has risen further for long-duration equities, real estate and long bonds. Keep duration staggered and require larger margins of safety.","assets":["TLT","IEF","SHY","SPY","QQQ","VNQ","DXY","GLD"],"sourceUrl":"https://www.reuters.com/business/wall-st-futures-slip-rising-oil-treasury-yields-compound-ai-anxiety-2026-09-15/"},
+    {"rank":3,"publisher":"Reuters","headline":"Saudi pipeline remains offline as Hormuz traffic drops again","category":"Energy / Geopolitics / Inflation","relevance":100,"summary":"Saudi Arabia's East-West pipeline remained offline while commodity traffic through Hormuz fell to four vessels on Monday and fresh regional attacks continued.","whyItMatters":"The energy shock remains physical and multi-route, sustaining upside risk to crude, diesel, freight, insurance and inflation.","assets":["BNO","USO","XLE","XOM","CVX","VLO","MPC","TLT","GLD"],"sourceUrl":"https://www.reuters.com/business/energy/oil-prices-rise-saudi-pipeline-outage-fresh-attacks-raise-supply-concerns-2026-09-15/"},
+    {"rank":4,"publisher":"Reuters / Barron's","headline":"AI risk repricing persists without confirmed demand collapse","category":"AI / Technology / Equities","relevance":94,"summary":"Barron's highlighted another AI-linked technology selloff. Reuters reported continued investor concern after industry leaders called for slowing AI development, while the effect on contracted compute demand remains uncertain.","whyItMatters":"Keep separating safety and regulatory sentiment from independently financed demand, utilization, margins and free cash flow.","assets":["NVDA","AMD","SMH","QQQ","MSFT","GOOGL","AMZN"],"sourceUrl":"https://www.reuters.com/legal/transactional/investors-nervous-about-ai-spending-slowdown-after-industry-warnings-2026-09-15/"},
+    {"rank":5,"publisher":"Reuters","headline":"Global government borrowing costs reach post-2008 highs","category":"Macro / Bonds / Real Estate","relevance":93,"summary":"Reuters reported average 10-year government yields across the G7 at 4.285%, the highest since mid-2008, with the U.S. benchmark above 5%.","whyItMatters":"The higher hurdle rate is global and increases refinancing pressure on leveraged real estate and long-duration assets.","assets":["TLT","IEF","VNQ","SPY","QQQ","DXY","GLD"],"sourceUrl":"https://www.reuters.com/world/asia-pacific/bond-selloff-drives-us-benchmark-beyond-5-stocks-rattled-2026-09-15/"}
   ],
-  "watch": [
-    "Fed September 15–16: decision, dot/guidance and whether the market's roughly 90% hike probability is validated.",
-    "Treasury 10Y: test of the 5% area and transmission into mortgage rates, cap rates and equity duration.",
-    "Saudi East-West pipeline: repair timeline, effective export losses and depletion of Red Sea inventories.",
-    "Hormuz: vessel counts, attacks, insurance, diesel and freight; require physical normalization before reducing the hedge.",
-    "Oman diplomacy: rescheduling of the Gulf-Iran meeting and whether a binding navigation framework emerges.",
-    "AI complex: distinguish safety/regulatory headlines from contracted demand, utilization, counterparty quality, margin and FCF.",
-    "Housing/real estate: Lennar, home sales and mortgage-rate transmission; retain +50/+100 bp stress until evidence changes.",
-    "Mexico-U.S./USMCA: no new official material decision in this cut; keep monitoring autos, Section 232, rules of origin and Chinese investment screening.",
-    "Travel: Gulf, Hormuz, Saudi Arabia and Red Sea/Bab el-Mandeb remain very high operational risk."
-  ],
-  "excluded": [
-    {"headline":"The Economist newsletters","reason":"No new Economist newsletter was found in authorized Gmail after the prior review cutoff."},
-    {"headline":"Barron's housing and Lennar previews","reason":"Scheduled catalysts were noted, but no fresh result or housing print yet crossed the threshold for a thesis change."},
-    {"headline":"Mexico/T-MEC headlines","reason":"No new official decision in the review period was material enough to alter the existing AGCI trade or nearshoring thesis."},
-    {"headline":"Private newsletter tracking links","reason":"Tracking URLs from authorized Gmail are intentionally not stored."}
+  "excluded":[
+    {"headline":"The Economist","reason":"No new Economist newsletter found after the prior cutoff."},
+    {"headline":"Barron's bank-stock item","reason":"Company-specific fee outlook did not cross the portfolio-level materiality threshold."},
+    {"headline":"Mexico/T-MEC","reason":"No new official material decision in this review period."},
+    {"headline":"Private tracking links","reason":"Intentionally excluded."}
   ]
 }
