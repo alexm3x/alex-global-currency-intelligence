@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-14 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-15 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el catorce de septiembre con riesgo muy elevado, PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. Greed permanece en setenta y cinco y Valuation en ochenta y siete. Los inputs de mercado siguen reflejando principalmente el cierre del viernes, así que no fabricamos un movimiento de fin de semana.
+**CIO:** AGCI abre el quince de septiembre con PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. Greed cae a sesenta y ocho, nueve puntos menos en el día, mientras Valuation permanece en ochenta y siete. El sentimiento se enfría, pero la valoración agregada sigue extrema.
 
-## Fed y consenso de mercado
+## El diez años supera cinco por ciento
 
-**ANALISTA:** La novedad macro principal es la Fed. Reuters reporta que Goldman Sachs, J. P. Morgan, HSBC y Deutsche Bank ya esperan una subida de veinticinco puntos base esta semana. El mercado asigna alrededor de noventa por ciento de probabilidad, frente a cerca de setenta antes de los últimos datos de inflación.
+**ANALISTA:** La señal macro más importante es el Treasury a diez años. Reuters reporta que superó cinco por ciento, su nivel más alto desde dos mil siete. Ese movimiento eleva el descuento para equities de larga duración, real estate y bonos largos.
 
-## Treasury y hurdle rate
+## La Fed inicia reunión
 
-**CIO:** Ese giro importa porque el Treasury a diez años está rozando cinco por ciento y el petróleo vuelve a presionar inflación.
+**CIO:** La Reserva Federal inicia hoy su reunión de dos días. El mercado asigna alrededor de noventa y dos punto cinco por ciento de probabilidad a una subida de veinticinco puntos base mañana.
 
-## Hormuz sigue restringido
+## La disrupción energética continúa
 
-**ANALISTA:** En energía, Hormuz sigue físicamente deteriorado. Reuters contó sólo cuatro buques de commodities saliendo y diez entrando al Golfo durante el fin de semana, muy por debajo de la actividad previa a la guerra.
+**ANALISTA:** En energía, el oleoducto saudí East West continúa fuera de servicio y el tráfico de commodities por Hormuz cayó a sólo cuatro buques el lunes. Nuevos ataques regionales mantienen la presión sobre crudo, diesel, fletes y seguros.
 
-## Omán pospone las conversaciones
+## Cobertura sin perseguir el rally
 
-**CIO:** La vía diplomática también perdió tracción inmediata. Omán pospuso la reunión prevista para hoy entre Irán y países del Golfo y no anunció nueva fecha. Eso no elimina la posibilidad de negociación, pero reduce la probabilidad de una solución rápida.
+**CIO:** Brent continúa en la zona de ciento seis a ciento ocho dólares. Mantendría un hedge energético moderado mediante balances fuertes y exposición upstream, pero no perseguiría el petróleo después del rally. La cobertura protege el portafolio; no debe convertirse en una apuesta de momentum.
 
-## Petróleo y cobertura
+## AI y prima de riesgo
 
-**ANALISTA:** El petróleo se aproxima de nuevo a ciento ocho dólares por barril. Para AGCI, eso eleva el riesgo sobre diesel, fletes, seguros y expectativas inflacionarias.
-
-## AI y venta tecnológica
-
-**CIO:** En tecnología, Barron's destacó una nueva venta en AI y Reuters confirmó presión global sobre acciones vinculadas al sector después de llamados de líderes de la industria a desacelerar el desarrollo.
+**ANALISTA:** En tecnología persiste la venta ligada a advertencias sobre seguridad y regulación de inteligencia artificial. Eso eleva la prima de riesgo del sector, pero todavía no demuestra un colapso de demanda contratada de cómputo.
 
 ## Filtro de calidad AI
 
-**ANALISTA:** En AI mantendría el filtro de siempre: demanda final independiente, contratos financiados, contraparte, power, utilización, margen y free cash flow.
+**CIO:** Mantendría el filtro AGCI: demanda final independiente, contratos financiados, contraparte, power, utilización, margen y free cash flow. Una caída de precio puede crear oportunidades, pero Valuation en ochenta y siete exige margen de seguridad real, no compras por reflejo.
 
-## Real estate y México
+## Real estate bajo mayor hurdle rate
 
-**CIO:** En real estate no cambio el marco: stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. Esta semana Barron's señala vivienda, retail y Lennar como catalizadores. Hasta recibir nuevos datos o resultados, no modificaría cap rates ni supuestos de refinanciamiento.
+**ANALISTA:** En real estate mantengo stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. Un Treasury por encima de cinco por ciento endurece refinanciamiento y cap rates. No reduciría esos supuestos hasta ver evidencia sostenida de alivio.
+
+## México y T M E C
+
+**CIO:** En México y T M E C no aparece una nueva decisión oficial material. Mantendría nearshoring selectivo y vigilancia sobre autos, Section dos treinta y dos, reglas de origen e inversión china, sin cambiar tesis por titulares aislados.
 
 ## Qué haría hoy
 
-**CIO:** Qué haría hoy: mantener liquidez, PRICE DISCIPLINE, duration escalonada y hedge energético moderado. Vigilar la Fed, el cinco por ciento en el diez años, reparación del East West, tráfico de Hormuz y la reacción del complejo AI. Desplegar capital sólo por tramos cuando precio, cash flow y margen de seguridad estén alineados.
+**CIO:** Qué haría hoy: mantener liquidez, PRICE DISCIPLINE, duration escalonada y hedge energético moderado. Vigilar la Fed, el diez años sobre cinco por ciento, reparación del East West, tráfico de Hormuz y la demanda real de AI. Desplegar capital sólo por tramos con fair value y margen de seguridad.
