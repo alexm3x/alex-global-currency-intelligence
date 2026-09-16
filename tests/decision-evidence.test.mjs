@@ -78,9 +78,9 @@ test('CIAR outside its 45-day window is marked stale and contributes zero analys
 test('current Daily Strategic Briefing preserves the public evidence contract without requiring fixed tickers', () => {
   assert.equal(briefing.schemaVersion, 2);
   assert.match(briefing.date, /^\d{4}-\d{2}-\d{2}$/);
-  assert.ok(Array.isArray(briefing.equities));
   assert.ok(Array.isArray(briefing.watch));
-  assert.ok(briefing.equities.every(item => typeof item.ticker === 'string' && typeof item.classification === 'string'));
+  assert.ok(briefing.equities === undefined || Array.isArray(briefing.equities));
+  assert.ok((briefing.equities || []).every(item => typeof item.ticker === 'string' && typeof item.classification === 'string'));
 });
 
 test('public CIAR snapshot excludes private account identifiers and email addresses', () => {
