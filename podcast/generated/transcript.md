@@ -1,43 +1,43 @@
 # AGCI Morning Intelligence
 
-**2026-09-15 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-16 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el quince de septiembre con PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. Greed cae a sesenta y ocho, nueve puntos menos en el día, mientras Valuation permanece en ochenta y siete. El sentimiento se enfría, pero la valoración agregada sigue extrema.
+**CIO:** AGCI abre el dieciséis de septiembre con PRICE DISCIPLINE y diez a quince por ciento de liquidez desplegable. El último motor verificable mantiene Greed en sesenta y ocho y Valuation en ochenta y siete. Hoy no fabricamos un score nuevo antes de que el motor se actualice.
 
-## El diez años supera cinco por ciento
+## Fed Day
 
-**ANALISTA:** La señal macro más importante es el Treasury a diez años. Reuters reporta que superó cinco por ciento, su nivel más alto desde dos mil siete. Ese movimiento eleva el descuento para equities de larga duración, real estate y bonos largos.
+**ANALISTA:** La Reserva Federal decide hoy. Un aumento de veinticinco puntos base está ampliamente descontado. La variable decisiva será el mensaje posterior: si este movimiento abre un ciclo de endurecimiento y cómo responde el Treasury a diez años.
 
-## La Fed inicia reunión
+## Duration y capital allocation
 
-**CIO:** La Reserva Federal inicia hoy su reunión de dos días. El mercado asigna alrededor de noventa y dos punto cinco por ciento de probabilidad a una subida de veinticinco puntos base mañana.
+**CIO:** No tomaría una apuesta concentrada de duration antes del anuncio. Con Valuation extrema y el diez años alrededor de cinco por ciento, prefiero escalonar vencimientos y exigir mayor margen de seguridad en equities de larga duración y real estate.
 
-## La disrupción energética continúa
+## Arabia Saudita abre un workaround
 
-**ANALISTA:** En energía, el oleoducto saudí East West continúa fuera de servicio y el tráfico de commodities por Hormuz cayó a sólo cuatro buques el lunes. Nuevos ataques regionales mantienen la presión sobre crudo, diesel, fletes y seguros.
+**ANALISTA:** Arabia Saudita está ofreciendo más crudo a compradores asiáticos mediante cargas frente a Sohar, Omán. Es una ruta alternativa mientras Yanbu permanece detenido por el daño al oleoducto East West. Algunos cargamentos europeos de septiembre fueron cancelados o retrasados.
 
-## Cobertura sin perseguir el rally
+## Menor tail risk, no normalización
 
-**CIO:** Brent continúa en la zona de ciento seis a ciento ocho dólares. Mantendría un hedge energético moderado mediante balances fuertes y exposición upstream, pero no perseguiría el petróleo después del rally. La cobertura protege el portafolio; no debe convertirse en una apuesta de momentum.
+**CIO:** El workaround reduce parte del riesgo inmediato y ayuda a explicar el retroceso de Brent hacia ciento siete dólares. Pero no equivale a normalización. Mantendría un hedge energético moderado y evitaría perseguir el rally.
 
-## AI y prima de riesgo
+## Intel y SK Hynix
 
-**ANALISTA:** En tecnología persiste la venta ligada a advertencias sobre seguridad y regulación de inteligencia artificial. Eso eleva la prima de riesgo del sector, pero todavía no demuestra un colapso de demanda contratada de cómputo.
+**ANALISTA:** En semiconductores, SK Hynix e Intel discuten opciones para fabricar memoria en Estados Unidos, incluyendo capacidad de Ohio o una posible sociedad. Las conversaciones están en fase inicial y no existe acuerdo final.
 
-## Filtro de calidad AI
+## Optionality, no earnings
 
-**CIO:** Mantendría el filtro AGCI: demanda final independiente, contratos financiados, contraparte, power, utilización, margen y free cash flow. Una caída de precio puede crear oportunidades, pero Valuation en ochenta y siete exige margen de seguridad real, no compras por reflejo.
+**CIO:** Para Intel, esto puede mejorar optionality y utilización de activos. Para la cadena AI, puede ampliar capacidad local de memoria. Pero no capitalizaría el titular como earnings: faltan economics, calendario, clientes, tecnología y aprobaciones.
 
-## Real estate bajo mayor hurdle rate
+## BOJ y yen
 
-**ANALISTA:** En real estate mantengo stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. Un Treasury por encima de cinco por ciento endurece refinanciamiento y cap rates. No reduciría esos supuestos hasta ver evidencia sostenida de alivio.
+**ANALISTA:** El Banco de Japón se encamina a subir su tasa a uno punto veinticinco por ciento el viernes. Otro paso de normalización puede fortalecer el yen y presionar carry trades globales. Conviene revisar exposición japonesa sin cobertura y fuentes de financiamiento.
 
-## México y T M E C
+## Real estate y México
 
-**CIO:** En México y T M E C no aparece una nueva decisión oficial material. Mantendría nearshoring selectivo y vigilancia sobre autos, Section dos treinta y dos, reglas de origen e inversión china, sin cambiar tesis por titulares aislados.
+**CIO:** En real estate mantengo stress de cincuenta y cien puntos base, DSCR conservador y menor apalancamiento. En México y T M E C no aparece una nueva decisión oficial material, por lo que mantengo nearshoring selectivo sin alterar la tesis.
 
 ## Qué haría hoy
 
-**CIO:** Qué haría hoy: mantener liquidez, PRICE DISCIPLINE, duration escalonada y hedge energético moderado. Vigilar la Fed, el diez años sobre cinco por ciento, reparación del East West, tráfico de Hormuz y la demanda real de AI. Desplegar capital sólo por tramos con fair value y margen de seguridad.
+**CIO:** Qué haría hoy: mantener liquidez y PRICE DISCIPLINE, esperar la Fed antes de ampliar duration, conservar cobertura energética moderada y tratar Intel SK Hynix como optionality. Vigilar el diez años, reparación saudí, BOJ y demanda real de AI. Desplegar capital sólo con fair value y margen de seguridad.
