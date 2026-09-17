@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-17T12:05:43.016Z",
+  "timestamp": "2026-09-17T17:16:30.607Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 57,
+    "greed": 59,
     "greed_label": "Neutral",
     "valuation": 88,
     "valuation_label": "Extreme Valuation",
@@ -21,12 +21,12 @@
       "label": "Hold / Analyze",
       "severity": "neutral"
     },
-    "interpretation": "Greed 57/100 (Neutral) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
+    "interpretation": "Greed 59/100 (Neutral) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": -6,
-    "greed_7d": -13,
-    "greed_30d": -32,
+    "greed_1d": -4,
+    "greed_7d": -11,
+    "greed_30d": -30,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -78,12 +78,12 @@
     },
     "credit": {
       "label": "Credit Spreads",
-      "value": 2.76,
-      "normalized_score": 78,
+      "value": 2.7,
+      "normalized_score": 87,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-09-15",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-09-16",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 92,
       "source_quality": 96
     }
@@ -110,7 +110,7 @@
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "status": "connected"
     },
     {
