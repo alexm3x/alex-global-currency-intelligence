@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-17T17:16:30.607Z",
+  "timestamp": "2026-09-17T21:45:11.701Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -1.067,
+      "value": -1.077,
       "normalized_score": 76,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.3,
-      "normalized_score": 90,
+      "value": -2.31,
+      "normalized_score": 91,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
