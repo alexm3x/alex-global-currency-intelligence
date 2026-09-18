@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-18T16:43:30.049Z",
+  "timestamp": "2026-09-18T21:15:21.365Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
     "greed": 78,
     "greed_label": "Greed",
-    "valuation": 88,
+    "valuation": 87,
     "valuation_label": "Extreme Valuation",
     "regime": "Correction",
     "opportunity": null,
@@ -21,7 +21,7 @@
       "label": "Wait / Price discipline",
       "severity": "amber"
     },
-    "interpretation": "Greed 78/100 (Greed) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Wait / Price discipline."
+    "interpretation": "Greed 78/100 (Greed) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Wait / Price discipline."
   },
   "changes": {
     "greed_1d": 19,
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-09-16",
+      "asOf": "2026-09-17",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -1.077,
-      "normalized_score": 76,
+      "value": -1.007,
+      "normalized_score": 75,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-09-16",
+      "asOf": "2026-09-17",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.31,
-      "normalized_score": 91,
+      "value": -2.24,
+      "normalized_score": 89,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-09-16",
+      "asOf": "2026-09-17",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
