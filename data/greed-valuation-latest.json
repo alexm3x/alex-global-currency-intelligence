@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-19T21:00:38.823Z",
+  "timestamp": "2026-09-20T05:24:53.154Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
@@ -24,9 +24,9 @@
     "interpretation": "Greed 80/100 (Extreme Greed) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Capital preservation / Do not chase."
   },
   "changes": {
-    "greed_1d": 2,
+    "greed_1d": 0,
     "greed_7d": 5,
-    "greed_30d": -8,
+    "greed_30d": -2,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -60,8 +60,8 @@
       "normalized_score": 93,
       "source": "Cboe Global Markets — VIX",
       "asOf": "2026-09-18",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -71,8 +71,8 @@
       "normalized_score": 97,
       "source": "Cboe Global Markets — VIX / VIX3M",
       "asOf": "2026-09-18",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 88,
       "source_quality": 96
     },
