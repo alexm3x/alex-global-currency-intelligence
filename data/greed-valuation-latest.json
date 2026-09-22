@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-09-22T17:17:42.627Z",
+  "timestamp": "2026-09-22T21:39:46.272Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
     "greed": 87,
     "greed_label": "Extreme Greed",
-    "valuation": 88,
+    "valuation": 87,
     "valuation_label": "Extreme Valuation",
     "regime": "Mid Bull",
     "opportunity": null,
@@ -21,7 +21,7 @@
       "label": "Capital preservation / Do not chase",
       "severity": "red"
     },
-    "interpretation": "Greed 87/100 (Extreme Greed) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Capital preservation / Do not chase."
+    "interpretation": "Greed 87/100 (Extreme Greed) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Capital preservation / Do not chase."
   },
   "changes": {
     "greed_1d": 4,
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-09-18",
+      "asOf": "2026-09-21",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -1.077,
-      "normalized_score": 76,
+      "value": -1.027,
+      "normalized_score": 75,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-09-18",
+      "asOf": "2026-09-21",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.31,
-      "normalized_score": 91,
+      "value": -2.26,
+      "normalized_score": 89,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-09-18",
+      "asOf": "2026-09-21",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
