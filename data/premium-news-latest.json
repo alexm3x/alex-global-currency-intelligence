@@ -1,10 +1,21 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-21",
-  "timestamp": "2026-09-21T07:17:25-06:00",
+  "date": "2026-09-22",
+  "timestamp": "2026-09-22T07:14:09-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "copyrightPolicy": "Original AGCI summaries and source metadata only; no full-text republication or private tracking links.",
-  "items": [],
-  "excluded": []
+  "items": [
+    {"rank":1,"publisher":"AGCI","headline":"Greed 87 and Valuation 88","category":"Capital Allocation / Markets","relevance":100,"summary":"The live AGCI engine moved to Greed 87/100 and Valuation 88/100, both Extreme, with EUPHORIA_RISK and a Mid Bull regime.","whyItMatters":"Sentiment and valuation are simultaneously elevated, reducing aggregate margin of safety.","assets":["SPY","QQQ","VIX","HYG","TLT"],"sourceUrl":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"},
+    {"rank":2,"publisher":"Reuters","headline":"Saudi East-West pipeline restarts as Gulf diplomacy improves","category":"Energy / Geopolitics / Inflation","relevance":99,"summary":"Saudi Arabia restarted the East-West oil pipeline at a low rate and is working toward restoring capacity. Iran also offered a conditional path to reopen Hormuz. Brent fell below $99 as the Gulf supply outlook improved, although refined-product markets and physical shipping remain stressed.","whyItMatters":"A functioning Saudi bypass plus credible diplomacy can reduce the oil and inflation tail risk, but physical normalization remains incomplete.","assets":["BNO","USO","XLE","TLT","DXY"],"sourceUrl":"https://www.reuters.com/business/energy/saudi-arabia-restarts-east-west-oil-pipeline-resume-exports-yanbu-sources-say-2026-09-22/"},
+    {"rank":3,"publisher":"Reuters","headline":"Mexico plans to increase U.S. imports during USMCA review","category":"Mexico / USMCA / Industrial Policy","relevance":98,"summary":"President Claudia Sheinbaum said Mexico plans to buy more U.S. goods and reduce imports from other countries as part of the USMCA review, responding to U.S. concerns about its trade deficit within the agreement.","whyItMatters":"This is a concrete negotiating signal that may improve prospects for an interim Mexico-U.S. arrangement while increasing pressure on third-country suppliers.","assets":["EWW","MXN","XLI"],"sourceUrl":"https://www.reuters.com/world/americas/mexico-plans-boost-us-imports-part-trade-treaty-review-sheinbaum-says-2026-09-21/"},
+    {"rank":4,"publisher":"Reuters","headline":"AI infrastructure and platform activity accelerates","category":"AI / Technology / Capital Allocation","relevance":96,"summary":"Global equities rallied on renewed AI optimism. Accelevation targeted a valuation of up to $5.37 billion in its IPO and Alibaba unveiled a new AI chip alongside plans for a substantially larger model.","whyItMatters":"The physical AI buildout remains active, while elevated market sentiment increases the importance of valuation, customer concentration, power availability, leverage and free cash flow.","assets":["QQQ","SMH","NVDA","AMD","BABA","ACCV"],"sourceUrl":"https://www.reuters.com/technology/accelevation-backers-aim-raise-720-million-us-ipo-2026-09-22/"},
+    {"rank":5,"publisher":"Reuters","headline":"China gives Vanke temporary credit-reporting relief","category":"Real Estate / China / Credit","relevance":95,"summary":"Chinese regulators asked some banks to avoid classifying overdue China Vanke loans as bad debt, according to Reuters sources. The step reduces immediate balance-sheet pressure but does not remove underlying property-sector credit risk.","whyItMatters":"Regulatory forbearance may stabilize near-term funding while delaying loss recognition, making asset-quality transparency an important variable.","assets":["000002.SZ","2202.HK","MCHI","FXI"],"sourceUrl":"https://www.reuters.com/world/asia-pacific/china-asks-banks-keep-vanke-loans-off-bad-debt-books-sources-say-2026-09-22/"},
+    {"rank":6,"publisher":"Barron's","headline":"Review & Preview: Here’s Hoping / Daily Roundup","category":"Markets / Energy / AI / Geopolitics","relevance":92,"summary":"New Barron's coverage emphasizes geopolitical optimism, lower oil and renewed AI enthusiasm, including Meta-related momentum. The allocation-relevant signal is consistent with public evidence.","whyItMatters":"This corroborates the current market narrative while AGCI sentiment and valuation remain elevated.","assets":["SPY","QQQ","META","BNO","XLE"],"sourceUrl":"https://www.barrons.com/"}
+  ],
+  "excluded": [
+    {"headline":"The Economist","reason":"No new Economist newsletter found after the September 21 cutoff."},
+    {"headline":"Barron's duplicate or low-increment headlines","reason":"Items without a new portfolio-level allocation signal were not duplicated."},
+    {"headline":"Private tracking links","reason":"Intentionally excluded."}
+  ]
 }
