@@ -1,35 +1,31 @@
 # AGCI Morning Intelligence
 
-**2026-09-21 · Ciudad de México · versión ejecutiva ≤4 minutos**
+**2026-09-22 · Ciudad de México · versión ejecutiva ≤4 minutos**
 
 ## Apertura ejecutiva
 
-**CIO:** AGCI abre el veintiuno de septiembre manteniendo EUPHORIA RISK. Greed permanece en ochenta sobre cien y Valuation en ochenta y siete. El mercado recibe alivio por petróleo más bajo y renovado optimismo tecnológico, pero la valoración sigue exigiendo preservación de capital. Mantengo diez a quince por ciento de liquidez desplegable y no persigo beta.
+**CIO:** AGCI abre el veintidós de septiembre con una señal más exigente de EUPHORIA RISK. Greed sube a ochenta y siete sobre cien y Valuation a ochenta y ocho, ambos en territorio extremo. El régimen es Mid Bull, pero la combinación de complacencia, múltiplos elevados y tasas restrictivas reduce el margen de seguridad.
 
-## El petróleo baja, el riesgo no desaparece
+## Mejora energética material
 
-**ANALISTA:** Brent retrocede hacia ciento un dólares por barril mientras mejoran los flujos de exportación saudíes y avanzan trabajos sobre infraestructura dañada. Es positivo para inflación, bonos y márgenes empresariales. Sin embargo, la seguridad regional sigue frágil.
+**ANALISTA:** La noticia macro más favorable viene de energía. Arabia Saudita reinició el oleoducto East West a una tasa baja y trabaja para recuperar capacidad. Irán ofreció además una reapertura condicional del Estrecho de Hormuz dentro de siete días si cambian determinadas condiciones estadounidenses.
 
-## El yuan gana fuerza antes de Trump Xi
+## México mueve ficha en T M E C
 
-**CIO:** El yuan alcanza su nivel más fuerte en más de tres años y medio. El Banco Popular de China ha reducido su resistencia a la apreciación antes de la cumbre Trump Xi.
+**CIO:** México aporta una señal negociadora concreta. Claudia Sheinbaum dijo que el país planea elevar compras desde Estados Unidos y reducir importaciones desde otros países durante la revisión del T M E C. El objetivo responde a la preocupación estadounidense por el déficit comercial.
 
-## China enfría la euforia en robótica
+## AI acelera otra vez
 
-**ANALISTA:** Reguladores chinos elevan el escrutinio sobre IPOs de robótica humanoide. La preocupación es clara: valoraciones elevadas y algunos ingresos ligados a proyectos estatales pueden adelantarse a la demanda comercial real.
+**ANALISTA:** El mercado vuelve a premiar inteligencia artificial e infraestructura. Accelevation busca una valoración de hasta cinco punto treinta y siete mil millones de dólares en su salida a bolsa, mientras Alibaba presentó un nuevo chip y planes para un modelo mucho mayor.
 
-## AI vuelve a impulsar el mercado
+## China real estate sigue bajo soporte
 
-**CIO:** Las acciones tecnológicas reciben apoyo de renovado optimismo sobre demanda de inteligencia artificial. No confundo momentum con margen de seguridad. Con Greed en ochenta y Valuation en ochenta y siete, cualquier ampliación de exposición debe exigir precio razonable, demanda financiada, utilización, margen y flujo de caja libre. El rally no cambia la matriz EUPHORIA RISK.
+**CIO:** En real estate chino, reguladores pidieron a algunos bancos no clasificar ciertos préstamos vencidos de Vanke como deuda problemática. La medida puede reducir presión inmediata sobre balances y liquidez, pero también difiere reconocimiento de pérdidas. No lo interpreto como un reset fundamental.
 
-## México suma optionality asiática
+## Mercados y divisas
 
-**ANALISTA:** El presidente de Corea del Sur visitará México para una cumbre con Claudia Sheinbaum, con comercio, energía y manufactura entre los temas. Puede ampliar optionality industrial y tecnológica.
-
-## Real estate sin relajación
-
-**CIO:** No modifico el underwriting inmobiliario. Las tasas hipotecarias estadounidenses siguen elevadas y el alivio del crudo no cambia de inmediato el costo de financiamiento. Mantengo stress de cincuenta y cien puntos base sobre financiamiento y cap rates, D S C R conservador y menor apalancamiento.
+**ANALISTA:** Las acciones globales reciben apoyo simultáneo de petróleo más bajo y optimismo tecnológico. El dólar perdió parte de su impulso después de la propuesta iraní sobre Hormuz, mientras el yen sigue débil pese al reciente aumento de tasas del Banco de Japón.
 
 ## Qué haría hoy
 
-**CIO:** Qué haría hoy: preservar capital, mantener liquidez y duration escalonada, conservar un hedge energético moderado y no perseguir el rally tecnológico. Vigilaría la cumbre Trump Xi, el fixing del yuan, la restauración de infraestructura saudí y los términos concretos de cooperación México Corea. El siguiente cambio de asignación requiere evidencia vinculante o un mejor precio, no sólo mejores titulares.
+**CIO:** Qué haría hoy: preservar capital, mantener liquidez y duration escalonada, conservar un hedge energético moderado y no perseguir ni petróleo ni beta tecnológica. Vigilaría la capacidad efectiva del East West, la negociación sobre Hormuz, los detalles comerciales México Estados Unidos y la calidad financiera del nuevo capex de inteligencia artificial.
