@@ -1,20 +1,110 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-24",
-  "timestamp": "2026-09-24T07:15:29-06:00",
+  "date": "2026-09-26",
+  "timestamp": "2026-09-26T07:17:35-06:00",
   "timezone": "America/Mexico_City",
   "status": "reviewed",
   "copyrightPolicy": "Original AGCI summaries and source metadata only; no full-text republication or private tracking links.",
   "items": [
-    {"rank":1,"publisher":"AGCI","headline":"Greed cools to 85 but Valuation remains 87","category":"Capital Allocation / Markets","relevance":100,"summary":"The live AGCI engine moved to Greed 85/100, down 3 daily but still up 26 over seven days, while Valuation remains 87/100. Both remain Extreme and the matrix stays EUPHORIA_RISK / Capital preservation / Do not chase.","whyItMatters":"A modest sentiment cooling does not create a valuation reset; the allocation signal remains defensive.","assets":["SPY","QQQ","VIX","HYG","TLT"],"sourceUrl":"https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"},
-    {"rank":2,"publisher":"Reuters","headline":"Treasury selloff raises the cross-asset hurdle rate","category":"Macro / Rates / Markets / Real Estate","relevance":100,"summary":"A weak U.S. five-year Treasury auction intensified a global sovereign-bond selloff. The U.S. 10-year yield reached its highest level since 2007 and Japanese government bond yields also jumped, while the dollar extended to a fresh two-month high.","whyItMatters":"Higher risk-free rates compress equity duration, raise financing and cap-rate pressure in real estate, and argue against aggressive duration extension despite softer sentiment.","assets":["TLT","IEF","SPY","QQQ","UUP","VNQ"],"sourceUrl":"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-09-24/"},
-    {"rank":3,"publisher":"Reuters","headline":"Rare-earth dependence remains a structural constraint ahead of Trump-Xi talks","category":"Geopolitics / Technology / Supply Chains","relevance":99,"summary":"U.S.-China talks are occurring against continued U.S. dependence on Chinese rare-earth supply and processing. U.S. and Japanese officials have also discussed bottlenecks involving Chinese yttrium restrictions.","whyItMatters":"Even a tactical trade truce would not remove strategic mineral concentration risk for semiconductors, aerospace, defense, autos and AI infrastructure.","assets":["MP","REMX","LMT","RTX","NVDA","AMD"],"sourceUrl":"https://www.reuters.com/world/china/chinas-rare-earths-dominance-overshadow-trumps-talks-with-xi-2026-09-24/"},
-    {"rank":4,"publisher":"Reuters","headline":"DeepSeek revenue run-rate reaches reported $1 billion","category":"AI / Technology / China","relevance":97,"summary":"Reuters, citing The Information, reported that DeepSeek's annualised revenue run-rate reached about $1 billion, more than double its level a few months earlier.","whyItMatters":"The report is an incremental sign of monetization for lower-cost Chinese AI models, but AGCI treats the figure as reported rather than independently verified and does not infer durable margins without cost and cash-flow evidence.","assets":["BABA","KWEB","QQQ","NVDA","AMD"],"sourceUrl":"https://www.reuters.com/world/asia-pacific/chinas-deepseek-annualised-revenue-hits-1-billion-information-reports-2026-09-24/"},
-    {"rank":5,"publisher":"Barron's","headline":"Bond Market Flashes Red for Stocks / The Bond Market's Warning / Muse vs. Amazon","category":"Markets / Rates / AI / Consumer","relevance":96,"summary":"New Barron's newsletters emphasize the sharp Treasury selloff after a weak five-year auction and the emerging competitive threat from AI shopping agents to traditional e-commerce discovery and distribution.","whyItMatters":"Premium-news signals reinforce two allocation themes already visible in public data: a higher discount-rate hurdle and agentic AI shifting competitive economics beyond the technology sector.","assets":["TLT","IEF","SPY","QQQ","AMZN","META"],"sourceUrl":"https://www.barrons.com/"}
+    {
+      "rank": 1,
+      "publisher": "AGCI",
+      "headline": "Greed falls to 74 while Valuation rises to 89",
+      "category": "Capital Allocation / Markets",
+      "relevance": 100,
+      "summary": "The live AGCI engine moved to Greed 74/100, down 10 points daily and 4 over seven days, while Valuation reached 89/100. Regime remains Correction but the matrix de-escalated to PRICE_DISCIPLINE / Wait / Price discipline.",
+      "whyItMatters": "Sentiment has reset meaningfully from euphoria, but valuation is more extreme; improved entry optionality does not justify chasing beta.",
+      "assets": [
+        "SPY",
+        "QQQ",
+        "VIX",
+        "HYG",
+        "TLT"
+      ],
+      "sourceUrl": "https://github.com/alexm3x/alex-global-currency-intelligence/blob/main/data/greed-valuation-latest.json"
+    },
+    {
+      "rank": 2,
+      "publisher": "Reuters",
+      "headline": "Oil retreat stabilizes Treasuries after multi-decade yield highs",
+      "category": "Macro / Rates / Energy",
+      "relevance": 99,
+      "summary": "Treasury yields stabilized Friday as oil fell on renewed U.S.-Iran deal hopes, after benchmark yields had reached fresh multi-decade highs. Markets still price further Federal Reserve tightening.",
+      "whyItMatters": "Lower oil reduces near-term inflation pressure, but the rate regime remains restrictive and keeps the hurdle rate high for long-duration equities and real estate.",
+      "assets": [
+        "TLT",
+        "IEF",
+        "SPY",
+        "QQQ",
+        "USO",
+        "VNQ"
+      ],
+      "sourceUrl": "https://www.reuters.com/world/china/global-markets-warpup-1-pix-2026-09-25/"
+    },
+    {
+      "rank": 3,
+      "publisher": "Barron's",
+      "headline": "Equities rebound despite 10Y near 5.2%; Iran hopes drive Friday risk-on",
+      "category": "Markets / Geopolitics / Rates",
+      "relevance": 98,
+      "summary": "Barron's reported the S&P 500 up 0.5% Friday and 1.2% for the week, with the Nasdaq up 2.1% weekly, even as the 10-year Treasury yield reached roughly 5.18%. Friday's move was helped by renewed hopes for progress in U.S.-Iran talks and lower oil.",
+      "whyItMatters": "Risk assets are discounting a transitory rates/energy shock; with valuation extreme, AGCI requires confirmed diplomatic and inflation progress before increasing beta.",
+      "assets": [
+        "SPY",
+        "QQQ",
+        "DIA",
+        "TLT",
+        "USO"
+      ],
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 4,
+      "publisher": "Barron's",
+      "headline": "Biotech bull case broadens on innovation and M&A",
+      "category": "Healthcare / Capital Allocation",
+      "relevance": 94,
+      "summary": "Barron's weekend issue highlights accelerating biotech performance supported by medical innovation and renewed merger activity, while also flagging company-specific opportunities across healthcare.",
+      "whyItMatters": "Biotech can diversify AI-heavy equity exposure, but AGCI would favor catalyst-backed pipelines and balance-sheet durability over broad momentum chasing.",
+      "assets": [
+        "XBI",
+        "IBB",
+        "PFE",
+        "NVS"
+      ],
+      "sourceUrl": "https://www.barrons.com/"
+    },
+    {
+      "rank": 5,
+      "publisher": "Barron's",
+      "headline": "AI monetization broadens while valuation discipline remains critical",
+      "category": "AI / Technology",
+      "relevance": 94,
+      "summary": "Barron's weekend coverage highlights Meta Muse, Microsoft Copilot monetization, data-center power constraints and continued AI-linked stock dispersion. The signal is broader commercialization, not uniform economics.",
+      "whyItMatters": "AGCI continues to require customer concentration, power availability, inference cost, margins, security and free-cash-flow evidence before capitalizing AI narratives.",
+      "assets": [
+        "META",
+        "MSFT",
+        "AKAM",
+        "AMD",
+        "MRVL",
+        "QQQ"
+      ],
+      "sourceUrl": "https://www.barrons.com/"
+    }
   ],
   "excluded": [
-    {"headline":"The Economist","reason":"No new Economist newsletter found after the September 23 cutoff."},
-    {"headline":"Barron's duplicate or low-increment headlines","reason":"Items without a new portfolio-level allocation signal were not duplicated."},
-    {"headline":"Private tracking links","reason":"Intentionally excluded."}
+    {
+      "headline": "The Economist",
+      "reason": "No new Economist newsletter found after the September 25 cutoff."
+    },
+    {
+      "headline": "Barron's duplicate/low-increment headlines",
+      "reason": "Items without a new portfolio-level allocation signal were not duplicated."
+    },
+    {
+      "headline": "Private tracking links",
+      "reason": "Intentionally excluded."
+    }
   ]
 }
