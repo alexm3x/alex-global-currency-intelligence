@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T22:32:27.870Z",
+  "generatedAt": "2026-10-01T06:27:38.761Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-09-30T22:32:27.870Z",
+        "retrievedAt": "2026-10-01T06:27:38.761Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -111,7 +111,7 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-09-30T22:32:27.870Z",
+        "retrievedAt": "2026-10-01T06:27:38.761Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
@@ -203,14 +203,14 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-09-30T22:32:27.870Z",
+        "retrievedAt": "2026-10-01T06:27:38.761Z",
         "series": "VIX daily close",
         "risk": {
-          "vix": 16.04,
-          "period": "2026-09-29",
-          "average20": 15.72,
-          "percentile1y": 27.4,
-          "change20d": 0.84,
+          "vix": 16.34,
+          "period": "2026-09-30",
+          "average20": 15.78,
+          "percentile1y": 32.5,
+          "change20d": 2.02,
           "regime": "normal"
         }
       },
@@ -400,11 +400,11 @@
     }
   },
   "risk": {
-    "vix": 16.04,
-    "period": "2026-09-29",
-    "average20": 15.72,
-    "percentile1y": 27.4,
-    "change20d": 0.84,
+    "vix": 16.34,
+    "period": "2026-09-30",
+    "average20": 15.78,
+    "percentile1y": 32.5,
+    "change20d": 2.02,
     "regime": "normal"
   }
 }
