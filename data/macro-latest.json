@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T06:35:04.405Z",
+  "generatedAt": "2026-10-08T18:59:22.233Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-10-08T06:35:04.405Z",
+        "retrievedAt": "2026-10-08T18:59:22.233Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -21,23 +21,23 @@
               "period": "2025"
             },
             "CN": {
-              "value": 0.0595646916565403,
+              "value": 0.0595646916565402,
               "period": "2025"
             },
             "XM": {
-              "value": 2.46705543774613,
+              "value": 2.46605755272817,
               "period": "2025"
             },
             "GB": {
-              "value": 3.88306881626,
+              "value": 3.88306881625999,
               "period": "2025"
             },
             "JP": {
-              "value": 3.17253034260248,
+              "value": 3.17253034260247,
               "period": "2025"
             },
             "MX": {
-              "value": 3.80668650726485,
+              "value": 3.80957950037393,
               "period": "2025"
             },
             "US": {
@@ -111,44 +111,44 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-10-08T06:35:04.405Z",
+        "retrievedAt": "2026-10-08T18:59:22.233Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
           "values": {
+            "US": {
+              "value": 3.875,
+              "period": "2026-09",
+              "status": "A"
+            },
+            "XM": {
+              "value": 2.5,
+              "period": "2026-09",
+              "status": "A"
+            },
             "BR": {
-              "value": 14,
-              "period": "2026-08",
+              "value": 13.75,
+              "period": "2026-09",
               "status": "A"
             },
             "CN": {
               "value": 3,
-              "period": "2026-08",
+              "period": "2026-09",
               "status": "A"
             },
             "GB": {
               "value": 3.75,
-              "period": "2026-08",
+              "period": "2026-09",
               "status": "A"
             },
             "JP": {
-              "value": 1,
-              "period": "2026-08",
+              "value": 1.25,
+              "period": "2026-09",
               "status": "A"
             },
             "MX": {
               "value": 6.5,
-              "period": "2026-08",
-              "status": "A"
-            },
-            "US": {
-              "value": 3.625,
-              "period": "2026-08",
-              "status": "A"
-            },
-            "XM": {
-              "value": 2.25,
-              "period": "2026-08",
+              "period": "2026-09",
               "status": "A"
             }
           }
@@ -157,13 +157,13 @@
           "series": "BIS,WS_EER,1.0 / M.R.B",
           "frequency": "Mensual",
           "values": {
-            "BR": {
-              "value": 116.46,
+            "CN": {
+              "value": 91.77,
               "period": "2026-08",
               "status": "A"
             },
-            "CN": {
-              "value": 91.77,
+            "BR": {
+              "value": 116.46,
               "period": "2026-08",
               "status": "A"
             },
@@ -203,7 +203,7 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-10-08T06:35:04.405Z",
+        "retrievedAt": "2026-10-08T18:59:22.233Z",
         "series": "VIX daily close",
         "risk": {
           "vix": 15.08,
@@ -223,7 +223,7 @@
       "name": "México",
       "currency": "MXN",
       "inflation": {
-        "value": 3.80668650726485,
+        "value": 3.80957950037393,
         "period": "2025"
       },
       "growth": {
@@ -236,7 +236,7 @@
       },
       "policyRate": {
         "value": 6.5,
-        "period": "2026-08",
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
@@ -261,8 +261,8 @@
         "period": "2025"
       },
       "policyRate": {
-        "value": 3.625,
-        "period": "2026-08",
+        "value": 3.875,
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
@@ -275,7 +275,7 @@
       "name": "Zona euro",
       "currency": "EUR",
       "inflation": {
-        "value": 2.46705543774613,
+        "value": 2.46605755272817,
         "period": "2025"
       },
       "growth": {
@@ -284,8 +284,8 @@
       },
       "currentAccount": null,
       "policyRate": {
-        "value": 2.25,
-        "period": "2026-08",
+        "value": 2.5,
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
@@ -298,7 +298,7 @@
       "name": "Reino Unido",
       "currency": "GBP",
       "inflation": {
-        "value": 3.88306881626,
+        "value": 3.88306881625999,
         "period": "2025"
       },
       "growth": {
@@ -311,7 +311,7 @@
       },
       "policyRate": {
         "value": 3.75,
-        "period": "2026-08",
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
@@ -324,7 +324,7 @@
       "name": "Japón",
       "currency": "JPY",
       "inflation": {
-        "value": 3.17253034260248,
+        "value": 3.17253034260247,
         "period": "2025"
       },
       "growth": {
@@ -336,8 +336,8 @@
         "period": "2025"
       },
       "policyRate": {
-        "value": 1,
-        "period": "2026-08",
+        "value": 1.25,
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
@@ -350,7 +350,7 @@
       "name": "China",
       "currency": "CNY",
       "inflation": {
-        "value": 0.0595646916565403,
+        "value": 0.0595646916565402,
         "period": "2025"
       },
       "growth": {
@@ -363,7 +363,7 @@
       },
       "policyRate": {
         "value": 3,
-        "period": "2026-08",
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
@@ -388,8 +388,8 @@
         "period": "2025"
       },
       "policyRate": {
-        "value": 14,
-        "period": "2026-08",
+        "value": 13.75,
+        "period": "2026-09",
         "status": "A"
       },
       "reer": {
