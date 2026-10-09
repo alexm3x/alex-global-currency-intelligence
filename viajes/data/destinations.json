@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "2.0.0",
-    "generated_at": "2026-10-08T15:24:14.478294+00:00",
+    "generated_at": "2026-10-09T00:12:41.832073+00:00",
     "timezone": "UTC",
     "origin_airports": [
       "MEX",
@@ -19,7 +19,7 @@
     "current_fx": "live",
     "current_fx_source": "https://open.er-api.com/v6/latest/USD",
     "fallback_currencies": [],
-    "provider_updated_utc": "Thu, 08 Oct 2026 00:02:31 +0000",
+    "provider_updated_utc": "Fri, 09 Oct 2026 00:02:31 +0000",
     "historical_fx_source": "https://api.frankfurter.dev/v1",
     "history_by_currency": {
       "ARS": "unavailable",
@@ -58,7 +58,7 @@
     "budget_horizon": "One traveler, round trip from Mexico, seven nights"
   },
   "market_snapshot": {
-    "usd_mxn": 18.006641,
+    "usd_mxn": 18.100987,
     "green_destinations": 4,
     "amber_destinations": 15,
     "red_destinations": 1
@@ -88,11 +88,11 @@
       "seasonality": "Abril–mayo y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 49.219055,
-      "current_local_per_mxn": 2.733383,
+      "current_local_per_usd": 49.278221,
+      "current_local_per_mxn": 2.722405,
       "historical_average_local_per_usd": 44.999761,
-      "fx_advantage_pct": 9.38,
-      "fx_score": 87.5,
+      "fx_advantage_pct": 9.51,
+      "fx_score": 88.0,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
       "volatility_annualized_pct": 1.49,
@@ -243,31 +243,31 @@
           "local_per_usd": 49.215
         }
       ],
-      "moderate_daily_mxn": 1449,
-      "luxury_daily_mxn": 4692,
-      "economy_flight_mxn": 17106,
-      "business_flight_mxn": 64824,
-      "moderate_total_7n_mxn": 27249,
-      "business_total_7n_mxn": 97668,
-      "price_score": 97.5,
-      "roi_score": 92.1,
+      "moderate_daily_mxn": 1455,
+      "luxury_daily_mxn": 4711,
+      "economy_flight_mxn": 17196,
+      "business_flight_mxn": 65164,
+      "moderate_total_7n_mxn": 27381,
+      "business_total_7n_mxn": 98141,
+      "price_score": 97.4,
+      "roi_score": 92.3,
       "value_for_money": 9.2,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Estambul+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Estambul+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "istanbul-turkey-fx-2026-10-08",
-          "headline": "USD conserva una ventaja estimada de 9.4% frente a la referencia",
+          "id": "istanbul-turkey-fx-2026-10-09",
+          "headline": "USD conserva una ventaja estimada de 9.5% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.084899+00:00",
+          "published_at": "2026-10-09T00:13:10.465596+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 1.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -308,10 +308,10 @@
       "seasonality": "Marzo–mayo y agosto–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 1520.7136,
-      "current_local_per_mxn": 84.45293,
+      "current_local_per_usd": 1518.4363,
+      "current_local_per_mxn": 83.886934,
       "historical_average_local_per_usd": 1150.0,
-      "fx_advantage_pct": 32.24,
+      "fx_advantage_pct": 32.04,
       "fx_score": 100.0,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
@@ -320,90 +320,90 @@
       "fx_trend": [
         {
           "date": "2025-11-01",
-          "local_per_usd": 1161.880646,
+          "local_per_usd": 1161.807663,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 1191.391952,
+          "local_per_usd": 1191.13768,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 1208.890463,
+          "local_per_usd": 1208.528698,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 1239.68462,
+          "local_per_usd": 1239.133685,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 1288.315241,
+          "local_per_usd": 1287.465568,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 1331.462828,
+          "local_per_usd": 1330.348098,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 1354.372307,
+          "local_per_usd": 1353.116844,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 1373.900259,
+          "local_per_usd": 1372.524836,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 1412.185164,
+          "local_per_usd": 1410.574556,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 1462.067393,
+          "local_per_usd": 1460.150358,
           "modeled": true
         },
         {
           "date": "2026-09-01",
-          "local_per_usd": 1498.272452,
+          "local_per_usd": 1496.133008,
           "modeled": true
         },
         {
           "date": "2026-10-01",
-          "local_per_usd": 1520.7136,
+          "local_per_usd": 1518.4363,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 1035,
-      "luxury_daily_mxn": 3609,
-      "economy_flight_mxn": 15306,
-      "business_flight_mxn": 57621,
-      "moderate_total_7n_mxn": 22551,
-      "business_total_7n_mxn": 82884,
+      "moderate_daily_mxn": 1042,
+      "luxury_daily_mxn": 3633,
+      "economy_flight_mxn": 15386,
+      "business_flight_mxn": 57923,
+      "moderate_total_7n_mxn": 22680,
+      "business_total_7n_mxn": 83354,
       "price_score": 100.0,
       "roi_score": 88.2,
       "value_for_money": 8.8,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Buenos+Aires+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Buenos+Aires+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "buenos-aires-argentina-fx-2026-10-08",
-          "headline": "USD conserva una ventaja estimada de 32.2% frente a la referencia",
+          "id": "buenos-aires-argentina-fx-2026-10-09",
+          "headline": "USD conserva una ventaja estimada de 32.0% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "high",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.084989+00:00",
+          "published_at": "2026-10-09T00:13:10.465697+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 35.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -444,10 +444,10 @@
       "seasonality": "Noviembre–marzo.",
       "cruise_provider": "Celebrity / regional premium",
       "cruise_route": "Buenos Aires–Montevideo–Patagonia",
-      "current_local_per_usd": 1520.7136,
-      "current_local_per_mxn": 84.45293,
+      "current_local_per_usd": 1518.4363,
+      "current_local_per_mxn": 83.886934,
       "historical_average_local_per_usd": 1150.0,
-      "fx_advantage_pct": 32.24,
+      "fx_advantage_pct": 32.04,
       "fx_score": 100.0,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
@@ -456,91 +456,91 @@
       "fx_trend": [
         {
           "date": "2025-11-01",
-          "local_per_usd": 1161.880646,
+          "local_per_usd": 1161.807663,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 1191.391952,
+          "local_per_usd": 1191.13768,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 1208.890463,
+          "local_per_usd": 1208.528698,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 1239.68462,
+          "local_per_usd": 1239.133685,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 1288.315241,
+          "local_per_usd": 1287.465568,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 1331.462828,
+          "local_per_usd": 1330.348098,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 1354.372307,
+          "local_per_usd": 1353.116844,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 1373.900259,
+          "local_per_usd": 1372.524836,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 1412.185164,
+          "local_per_usd": 1410.574556,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 1462.067393,
+          "local_per_usd": 1460.150358,
           "modeled": true
         },
         {
           "date": "2026-09-01",
-          "local_per_usd": 1498.272452,
+          "local_per_usd": 1496.133008,
           "modeled": true
         },
         {
           "date": "2026-10-01",
-          "local_per_usd": 1520.7136,
+          "local_per_usd": 1518.4363,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 3064,
-      "luxury_daily_mxn": 7626,
-      "economy_flight_mxn": 15306,
-      "business_flight_mxn": 59422,
-      "moderate_total_7n_mxn": 36754,
-      "business_total_7n_mxn": 112804,
-      "price_score": 86.9,
-      "roi_score": 85.5,
-      "value_for_money": 8.6,
+      "moderate_daily_mxn": 3085,
+      "luxury_daily_mxn": 7677,
+      "economy_flight_mxn": 15386,
+      "business_flight_mxn": 59733,
+      "moderate_total_7n_mxn": 36981,
+      "business_total_7n_mxn": 113472,
+      "price_score": 86.7,
+      "roi_score": 85.4,
+      "value_for_money": 8.5,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Cono+Sur+y+Patagonia+2027-01-06+through+2027-01-13",
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+EZE+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Cono+Sur+y+Patagonia+2027-01-07+through+2027-01-14",
         "cruise_search": "https://www.google.com/search?q=Celebrity+%2F+regional+premium+Crucero+Cono+Sur+y+Patagonia+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-south-america-fx-2026-10-08",
-          "headline": "USD conserva una ventaja estimada de 32.2% frente a la referencia",
+          "id": "cruise-south-america-fx-2026-10-09",
+          "headline": "USD conserva una ventaja estimada de 32.0% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "high",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.089427+00:00",
+          "published_at": "2026-10-09T00:13:10.471309+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 35.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -581,11 +581,11 @@
       "seasonality": "Noviembre–febrero; septiembre es más barato pero lluvioso.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 33.659293,
-      "current_local_per_mxn": 1.869271,
+      "current_local_per_usd": 33.66797,
+      "current_local_per_mxn": 1.860007,
       "historical_average_local_per_usd": 32.448653,
-      "fx_advantage_pct": 3.73,
-      "fx_score": 64.9,
+      "fx_advantage_pct": 3.76,
+      "fx_score": 65.0,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 7.68,
@@ -736,31 +736,31 @@
           "local_per_usd": 33.685
         }
       ],
-      "moderate_daily_mxn": 1250,
-      "luxury_daily_mxn": 4427,
-      "economy_flight_mxn": 21608,
-      "business_flight_mxn": 81030,
-      "moderate_total_7n_mxn": 30358,
-      "business_total_7n_mxn": 112019,
-      "price_score": 94.0,
+      "moderate_daily_mxn": 1256,
+      "luxury_daily_mxn": 4449,
+      "economy_flight_mxn": 21721,
+      "business_flight_mxn": 81454,
+      "moderate_total_7n_mxn": 30513,
+      "business_total_7n_mxn": 112597,
+      "price_score": 93.9,
       "roi_score": 83.1,
       "value_for_money": 8.3,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bangkok+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BKK+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bangkok+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "bangkok-thailand-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+3.7%)",
+          "id": "bangkok-thailand-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+3.8%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.085428+00:00",
+          "published_at": "2026-10-09T00:13:10.466194+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 7.7%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -801,11 +801,11 @@
       "seasonality": "Abril–mayo y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 21.810186,
-      "current_local_per_mxn": 1.21123,
+      "current_local_per_usd": 21.786477,
+      "current_local_per_mxn": 1.203607,
       "historical_average_local_per_usd": 20.926382,
-      "fx_advantage_pct": 4.22,
-      "fx_score": 66.9,
+      "fx_advantage_pct": 4.11,
+      "fx_score": 66.4,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 6.53,
@@ -956,31 +956,31 @@
           "local_per_usd": 21.816
         }
       ],
-      "moderate_daily_mxn": 1987,
-      "luxury_daily_mxn": 5961,
-      "economy_flight_mxn": 18007,
-      "business_flight_mxn": 70226,
-      "moderate_total_7n_mxn": 31916,
-      "business_total_7n_mxn": 111953,
-      "price_score": 92.3,
-      "roi_score": 83.0,
+      "moderate_daily_mxn": 1999,
+      "luxury_daily_mxn": 5998,
+      "economy_flight_mxn": 18101,
+      "business_flight_mxn": 70594,
+      "moderate_total_7n_mxn": 32094,
+      "business_total_7n_mxn": 112580,
+      "price_score": 92.1,
+      "roi_score": 82.9,
       "value_for_money": 8.3,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Praga+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+PRG+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Praga+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "prague-czechia-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+4.2%)",
+          "id": "prague-czechia-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+4.1%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.086847+00:00",
+          "published_at": "2026-10-09T00:13:10.467949+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 6.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1021,11 +1021,11 @@
       "seasonality": "Marzo–mayo y octubre–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 0.892949,
-      "current_local_per_mxn": 0.04959,
+      "current_local_per_usd": 0.892251,
+      "current_local_per_mxn": 0.049293,
       "historical_average_local_per_usd": 0.86172,
-      "fx_advantage_pct": 3.62,
-      "fx_score": 64.5,
+      "fx_advantage_pct": 3.54,
+      "fx_score": 64.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 5.47,
@@ -1176,31 +1176,31 @@
           "local_per_usd": 0.89397
         }
       ],
-      "moderate_daily_mxn": 2294,
-      "luxury_daily_mxn": 6864,
-      "economy_flight_mxn": 17106,
-      "business_flight_mxn": 64824,
-      "moderate_total_7n_mxn": 33164,
-      "business_total_7n_mxn": 112872,
-      "price_score": 90.9,
-      "roi_score": 83.0,
+      "moderate_daily_mxn": 2308,
+      "luxury_daily_mxn": 6905,
+      "economy_flight_mxn": 17196,
+      "business_flight_mxn": 65164,
+      "moderate_total_7n_mxn": 33352,
+      "business_total_7n_mxn": 113499,
+      "price_score": 90.7,
+      "roi_score": 82.9,
       "value_for_money": 8.3,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Lisboa+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+LIS+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Lisboa+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "lisbon-portugal-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+3.6%)",
+          "id": "lisbon-portugal-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+3.5%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.087781+00:00",
+          "published_at": "2026-10-09T00:13:10.469185+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1241,11 +1241,11 @@
       "seasonality": "Abril–junio y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 0.892949,
-      "current_local_per_mxn": 0.04959,
+      "current_local_per_usd": 0.892251,
+      "current_local_per_mxn": 0.049293,
       "historical_average_local_per_usd": 0.86172,
-      "fx_advantage_pct": 3.62,
-      "fx_score": 64.5,
+      "fx_advantage_pct": 3.54,
+      "fx_score": 64.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 5.47,
@@ -1396,31 +1396,31 @@
           "local_per_usd": 0.89397
         }
       ],
-      "moderate_daily_mxn": 2189,
-      "luxury_daily_mxn": 6690,
-      "economy_flight_mxn": 18007,
-      "business_flight_mxn": 66625,
-      "moderate_total_7n_mxn": 33330,
-      "business_total_7n_mxn": 113455,
-      "price_score": 90.7,
-      "roi_score": 82.8,
+      "moderate_daily_mxn": 2203,
+      "luxury_daily_mxn": 6730,
+      "economy_flight_mxn": 18101,
+      "business_flight_mxn": 66974,
+      "moderate_total_7n_mxn": 33522,
+      "business_total_7n_mxn": 114084,
+      "price_score": 90.5,
+      "roi_score": 82.7,
       "value_for_money": 8.3,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Atenas+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Atenas+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "athens-greece-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+3.6%)",
+          "id": "athens-greece-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+3.5%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.088079+00:00",
+          "published_at": "2026-10-09T00:13:10.469582+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1461,11 +1461,11 @@
       "seasonality": "Primavera y otoño ofrecen la mejor combinación de clima y experiencia.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 158.100522,
-      "current_local_per_mxn": 8.780123,
+      "current_local_per_usd": 158.033512,
+      "current_local_per_mxn": 8.730657,
       "historical_average_local_per_usd": 157.505019,
-      "fx_advantage_pct": 0.38,
-      "fx_score": 51.5,
+      "fx_advantage_pct": 0.34,
+      "fx_score": 51.3,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 8.07,
@@ -1616,31 +1616,31 @@
           "local_per_usd": 158.28
         }
       ],
-      "moderate_daily_mxn": 2422,
-      "luxury_daily_mxn": 7714,
-      "economy_flight_mxn": 19807,
-      "business_flight_mxn": 75628,
-      "moderate_total_7n_mxn": 36761,
-      "business_total_7n_mxn": 129626,
-      "price_score": 86.9,
-      "roi_score": 82.3,
+      "moderate_daily_mxn": 2435,
+      "luxury_daily_mxn": 7757,
+      "economy_flight_mxn": 19911,
+      "business_flight_mxn": 76024,
+      "moderate_total_7n_mxn": 36956,
+      "business_total_7n_mxn": 130323,
+      "price_score": 86.7,
+      "roi_score": 82.2,
       "value_for_money": 8.2,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Tokio+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Tokio+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "tokyo-japan-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.4%)",
+          "id": "tokyo-japan-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.3%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.084531+00:00",
+          "published_at": "2026-10-09T00:13:10.465146+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 8.1%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1681,11 +1681,11 @@
       "seasonality": "Octubre–abril; septiembre puede ofrecer valor adicional.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 52.384326,
-      "current_local_per_mxn": 2.909167,
+      "current_local_per_usd": 52.374069,
+      "current_local_per_mxn": 2.893437,
       "historical_average_local_per_usd": 49.0,
-      "fx_advantage_pct": 6.91,
-      "fx_score": 74.8,
+      "fx_advantage_pct": 6.89,
+      "fx_score": 74.7,
       "traffic_light": "green",
       "traffic_label": "Oportunidad cambiaria",
       "volatility_annualized_pct": 18.0,
@@ -1693,90 +1693,90 @@
       "fx_trend": [
         {
           "date": "2025-11-01",
-          "local_per_usd": 49.064773,
+          "local_per_usd": 49.064576,
           "modeled": true
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 49.418617,
+          "local_per_usd": 49.417348,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 49.599157,
+          "local_per_usd": 49.597341,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 49.804962,
+          "local_per_usd": 49.802523,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 50.195137,
+          "local_per_usd": 50.191515,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 50.640804,
+          "local_per_usd": 50.635832,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 50.926408,
+          "local_per_usd": 50.920569,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 51.086409,
+          "local_per_usd": 51.080086,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 51.351459,
+          "local_per_usd": 51.344332,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 51.788123,
+          "local_per_usd": 51.779673,
           "modeled": true
         },
         {
           "date": "2026-09-01",
-          "local_per_usd": 52.194908,
+          "local_per_usd": 52.185225,
           "modeled": true
         },
         {
           "date": "2026-10-01",
-          "local_per_usd": 52.384326,
+          "local_per_usd": 52.374069,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 1179,
-      "luxury_daily_mxn": 3958,
-      "economy_flight_mxn": 18907,
-      "business_flight_mxn": 72027,
-      "moderate_total_7n_mxn": 27160,
-      "business_total_7n_mxn": 99733,
-      "price_score": 97.6,
+      "moderate_daily_mxn": 1185,
+      "luxury_daily_mxn": 3980,
+      "economy_flight_mxn": 19006,
+      "business_flight_mxn": 72404,
+      "moderate_total_7n_mxn": 27301,
+      "business_total_7n_mxn": 100264,
+      "price_score": 97.4,
       "roi_score": 81.9,
       "value_for_money": 8.2,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+El+Cairo+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CAI+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+El+Cairo+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cairo-egypt-fx-2026-10-08",
+          "id": "cairo-egypt-fx-2026-10-09",
           "headline": "USD conserva una ventaja estimada de 6.9% frente a la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.085816+00:00",
+          "published_at": "2026-10-09T00:13:10.466686+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo green; volatilidad anualizada estimada 18.0%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -1817,11 +1817,11 @@
       "seasonality": "Abril–junio y septiembre–octubre.",
       "cruise_provider": "Royal Caribbean / Celebrity",
       "cruise_route": "Atenas–Santorini–Mykonos–Estambul",
-      "current_local_per_usd": 0.892949,
-      "current_local_per_mxn": 0.04959,
+      "current_local_per_usd": 0.892251,
+      "current_local_per_mxn": 0.049293,
       "historical_average_local_per_usd": 0.86172,
-      "fx_advantage_pct": 3.62,
-      "fx_score": 64.5,
+      "fx_advantage_pct": 3.54,
+      "fx_score": 64.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 5.47,
@@ -1972,32 +1972,32 @@
           "local_per_usd": 0.89397
         }
       ],
-      "moderate_daily_mxn": 3649,
-      "luxury_daily_mxn": 9384,
-      "economy_flight_mxn": 18007,
-      "business_flight_mxn": 70226,
-      "moderate_total_7n_mxn": 43550,
-      "business_total_7n_mxn": 135914,
-      "price_score": 79.4,
-      "roi_score": 81.3,
+      "moderate_daily_mxn": 3671,
+      "luxury_daily_mxn": 9440,
+      "economy_flight_mxn": 18101,
+      "business_flight_mxn": 70594,
+      "moderate_total_7n_mxn": 43798,
+      "business_total_7n_mxn": 136674,
+      "price_score": 79.1,
+      "roi_score": 81.2,
       "value_for_money": 8.1,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Mediterr%C3%A1neo+Oriental+2027-01-06+through+2027-01-13",
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ATH+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Mediterr%C3%A1neo+Oriental+2027-01-07+through+2027-01-14",
         "cruise_search": "https://www.google.com/search?q=Royal+Caribbean+%2F+Celebrity+Crucero+Mediterr%C3%A1neo+Oriental+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-eastern-med-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+3.6%)",
+          "id": "cruise-eastern-med-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+3.5%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.088733+00:00",
+          "published_at": "2026-10-09T00:13:10.470405+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2038,11 +2038,11 @@
       "seasonality": "Mayo–septiembre; hombros de temporada para mejor precio.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 17875.712075,
-      "current_local_per_mxn": 992.728853,
+      "current_local_per_usd": 17891.619611,
+      "current_local_per_mxn": 988.433372,
       "historical_average_local_per_usd": 17259.69112,
-      "fx_advantage_pct": 3.57,
-      "fx_score": 64.3,
+      "fx_advantage_pct": 3.66,
+      "fx_score": 64.6,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 4.91,
@@ -2193,31 +2193,31 @@
           "local_per_usd": 17920.0
         }
       ],
-      "moderate_daily_mxn": 1600,
-      "luxury_daily_mxn": 5650,
-      "economy_flight_mxn": 23409,
-      "business_flight_mxn": 86432,
-      "moderate_total_7n_mxn": 34609,
-      "business_total_7n_mxn": 125982,
-      "price_score": 89.3,
+      "moderate_daily_mxn": 1606,
+      "luxury_daily_mxn": 5675,
+      "economy_flight_mxn": 23531,
+      "business_flight_mxn": 86885,
+      "moderate_total_7n_mxn": 34773,
+      "business_total_7n_mxn": 126610,
+      "price_score": 89.1,
       "roi_score": 80.1,
       "value_for_money": 8.0,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bali+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+DPS+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Bali+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "bali-indonesia-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+3.6%)",
+          "id": "bali-indonesia-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+3.7%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.087474+00:00",
+          "published_at": "2026-10-09T00:13:10.468801+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 4.9%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2258,11 +2258,11 @@
       "seasonality": "Octubre–abril; evitar picos de lluvia regional.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 25952.992012,
-      "current_local_per_mxn": 1441.30113,
+      "current_local_per_usd": 25868.38327,
+      "current_local_per_mxn": 1429.114516,
       "historical_average_local_per_usd": 25500.0,
-      "fx_advantage_pct": 1.78,
-      "fx_score": 57.1,
+      "fx_advantage_pct": 1.44,
+      "fx_score": 55.8,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 2.5,
@@ -2275,85 +2275,85 @@
         },
         {
           "date": "2025-12-01",
-          "local_per_usd": 25592.161188,
+          "local_per_usd": 25584.469484,
           "modeled": true
         },
         {
           "date": "2026-01-01",
-          "local_per_usd": 25594.917292,
+          "local_per_usd": 25579.533884,
           "modeled": true
         },
         {
           "date": "2026-02-01",
-          "local_per_usd": 25578.062485,
+          "local_per_usd": 25554.987374,
           "modeled": true
         },
         {
           "date": "2026-03-01",
-          "local_per_usd": 25632.248066,
+          "local_per_usd": 25601.48125,
           "modeled": true
         },
         {
           "date": "2026-04-01",
-          "local_per_usd": 25737.161196,
+          "local_per_usd": 25698.702677,
           "modeled": true
         },
         {
           "date": "2026-05-01",
-          "local_per_usd": 25793.253285,
+          "local_per_usd": 25747.103062,
           "modeled": true
         },
         {
           "date": "2026-06-01",
-          "local_per_usd": 25777.233554,
+          "local_per_usd": 25723.391628,
           "modeled": true
         },
         {
           "date": "2026-07-01",
-          "local_per_usd": 25778.448924,
+          "local_per_usd": 25716.915294,
           "modeled": true
         },
         {
           "date": "2026-08-01",
-          "local_per_usd": 25859.325318,
+          "local_per_usd": 25790.099984,
           "modeled": true
         },
         {
           "date": "2026-09-01",
-          "local_per_usd": 25957.859205,
+          "local_per_usd": 25880.942167,
           "modeled": true
         },
         {
           "date": "2026-10-01",
-          "local_per_usd": 25952.992012,
+          "local_per_usd": 25868.38327,
           "modeled": true
         }
       ],
-      "moderate_daily_mxn": 1168,
-      "luxury_daily_mxn": 3981,
-      "economy_flight_mxn": 22508,
-      "business_flight_mxn": 82831,
-      "moderate_total_7n_mxn": 30684,
-      "business_total_7n_mxn": 110698,
-      "price_score": 93.7,
-      "roi_score": 80.0,
+      "moderate_daily_mxn": 1178,
+      "luxury_daily_mxn": 4015,
+      "economy_flight_mxn": 22626,
+      "business_flight_mxn": 83265,
+      "moderate_total_7n_mxn": 30872,
+      "business_total_7n_mxn": 111370,
+      "price_score": 93.5,
+      "roi_score": 79.6,
       "value_for_money": 8.0,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Han%C3%B3i+y+Vietnam+Central+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+HAN+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Han%C3%B3i+y+Vietnam+Central+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "hanoi-vietnam-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+1.8%)",
+          "id": "hanoi-vietnam-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+1.4%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.085087+00:00",
+          "published_at": "2026-10-09T00:13:10.465809+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 2.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2394,11 +2394,11 @@
       "seasonality": "Abril–junio y septiembre–octubre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 326.939645,
-      "current_local_per_mxn": 18.156615,
+      "current_local_per_usd": 326.669292,
+      "current_local_per_mxn": 18.047043,
       "historical_average_local_per_usd": 321.425212,
-      "fx_advantage_pct": 1.72,
-      "fx_score": 56.2,
+      "fx_advantage_pct": 1.63,
+      "fx_score": 55.9,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 11.85,
@@ -2549,31 +2549,31 @@
           "local_per_usd": 327.42
         }
       ],
-      "moderate_daily_mxn": 1699,
-      "luxury_daily_mxn": 5399,
-      "economy_flight_mxn": 18007,
-      "business_flight_mxn": 70226,
-      "moderate_total_7n_mxn": 29900,
-      "business_total_7n_mxn": 108019,
-      "price_score": 94.6,
-      "roi_score": 79.1,
+      "moderate_daily_mxn": 1710,
+      "luxury_daily_mxn": 5432,
+      "economy_flight_mxn": 18101,
+      "business_flight_mxn": 70594,
+      "moderate_total_7n_mxn": 30071,
+      "business_total_7n_mxn": 108618,
+      "price_score": 94.4,
+      "roi_score": 78.9,
       "value_for_money": 7.9,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Budapest+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+BUD+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Budapest+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "budapest-hungary-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+1.7%)",
+          "id": "budapest-hungary-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+1.6%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.086531+00:00",
+          "published_at": "2026-10-09T00:13:10.467559+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 11.8%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2614,11 +2614,11 @@
       "seasonality": "Abril–mayo y septiembre–noviembre.",
       "cruise_provider": "Celebrity / Royal Caribbean",
       "cruise_route": "Yokohama–Busan–Nagasaki",
-      "current_local_per_usd": 158.100522,
-      "current_local_per_mxn": 8.780123,
+      "current_local_per_usd": 158.033512,
+      "current_local_per_mxn": 8.730657,
       "historical_average_local_per_usd": 157.505019,
-      "fx_advantage_pct": 0.38,
-      "fx_score": 51.5,
+      "fx_advantage_pct": 0.34,
+      "fx_score": 51.3,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 8.07,
@@ -2769,32 +2769,32 @@
           "local_per_usd": 158.28
         }
       ],
-      "moderate_daily_mxn": 3947,
-      "luxury_daily_mxn": 10225,
-      "economy_flight_mxn": 19807,
-      "business_flight_mxn": 77429,
-      "moderate_total_7n_mxn": 47436,
-      "business_total_7n_mxn": 149004,
-      "price_score": 75.1,
-      "roi_score": 77.8,
+      "moderate_daily_mxn": 3969,
+      "luxury_daily_mxn": 10283,
+      "economy_flight_mxn": 19911,
+      "business_flight_mxn": 77834,
+      "moderate_total_7n_mxn": 47694,
+      "business_total_7n_mxn": 149815,
+      "price_score": 74.8,
+      "roi_score": 77.7,
       "value_for_money": 7.8,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Jap%C3%B3n+y+Corea+2027-01-06+through+2027-01-13",
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+NRT+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Jap%C3%B3n+y+Corea+2027-01-07+through+2027-01-14",
         "cruise_search": "https://www.google.com/search?q=Celebrity+%2F+Royal+Caribbean+Crucero+Jap%C3%B3n+y+Corea+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-japan-korea-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.4%)",
+          "id": "cruise-japan-korea-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.3%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.089034+00:00",
+          "published_at": "2026-10-09T00:13:10.470795+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 8.1%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -2810,142 +2810,6 @@
         }
       ],
       "rank": 14
-    },
-    {
-      "id": "marrakech-morocco",
-      "city": "Marrakech",
-      "country": "Marruecos",
-      "currency": "MAD",
-      "airport": "RAK",
-      "kind": "urban",
-      "tags": [
-        "historia",
-        "diseño",
-        "bienestar"
-      ],
-      "quality_score": 90,
-      "connectivity_score": 72,
-      "proximity_score": 57,
-      "moderate_daily_usd": 96,
-      "luxury_daily_usd": 335,
-      "economy_flight_usd": 1150,
-      "business_flight_usd": 4200,
-      "route_summary": "MEX–RAK con 1 escala",
-      "why_value": "Riads, diseño y lujo experiencial a menor costo que Europa occidental.",
-      "seasonality": "Marzo–mayo y septiembre–noviembre.",
-      "cruise_provider": null,
-      "cruise_route": null,
-      "current_local_per_usd": 9.96962,
-      "current_local_per_mxn": 0.553664,
-      "historical_average_local_per_usd": 10.0,
-      "fx_advantage_pct": -0.3,
-      "fx_score": 48.8,
-      "traffic_light": "amber",
-      "traffic_label": "Neutral / vigilar",
-      "volatility_annualized_pct": 4.0,
-      "history_status": "unavailable",
-      "fx_trend": [
-        {
-          "date": "2025-11-01",
-          "local_per_usd": 10.0,
-          "modeled": true
-        },
-        {
-          "date": "2025-12-01",
-          "local_per_usd": 10.016753,
-          "modeled": true
-        },
-        {
-          "date": "2026-01-01",
-          "local_per_usd": 10.003024,
-          "modeled": true
-        },
-        {
-          "date": "2026-02-01",
-          "local_per_usd": 9.975944,
-          "modeled": true
-        },
-        {
-          "date": "2026-03-01",
-          "local_per_usd": 9.973497,
-          "modeled": true
-        },
-        {
-          "date": "2026-04-01",
-          "local_per_usd": 9.995192,
-          "modeled": true
-        },
-        {
-          "date": "2026-05-01",
-          "local_per_usd": 10.002827,
-          "modeled": true
-        },
-        {
-          "date": "2026-06-01",
-          "local_per_usd": 9.980163,
-          "modeled": true
-        },
-        {
-          "date": "2026-07-01",
-          "local_per_usd": 9.958287,
-          "modeled": true
-        },
-        {
-          "date": "2026-08-01",
-          "local_per_usd": 9.967055,
-          "modeled": true
-        },
-        {
-          "date": "2026-09-01",
-          "local_per_usd": 9.988458,
-          "modeled": true
-        },
-        {
-          "date": "2026-10-01",
-          "local_per_usd": 9.96962,
-          "modeled": true
-        }
-      ],
-      "moderate_daily_mxn": 1734,
-      "luxury_daily_mxn": 6051,
-      "economy_flight_mxn": 20708,
-      "business_flight_mxn": 75628,
-      "moderate_total_7n_mxn": 32846,
-      "business_total_7n_mxn": 117985,
-      "price_score": 91.3,
-      "roi_score": 77.4,
-      "value_for_money": 7.7,
-      "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Marrakech+2027-01-06+through+2027-01-13"
-      },
-      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
-      "news": [
-        {
-          "id": "marrakech-morocco-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (-0.3%)",
-          "source": "Viajes ASC FX Monitor",
-          "impact": "low",
-          "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.086186+00:00",
-          "url": "https://open.er-api.com/v6/latest/USD",
-          "summary": "Semáforo amber; volatilidad anualizada estimada 4.0%. La señal no confirma una tarifa aérea u hotelera."
-        },
-        {
-          "id": "marrakech-morocco-context-1",
-          "headline": "Inflación contenida y dirham administrado sostienen previsibilidad de gasto",
-          "source": "Bank Al-Maghrib",
-          "impact": "low",
-          "category": "Inflación / FX",
-          "published_at": "2026-07-30T10:00:00Z",
-          "url": "https://www.bkam.ma/en/Monetary-policy",
-          "summary": "El riesgo cambiario es menor, pero los hoteles premium mantienen precios internacionales."
-        }
-      ],
-      "rank": 15
     },
     {
       "id": "kuala-lumpur-malaysia",
@@ -2971,11 +2835,11 @@
       "seasonality": "Febrero–agosto, según patrón de lluvias.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 4.087618,
-      "current_local_per_mxn": 0.227006,
+      "current_local_per_usd": 4.090984,
+      "current_local_per_mxn": 0.226009,
       "historical_average_local_per_usd": 4.048839,
-      "fx_advantage_pct": 0.96,
-      "fx_score": 53.8,
+      "fx_advantage_pct": 1.04,
+      "fx_score": 54.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 5.09,
@@ -3126,31 +2990,31 @@
           "local_per_usd": 4.0915
         }
       ],
-      "moderate_daily_mxn": 1356,
-      "luxury_daily_mxn": 4370,
-      "economy_flight_mxn": 22508,
-      "business_flight_mxn": 81030,
-      "moderate_total_7n_mxn": 32000,
-      "business_total_7n_mxn": 111620,
-      "price_score": 92.2,
+      "moderate_daily_mxn": 1362,
+      "luxury_daily_mxn": 4389,
+      "economy_flight_mxn": 22626,
+      "business_flight_mxn": 81454,
+      "moderate_total_7n_mxn": 32160,
+      "business_total_7n_mxn": 112177,
+      "price_score": 92.0,
       "roi_score": 77.4,
       "value_for_money": 7.7,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Kuala+Lumpur+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+KUL+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Kuala+Lumpur+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "kuala-lumpur-malaysia-fx-2026-10-08",
+          "id": "kuala-lumpur-malaysia-fx-2026-10-09",
           "headline": "El tipo de cambio se mantiene en zona neutral (+1.0%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.087162+00:00",
+          "published_at": "2026-10-09T00:13:10.468410+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.1%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3163,6 +3027,142 @@
           "published_at": "2026-07-31T10:00:00Z",
           "url": "https://www.bnm.gov.my/monetary-stability",
           "summary": "La hotelería conserva valor, pero una moneda más firme eleva el gasto local en USD."
+        }
+      ],
+      "rank": 15
+    },
+    {
+      "id": "marrakech-morocco",
+      "city": "Marrakech",
+      "country": "Marruecos",
+      "currency": "MAD",
+      "airport": "RAK",
+      "kind": "urban",
+      "tags": [
+        "historia",
+        "diseño",
+        "bienestar"
+      ],
+      "quality_score": 90,
+      "connectivity_score": 72,
+      "proximity_score": 57,
+      "moderate_daily_usd": 96,
+      "luxury_daily_usd": 335,
+      "economy_flight_usd": 1150,
+      "business_flight_usd": 4200,
+      "route_summary": "MEX–RAK con 1 escala",
+      "why_value": "Riads, diseño y lujo experiencial a menor costo que Europa occidental.",
+      "seasonality": "Marzo–mayo y septiembre–noviembre.",
+      "cruise_provider": null,
+      "cruise_route": null,
+      "current_local_per_usd": 9.937326,
+      "current_local_per_mxn": 0.548994,
+      "historical_average_local_per_usd": 10.0,
+      "fx_advantage_pct": -0.63,
+      "fx_score": 47.5,
+      "traffic_light": "amber",
+      "traffic_label": "Neutral / vigilar",
+      "volatility_annualized_pct": 4.0,
+      "history_status": "unavailable",
+      "fx_trend": [
+        {
+          "date": "2025-11-01",
+          "local_per_usd": 10.0,
+          "modeled": true
+        },
+        {
+          "date": "2025-12-01",
+          "local_per_usd": 10.013817,
+          "modeled": true
+        },
+        {
+          "date": "2026-01-01",
+          "local_per_usd": 9.997152,
+          "modeled": true
+        },
+        {
+          "date": "2026-02-01",
+          "local_per_usd": 9.967137,
+          "modeled": true
+        },
+        {
+          "date": "2026-03-01",
+          "local_per_usd": 9.961754,
+          "modeled": true
+        },
+        {
+          "date": "2026-04-01",
+          "local_per_usd": 9.980513,
+          "modeled": true
+        },
+        {
+          "date": "2026-05-01",
+          "local_per_usd": 9.985212,
+          "modeled": true
+        },
+        {
+          "date": "2026-06-01",
+          "local_per_usd": 9.959612,
+          "modeled": true
+        },
+        {
+          "date": "2026-07-01",
+          "local_per_usd": 9.9348,
+          "modeled": true
+        },
+        {
+          "date": "2026-08-01",
+          "local_per_usd": 9.940632,
+          "modeled": true
+        },
+        {
+          "date": "2026-09-01",
+          "local_per_usd": 9.959099,
+          "modeled": true
+        },
+        {
+          "date": "2026-10-01",
+          "local_per_usd": 9.937326,
+          "modeled": true
+        }
+      ],
+      "moderate_daily_mxn": 1749,
+      "luxury_daily_mxn": 6102,
+      "economy_flight_mxn": 20816,
+      "business_flight_mxn": 76024,
+      "moderate_total_7n_mxn": 33059,
+      "business_total_7n_mxn": 118738,
+      "price_score": 91.0,
+      "roi_score": 77.0,
+      "value_for_money": 7.7,
+      "google_travel": {
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+RAK+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Marrakech+2027-01-07+through+2027-01-14"
+      },
+      "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
+      "news": [
+        {
+          "id": "marrakech-morocco-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (-0.6%)",
+          "source": "Viajes ASC FX Monitor",
+          "impact": "low",
+          "category": "Mercado cambiario",
+          "published_at": "2026-10-09T00:13:10.467141+00:00",
+          "url": "https://open.er-api.com/v6/latest/USD",
+          "summary": "Semáforo amber; volatilidad anualizada estimada 4.0%. La señal no confirma una tarifa aérea u hotelera."
+        },
+        {
+          "id": "marrakech-morocco-context-1",
+          "headline": "Inflación contenida y dirham administrado sostienen previsibilidad de gasto",
+          "source": "Bank Al-Maghrib",
+          "impact": "low",
+          "category": "Inflación / FX",
+          "published_at": "2026-07-30T10:00:00Z",
+          "url": "https://www.bkam.ma/en/Monetary-policy",
+          "summary": "El riesgo cambiario es menor, pero los hoteles premium mantienen precios internacionales."
         }
       ],
       "rank": 16
@@ -3191,11 +3191,11 @@
       "seasonality": "Mayo–octubre.",
       "cruise_provider": "Explora Journeys",
       "cruise_route": "Estambul–Atenas–Dubrovnik",
-      "current_local_per_usd": 0.892949,
-      "current_local_per_mxn": 0.04959,
+      "current_local_per_usd": 0.892251,
+      "current_local_per_mxn": 0.049293,
       "historical_average_local_per_usd": 0.86172,
-      "fx_advantage_pct": 3.62,
-      "fx_score": 64.5,
+      "fx_advantage_pct": 3.54,
+      "fx_score": 64.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 5.47,
@@ -3346,32 +3346,32 @@
           "local_per_usd": 0.89397
         }
       ],
-      "moderate_daily_mxn": 6777,
-      "luxury_daily_mxn": 15987,
-      "economy_flight_mxn": 18907,
-      "business_flight_mxn": 70226,
-      "moderate_total_7n_mxn": 66346,
-      "business_total_7n_mxn": 182135,
-      "price_score": 54.1,
-      "roi_score": 76.4,
+      "moderate_daily_mxn": 6818,
+      "luxury_daily_mxn": 16083,
+      "economy_flight_mxn": 19006,
+      "business_flight_mxn": 70594,
+      "moderate_total_7n_mxn": 66732,
+      "business_total_7n_mxn": 183175,
+      "price_score": 53.6,
+      "roi_score": 76.2,
       "value_for_money": 7.6,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Explora+I+Mediterr%C3%A1neo+Oriental+2027-01-06+through+2027-01-13",
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+IST+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Explora+I+Mediterr%C3%A1neo+Oriental+2027-01-07+through+2027-01-14",
         "cruise_search": "https://www.google.com/search?q=Explora+Journeys+Explora+I+Mediterr%C3%A1neo+Oriental+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-explora-east-med-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+3.6%)",
+          "id": "cruise-explora-east-med-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+3.5%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.089355+00:00",
+          "published_at": "2026-10-09T00:13:10.471185+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 5.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3412,11 +3412,11 @@
       "seasonality": "Septiembre–abril.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 16.639373,
-      "current_local_per_mxn": 0.924069,
+      "current_local_per_usd": 16.615355,
+      "current_local_per_mxn": 0.917925,
       "historical_average_local_per_usd": 16.551536,
-      "fx_advantage_pct": 0.53,
-      "fx_score": 51.7,
+      "fx_advantage_pct": 0.39,
+      "fx_score": 51.2,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 11.12,
@@ -3567,31 +3567,31 @@
           "local_per_usd": 16.6505
         }
       ],
-      "moderate_daily_mxn": 2006,
-      "luxury_daily_mxn": 6538,
-      "economy_flight_mxn": 23409,
-      "business_flight_mxn": 86432,
-      "moderate_total_7n_mxn": 37451,
-      "business_total_7n_mxn": 132198,
-      "price_score": 86.2,
-      "roi_score": 76.1,
+      "moderate_daily_mxn": 2020,
+      "luxury_daily_mxn": 6581,
+      "economy_flight_mxn": 23531,
+      "business_flight_mxn": 86885,
+      "moderate_total_7n_mxn": 37671,
+      "business_total_7n_mxn": 132952,
+      "price_score": 85.9,
+      "roi_score": 75.9,
       "value_for_money": 7.6,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Ciudad+del+Cabo+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+CPT+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Ciudad+del+Cabo+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cape-town-south-africa-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (+0.5%)",
+          "id": "cape-town-south-africa-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (+0.4%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.086123+00:00",
+          "published_at": "2026-10-09T00:13:10.467058+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 11.1%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3632,11 +3632,11 @@
       "seasonality": "Noviembre–marzo.",
       "cruise_provider": "Royal Caribbean / Celebrity",
       "cruise_route": "Singapur–Penang–Phuket–Vietnam",
-      "current_local_per_usd": 1.279676,
-      "current_local_per_mxn": 0.071067,
+      "current_local_per_usd": 1.281021,
+      "current_local_per_mxn": 0.070771,
       "historical_average_local_per_usd": 1.283089,
-      "fx_advantage_pct": -0.27,
-      "fx_score": 48.9,
+      "fx_advantage_pct": -0.16,
+      "fx_score": 49.4,
       "traffic_light": "amber",
       "traffic_label": "Neutral / vigilar",
       "volatility_annualized_pct": 3.52,
@@ -3787,32 +3787,32 @@
           "local_per_usd": 1.282
         }
       ],
-      "moderate_daily_mxn": 3521,
-      "luxury_daily_mxn": 8666,
-      "economy_flight_mxn": 22508,
-      "business_flight_mxn": 82831,
-      "moderate_total_7n_mxn": 47155,
-      "business_total_7n_mxn": 143493,
-      "price_score": 75.4,
-      "roi_score": 74.6,
+      "moderate_daily_mxn": 3535,
+      "luxury_daily_mxn": 8702,
+      "economy_flight_mxn": 22626,
+      "business_flight_mxn": 83265,
+      "moderate_total_7n_mxn": 47371,
+      "business_total_7n_mxn": 144179,
+      "price_score": 75.1,
+      "roi_score": 74.7,
       "value_for_money": 7.5,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Sudeste+Asi%C3%A1tico+2027-01-06+through+2027-01-13",
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+SIN+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Crucero+Sudeste+Asi%C3%A1tico+2027-01-07+through+2027-01-14",
         "cruise_search": "https://www.google.com/search?q=Royal+Caribbean+%2F+Celebrity+Crucero+Sudeste+Asi%C3%A1tico+2026+cruise"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "cruise-southeast-asia-fx-2026-10-08",
-          "headline": "El tipo de cambio se mantiene en zona neutral (-0.3%)",
+          "id": "cruise-southeast-asia-fx-2026-10-09",
+          "headline": "El tipo de cambio se mantiene en zona neutral (-0.2%)",
           "source": "Viajes ASC FX Monitor",
           "impact": "low",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.088420+00:00",
+          "published_at": "2026-10-09T00:13:10.469983+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo amber; volatilidad anualizada estimada 3.5%. La señal no confirma una tarifa aérea u hotelera."
         },
@@ -3853,11 +3853,11 @@
       "seasonality": "Abril–mayo y septiembre–noviembre.",
       "cruise_provider": null,
       "cruise_route": null,
-      "current_local_per_usd": 1339.092519,
-      "current_local_per_mxn": 74.366592,
+      "current_local_per_usd": 1342.34042,
+      "current_local_per_mxn": 74.15841,
       "historical_average_local_per_usd": 1456.08888,
-      "fx_advantage_pct": -8.03,
-      "fx_score": 17.9,
+      "fx_advantage_pct": -7.81,
+      "fx_score": 18.8,
       "traffic_light": "red",
       "traffic_label": "Moneda local fuerte",
       "volatility_annualized_pct": 9.34,
@@ -4008,31 +4008,31 @@
           "local_per_usd": 1343.46
         }
       ],
-      "moderate_daily_mxn": 1997,
-      "luxury_daily_mxn": 6363,
-      "economy_flight_mxn": 19807,
-      "business_flight_mxn": 77429,
-      "moderate_total_7n_mxn": 33786,
-      "business_total_7n_mxn": 121970,
-      "price_score": 90.2,
-      "roi_score": 73.7,
+      "moderate_daily_mxn": 2003,
+      "luxury_daily_mxn": 6381,
+      "economy_flight_mxn": 19911,
+      "business_flight_mxn": 77834,
+      "moderate_total_7n_mxn": 33932,
+      "business_total_7n_mxn": 122501,
+      "price_score": 90.1,
+      "roi_score": 73.8,
       "value_for_money": 7.4,
       "google_travel": {
-        "default_start": "2027-01-06",
-        "default_end": "2027-01-13",
-        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2027-01-06+through+2027-01-13+economy",
-        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2027-01-06+through+2027-01-13+business+class",
-        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Se%C3%BAl+2027-01-06+through+2027-01-13"
+        "default_start": "2027-01-07",
+        "default_end": "2027-01-14",
+        "google_flights_economy": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2027-01-07+through+2027-01-14+economy",
+        "google_flights_business": "https://www.google.com/travel/flights?q=Flights+from+MEX+to+ICN+2027-01-07+through+2027-01-14+business+class",
+        "google_hotels": "https://www.google.com/travel/search?q=Hotels+in+Se%C3%BAl+2027-01-07+through+2027-01-14"
       },
       "estimation_note": "Modelo comparativo; verificar inventario y precio final en los enlaces de búsqueda.",
       "news": [
         {
-          "id": "seoul-korea-fx-2026-10-08",
-          "headline": "La moneda local cotiza 8.0% más fuerte que la referencia",
+          "id": "seoul-korea-fx-2026-10-09",
+          "headline": "La moneda local cotiza 7.8% más fuerte que la referencia",
           "source": "Viajes ASC FX Monitor",
           "impact": "medium",
           "category": "Mercado cambiario",
-          "published_at": "2026-10-08T15:24:26.085750+00:00",
+          "published_at": "2026-10-09T00:13:10.466603+00:00",
           "url": "https://open.er-api.com/v6/latest/USD",
           "summary": "Semáforo red; volatilidad anualizada estimada 9.3%. La señal no confirma una tarifa aérea u hotelera."
         },
