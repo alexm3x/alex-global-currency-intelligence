@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T18:59:22.233Z",
+  "generatedAt": "2026-10-09T06:37:05.467Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-10-08T18:59:22.233Z",
+        "retrievedAt": "2026-10-09T06:37:05.467Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -55,7 +55,7 @@
               "period": "2025"
             },
             "XM": {
-              "value": 1.41107242318353,
+              "value": 1.4110724231835,
               "period": "2025"
             },
             "GB": {
@@ -85,7 +85,7 @@
               "period": "2025"
             },
             "GB": {
-              "value": -2.42693271936225,
+              "value": -3.13347768999639,
               "period": "2025"
             },
             "JP": {
@@ -93,11 +93,11 @@
               "period": "2025"
             },
             "MX": {
-              "value": -0.447421048798837,
+              "value": -0.510910143793841,
               "period": "2025"
             },
             "US": {
-              "value": -3.62698693844919,
+              "value": -3.8254126624569,
               "period": "2025"
             }
           }
@@ -111,7 +111,7 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-10-08T18:59:22.233Z",
+        "retrievedAt": "2026-10-09T06:37:05.467Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
@@ -203,14 +203,14 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-10-08T18:59:22.233Z",
+        "retrievedAt": "2026-10-09T06:37:05.467Z",
         "series": "VIX daily close",
         "risk": {
-          "vix": 15.08,
-          "period": "2026-10-07",
-          "average20": 15.82,
-          "percentile1y": 11.9,
-          "change20d": -2.76,
+          "vix": 15.41,
+          "period": "2026-10-08",
+          "average20": 15.7,
+          "percentile1y": 17.9,
+          "change20d": -0.43,
           "regime": "normal"
         }
       },
@@ -231,7 +231,7 @@
         "period": "2025"
       },
       "currentAccount": {
-        "value": -0.447421048798837,
+        "value": -0.510910143793841,
         "period": "2025"
       },
       "policyRate": {
@@ -257,7 +257,7 @@
         "period": "2025"
       },
       "currentAccount": {
-        "value": -3.62698693844919,
+        "value": -3.8254126624569,
         "period": "2025"
       },
       "policyRate": {
@@ -279,7 +279,7 @@
         "period": "2025"
       },
       "growth": {
-        "value": 1.41107242318353,
+        "value": 1.4110724231835,
         "period": "2025"
       },
       "currentAccount": null,
@@ -306,7 +306,7 @@
         "period": "2025"
       },
       "currentAccount": {
-        "value": -2.42693271936225,
+        "value": -3.13347768999639,
         "period": "2025"
       },
       "policyRate": {
@@ -400,11 +400,11 @@
     }
   },
   "risk": {
-    "vix": 15.08,
-    "period": "2026-10-07",
-    "average20": 15.82,
-    "percentile1y": 11.9,
-    "change20d": -2.76,
+    "vix": 15.41,
+    "period": "2026-10-08",
+    "average20": 15.7,
+    "percentile1y": 17.9,
+    "change20d": -0.43,
     "regime": "normal"
   }
 }
