@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-10-13T14:34:48.517Z",
+  "timestamp": "2026-10-13T23:07:39.237Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 76,
+    "greed": 74,
     "greed_label": "Greed",
     "valuation": 90,
     "valuation_label": "Extreme Valuation",
     "regime": "Mid Bull",
     "opportunity": null,
-    "confidence": 72,
+    "confidence": 73,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
@@ -21,12 +21,12 @@
       "label": "Wait / Price discipline",
       "severity": "amber"
     },
-    "interpretation": "Greed 76/100 (Greed) y Valuation 90/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Wait / Price discipline."
+    "interpretation": "Greed 74/100 (Greed) y Valuation 90/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Wait / Price discipline."
   },
   "changes": {
-    "greed_1d": 0,
-    "greed_7d": 5,
-    "greed_30d": 1,
+    "greed_1d": -2,
+    "greed_7d": 3,
+    "greed_30d": -1,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -56,21 +56,21 @@
     },
     "volatility": {
       "label": "VIX / Volatility",
-      "value": 14.84,
-      "normalized_score": 93,
+      "value": 15.21,
+      "normalized_score": 85,
       "source": "Cboe Global Markets — VIX",
-      "asOf": "2026-10-09",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-10-12",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 90,
       "source_quality": 95
     },
     "options": {
       "label": "Options Term Structure",
-      "value": 0.8277,
-      "normalized_score": 93,
+      "value": 0.8469,
+      "normalized_score": 88,
       "source": "Cboe Global Markets — VIX / VIX3M",
-      "asOf": "2026-10-12",
+      "asOf": "2026-10-13",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 88,
@@ -78,12 +78,12 @@
     },
     "credit": {
       "label": "Credit Spreads",
-      "value": 3.15,
-      "normalized_score": 33,
+      "value": 3.11,
+      "normalized_score": 39,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-10-08",
-      "freshness": "RECENT",
-      "freshness_score": 75,
+      "asOf": "2026-10-12",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 92,
       "source_quality": 96
     }
@@ -92,13 +92,13 @@
     {
       "name": "Cboe Global Markets — VIX",
       "frequency": "DAILY",
-      "asOf": "2026-10-09",
+      "asOf": "2026-10-12",
       "status": "connected"
     },
     {
       "name": "Cboe Global Markets — VIX3M",
       "frequency": "DAILY",
-      "asOf": "2026-10-12",
+      "asOf": "2026-10-13",
       "status": "connected"
     },
     {
@@ -110,7 +110,7 @@
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-12",
       "status": "connected"
     },
     {
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-09",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -1.287,
+      "value": -1.307,
       "normalized_score": 80,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-09",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.52,
+      "value": -2.54,
       "normalized_score": 93,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-09",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
