@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-10-16T16:57:35.081Z",
+  "timestamp": "2026-10-16T21:43:09.308Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
     "greed": 66,
     "greed_label": "Greed",
-    "valuation": 89,
+    "valuation": 88,
     "valuation_label": "Extreme Valuation",
     "regime": "Mid Bull",
     "opportunity": null,
@@ -21,7 +21,7 @@
       "label": "Wait / Price discipline",
       "severity": "amber"
     },
-    "interpretation": "Greed 66/100 (Greed) y Valuation 89/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Wait / Price discipline."
+    "interpretation": "Greed 66/100 (Greed) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Wait / Price discipline."
   },
   "changes": {
     "greed_1d": 2,
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -1.257,
-      "normalized_score": 79,
+      "value": -1.167,
+      "normalized_score": 77,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.49,
-      "normalized_score": 93,
+      "value": -2.4,
+      "normalized_score": 91,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
