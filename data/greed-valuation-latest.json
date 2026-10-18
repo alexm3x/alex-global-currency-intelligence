@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-10-17T20:58:09.759Z",
+  "timestamp": "2026-10-18T05:08:35.937Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
@@ -24,9 +24,9 @@
     "interpretation": "Greed 52/100 (Neutral) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": -14,
+    "greed_1d": 0,
     "greed_7d": -24,
-    "greed_30d": -7,
+    "greed_30d": -26,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -38,8 +38,8 @@
       "normalized_score": 56,
       "source": "Federal Reserve / FRED — SP500",
       "asOf": "2026-10-16",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -60,8 +60,8 @@
       "normalized_score": 18,
       "source": "Cboe Global Markets — VIX",
       "asOf": "2026-10-16",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -71,8 +71,8 @@
       "normalized_score": 56,
       "source": "Cboe Global Markets — VIX / VIX3M",
       "asOf": "2026-10-16",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 88,
       "source_quality": 96
     },
