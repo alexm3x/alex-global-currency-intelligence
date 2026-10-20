@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-10-20T12:12:07.639Z",
+  "timestamp": "2026-10-20T17:31:52.433Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
@@ -78,12 +78,12 @@
     },
     "credit": {
       "label": "Credit Spreads",
-      "value": 3.31,
+      "value": 3.29,
       "normalized_score": 15,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-10-16",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-10-19",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 92,
       "source_quality": 96
     }
@@ -110,7 +110,7 @@
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-10-16",
+      "asOf": "2026-10-19",
       "status": "connected"
     },
     {
