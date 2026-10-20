@@ -1,6 +1,6 @@
 {
-  "status": "partially-connected",
-  "generated_at": "2026-10-20T12:01:27.838Z",
+  "status": "connected",
+  "generated_at": "2026-10-20T17:28:32.210Z",
   "last_reviewed": "2026-10-20",
   "note": "El registro se genera automáticamente a partir de pruebas reales de extracción. El estado no se define manualmente.",
   "automation": {
@@ -14,45 +14,45 @@
       "provider": "Twelve Data vía Cloudflare Worker",
       "frequency": "15–30 minutos en origen",
       "status": "Conectado",
-      "last_success": "2026-10-20T12:01:27.838Z"
+      "last_success": "2026-10-20T17:28:32.210Z"
     },
     {
       "category": "Noticias financieras",
       "provider": "GDELT y fuentes oficiales enlazadas",
       "frequency": "Periódica",
       "status": "Conectado",
-      "last_success": "2026-10-20T12:01:27.838Z"
+      "last_success": "2026-10-20T17:28:32.210Z"
     },
     {
       "category": "Inflación y crecimiento",
       "provider": "World Bank — WDI",
       "frequency": "Según publicación oficial",
-      "status": "Degradado",
-      "last_success": "2026-10-20T05:11:33.262Z",
-      "error": "api.worldbank.org: This operation was aborted"
+      "status": "Conectado",
+      "last_success": "2026-10-20T17:28:32.210Z",
+      "error": null
     },
     {
       "category": "Tasas y bancos centrales",
       "provider": "BIS — datos reportados por bancos centrales",
       "frequency": "Semanal/Mensual",
       "status": "Conectado",
-      "last_success": "2026-10-20T12:01:27.838Z",
+      "last_success": "2026-10-20T17:28:32.210Z",
       "error": null
     },
     {
       "category": "REER y balanza externa",
       "provider": "BIS (REER) + World Bank (cuenta corriente)",
       "frequency": "Mensual/Anual",
-      "status": "Degradado",
-      "last_success": "2026-10-20T05:11:33.262Z",
-      "error": "api.worldbank.org: This operation was aborted"
+      "status": "Conectado",
+      "last_success": "2026-10-20T17:28:32.210Z",
+      "error": null
     },
     {
       "category": "Riesgo y volatilidad",
       "provider": "Cboe VIX — cálculo AGCI",
       "frequency": "Diaria",
       "status": "Conectado",
-      "last_success": "2026-10-20T12:01:27.838Z",
+      "last_success": "2026-10-20T17:28:32.210Z",
       "error": null
     }
   ]
