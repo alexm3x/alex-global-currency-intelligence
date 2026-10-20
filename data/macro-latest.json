@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T05:11:33.262Z",
-  "overallStatus": "connected",
+  "generatedAt": "2026-10-20T12:01:27.838Z",
+  "overallStatus": "degraded",
   "providers": {
     "worldBank": {
-      "status": "ok",
+      "status": "degraded",
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
@@ -103,15 +103,15 @@
           }
         }
       },
-      "error": null,
-      "usedPrevious": false
+      "error": "api.worldbank.org: This operation was aborted",
+      "usedPrevious": true
     },
     "bis": {
       "status": "ok",
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-10-20T05:11:33.262Z",
+        "retrievedAt": "2026-10-20T12:01:27.838Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
@@ -203,7 +203,7 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-10-20T05:11:33.262Z",
+        "retrievedAt": "2026-10-20T12:01:27.838Z",
         "series": "VIX daily close",
         "risk": {
           "vix": 18.44,
