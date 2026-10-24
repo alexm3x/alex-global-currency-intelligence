@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-10-23T21:40:51.772Z",
+  "timestamp": "2026-10-24T05:01:53.792Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 49,
+    "greed": 48,
     "greed_label": "Neutral",
     "valuation": 87,
     "valuation_label": "Extreme Valuation",
@@ -21,12 +21,12 @@
       "label": "Hold / Analyze",
       "severity": "neutral"
     },
-    "interpretation": "Greed 49/100 (Neutral) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Hold / Analyze."
+    "interpretation": "Greed 48/100 (Neutral) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": -15,
-    "greed_7d": -17,
-    "greed_30d": -39,
+    "greed_1d": -1,
+    "greed_7d": -4,
+    "greed_30d": -36,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -56,10 +56,10 @@
     },
     "volatility": {
       "label": "VIX / Volatility",
-      "value": 19.03,
-      "normalized_score": 24,
+      "value": 19.45,
+      "normalized_score": 22,
       "source": "Cboe Global Markets — VIX",
-      "asOf": "2026-10-22",
+      "asOf": "2026-10-23",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 90,
@@ -67,10 +67,10 @@
     },
     "options": {
       "label": "Options Term Structure",
-      "value": 0.9458,
-      "normalized_score": 64,
+      "value": 0.9497,
+      "normalized_score": 63,
       "source": "Cboe Global Markets — VIX / VIX3M",
-      "asOf": "2026-10-22",
+      "asOf": "2026-10-23",
       "freshness": "DAILY",
       "freshness_score": 100,
       "confidence": 88,
@@ -82,8 +82,8 @@
       "normalized_score": 10,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
       "asOf": "2026-10-22",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 92,
       "source_quality": 96
     }
@@ -92,13 +92,13 @@
     {
       "name": "Cboe Global Markets — VIX",
       "frequency": "DAILY",
-      "asOf": "2026-10-22",
+      "asOf": "2026-10-23",
       "status": "connected"
     },
     {
       "name": "Cboe Global Markets — VIX3M",
       "frequency": "DAILY",
-      "asOf": "2026-10-22",
+      "asOf": "2026-10-23",
       "status": "connected"
     },
     {
