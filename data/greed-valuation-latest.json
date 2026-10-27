@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-10-27T12:40:28.775Z",
+  "timestamp": "2026-10-27T18:16:03.025Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 47,
+    "greed": 49,
     "greed_label": "Neutral",
     "valuation": 88,
     "valuation_label": "Extreme Valuation",
     "regime": "Correction",
     "opportunity": null,
-    "confidence": 72,
+    "confidence": 73,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
@@ -21,12 +21,12 @@
       "label": "Hold / Analyze",
       "severity": "neutral"
     },
-    "interpretation": "Greed 47/100 (Neutral) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
+    "interpretation": "Greed 49/100 (Neutral) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": 4,
-    "greed_7d": 2,
-    "greed_30d": -27,
+    "greed_1d": 6,
+    "greed_7d": 4,
+    "greed_30d": -25,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -34,12 +34,12 @@
   "components": {
     "momentum": {
       "label": "Market Momentum",
-      "value": 7623.68,
-      "normalized_score": 51,
+      "value": 7676.77,
+      "normalized_score": 56,
       "source": "Federal Reserve / FRED — SP500",
-      "asOf": "2026-10-23",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-10-26",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 90,
       "source_quality": 95
     },
@@ -48,9 +48,9 @@
       "value": null,
       "normalized_score": 67,
       "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
-      "asOf": "2026-10-23",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-10-26",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 82,
       "source_quality": 92
     },
@@ -78,12 +78,12 @@
     },
     "credit": {
       "label": "Credit Spreads",
-      "value": 3.38,
-      "normalized_score": 11,
+      "value": 3.3,
+      "normalized_score": 15,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-10-23",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-10-26",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 92,
       "source_quality": 96
     }
@@ -104,13 +104,13 @@
     {
       "name": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
       "frequency": "DAILY",
-      "asOf": "2026-10-23",
+      "asOf": "2026-10-26",
       "status": "connected"
     },
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-10-23",
+      "asOf": "2026-10-26",
       "status": "connected"
     },
     {
