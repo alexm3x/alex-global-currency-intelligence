@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-11-02T06:49:44.778Z",
+  "timestamp": "2026-11-02T21:56:14.047Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 49,
+    "greed": 43,
     "greed_label": "Neutral",
     "valuation": 87,
     "valuation_label": "Extreme Valuation",
-    "regime": "Mid Bull",
+    "regime": "Correction",
     "opportunity": null,
-    "confidence": 71,
+    "confidence": 72,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
@@ -21,12 +21,12 @@
       "label": "Hold / Analyze",
       "severity": "neutral"
     },
-    "interpretation": "Greed 49/100 (Neutral) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Mid Bull. Señal de matriz: Hold / Analyze."
+    "interpretation": "Greed 43/100 (Neutral) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": 0,
-    "greed_7d": 6,
-    "greed_30d": -20,
+    "greed_1d": -6,
+    "greed_7d": 0,
+    "greed_30d": -26,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -34,23 +34,23 @@
   "components": {
     "momentum": {
       "label": "Market Momentum",
-      "value": 7743.98,
-      "normalized_score": 57,
+      "value": 7580.07,
+      "normalized_score": 48,
       "source": "Federal Reserve / FRED — SP500",
-      "asOf": "2026-10-28",
+      "asOf": "2026-10-30",
       "freshness": "RECENT",
-      "freshness_score": 75,
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
     "breadth": {
       "label": "Cross-index Breadth Proxy",
       "value": null,
-      "normalized_score": 78,
+      "normalized_score": 67,
       "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
-      "asOf": "2026-10-28",
+      "asOf": "2026-10-29",
       "freshness": "RECENT",
-      "freshness_score": 75,
+      "freshness_score": 90,
       "confidence": 82,
       "source_quality": 92
     },
@@ -78,10 +78,10 @@
     },
     "credit": {
       "label": "Credit Spreads",
-      "value": 3.26,
-      "normalized_score": 17,
+      "value": 3.44,
+      "normalized_score": 8,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-10-29",
+      "asOf": "2026-10-30",
       "freshness": "RECENT",
       "freshness_score": 90,
       "confidence": 92,
@@ -104,13 +104,13 @@
     {
       "name": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
       "frequency": "DAILY",
-      "asOf": "2026-10-28",
+      "asOf": "2026-10-29",
       "status": "connected"
     },
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-10-29",
+      "asOf": "2026-10-30",
       "status": "connected"
     },
     {
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-10-29",
+      "asOf": "2026-10-30",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -1.047,
+      "value": -1.007,
       "normalized_score": 75,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-10-29",
+      "asOf": "2026-10-30",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.28,
-      "normalized_score": 90,
+      "value": -2.24,
+      "normalized_score": 89,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-10-29",
+      "asOf": "2026-10-30",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
