@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-11-09T07:11:56.220Z",
+  "timestamp": "2026-11-09T22:42:43.199Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 19,
+    "greed": 20,
     "greed_label": "Extreme Fear",
-    "valuation": 86,
+    "valuation": 87,
     "valuation_label": "Extreme Valuation",
     "regime": "Correction",
     "opportunity": null,
@@ -21,12 +21,12 @@
       "label": "Hold / Analyze",
       "severity": "neutral"
     },
-    "interpretation": "Greed 19/100 (Extreme Fear) y Valuation 86/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
+    "interpretation": "Greed 20/100 (Extreme Fear) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": 0,
-    "greed_7d": -24,
-    "greed_30d": -57,
+    "greed_1d": 1,
+    "greed_7d": -23,
+    "greed_30d": -56,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -78,10 +78,10 @@
     },
     "credit": {
       "label": "Credit Spreads",
-      "value": 3.48,
-      "normalized_score": 7,
+      "value": 3.42,
+      "normalized_score": 9,
       "source": "Federal Reserve / FRED — ICE BofA US High Yield OAS",
-      "asOf": "2026-11-05",
+      "asOf": "2026-11-06",
       "freshness": "RECENT",
       "freshness_score": 90,
       "confidence": 92,
@@ -110,7 +110,7 @@
     {
       "name": "Federal Reserve / FRED — ICE BofA High Yield OAS",
       "frequency": "DAILY",
-      "asOf": "2026-11-05",
+      "asOf": "2026-11-06",
       "status": "connected"
     },
     {
@@ -136,7 +136,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-11-05",
+      "asOf": "2026-11-06",
       "status": "connected"
     }
   ],
@@ -185,10 +185,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield − Treasury 10Y",
-      "value": -0.907,
-      "normalized_score": 73,
+      "value": -0.927,
+      "normalized_score": 74,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-11-05",
+      "asOf": "2026-11-06",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -196,10 +196,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield − Treasury 10Y",
-      "value": -2.14,
+      "value": -2.16,
       "normalized_score": 88,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-11-05",
+      "asOf": "2026-11-06",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
