@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T19:49:43.494Z",
+  "generatedAt": "2026-11-12T20:21:50.221Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-11-11T19:49:43.494Z",
+        "retrievedAt": "2026-11-12T20:21:50.221Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -111,13 +111,18 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-11-11T19:49:43.494Z",
+        "retrievedAt": "2026-11-12T20:21:50.221Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
           "values": {
             "GB": {
               "value": 3.75,
+              "period": "2026-10",
+              "status": "A"
+            },
+            "CN": {
+              "value": 3,
               "period": "2026-10",
               "status": "A"
             },
@@ -145,11 +150,6 @@
               "value": 13.75,
               "period": "2026-10",
               "status": "A"
-            },
-            "CN": {
-              "value": 3,
-              "period": "2026-10",
-              "status": "A"
             }
           }
         },
@@ -157,28 +157,8 @@
           "series": "BIS,WS_EER,1.0 / M.R.B",
           "frequency": "Mensual",
           "values": {
-            "BR": {
-              "value": 117.18,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "CN": {
-              "value": 91.91,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "JP": {
-              "value": 66.61,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "MX": {
-              "value": 140.31,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "GB": {
-              "value": 111.48,
+            "US": {
+              "value": 107.11,
               "period": "2026-09",
               "status": "A"
             },
@@ -187,8 +167,28 @@
               "period": "2026-09",
               "status": "A"
             },
-            "US": {
-              "value": 107.11,
+            "MX": {
+              "value": 140.31,
+              "period": "2026-09",
+              "status": "A"
+            },
+            "BR": {
+              "value": 117.18,
+              "period": "2026-09",
+              "status": "A"
+            },
+            "JP": {
+              "value": 66.61,
+              "period": "2026-09",
+              "status": "A"
+            },
+            "CN": {
+              "value": 91.91,
+              "period": "2026-09",
+              "status": "A"
+            },
+            "GB": {
+              "value": 111.48,
               "period": "2026-09",
               "status": "A"
             }
@@ -203,14 +203,14 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-11-11T19:49:43.494Z",
+        "retrievedAt": "2026-11-12T20:21:50.221Z",
         "series": "VIX daily close",
         "risk": {
-          "vix": 19.46,
-          "period": "2026-11-10",
-          "average20": 19.27,
-          "percentile1y": 78.2,
-          "change20d": 2.59,
+          "vix": 17.49,
+          "period": "2026-11-11",
+          "average20": 19.3,
+          "percentile1y": 57.5,
+          "change20d": 1.03,
           "regime": "normal"
         }
       },
@@ -400,11 +400,11 @@
     }
   },
   "risk": {
-    "vix": 19.46,
-    "period": "2026-11-10",
-    "average20": 19.27,
-    "percentile1y": 78.2,
-    "change20d": 2.59,
+    "vix": 17.49,
+    "period": "2026-11-11",
+    "average20": 19.3,
+    "percentile1y": 57.5,
+    "change20d": 1.03,
     "regime": "normal"
   }
 }
