@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-11-14T22:44:59.607Z",
+  "timestamp": "2026-11-15T07:12:06.729Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
@@ -11,7 +11,7 @@
     "valuation_label": "Extreme Valuation",
     "regime": "Correction",
     "opportunity": null,
-    "confidence": 73,
+    "confidence": 72,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
@@ -24,9 +24,9 @@
     "interpretation": "Greed 43/100 (Neutral) y Valuation 88/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Correction. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": -1,
+    "greed_1d": 0,
     "greed_7d": 24,
-    "greed_30d": -21,
+    "greed_30d": -23,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -38,8 +38,8 @@
       "normalized_score": 48,
       "source": "Federal Reserve / FRED — SP500",
       "asOf": "2026-11-13",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -49,8 +49,8 @@
       "normalized_score": 56,
       "source": "Federal Reserve / FRED — SP500, DJIA, NASDAQCOM",
       "asOf": "2026-11-13",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 82,
       "source_quality": 92
     },
@@ -60,8 +60,8 @@
       "normalized_score": 23,
       "source": "Cboe Global Markets — VIX",
       "asOf": "2026-11-13",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 90,
       "source_quality": 95
     },
@@ -71,8 +71,8 @@
       "normalized_score": 66,
       "source": "Cboe Global Markets — VIX / VIX3M",
       "asOf": "2026-11-13",
-      "freshness": "DAILY",
-      "freshness_score": 100,
+      "freshness": "RECENT",
+      "freshness_score": 90,
       "confidence": 88,
       "source_quality": 96
     },
