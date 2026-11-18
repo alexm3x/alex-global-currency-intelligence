@@ -1,7 +1,7 @@
 {
   "status": "partially-connected",
-  "generated_at": "2026-11-17T21:16:52.309Z",
-  "last_reviewed": "2026-11-17",
+  "generated_at": "2026-11-18T07:53:17.032Z",
+  "last_reviewed": "2026-11-18",
   "note": "El registro se genera automáticamente a partir de pruebas reales de extracción. El estado no se define manualmente.",
   "automation": {
     "engine": "GitHub Actions",
@@ -14,14 +14,14 @@
       "provider": "Twelve Data vía Cloudflare Worker",
       "frequency": "15–30 minutos en origen",
       "status": "Conectado",
-      "last_success": "2026-11-17T21:16:52.309Z"
+      "last_success": "2026-11-18T07:53:17.032Z"
     },
     {
       "category": "Noticias financieras",
       "provider": "GDELT y fuentes oficiales enlazadas",
       "frequency": "Periódica",
       "status": "Conectado",
-      "last_success": "2026-11-17T21:16:52.309Z"
+      "last_success": "2026-11-18T07:53:17.032Z"
     },
     {
       "category": "Inflación y crecimiento",
@@ -36,7 +36,7 @@
       "provider": "BIS — datos reportados por bancos centrales",
       "frequency": "Semanal/Mensual",
       "status": "Conectado",
-      "last_success": "2026-11-17T21:16:52.309Z",
+      "last_success": "2026-11-18T07:53:17.032Z",
       "error": null
     },
     {
@@ -52,7 +52,7 @@
       "provider": "Cboe VIX — cálculo AGCI",
       "frequency": "Diaria",
       "status": "Conectado",
-      "last_success": "2026-11-17T21:16:52.309Z",
+      "last_success": "2026-11-18T07:53:17.032Z",
       "error": null
     }
   ]
