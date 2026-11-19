@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T07:50:26.033Z",
+  "generatedAt": "2026-11-19T20:55:45.384Z",
   "overallStatus": "connected",
   "providers": {
     "worldBank": {
@@ -8,7 +8,7 @@
       "data": {
         "provider": "World Bank — World Development Indicators",
         "homepage": "https://data.worldbank.org/",
-        "retrievedAt": "2026-11-19T07:50:26.033Z",
+        "retrievedAt": "2026-11-19T20:55:45.384Z",
         "series": {
           "inflation": "FP.CPI.TOTL.ZG",
           "growth": "NY.GDP.MKTP.KD.ZG",
@@ -111,18 +111,18 @@
       "data": {
         "provider": "Bank for International Settlements",
         "homepage": "https://data.bis.org/",
-        "retrievedAt": "2026-11-19T07:50:26.033Z",
+        "retrievedAt": "2026-11-19T20:55:45.384Z",
         "policyRates": {
           "series": "BIS,WS_CBPOL,1.0",
           "frequency": "Mensual",
           "values": {
-            "GB": {
-              "value": 3.75,
+            "CN": {
+              "value": 3,
               "period": "2026-10",
               "status": "A"
             },
-            "CN": {
-              "value": 3,
+            "GB": {
+              "value": 3.75,
               "period": "2026-10",
               "status": "A"
             },
@@ -136,13 +136,13 @@
               "period": "2026-10",
               "status": "A"
             },
-            "US": {
-              "value": 3.875,
+            "XM": {
+              "value": 2.5,
               "period": "2026-10",
               "status": "A"
             },
-            "XM": {
-              "value": 2.5,
+            "US": {
+              "value": 3.875,
               "period": "2026-10",
               "status": "A"
             },
@@ -157,39 +157,39 @@
           "series": "BIS,WS_EER,1.0 / M.R.B",
           "frequency": "Mensual",
           "values": {
-            "US": {
-              "value": 107.11,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "XM": {
-              "value": 103.27,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "MX": {
-              "value": 140.31,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "BR": {
-              "value": 117.18,
-              "period": "2026-09",
-              "status": "A"
-            },
-            "JP": {
-              "value": 66.61,
-              "period": "2026-09",
+            "GB": {
+              "value": 112.62,
+              "period": "2026-10",
               "status": "A"
             },
             "CN": {
-              "value": 91.91,
-              "period": "2026-09",
+              "value": 92.92,
+              "period": "2026-10",
               "status": "A"
             },
-            "GB": {
-              "value": 111.48,
-              "period": "2026-09",
+            "BR": {
+              "value": 118.41,
+              "period": "2026-10",
+              "status": "A"
+            },
+            "XM": {
+              "value": 101.82,
+              "period": "2026-10",
+              "status": "A"
+            },
+            "US": {
+              "value": 108.89,
+              "period": "2026-10",
+              "status": "A"
+            },
+            "MX": {
+              "value": 132.34,
+              "period": "2026-10",
+              "status": "A"
+            },
+            "JP": {
+              "value": 66.81,
+              "period": "2026-10",
               "status": "A"
             }
           }
@@ -203,7 +203,7 @@
       "data": {
         "provider": "Cboe Global Markets",
         "homepage": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-        "retrievedAt": "2026-11-19T07:50:26.033Z",
+        "retrievedAt": "2026-11-19T20:55:45.384Z",
         "series": "VIX daily close",
         "risk": {
           "vix": 24.56,
@@ -240,8 +240,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 140.31,
-        "period": "2026-09",
+        "value": 132.34,
+        "period": "2026-10",
         "status": "A"
       }
     },
@@ -266,8 +266,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 107.11,
-        "period": "2026-09",
+        "value": 108.89,
+        "period": "2026-10",
         "status": "A"
       }
     },
@@ -289,8 +289,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 103.27,
-        "period": "2026-09",
+        "value": 101.82,
+        "period": "2026-10",
         "status": "A"
       }
     },
@@ -315,8 +315,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 111.48,
-        "period": "2026-09",
+        "value": 112.62,
+        "period": "2026-10",
         "status": "A"
       }
     },
@@ -341,8 +341,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 66.61,
-        "period": "2026-09",
+        "value": 66.81,
+        "period": "2026-10",
         "status": "A"
       }
     },
@@ -367,8 +367,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 91.91,
-        "period": "2026-09",
+        "value": 92.92,
+        "period": "2026-10",
         "status": "A"
       }
     },
@@ -393,8 +393,8 @@
         "status": "A"
       },
       "reer": {
-        "value": 117.18,
-        "period": "2026-09",
+        "value": 118.41,
+        "period": "2026-10",
         "status": "A"
       }
     }
