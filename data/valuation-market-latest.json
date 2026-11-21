@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-11-20T20:43:37.061646Z",
+  "timestamp": "2026-11-21T07:41:56.021529Z",
   "methodology_version": "AGCI-VALUATION-v1.3",
   "status": "connected",
   "inputs": {
-    "treasury10y": 5.07,
+    "treasury10y": 5.04,
     "trailingEarningsYield": 3.933,
     "capeEarningsYield": 2.7
   },
@@ -33,10 +33,10 @@
     },
     "earningsYieldSpread": {
       "label": "Trailing Earnings Yield \u2212 Treasury 10Y",
-      "value": -1.137,
-      "normalized_score": 77,
+      "value": -1.107,
+      "normalized_score": 76,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-11-18",
+      "asOf": "2026-11-19",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 90,
@@ -44,10 +44,10 @@
     },
     "equityRiskPremium": {
       "label": "CAPE Earnings Yield \u2212 Treasury 10Y",
-      "value": -2.37,
+      "value": -2.34,
       "normalized_score": 91,
       "source": "Robert J. Shiller / ShillerData distribution + Federal Reserve / FRED DGS10",
-      "asOf": "2026-11-18",
+      "asOf": "2026-11-19",
       "freshness": "MIXED",
       "freshness_score": 88,
       "confidence": 88,
@@ -66,7 +66,7 @@
       "name": "Federal Reserve / FRED DGS10",
       "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
       "frequency": "DAILY_WITH_MONTHLY_HISTORY",
-      "asOf": "2026-11-18",
+      "asOf": "2026-11-19",
       "status": "connected"
     }
   ],
