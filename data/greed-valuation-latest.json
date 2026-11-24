@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-11-24T00:21:38.731Z",
+  "timestamp": "2026-11-24T10:25:47.496Z",
   "timezone": "America/Mexico_City",
   "methodology_version": "AGCI-GV-v1.2",
   "status": "greed_valuation_live",
   "market": {
-    "greed": 5,
+    "greed": 12,
     "greed_label": "Extreme Fear",
     "valuation": 87,
     "valuation_label": "Extreme Valuation",
     "regime": "Bear Market",
     "opportunity": null,
-    "confidence": 71,
+    "confidence": 72,
     "coverage": {
       "greed": 0.65,
       "valuation": 0.55
@@ -21,12 +21,12 @@
       "label": "Hold / Analyze",
       "severity": "neutral"
     },
-    "interpretation": "Greed 5/100 (Extreme Fear) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Bear Market. Señal de matriz: Hold / Analyze."
+    "interpretation": "Greed 12/100 (Extreme Fear) y Valuation 87/100 (Extreme Valuation). Cobertura verificable: Greed 65%, Valuation 55%. Régimen: Bear Market. Señal de matriz: Hold / Analyze."
   },
   "changes": {
-    "greed_1d": -4,
-    "greed_7d": -38,
-    "greed_30d": -43,
+    "greed_1d": 3,
+    "greed_7d": -31,
+    "greed_30d": -36,
     "valuation_1d": null,
     "valuation_7d": null,
     "valuation_30d": null
@@ -56,19 +56,19 @@
     },
     "volatility": {
       "label": "VIX / Volatility",
-      "value": 35.89,
-      "normalized_score": 0,
+      "value": 26.62,
+      "normalized_score": 4,
       "source": "Cboe Global Markets — VIX",
-      "asOf": "2026-11-20",
-      "freshness": "RECENT",
-      "freshness_score": 90,
+      "asOf": "2026-11-23",
+      "freshness": "DAILY",
+      "freshness_score": 100,
       "confidence": 90,
       "source_quality": 95
     },
     "options": {
       "label": "Options Term Structure",
-      "value": 1.4075,
-      "normalized_score": 0,
+      "value": 1.0439,
+      "normalized_score": 39,
       "source": "Cboe Global Markets — VIX / VIX3M",
       "asOf": "2026-11-23",
       "freshness": "DAILY",
@@ -92,7 +92,7 @@
     {
       "name": "Cboe Global Markets — VIX",
       "frequency": "DAILY",
-      "asOf": "2026-11-20",
+      "asOf": "2026-11-23",
       "status": "connected"
     },
     {
